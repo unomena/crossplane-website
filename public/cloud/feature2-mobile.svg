@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="273px" height="201px" viewBox="0 0 273 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Graphic/Console Copy</title>
+    <defs>
+        <filter x="-4.1%" y="-6.0%" width="108.2%" height="112.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.31372549   0 0 0 0 0.352941176   0 0 0 0 0.447058824  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-38.2%" y="-38.2%" width="176.4%" height="176.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.213703289 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-3" points="0 0 2.74087934 0 2.74087934 3.61934521 0 3.61934521"></polygon>
+        <polygon id="path-5" points="0 0 1.09816181 0 1.09816181 1.0983301 0 1.0983301"></polygon>
+        <rect id="path-7" x="118.113751" y="14.5528134" width="26.0187185" height="159.33465" rx="12.9958871"></rect>
+        <filter x="-74.9%" y="-12.2%" width="249.9%" height="124.5%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.356725306 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M0,0 L0,184.149062 L140.060488,184.149062 C141.710585,184.149062 143.048254,182.811418 143.048254,181.163147 L143.048254,2.98591529 C143.048254,1.33683981 141.700992,0 140.060488,0 L0,0 Z" id="path-9"></path>
+        <filter x="-8.7%" y="-6.2%" width="117.5%" height="113.6%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.31372549   0 0 0 0 0.352941176   0 0 0 0 0.447058824  0 0 0 0.145869755 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Product-/-Upbound-Cloud-(Mobile)" transform="translate(-24.000000, -2171.000000)">
+            <g id="Graphic/Console-Copy" transform="translate(29.000000, 2175.000000)">
+                <g id="Group-26" filter="url(#filter-1)" transform="translate(0.000000, 6.716683)">
+                    <g id="Navigation/Desktop/Side/Minimized-with-Labels">
+                        <path d="M3.73982362,0 L20.5903528,0 L20.5903528,0 L20.5903528,174.260612 L3.73982362,174.260612 C1.67437607,174.260612 1.54019857e-14,172.586236 0,170.520788 L0,3.73982362 C1.91144836e-16,1.67437607 1.67437607,8.2350577e-16 3.73982362,0 Z" id="Background" fill="#36466D"></path>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected" transform="translate(2.815529, 23.560889)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF">
+                                <tspan x="0.139869404" y="8.28578048">Control Planes</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <polygon id="Stroke-5" points="2.18963111 0.186991181 0.186991181 1.06306045 2.18963111 1.93930112 4.19227105 1.06306045"></polygon>
+                                    <polyline id="Stroke-6" points="0.186991181 3.45933685 2.18963111 4.33540612 4.19207515 3.45933685"></polyline>
+                                    <polyline id="Stroke-7" points="0.186991181 2.25947677 2.18963111 3.13554604 4.19207515 2.25947677"></polyline>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy" transform="translate(2.815529, 38.333192)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="0.139869404" y="8.28578048">Control Planes</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <rect id="Rectangle-path" x="0.280486772" y="0.280486772" width="3.92681481" height="3.92681481" rx="0.373982362"></rect>
+                                    <line x1="0.280486772" y1="1.68292063" x2="4.20730158" y2="1.68292063" id="Shape"></line>
+                                    <line x1="1.68292063" y1="4.20730158" x2="1.68292063" y2="1.68292063" id="Shape"></line>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy-2" transform="translate(2.815529, 53.105495)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="1.24386534" y="8.28578048">Repositories</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-width="0.5">
+                                <g id="Icon">
+                                    <path d="M1.12194709,3.08535449 L3.92681481,3.08535449 L3.92681481,3.08535449 L3.92681481,4.20730158 L1.12194709,4.20730158 C0.812129954,4.20730158 0.560973544,3.95614517 0.560973544,3.64632803 C0.560973544,3.3365109 0.812129954,3.08535449 1.12194709,3.08535449 Z" id="Rectangle"></path>
+                                    <path d="M1.08688624,0.280486772 L3.92681481,0.280486772 L3.92681481,4.20730158 L1.08688624,4.20730158 C0.796432678,4.20730158 0.560973544,3.98753972 0.560973544,3.71644973 L0.560973544,0.771338622 C0.560973544,0.500248631 0.796432678,0.280486772 1.08688624,0.280486772 Z" id="Shape" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy-3" transform="translate(2.815529, 67.877799)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="3.07376104" y="8.28578048">All Users</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Group" transform="translate(0.186991, 0.373982)">
+                                    <path d="M2.71987173,3.80782042 L2.71987173,3.09385409 C2.71987173,2.82350102 2.56209244,2.58999927 2.33359145,2.48040642 C2.24469146,2.43776851 2.14508664,2.41388616 2.03990379,2.41388616 L0.679967932,2.41388616 C0.304432013,2.41388616 0,2.71831817 0,3.09385409 L0,3.80782042" id="Shape"></path>
+                                    <path d="M4.11380599,3.80782042 L4.11380599,3.09385409 C4.11357485,2.78397872 3.90386568,2.51345389 3.60383004,2.43598512" id="Shape"></path>
+                                    <circle id="Oval" cx="1.37268526" cy="0.849959915" r="1"></circle>
+                                    <path d="M3.04710629,0.0276236972 C3.42319546,0.123917736 3.68624284,0.462801292 3.68624284,0.851022364 C3.68624284,1.23924344 3.42319546,1.57812699 3.04710629,1.67442103" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy-4" transform="translate(2.815529, 82.650102)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="4.32024425" y="8.28578048">Teams</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Group" transform="translate(0.373982, 0.373982)">
+                                    <path d="M1.90107701,0 C2.95101285,-1.92870085e-16 3.80215402,0.851141169 3.80215402,1.90107701 C3.80215402,2.95101285 2.95101285,3.80215402 1.90107701,3.80215402 C0.851141169,3.80215402 1.28580057e-16,2.95101285 0,1.90107701 C-1.28580057e-16,0.851141169 0.851141169,1.92870085e-16 1.90107701,0 Z" id="Rectangle-path"></path>
+                                    <path d="M2.43088536,3.28452137 C2.80230357,2.94278056 3.03503713,2.45263302 3.03503713,1.90812764 C3.03503713,1.37896508 2.81523451,0.901140176 2.46194988,0.560973544" id="Path-Copy" transform="translate(2.732961, 1.922747) rotate(-180.000000) translate(-2.732961, -1.922747) "></path>
+                                    <path d="M0.783998497,3.21963832 C1.11613313,2.88213149 1.32105198,2.41906024 1.32105198,1.90812764 C1.32105198,1.37896508 1.10124935,0.901140176 0.747964725,0.560973544" id="Path-Copy-2"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy-5" transform="translate(2.815529, 97.422405)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="3.90287993" y="8.28578048">Robots</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Group" transform="translate(0.186991, 0.186991)">
+                                    <rect id="Rectangle-path" x="0" y="0" width="4.11380599" height="4.11380599" rx="1.12194709"></rect>
+                                    <path d="M2.08806819,1.30893827 C2.51836976,1.30893827 2.86719811,1.65776662 2.86719811,2.08806819 C2.86719811,2.51836976 2.51836976,2.86719811 2.08806819,2.86719811 C1.65776662,2.86719811 1.30893827,2.51836976 1.30893827,2.08806819 C1.30893827,1.65776662 1.65776662,1.30893827 2.08806819,1.30893827 Z" id="Rectangle-path"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy-7" transform="translate(2.815529, 113.301487)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="3.38341843" y="8.28578048">Settings</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <circle id="Oval" cx="2.24389417" cy="2.24389417" r="1"></circle>
+                                    <path d="M3.62762892,2.80486772 C3.57670253,2.92025812 3.60113865,3.055027 3.689336,3.14519167 L3.70055548,3.15641114 C3.77078078,3.22655836 3.81023951,3.32174528 3.81023951,3.42100366 C3.81023951,3.52026204 3.77078078,3.61544896 3.70055548,3.68559618 C3.63040826,3.75582148 3.53522133,3.79528022 3.43596295,3.79528022 C3.33670458,3.79528022 3.24151765,3.75582148 3.17137043,3.68559618 L3.16015096,3.67437671 C3.0699863,3.58617935 2.93521741,3.56174324 2.81982701,3.61266962 C2.70679634,3.66111311 2.63332629,3.77205288 2.63283583,3.8950263 L2.63283583,3.92681481 C2.63283583,4.13335956 2.46539822,4.30079717 2.25885347,4.30079717 C2.05230871,4.30079717 1.88487111,4.13335956 1.88487111,3.92681481 L1.88487111,3.9099856 C1.88190853,3.78333102 1.80182304,3.67135964 1.68292063,3.62762892 C1.56753023,3.57670253 1.43276135,3.60113865 1.34259668,3.689336 L1.33137721,3.70055548 C1.26122999,3.77078078 1.16604307,3.81023951 1.06678469,3.81023951 C0.967526311,3.81023951 0.872339387,3.77078078 0.802192167,3.70055548 C0.731966865,3.63040826 0.692508131,3.53522133 0.692508131,3.43596295 C0.692508131,3.33670458 0.731966865,3.24151765 0.802192167,3.17137043 L0.813411638,3.16015096 C0.901608998,3.0699863 0.926045114,2.93521741 0.875118728,2.81982701 C0.826675244,2.70679634 0.715735471,2.63332629 0.592762044,2.63283583 L0.560973544,2.63283583 C0.354428788,2.63283583 0.186991181,2.46539822 0.186991181,2.25885347 C0.186991181,2.05230871 0.354428788,1.88487111 0.560973544,1.88487111 L0.57780275,1.88487111 C0.704457333,1.88190853 0.816428708,1.80182304 0.860159433,1.68292063 C0.911085819,1.56753023 0.886649703,1.43276135 0.798452344,1.34259668 L0.787232873,1.33137721 C0.717007571,1.26122999 0.677548836,1.16604307 0.677548836,1.06678469 C0.677548836,0.967526311 0.717007571,0.872339387 0.787232873,0.802192167 C0.857380093,0.731966865 0.952567017,0.692508131 1.05182539,0.692508131 C1.15108377,0.692508131 1.2462707,0.731966865 1.31641792,0.802192167 L1.32763739,0.813411638 C1.41780205,0.901608998 1.55257094,0.926045114 1.66796134,0.875118728 L1.68292063,0.875118728 C1.7959513,0.826675244 1.86942135,0.715735471 1.86991181,0.592762044 L1.86991181,0.560973544 C1.86991181,0.354428788 2.03734942,0.186991181 2.24389417,0.186991181 C2.45043893,0.186991181 2.61787654,0.354428788 2.61787654,0.560973544 L2.61787654,0.57780275 C2.618367,0.700776177 2.69183704,0.811715949 2.80486772,0.860159433 C2.92025812,0.911085819 3.055027,0.886649703 3.14519167,0.798452344 L3.15641114,0.787232873 C3.22655836,0.717007571 3.32174528,0.677548836 3.42100366,0.677548836 C3.52026204,0.677548836 3.61544896,0.717007571 3.68559618,0.787232873 C3.75582148,0.857380093 3.79528022,0.952567017 3.79528022,1.05182539 C3.79528022,1.15108377 3.75582148,1.2462707 3.68559618,1.31641792 L3.67437671,1.32763739 C3.58617935,1.41780205 3.56174324,1.55257094 3.61266962,1.66796134 L3.61266962,1.68292063 C3.66111311,1.7959513 3.77205288,1.86942135 3.8950263,1.86991181 L3.92681481,1.86991181 C4.13335956,1.86991181 4.30079717,2.03734942 4.30079717,2.24389417 C4.30079717,2.45043893 4.13335956,2.61787654 3.92681481,2.61787654 L3.9099856,2.61787654 C3.78701217,2.618367 3.6760724,2.69183704 3.62762892,2.80486772 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected-Copy-8" transform="translate(2.815529, 128.073790)">
+                            <text id="Text" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF" fill-opacity="0.745869243">
+                                <tspan x="3.40473543" y="8.28578048">Support</tspan>
+                            </text>
+                            <g id="Group" transform="translate(5.235753, 0.000000)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <path d="M3.92681481,2.80486772 C3.92681481,3.01141247 3.7593772,3.17885008 3.55283244,3.17885008 L1.30893827,3.17885008 L0.560973544,3.92681481 L0.560973544,0.934955906 C0.560973544,0.728411151 0.728411151,0.560973544 0.934955906,0.560973544 L3.55283244,0.560973544 C3.7593772,0.560973544 3.92681481,0.728411151 3.92681481,0.934955906 L3.92681481,2.80486772 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Avatar/Companies/48x48-Copy" transform="translate(5.994573, 142.846094)">
+                            <circle id="Oval-2" fill="#EA595B" cx="4.48778835" cy="4.48778835" r="4.48778835"></circle>
+                            <text id="J" font-family="Avenir-Roman, Avenir" font-size="2.9918589" font-weight="normal" line-spacing="4.67477953" fill="#FFFFFF">
+                                <tspan x="3.04720829" y="5.24389417">W</tspan>
+                            </text>
+                        </g>
+                        <g id="Logo-Copy" filter="url(#filter-2)" transform="translate(5.059423, 5.609735)">
+                            <rect id="Rectangle" fill="#6553C0" x="0" y="0" width="10.4715061" height="10.4715061" rx="1.86991181"></rect>
+                            <g id="Group-4" transform="translate(2.430885, 2.617877)">
+                                <path d="M2.72739727,2.08693378 L2.71711276,3.10566173 C2.71711276,4.08474756 1.77430322,4.28333219 1.44632069,4.28333219 C0.763802878,4.28333219 0.187496057,3.8676508 0.187496057,3.10566173 L0.187496057,2.0291535 C0.187496057,1.79092674 0.324934576,1.64806547 0.547454081,1.64806547 C0.775022349,1.64806547 0.912460867,1.79092674 0.912460867,2.0291535 L0.912460867,3.02394659 C0.912460867,3.41027037 1.10767966,3.62175739 1.44632069,3.62175739 C1.80609172,3.62175739 2.00243246,3.44187188 2.00243246,3.02394659 L2.00243246,2.08693378 C2.00243246,1.848894 2.14005797,1.70603274 2.36762624,1.70603274 C2.58995875,1.70603274 2.72739727,1.848894 2.72739727,2.08693378" id="Fill-1" fill="#FFFFFF"></path>
+                                <g id="Group-5" transform="translate(3.225074, 1.616408)">
+                                    <mask id="mask-4" fill="white">
+                                        <use xlink:href="#path-3"></use>
+                                    </mask>
+                                    <g id="Clip-4"></g>
+                                    <path d="M2.00005767,1.33343411 C2.00005767,0.931216082 1.74070091,0.661387808 1.37045837,0.661387808 C0.994793084,0.661387808 0.724777818,0.94187458 0.724777818,1.33343411 C0.724777818,1.72499365 0.994793084,2.00548042 1.37045837,2.00548042 C1.74070091,2.00548042 2.00005767,1.7302294 2.00005767,1.33343411 M2.74091673,1.33343411 C2.74091673,2.14310593 2.2539917,2.66686823 1.51855538,2.66686823 C1.1853371,2.66686823 0.915321832,2.55055971 0.735436316,2.3493572 L0.724777818,2.3493572 L0.724777818,3.23307752 C0.724777818,3.4711173 0.587152309,3.6194013 0.359771033,3.6194013 C0.137438518,3.6194013 0,3.4711173 0,3.23307752 L0,0.412689537 C0,0.174462772 0.137438518,0.0317885008 0.359771033,0.0317885008 C0.555363808,0.0317885008 0.687753564,0.137625509 0.719542065,0.322746779 L0.730013571,0.322746779 C0.910086079,0.116308515 1.17991435,0 1.51855538,0 C2.2539917,0 2.74091673,0.523762299 2.74091673,1.33343411" id="Fill-3" fill="#FFFFFF" mask="url(#mask-4)"></path>
+                                </g>
+                                <g id="Group-8">
+                                    <mask id="mask-6" fill="white">
+                                        <use xlink:href="#path-5"></use>
+                                    </mask>
+                                    <g id="Clip-7"></g>
+                                    <path d="M1.09816181,0.549137002 C1.09816181,0.852436698 0.852455397,1.0983301 0.54896871,1.0983301 C0.245856005,1.0983301 -3.73982361e-05,0.852436698 -3.73982361e-05,0.549137002 C-3.73982361e-05,0.245837306 0.245856005,-5.60973544e-05 0.54896871,-5.60973544e-05 C0.852455397,-5.60973544e-05 1.09816181,0.245837306 1.09816181,0.549137002" id="Fill-6" fill="#FFFFFF" mask="url(#mask-6)"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Navigation/Desktop/Side/Browser" transform="translate(20.403168, 0.000000)">
+                        <g id="Group-Copy">
+                            <rect id="Rectangle-Copy" fill="#F4F5F7" x="0" y="0" width="51.2886969" height="174.14536"></rect>
+                            <polygon id="Shape-Copy-40" fill="#DCE0E6" transform="translate(51.382289, 87.130306) scale(-1, 1) translate(-51.382289, -87.130306) " points="51.2886969 0 51.4758819 0 51.4758819 174.260612 51.2886969 174.260612"></polygon>
+                            <polygon id="Shape-Copy-41" fill="#DCE0E6" transform="translate(0.093593, 87.130306) scale(-1, 1) translate(-0.093593, -87.130306) " points="0 0 0.187185025 0 0.187185025 174.260612 0 174.260612"></polygon>
+                        </g>
+                        <polygon id="Vertical-Line-Copy-5" fill="#DCE0E6" transform="translate(25.737941, 22.906420) scale(-1, 1) rotate(-270.000000) translate(-25.737941, -22.906420) " points="25.6444454 -2.80486772 25.8314366 -2.80486772 25.8314366 48.6177071 25.6444454 48.6177071"></polygon>
+                        <g id="Group" transform="translate(10.284515, 53.853460)" fill="#505A72" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Package-Name">
+                                <text id="Text">
+                                    <tspan x="0" y="3">Platform Ref AWS</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 65.446913)" fill="#6553C0" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy">
+                                <text id="Text">
+                                    <tspan x="0" y="3">Platform Ref Azure</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 113.690638)" fill="#505A72" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-4">
+                                <text id="Text">
+                                    <tspan x="0" y="3">Provider AWS</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 96.300458)" fill="#505A72" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-3">
+                                <text id="Text">
+                                    <tspan x="0" y="3">Provider Azure</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 76.666384)" fill="#505A72" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-2">
+                                <text id="Text">
+                                    <tspan x="0" y="3">More</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 136.316571)" fill="#505A72" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-5">
+                                <text id="Text">
+                                    <tspan x="0" y="3">Provider Alibaba</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.311169, 59.463196)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite">
+                                <text id="Text">
+                                    <tspan x="0" y="3">No Favorites</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.311169, 81.902137)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite">
+                                <text id="Text">
+                                    <tspan x="0" y="3">No Favorites</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.311169, 141.552324)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite">
+                                <text id="Text">
+                                    <tspan x="0" y="3">No Favorites</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 71.056649)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite">
+                                <text id="Text">
+                                    <tspan x="0" y="3">No Favorites</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 119.300374)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite-Copy-6">
+                                <text id="Text">
+                                    <tspan x="0" y="3">IAM Policy</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 101.910194)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite-Copy-4">
+                                <text id="Text">
+                                    <tspan x="0" y="3">AKS Cluster</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 124.536127)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite-Copy-7">
+                                <text id="Text">
+                                    <tspan x="0" y="3">NAT Gateway</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 107.145947)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite-Copy-5">
+                                <text id="Text">
+                                    <tspan x="0" y="3">MySQL Server</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(10.284515, 129.771880)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                            <g id="Navigation/Desktop/Side/Browser/Favorite-Copy-8">
+                                <text id="Text">
+                                    <tspan x="0" y="3">Private DNS Namespa…</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Section-Title" transform="translate(5.636874, 28.609651)">
+                            <text id="Text" font-family="Avenir-Black, Avenir" font-size="2.9918589" font-weight="700" line-spacing="4.67477953" fill="#505A72">
+                                <tspan x="4.67477953" y="3">Browser</tspan>
+                            </text>
+                            <g id="Group" transform="translate(0.000000, 0.934956)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <circle id="Oval-Copy" cx="1.845617" cy="1.65862582" r="1"></circle>
+                                    <line x1="2.68707732" y1="2.50008614" x2="2.31309496" y2="2.12610378" id="Shape-Copy"></line>
+                                    <path d="M1.49592945,2.80486772 L0.560973544,2.80486772 C0.354428788,2.80486772 0.186991181,2.63743011 0.186991181,2.43088536 L0.186991181,0.560973544 C0.186991181,0.354428788 0.354428788,0.186991181 0.560973544,0.186991181 L2.43088536,0.186991181 C2.63743011,0.186991181 2.80486772,0.354428788 2.80486772,0.560973544 C2.80486772,0.727187927 2.80486772,0.851848714 2.80486772,0.934955906" id="Path"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Section-Title-Copy" transform="translate(5.636874, 37.024254)">
+                            <text id="Text" font-family="Avenir-Black, Avenir" font-size="2.9918589" font-weight="700" line-spacing="4.67477953" fill="#505A72">
+                                <tspan x="4.67477953" y="3">Namespaces</tspan>
+                            </text>
+                            <g id="Group" transform="translate(0.000000, 0.934956)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <path d="M0.841460315,0.373982362 C1.09964126,0.373982362 1.30893827,0.583279371 1.30893827,0.841460315 C1.30893827,1.09964126 1.09964126,1.30893827 0.841460315,1.30893827 C0.583279371,1.30893827 0.373982362,1.09964126 0.373982362,0.841460315 C0.373982362,0.583279371 0.583279371,0.373982362 0.841460315,0.373982362 Z" id="Rectangle-path"></path>
+                                    <path d="M2.15039858,0.373982362 C2.40857953,0.373982362 2.61787654,0.583279371 2.61787654,0.841460315 C2.61787654,1.09964126 2.40857953,1.30893827 2.15039858,1.30893827 C1.89221764,1.30893827 1.68292063,1.09964126 1.68292063,0.841460315 C1.68292063,0.583279371 1.89221764,0.373982362 2.15039858,0.373982362 Z" id="Rectangle-path"></path>
+                                    <path d="M2.15039858,1.68292063 C2.40857953,1.68292063 2.61787654,1.89221764 2.61787654,2.15039858 C2.61787654,2.40857953 2.40857953,2.61787654 2.15039858,2.61787654 C1.89221764,2.61787654 1.68292063,2.40857953 1.68292063,2.15039858 C1.68292063,1.89221764 1.89221764,1.68292063 2.15039858,1.68292063 Z" id="Rectangle-path"></path>
+                                    <path d="M0.841460315,1.68292063 C1.09964126,1.68292063 1.30893827,1.89221764 1.30893827,2.15039858 C1.30893827,2.40857953 1.09964126,2.61787654 0.841460315,2.61787654 C0.583279371,2.61787654 0.373982362,2.40857953 0.373982362,2.15039858 C0.373982362,1.89221764 0.583279371,1.68292063 0.841460315,1.68292063 Z" id="Rectangle-path"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Section-Title-Copy-2" transform="translate(5.636874, 45.438857)">
+                            <text id="Text" font-family="Avenir-Black, Avenir" font-size="2.9918589" font-weight="700" line-spacing="4.67477953" fill="#6553C0">
+                                <tspan x="4.67477953" y="3">Configurations</tspan>
+                            </text>
+                            <g id="Group" transform="translate(0.000000, 0.934956)" stroke="#6553C0" stroke-width="0.5">
+                                <g id="Icon">
+                                    <path d="M2.81019402,2.37353043 C2.83385898,2.53311887 2.75251178,2.68989332 2.60840305,2.76242727 C2.46429432,2.83496121 2.28991477,2.80690118 2.17583476,2.69282117 C2.06175474,2.57874115 2.03369471,2.4043616 2.10622866,2.26025287 C2.1787626,2.11614414 2.33553705,2.03479694 2.49512549,2.0584619 C2.65808012,2.08262603 2.78602989,2.2105758 2.81019402,2.37353043 Z" id="Shape-Copy-5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M2.81019402,0.503618573 C2.83385898,0.663207009 2.75251178,0.819981456 2.60840305,0.892515404 C2.46429432,0.965049352 2.28991477,0.93698932 2.17583476,0.822909305 C2.06175474,0.708829291 2.03369471,0.534449738 2.10622866,0.390341009 C2.1787626,0.246232281 2.33553705,0.164885083 2.49512549,0.188550043 C2.65808012,0.212714168 2.78602989,0.340663936 2.81019402,0.503618573 Z" id="Shape-Copy-6" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M0.940282197,0.503618573 C0.963947157,0.663207009 0.882599959,0.819981456 0.73849123,0.892515404 C0.594382502,0.965049352 0.420002949,0.93698932 0.305922935,0.822909305 C0.19184292,0.708829291 0.163782888,0.534449738 0.236316836,0.390341009 C0.308850784,0.246232281 0.465625231,0.164885083 0.625213667,0.188550043 C0.788168304,0.212714168 0.916118072,0.340663936 0.940282197,0.503618573 Z" id="Shape-Copy-8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <line x1="1.0284515" y1="0.560973544" x2="1.9634074" y2="0.560973544" id="Line-Copy" stroke-linecap="square"></line>
+                                    <rect id="Rectangle-path-Copy-2" stroke-linecap="round" stroke-linejoin="round" x="0.186991181" y="1.49592945" width="1.30893827" height="1.30893827" rx="0.373982362"></rect>
+                                    <line x1="2.43088536" y1="2.03820388" x2="2.43088536" y2="1.04715061" id="Shape-Copy-9" stroke-linecap="round" stroke-linejoin="round"></line>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Section-Title-Copy-3" transform="translate(5.636874, 89.381785)">
+                            <text id="Text" font-family="Avenir-Black, Avenir" font-size="2.9918589" font-weight="700" line-spacing="4.67477953" fill="#505A72">
+                                <tspan x="4.67477953" y="3">Providers</tspan>
+                            </text>
+                            <g id="Group" transform="translate(0.000000, 0.934956)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Icon">
+                                    <circle id="Oval" cx="1.49592945" cy="1.49592945" r="1.30893827"></circle>
+                                    <line x1="0.186991181" y1="1.49592945" x2="2.80486772" y2="1.49592945" id="Shape"></line>
+                                    <path d="M1.49592945,0.186991181 C1.82333161,0.545424671 2.00939357,1.01057957 2.01950476,1.49592945 C2.00939357,1.98127933 1.82333161,2.44643423 1.49592945,2.80486772 C1.16852729,2.44643423 0.982465329,1.98127933 0.972354142,1.49592945 C0.982465329,1.01057957 1.16852729,0.545424671 1.49592945,0.186991181 L1.49592945,0.186991181 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <text id="Global-Resour…-Copy" font-family="Avenir-Black, Avenir" font-size="4.67477953" font-weight="700" line-spacing="6.54469134" fill="#505A72">
+                            <tspan x="5.63386901" y="16.2194709">Global Resour…</tspan>
+                        </text>
+                        <g id="Buttons/Small/Primary-Copy" transform="translate(42.868375, 11.593453)">
+                            <rect id="Background" fill="#6553C0" x="0" y="0" width="5.79672662" height="5.60973544" rx="2.80486772"></rect>
+                            <g id="Group" transform="translate(1.402434, 1.308938)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Group-Copy" transform="translate(1.477230, 1.734142) rotate(-90.000000) translate(-1.477230, -1.734142) translate(0.224389, 1.234142)">
+                                    <ellipse id="Oval" cx="1.25284091" cy="0.5" rx="1" ry="1"></ellipse>
+                                    <ellipse id="Oval" cx="2.24389417" cy="0.5" rx="1" ry="1"></ellipse>
+                                    <ellipse id="Oval" cx="0.261787654" cy="0.5" rx="1" ry="1"></ellipse>
+                                </g>
+                            </g>
+                        </g>
+                        <text id="Description-Copy-10" font-family="Avenir-Black, Avenir" font-size="2.9918589" font-weight="700" line-spacing="4.67477953" fill="#505A72">
+                            <tspan x="5.62553372" y="8.60973544">Control Plane</tspan>
+                        </text>
+                    </g>
+                    <g id="Group-24" transform="translate(71.879050, 0.000000)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="183.62851" height="174.260612"></rect>
+                        <g id="Margins/Header/Subtext-and-Buttons" transform="translate(7.487401, 15.858835)">
+                            <text id="Page-Title" font-family="Avenir-Black, Avenir" font-size="4.67477953" font-weight="700" line-spacing="6.54469134" fill="#505A72">
+                                <tspan x="0" y="5">AKS Cluster</tspan>
+                            </text>
+                            <text id="Subtext" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#929394">
+                                <tspan x="0" y="11.4146032">akscluster.kubernetes.azure.microsoft.crossplane.io</tspan>
+                            </text>
+                            <g id="Stacked-Group" transform="translate(105.043444, 0.000000)">
+                                <g id="Buttons/Medium/Basic-Copy-2" transform="translate(27.455362, 0.000000)">
+                                    <rect id="BG" fill="#6553C0" x="0" y="0" width="14.6193819" height="6.98440274" rx="3.49220137"></rect>
+                                    <text id="Medium-Button" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF">
+                                        <tspan x="2.48610727" y="4.61367612">Create </tspan>
+                                        <tspan x="3.72436287" y="8.35349974">New</tspan>
+                                    </text>
+                                </g>
+                                <g id="Buttons/Medium/Basic-Copy-3">
+                                    <rect id="BG" fill="#6553C0" x="0" y="-0.247622256" width="20.8022348" height="7.47964725" rx="3.73982362"></rect>
+                                    <g id="Medium-Button-2" transform="translate(2.486107, 1.746101)">
+                                        <text id="Medium-Button" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF">
+                                            <tspan x="4.30079717" y="3">Remove Favorite</tspan>
+                                        </text>
+                                        <g id="Group" transform="translate(0.000000, 0.186991)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                            <g id="Loading/16x16-White">
+                                                <path d="M1.26724706,0.636748949 L1.49592945,0.149592945 L1.90039137,1.01120741 L2.80486772,1.15022188 L2.29395839,1.67348759 M2.22279271,2.26436228 L2.3048533,2.76746948 L1.49592945,2.32014568 L0.6870056,2.76746948 L0.841460315,1.8205194 L0.186991181,1.15022188 L0.956551874,1.03194342" id="Shape"></path>
+                                                <line x1="0.186991181" y1="0.186991181" x2="2.80486772" y2="2.80486772" id="Shape-Copy-2"></line>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Stacked-Group" transform="translate(7.861771, 5.597236)">
+                            <g id="Group" transform="translate(69.000000, 0.000000)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                                <g id="Item-3">
+                                    <text id="Text">
+                                        <tspan x="0" y="3.13913831">AKS Cluster</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                            <g id="Group" transform="translate(58.000000, 0.000000)">
+                                <g id="Chevron-1" transform="translate(0.000000, 0.004071)">
+                                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="2.9918589" height="2.9918589"></rect>
+                                    <polyline id="Shape" stroke="#DCDCDE" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="0.934955906 2.61787654 2.05690299 1.49592945 0.934955906 0.373982362"></polyline>
+                                </g>
+                            </g>
+                            <g id="Group" transform="translate(37.000000, 0.000000)" fill="#929394" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                                <g id="Item-2">
+                                    <text id="Text">
+                                        <tspan x="0" y="3.13913831">Kubernetes</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                            <g id="Group" transform="translate(26.000000, 0.000000)">
+                                <g id="Chevron-1" transform="translate(0.000000, 0.004071)">
+                                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="2.9918589" height="2.9918589"></rect>
+                                    <polyline id="Shape" stroke="#DCDCDE" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="0.934955906 2.61787654 2.05690299 1.49592945 0.934955906 0.373982362"></polyline>
+                                </g>
+                            </g>
+                            <g id="Group" fill="#929394" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                                <g id="Item-1">
+                                    <text id="Text">
+                                        <tspan x="0" y="3.13913831">Microsoft Azure</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Tables/Components/Tables/Components/Standard-Table-Header-2" transform="translate(7.674586, 36.941757)">
+                            <polygon id="Shape--Copy-8" fill="#DCE0E6" points="0 17.9113633 0 17.7243721 171.648668 17.7243721 171.648668 17.9113633"></polygon>
+                            <text id="Title" font-family="Avenir-Black, Avenir" font-size="3.73982362" font-weight="700" line-spacing="4.67477953" fill="#505A72">
+                                <tspan x="0" y="3.99442955">Resource Instances (10)</tspan>
+                            </text>
+                            <g id="Columns" transform="translate(2.991859, 9.322477)">
+                                <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(84.944908, 0.000000)">
+                                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="80.9070337" height="5.60973544"></rect>
+                                    <text id="Content" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="0" y="3.93495591">Status</tspan>
+                                    </text>
+                                </g>
+                                <g id="Tables/Components/Column-Title-Unsorted">
+                                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="80.9070337" height="5.60973544"></rect>
+                                    <text id="Content" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="0" y="3.93495591">Name</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Tables/Components/Row-2" transform="translate(7.674586, 54.852912)">
+                            <polygon id="HR" fill="#DCE0E6" points="0 13.0604255 0 12.8734343 171.648668 12.8734343 171.648668 13.0604255"></polygon>
+                            <g id="Columns" transform="translate(2.991859, 3.725241)">
+                                <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(84.938992, 0.000000)">
+                                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="3.17885008" y="3.93495591">Row Status</tspan>
+                                    </text>
+                                    <g id="Pills/Valuless/Red-Copy-2" transform="translate(0.373982, 1.869912)" fill="#3DC47E">
+                                        <path d="M0.934955906,0 C1.45131779,-9.48541401e-17 1.86991181,0.418594017 1.86991181,0.934955906 C1.86991181,1.45131779 1.45131779,1.86991181 0.934955906,1.86991181 C0.418594017,1.86991181 6.32360934e-17,1.45131779 0,0.934955906 C-6.32360934e-17,0.418594017 0.418594017,9.48541401e-17 0.934955906,0 Z" id="BG"></path>
+                                    </g>
+                                </g>
+                                <g id="Group" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" opacity="0.75">
+                                    <g id="Tables/Components/Column-Title-Unsorted">
+                                        <text id="Content">
+                                            <tspan x="0" y="3.93495591">aks-cluster-instance-1</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Tables/Components/Row-2-Copy-3" transform="translate(7.674586, 94.033564)">
+                            <polygon id="HR" fill="#DCE0E6" points="0 13.0604255 0 12.8734343 171.648668 12.8734343 171.648668 13.0604255"></polygon>
+                            <g id="Columns" transform="translate(2.991859, 3.725241)">
+                                <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(84.938992, 0.000000)">
+                                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="3.17885008" y="3.93495591">Row Status</tspan>
+                                    </text>
+                                    <g id="Pills/Valuless/Red-Copy-2" transform="translate(0.373982, 1.869912)" fill="#3DC47E">
+                                        <path d="M0.934955906,0 C1.45131779,-9.48541401e-17 1.86991181,0.418594017 1.86991181,0.934955906 C1.86991181,1.45131779 1.45131779,1.86991181 0.934955906,1.86991181 C0.418594017,1.86991181 6.32360934e-17,1.45131779 0,0.934955906 C-6.32360934e-17,0.418594017 0.418594017,9.48541401e-17 0.934955906,0 Z" id="BG"></path>
+                                    </g>
+                                </g>
+                                <g id="Group" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" opacity="0.75">
+                                    <g id="Tables/Components/Column-Title-Unsorted">
+                                        <text id="Content">
+                                            <tspan x="0" y="3.93495591">aks-cluster-instance-4</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Tables/Components/Row-2-Copy" transform="translate(7.674586, 67.913129)">
+                            <polygon id="HR" fill="#DCE0E6" points="0 13.0604255 0 12.8734343 171.648668 12.8734343 171.648668 13.0604255"></polygon>
+                            <g id="Columns" transform="translate(2.991859, 3.725241)">
+                                <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(84.938992, 0.000000)">
+                                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="3.17885008" y="3.93495591">Row Status</tspan>
+                                    </text>
+                                    <g id="Pills/Valuless/Red-Copy-2" transform="translate(0.373982, 1.869912)" fill="#3DC47E">
+                                        <path d="M0.934955906,0 C1.45131779,-9.48541401e-17 1.86991181,0.418594017 1.86991181,0.934955906 C1.86991181,1.45131779 1.45131779,1.86991181 0.934955906,1.86991181 C0.418594017,1.86991181 6.32360934e-17,1.45131779 0,0.934955906 C-6.32360934e-17,0.418594017 0.418594017,9.48541401e-17 0.934955906,0 Z" id="BG"></path>
+                                    </g>
+                                </g>
+                                <g id="Group" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" opacity="0.75">
+                                    <g id="Tables/Components/Column-Title-Unsorted">
+                                        <text id="Content">
+                                            <tspan x="0" y="3.93495591">aks-cluster-instance-2</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Tables/Components/Row-2-Copy-4" transform="translate(7.674586, 107.093781)">
+                            <polygon id="HR" fill="#DCE0E6" points="0 13.0604255 0 12.8734343 171.648668 12.8734343 171.648668 13.0604255"></polygon>
+                            <g id="Columns" transform="translate(2.991859, 3.725241)">
+                                <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(84.938992, 0.000000)">
+                                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="3.17885008" y="3.93495591">Row Status</tspan>
+                                    </text>
+                                    <g id="Pills/Valuless/Red-Copy-2" transform="translate(0.373982, 1.869912)" fill="#3DC47E">
+                                        <path d="M0.934955906,0 C1.45131779,-9.48541401e-17 1.86991181,0.418594017 1.86991181,0.934955906 C1.86991181,1.45131779 1.45131779,1.86991181 0.934955906,1.86991181 C0.418594017,1.86991181 6.32360934e-17,1.45131779 0,0.934955906 C-6.32360934e-17,0.418594017 0.418594017,9.48541401e-17 0.934955906,0 Z" id="BG"></path>
+                                    </g>
+                                </g>
+                                <g id="Group" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" opacity="0.75">
+                                    <g id="Tables/Components/Column-Title-Unsorted">
+                                        <text id="Content">
+                                            <tspan x="0" y="3.93495591">aks-cluster-instance-5</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Tables/Components/Row-2-Copy-2" transform="translate(7.674586, 80.973346)">
+                            <polygon id="HR" fill="#DCE0E6" points="0 13.0604255 0 12.8734343 171.648668 12.8734343 171.648668 13.0604255"></polygon>
+                            <g id="Columns" transform="translate(2.991859, 3.725241)">
+                                <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(84.938992, 0.000000)">
+                                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                                        <tspan x="3.17885008" y="3.93495591">Row Status</tspan>
+                                    </text>
+                                    <g id="Pills/Valuless/Red-Copy-2" transform="translate(0.373982, 1.869912)" fill="#3DC47E">
+                                        <path d="M0.934955906,0 C1.45131779,-9.48541401e-17 1.86991181,0.418594017 1.86991181,0.934955906 C1.86991181,1.45131779 1.45131779,1.86991181 0.934955906,1.86991181 C0.418594017,1.86991181 6.32360934e-17,1.45131779 0,0.934955906 C-6.32360934e-17,0.418594017 0.418594017,9.48541401e-17 0.934955906,0 Z" id="BG"></path>
+                                    </g>
+                                </g>
+                                <g id="Group" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" opacity="0.75">
+                                    <g id="Tables/Components/Column-Title-Unsorted">
+                                        <text id="Content">
+                                            <tspan x="0" y="3.93495591">aks-cluster-instance-3</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Modal/Background-Copy" fill="#172B4D" fill-opacity="0.5">
+                        <rect id="Rectangle-8" x="0" y="0" width="255.507559" height="174.260612" rx="3.73982362"></rect>
+                    </g>
+                </g>
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-7"></use>
+                </g>
+                <g id="Drawer" transform="translate(116.877601, 3.358342)">
+                    <g>
+                        <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                        <path stroke="#D2DCEA" stroke-width="0.5" d="M140.060488,0.25 C140.813245,0.25 141.498507,0.557358083 141.995206,1.05374999 C142.490379,1.54861645 142.798254,2.23155827 142.798254,2.98591529 L142.798254,2.98591529 L142.798254,181.163147 C142.798254,181.918357 142.491738,182.602379 141.996237,183.097572 C141.500804,183.592699 140.816424,183.899062 140.060488,183.899062 L140.060488,183.899062 L0.25,183.899062 L0.25,0.25 Z" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd"></path>
+                    </g>
+                    <g id="Group" transform="translate(133.511703, 7.666638)" stroke="#929394" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                        <g id="X/16x16-Muted">
+                            <line x1="2.43088536" y1="0.560973544" x2="0.560973544" y2="2.43088536" id="Shape"></line>
+                            <line x1="0.560973544" y1="0.560973544" x2="2.43088536" y2="2.43088536" id="Shape"></line>
+                        </g>
+                    </g>
+                </g>
+                <text id="Row-Title-Copy-14" font-family="Avenir-Black, Avenir" font-size="5.9837178" font-weight="700" line-spacing="6.54469134" fill="#505A72">
+                    <tspan x="124.162144" y="28.5677196">aks-cluster-instance-1</tspan>
+                </text>
+                <text id="Value-Copy-3" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="4.67477953">
+                    <tspan x="124.162144" y="39.2112451" fill="#505A72">Created Nov 16 2020 @ 3:10 PM by </tspan>
+                    <tspan x="160.92835" y="39.2112451" fill="#6553C0">Frontend Team Alpha</tspan>
+                </text>
+                <text id="Value-Copy-4" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362">
+                    <tspan x="124.162144" y="33.6015096" fill="#505A72">Located in </tspan>
+                    <tspan x="135.305323" y="33.6015096" fill="#6553C0">workspace-name</tspan>
+                </text>
+                <g id="Label/Standard/Green-Copy" transform="translate(124.290857, 43.658440)">
+                    <rect id="BG" fill="#3DC47E" x="0" y="-0.00520812623" width="12.3542117" height="4.67477953" rx="0.934955906"></rect>
+                    <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#FFFFFF">
+                        <tspan x="2.90288191" y="2.3686927">Online</tspan>
+                    </text>
+                </g>
+                <polygon id="Shape-Copy-38" fill="#DCE0E6" points="116.803456 53.9200395 260 53.9200395 260 54.106614 116.803456 54.106614"></polygon>
+                <g id="Stacked-Group" transform="translate(124.290857, 14.552813)">
+                    <g id="Group" transform="translate(63.267979, 0.000000)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                        <g id="Item-4">
+                            <text id="Text">
+                                <tspan x="0" y="3">aks-cluster-instance-1</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Chevron-1" transform="translate(58.780190, 0.373982)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="2.9918589" height="2.9918589"></rect>
+                        <polyline id="Shape" stroke="#DCDCDE" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="0.934955906 2.61787654 2.05690299 1.49592945 0.934955906 0.373982362"></polyline>
+                    </g>
+                    <g id="Group" transform="translate(42.845319, 0.000000)" fill="#929394" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                        <g id="Item-3">
+                            <text id="Text">
+                                <tspan x="0" y="3">AKS Cluster</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Chevron-1" transform="translate(38.357531, 0.373982)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="2.9918589" height="2.9918589"></rect>
+                        <polyline id="Shape" stroke="#DCDCDE" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="0.934955906 2.61787654 2.05690299 1.49592945 0.934955906 0.373982362"></polyline>
+                    </g>
+                    <g id="Group" transform="translate(23.422660, 0.000000)" fill="#929394" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                        <g id="Item-2">
+                            <text id="Text">
+                                <tspan x="0" y="3">Kubernetes</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Chevron-1" transform="translate(18.934871, 0.373982)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="2.9918589" height="2.9918589"></rect>
+                        <polyline id="Shape" stroke="#DCDCDE" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="0.934955906 2.61787654 2.05690299 1.49592945 0.934955906 0.373982362"></polyline>
+                    </g>
+                    <g id="Group" fill="#929394" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                        <g id="Item-1">
+                            <text id="Text">
+                                <tspan x="0" y="3">Provider Azure</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g id="Label/Standard/Green-Copy-2" transform="translate(138.516919, 43.658440)">
+                    <rect id="BG" stroke="#DCDCDE" stroke-width="0.5" fill="#FFFFFF" x="0.25" y="0.244791874" width="19.1544276" height="4.17477953" rx="0.934955906"></rect>
+                    <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#929394">
+                        <tspan x="2.97982586" y="2.3686927">Cluster Name</tspan>
+                    </text>
+                </g>
+                <g id="Label/Standard/Green-Copy-3" transform="translate(160.043197, 43.658440)">
+                    <rect id="BG" stroke="#DCDCDE" stroke-width="0.5" fill="#FFFFFF" x="0.25" y="0.244791874" width="17.2825774" height="4.17477953" rx="0.934955906"></rect>
+                    <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.24389417" font-weight="normal" line-spacing="3.73982362" fill="#929394">
+                        <tspan x="2.95487068" y="2.3686927">AKS Cluster</tspan>
+                    </text>
+                </g>
+                <polygon id="Shape--Copy-8" fill="#DCE0E6" points="121.544268 77.6152133 121.544268 77.4282221 253.6423 77.4282221 253.6423 77.6152133"></polygon>
+                <text id="Title" font-family="Avenir-Black, Avenir" font-size="3.73982362" font-weight="700" line-spacing="4.67477953" fill="#505A72">
+                    <tspan x="123.227188" y="63.6982795">Events</tspan>
+                </text>
+                <g id="Columns" transform="translate(124.349135, 69.026327)">
+                    <g id="Tables/Components/Column-Title-Unsorted-Copy" transform="translate(45.200570, 0.000000)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="61.8406435" height="5.60973544"></rect>
+                        <text id="Content" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362" fill="#505A72">
+                            <tspan x="0" y="3.93495591">Summary</tspan>
+                        </text>
+                    </g>
+                    <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="41.220318" height="5.60973544"></rect>
+                    <text id="Content" font-family="Avenir-Black, Avenir" font-size="2.61787654" font-weight="700" line-spacing="3.73982362" fill="#505A72">
+                        <tspan x="0" y="3.93495591">Date</tspan>
+                    </text>
+                </g>
+                <polygon id="HR" fill="#DCE0E6" points="817.899427 102.429626 817.899427 102.242635 1212.34609 102.242635 1212.34609 102.429626"></polygon>
+                <g id="Group" transform="translate(124.478042, 83.585390)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                    <g id="Tables/Components/Column-Title-Unsorted">
+                        <text id="Content">
+                            <tspan x="0" y="3.92841629">Nov 16 2020 @ 3:10:48 PST</tspan>
+                        </text>
+                    </g>
+                </g>
+                <text id="Content" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                    <tspan x="169.227019" y="87.5057631">Cannot resolve references: spec.forProvider.subnets:</tspan>
+                    <tspan x="169.227019" y="91.2455867">referenced field was empty (referenced resource </tspan>
+                    <tspan x="169.227019" y="94.9854103">may not yet be ready)</tspan>
+                </text>
+                <text id="Content-Copy-4" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#6553C0">
+                    <tspan x="237.852782" y="87.1406572">More Details</tspan>
+                </text>
+                <text id="Content-Copy-5" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#6553C0">
+                    <tspan x="237.291809" y="113.820815">More Details</tspan>
+                </text>
+                <text id="Content-Copy-6" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#6553C0">
+                    <tspan x="237.291809" y="143.67274">More Details</tspan>
+                </text>
+                <text id="Content-Copy-7" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#6553C0">
+                    <tspan x="237.291809" y="173.151516">More Details</tspan>
+                </text>
+                <text id="Content-Copy-3" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                    <tspan x="166.983125" y="172.587916">References successfully resolved: </tspan>
+                    <tspan x="166.983125" y="176.327739">spec.forProvider.subnets</tspan>
+                </text>
+                <text id="Content-Copy" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                    <tspan x="166.983125" y="113.248882">Operation cannot be fullfilled on </tspan>
+                    <tspan x="166.983125" y="116.988705">cluster.aks.azure.crossplane.io “ack-cluster-instance-1”: </tspan>
+                    <tspan x="166.983125" y="120.728529">the object has been modified; please apply your </tspan>
+                    <tspan x="166.983125" y="124.468353">changes to the latest version and try again</tspan>
+                </text>
+                <text id="Content-Copy-2" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362" fill="#505A72">
+                    <tspan x="166.983125" y="144.220254">Operation cannot be fullfilled on </tspan>
+                    <tspan x="166.983125" y="147.960078">cluster.aks.azure.crossplane.io “ack-cluster-instance-1”: </tspan>
+                    <tspan x="166.983125" y="151.699901">the object has been modified; please apply your </tspan>
+                    <tspan x="166.983125" y="155.439725">changes to the latest version and try again</tspan>
+                </text>
+                <polygon id="HR" fill="#DCE0E6" points="120.422321 162.32005 120.422321 162.133059 255.138229 162.133059 255.138229 162.32005"></polygon>
+                <g id="Group" transform="translate(124.478042, 140.490622)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                    <g id="Tables/Components/Column-Title-Unsorted">
+                        <text id="Content">
+                            <tspan x="0" y="3.92841629">Nov 16 2020 @ 3:10:51 PST</tspan>
+                        </text>
+                    </g>
+                </g>
+                <polygon id="HR" fill="#DCE0E6" points="120.422321 133.774147 120.422321 133.587156 255.138229 133.587156 255.138229 133.774147"></polygon>
+                <polygon id="HR-Copy" fill="#DCE0E6" points="120.422321 103.549073 120.422321 103.362082 255.138229 103.362082 255.138229 103.549073"></polygon>
+                <g id="Group" transform="translate(124.478042, 109.332675)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                    <g id="Tables/Components/Column-Title-Unsorted">
+                        <text id="Content">
+                            <tspan x="0" y="3.92841629">Nov 16 2020 @ 3:10:51 PST</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(124.478042, 169.036525)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                    <g id="Tables/Components/Column-Title-Unsorted">
+                        <text id="Content">
+                            <tspan x="0" y="3.92841629">Nov 16 2020 @ 3:10:51 PST</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Buttons/Medium/Primary-Icon-Copy" transform="translate(243.714903, 23.881540)">
+                    <circle id="Oval" fill="#6553C0" cx="3.7437005" cy="3.73149062" r="3.73982362"></circle>
+                    <g id="Group" transform="translate(2.247771, 2.235561)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                        <g id="Heart/16x16-White">
+                            <circle id="Oval" cx="1.49592945" cy="1.49592945" r="1"></circle>
+                            <circle id="Oval" cx="2.54308006" cy="1.49592945" r="1"></circle>
+                            <circle id="Oval" cx="0.448778835" cy="1.49592945" r="1"></circle>
+                        </g>
+                    </g>
+                </g>
+                <g id="Buttons/Medium/Primary-Copy-3" transform="translate(215.262779, 23.881540)">
+                    <rect id="BG" fill="#6553C0" x="0" y="0" width="27.5161987" height="7.47964725" rx="3.73982362"></rect>
+                    <g id="Medium-Button-2" transform="translate(4.118071, 1.869912)" fill="#FFFFFF" font-family="Avenir-Roman, Avenir" font-size="2.61787654" font-weight="normal" line-spacing="3.73982362">
+                        <text id="Medium-Button">
+                            <tspan x="0" y="3">View in Provider</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

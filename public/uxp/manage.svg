@@ -1,0 +1,208 @@
+<svg width="546" height="370" viewBox="0 0 546 370" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path id="d" d="M0 0h8.208v10.84H0z"/>
+        <path id="f" d="M0 0h3.289v3.29H0z"/>
+        <filter x="-7.5%" y="-12.9%" width="116.9%" height="132.8%" filterUnits="objectBoundingBox" id="b">
+            <feOffset dx="5" dy="9" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0.0666666667 0 0 0 0 0.101960784 0 0 0 0 0.239215686 0 0 0 0.130408654 0" in="shadowBlurOuter1"/>
+        </filter>
+        <rect id="a" x="0" y="0" width="496" height="256" rx="10.08"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(20 80)">
+            <mask id="c" fill="#fff">
+                <use xlink:href="#a"/>
+            </mask>
+            <use fill="#000" filter="url(#b)" xlink:href="#a"/>
+            <use fill="#FFF" xlink:href="#a"/>
+            <g mask="url(#c)">
+                <path fill="#263B67" d="M0 0h53.2v1012.342H0z"/>
+                <path fill="#DCE0E6" d="M53.2 0h-.484v1012.342h.484z"/>
+                <text font-family="Avenir-Roman, Avenir" font-size="6.72" fill="#505A72" transform="translate(4.2 70.56)">
+                                        <tspan x=".419" y="25.825">Control Planes</tspan>
+                                    </text>
+                <g stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.12">
+                    <path d="m26.437 71.12-5.997 2.624 5.997 2.624 5.998-2.624zM20.44 80.64l5.997 2.624 5.997-2.624M20.44 77.28l5.997 2.624 5.997-2.624"/>
+                </g>
+                <text font-family="Avenir-Roman, Avenir" font-size="6.72" fill="#505A72" transform="translate(4.2 114.8)">
+                                        <tspan x="8.637" y="25.825">Consoles</tspan>
+                                    </text>
+                <g transform="translate(19.88 114.8)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.12">
+                    <rect x=".84" y=".84" width="11.76" height="11.76" rx="1.12"/>
+                    <path d="M.84 5.04H12.6M5.04 12.6V5.04"/>
+                </g>
+                <text font-family="Avenir-Roman, Avenir" font-size="6.72" fill="#505A72" transform="translate(4.2 159.04)">
+                                        <tspan x="3.725" y="25.825">Repositories</tspan>
+                                    </text>
+                <g stroke="#A6AEC1" stroke-width="1.12">
+                    <path d="M23.24 168.28h8.4v3.36h-8.4a1.68 1.68 0 1 1 0-3.36z"/>
+                    <path d="M23.135 159.88h8.505v11.76h-8.505c-.87 0-1.575-.658-1.575-1.47v-8.82c0-.812.705-1.47 1.575-1.47z" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <g>
+                    <text font-family="Avenir-Roman, Avenir" font-size="6.72" fill="#505A72" transform="translate(4.2 203.28)">
+                                        <tspan x="9.205" y="25.825">All Users</tspan>
+                                    </text>
+                    <g transform="translate(20.44 204.4)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.12">
+                        <path d="M8.145 11.404V9.265A2.037 2.037 0 0 0 6.11 7.23H2.036A2.036 2.036 0 0 0 0 9.265v2.139M12.32 11.404V9.265c0-.928-.629-1.738-1.527-1.97"/>
+                        <circle cx="4.111" cy="2.545" r="2.545"/>
+                        <path d="M9.125.083a2.545 2.545 0 0 1 0 4.932"/>
+                    </g>
+                </g>
+                <g>
+                    <text font-family="Avenir-Roman, Avenir" font-size="6.72" fill="#505A72" transform="translate(4.2 247.52)">
+                                        <tspan x="12.938" y="25.825">Teams</tspan>
+                                    </text>
+                    <g stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.12">
+                        <path d="M26.693 248.64a5.693 5.693 0 1 1 0 11.387 5.693 5.693 0 0 1 0-11.387z"/>
+                        <path d="M30.09 250.32a5.585 5.585 0 0 0-1.81 4.122c0 1.585.658 3.016 1.716 4.034M23.348 258.282a5.582 5.582 0 0 0 1.608-3.928 5.584 5.584 0 0 0-1.716-4.034"/>
+                    </g>
+                </g>
+                <g transform="translate(11.83 16.8)">
+                    <rect fill="#6553C0" width="31.36" height="31.36" rx="5.6"/>
+                    <path d="m15.448 14.09-.03 3.05c0 2.933-2.824 3.528-3.807 3.528-2.044 0-3.77-1.245-3.77-3.527v-3.224c0-.714.412-1.141 1.079-1.141.681 0 1.093.427 1.093 1.14v2.98c0 1.157.584 1.79 1.598 1.79 1.078 0 1.666-.538 1.666-1.79V14.09c0-.713.412-1.14 1.094-1.14.665 0 1.077.427 1.077 1.14" fill="#FFF"/>
+                    <g transform="translate(16.938 12.68)">
+                        <mask id="e" fill="#fff">
+                            <use xlink:href="#d"/>
+                        </mask>
+                        <path d="M5.99 3.993c0-1.204-.777-2.012-1.886-2.012-1.125 0-1.933.84-1.933 2.012 0 1.173.808 2.013 1.933 2.013 1.109 0 1.886-.824 1.886-2.013m2.218 0c0 2.425-1.458 3.994-3.66 3.994-.998 0-1.807-.349-2.346-.951h-.031v2.646c0 .713-.413 1.157-1.094 1.157C.412 10.84 0 10.395 0 9.682V1.236C0 .522.412.096 1.077.096c.586 0 .983.316 1.078.87h.031C2.726.349 3.534 0 4.548 0c2.202 0 3.66 1.569 3.66 3.993" fill="#FFF" mask="url(#e)"/>
+                    </g>
+                    <g transform="translate(7.28 7.84)">
+                        <mask id="g" fill="#fff">
+                            <use xlink:href="#f"/>
+                        </mask>
+                        <path d="M3.289 1.645a1.644 1.644 0 1 1-3.289 0 1.644 1.644 0 0 1 3.289 0" fill="#FFF" mask="url(#g)"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <rect x=".28" y=".28" width="375.44" height="88.44" rx="2.8" fill="#FFF" stroke="#DCDCDE" stroke-width=".56" transform="translate(108 181)"/>
+        <g font-family="Avenir-Roman, Avenir">
+            <text font-size="11.2" fill="#505A72" transform="translate(130 199)">
+                                    <tspan x="0" y="27.8">UXP Instance</tspan>
+                                </text>
+            <text font-size="9.8" fill="#929394" transform="translate(130 199)">
+                                    <tspan x="0" y="10">Name</tspan>
+                                </text>
+        </g>
+        <g font-family="Avenir-Roman, Avenir">
+            <text font-size="11.2" fill="#505A72" transform="translate(326 200)">
+                                    <tspan x="0" y="28">Self-Hosted UXP</tspan>
+                                </text>
+            <text font-size="9.8" fill="#929394" transform="translate(326 200)">
+                                    <tspan x="0" y="10">Type</tspan>
+                                </text>
+        </g>
+        <text font-family="Avenir-Roman, Avenir" font-size="9.408" fill="#929394" transform="translate(247 200)">
+                                    <tspan x="0" y="9">Status</tspan>
+                                </text>
+        <text font-family="Avenir-Roman, Avenir" font-size="10.752" fill="#505A72" transform="translate(247 216.302)">
+                                        <tspan x="12" y="11">Healthy</tspan>
+                                    </text>
+        <path d="M250.36 221.442h.28a3.36 3.36 0 1 1 0 6.72h-.28a3.36 3.36 0 1 1 0-6.72z" fill="#3DC47E"/>
+        <g stroke="#929394" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.68">
+            <g transform="translate(434.1 215.48)">
+                <circle cx="8.82" cy="1.764" r="1.764"/>
+                <circle cx="15.876" cy="1.764" r="1.764"/>
+                <circle cx="1.764" cy="1.764" r="1.764"/>
+            </g>
+        </g>
+        <g>
+            <text font-family="Avenir-Black, Avenir" font-size="18.9" font-weight="700" fill="#505A72" transform="translate(106 130.742)">
+                                <tspan x="0" y="19">Control Planes</tspan>
+                            </text>
+            <g transform="translate(352 130.742)">
+                <rect fill="#6553C0" width="130" height="26" rx="13"/>
+                <text font-family="Avenir-Roman, Avenir" font-size="10.584" fill="#FFF">
+                                    <tspan x="29.686" y="16">Create Control </tspan>
+                                    <tspan x="51.961" y="31.12">Plane</tspan>
+                                </text>
+            </g>
+        </g>
+        <g transform="translate(290.883 265)">
+            <rect stroke="#2FD3BC" stroke-width=".601" fill="#2FD3BC" width="241" height="39.737" rx="19.869"/>
+            <text font-family="AvenirNext-DemiBold, Avenir Next" font-size="13.856" font-weight="500" fill="#FFF">
+                            <tspan x="21.046" y="24.112">UXP Successfully Connected</tspan>
+                        </text>
+            <path d="M207.33 9.65h20.773v20.732H207.33z"/>
+            <path stroke="#FFF" stroke-width="1.801" stroke-linecap="round" stroke-linejoin="round" d="m211.847 20.467 4.214 4.507 8.43-9.014"/>
+        </g>
+        <g opacity=".277" transform="translate(53)" fill="#6C72FC">
+            <circle cx="77.5" cy="2.5" r="2.5"/>
+            <circle cx="77.5" cy="17.5" r="2.5"/>
+            <circle cx="77.5" cy="32.5" r="2.5"/>
+            <circle cx="77.5" cy="47.5" r="2.5"/>
+            <circle cx="77.5" cy="62.5" r="2.5"/>
+            <circle cx="107.5" cy="2.5" r="2.5"/>
+            <circle cx="107.5" cy="17.5" r="2.5"/>
+            <circle cx="107.5" cy="32.5" r="2.5"/>
+            <circle cx="107.5" cy="47.5" r="2.5"/>
+            <circle cx="107.5" cy="62.5" r="2.5"/>
+            <circle cx="137.5" cy="2.5" r="2.5"/>
+            <circle cx="137.5" cy="17.5" r="2.5"/>
+            <circle cx="137.5" cy="32.5" r="2.5"/>
+            <circle cx="137.5" cy="47.5" r="2.5"/>
+            <circle cx="137.5" cy="62.5" r="2.5"/>
+            <circle cx="92.5" cy="2.5" r="2.5"/>
+            <circle cx="92.5" cy="17.5" r="2.5"/>
+            <circle cx="92.5" cy="32.5" r="2.5"/>
+            <circle cx="92.5" cy="47.5" r="2.5"/>
+            <circle cx="92.5" cy="62.5" r="2.5"/>
+            <circle cx="122.5" cy="2.5" r="2.5"/>
+            <circle cx="122.5" cy="17.5" r="2.5"/>
+            <circle cx="122.5" cy="32.5" r="2.5"/>
+            <circle cx="122.5" cy="47.5" r="2.5"/>
+            <circle cx="122.5" cy="62.5" r="2.5"/>
+            <circle cx="152.5" cy="2.5" r="2.5"/>
+            <circle cx="152.5" cy="17.5" r="2.5"/>
+            <circle cx="152.5" cy="32.5" r="2.5"/>
+            <circle cx="152.5" cy="47.5" r="2.5"/>
+            <circle cx="152.5" cy="62.5" r="2.5"/>
+            <circle cx="182.5" cy="2.5" r="2.5"/>
+            <circle cx="182.5" cy="17.5" r="2.5"/>
+            <circle cx="182.5" cy="32.5" r="2.5"/>
+            <circle cx="182.5" cy="47.5" r="2.5"/>
+            <circle cx="182.5" cy="62.5" r="2.5"/>
+            <circle cx="212.5" cy="2.5" r="2.5"/>
+            <circle cx="212.5" cy="17.5" r="2.5"/>
+            <circle cx="212.5" cy="32.5" r="2.5"/>
+            <circle cx="212.5" cy="47.5" r="2.5"/>
+            <circle cx="212.5" cy="62.5" r="2.5"/>
+            <circle cx="167.5" cy="2.5" r="2.5"/>
+            <circle cx="167.5" cy="17.5" r="2.5"/>
+            <circle cx="167.5" cy="32.5" r="2.5"/>
+            <circle cx="167.5" cy="47.5" r="2.5"/>
+            <circle cx="167.5" cy="62.5" r="2.5"/>
+            <circle cx="197.5" cy="2.5" r="2.5"/>
+            <circle cx="197.5" cy="17.5" r="2.5"/>
+            <circle cx="197.5" cy="32.5" r="2.5"/>
+            <circle cx="197.5" cy="47.5" r="2.5"/>
+            <circle cx="197.5" cy="62.5" r="2.5"/>
+            <circle cx="2.5" cy="2.5" r="2.5"/>
+            <circle cx="2.5" cy="17.5" r="2.5"/>
+            <circle cx="2.5" cy="32.5" r="2.5"/>
+            <circle cx="2.5" cy="47.5" r="2.5"/>
+            <circle cx="2.5" cy="62.5" r="2.5"/>
+            <circle cx="32.5" cy="2.5" r="2.5"/>
+            <circle cx="32.5" cy="17.5" r="2.5"/>
+            <circle cx="32.5" cy="32.5" r="2.5"/>
+            <circle cx="32.5" cy="47.5" r="2.5"/>
+            <circle cx="32.5" cy="62.5" r="2.5"/>
+            <circle cx="62.5" cy="2.5" r="2.5"/>
+            <circle cx="62.5" cy="17.5" r="2.5"/>
+            <circle cx="62.5" cy="32.5" r="2.5"/>
+            <circle cx="62.5" cy="47.5" r="2.5"/>
+            <circle cx="62.5" cy="62.5" r="2.5"/>
+            <circle cx="17.5" cy="2.5" r="2.5"/>
+            <circle cx="17.5" cy="17.5" r="2.5"/>
+            <circle cx="17.5" cy="32.5" r="2.5"/>
+            <circle cx="17.5" cy="47.5" r="2.5"/>
+            <circle cx="17.5" cy="62.5" r="2.5"/>
+            <circle cx="47.5" cy="2.5" r="2.5"/>
+            <circle cx="47.5" cy="17.5" r="2.5"/>
+            <circle cx="47.5" cy="32.5" r="2.5"/>
+            <circle cx="47.5" cy="47.5" r="2.5"/>
+            <circle cx="47.5" cy="62.5" r="2.5"/>
+        </g>
+    </g>
+</svg>

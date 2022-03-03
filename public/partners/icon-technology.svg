@@ -1,0 +1,56 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-3%" y="-6.2%" width="105.9%" height="124.6%" filterUnits="objectBoundingBox" id="a">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" in="shadowOffsetOuter1"/>
+        </filter>
+        <filter x="-3%" y="-6.2%" width="105.9%" height="124.6%" filterUnits="objectBoundingBox" id="d">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.19263549 0" in="shadowInnerInner1"/>
+        </filter>
+        <filter x="-62.2%" y="-12.3%" width="224.4%" height="149.2%" filterUnits="objectBoundingBox" id="e">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.300289554 0" in="shadowOffsetOuter1"/>
+        </filter>
+        <filter x="-62.2%" y="-12.3%" width="224.4%" height="149.2%" filterUnits="objectBoundingBox" id="g">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.300289554 0" in="shadowOffsetOuter1"/>
+        </filter>
+        <filter x="-62.2%" y="-12.3%" width="224.4%" height="149.2%" filterUnits="objectBoundingBox" id="i">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.300289554 0" in="shadowOffsetOuter1"/>
+        </filter>
+        <path d="M35.09 3.75c1.33 0 2.41 1.091 2.41 2.438V20H3.75V6.187c0-1.346 1.08-2.437 2.41-2.437h28.93zM10.981 8.625c-2.219 0-4.018 1.819-4.018 4.063 0 2.243 1.8 4.062 4.018 4.062 2.22 0 4.018-1.819 4.018-4.063 0-2.243-1.799-4.062-4.018-4.062z" id="b"/>
+        <path d="M26.25 15.938v-6.5a.808.808 0 0 0-.804-.813.808.808 0 0 0-.803.813v6.5c0 .448.36.812.803.812a.808.808 0 0 0 .804-.813z" id="f"/>
+        <path d="M31.071 15.938v-6.5a.808.808 0 0 0-.803-.813.808.808 0 0 0-.804.813v6.5c0 .448.36.812.804.812a.808.808 0 0 0 .803-.813z" id="h"/>
+        <path d="M21.429 15.938v-6.5a.808.808 0 0 0-.804-.813.808.808 0 0 0-.804.813v6.5c0 .448.36.812.804.812a.808.808 0 0 0 .804-.813z" id="j"/>
+        <linearGradient x1="111.836%" y1="-13.824%" x2="44.39%" y2="58.098%" id="c">
+            <stop stop-color="#9CB3FF" offset="0%"/>
+            <stop stop-color="#637CFF" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <rect fill="#3DE2CB" opacity=".2" width="64" height="64" rx="16"/>
+        <path d="M11 12h40v40H11z"/>
+        <g fill-rule="nonzero" transform="translate(11 12)">
+            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
+            <use fill="url(#c)" xlink:href="#b"/>
+            <use fill="#000" filter="url(#d)" xlink:href="#b"/>
+        </g>
+        <g fill-rule="nonzero" transform="translate(11 12)">
+            <use fill="#000" filter="url(#e)" xlink:href="#f"/>
+            <use fill="#D8F9F5" xlink:href="#f"/>
+        </g>
+        <g fill-rule="nonzero" transform="translate(11 12)">
+            <use fill="#000" filter="url(#g)" xlink:href="#h"/>
+            <use fill="#D8F9F5" xlink:href="#h"/>
+        </g>
+        <g fill-rule="nonzero" transform="translate(11 12)">
+            <use fill="#000" filter="url(#i)" xlink:href="#j"/>
+            <use fill="#D8F9F5" xlink:href="#j"/>
+        </g>
+        <path d="M21.982 27.125c1.332 0 2.41-1.091 2.41-2.438 0-1.346-1.078-2.437-2.41-2.437-1.331 0-2.41 1.091-2.41 2.438 0 1.346 1.079 2.437 2.41 2.437z" fill="#637CFF" fill-rule="nonzero"/>
+        <path d="M48.5 33.25v13.813c0 1.346-1.08 2.437-2.41 2.437H17.16c-1.33 0-2.41-1.091-2.41-2.438V33.25H48.5zM21.982 36.5c-2.219 0-4.018 1.819-4.018 4.063 0 2.243 1.8 4.062 4.018 4.062 2.22 0 4.018-1.819 4.018-4.063 0-2.243-1.799-4.062-4.018-4.062zm14.464 0a.808.808 0 0 0-.803.813v6.5c0 .448.36.812.803.812a.808.808 0 0 0 .804-.813v-6.5a.808.808 0 0 0-.804-.812zm4.822 0a.808.808 0 0 0-.804.813v6.5c0 .448.36.812.804.812a.808.808 0 0 0 .803-.813v-6.5a.808.808 0 0 0-.803-.812zm-9.643 0a.808.808 0 0 0-.804.813v6.5c0 .448.36.812.804.812a.808.808 0 0 0 .804-.813v-6.5a.808.808 0 0 0-.804-.812zm-9.643 1.625c1.332 0 2.41 1.091 2.41 2.438 0 1.346-1.078 2.437-2.41 2.437-1.331 0-2.41-1.091-2.41-2.438 0-1.346 1.079-2.437 2.41-2.437z" fill="#44D5E9" fill-rule="nonzero"/>
+    </g>
+</svg>

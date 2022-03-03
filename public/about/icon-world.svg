@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75">
+  <g fill="none" fill-rule="evenodd">
+    <path d="M0 0h75v75H0z"/>
+    <path fill="#2FD3BC" d="M41.694 34.844C43.968 31.213 55 35.903 55 35.903 53.883 52.707 38.613 52.998 37.698 53h-.043c-.998-2.118 1.918-6.582 4.528-9.608 2.61-3.026-2.763-4.917-.489-8.548zM31.131 21s6.6.53 2.533 6.733c-4.068 6.203-.202 7.458 1.324 7.867 1.976.53 2.59 6.96-4.164 4.01s-4.451 4.638-8.443-.405L21 36.281v-.064c.013-.91.377-11.241 10.13-15.217zm14.736.53c2.6 0 5.083 2.966 5.691 3.747l.09.117.052.07s-.154 2.193-5.833 1.588c-4.51-.48-1.857-3.68-.574-4.978l.137-.136c.26-.255.437-.408.437-.408z"/>
+    <circle cx="38" cy="36" r="16.5" stroke="#2FD3BC" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95"/>
+    <path stroke="#7667F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95" d="M41.5 67.409h27"/>
+    <rect width="21" height="15" x="44.5" y="47.909" fill="#FFF" stroke="#7667F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95" rx="1.833"/>
+    <g stroke="#7667F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95" transform="translate(50.7 50.5)">
+      <circle cx="3.96" cy="2.64" r="2.64"/>
+      <path d="M0 12v-1.32c0-1.458 1.182-2.64 2.64-2.64h2.64c1.458 0 2.64 1.182 2.64 2.64V12"/>
+    </g>
+    <path stroke="#7667F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95" d="M6.5 30.409h27"/>
+    <rect width="21" height="15" x="9.5" y="10.909" fill="#FFF" stroke="#7667F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95" rx="1.833"/>
+    <g stroke="#7667F9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.95" transform="translate(15.7 13.5)">
+      <circle cx="3.96" cy="2.64" r="2.64"/>
+      <path d="M0 12v-1.32c0-1.458 1.182-2.64 2.64-2.64h2.64c1.458 0 2.64 1.182 2.64 2.64V12"/>
+    </g>
+    <path stroke="#2FD3BC" stroke-dasharray="3 8" stroke-linecap="round" stroke-width="1.95" d="M43.308 10.919C57.475 13.37 64.42 22.51 64.144 38.343M34.616 61.97c-14.244-1.955-21.504-10.848-21.78-26.68"/>
+  </g>
+</svg>

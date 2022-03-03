@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="280px" height="258px" viewBox="0 0 280 258" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 18</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="260" height="230.577869" rx="3.54107284"></rect>
+        <filter x="-6.7%" y="-4.6%" width="113.5%" height="115.2%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="7" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.783785025   0 0 0 0 0.813706303   0 0 0 0 0.892336638  0 0 0 0.56169758 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-57.7%" y="-53.3%" width="215.3%" height="206.7%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.91372549   0 0 0 0 0.941176471   0 0 0 0 0.984313725  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-57.9%" y="-53.3%" width="215.7%" height="206.7%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.91372549   0 0 0 0 0.941176471   0 0 0 0 0.984313725  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M1.24815699,0 C0.55881892,0 0,0.559423107 0,1.24837447 L0,96.0835927 C0,96.7730509 0.56523197,97.3319672 1.24815699,97.3319672 L66.487314,97.3319672 C67.176652,97.3319672 67.7354709,96.7725441 67.7354709,96.0835927 L67.7354709,1.24837447 C67.7354709,0.55891629 67.170239,0 66.487314,0 L1.24815699,0 Z" id="path-6"></path>
+        <filter x="-0.7%" y="-0.5%" width="101.5%" height="101.0%" filterUnits="objectBoundingBox" id="filter-7">
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="1" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.743069384   0 0 0 0 0.813890002   0 0 0 0 1  0 0 0 0.716959173 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-57.7%" y="-53.3%" width="215.3%" height="206.7%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.91372549   0 0 0 0 0.941176471   0 0 0 0 0.984313725  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-57.7%" y="-53.3%" width="215.3%" height="206.7%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.91372549   0 0 0 0 0.941176471   0 0 0 0 0.984313725  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-10" points="0 0 5.85747848 0 5.85747848 2.60377542 0 2.60377542"></polygon>
+        <polygon id="path-12" points="0 0 4.82378491 0 4.82378491 6.38014332 0 6.38014332"></polygon>
+        <polygon id="path-14" points="0 0 4.66144546 0 4.66144546 4.57098915 0 4.57098915"></polygon>
+        <path d="M1.0117351,-0.018722073 L175.221728,-0.018722073 C175.780494,-0.018722073 176.233463,0.43424716 176.233463,0.993013025 L176.233463,9.08689381 C176.233463,9.64565968 175.780494,10.0986289 175.221728,10.0986289 L1.0117351,10.0986289 C0.452969233,10.0986289 1.17865211e-15,9.64565968 0,9.08689381 L0,0.993013025 C-6.84290829e-17,0.43424716 0.452969233,-0.018722073 1.0117351,-0.018722073 Z" id="path-16"></path>
+        <filter x="-18.2%" y="-276.8%" width="125.3%" height="731.4%" filterUnits="objectBoundingBox" id="filter-17">
+            <feMorphology radius="4.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="5" dy="9" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.743069384   0 0 0 0 0.813890002   0 0 0 0 1  0 0 0 0.716959173 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-18" x="0" y="3.55271368e-15" width="34.9098196" height="13.1523653" rx="6.57618267"></rect>
+        <filter x="-25.8%" y="-53.2%" width="163.0%" height="267.3%" filterUnits="objectBoundingBox" id="filter-19">
+            <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="2" dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.743069384   0 0 0 0 0.813890002   0 0 0 0 1  0 0 0 0.716959173 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-20" points="0 0 6.46068991 0 6.46068991 4.69894184 0 4.69894184"></polygon>
+        <polygon id="path-22" points="0 0 6.460667 0 6.460667 2.42650495 0 2.42650495"></polygon>
+        <rect id="path-24" x="0" y="0" width="13.0260521" height="13.0122951" rx="3.25651303"></rect>
+        <polygon id="path-26" points="0 0 3.45395592 0 3.45395592 4.8711967 0 4.8711967"></polygon>
+        <polygon id="path-28" points="0 0 3.45361359 0 3.45361359 4.8711967 0 4.8711967"></polygon>
+    </defs>
+    <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Product-/-Upbound-Cloud-(Mobile)" transform="translate(-22.000000, -2958.000000)">
+            <g id="Group-18" transform="translate(32.000000, 2961.000000)">
+                <g id="Group-17">
+                    <g id="Rectangle">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Mask">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                            <rect stroke="#D2DCEA" stroke-width="0.5" fill="#FFFFFF" fill-rule="evenodd" x="-0.25" y="-0.25" width="260.5" height="231.077869" rx="3.54107284"></rect>
+                        </g>
+                        <rect fill="#F4F8FF" mask="url(#mask-2)" x="-3.54085603" y="-4.03196273" width="269.105058" height="22.0497962"></rect>
+                    </g>
+                    <text id="Find-the-perfect-sol" font-family="Avenir-Black, Avenir" font-size="8.09388078" font-weight="700" line-spacing="10.117351" fill="#1D285E">
+                        <tspan x="58.7276265" y="38.0762775">Find the perfect solution for building your </tspan>
+                        <tspan x="58.7276265" y="48.1936285">next Crossplane project. </tspan>
+                    </text>
+                    <g id="Group-25" transform="translate(13.278210, 31.499709)">
+                        <text id="Description-Copy-25" font-family="Avenir-Heavy, Avenir" font-size="3.79400662" font-weight="600" line-spacing="5.05867549" fill="#505A72">
+                            <tspan x="0.126466887" y="44.5118405">Visibility</tspan>
+                        </text>
+                        <g id="Group" transform="translate(0.126467, 55.851322)">
+                            <g id="Stacked-Group" transform="translate(0.427032, -0.008867)">
+                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.83285827" font-weight="normal" line-spacing="4.04694039" fill="#505A72">
+                                    <tspan x="5.46336953" y="3">Public</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="2.0234702" cy="2.0234702" r="1.7734702"></circle>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(0.126467, 62.908348)">
+                            <g id="Stacked-Group" transform="translate(0.432288, -0.008867)">
+                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.83285827" font-weight="normal" line-spacing="4.04694039" fill="#505A72">
+                                    <tspan x="5.46336953" y="3">Private</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="2.0234702" cy="2.0234702" r="1.7734702"></circle>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(0.126467, 48.794295)">
+                            <g id="Stacked-Group" transform="translate(-0.273372, -0.008867)">
+                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.83285827" font-weight="normal" line-spacing="4.04694039" fill="#505A72">
+                                    <tspan x="6.07041059" y="3">Show All</tspan>
+                                </text>
+                                <g id="Forms/Radio-Button/Checked-Blue">
+                                    <circle id="Oval-8" fill="#7667F9" cx="2.0234702" cy="2.0234702" r="2.0234702"></circle>
+                                    <circle id="Oval-8" fill="#FFFFFF" cx="2.0234702" cy="2.0234702" r="1"></circle>
+                                </g>
+                            </g>
+                        </g>
+                        <text id="Description-Copy-26" font-family="Avenir-Heavy, Avenir" font-size="3.79400662" font-weight="600" line-spacing="5.05867549" fill="#505A72">
+                            <tspan x="0.126466887" y="13.2659775">Type</tspan>
+                        </text>
+                        <g id="Group" transform="translate(0.126467, 17.541751)">
+                            <g id="Stacked-Group" transform="translate(-0.273372, -0.008867)">
+                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.83285827" font-weight="normal" line-spacing="4.04694039" fill="#505A72">
+                                    <tspan x="6.07041059" y="3">Show All</tspan>
+                                </text>
+                                <g id="Forms/Radio-Button/Checked-Blue">
+                                    <circle id="Oval-8" fill="#7667F9" cx="2.0234702" cy="2.0234702" r="2.0234702"></circle>
+                                    <circle id="Oval-8" fill="#FFFFFF" cx="2.0234702" cy="2.0234702" r="1"></circle>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(0.126467, 24.598777)">
+                            <g id="Stacked-Group" transform="translate(0.448484, -0.008867)">
+                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.83285827" font-weight="normal" line-spacing="4.04694039" fill="#505A72">
+                                    <tspan x="5.46336953" y="3">Providers</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="2.0234702" cy="2.0234702" r="1.7734702"></circle>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Group" transform="translate(0.126467, 31.655803)">
+                            <g id="Stacked-Group" transform="translate(0.385060, -0.008867)">
+                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="2.83285827" font-weight="normal" line-spacing="4.04694039" fill="#505A72">
+                                    <tspan x="5.46336953" y="3">Configurations</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="2.0234702" cy="2.0234702" r="1.7734702"></circle>
+                                </g>
+                            </g>
+                        </g>
+                        <text id="Header" font-family="Avenir-Black, Avenir" font-size="4.42634105" font-weight="700" line-spacing="6.07041059" fill="#505A72">
+                            <tspan x="0" y="4">Filter By</tspan>
+                        </text>
+                    </g>
+                    <g id="Cards/Standard" filter="url(#filter-4)" transform="translate(58.929961, 90.819961)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.5">
+                        <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="55.1303502" height="59.5682541" rx="1.0117351"></rect>
+                    </g>
+                    <g id="Cards/Standard-Copy-5" filter="url(#filter-5)" transform="translate(119.832685, 90.819961)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.5">
+                        <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="54.9280156" height="59.5682541" rx="1.0117351"></rect>
+                    </g>
+                    <g id="shadow" transform="translate(58.877756, 156.668033)">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                        <path stroke="#8A7FF8" stroke-width="0.5" d="M66.487314,-0.25 C66.8980903,-0.25 67.2735922,-0.0818600601 67.545869,0.190464148 C67.8168999,0.461542329 67.9854709,0.835539185 67.9854709,1.24837447 L67.9854709,1.24837447 L67.9854709,96.0835927 C67.9854709,96.497121 67.8177542,96.8717829 67.5465617,97.1430227 C67.2754501,97.4141815 66.9009508,97.5819672 66.487314,97.5819672 L66.487314,97.5819672 L1.24815699,97.5819672 C0.837380662,97.5819672 0.461878725,97.4138273 0.189601959,97.1415031 C-0.081428996,96.8704249 -0.25,96.496428 -0.25,96.0835927 L-0.25,96.0835927 L-0.25,1.24837447 C-0.25,0.834846181 -0.0822832862,0.460184304 0.188909207,0.188944558 C0.460020802,-0.0822142772 0.834520167,-0.25 1.24815699,-0.25 L1.24815699,-0.25 Z" fill="#FFFFFF" fill-rule="evenodd"></path>
+                    </g>
+                    <g id="Group" filter="url(#filter-8)" transform="translate(180.442893, 90.851109)">
+                        <g id="Cards/Standard-Copy-7" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.5">
+                            <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="55.1303502" height="59.5682541" rx="1.0117351"></rect>
+                        </g>
+                        <g transform="translate(6.272758, 5.910284)" fill-rule="nonzero" id="Application-Icons/Gitlab/65x65-Copy-12">
+                            <g>
+                                <rect id="Rectangle-Copy-13" fill="#1A1A1F" x="0" y="0" width="13.5572503" height="13.1525563" rx="3.23755231"></rect>
+                                <g id="Group" transform="translate(3.754315, 3.642246)" stroke-width="0.5">
+                                    <path d="M0.000655261004,0.0900833331 C0.000655261004,0.0611941299 0.000655261004,0.0306055618 0.00240758266,0 C0.974946103,0.00171635854 1.94748462,0 2.92002314,0.00171635854 L2.92002314,2.83115891 C1.94748462,2.83455764 0.974946103,2.83115891 0.00240758266,2.83285827 C-0.00284938231,1.91859996 0.00240758266,1.00434165 0.000655261004,0.0900833331 Z" id="Path" stroke="#F25022" fill="#F25022"></path>
+                                    <path d="M3.33716931,0.00679745958 C3.35818927,0.0016993649 3.37920923,0 3.40198086,0 C4.35313417,0.00171635854 5.30603914,0 6.25719245,0.00171635854 L6.25719245,2.83115891 C5.28501918,2.83455764 4.31284591,2.83115891 3.34067264,2.83285827 C3.33366598,1.89139313 3.3424243,0.948245612 3.33716931,0.00679745958 Z" id="Path" stroke="#7FBA00" fill="#7FBA00"></path>
+                                    <path d="M0,6.06359614 C0.00700665422,5.12214798 -0.00350332711,4.17900047 0.00525499066,3.23755231 C0.9756766,3.23925168 1.94784987,3.23585295 2.92002314,3.23925168 L2.92002314,6.06869423 C1.98463481,6.07041059 1.05099813,6.06869423 0.115609795,6.07041059 C0.0770731964,6.07041059 0.0385365982,6.07041059 0,6.06359614 L0,6.06359614 Z" id="Path" stroke="#00A4EF" fill="#00A4EF"></path>
+                                    <path d="M3.33892097,3.4465742 C3.33892097,3.37690024 3.33541764,3.30722627 3.34067264,3.23755231 C4.31284591,3.23925168 5.28501918,3.23585295 6.25719245,3.23925168 L6.25719245,6.06869423 C5.30603914,6.07041059 4.35313417,6.06869423 3.40198086,6.07041059 C3.37920923,6.06869423 3.35818927,6.06701186 3.33716931,6.06531249 C3.34067264,5.19182194 3.33716931,4.32004775 3.33892097,3.4465742 Z" id="Path" stroke="#FFB900" fill="#FFB900"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <text id="Title-Copy-103" font-family="Avenir-Black, Avenir" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                            <tspan x="6.27275761" y="25.9741969">provider-azure</tspan>
+                        </text>
+                    </g>
+                    <g id="Group-Copy" filter="url(#filter-9)" transform="translate(134.070147, 156.433077)">
+                        <g id="Cards/Standard-Copy-7" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.5">
+                            <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="55.1303502" height="59.5682541" rx="1.0117351"></rect>
+                        </g>
+                        <text id="Title-Copy-103" font-family="Avenir-Black, Avenir" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                            <tspan x="6.27275761" y="25.9741969">provider-aws</tspan>
+                        </text>
+                    </g>
+                    <g id="Application-Icons/Gitlab/65x65-Copy-8" transform="translate(66.693387, 164.128257)">
+                        <rect id="Rectangle-Copy-13" stroke="#D8D8DA" stroke-width="0.5" fill="#FAFAFA" fill-rule="nonzero" x="0.25" y="0.25" width="16.1733467" height="15.6523046" rx="4.00434102"></rect>
+                        <g id="Group-12" transform="translate(3.847695, 4.251422)">
+                            <g id="Group-3" transform="translate(1.111572, 0.000000)">
+                                <mask id="mask-11" fill="white">
+                                    <use xlink:href="#path-10"></use>
+                                </mask>
+                                <g id="Clip-2"></g>
+                                <path d="M4.73601307,2.0007373 L5.0170821,2.0007373 L5.81812882,1.21596166 L5.85747848,0.882776215 C4.36668837,-0.406458708 2.09143462,-0.267401972 0.77546944,1.19310679 C0.409798639,1.59898724 0.144750548,2.08141774 0,2.60377542 C0.089098881,2.56797863 0.188035178,2.56219608 0.281069025,2.58725383 L1.88316247,2.32841555 C1.88316247,2.32841555 1.96467249,2.19624281 2.00683284,2.2045036 C2.71934282,1.43762636 3.91866435,1.34840976 4.74163445,2.0007373 L4.73601307,2.0007373 Z" id="Fill-1" fill="#EA4335" mask="url(#mask-11)"></path>
+                            </g>
+                            <g id="Group-6" transform="translate(4.391563, 0.885502)">
+                                <mask id="mask-13" fill="white">
+                                    <use xlink:href="#path-12"></use>
+                                </mask>
+                                <g id="Clip-5"></g>
+                                <path d="M3.67919354,1.7182456 C3.49509333,1.05380223 3.11705549,0.456822028 2.59145641,0 L1.46718031,1.10143949 C1.94190589,1.48143611 2.2122943,2.05390929 2.20077047,2.65446917 L2.20077047,2.84997468 C2.75363324,2.84997468 3.2013762,3.28889832 3.2013762,3.82998047 C3.2013762,4.37161334 2.75363324,4.81053697 2.20077047,4.81053697 L0.199559008,4.81053697 L0,5.00879608 L0,6.18458274 L0.199559008,6.38008825 L2.20077047,6.38008825 C3.63815746,6.39082728 4.81246385,5.25827213 4.82370661,3.8503571 C4.83045227,2.99674149 4.4009788,2.19627034 3.67919354,1.7182456" id="Fill-4" fill="#4285F4" mask="url(#mask-13)"></path>
+                            </g>
+                            <path d="M2.58715606,7.25460366 L4.58836751,7.25460366 L4.58836751,5.68505239 L2.58715606,5.68505239 C2.44465406,5.68505239 2.30355741,5.65476281 2.17398459,5.59666187 L1.89291556,5.68229879 L1.08624746,6.46707443 L1.01598021,6.7424343 C1.46850134,7.07699655 2.02023983,7.2570819 2.58715606,7.25460366" id="Fill-7" fill="#34A853"></path>
+                            <g id="Group-11" transform="translate(0.000000, 2.163129)">
+                                <mask id="mask-15" fill="white">
+                                    <use xlink:href="#path-14"></use>
+                                </mask>
+                                <g id="Clip-10"></g>
+                                <path d="M2.58715606,0 C1.14976906,0.00855142545 -0.00851639146,1.15680209 -0.00013006771,2.56499248 C0.00469385272,3.35142028 0.379639932,4.09158761 1.01598021,4.57098915 L2.17679528,3.43375288 C1.67311959,3.21071138 1.44938864,2.63025277 1.67705455,2.13680788 C1.90443939,1.64336299 2.49721397,1.42417653 3.00088966,1.64694267 C3.22265312,1.74524614 3.40056981,1.91954894 3.50063039,2.13680788 L4.66144546,0.999571607 C4.16760718,0.367069979 3.40000768,-0.00273832932 2.58715606,0" id="Fill-9" fill="#FBBC05" mask="url(#mask-15)"></path>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="Title-Copy-88" font-family="Avenir-Black, Avenir" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                        <tspan x="65.2063271" y="116.995756">provider-alibaba</tspan>
+                    </text>
+                    <text id="Title-Copy-92" font-family="Avenir-Black, Avenir" font-size="4.76331839" font-weight="700" line-spacing="6.25678284" fill="#505A72">
+                        <tspan x="66.6933868" y="188.733607">provider-gcp</tspan>
+                    </text>
+                    <text id="Title-Copy-95" font-family="Avenir-Black, Avenir" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                        <tspan x="125.278099" y="116.794157">provider-rook</tspan>
+                    </text>
+                    <g id="Lock/16x16/Light-Copy-2" transform="translate(227.033296, 96.634757)" stroke="#BDD0FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                        <rect id="Rectangle-path" x="0" y="1.52903096" width="3.06801752" height="2.75225573" rx="0.613641075"></rect>
+                        <path d="M0.613603503,1.52903096 L0.613603503,0.849461645 C0.613603503,0.380316933 1.02568297,0 1.53400876,0 C2.04233454,0 2.45441401,0.380316933 2.45441401,0.849461645 L2.45441401,1.52903096" id="Shape"></path>
+                    </g>
+                    <g id="Form-Fields/Search/Large-Default" transform="translate(58.929961, 66.829782)">
+                        <g id="BG">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-17)" xlink:href="#path-16"></use>
+                            <path stroke="#D2DCEA" stroke-width="0.5" d="M175.221728,-0.268722073 C175.570146,-0.268722073 175.88558,-0.127497562 176.113909,0.100831581 C176.342239,0.329160724 176.483463,0.644594499 176.483463,0.993013025 L176.483463,0.993013025 L176.483463,9.08689381 C176.483463,9.43531234 176.342239,9.75074611 176.113909,9.97907525 C175.88558,10.2074044 175.570146,10.3486289 175.221728,10.3486289 L175.221728,10.3486289 L1.0117351,10.3486289 C0.663316572,10.3486289 0.347882797,10.2074044 0.119553654,9.97907525 C-0.108775489,9.75074611 -0.25,9.43531234 -0.25,9.08689381 L-0.25,9.08689381 L-0.25,0.993013025 C-0.25,0.644594499 -0.108775489,0.329160724 0.119553654,0.100831581 C0.347882797,-0.127497562 0.663316572,-0.268722073 1.0117351,-0.268722073 L1.0117351,-0.268722073 Z" fill="#FFFFFF" fill-rule="evenodd"></path>
+                        </g>
+                        <g id="Stacked-Group" transform="translate(4.046940, 2.239827)" opacity="0.75">
+                            <text id="text" font-family="Avenir-Roman, Avenir" font-size="3.23755231" font-weight="normal" line-spacing="5.05867549" fill="#505A72">
+                                <tspan x="6.87979867" y="3.38094842">Search the Upbound Registry</tspan>
+                            </text>
+                            <g id="Group" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                                <g id="Group" transform="translate(0.607041, 0.607041)">
+                                    <circle id="Oval-Copy" cx="1.51760265" cy="1.51760265" r="1.51760265"></circle>
+                                    <line x1="3.75457175" y1="3.75457175" x2="2.73168476" y2="2.73168476" id="Shape-Copy"></line>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="Have-a-provider-or-c" font-family="Avenir-Roman, Avenir" font-size="4.04694039" font-weight="normal" line-spacing="5.05867549" fill="#505A72">
+                        <tspan x="58.9299611" y="59.9088982">Have a provider or configuration you want to make available to the community?</tspan>
+                    </text>
+                    <ellipse id="Oval" fill="#FF6C70" cx="10.3696498" cy="8.81991848" rx="1.77042802" ry="1.7639837"></ellipse>
+                    <ellipse id="Oval-Copy" fill="#FFCE3C" cx="15.4280156" cy="8.81991848" rx="1.77042802" ry="1.7639837"></ellipse>
+                    <ellipse id="Oval-Copy-2" fill="#2FD3BC" cx="20.4863813" cy="8.81991848" rx="1.77042802" ry="1.7639837"></ellipse>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="65.1264591" y="124.035326" width="32.2723735" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-7" fill="#D2DCEA" opacity="0.717754546" x="186.619953" y="124.035326" width="32.2723735" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-12" fill="#D2DCEA" opacity="0.717754546" x="66.6933868" y="196.745902" width="40.1202405" height="2.60245902" rx="1.2044307"></rect>
+                    <rect id="Rectangle-Copy-3" fill="#D2DCEA" opacity="0.717754546" x="125.259602" y="124.035326" width="32.2723735" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-8" fill="#D2DCEA" opacity="0.717754546" x="139.848781" y="190.137785" width="23.414658" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="65.1264591" y="128.438601" width="36.8628405" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-9" fill="#D2DCEA" opacity="0.717754546" x="186.619953" y="128.438601" width="19.0683388" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-14" fill="#D2DCEA" opacity="0.717754546" x="66.6933868" y="201.95082" width="23.4468938" height="2.60245902" rx="1.2044307"></rect>
+                    <rect id="Rectangle-Copy-4" fill="#D2DCEA" opacity="0.717754546" x="125.259602" y="128.438601" width="28.2723913" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-13" fill="#D2DCEA" opacity="0.717754546" x="139.848781" y="194.54106" width="28.2723913" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="65.1264591" y="132.719887" width="33.8025292" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-10" fill="#D2DCEA" opacity="0.717754546" x="186.619953" y="132.719887" width="33.8025292" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-15" fill="#D2DCEA" opacity="0.717754546" x="66.6933868" y="207.155738" width="41.6833667" height="2.60245902" rx="1.2044307"></rect>
+                    <rect id="Rectangle-Copy-5" fill="#D2DCEA" opacity="0.717754546" x="125.259602" y="132.719887" width="23.9848731" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-17" fill="#D2DCEA" opacity="0.717754546" x="139.848781" y="198.822346" width="36.4898829" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle" fill="#E7F0FC" x="65.1264591" y="141.564872" width="28.2257612" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-11" fill="#E7F0FC" x="186.619953" y="141.564872" width="36.8162102" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-16" fill="#E7F0FC" x="66.6933868" y="218.606557" width="45.3306613" height="2.60245902" rx="1.2044307"></rect>
+                    <g id="Button" transform="translate(66.693387, 229.987342)">
+                        <g id="BG">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-19)" xlink:href="#path-18"></use>
+                            <use fill="#5A53C0" fill-rule="evenodd" xlink:href="#path-18"></use>
+                        </g>
+                        <text id="Install-Provider" font-family="Avenir-Black, Avenir" font-size="3.5743487" font-weight="700" line-spacing="5.10621242" fill="#FFFFFF">
+                            <tspan x="4.6784004" y="8.07774523">Install Provider</tspan>
+                        </text>
+                    </g>
+                    <rect id="Rectangle-Copy-6" fill="#E7F0FC" x="125.873206" y="141.564872" width="28.2257612" height="1.94038207" rx="0.970191033"></rect>
+                    <rect id="Rectangle-Copy-18" fill="#E7F0FC" x="140.462384" y="207.667331" width="28.2257612" height="1.94038207" rx="0.970191033"></rect>
+                </g>
+                <g id="Application-Icons/AWS-Dark/24x24" transform="translate(140.160321, 161.872951)">
+                    <rect id="Rectangle-Copy-13" fill="#232F3E" fill-rule="nonzero" x="0" y="0" width="13.5470942" height="13.5327869" rx="3.38677355"></rect>
+                    <g id="Group-Copy-2" transform="translate(2.371145, 4.393768)">
+                        <path d="M2.43919195,1.98112729 C2.43919195,2.09338105 2.45043042,2.18439762 2.47009775,2.25114311 C2.49257469,2.31788859 2.52067087,2.39070184 2.56000552,2.46958287 C2.57405361,2.49385395 2.57967284,2.51812504 2.57967284,2.53936224 C2.57967284,2.56970109 2.56281514,2.60003995 2.5262901,2.6303788 L2.34928418,2.757802 C2.32399762,2.77600531 2.29868296,2.78510697 2.27623411,2.78510697 C2.24813793,2.78510697 2.22004176,2.76993754 2.19194558,2.74263257 C2.15261093,2.69712429 2.11889551,2.64858212 2.09079933,2.60003995 C2.06270315,2.54846389 2.03460697,2.49082007 2.00370118,2.4210407 C1.78452289,2.70015817 1.50920843,2.83971691 1.17767352,2.83971691 C0.941665616,2.83971691 0.753421218,2.76690366 0.615749941,2.62127715 C0.478078665,2.47565064 0.407838218,2.28148196 0.407838218,2.03877111 C0.407838218,1.78089084 0.492098658,1.57155273 0.663513445,1.41379068 C0.834900136,1.25602863 1.06247919,1.17714761 1.35186983,1.17714761 C1.44736874,1.17714761 1.54573346,1.18624926 1.64968932,1.20141869 C1.75364519,1.21658812 1.86041067,1.24085921 1.97279538,1.26816418 L1.97279538,1.04669053 C1.97279538,0.816115223 1.92784149,0.655319287 1.84074334,0.561268834 C1.75083557,0.46721838 1.5991162,0.421710097 1.38277562,0.421710097 C1.284439,0.421710097 1.18329275,0.433845639 1.07933689,0.461150609 C0.975381031,0.488455579 0.874234787,0.521828321 0.775898161,0.564302719 C0.730944275,0.585539918 0.69722886,0.597675461 0.677561535,0.603743232 C0.65789421,0.609811003 0.64384612,0.612844889 0.632579552,0.612844889 C0.593272998,0.612844889 0.573605673,0.582506033 0.573605673,0.518794435 L0.573605673,0.370134042 C0.573605673,0.321591872 0.579224909,0.285185245 0.593272998,0.263948046 C0.607321088,0.242710847 0.632579552,0.221473648 0.671942299,0.200236449 C0.770250829,0.145626508 0.888282876,0.100118224 1.02595415,0.0637115973 C1.16362543,0.0242710847 1.30972556,0.00606777117 1.46425454,0.00606777117 C1.79859907,0.00606777117 2.04303583,0.087982682 2.20037443,0.251812504 C2.35490341,0.415642325 2.43357271,0.664420944 2.43357271,0.998148358 L2.43357271,1.98112729 L2.43919195,1.98112729 Z M1.29848709,2.4422779 C1.39120448,2.4422779 1.48670339,2.42407458 1.58787773,2.38766796 C1.68902397,2.35126133 1.77893175,2.28451585 1.85479143,2.19349928 C1.89974532,2.13585545 1.93343263,2.07214386 1.95031844,1.9993306 C1.96717615,1.92651735 1.97841462,1.83853467 1.97841462,1.73538256 L1.97841462,1.60795936 C1.8969357,1.58672216 1.80983754,1.56851885 1.71992977,1.55638331 C1.630022,1.54424776 1.54292384,1.53817999 1.45582569,1.53817999 C1.26758129,1.53817999 1.12991001,1.57762051 1.03719262,1.65953542 C0.944475234,1.74145033 0.899521348,1.85673798 0.899521348,2.00843226 C0.899521348,2.15102488 0.933236763,2.25721088 1.00347721,2.33002413 C1.07090804,2.40587127 1.16924467,2.4422779 1.29848709,2.4422779 Z M3.55461025,2.76993754 C3.50403713,2.76993754 3.47032172,2.76083588 3.44784477,2.73959869 C3.42536783,2.72139537 3.4057005,2.67892097 3.3888428,2.62127715 L2.72858259,0.276083588 C2.71169679,0.215405877 2.70329603,0.175965364 2.70329603,0.154728165 C2.70329603,0.106185996 2.72574488,0.0788810253 2.77072686,0.0788810253 L3.04606941,0.0788810253 C3.09942406,0.0788810253 3.13597719,0.087982682 3.15564451,0.109219881 C3.17812145,0.127423195 3.19497916,0.169897593 3.21183687,0.227541419 L3.68385267,2.23597368 L4.12212497,0.227541419 C4.13620115,0.166863707 4.15303077,0.127423195 4.1755358,0.109219881 C4.19801275,0.0910165676 4.2373193,0.0788810253 4.28792052,0.0788810253 L4.51268995,0.0788810253 C4.5660446,0.0788810253 4.60259772,0.087982682 4.62507467,0.109219881 C4.64755161,0.127423195 4.66721894,0.169897593 4.67845741,0.227541419 L5.12234894,2.26024476 L5.60844093,0.227541419 C5.62529863,0.166863707 5.64496596,0.127423195 5.66463329,0.109219881 C5.68711023,0.0910165676 5.72363526,0.0788810253 5.77420838,0.0788810253 L6.03550285,0.0788810253 C6.08045673,0.0788810253 6.10574329,0.10315211 6.10574329,0.154728165 C6.10574329,0.169897593 6.10293368,0.185067021 6.10012406,0.203270334 C6.09728634,0.221473648 6.0916952,0.245744733 6.08045673,0.279117474 L5.40333882,2.62431103 C5.38645302,2.68498874 5.36678569,2.72442926 5.34430875,2.74263257 C5.3218599,2.76083588 5.28533487,2.77297143 5.23757137,2.77297143 L4.99591613,2.77297143 C4.94256149,2.77297143 4.90603646,2.76386977 4.88353142,2.74263257 C4.86105447,2.72139537 4.84138715,2.68195486 4.83017677,2.62127715 L4.394686,0.664420944 L3.96200485,2.61824326 C3.94792866,2.67892097 3.93109905,2.71836149 3.90862211,2.73959869 C3.88614516,2.76083588 3.84681051,2.76993754 3.79623739,2.76993754 L3.55461025,2.76993754 Z M7.16496924,2.85185245 C7.01886911,2.85185245 6.87276898,2.83364914 6.73228808,2.79724251 C6.59180719,2.76083588 6.48223209,2.72139537 6.40918203,2.67588709 C6.36422814,2.64858212 6.33329425,2.61824326 6.32208387,2.59093829 C6.3108454,2.56363332 6.30522616,2.53329447 6.30522616,2.50598949 L6.30522616,2.35126133 C6.30522616,2.28754973 6.32770311,2.25721088 6.36984738,2.25721088 C6.38670508,2.25721088 6.40353469,2.26024476 6.4203924,2.26631253 C6.4372782,2.2723803 6.46253667,2.28451585 6.49066094,2.29665139 C6.58615986,2.34215967 6.69014381,2.3785663 6.79969082,2.40283738 C6.91210363,2.42710847 7.02165063,2.43924401 7.13406344,2.43924401 C7.31106937,2.43924401 7.44874064,2.40587127 7.54423956,2.33912579 C7.63979466,2.2723803 7.69036778,2.17529597 7.69036778,2.05090666 C7.69036778,1.96595786 7.66508122,1.89617849 7.61448,1.83853467 C7.56393498,1.78089084 7.46840797,1.72931478 7.3307086,1.68077262 L6.9233421,1.54424776 C6.71823999,1.4744684 6.56652063,1.37131629 6.47380324,1.23479143 C6.38108585,1.10130047 6.33329425,0.952640074 6.33329425,0.794878024 C6.33329425,0.667454829 6.3586089,0.555201062 6.40918203,0.458116724 C6.45972705,0.361032385 6.52718598,0.276083588 6.61147451,0.209338105 C6.69576305,0.139558737 6.79129006,0.087982682 6.90367477,0.051576055 C7.01605949,0.0151694279 7.13406344,0 7.25768663,0 C7.31947012,0 7.38411943,0.00303388559 7.44590293,0.0121355423 C7.51055224,0.0212371991 7.56952612,0.0333727415 7.62852809,0.0455082838 C7.68472045,0.0606777117 7.73810319,0.0758471397 7.78870441,0.0940504532 C7.83924943,0.112253767 7.87861218,0.13045708 7.90670836,0.148660394 C7.94604301,0.172931478 7.97413919,0.197202563 7.9909969,0.224507533 C8.0078546,0.248778618 8.01628346,0.28215136 8.01628346,0.324625758 L8.01628346,0.46721838 C8.01628346,0.530929978 7.99380651,0.564302719 7.95166225,0.564302719 C7.9291853,0.564302719 7.89266027,0.552167177 7.84489677,0.527896092 C7.68474855,0.449015067 7.504933,0.409574554 7.30545013,0.409574554 C7.14530191,0.409574554 7.01886911,0.436879525 6.93177095,0.494523351 C6.8446728,0.552167177 6.79971891,0.640149859 6.79971891,0.764539168 C6.79971891,0.849487964 6.82781509,0.922301218 6.88400745,0.979945045 C6.94019981,1.03758887 7.04415567,1.0952327 7.19306542,1.14680875 L7.59203116,1.2833336 C7.79432364,1.35311297 7.94042377,1.45019731 8.02752193,1.57458662 C8.11462008,1.69897593 8.15676435,1.84156855 8.15676435,1.9993306 C8.15676435,2.12978768 8.13147779,2.24810922 8.08371429,2.35126133 C8.03314116,2.45441344 7.96571034,2.54543001 7.87861218,2.61824326 C7.79151403,2.6940904 7.68755816,2.74870034 7.5667446,2.78814085 C7.44031179,2.83061525 7.30825975,2.85185245 7.16496924,2.85185245 L7.16496924,2.85185245 Z" id="Fill-1" fill="#FFFFFF"></path>
+                        <path d="M7.74309924,4.17710811 C6.80594514,4.90819144 5.44436563,5.29629741 4.27366362,5.29629741 C2.63293183,5.29629741 1.15456411,4.65547128 0.037954977,3.59043629 C-0.0503767815,3.50619624 0.0294094989,3.39187045 0.134803729,3.45805906 C1.34256463,4.19816812 2.83229783,4.64644556 4.37336086,4.64644556 C5.4130607,4.64644556 6.55530627,4.41779398 7.60640008,3.94845653 C7.76306717,3.87324219 7.89694633,4.05676517 7.74309924,4.17710811 Z M8.13337123,3.70777066 C8.01370605,3.54530769 7.34149026,3.62954775 7.03670154,3.6686592 C6.94552129,3.6806935 6.93127882,3.59645344 7.01391359,3.5332734 C7.54943022,3.13614171 8.42958598,3.2504675 8.5321602,3.38284473 C8.63470594,3.51823053 8.50367528,4.44787971 8.00231208,4.89314857 C7.92543126,4.96234576 7.85137045,4.92624288 7.88552388,4.83598568 C7.99946358,4.53813691 8.25300792,3.86722505 8.13337123,3.70777066 L8.13337123,3.70777066 Z" id="Fill-2" fill="#FF9900"></path>
+                    </g>
+                </g>
+                <g id="Application-Icons/Rook/24x24" transform="translate(125.571142, 96.811475)">
+                    <rect id="Rectangle-Copy-13" fill="#17355D" fill-rule="nonzero" x="0" y="0" width="13.0260521" height="13.0122951" rx="3.25651303"></rect>
+                    <g id="Group" transform="translate(3.256536, 3.036560)">
+                        <g id="Group-3" transform="translate(0.000000, 2.737745)">
+                            <mask id="mask-21" fill="white">
+                                <use xlink:href="#path-20"></use>
+                            </mask>
+                            <g id="Clip-2"></g>
+                            <path d="M0.448588999,0.479875346 L0.448588999,3.01935361 C0.448588999,3.68088292 0.951604506,4.21910327 1.57011879,4.21910327 L4.89059404,4.21910327 C5.50899374,4.21910327 6.01212383,3.68088292 6.01212383,3.01935361 L6.01212383,0.479875346 L0.448588999,0.479875346 Z M4.89059404,4.69897861 L1.57011879,4.69897861 C0.704336291,4.69897861 0,3.94539659 0,3.01935361 L0,0.239876386 C0,0.107374407 0.100373937,0 0.224237209,0 L6.23636104,0 C6.36022431,0 6.46071283,0.107374407 6.46071283,0.239876386 L6.46071283,3.01935361 C6.46071283,3.94539659 5.75626196,4.69897861 4.89059404,4.69897861 L4.89059404,4.69897861 Z" id="Fill-1" fill="#2AC6EA" mask="url(#mask-21)"></path>
+                        </g>
+                        <path d="M2.65341845,5.42746986 L3.85956177,5.42746986 L3.85956177,4.82503511 C3.85956177,4.49292049 3.58895585,4.22260037 3.25649011,4.22260037 C2.92390114,4.22260037 2.65341845,4.49292049 2.65341845,4.82503511 L2.65341845,5.42746986 Z M4.1007165,5.90939304 L2.4121405,5.90939304 C2.27893239,5.90939304 2.17098577,5.80156042 2.17098577,5.668493 L2.17098577,4.82503511 C2.17098577,4.22715494 2.65785461,3.74067719 3.25649011,3.74067719 C3.85500238,3.74067719 4.34199445,4.22715494 4.34199445,4.82503511 L4.34199445,5.668493 C4.34199445,5.80156042 4.2339246,5.90939304 4.1007165,5.90939304 L4.1007165,5.90939304 Z" id="Fill-4" fill="#2AC6EA"></path>
+                        <g id="Group-8" transform="translate(0.000023, 0.000000)">
+                            <mask id="mask-23" fill="white">
+                                <use xlink:href="#path-22"></use>
+                            </mask>
+                            <g id="Clip-7"></g>
+                            <path d="M6.23636104,2.42650495 L6.23601729,2.42650495 L5.02843633,2.42426774 C4.90445848,2.42401916 4.80419912,2.31489293 4.80442829,2.18053592 C4.80465745,2.0463032 4.90514597,1.93767413 5.02878008,1.93767413 L5.02912382,1.93767413 L6.01200925,1.93953848 L6.01200925,0.486593601 L5.25828806,0.486593601 L5.25828806,0.897619153 C5.25828806,0.962125431 5.23456956,1.02389734 5.19251793,1.0696359 C5.15046629,1.11525016 5.09340439,1.14085381 5.03393627,1.14085381 L3.83185525,1.14072952 C3.7078774,1.14072952 3.60750346,1.03185187 3.60750346,0.897494864 L3.60750346,0.48684218 L2.85389686,0.48684218 L2.85389686,0.897494864 C2.85389686,1.03185187 2.75352292,1.14072952 2.62954507,1.14072952 L1.42666197,1.14085381 C1.36719385,1.14085381 1.31013196,1.11525016 1.26808032,1.0696359 C1.22602868,1.02389734 1.20242477,0.962125431 1.20242477,0.897619153 L1.20242477,0.486593601 L0.448588999,0.486593601 L0.448588999,1.93991135 L1.42081829,1.93991135 C1.54468156,1.93991135 1.6450555,2.048789 1.6450555,2.183146 C1.6450555,2.3176273 1.54468156,2.42650495 1.42081829,2.42650495 L0.224237209,2.42650495 C0.100373937,2.42650495 0,2.3176273 0,2.183146 L0,0.243234656 C0,0.108877649 0.100373937,0 0.224237209,0 L1.42666197,0 C1.55052525,0 1.65101377,0.108877649 1.65101377,0.243234656 L1.65101377,0.654260208 L2.40530786,0.654135919 L2.40530786,0.243483235 C2.40530786,0.109001938 2.5056818,0.000248579106 2.62954507,0.000248579106 L3.83185525,0.000248579106 C3.95571852,0.000248579106 4.05609246,0.109001938 4.05609246,0.243483235 L4.05609246,0.654135919 L4.80969906,0.654260208 L4.80969906,0.243234656 C4.80969906,0.108877649 4.910073,0 5.03393627,0 L6.23636104,0 C6.36022431,0 6.46071283,0.108877649 6.46071283,0.243234656 L6.46071283,2.183146 C6.46071283,2.24790086 6.43699433,2.30979706 6.39482811,2.35541132 C6.35277647,2.4009013 6.29582916,2.42650495 6.23636104,2.42650495" id="Fill-6" fill="#2AC6EA" mask="url(#mask-23)"></path>
+                        </g>
+                    </g>
+                </g>
+                <g id="Application-Icons/Alibaba/24x24" transform="translate(65.130261, 97.019672)">
+                    <mask id="mask-25" fill="white">
+                        <use xlink:href="#path-24"></use>
+                    </mask>
+                    <use id="Mask" fill="#FF6A03" fill-rule="nonzero" xlink:href="#path-24"></use>
+                    <g id="Group-Copy-2" mask="url(#mask-25)">
+                        <g transform="translate(2.713766, 4.345846)">
+                            <g id="Group-7" stroke-width="1" fill="none">
+                                <g id="Group-3">
+                                    <mask id="mask-27" fill="white">
+                                        <use xlink:href="#path-26"></use>
+                                    </mask>
+                                    <g id="Clip-2"></g>
+                                    <path d="M3.25971214,4.12151866 L1.44876709,3.73694603 C1.28367644,3.6998502 1.15947195,3.55863805 1.15215606,3.38804039 C1.15141066,3.3830799 1.15141066,1.48811949 1.15215606,1.48326684 C1.15947195,1.31261527 1.28367644,1.17137615 1.44876709,1.13425337 L3.25971214,0.749680735 L3.45395592,0 L1.34355631,0 C0.60340909,0 0.00292635602,0.584313157 0,1.30630682 L0,3.56478474 C0.00292635602,4.28680536 0.60340909,4.87119939 1.34355631,4.87119939 L3.45395592,4.87119939 L3.25971214,4.12151866 Z" id="Fill-1" fill="#FFFFFF" mask="url(#mask-27)"></path>
+                                </g>
+                                <g id="Group-6" transform="translate(4.729952, 0.000000)">
+                                    <mask id="mask-29" fill="white">
+                                        <use xlink:href="#path-28"></use>
+                                    </mask>
+                                    <g id="Clip-5"></g>
+                                    <path d="M0.194326604,4.12151866 L2.00499559,3.73694603 C2.17016906,3.6998502 2.29423551,3.55863805 2.3015514,3.38804039 C2.30246244,3.3830799 2.30246244,1.48811949 2.3015514,1.48326684 C2.29423551,1.31261527 2.17016906,1.17137615 2.00499559,1.13425337 L0.194326604,0.749680735 L0,0 L2.11020637,0 C2.85035358,0 3.45091914,0.584313157 3.45362464,1.30630682 L3.45362464,3.56478474 C3.45091914,4.28680536 2.85035358,4.87119939 2.11020637,4.87119939 L0,4.87119939 L0.194326604,4.12151866 Z" id="Fill-4" fill="#FFFFFF" mask="url(#mask-29)"></path>
+                                </g>
+                            </g>
+                            <rect id="Rectangle" fill="#FFFFFF" x="2.71375533" y="2.16030189" width="2.71376086" height="1"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
