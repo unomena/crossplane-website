@@ -1,16 +1,7 @@
 {
-  "include": [
-    "./src/**/*",
-    "./*"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
-  "types": [
-    "node",
-    "jest",
-    "@testing-library/jest-dom"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "types": ["node", "jest", "@testing-library/jest-dom"],
   "compilerOptions": {
     "module": "esnext",
     "allowSyntheticDefaultImports": true,
@@ -20,13 +11,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSources": true,
-    "lib": [
-      "es6",
-      "es2015",
-      "es2017",
-      "es2019",
-      "dom"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -38,12 +23,8 @@
     "sourceMap": true,
     "sourceRoot": "/",
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es2016",
-    "typeRoots": [
-      "./typings",
-      "./src/@types",
-      "./node_modules/@types"
-    ],
+    "target": "es5",
+    "typeRoots": ["./typings", "./src/@types", "./node_modules/@types"],
     "allowJs": true,
     "jsx": "preserve",
     "moduleResolution": "node",

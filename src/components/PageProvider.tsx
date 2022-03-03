@@ -7,9 +7,9 @@ import { jsx } from '@emotion/react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 
-// import { PageFooter } from './PageFooter';
-import PageHeader from './PageHeader';
-// import { PageHelmet } from './PageHelmet';
+import PageHeader from 'src/components/PageHeader';
+import PageFooter from 'src/components/PageFooter';
+import PageHead from 'src/components/PageHead';
 
 const PageContainer = styled(Box)`
   position: relative;
@@ -56,14 +56,14 @@ const PageProvider: React.FC<{
 
   return (
     <PageContainer id="page-container">
-      {/* <PageHelmet
+      <PageHead
         displayTitle={displayTitle}
         metaTitle={metaTitle}
         metaDescription={metaDescription}
-      /> */}
+      />
       <PageHeader isHeaderVisible={isHeaderVisible} setOverflowVisible={setOverflowVisible} />
       {children}
-      {/* <PageFooter isFooterVisible={isFooterVisible} /> */}
+      <PageFooter isFooterVisible={isFooterVisible} />
     </PageContainer>
   );
 };

@@ -23,5 +23,3 @@ declare class MarkerCluster extends Marker {
    */
   public getBounds(): LatLngBounds;
 }
-
-declare module 'react-modal-video';

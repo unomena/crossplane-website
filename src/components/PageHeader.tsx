@@ -5,37 +5,32 @@ import React, { useState } from 'react';
 
 import Image from 'next/image';
 
+import { css, jsx } from '@emotion/react';
 import { Box, Hidden } from '@mui/material';
 import { styled } from '@mui/system';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
-import { css, jsx } from '@emotion/react';
-// import { COLORS, fontAvenirBold } from '../constants/styles';
+import * as routes from 'src/routes';
+import { isAuthenticated } from 'src/utils/auth';
 
-// import styled from '@emotion/styled';
-// import VideoModal from 'react-modal-video';
-import VideoModal from './VideoModal';
+import { Anchor, Link } from 'src/elements/Anchor';
+import { AnchorButton, Button } from 'src/elements/Button';
+import { Flex } from 'src/elements/Div';
+import { Dropdown } from 'src/elements/Dropdown';
+import { If } from 'src/elements/If';
+import { Img } from 'src/elements/Img';
+import { Paragraph } from 'src/elements/Paragraph';
+import { Popover } from 'src/elements/Popover';
+import { Span } from 'src/elements/Span';
+import VideoModal from 'src/elements/VideoModal';
 
-// import { Media, MQ } from '../constants/styledTheme';
-import { Anchor, Link } from '../elements/Anchor';
-import { AnchorButton, Button } from '../elements/Button';
-import { Flex } from '../elements/Div';
-import { Dropdown } from '../elements/Dropdown';
-import { If } from '../elements/If';
-import { Img } from '../elements/Img';
-import { Paragraph } from '../elements/Paragraph';
-import { Popover } from '../elements/Popover';
-import { Span } from '../elements/Span';
-import * as routes from '../routes';
-import { isAuthenticated } from '../utils/auth';
-
-import chevronRight from '../../public/chevron-right.svg';
-import closeIcon from '../../public/close-icon.svg';
-import cloudPlatformIcon from '../../public/cloud-platform-icon.svg';
-import hamburgerIcon from '../../public/hamburger-white.svg';
-import logo from '../../public/logo-white.svg';
-import registryIcon from '../../public/registry-icon.svg';
-import uxpIcon from '../../public/uxp-icon.svg';
+import chevronRight from 'public/chevron-right.svg';
+import closeIcon from 'public/close-icon.svg';
+import cloudPlatformIcon from 'public/cloud-platform-icon.svg';
+import hamburgerIcon from 'public/hamburger-white.svg';
+import logo from 'public/logo-white.svg';
+import registryIcon from 'public/registry-icon.svg';
+import uxpIcon from 'public/uxp-icon.svg';
 import PlayCircle from 'src/svg/PlayCircle';
 
 const Column = styled(Flex)`
@@ -52,7 +47,7 @@ const BannerContainer = styled(Flex)`
   width: 100%;
 `;
 
-const BannerAnchor = styled(Anchor)(({ theme }) => ({
+const BannerAnchor = styled(Anchor)(({}) => ({
   ...fontAvenirBold,
   display: 'block',
   color: COLORS.white,
@@ -644,7 +639,6 @@ const PageHeader: React.FC<{
                         Crossplane at the Crossroads
                       </Span>
                       <PlayCircle />
-                      {/* <Img src={playCircle} width={18} height={18} alt="Play Circle" /> */}
                     </LargeHeaderPopoverSectionButton>
                   </Box>
                 </LargeHeaderPopoverSectionContainer>
@@ -803,18 +797,6 @@ const PageHeader: React.FC<{
         </LargeHeaderContainer>
       </Hidden>
       <VideoModal open={isVideoVisible} setOpen={setVideoVisible} videoId="S-Pvhcz4KKI" />
-      {/* {typeof window !== 'undefined' && (
-        <VideoModal
-          channel="youtube"
-          autoplay
-          isOpen={isVideoVisible}
-          videoId="S-Pvhcz4KKI"
-          onClose={() => {
-            setVideoVisible(false);
-            setOverflowVisible(true);
-          }}
-        />
-      )} */}
     </>
   );
 };
