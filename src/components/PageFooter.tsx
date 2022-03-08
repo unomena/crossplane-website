@@ -3,8 +3,6 @@
 
 import React, { useState } from 'react';
 
-import Image from 'next/image';
-
 import { css, jsx } from '@emotion/react';
 import { Box, Hidden } from '@mui/material';
 import { styled } from '@mui/system';
@@ -434,9 +432,9 @@ const MobileFooterLogoLink = styled(Link)`
   }
 `;
 
-const MobileFooterLogoImage = styled(Img)`
-  width: 120px;
-`;
+// const MobileFooterLogoImage = styled(Img)`
+//   width: 120px;
+// `;
 
 const MobileFooterCopyrightParagraph = styled(Paragraph)`
   color: ${COLORS.fillBlackGray};
@@ -474,11 +472,11 @@ const MobileFooterCNCFColumn = styled(Column)`
   }
 `;
 
-const MobileFooterCNCFImage = styled(Img)`
-  width: 233px;
-  height: 37px;
-  margin-bottom: 26px;
-`;
+// const MobileFooterCNCFImage = styled(Img)`
+//   width: 233px;
+//   height: 37px;
+//   margin-bottom: 26px;
+// `;
 
 const MobileFooterCNCFSpan = styled(Span)`
   color: ${COLORS.fillBlackGray};
@@ -648,7 +646,7 @@ const PageFooter: React.FC<{
               </MobileFooterLinkColumnsWidthContainer>
               <MobileFooterLogoAndSocialsContainer>
                 <MobileFooterLogoLink href={routes.homeRoute}>
-                  <MobileFooterLogoImage src={logo} />
+                  <Img src={logo} alt="logo" width={120} />
                 </MobileFooterLogoLink>
                 <MobileFooterCopyrightParagraph>
                   Copyright © 2021.
@@ -674,7 +672,11 @@ const PageFooter: React.FC<{
             <MobileFooterCNCFBorderContainer>
               <MobileFooterCNCFColumn>
                 <Anchor href={routes.cncfUrl}>
-                  <MobileFooterCNCFImage src={cncfIcon} />
+                  <Img
+                    src={cncfIcon}
+                    alt="cncfIcon"
+                    sx={{ width: '233px', height: '37px', marginBottom: '32px' }}
+                  />
                 </Anchor>
                 <MobileFooterCNCFSpan>
                   Upbound is an active contributor to Crossplane and the Cloud Native Computing
@@ -684,7 +686,7 @@ const PageFooter: React.FC<{
             </MobileFooterCNCFBorderContainer>
           </MobileFooterWidthContainer>
         </Hidden>
-        <Hidden mdDown>
+        <Hidden lgDown>
           <LargeFooterWidthContainer>
             <LargeFooterSalesContainer>
               <LargeFooterSalesSpan>
@@ -731,9 +733,7 @@ const PageFooter: React.FC<{
             <LargeFooterLinkColumnsContainer>
               <LargeFooterLogoAndSocialsContainer>
                 <LargeFooterLogoLink href={routes.homeRoute}>
-                  <Box width={120}>
-                    <Image src={logo} alt="logo" layout="responsive" />
-                  </Box>
+                  <Img src={logo} alt="logo" width={120} />
                 </LargeFooterLogoLink>
                 <LargeFooterCopyrightParagraph>
                   Copyright © 2021.
@@ -744,24 +744,16 @@ const PageFooter: React.FC<{
                   <Box>
                     <LargeFooterSocialsContainer>
                       <LargeFooterSocialAnchor href={routes.twitterUrl} sx={{ mr: '20px' }}>
-                        <Box width={18}>
-                          <Image src={twitterLogo} alt="Twitter" layout="responsive" />
-                        </Box>
+                        <Img src={twitterLogo} alt="Twitter" width={18} />
                       </LargeFooterSocialAnchor>
                       <LargeFooterSocialAnchor href={routes.githubUrl} sx={{ mr: '20px' }}>
-                        <Box width={18}>
-                          <Image src={githubLogo} alt="GitHub" layout="responsive" />
-                        </Box>
+                        <Img src={githubLogo} alt="GitHub" width={18} />
                       </LargeFooterSocialAnchor>
                       <LargeFooterSocialAnchor href={routes.linkedinUrl} sx={{ mr: '20px' }}>
-                        <Box width={16}>
-                          <Image src={linkedinLogo} alt="LinkedIn" layout="responsive" />
-                        </Box>
+                        <Img src={linkedinLogo} alt="LinkedIn" width={16} />
                       </LargeFooterSocialAnchor>
                       <LargeFooterSocialAnchor href={routes.youtubeUrl}>
-                        <Box width={19}>
-                          <Image src={youtubeLogo} alt="YouTube" layout="responsive" />
-                        </Box>
+                        <Img src={youtubeLogo} alt="YouTube" width={19} />
                       </LargeFooterSocialAnchor>
                     </LargeFooterSocialsContainer>
                   </Box>
@@ -805,9 +797,11 @@ const PageFooter: React.FC<{
             </LargeFooterLinkColumnsContainer>
             <LargeFooterCNCFContainer>
               <Anchor href={routes.cncfUrl}>
-                <Box sx={{ width: '233px', height: '37px', marginBottom: '32px' }}>
-                  <Image src={cncfIcon} alt="cncfIcon" layout="responsive" />
-                </Box>
+                <Img
+                  src={cncfIcon}
+                  alt="cncfIcon"
+                  sx={{ width: '233px', height: '37px', marginBottom: '32px' }}
+                />
               </Anchor>
               <LargeFooterCNCFSpan>
                 Upbound is an active contributor to Crossplane and the Cloud Native Computing

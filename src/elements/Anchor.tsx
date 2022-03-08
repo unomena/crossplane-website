@@ -3,12 +3,12 @@
 
 import React from 'react';
 
-import { css } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import { styled, SxProps } from '@mui/system';
 
 import NextLink from 'next/link';
 
-import { COLORS, fontAvenirBold, fontAvenirRoman, shouldForwardProp } from '../theme';
+import { COLORS, fontAvenirBold, fontAvenirRoman, shouldForwardProp } from 'src/theme';
 
 type Hover = 'underline' | 'opacity' | 'none';
 
@@ -48,7 +48,7 @@ const getHoverStyle = (hover: Hover) => {
 };
 
 const StyledAnchor = styled('a', { shouldForwardProp })<{ otherStyles?: any }>(
-  ({ theme, otherStyles }) => ({
+  ({ otherStyles }) => ({
     cursor: 'pointer',
     textDecoration: 'underline',
     transition: 'all 0.2s ease-in-out',

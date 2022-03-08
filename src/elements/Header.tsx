@@ -5,9 +5,9 @@ import React from 'react';
 
 import { jsx } from '@emotion/react';
 import { Typography } from '@mui/material';
-import { styled, SxProps } from '@mui/system';
+import { SxProps } from '@mui/system';
 
-import { COLORS } from '../theme';
+import { COLORS } from 'src/theme';
 
 type HeaderTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -64,7 +64,7 @@ const lineHeights = {
 // `;
 
 const Header = React.forwardRef<HTMLHeadingElement, HeaderProps>(
-  ({ variant, pill, bold = true, children, ...props }, ref) => {
+  ({ variant, pill, bold, children, color, ...props }, ref) => {
     return (
       <Typography
         variant={variant}
@@ -74,6 +74,7 @@ const Header = React.forwardRef<HTMLHeadingElement, HeaderProps>(
           bold ? `'Avenir', 'Arial Black', sans-serif` : `'Avenir-Roman', 'Arial', sans-serif`
         }
         fontWeight={bold ? '900' : 'normal'}
+        color={color ? COLORS[color] : ''}
         {...props}
         ref={ref}
       >

@@ -125,6 +125,12 @@ const blacklistProps = ['color', 'display', 'height', 'size', 'width'];
 export const shouldForwardProp = (prop: string) =>
   isPropValid(prop) && !blacklistProps.includes(prop);
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    _: true;
+  }
+}
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -150,7 +156,7 @@ const theme = createTheme({
       color: COLORS.darkNavy,
     },
     h3: {
-      fontFamily: `'Avenir', 'Arial Black', sans-serif`,
+      fontFamily: `'Avenir-Roman', 'Arial', sans-serif`,
       fontSize: '32px',
       lineHeight: '37px',
       color: COLORS.darkNavy,
@@ -161,6 +167,7 @@ const theme = createTheme({
   },
   breakpoints: {
     values: {
+      _: 0,
       xs: 480,
       sm: 576,
       md: 768,

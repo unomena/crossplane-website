@@ -3,9 +3,10 @@
 
 import React from 'react';
 
-import { Box, styled, SxProps } from '@mui/system';
+import { jsx } from '@emotion/react';
+import { Box, SxProps } from '@mui/system';
 
-import { shouldForwardProp } from '../theme';
+// import { shouldForwardProp } from 'src/theme';
 
 import Image, { ImageProps } from 'next/image';
 
@@ -27,11 +28,11 @@ import Image, { ImageProps } from 'next/image';
 //   styledSystem.flexShrink
 // );
 
-const StyledImage = styled(Image, { shouldForwardProp })<ImageProps & { otherStyles?: any }>(
-  ({ theme, otherStyles }) => ({
-    ...otherStyles,
-  })
-);
+// const StyledImage = styled(Image, { shouldForwardProp })<ImageProps & { otherStyles?: any }>(
+//   ({ otherStyles }) => ({
+//     ...otherStyles,
+//   })
+// );
 
 // export const ImageTag: StyledComponent<ImgProps, any, object> = styled('img', {
 //   shouldForwardProp,
@@ -39,21 +40,26 @@ const StyledImage = styled(Image, { shouldForwardProp })<ImageProps & { otherSty
 
 export const Img: React.FC<
   ImageProps & { height?: string | number; width?: string | number; sx?: SxProps }
-> = ({ alt, width, height, src, sx, ...props }) => {
+> = ({ src, alt, width, height, sx, ...props }) => {
   return (
     <Box width={width} height={height} sx={sx}>
-      <StyledImage src={src || ''} alt={alt || ''} layout="responsive" {...props} />
+      <Image src={src || ''} alt={alt || ''} layout="responsive" {...props} />
     </Box>
   );
 };
 
-export const Avatar: React.FC<ImageProps> = ({ ...props }) => {
-  let otherStyles: any = {
-    borderRadius: '100%',
-    flexShrink: '0',
-  };
-
-  return <StyledImage otherStyles={otherStyles} {...props} />;
+export const Avatar: React.FC<ImageProps & { size?: string | number; sx?: SxProps }> = ({
+  src,
+  alt,
+  size,
+  sx,
+  ...props
+}) => {
+  return (
+    <Box width={size} height={size} sx={{ borderRadius: '100%', flexShrink: '0', ...sx }}>
+      <Image src={src || ''} alt={alt || ''} layout="responsive" {...props} />
+    </Box>
+  );
 };
 
 // export const Avatar = styled(Img, { shouldForwardProp })<ImgProps & { size?: string }>`

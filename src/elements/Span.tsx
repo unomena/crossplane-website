@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { styled } from '@mui/system';
 
-import { COLORS, fontAvenirBold, fontAvenirRoman, shouldForwardProp } from '../theme';
+import { COLORS, fontAvenirBold, fontAvenirRoman, shouldForwardProp } from 'src/theme';
 
 const baseStyle = css`
   ${fontAvenirRoman};

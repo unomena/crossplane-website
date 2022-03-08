@@ -1,19 +1,14 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 
-// import { ClassNames, css, jsx } from '@emotion/core';
 import React from 'react';
 
-import { css } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import { styled, SxProps } from '@mui/system';
 
 import NextLink from 'next/link';
-// import styled from '@emotion/styled';
-// import { GatsbyLinkProps } from 'gatsby';
-// import * as styledSystem from 'styled-system';
 
-// import { MQ } from '../constants/styledTheme';
-import { COLORS, fontAvenirBold, fontAvenirRoman, MQ, shouldForwardProp } from '../theme';
+import { COLORS, fontAvenirBold, fontAvenirRoman, MQ, shouldForwardProp } from 'src/theme';
 import { AnchorProps } from './Anchor';
 
 export type BtnTypes =
@@ -35,7 +30,7 @@ interface ButtonProps {
 }
 
 const StyledButton = styled('button', { shouldForwardProp })<{ otherStyles?: any }>(
-  ({ theme, otherStyles }) => ({
+  ({ otherStyles }) => ({
     boxSizing: 'border-box',
     border: 'solid 2px transparent',
     borderRadius: '40px',
@@ -57,7 +52,7 @@ const StyledButton = styled('button', { shouldForwardProp })<{ otherStyles?: any
 );
 
 const StyledAnchor = styled('a', { shouldForwardProp })<{ otherStyles?: any }>(
-  ({ theme, otherStyles }) => ({
+  ({ otherStyles }) => ({
     boxSizing: 'border-box',
     border: 'solid 2px transparent',
     borderRadius: '40px',
@@ -78,24 +73,24 @@ const StyledAnchor = styled('a', { shouldForwardProp })<{ otherStyles?: any }>(
   })
 );
 
-const baseStyle = css`
-  box-sizing: border-box;
-  border: solid 2px transparent;
-  border-radius: 40px;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+// const baseStyle = css`
+//   box-sizing: border-box;
+//   border: solid 2px transparent;
+//   border-radius: 40px;
+//   font-size: 14px;
+//   line-height: 20px;
+//   text-align: center;
+//   outline: none;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in-out;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
 
-  &:disabled {
-    cursor: not-allowed;
-  }
-`;
+//   &:disabled {
+//     cursor: not-allowed;
+//   }
+// `;
 
 const aquaGreenFill = {
   backgroundColor: COLORS.aquaGreen,

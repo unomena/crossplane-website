@@ -3,8 +3,6 @@
 
 import React, { useState } from 'react';
 
-import Image from 'next/image';
-
 import { css, jsx } from '@emotion/react';
 import { Box, Hidden } from '@mui/material';
 import { styled } from '@mui/system';
@@ -15,7 +13,6 @@ import { isAuthenticated } from 'src/utils/auth';
 
 import { Anchor, Link } from 'src/elements/Anchor';
 import { AnchorButton, Button } from 'src/elements/Button';
-import { Flex } from 'src/elements/Div';
 import { Dropdown } from 'src/elements/Dropdown';
 import { If } from 'src/elements/If';
 import { Img } from 'src/elements/Img';
@@ -33,12 +30,14 @@ import registryIcon from 'public/registry-icon.svg';
 import uxpIcon from 'public/uxp-icon.svg';
 import PlayCircle from 'src/svg/PlayCircle';
 
-const Column = styled(Flex)`
+const Column = styled(Box)`
+  display: flex;
   box-sizing: border-box;
   flex-direction: column;
 `;
 
-const BannerContainer = styled(Flex)`
+const BannerContainer = styled(Box)`
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #263b67;
@@ -108,7 +107,8 @@ const LargeHeaderContainer = styled(Column)`
   width: 100%;
 `;
 
-const LargeHeaderBackgroundContainer = styled(Flex)`
+const LargeHeaderBackgroundContainer = styled(Box)`
+  display: flex;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -182,7 +182,8 @@ const LargeHeaderLink = styled(Link)(largeHeaderLinkStyle);
 
 const LargeHeaderPopover = styled(Popover)(largeHeaderLinkStyle);
 
-const LargeHeaderPopoverContainer = styled(Flex)`
+const LargeHeaderPopoverContainer = styled(Box)`
+  display: flex;
   border-radius: 10px;
   background-color: ${COLORS.white};
   box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.16);
@@ -229,7 +230,8 @@ const largeHeaderPopoverSectionRowStyle = css`
   }
 `;
 
-const LargeHeaderPopoverSectionRowContainer = styled(Flex)`
+const LargeHeaderPopoverSectionRowContainer = styled(Box)`
+  display: flex;
   ${largeHeaderPopoverSectionRowStyle}
   padding: 15px 18px;
 `;
@@ -241,7 +243,8 @@ const LargeHeaderPopoverSectionLinkRowContainer = styled(Link)`
   margin-bottom: 5px;
 `;
 
-const LargeHeaderPopoverSectionRowImageContainer = styled(Flex)`
+const LargeHeaderPopoverSectionRowImageContainer = styled(Box)`
+  display: flex;
   margin-right: 9px;
   width: 25px;
   height: 25px;
@@ -290,7 +293,8 @@ const MobileHeaderStickyContainer = styled(Box)`
   z-index: 100;
 `;
 
-const MobileHeaderBackgroundContainer = styled(Flex)<{ isMobileHeaderOpen: boolean }>`
+const MobileHeaderBackgroundContainer = styled(Box)<{ isMobileHeaderOpen: boolean }>`
+  display: flex;
   position: relative;
   z-index: 200;
   background-color: ${COLORS.cornflower};
@@ -354,10 +358,10 @@ const MobileHeaderMenuButton = styled(Button)`
   border: 0;
 `;
 
-const MobileHeaderMenuImage = styled(Img)`
-  height: 24px;
-  width: 24px;
-`;
+// const MobileHeaderMenuImage = styled(Img)`
+//   height: 24px;
+//   width: 24px;
+// `;
 
 const mobileHeaderLinkStyle = css`
   display: flex;
@@ -431,7 +435,7 @@ const PageHeader: React.FC<{
         <MobileHeaderStickyContainer>
           <MobileHeaderBackgroundContainer isMobileHeaderOpen={isMobileHeaderOpen}>
             <HeaderLogoLink href={routes.homeRoute}>
-              <Img src={logo} />
+              <Img src={logo} alt="logo" width={117} />
             </HeaderLogoLink>
             <If is={isMobileHeaderOpen}>
               <MobileHeaderMenuButton
@@ -440,7 +444,7 @@ const PageHeader: React.FC<{
                   setOverflowVisible(true);
                 }}
               >
-                <MobileHeaderMenuImage src={closeIcon} />
+                <Img src={closeIcon} alt="close icon" width={24} />
               </MobileHeaderMenuButton>
             </If>
             <If is={!isMobileHeaderOpen}>
@@ -450,7 +454,7 @@ const PageHeader: React.FC<{
                   setOverflowVisible(false);
                 }}
               >
-                <MobileHeaderMenuImage src={hamburgerIcon} />
+                <Img src={hamburgerIcon} alt="menu icon" width={24} />
               </MobileHeaderMenuButton>
             </If>
           </MobileHeaderBackgroundContainer>
@@ -459,10 +463,7 @@ const PageHeader: React.FC<{
               <MobileHeaderDropdown>
                 Why Upbound
                 <MobileHeaderDropdownContainer>
-                  <MobileHeaderDropdownLink
-                    sx={{ mt: 0 }}
-                    href={routes.whyUpboundUniversalCloudPlatformRoute}
-                  >
+                  <MobileHeaderDropdownLink href={routes.whyUpboundUniversalCloudPlatformRoute}>
                     The Universal Cloud Platform
                   </MobileHeaderDropdownLink>
                   <MobileHeaderDropdownLink href={routes.whyUpboundBeyondIacRoute}>
@@ -479,7 +480,7 @@ const PageHeader: React.FC<{
               <MobileHeaderDropdown>
                 Products
                 <MobileHeaderDropdownContainer>
-                  <MobileHeaderDropdownLink sx={{ mt: 0 }} href={routes.productsUbcRoute}>
+                  <MobileHeaderDropdownLink href={routes.productsUbcRoute}>
                     Universal Cloud Platform
                   </MobileHeaderDropdownLink>
                   <MobileHeaderDropdownLink href={routes.productsUxpRoute}>
@@ -532,7 +533,7 @@ const PageHeader: React.FC<{
           </MobileHeaderMenuContainer>
         </MobileHeaderStickyContainer>
       </Hidden>
-      <Hidden mdDown>
+      <Hidden lgDown>
         <LargeHeaderContainer>
           <BannerContainer>
             <BannerSpan>
@@ -544,9 +545,7 @@ const PageHeader: React.FC<{
           </BannerContainer>
           <LargeHeaderBackgroundContainer>
             <HeaderLogoLink href={routes.homeRoute}>
-              <Box width={117}>
-                <Image src={logo} alt="logo" layout="responsive" />
-              </Box>
+              <Img src={logo} alt="logo" width={117} />
             </HeaderLogoLink>
             <LargeHeaderPopover positions={['bottom']} align="center">
               Why Upbound
@@ -560,35 +559,35 @@ const PageHeader: React.FC<{
                   <LargeHeaderPopoverSectionLinkRowContainer
                     href={routes.whyUpboundUniversalCloudPlatformRoute}
                   >
-                    <Flex sx={{ mb: '2px' }}>
+                    <Box sx={{ display: 'flex', mb: '2px' }}>
                       <LargeHeaderPopoverSectionRowTitle>
                         The Univeral Cloud Platform
                       </LargeHeaderPopoverSectionRowTitle>
                       <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
-                    </Flex>
+                    </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Teams and tools must evolve as multi-cloud strategies become pervasive.
                     </LargeHeaderPopoverSectionRowDescription>
                   </LargeHeaderPopoverSectionLinkRowContainer>
                   <LargeHeaderPopoverSectionLinkRowContainer href={routes.whyUpboundBeyondIacRoute}>
-                    <Flex sx={{ mb: '2px' }}>
+                    <Box sx={{ display: 'flex', mb: '2px' }}>
                       <LargeHeaderPopoverSectionRowTitle>
                         Go Beyond IaC with Control Planes
                       </LargeHeaderPopoverSectionRowTitle>
                       <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
-                    </Flex>
+                    </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Modern infrastructure and applications requires modern tooling designed for
                       cloud native organizations.
                     </LargeHeaderPopoverSectionRowDescription>
                   </LargeHeaderPopoverSectionLinkRowContainer>
                   <LargeHeaderPopoverSectionLinkRowContainer href={routes.whyUpboundEmpowerRoute}>
-                    <Flex sx={{ mb: '2px' }}>
+                    <Box sx={{ display: 'flex', mb: '2px' }}>
                       <LargeHeaderPopoverSectionRowTitle>
                         Empower Platform Teams
                       </LargeHeaderPopoverSectionRowTitle>
                       <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
-                    </Flex>
+                    </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Standardize all of your workflows around the Kubernetes API
                     </LargeHeaderPopoverSectionRowDescription>
@@ -596,12 +595,12 @@ const PageHeader: React.FC<{
                   <LargeHeaderPopoverSectionLinkRowContainer
                     href={routes.whyUpboundSelfServiceRoute}
                   >
-                    <Flex sx={{ mb: '2px' }}>
+                    <Box sx={{ display: 'flex', mb: '2px' }}>
                       <LargeHeaderPopoverSectionRowTitle>
                         Provide Self Service Infrastructure
                       </LargeHeaderPopoverSectionRowTitle>
                       <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
-                    </Flex>
+                    </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Transform how operators and developers collaborate with strong separation of
                       concerns and self service.

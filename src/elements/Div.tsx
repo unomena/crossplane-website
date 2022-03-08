@@ -3,10 +3,11 @@
 
 import React, { HTMLAttributes, ReactNode } from 'react';
 
+import { jsx } from '@emotion/react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 
-import { COLORS, shouldForwardProp } from '../theme';
+import { COLORS, shouldForwardProp } from 'src/theme';
 
 interface BaseProps extends HTMLAttributes<HTMLDivElement> {
   color?: keyof typeof COLORS;
@@ -33,7 +34,7 @@ interface BaseProps extends HTMLAttributes<HTMLDivElement> {
 
 // Box.displayName = 'Box';
 
-const Card = styled('div', { shouldForwardProp })<BaseProps>(({ theme }) => ({
+const Card = styled('div', { shouldForwardProp })<BaseProps>(({}) => ({
   position: 'relative',
   borderRadius: '8px',
   boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.03)',
@@ -54,7 +55,7 @@ const Card = styled('div', { shouldForwardProp })<BaseProps>(({ theme }) => ({
 //   width: 100%;
 // `;
 
-const Flex = styled('div', { shouldForwardProp })<BaseProps>(({ theme }) => ({
+const Flex = styled(Box, { shouldForwardProp })<BaseProps>(({}) => ({
   display: 'flex',
 }));
 
