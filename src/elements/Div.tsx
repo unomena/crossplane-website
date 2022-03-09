@@ -5,7 +5,7 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 
 import { jsx } from '@emotion/react';
 import { Box } from '@mui/material';
-import { styled } from '@mui/system';
+import { styled, SxProps } from '@mui/system';
 
 import { COLORS, shouldForwardProp } from 'src/theme';
 
@@ -84,13 +84,15 @@ const Flex = styled(Box, { shouldForwardProp })<BaseProps>(({}) => ({
 const Column = ({
   colSize,
   children,
+  sx,
   ...props
 }: BaseProps & {
   children?: ReactNode;
   colSize: any;
   className?: string | undefined;
+  sx?: SxProps;
 }) => (
-  <Box flexBasis={colSize} maxWidth={colSize} pl={15} pr={15} pb={15} {...props}>
+  <Box flexBasis={colSize} maxWidth={colSize} pl={15} pr={15} pb={15} sx={sx} {...props}>
     {children}
   </Box>
 );

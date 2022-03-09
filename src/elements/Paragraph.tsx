@@ -49,4 +49,5 @@ interface ParagraphProps {
 export const Paragraph = styled('p', { shouldForwardProp })<ParagraphProps>`
   ${(props) => baseStyle(props.bold || false)}
   ${(props) => (props.size ? styleMap[props.size] : null)}
+  ${(props) => (props.color ? `color: ${COLORS[props.color]};` : null)}
 `;
