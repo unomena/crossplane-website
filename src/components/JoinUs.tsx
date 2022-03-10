@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 import { COLORS, MQ, shouldForwardProp } from 'src/theme';
 
 import { AnchorButton } from 'src/elements/Button';
-import Header from 'src/elements/Header';
+import { Header } from 'src/elements/Header';
 
 import ovalLeft from 'public/about/join-oval-left.svg';
 import ovalRight from 'public/about/join-oval-right.svg';

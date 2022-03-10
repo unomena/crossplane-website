@@ -15,7 +15,7 @@ const EmployeeMap = dynamic(() => import('src/components/EmployeeMap'), { ssr: f
 
 import { AnchorButton, Button } from 'src/elements/Button';
 import { COL3, COL4, COL6, COL12, Column } from 'src/elements/Div';
-import Header from 'src/elements/Header';
+import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
 import * as routes from 'src/routes';

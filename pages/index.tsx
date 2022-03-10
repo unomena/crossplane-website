@@ -12,7 +12,7 @@ import { Wave } from 'src/components/Wave';
 import { Anchor, Link } from 'src/elements/Anchor';
 import { AnchorButton, Button, LinkButton } from 'src/elements/Button';
 import { Card } from 'src/elements/Div';
-import Header from 'src/elements/Header';
+import { Header } from 'src/elements/Header';
 import { Avatar, Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
 import { Span } from 'src/elements/Span';

@@ -63,7 +63,7 @@ const Pill = styled('div')`
   display: inline-block;
 `;
 
-const Header = React.forwardRef<HTMLHeadingElement, HeaderProps>(
+export const Header = React.forwardRef<HTMLHeadingElement, HeaderProps>(
   ({ variant, pill, bold, children, color, ...props }, ref) => {
     return (
       <>
@@ -86,5 +86,3 @@ const Header = React.forwardRef<HTMLHeadingElement, HeaderProps>(
     );
   }
 );
-
-export default Header;

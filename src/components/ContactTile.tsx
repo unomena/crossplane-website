@@ -8,7 +8,7 @@ import iconEmail from 'public/icon-email.svg';
 import iconSlack from 'public/icon-slack.svg';
 import { Anchor } from 'src/elements/Anchor';
 import { Card, Flex } from 'src/elements/Div';
-import Header from 'src/elements/Header';
+import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
 import * as routes from 'src/routes';

@@ -13,7 +13,7 @@ import PageProvider from 'src/components/PageProvider';
 import { Wave } from 'src/components/Wave';
 
 import { Anchor, Link } from 'src/elements/Anchor';
-import Header from 'src/elements/Header';
+import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 
 import * as routes from 'src/routes';
