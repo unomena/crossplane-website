@@ -1,25 +1,30 @@
-function hostname() {
-  if (typeof location !== 'object' || !location.hostname) {
-    return 'upbound.io';
-  }
+// to be fixed - look at https://www.npmjs.com/package/next-absolute-url
 
-  return location.hostname.replace(/^www./, '');
+function hostname() {
+  return 'upbound.io';
+  // if (typeof location !== 'object' || !location.hostname) {
+  //   return 'upbound.io';
+  // }
+
+  // return location.hostname.replace(/^www./, '');
 }
 
 function protocol() {
-  if (typeof location !== 'object' || !location.protocol) {
-    return 'https:';
-  }
+  return 'https:';
+  // if (typeof location !== 'object' || !location.protocol) {
+  //   return 'https:';
+  // }
 
-  return location.protocol;
+  // return location.protocol;
 }
 
 function port() {
-  if (typeof location !== 'object' || !location.port) {
-    return '';
-  }
+  return '';
+  // if (typeof location !== 'object' || !location.port) {
+  //   return '';
+  // }
 
-  return `:${location.port}`;
+  // return `:${location.port}`;
 }
 
 const domain = () => 'cloud';

@@ -40,6 +40,9 @@ const ContactTileCard = styled(Card)`
   padding: 45px 50px;
   max-width: 466px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -66,13 +69,13 @@ type TileType = 'slack' | 'email' | 'demo';
 const ContactTileImg: React.FC<{ type: TileType }> = ({ type }) => {
   switch (type) {
     case 'slack': {
-      return <Img src={iconSlack} alt="slack" />;
+      return <Img src={iconSlack} alt="slack" width={64} />;
     }
     case 'email': {
-      return <Img src={iconEmail} alt="email" />;
+      return <Img src={iconEmail} alt="email" width={64} />;
     }
     case 'demo': {
-      return <Img src={iconDemo} alt="email" />;
+      return <Img src={iconDemo} alt="email" width={64} />;
     }
     default:
       return null;

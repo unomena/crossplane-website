@@ -5,9 +5,9 @@ import React from 'react';
 
 import { jsx } from '@emotion/react';
 import { Typography } from '@mui/material';
-import { SxProps } from '@mui/system';
+import { styled, SxProps } from '@mui/system';
 
-import { COLORS } from 'src/theme';
+import { COLORS, fontAvenirBold } from 'src/theme';
 
 type HeaderTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -52,67 +52,39 @@ const lineHeights = {
   h6: '32px',
 };
 
-// const Pill = styled.div`
-//   ${fontAvenirBold}
-//   background-color: ${COLORS.softBlue};
-//   color: ${COLORS.robinSEgg};
-//   border-radius: 2000px;
-//   padding: 7px 19px 5px;
-//   font-size: 14px;
-//   line-height: 20px;
-//   display: inline-block;
-// `;
+const Pill = styled('div')`
+  ${fontAvenirBold}
+  background-color: ${COLORS.softBlue};
+  color: ${COLORS.robinSEgg};
+  border-radius: 2000px;
+  padding: 7px 19px 5px;
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-block;
+`;
 
 const Header = React.forwardRef<HTMLHeadingElement, HeaderProps>(
   ({ variant, pill, bold, children, color, ...props }, ref) => {
     return (
-      <Typography
-        variant={variant}
-        fontSize={fontSizes[variant]}
-        lineHeight={lineHeights[variant]}
-        fontFamily={
-          bold ? `'Avenir', 'Arial Black', sans-serif` : `'Avenir-Roman', 'Arial', sans-serif`
-        }
-        fontWeight={bold ? '900' : 'normal'}
-        color={color ? COLORS[color] : ''}
-        {...props}
-        ref={ref}
-      >
-        {children}
-      </Typography>
+      <>
+        {pill && <Pill>{pill}</Pill>}
+        <Typography
+          variant={variant}
+          fontSize={fontSizes[variant]}
+          lineHeight={lineHeights[variant]}
+          fontFamily={
+            bold ? `'Avenir', 'Arial Black', sans-serif` : `'Avenir-Roman', 'Arial', sans-serif`
+          }
+          fontWeight={bold ? '900' : 'normal'}
+          color={color ? COLORS[color] : ''}
+          {...props}
+          ref={ref}
+        >
+          {children}
+        </Typography>
+      </>
     );
   }
 );
 
 export default Header;
-
-// export const Header = <HeaderProps>(({ type, pill, children, ...props }) => {
-
-//   return (
-//     <Typography></Typography>
-//   )
-//   // const HeaderType = headers[type];
-//   // if (!pill) {
-//   //   return (
-//   //     <HeaderType
-//   //       css={css({ fontSize: fontSizes[type], lineHeight: lineHeights[type] })}
-//   //       {...props}
-//   //       ref={ref}
-//   //     >
-//   //       {children}
-//   //     </HeaderType>
-//   //   );
-//   // }
-//   // return (
-//   //   <React.Fragment>
-//   //     <Pill>{pill}</Pill>
-//   //     <HeaderType
-//   //       css={css({ fontSize: fontSizes[type], lineHeight: lineHeights[type] })}
-//   //       {...props}
-//   //       ref={ref}
-//   //     >
-//   //       {children}
-//   //     </HeaderType>
-//   //   </React.Fragment>
-//   // );
-// });

@@ -92,7 +92,7 @@ const Column = ({
   className?: string | undefined;
   sx?: SxProps;
 }) => (
-  <Box flexBasis={colSize} maxWidth={colSize} pl={15} pr={15} pb={15} sx={sx} {...props}>
+  <Box flexBasis={colSize} maxWidth={colSize} pl="15px" pr="15px" pb="15px" sx={sx} {...props}>
     {children}
   </Box>
 );

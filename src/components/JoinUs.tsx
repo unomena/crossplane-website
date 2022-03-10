@@ -2,12 +2,10 @@ import styled from '@emotion/styled';
 import React from 'react';
 
 import { Box } from '@mui/material';
-import { COLORS, MQ } from 'src/theme';
+import { COLORS, MQ, shouldForwardProp } from 'src/theme';
 
 import { AnchorButton } from 'src/elements/Button';
-import { Flex } from 'src/elements/Div';
 import Header from 'src/elements/Header';
-import { Img } from 'src/elements/Img';
 
 import ovalLeft from 'public/about/join-oval-left.svg';
 import ovalRight from 'public/about/join-oval-right.svg';
@@ -47,7 +45,7 @@ const JoinUsContainer = styled(Box)<{ type: Type }>`
   }
 `;
 
-const JoinOvalBackgroundImg = styled(Img)<{ rt?: boolean }>`
+const JoinOvalBackgroundImg = styled('img', { shouldForwardProp })<{ rt?: boolean }>`
   display: none;
   position: absolute;
   ${({ rt }) => (rt ? 'right: 0; top: 0; height: 100%;' : 'left: 0; top: 0;')}
@@ -65,9 +63,9 @@ const JoinUs: React.FC<{
   type: Type;
 }> = ({ title, subtitle, href, button, type = 'light' }) => (
   <JoinUsContainer type={type}>
-    <JoinOvalBackgroundImg src={ovalLeft} alt="oval" />
-    <JoinOvalBackgroundImg src={ovalRight} alt="oval" rt={true} />
-    <Flex flexDirection="column" position="relative" zIndex={20}>
+    <JoinOvalBackgroundImg src={ovalLeft.src} alt="oval" />
+    <JoinOvalBackgroundImg src={ovalRight.src} alt="oval" rt={true} />
+    <Box display="flex" flexDirection="column" position="relative" zIndex={20}>
       <Header variant="h4" bold={true} color="white" sx={{ mb: '23px' }}>
         {title}
       </Header>
@@ -87,7 +85,7 @@ const JoinUs: React.FC<{
       >
         {button}
       </AnchorButton>
-    </Flex>
+    </Box>
   </JoinUsContainer>
 );
 

@@ -646,6 +646,7 @@ const Home: React.FC = () => {
           <Hidden smDown>
             <Img
               src={hero3x}
+              priority
               // srcSet={`${hero1x} 1x, ${hero2x} 2x, ${hero3x} 3x`}
               alt="cli and console screenshot"
               width="100%"
