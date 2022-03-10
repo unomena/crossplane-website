@@ -12,7 +12,6 @@ import * as routes from '../routes';
 
 import { Anchor, Link } from 'src/elements/Anchor';
 import { Button } from 'src/elements/Button';
-import { Flex } from 'src/elements/Div';
 import { If } from 'src/elements/If';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
@@ -26,7 +25,8 @@ import logo from 'public/logo-white.svg';
 import twitterLogo from 'public/twitter.svg';
 import youtubeLogo from 'public/youtube.svg';
 
-const Column = styled(Flex)`
+const Column = styled(Box)`
+  display: flex;
   box-sizing: border-box;
   flex-direction: column;
 `;
@@ -40,8 +40,9 @@ const FooterBackgroundContainer = styled(Box)`
   background-color: ${COLORS.darkBlueGreyTwo};
 `;
 
-const FooterCareersPill = styled(Flex)`
+const FooterCareersPill = styled(Box)`
   ${fontAvenirBold}
+  display: flex;
   border-radius: 40px;
   background-color: ${COLORS.softGreen};
   color: ${COLORS.lightGreen};
@@ -58,7 +59,9 @@ const LargeFooterWidthContainer = styled(Column)`
   max-width: 1440px;
 `;
 
-const LargeFooterSalesContainer = styled(Flex)``;
+const LargeFooterSalesContainer = styled(Box)`
+  display: flex;
+`;
 
 const LargeFooterSalesSpan = styled(Span)`
   ${fontAvenirBold}
@@ -127,7 +130,8 @@ const LargeFooterSalesEmailSpan = styled(Span)`
   width: 100%;
 `;
 
-const LargeFooterLinkColumnsContainer = styled(Flex)`
+const LargeFooterLinkColumnsContainer = styled(Box)`
+  display: flex;
   border-top: 1px solid ${COLORS.darkBlue1A3245};
   margin-top: 100px;
   margin-bottom: 70px;
@@ -199,9 +203,12 @@ const LargeFooterCopyrightParagraph = styled(Paragraph)`
   margin-bottom: 20px;
 `;
 
-const LargeFooterSocialsMarginContainer = styled(Flex)``;
+const LargeFooterSocialsMarginContainer = styled(Box)`
+  display: flex;
+`;
 
-const LargeFooterSocialsContainer = styled(Flex)`
+const LargeFooterSocialsContainer = styled(Box)`
+  display: flex;
   align-items: center;
 `;
 
@@ -317,7 +324,8 @@ const MobileFooterSalesEmailSpan = styled(Span)`
   }
 `;
 
-const MobileFooterLinkColumnsContainer = styled(Flex)`
+const MobileFooterLinkColumnsContainer = styled(Box)`
+  display: flex;
   border-top: 1px solid ${COLORS.darkBlue1A3245};
   width: 100%;
   flex-wrap: wrap;
@@ -449,7 +457,8 @@ const MobileFooterCopyrightParagraph = styled(Paragraph)`
   }
 `;
 
-const MobileFooterSocialsContainer = styled(Flex)`
+const MobileFooterSocialsContainer = styled(Box)`
+  display: flex;
   align-items: center;
 `;
 

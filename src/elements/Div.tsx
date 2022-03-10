@@ -55,9 +55,9 @@ const Card = styled('div', { shouldForwardProp })<BaseProps>(({}) => ({
 //   width: 100%;
 // `;
 
-const Flex = styled(Box, { shouldForwardProp })<BaseProps>(({}) => ({
-  display: 'flex',
-}));
+// const Flex = styled(Box, { shouldForwardProp })<BaseProps>(({}) => ({
+//   display: 'flex',
+// }));
 
 // const Flex = styled('div', { shouldForwardProp })<BaseProps>`
 //   box-sizing: border-box;
@@ -101,7 +101,7 @@ export {
   Card,
   Column,
   // Grid,
-  Flex,
+  // Flex,
   // Box,
   // GridSystem,
 };

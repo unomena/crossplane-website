@@ -2,12 +2,13 @@ import React from 'react';
 
 import { styled } from '@mui/system';
 import { MQ } from 'src/theme';
+import { Box } from '@mui/material';
 
 import iconDemo from 'public/icon-demo.svg';
 import iconEmail from 'public/icon-email.svg';
 import iconSlack from 'public/icon-slack.svg';
 import { Anchor } from 'src/elements/Anchor';
-import { Card, Flex } from 'src/elements/Div';
+import { Card } from 'src/elements/Div';
 import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
@@ -53,7 +54,7 @@ const ContactTileCard = styled(Card)`
   }
 `;
 
-const ContactTileRowContainer = styled(Flex)`
+const ContactTileRowContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: center;
