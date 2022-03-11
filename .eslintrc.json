@@ -114,6 +114,7 @@
       }
     ],
     "new-parens": "warn",
+    "@next/next/no-img-element": "off",
     "no-bitwise": "warn",
     "no-caller": "warn",
     "no-cond-assign": "warn",

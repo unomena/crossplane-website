@@ -313,12 +313,7 @@ const Plan: React.FC<{
               {subTitle}
             </Header>
             <Paragraph color="fillBlackGray">{description}</Paragraph>
-            <Box
-              borderTop={`solid 1px ${COLORS.veryLightBlue}`}
-              height="1px"
-              mt="25px"
-              mb="30px"
-            ></Box>
+            <Box borderTop={`solid 1px ${COLORS.veryLightBlue}`} height="1px" mt="25px" mb="30px" />
             <PlanTileList>{children}</PlanTileList>
           </Box>
           <PlanTileButton href={buttonHref} dark={darken}>

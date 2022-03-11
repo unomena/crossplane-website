@@ -563,11 +563,9 @@ const BackgroundOval = ({
   return (
     <>
       <Hidden lgUp>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={imageSrcMobile} alt="background oval" style={imgStylesMobile} />
       </Hidden>
       <Hidden lgDown>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={imageSrc} alt="background oval" style={imgStyles} />
       </Hidden>
     </>

@@ -35,18 +35,18 @@ interface HeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
 // `;
 
 const fontSizes = {
-  h1: ['32px', '32px', '60px', '60px', null],
-  h2: ['32px', '32px', '50px', '50px', null],
-  h3: ['32px', '32px', '40px', '40px', null],
+  h1: ['32px', '32px', '32px', '60px', '60px'],
+  h2: ['32px', '32px', '32px', '50px', '50px'],
+  h3: ['32px', '32px', '32px', '40px', '40px'],
   h4: '36px',
   h5: '20px',
   h6: '18px',
 };
 
 const lineHeights = {
-  h1: ['37px', '37px', '64px', '64px', null],
-  h2: ['40px', '40px', '50px', '50px', null],
-  h3: ['37px', '37px', '50px', '50px', null],
+  h1: ['37px', '37px', '37px', '64px', '64px'],
+  h2: ['40px', '40px', '40px', '50px', '50px'],
+  h3: ['37px', '37px', '37px', '50px', '50px'],
   h4: '48px',
   h5: '24px',
   h6: '32px',
