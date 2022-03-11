@@ -631,6 +631,7 @@ const Home: React.FC = () => {
           <Hidden mdUp>
             <Img
               src={heroMobile3x}
+              priority
               // srcSet={`${heroMobile1x} 1x, ${heroMobile2x} 2x, ${heroMobile3x} 3x`}
               alt="cli and console screenshot"
               width="100%"
