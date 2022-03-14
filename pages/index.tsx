@@ -596,7 +596,7 @@ const Home: React.FC = () => {
       <Box pt={{ _: '37px', md: '80px' }} bgcolor={COLORS.cornflower} textAlign="center">
         <Box mx="auto" maxWidth="1156px" px="30px">
           <Header variant="h1" bold={true} color="white" sx={{ mb: { _: '10px', lg: '25px' } }}>
-            Rise Above The Clouds
+            Rise Above The Clouds QA
           </Header>
           <SubHeader variant="h3" color="white" sx={{ mb: { _: '28px', lg: '33px' } }}>
             Manage infrastructure, eliminate configuration drift, and empower developers with
