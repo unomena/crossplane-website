@@ -43,7 +43,7 @@ export const CallToActionCarousel: React.FC<{
         Request a Demo
       </AnchorButton>
     </Hidden>
-    <Hidden smDown>
+    <Hidden mdDown>
       <Paragraph color="white">
         Get a free tour from a team specialist,{' '}
         <Anchor href={routes.contactSalesUrl}>

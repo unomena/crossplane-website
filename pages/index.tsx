@@ -642,7 +642,7 @@ const Home: React.FC = () => {
               }}
             />
           </Hidden>
-          <Hidden smDown>
+          <Hidden mdDown>
             <Img
               src={hero3x}
               priority

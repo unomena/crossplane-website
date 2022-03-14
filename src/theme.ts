@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { createTheme } from '@mui/material/styles';
 import isPropValid from '@emotion/is-prop-valid';
 
@@ -184,5 +185,95 @@ export const MQ = {
   lg: `@media screen and (min-width: ${theme.breakpoints.values.lg}px)`,
   xl: `@media screen and (min-width: ${theme.breakpoints.values.xl}px)`,
 };
+
+export const globalStyle = css`
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    &.overflow-hidden {
+      overflow: hidden;
+    }
+  }
+
+  html > body > div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom {
+    box-shadow: none;
+    border-top-width: 0;
+    z-index: 2147483647 !important;
+
+    &,
+    & > div#hs-eu-cookie-confirmation-inner {
+      background-color: ${COLORS.slate};
+    }
+
+    & > div#hs-eu-cookie-confirmation-inner {
+      padding: 30px 40px;
+
+      & > p#hs-eu-cookie-disclaimer,
+      & > div#hs-eu-policy-wording > p,
+      & > div#hs-eu-policy-wording > p > span {
+        ${fontAvenirRoman}
+        color: ${COLORS.white};
+        font-size: 14px !important;
+        line-height: 24px !important;
+      }
+
+      &
+        > div#hs-en-cookie-confirmation-buttons-area
+        > div#hs-eu-cookie-confirmation-button-group
+        > a {
+        box-sizing: border-box !important;
+        font-size: 14px !important;
+        line-height: 34px !important;
+        padding: 0 20px !important;
+        border-color: transparent !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+        border-radius: 20px !important;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+        text-align: center;
+        text-overflow: ellipsis;
+        transition: all 0.2s ease-in-out;
+        transition: background-color 0.1 ease-out;
+        white-space: nowrap;
+        width: auto;
+
+        &#hs-eu-confirmation-button {
+          background-color: ${COLORS.aquaMarine} !important;
+          color: ${COLORS.white} !important;
+          fill: ${COLORS.white} !important;
+
+          &:hover {
+            border-color: transparent !important;
+            background-color: ${COLORS.aquarius} !important;
+            color: ${COLORS.white} !important;
+            fill: ${COLORS.white} !important;
+          }
+        }
+
+        &#hs-eu-decline-button {
+          border-color: ${COLORS.white} !important;
+          color: ${COLORS.white} !important;
+          fill: ${COLORS.white} !important;
+
+          &:hover {
+            border-color: ${COLORS.white} !important;
+            background-color: ${COLORS.white} !important;
+            color: ${COLORS.fillBlackBlack} !important;
+            fill: ${COLORS.fillBlackBlack} !important;
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default theme;

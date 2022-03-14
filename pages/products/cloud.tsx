@@ -310,7 +310,7 @@ const CloudProduct = () => {
           zIndex={0}
           textAlign={{ _: 'center', md: 'left' }}
         >
-          <Hidden smDown>
+          <Hidden mdDown>
             <BackgroundOval
               src={filledOval.src}
               alt="background oval"
@@ -328,7 +328,7 @@ const CloudProduct = () => {
               <Hidden mdUp>
                 <Img src={feature1MobileImage} alt="Feature 1" width="100%" />
               </Hidden>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Img src={feature1Image} alt="Feature 1" width="100%" />
               </Hidden>
             </Box>
@@ -372,7 +372,7 @@ const CloudProduct = () => {
               <Hidden mdUp>
                 <Img src={feature2MobileImage} alt="Feature 1" width="100%" />
               </Hidden>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Img src={feature2Image} alt="Feature 1" width="100%" />
               </Hidden>
             </Box>
@@ -396,7 +396,7 @@ const CloudProduct = () => {
               <Hidden mdUp>
                 <Img src={feature3MobileImage} alt="Feature 1" width="100%" />
               </Hidden>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Img src={feature3Image} alt="Feature 1" width="100%" />
               </Hidden>
             </Box>
@@ -409,7 +409,7 @@ const CloudProduct = () => {
                 community library for all: ; things Crossplane. Discover Providers and
                 Configurations needed for your Next Crossplane Project.
               </Paragraph>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Button
                   btnType="blackOutline"
                   onClick={() => router.push(routes.productsRegistryRoute)}
@@ -676,7 +676,7 @@ const CloudProduct = () => {
               sx={{ mb: '60px' }}
             >
               <Hidden mdUp>Contact Team Specialist</Hidden>
-              <Hidden smDown>Contact An Upbound Team Specialist</Hidden>
+              <Hidden mdDown>Contact An Upbound Team Specialist</Hidden>
             </AnchorButton>
             <Paragraph color="fillBlackGray" sx={{ maxWidth: '800px', mx: 'auto', opacity: 0.8 }}>
               You can also visit the Upbound{' '}

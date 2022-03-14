@@ -196,7 +196,7 @@ const SelfService: React.FC = () => {
               >
                 <Span bold={true} sx={{ mr: '4px' }}>
                   <Hidden mdUp>Watch Kelsey’s Demo</Hidden>
-                  <Hidden smDown>Watch Kelsey Hightower’s Crossplane Demo</Hidden>
+                  <Hidden mdDown>Watch Kelsey Hightower’s Crossplane Demo</Hidden>
                 </Span>
                 <PlayCircle />
               </AnchorButton>

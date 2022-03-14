@@ -117,6 +117,7 @@ const RegistryProduct = () => {
             <Hidden lgUp>
               <Img
                 src={heroMobile3xImage}
+                priority
                 // srcSet={`${heroMobile1xImage} 1x, ${heroMobile2xImage} 2x, ${heroMobile3xImage} 3x`}
                 alt="registry screenshot"
                 width="100%"
@@ -125,6 +126,7 @@ const RegistryProduct = () => {
             <Hidden lgDown>
               <Img
                 src={hero3xImage}
+                priority
                 // srcSet={`${hero1xImage} 1x, ${hero2xImage} 2x, ${hero3xImage} 3x`}
                 alt="registry screenshot"
                 width="100%"
@@ -152,7 +154,14 @@ const RegistryProduct = () => {
               Discover and Publish Community Resources for Crossplane
             </Header>
           </Box>
-          <Box flex="0 1 300px" mr={{ _: '0', md: '30px' }} mb="50px">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems={{ _: 'center', lg: 'flex-start' }}
+            flex="0 1 300px"
+            mr={{ _: '0', md: '30px' }}
+            mb="50px"
+          >
             <Img src={iconConfigs} alt="Configurations" width={64} />
             <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ my: '20px' }}>
               Configurations
@@ -163,7 +172,12 @@ const RegistryProduct = () => {
               <Anchor href={routes.crossplaneDocsUrl}>Learn&nbsp;More</Anchor>
             </Paragraph>
           </Box>
-          <Box flex="0 1 300px">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems={{ _: 'center', lg: 'flex-start' }}
+            flex="0 1 300px"
+          >
             <Img src={iconProviders} alt="Providers" width={64} />
             <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ my: '20px' }}>
               Providers
@@ -201,7 +215,7 @@ const RegistryProduct = () => {
               />
               <Img src={feature1MobileImage} alt="Share you work image" width="100%" />
             </Hidden>
-            <Hidden smDown>
+            <Hidden mdDown>
               <BackgroundOval
                 src={filledOval.src}
                 alt="background oval"
@@ -254,7 +268,7 @@ const RegistryProduct = () => {
               />
               <Img src={feature2MobileImage} alt="Partner with Upbound image" width="100%" />
             </Hidden>
-            <Hidden smDown>
+            <Hidden mdDown>
               <BackgroundOval
                 src={filledOval.src}
                 alt="background oval"
@@ -286,7 +300,7 @@ const RegistryProduct = () => {
               />
               <Img src={feature3MobileImage} alt="Partner with Upbound image" width="100%" />
             </Hidden>
-            <Hidden smDown>
+            <Hidden mdDown>
               <BackgroundOval
                 src={filledOval.src}
                 alt="background oval"
@@ -371,7 +385,7 @@ const RegistryProduct = () => {
             sx={{ mb: '60px' }}
           >
             <Hidden mdUp>Contact Team Specialist</Hidden>
-            <Hidden smDown>Contact An Upbound Team Specialist</Hidden>
+            <Hidden mdDown>Contact An Upbound Team Specialist</Hidden>
           </AnchorButton>
           <Paragraph color="fillBlackGray" sx={{ maxWidth: '800px', mx: 'auto', opacity: 0.8 }}>
             You can also visit the Upbound{' '}
