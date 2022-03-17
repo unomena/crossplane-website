@@ -523,9 +523,6 @@ const BackgroundOval = ({
       ...imgStyles,
       left: '-120px',
       width: '64.4%',
-      [MQ.lg]: {
-        width: '31.8%',
-      },
       marginTop: mtMobile,
     };
 
@@ -544,9 +541,6 @@ const BackgroundOval = ({
       ...imgStyles,
       right: '-120px',
       width: '64.4%',
-      [MQ.lg]: {
-        width: '31.8%',
-      },
       marginTop: mtMobile,
     };
 
