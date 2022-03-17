@@ -62,8 +62,10 @@ const PageProvider: React.FC<{
         metaDescription={metaDescription}
       />
       <PageHeader isHeaderVisible={isHeaderVisible} setOverflowVisible={setOverflowVisible} />
-      <Box sx={{ overflowX: 'hidden' }}>{children}</Box>
-      <PageFooter isFooterVisible={isFooterVisible} />
+      <Box sx={{ overflow: 'hidden' }}>
+        {children}
+        <PageFooter isFooterVisible={isFooterVisible} />
+      </Box>
     </PageContainer>
   );
 };
