@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { styled, SxProps } from '@mui/system';
 import { COLORS, fontAvenirRoman } from 'src/theme';
@@ -80,10 +80,6 @@ const paragraphSpacingLg: SxProps = {
 };
 
 const PrivacyPolicy: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <PageProvider displayTitle="Upbound - Privacy Policy">
       <Box

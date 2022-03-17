@@ -36,7 +36,7 @@ const Popover: React.FC<
       <Anchor
         bold={true}
         className={className}
-        onClick={event => {
+        onClick={(event) => {
           event.preventDefault();
           setOpen(true);
         }}
@@ -63,7 +63,7 @@ const Popover: React.FC<
       <Anchor
         bold={true}
         className={className}
-        onClick={event => {
+        onClick={(event) => {
           event.preventDefault();
           setOpen(true);
         }}

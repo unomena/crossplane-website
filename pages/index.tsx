@@ -521,7 +521,8 @@ const BackgroundOval = ({
     imageSrcMobile = '/home/oval-copy-31.svg';
     imgStylesMobile = {
       ...imgStyles,
-      left: '-120px',
+      // left: '-120px',
+      left: '0',
       width: '64.4%',
       marginTop: mtMobile,
     };
@@ -539,7 +540,8 @@ const BackgroundOval = ({
     imageSrcMobile = '/home/oval-copy-30.svg';
     imgStylesMobile = {
       ...imgStyles,
-      right: '-120px',
+      // right: '-120px',
+      right: '0',
       width: '64.4%',
       marginTop: mtMobile,
     };

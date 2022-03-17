@@ -40,11 +40,11 @@ const PageProvider: React.FC<{
 }) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.scrollTo(0, 0);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     window.scrollTo(0, 0);
+  //   }
+  // }, []);
 
   useEffect(() => {
     document.body.classList.toggle(
@@ -62,7 +62,7 @@ const PageProvider: React.FC<{
         metaDescription={metaDescription}
       />
       <PageHeader isHeaderVisible={isHeaderVisible} setOverflowVisible={setOverflowVisible} />
-      {children}
+      <Box sx={{ overflowX: 'hidden' }}>{children}</Box>
       <PageFooter isFooterVisible={isFooterVisible} />
     </PageContainer>
   );
