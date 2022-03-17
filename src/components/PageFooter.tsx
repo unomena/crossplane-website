@@ -658,7 +658,7 @@ const PageFooter: React.FC<{
                   <Img src={logo} alt="logo" width={120} />
                 </MobileFooterLogoLink>
                 <MobileFooterCopyrightParagraph>
-                  Copyright © 2021.
+                  Copyright © 2022.
                   <br />
                   Crafted with love from our globally distributed team.
                 </MobileFooterCopyrightParagraph>
@@ -745,7 +745,7 @@ const PageFooter: React.FC<{
                   <Img src={logo} alt="logo" width={120} />
                 </LargeFooterLogoLink>
                 <LargeFooterCopyrightParagraph>
-                  Copyright © 2021.
+                  Copyright © 2022.
                   <br />
                   Crafted with love from our globally distributed team.
                 </LargeFooterCopyrightParagraph>
