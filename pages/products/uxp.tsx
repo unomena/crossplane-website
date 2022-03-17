@@ -48,7 +48,7 @@ import manageImage from 'public/uxp/manage.svg';
 import manageMobileImage from 'public/uxp/manage-mobile.svg';
 
 type FeatureData = {
-  icon: string;
+  icon: StaticImageData;
   title: string;
   body: React.ReactNode;
 };
