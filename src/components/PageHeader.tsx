@@ -563,7 +563,7 @@ const PageHeader: React.FC<{
                       <LargeHeaderPopoverSectionRowTitle>
                         The Univeral Cloud Platform
                       </LargeHeaderPopoverSectionRowTitle>
-                      <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
+                      <Img src={chevronRight} width={7} sx={{ ml: 'auto' }} alt="right chevron" />
                     </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Teams and tools must evolve as multi-cloud strategies become pervasive.
@@ -574,7 +574,7 @@ const PageHeader: React.FC<{
                       <LargeHeaderPopoverSectionRowTitle>
                         Go Beyond IaC with Control Planes
                       </LargeHeaderPopoverSectionRowTitle>
-                      <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
+                      <Img src={chevronRight} width={7} sx={{ ml: 'auto' }} alt="right chevron" />
                     </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Modern infrastructure and applications requires modern tooling designed for
@@ -586,7 +586,7 @@ const PageHeader: React.FC<{
                       <LargeHeaderPopoverSectionRowTitle>
                         Empower Platform Teams
                       </LargeHeaderPopoverSectionRowTitle>
-                      <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
+                      <Img src={chevronRight} width={7} sx={{ ml: 'auto' }} alt="right chevron" />
                     </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Standardize all of your workflows around the Kubernetes API
@@ -599,7 +599,7 @@ const PageHeader: React.FC<{
                       <LargeHeaderPopoverSectionRowTitle>
                         Provide Self Service Infrastructure
                       </LargeHeaderPopoverSectionRowTitle>
-                      <Img src={chevronRight} height={12} sx={{ ml: 'auto' }} alt="right chevron" />
+                      <Img src={chevronRight} width={7} sx={{ ml: 'auto' }} alt="right chevron" />
                     </Box>
                     <LargeHeaderPopoverSectionRowDescription sx={{ maxWidth: '392px' }}>
                       Transform how operators and developers collaborate with strong separation of
