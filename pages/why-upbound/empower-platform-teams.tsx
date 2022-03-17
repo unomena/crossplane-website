@@ -56,8 +56,8 @@ const Empower: React.FC = () => {
             organization to consume infrastructure and run applications on a Universal Cloud
             Platform.
           </Header>
+          <CallToActionCarousel currentPage="empower" />
         </Box>
-        <CallToActionCarousel currentPage="empower" />
         <Wave type="white" />
       </Box>
       <Box px="30px">

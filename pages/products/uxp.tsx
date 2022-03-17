@@ -207,6 +207,9 @@ const UXP = () => {
             mr={{ _: '0', lg: '110px' }}
             mt={{ _: '20px', lg: '100px' }}
             textAlign={{ _: 'center', lg: 'left' }}
+            display={{ _: 'flex', lg: 'block' }}
+            flexDirection="column"
+            alignItems="center"
           >
             <Header variant="h2" bold={true} color="white" sx={{ mt: '25px' }}>
               The Easiest Way for Anyone to Run Crossplane in Production
@@ -215,7 +218,13 @@ const UXP = () => {
               Upbound Universal Crossplane is an open source downstream distribution of Crossplane
               built with developer productivity and enterprise readiness in mind.
             </Header>
-            <Box display="flex" alignItems="center" mb="40px" color="white">
+            <Box
+              display="flex"
+              flexDirection={{ _: 'column', md: 'row' }}
+              alignItems="center"
+              mb="40px"
+              color="white"
+            >
               <AnchorButton
                 href={routes.cloudRegisterUrl}
                 btnType="aquaMarineFill"
@@ -223,7 +232,7 @@ const UXP = () => {
                 hasShadow={true}
                 sx={{
                   mr: { _: '0', md: '15px' },
-                  mb: { _: '10px', md: '0' },
+                  mb: { _: '16px', md: '0' },
                 }}
               >
                 Try Upbound for Free
