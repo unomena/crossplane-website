@@ -11,7 +11,8 @@ const outerWrapper: SxProps = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   outline: 'none',
-  width: '50%',
+  width: '100%',
+  maxWidth: 940,
   bgcolor: 'rgba(0, 0, 0, 0.5)',
 };
 
