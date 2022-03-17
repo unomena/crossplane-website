@@ -447,7 +447,7 @@ const PrivacyPolicy: React.FC = () => {
         <Header variant="h4" bold={true} sx={{ mb: '30px' }}>
           Contact Us
         </Header>
-        <Paragraph sx={paragraphSpacingLg}>
+        <Paragraph sx={{ lineHeight: '25px' }}>
           If you have any questions or concerns about this Privacy Policy, please feel free to email
           us at <Anchor href={routes.infoEmailUrl}>{routes.infoEmail}</Anchor>
         </Paragraph>

@@ -895,7 +895,7 @@ const TermsOfUse = () => {
         <Header variant="h4" bold={true} sx={{ mb: '30px' }}>
           Contact Us
         </Header>
-        <Paragraph sx={paragraphSpacingLg}>
+        <Paragraph sx={{ lineHeight: '25px' }}>
           You may contact us at the following address:
           <br />
           Upbound

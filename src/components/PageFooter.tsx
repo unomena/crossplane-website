@@ -33,7 +33,11 @@ const Column = styled(Box)`
 
 const FooterMarginContainer = styled(Box)`
   position: relative;
-  margin-top: 100px;
+  margin-top: 25px;
+
+  ${MQ.md} {
+    margin-top: 100px;
+  }
 `;
 
 const FooterBackgroundContainer = styled(Box)`
