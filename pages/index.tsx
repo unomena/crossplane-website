@@ -68,12 +68,12 @@ import nic3x from 'public/home/nic@3x.png';
 // import normanJoyner from 'public/home/Norman Joyner.png';
 // import normanJoyner2x from 'public/home/Norman Joyner@2x.png';
 import normanJoyner3x from 'public/home/Norman Joyner@3x.png';
-// import largeRightOval from 'public/home/oval-copy-5.svg';
-// import largeLeftOval from 'public/home/oval-copy-11.svg';
-// import largeRightOvalMobile from 'public/home/oval-copy-30.svg';
-// import largeLeftOvalMobile from 'public/home/oval-copy-31.svg';
-// import cornflowerOvalLeft from 'public/home/oval-cornflower-left.svg';
-// import cornflowerOvalRight from 'public/home/oval-cornflower-right.svg';
+import largeRightOval from 'public/home/oval-copy-5.svg';
+import largeLeftOval from 'public/home/oval-copy-11.svg';
+import largeRightOvalMobile from 'public/home/oval-copy-30.svg';
+import largeLeftOvalMobile from 'public/home/oval-copy-31.svg';
+import cornflowerOvalLeft from 'public/home/oval-cornflower-left.svg';
+import cornflowerOvalRight from 'public/home/oval-cornflower-right.svg';
 // import runLikeVendors from 'public/home/run-like-vendors-desktop.png';
 // import runLikeVendors2x from 'public/home/run-like-vendors-desktop@2x.png';
 import runLikeVendors3x from 'public/home/run-like-vendors-desktop@3x.png';
@@ -518,7 +518,7 @@ const BackgroundOval = ({
   let imgStylesMobile: CSSProperties = { position: 'absolute', zIndex: 10 };
 
   if (position === 'left') {
-    imageSrcMobile = '/home/oval-copy-31.svg';
+    imageSrcMobile = largeLeftOvalMobile.src;
     imgStylesMobile = {
       ...imgStyles,
       // left: '-120px',
@@ -527,7 +527,7 @@ const BackgroundOval = ({
       marginTop: mtMobile,
     };
 
-    imageSrc = '/home/oval-copy-11.svg';
+    imageSrc = largeLeftOval.src;
     imgStyles = {
       ...imgStyles,
       left: '0',
@@ -537,7 +537,7 @@ const BackgroundOval = ({
     };
   }
   if (position === 'right') {
-    imageSrcMobile = '/home/oval-copy-30.svg';
+    imageSrcMobile = largeRightOvalMobile.src;
     imgStylesMobile = {
       ...imgStyles,
       // right: '-120px',
@@ -546,7 +546,7 @@ const BackgroundOval = ({
       marginTop: mtMobile,
     };
 
-    imageSrc = '/home/oval-copy-5.svg';
+    imageSrc = largeRightOval.src;
     imgStyles = {
       ...imgStyles,
       right: '0',
@@ -1183,12 +1183,12 @@ const Home: React.FC = () => {
       <Box bgcolor={COLORS.cornflower}>
         <Box position="relative">
           <CrossplaneSpeakersOvalImg
-            src={'/home/oval-cornflower-left.svg'}
+            src={cornflowerOvalLeft.src}
             alt="oval"
             sx={{ left: 0, top: '-177px' }}
           />
           <CrossplaneSpeakersOvalImg
-            src={'/home/oval-cornflower-right.svg'}
+            src={cornflowerOvalRight.src}
             alt="oval"
             sx={{
               right: 0,
