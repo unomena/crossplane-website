@@ -498,7 +498,7 @@ const CustomerSlotBox = ({
         position: 'relative',
       }}
     >
-      <Image src={src} alt={alt} layout="fill" objectFit="contain" />
+      <Image src={src} alt={alt} layout="fill" objectFit="contain" placeholder="blur" />
     </Anchor>
   );
 };

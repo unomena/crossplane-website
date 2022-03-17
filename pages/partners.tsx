@@ -128,7 +128,7 @@ const LogoTile = styled(FillerLogoTile)`
 // `;
 
 const Logo: React.FC<
-  ImageProps & { alt: string; href: string; width?: number; height?: number }
+  ImageProps & { src: StaticImageData; alt: string; href: string; width?: number; height?: number }
 > = ({ src, alt, href, width, height }) => {
   // to be improved
   return (
@@ -148,6 +148,8 @@ const Logo: React.FC<
         alt={alt}
         width={width}
         height={height}
+        placeholder="blur"
+        blurDataURL={src.src}
       />
     </LogoTile>
   );

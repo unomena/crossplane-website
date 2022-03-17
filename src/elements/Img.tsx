@@ -39,25 +39,40 @@ import Image, { ImageProps } from 'next/image';
 // })(baseStyledSystem) as any;
 
 export const Img: React.FC<
-  ImageProps & { height?: string | number; width?: string | number; sx?: SxProps }
+  ImageProps & {
+    src: StaticImageData;
+    height?: string | number;
+    width?: string | number;
+    sx?: SxProps;
+  }
 > = ({ src, alt, width, height, sx, ...props }) => {
   return (
     <Box width={width} height={height} sx={sx}>
-      <Image src={src || ''} alt={alt || ''} layout="responsive" {...props} />
+      <Image
+        src={src}
+        alt={alt || ''}
+        layout="responsive"
+        placeholder={src.width > 40 ? 'blur' : 'empty'}
+        blurDataURL={src.src}
+        {...props}
+      />
     </Box>
   );
 };
 
-export const Avatar: React.FC<ImageProps & { size?: string | number; sx?: SxProps }> = ({
-  src,
-  alt,
-  size,
-  sx,
-  ...props
-}) => {
+export const Avatar: React.FC<
+  ImageProps & { src: StaticImageData; size?: string | number; sx?: SxProps }
+> = ({ src, alt, size, sx, ...props }) => {
   return (
     <Box width={size} height={size} sx={{ borderRadius: '100%', flexShrink: '0', ...sx }}>
-      <Image src={src || ''} alt={alt || ''} layout="responsive" {...props} />
+      <Image
+        src={src}
+        alt={alt || ''}
+        layout="responsive"
+        placeholder={src.width > 40 ? 'blur' : 'empty'}
+        blurDataURL={src.src}
+        {...props}
+      />
     </Box>
   );
 };
