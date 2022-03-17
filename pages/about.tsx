@@ -401,14 +401,20 @@ const About: React.FC = () => {
           flexDirection={{ _: 'column-reverse', xl: 'row' }}
           overflow="hidden"
         >
-          <Box mx={{ _: '30px', md: '50px' }} flex={1}>
+          <Box
+            mx={{ _: '30px', md: '50px' }}
+            flex={1}
+            display="flex"
+            flexDirection="column"
+            alignItems={{ _: 'center', lg: 'flex-start' }}
+          >
             <Header
               variant="h3"
               bold={true}
               color="white"
               sx={{
                 mb: '25px',
-                textAlign: { _: 'center', md: 'left' },
+                textAlign: { _: 'center', lg: 'left' },
               }}
             >
               Meet Our Team
@@ -418,7 +424,7 @@ const About: React.FC = () => {
             <Header
               variant="h6"
               color="white"
-              sx={{ opacity: '0.8', textAlign: { _: 'center', md: 'left' } }}
+              sx={{ opacity: '0.8', textAlign: { _: 'center', lg: 'left' } }}
             >
               We are happy to be trusted by some of the best in the cloud native technology
               industry. Their support enables us to provide you with the best in class solutions for
