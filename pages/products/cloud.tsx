@@ -116,7 +116,7 @@ const QuoteOval = styled('img', { shouldForwardProp })<{ rb?: boolean }>`
   }
 `;
 
-const capabilities: { icon: string; title: string; body: React.ReactNode }[] = [
+const capabilities: { icon: StaticImageData; title: string; body: React.ReactNode }[] = [
   {
     icon: iconDebug,
     title: 'Debug Configurations',
