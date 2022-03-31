@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
@@ -7,6 +7,8 @@ import { CacheProvider, EmotionCache, Global } from '@emotion/react';
 import theme, { globalStyle } from 'src/theme';
 import createEmotionCache from 'src/createEmotionCache';
 import 'styles/styles.css';
+
+import TagManager from 'react-gtm-module';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -17,6 +19,11 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-WQTC44W' });
+  }, []);
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
