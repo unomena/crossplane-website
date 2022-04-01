@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Head from 'next/head';
+import Script from 'next/script';
 // import Script from 'next/script';
 
 const defaultTitle = 'Upbound - The Universal Cloud Platform';
@@ -45,7 +46,7 @@ const PageHead: React.FC<{
         <meta name="msvalidate.01" content="21094C7C2D174370733E7BAA109FD424" /> */}
       </Head>
       {/* eslint-disable max-len */}
-      {/* <Script type="application/ld+json">
+      <Script id="seo-init" type="application/ld+json">
         {`
           {
             "@context": "https://schema.org",
@@ -74,7 +75,7 @@ const PageHead: React.FC<{
           }
         `}
       </Script>
-      <Script type="text/javascript">
+      <Script id="clarity-init" type="text/javascript">
         {`
           (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -82,7 +83,7 @@ const PageHead: React.FC<{
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "96cq5uw00g");
         `}
-      </Script> */}
+      </Script>
       {/* eslint-enable */}
     </>
   );
