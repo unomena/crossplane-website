@@ -49,7 +49,7 @@ export const partnersRoute = '/partners';
 export const pricingRoute = '/pricing';
 export const privacyRoute = '/privacy';
 export const tncRoute = '/terms';
-export const sitemapRoute = '/sitemap.xml';
+export const sitemapRoute = '/sitemap-0.xml';
 
 // "/products" Routes
 
