@@ -625,7 +625,7 @@ const PageFooter: React.FC<{
                   <MobileFooterColumnAnchor href={routes.cloudDocsUrl}>
                     Documentation
                   </MobileFooterColumnAnchor>
-                  <MobileFooterColumnLink href={routes.faqRoute}>FAQ's</MobileFooterColumnLink>
+                  <MobileFooterColumnLink href={routes.faqRoute}>FAQs</MobileFooterColumnLink>
                   <MobileFooterColumnAnchor href={routes.upboundStatusUrl}>
                     System Status
                   </MobileFooterColumnAnchor>
@@ -788,7 +788,7 @@ const PageFooter: React.FC<{
               <LargeFooterLinkColumnContainer>
                 <LargeFooterLinksTitle>Learn</LargeFooterLinksTitle>
                 <LargeFooterAnchor href={routes.cloudDocsUrl}>Documentation</LargeFooterAnchor>
-                <LargeFooterLink href={routes.faqRoute}>FAQ's</LargeFooterLink>
+                <LargeFooterLink href={routes.faqRoute}>FAQs</LargeFooterLink>
                 <LargeFooterAnchor href={routes.upboundStatusUrl}>System Status</LargeFooterAnchor>
               </LargeFooterLinkColumnContainer>
               <LargeFooterLinkColumnContainer>
