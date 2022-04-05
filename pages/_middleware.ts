@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  if (process.env.NODE_ENV === 'development') {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    req.nextUrl.hostname === 'www.upbound.io' ||
+    req.nextUrl.hostname === 'upbound.io'
+  ) {
     return NextResponse.next();
   }
 
