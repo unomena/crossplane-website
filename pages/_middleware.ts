@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  if (process.env.NODE_ENV === 'development') {
+  if (
+    process.env.NODE_ENV === 'development' ||
+    req.nextUrl.hostname === 'upbound-git-dev-unomena.vercel.app'
+  ) {
     return NextResponse.next();
   }
 
