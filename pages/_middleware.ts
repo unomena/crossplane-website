@@ -1,11 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const no_auth_urls = [
+  'upbound.io',
+  'www.upbound.io',
+  'dev-deba7a0e.u6d.dev',
+  'www.dev-deba7a0e.u6d.dev',
+  'staging-eikeagoo.upbound.services',
+  'www.staging-eikeagoo.upbound.services',
+];
+
 export function middleware(req: NextRequest) {
-  if (
-    process.env.NODE_ENV === 'development' ||
-    req.nextUrl.hostname === 'www.upbound.io' ||
-    req.nextUrl.hostname === 'upbound.io'
-  ) {
+  if (process.env.NODE_ENV === 'development' || no_auth_urls.includes(req.nextUrl.hostname)) {
     return NextResponse.next();
   }
 
