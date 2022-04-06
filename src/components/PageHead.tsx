@@ -39,11 +39,11 @@ const PageHead: React.FC<{
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
 
-        {/* <meta
+        <meta
           name="google-site-verification"
           content="91G6D43ldYFs2uuHH6DtkaHxczYfEAN06ZUe2T4R2cM"
         />
-        <meta name="msvalidate.01" content="21094C7C2D174370733E7BAA109FD424" /> */}
+        <meta name="msvalidate.01" content="21094C7C2D174370733E7BAA109FD424" />
       </Head>
       {/* eslint-disable max-len */}
       <Script id="seo-init" type="application/ld+json">
