@@ -24,7 +24,8 @@ import feature1Image from 'public/registry/feature1.svg';
 import feature1MobileImage from 'public/registry/feature1-mobile.svg';
 import feature2Image from 'public/registry/feature2.svg';
 import feature2MobileImage from 'public/registry/feature2-mobile.svg';
-import feature3Image from 'public/registry/feature3.svg';
+// import feature3Image from 'public/registry/feature3.svg';
+import feature3EasterEggImage from 'public/registry/feature3-easter-egg.svg';
 import feature3MobileImage from 'public/registry/feature3-mobile.svg';
 // import hero1xImage from 'public/registry/hero.png';
 // import hero2xImage from 'public/registry/hero@2x.png';
@@ -317,7 +318,7 @@ const RegistryProduct = () => {
                 width="637px"
                 sx={{ mt: '-100px' }}
               />
-              <Img src={feature3Image} alt="Partner with Upbound image" width="100%" />
+              <Img src={feature3EasterEggImage} alt="Partner with Upbound image" width="100%" />
             </Hidden>
           </Box>
           <Box flex="5" mb="60px">
