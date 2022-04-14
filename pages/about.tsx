@@ -139,6 +139,7 @@ const advisors = [
     { name: 'Google Ventures', title: 'gv.com' },
     { name: 'Telstra Ventures', title: 'telstraventures.com' },
   ],
+  [{ name: 'Intel Capital', title: 'intelcapital.com' }],
 ];
 
 const FounderCardContainer = styled(Box)`
@@ -446,19 +447,21 @@ const About: React.FC = () => {
                       {advisor1.title}
                     </Paragraph>
                   </Box>
-                  <Box
-                    width={{ _: 'auto', md: '256px' }}
-                    mb="25px"
-                    mr={0}
-                    textAlign={{ _: 'center', lg: 'left' }}
-                  >
-                    <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
-                      {advisor2.name}
-                    </Header>
-                    <Paragraph color="white" sx={{ opacity: '0.8', lineHeight: '20px' }}>
-                      {advisor2.title}
-                    </Paragraph>
-                  </Box>
+                  {advisor2 && (
+                    <Box
+                      width={{ _: 'auto', md: '256px' }}
+                      mb="25px"
+                      mr={0}
+                      textAlign={{ _: 'center', lg: 'left' }}
+                    >
+                      <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
+                        {advisor2.name}
+                      </Header>
+                      <Paragraph color="white" sx={{ opacity: '0.8', lineHeight: '20px' }}>
+                        {advisor2.title}
+                      </Paragraph>
+                    </Box>
+                  )}
                 </Box>
               ))}
             </Box>
