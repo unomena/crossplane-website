@@ -136,10 +136,13 @@ const advisors = [
     { name: 'Alex Polvi', title: 'CEO at CoreOS' },
   ],
   [
-    { name: 'Google Ventures', title: 'gv.com' },
+    { name: 'GV', title: 'gv.com' },
     { name: 'Telstra Ventures', title: 'telstraventures.com' },
   ],
-  [{ name: 'Intel Capital', title: 'intelcapital.com' }],
+  [
+    { name: 'Intel Capital', title: 'intelcapital.com' },
+    { name: 'Altimeter Capital', title: 'altimeter.com' },
+  ],
 ];
 
 const FounderCardContainer = styled(Box)`
