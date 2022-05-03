@@ -107,8 +107,11 @@ export const COLORS = {
   violetPrimary: '#6553c0',
   white: '#fff',
   whiteBlue: '#f6faff',
-  whiteTextOnDark: '#bdd0ff',
   whiteTwo: '#f8f8f8',
+
+  whiteTextOnDark: '#D3E7F7',
+  darkBlue1: '#0B1C28',
+  darkBlue2: '#0D2436',
 } as const;
 
 export const fontAvenirRoman = {
@@ -127,8 +130,34 @@ export const shouldForwardProp = (prop: string) =>
   isPropValid(prop) && !blacklistProps.includes(prop);
 
 declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    h1_new: React.CSSProperties;
+    h2_new: React.CSSProperties;
+    body_big: React.CSSProperties;
+    body_normal: React.CSSProperties;
+    body_small: React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    h1_new?: React.CSSProperties;
+    h2_new?: React.CSSProperties;
+    body_big?: React.CSSProperties;
+    body_normal?: React.CSSProperties;
+    body_small?: React.CSSProperties;
+  }
+
   interface BreakpointOverrides {
     _: true;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    h1_new: true;
+    h2_new: true;
+    body_big: true;
+    body_normal: true;
+    body_small: true;
   }
 }
 
@@ -165,6 +194,39 @@ const theme = createTheme({
     body1: {
       lineHeight: 'normal',
     },
+    h1_new: {
+      fontFamily: 'Avenir-Black',
+      fontSize: '80px',
+      lineHeight: '64px',
+      letterSpacing: '-0.8px',
+      color: COLORS.whiteTextOnDark,
+    },
+    h2_new: {
+      fontFamily: 'Avenir-Black',
+      fontSize: '60px',
+      lineHeight: '68px',
+      letterSpacing: '-0.6px',
+      color: COLORS.whiteTextOnDark,
+    },
+    body_big: {
+      fontFamily: 'Avenir-Book',
+      fontSize: '24px',
+      lineHeight: '40px',
+      color: COLORS.whiteTextOnDark,
+    },
+    body_normal: {
+      fontFamily: 'Avenir-Book',
+      fontSize: '20px',
+      lineHeight: '32px',
+      color: COLORS.whiteTextOnDark,
+    },
+    body_small: {
+      fontFamily: 'Avenir-Book',
+      fontSize: '16px',
+      lineHeight: '28px',
+      letterSpacing: '0px',
+      color: COLORS.whiteTextOnDark,
+    },
   },
   breakpoints: {
     values: {
@@ -174,6 +236,19 @@ const theme = createTheme({
       md: 768,
       lg: 992,
       xl: 1170,
+    },
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          h1_new: 'h1',
+          h2_new: 'h2',
+          body_big: 'p',
+          body_normal: 'p',
+          body_small: 'p',
+        },
+      },
     },
   },
 });

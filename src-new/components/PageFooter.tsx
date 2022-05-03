@@ -22,15 +22,15 @@ import youtubeLogo from 'public/youtube.svg';
 
 const footerMarginContainer: SxProps = {
   position: 'relative',
-  marginTop: '25px',
+  // marginTop: '25px',
 
-  [MQ.md]: {
-    marginTop: '100px',
-  },
+  // [MQ.md]: {
+  //   marginTop: '100px',
+  // },
 };
 
 const footerBackgroundContainer: SxProps = {
-  backgroundColor: COLORS.darkBlueGreyTwo,
+  backgroundColor: COLORS.darkBlue1,
 };
 
 const footerCareersPill: SxProps = {
