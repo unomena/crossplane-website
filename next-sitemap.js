@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_VERCEL_URL || 'https://www.upbound.io/',
+  siteUrl: process.env.NEXT_PUBLIC_URL || 'https://www.upbound.io/',
   generateRobotsTxt: true, // (optional)
   // ...other options
 };
