@@ -12,6 +12,7 @@ import * as routes from 'src/routes';
 
 import { Anchor, Link } from 'src/elements/Anchor';
 import { Img } from 'src/elements/Img';
+import TryForFreeCard from 'src-new/components/TryForFreeCard';
 
 import cncfIcon from 'public/cncf-icon.png';
 import githubLogo from 'public/github.svg';
@@ -49,7 +50,7 @@ const footerCareersPill: SxProps = {
 const largeFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '50px 140px 78px 140px',
+  padding: '268px 140px 78px 140px',
   margin: '0 auto',
   maxWidth: '1440px',
 };
@@ -57,9 +58,9 @@ const largeFooterWidthContainer: SxProps = {
 const largeFooterLinkColumnsContainer: SxProps = {
   display: 'flex',
   // borderTop: `1px solid ${COLORS.darkBlue1A3245}`,
-  marginTop: '100px',
+  // marginTop: '100px',
   marginBottom: '70px',
-  paddingTop: '90px',
+  // paddingTop: '90px',
   width: '100%',
 };
 
@@ -469,6 +470,7 @@ const PageFooter: React.FC<{
         </Hidden>
         <Hidden lgDown>
           <Box sx={largeFooterWidthContainer}>
+            <TryForFreeCard />
             <Box sx={largeFooterLinkColumnsContainer}>
               <Box sx={largeFooterLogoAndSocialsContainer}>
                 <Link sx={largeFooterLogoLink} href={routes.homeRoute}>

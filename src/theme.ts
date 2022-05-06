@@ -112,6 +112,7 @@ export const COLORS = {
   whiteTextOnDark: '#D3E7F7',
   darkBlue1: '#0B1C28',
   darkBlue2: '#0D2436',
+  purple: '#6D64F5',
 } as const;
 
 export const fontAvenirRoman = {
@@ -203,9 +204,9 @@ const theme = createTheme({
     },
     h2_new: {
       fontFamily: 'Avenir-Black',
-      fontSize: '60px',
-      lineHeight: '68px',
-      letterSpacing: '-0.6px',
+      fontSize: '54px',
+      lineHeight: '64px',
+      letterSpacing: '-0.54px',
       color: COLORS.whiteTextOnDark,
     },
     body_big: {
