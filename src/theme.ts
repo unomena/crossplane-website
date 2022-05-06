@@ -110,8 +110,8 @@ export const COLORS = {
   whiteTwo: '#f8f8f8',
 
   whiteTextOnDark: '#D3E7F7',
-  darkBlue1: '#0B1C28',
-  darkBlue2: '#0D2436',
+  firefly: '#0B1C28',
+  elephant: '#0D2436',
   purple: '#6D64F5',
 } as const;
 

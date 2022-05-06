@@ -25,7 +25,7 @@ type Props = {};
 const Customers = ({}: Props) => {
   return (
     <PageProvider displayTitle="Customers">
-      <Section bgcolor="darkBlue1">
+      <Section bgcolor="firefly">
         <Box sx={{ display: 'flex', height: '100%' }}>
           <Box sx={headerSectionLeft}>
             <Typography variant="h1_new" sx={{ mb: 3 }}>
@@ -38,7 +38,7 @@ const Customers = ({}: Props) => {
           <Box sx={{ flex: 1, height: 700 }}></Box>
         </Box>
       </Section>
-      <Section bgcolor="darkBlue2" sx={{ py: 9 }}>
+      <Section bgcolor="elephant" sx={{ py: 9 }}>
         <Box sx={customerSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 3 }}>
             Lorem ipsum dolor sit amet

@@ -9,6 +9,7 @@ const wrapper: SxProps = {
   position: 'absolute',
   top: 0,
   transform: 'translateY(-50%)',
+  clipPath: 'url(#myClip)',
 };
 
 const root: SxProps = {
@@ -21,8 +22,7 @@ const root: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
-  clipPath: 'polygon(0 0, 100% 0, 95% 85%, 5% 100%)',
-  // borderRadius: 20,
+  // clipPath: 'polygon(0 0, 100% 0, 95% 85%, 5% 100%)',
 };
 
 type Props = {};
@@ -39,6 +39,15 @@ const TryForFreeCard = ({}: Props) => {
         </Typography>
         <Button styleType="purpleContained">Get started now</Button>
       </Box>
+
+      {/* <svg width="0" height="0">
+        <defs>
+          <clipPath id="myClip">
+            <circle cx="100" cy="100" r="40" />
+            <circle cx="60" cy="60" r="40" />
+          </clipPath>
+        </defs>
+      </svg> */}
     </Box>
   );
 };
