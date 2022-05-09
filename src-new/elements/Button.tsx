@@ -12,75 +12,72 @@ const defaultStyles: SxProps = {
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
 };
 
-type typeStylesProps = {
-  whiteContained: SxProps;
-  purpleContained: SxProps;
-};
+const whiteContained: SxProps = {
+  backgroundColor: '#fff',
+  color: COLORS.purple,
 
-const typeStyles: typeStylesProps = {
-  whiteContained: {
+  '&:hover': {
     backgroundColor: '#fff',
-    color: COLORS.purple,
-
-    '&:hover': {
-      backgroundColor: '#fff',
-      transform: 'scale(1.1)',
-    },
+    transform: 'scale(1.1)',
   },
-  purpleContained: {
+};
+
+const purpleContained: SxProps = {
+  backgroundColor: COLORS.purple,
+  color: '#fff',
+
+  '&:hover': {
     backgroundColor: COLORS.purple,
-    color: '#fff',
-
-    '&:hover': {
-      backgroundColor: COLORS.purple,
-      transform: 'scale(1.1)',
-    },
+    transform: 'scale(1.1)',
   },
 };
 
-type sizeStylesProps = {
-  small: SxProps;
-  default: SxProps;
-  large: SxProps;
+const typeStyles = {
+  whiteContained,
+  purpleContained,
 };
 
-const sizeStyles: sizeStylesProps = {
-  small: {
-    fontSize: '14px',
-    lineHeight: '14px',
-  },
-  default: {
-    fontSize: '16px',
-    lineHeight: '16px',
-  },
-  large: {
-    fontSize: '18px',
-    lineHeight: '18px',
-  },
+const small: SxProps = {
+  fontSize: '14px',
+  lineHeight: '14px',
+};
+
+const normal: SxProps = {
+  fontSize: '16px',
+  lineHeight: '16px',
+};
+
+const large: SxProps = {
+  fontSize: '18px',
+  lineHeight: '18px',
+};
+
+const sizeStyles = {
+  small,
+  normal,
+  large,
 };
 
 type Props = {
   styleType?: 'whiteContained' | 'purpleContained';
-  sizeType?: 'small' | 'default' | 'large';
-  sx?: SxProps;
+  sizeType?: 'small' | 'normal' | 'large';
 } & ButtonProps;
 
 export const Button = ({
   children,
   styleType = 'whiteContained',
-  sizeType = 'default',
-  sx,
+  sizeType = 'normal',
   ...props
 }: Props) => {
   return (
     <MuiButton
+      {...props}
       sx={{
         ...defaultStyles,
         ...typeStyles[styleType],
         ...sizeStyles[sizeType],
-        ...sx,
+        ...props.sx,
       }}
-      {...props}
     >
       {children}
     </MuiButton>
