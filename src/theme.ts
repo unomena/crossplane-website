@@ -113,6 +113,7 @@ export const COLORS = {
   firefly: '#0B1C28',
   elephant: '#0D2436',
   purple: '#6D64F5',
+  bigStone: '#1B3549',
 } as const;
 
 export const fontAvenirRoman = {

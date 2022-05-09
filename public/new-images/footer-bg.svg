@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1105px" height="382px" viewBox="0 0 1105 382" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Fill 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-14.4430136%" y1="49.1215928%" x2="44.0033526%" y2="51.1208612%" id="linearGradient-1">
+            <stop stop-color="#3DE2CB" offset="0%"></stop>
+            <stop stop-color="#6D64F5" offset="100%"></stop>
+        </linearGradient>
+        <path d="M23.8172382,0 L1087.45876,0 C1098.50446,-1.43777039e-13 1107.45876,8.954305 1107.45876,20 C1107.45876,20.7957695 1107.41127,21.5908297 1107.31653,22.3809401 L1066.33178,364.206406 C1065.06772,374.749022 1055.78552,382.466209 1045.18932,381.784163 L62.8255863,318.55225 C53.3904923,317.944941 45.6695652,310.813628 44.3162233,301.45637 L4.02319149,22.8628162 C2.44210174,11.9308661 10.0224718,1.7870431 20.9544219,0.205953341 C21.90253,0.0688283067 22.8592651,7.28140414e-15 23.8172382,0 Z" id="path-2"></path>
+    </defs>
+    <g id="Customer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Customer-Overview" transform="translate(-167.000000, -1630.000000)">
+            <g id="Group-10" transform="translate(165.000000, 1630.000000)">
+                <g id="Fill-3" transform="translate(555.000000, 191.500000) scale(-1, 1) translate(-555.000000, -191.500000) ">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="Mask" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

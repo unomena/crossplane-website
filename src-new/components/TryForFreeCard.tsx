@@ -3,26 +3,31 @@ import React from 'react';
 import { Box, Typography, SxProps } from '@mui/material';
 import { Button } from 'src-new/elements/Button';
 
+import footerCTABackground from 'public/new-images/footer-bg.svg';
+
 const wrapper: SxProps = {
   width: '100%',
   maxWidth: '1160px',
   position: 'absolute',
   top: 0,
   transform: 'translateY(-50%)',
-  clipPath: 'url(#myClip)',
 };
 
 const root: SxProps = {
   width: '100%',
-  minHeight: 384,
+  minHeight: 401,
   py: 8,
-  backgroundImage: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)',
+  backgroundImage: `url(${footerCTABackground.src})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center center',
+  backgroundSize: 'cover',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
   // clipPath: 'polygon(0 0, 100% 0, 95% 85%, 5% 100%)',
+  // backgroundImage: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)',
 };
 
 type Props = {};
@@ -37,17 +42,8 @@ const TryForFreeCard = ({}: Props) => {
         <Typography variant="body_normal" color="#fff" sx={{ maxWidth: 640, mb: 5 }}>
           Start your control-plane transformation for free by creating a free Upbound account.
         </Typography>
-        <Button styleType="purpleContained">Get started now</Button>
+        <Button styleType="whiteContained">Get started now</Button>
       </Box>
-
-      {/* <svg width="0" height="0">
-        <defs>
-          <clipPath id="myClip">
-            <circle cx="100" cy="100" r="40" />
-            <circle cx="60" cy="60" r="40" />
-          </clipPath>
-        </defs>
-      </svg> */}
     </Box>
   );
 };
