@@ -31,7 +31,7 @@ const footerMarginContainer: SxProps = {
 };
 
 const footerBackgroundContainer: SxProps = {
-  backgroundColor: COLORS.darkBlue1,
+  backgroundColor: COLORS.firefly,
 };
 
 const footerCareersPill: SxProps = {
