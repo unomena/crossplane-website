@@ -7,7 +7,7 @@ import { jsx } from '@emotion/react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
 
-import PageHeader from 'src/components/PageHeader';
+import PageHeader from 'src-new/components/PageHeader';
 import PageFooter from 'src-new/components/PageFooter';
 import PageHead from 'src/components/PageHead';
 
@@ -61,7 +61,7 @@ const PageProvider: React.FC<{
         metaTitle={metaTitle}
         metaDescription={metaDescription}
       />
-      <PageHeader isHeaderVisible={isHeaderVisible} setOverflowVisible={setOverflowVisible} />
+      <PageHeader />
       <Box sx={{ overflow: 'hidden' }}>
         {children}
         <PageFooter isFooterVisible={isFooterVisible} />

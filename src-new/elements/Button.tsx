@@ -109,7 +109,7 @@ type Props = {
   sizeType?: 'small' | 'normal' | 'large';
 } & ButtonProps;
 
-export const Button = ({
+const Button = ({
   children,
   styleType = 'whiteContained',
   sizeType = 'normal',
@@ -129,3 +129,5 @@ export const Button = ({
     </MuiButton>
   );
 };
+
+export default Button;

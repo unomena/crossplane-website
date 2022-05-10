@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Box, Typography, SxProps } from '@mui/material';
-import { Button } from 'src-new/elements/Button';
+
+import Button from 'src-new/elements/Button';
 
 import footerCTABackground from 'public/new-images/footer-bg.svg';
 
