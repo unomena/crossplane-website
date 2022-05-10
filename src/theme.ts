@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, SxProps } from '@mui/material/styles';
 import isPropValid from '@emotion/is-prop-valid';
 
 export const COLORS = {
@@ -134,6 +134,7 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     h1_new: React.CSSProperties;
     h2_new: React.CSSProperties;
+    h3_new: React.CSSProperties;
     body_big: React.CSSProperties;
     body_normal: React.CSSProperties;
     body_small: React.CSSProperties;
@@ -142,6 +143,7 @@ declare module '@mui/material/styles' {
   interface TypographyVariantsOptions {
     h1_new?: React.CSSProperties;
     h2_new?: React.CSSProperties;
+    h3_new?: React.CSSProperties;
     body_big?: React.CSSProperties;
     body_normal?: React.CSSProperties;
     body_small?: React.CSSProperties;
@@ -156,6 +158,7 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     h1_new: true;
     h2_new: true;
+    h3_new: true;
     body_big: true;
     body_normal: true;
     body_small: true;
@@ -209,6 +212,12 @@ const theme = createTheme({
       letterSpacing: '-0.54px',
       color: COLORS.linkWater,
     },
+    h3_new: {
+      fontFamily: 'Avenir-Black',
+      fontSize: '30px',
+      lineHeight: '36px',
+      color: COLORS.linkWater,
+    },
     body_big: {
       fontFamily: 'Avenir-Book',
       fontSize: '24px',
@@ -245,6 +254,7 @@ const theme = createTheme({
         variantMapping: {
           h1_new: 'h1',
           h2_new: 'h2',
+          h3_new: 'h3',
           body_big: 'p',
           body_normal: 'p',
           body_small: 'p',
@@ -253,6 +263,18 @@ const theme = createTheme({
     },
   },
 });
+
+export const gradient_1: SxProps = {
+  background: 'linear-gradient(45deg, #6D64F5, #3DE2CB)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+};
+
+export const gradient_2: SxProps = {
+  background: 'linear-gradient(145deg, #6D64F5, #FAAD13)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+};
 
 export const MQ = {
   xs: `@media screen and (min-width: ${theme.breakpoints.values.xs}px)`,
