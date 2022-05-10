@@ -4,17 +4,13 @@ import { Button as MuiButton, ButtonProps, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
 const defaultStyles: SxProps = {
-  fontFamily: 'Avenir-Black',
   textTransform: 'none',
-  borderRadius: 24,
-  px: 4,
-  py: 2,
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
 };
 
 const whiteContained: SxProps = {
   backgroundColor: '#fff',
-  color: COLORS.purple,
+  color: COLORS.cornflower,
 
   '&:hover': {
     backgroundColor: '#fff',
@@ -22,34 +18,79 @@ const whiteContained: SxProps = {
   },
 };
 
-const purpleContained: SxProps = {
-  backgroundColor: COLORS.purple,
+const whiteOutlined: SxProps = {
+  backgroundColor: 'unset',
+  color: '#fff',
+  border: '1px solid #fff',
+
+  '&:hover': {
+    backgroundColor: 'unset',
+    transform: 'scale(1.1)',
+  },
+};
+
+const cornflowerContained: SxProps = {
+  backgroundColor: COLORS.cornflower,
   color: '#fff',
 
   '&:hover': {
-    backgroundColor: COLORS.purple,
+    backgroundColor: COLORS.cornflower,
+    transform: 'scale(1.1)',
+  },
+};
+
+const gradientContained: SxProps = {
+  backgroundImage: 'linear-gradient(-55deg, #3DE2CB 0%, #6D64F5 100%)',
+  color: '#fff',
+
+  '&:hover': {
+    transform: 'scale(1.1)',
+  },
+};
+
+const linkWaterContained: SxProps = {
+  backgroundColor: COLORS.linkWater,
+  color: COLORS.firefly,
+
+  '&:hover': {
+    backgroundColor: COLORS.linkWater,
     transform: 'scale(1.1)',
   },
 };
 
 const typeStyles = {
   whiteContained,
-  purpleContained,
+  whiteOutlined,
+  cornflowerContained,
+  gradientContained,
+  linkWaterContained,
 };
 
 const small: SxProps = {
+  fontFamily: 'Avenir-Medium',
   fontSize: '14px',
   lineHeight: '14px',
+  borderRadius: '20px',
+  px: '16px',
+  height: '38px',
 };
 
 const normal: SxProps = {
+  fontFamily: 'Avenir-Black',
   fontSize: '16px',
   lineHeight: '16px',
+  borderRadius: '24px',
+  px: '30px',
+  height: '48px',
 };
 
 const large: SxProps = {
+  fontFamily: 'Avenir-Heavy',
   fontSize: '18px',
   lineHeight: '18px',
+  borderRadius: '32px',
+  px: '36px',
+  height: '64px',
 };
 
 const sizeStyles = {
@@ -59,7 +100,12 @@ const sizeStyles = {
 };
 
 type Props = {
-  styleType?: 'whiteContained' | 'purpleContained';
+  styleType?:
+    | 'whiteContained'
+    | 'whiteOutlined'
+    | 'cornflowerContained'
+    | 'gradientContained'
+    | 'linkWaterContained';
   sizeType?: 'small' | 'normal' | 'large';
 } & ButtonProps;
 
