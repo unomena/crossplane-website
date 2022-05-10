@@ -17,8 +17,17 @@ import PartnersIcon from 'src-new/svg/PartnersIcon';
 import SignInIcon from 'src-new/svg/SignInIcon';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 
+const root: SxProps = {
+  bgcolor: 'transparent',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
 const announceContainer: SxProps = {
   bgcolor: COLORS.cornflower,
+  width: '100%',
   height: 60,
   display: 'flex',
   alignItems: 'center',
@@ -30,11 +39,15 @@ const announceContainer: SxProps = {
 };
 
 const mainContainer: SxProps = {
-  bgcolor: COLORS.firefly,
+  bgcolor: 'transparent',
   height: 88,
   display: 'flex',
   alignItems: 'center',
   px: '50px',
+  position: 'absolute',
+  top: 60,
+  width: '100%',
+  maxWidth: 1440,
 };
 
 const centerItems: SxProps = {
@@ -381,7 +394,7 @@ type Props = {};
 
 const PageHeader = ({}: Props) => {
   return (
-    <Box>
+    <Box sx={root}>
       <Box sx={announceContainer}>
         <Typography variant="inherit">
           🎉 We just launched Universal Crossplane (UXP) and it’s ready for you to{' '}

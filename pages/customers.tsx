@@ -70,6 +70,7 @@ const Customers = ({}: Props) => {
                   variant="h3_new"
                   sx={{
                     mb: 3,
+                    lineHeight: '34px',
                     ...gradient_1,
                   }}
                 >
