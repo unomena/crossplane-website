@@ -7,7 +7,8 @@ import { Box, SxProps, Typography, Grid } from '@mui/material';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
-import { CornerCard } from 'src-new/elements/CornerCard';
+import CornerCard from 'src-new/elements/CornerCard';
+import Slider from 'src-new/components/Slider';
 
 import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
 import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
@@ -51,7 +52,7 @@ type Props = {};
 const Customers = ({}: Props) => {
   return (
     <PageProvider displayTitle="Customers">
-      <Section bgcolor="firefly" sx={{ py: 23.5 }}>
+      <Section sx={{ py: 23.5, overflow: 'hidden' }}>
         <Grid container spacing={2} columns={12} sx={{ alignItems: 'center' }}>
           <Grid item md={7}>
             <Box>
@@ -64,30 +65,93 @@ const Customers = ({}: Props) => {
             </Box>{' '}
           </Grid>
           <Grid item md={5}>
-            <CornerCard styleType="quoteCard">
-              <Box>
-                <Typography
-                  variant="h3_new"
-                  sx={{
-                    mb: 3,
-                    ...gradient_1,
-                  }}
-                >
-                  We chose Upbound as our partner in this important transformation…
-                </Typography>
-                <Typography variant="body_small">
-                  …because they created Crossplane and offer enterprise-grade products and services
-                  that will help us accelerate time to market."
-                </Typography>
-              </Box>
-              <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-                <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-              </Box>
-            </CornerCard>
+            <Slider axis="vertical">
+              <CornerCard styleType="quoteCard">
+                <Box>
+                  <Typography
+                    variant="h3_new"
+                    sx={{
+                      mb: 3,
+                      ...gradient_1,
+                    }}
+                  >
+                    We chose Upbound as our partner in this important transformation…
+                  </Typography>
+                  <Typography variant="body_small">
+                    …because they created Crossplane and offer enterprise-grade products and
+                    services that will help us accelerate time to market."
+                  </Typography>
+                  <Box
+                    sx={{
+                      mt: 3,
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
+                      <Image src={plotlyLogo.src} alt="plotly" layout="fill" objectFit="contain" />
+                    </Box>
+                    <Box>
+                      <Typography variant="h6_new">Jack Parmer</Typography>
+                      <Typography
+                        variant="body_xs"
+                        sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
+                      >
+                        CEO and co-founder Plotly
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
+                  <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+                </Box>
+              </CornerCard>
+
+              <CornerCard styleType="quoteCard">
+                <Box>
+                  <Typography
+                    variant="h3_new"
+                    sx={{
+                      mb: 3,
+                      ...gradient_1,
+                    }}
+                  >
+                    Upbound Cloud automates and simplifies…
+                  </Typography>
+                  <Typography variant="body_small">
+                    …how software developers manage the lifecycle of our application portfolios,
+                    allowing us to innovate more quickly.
+                  </Typography>
+                  <Box
+                    sx={{
+                      mt: 3,
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box sx={{ position: 'relative', width: '52px', height: '37px', mr: 2 }}>
+                      <Image src={dbLogo.src} alt="DB" layout="fill" objectFit="contain" />
+                    </Box>
+                    <Box>
+                      <Typography variant="h6_new">Jan Willies</Typography>
+                      <Typography
+                        variant="body_xs"
+                        sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
+                      >
+                        Platform Architect at Accenture referring to Deutsche Bahn
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
+                  <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+                </Box>
+              </CornerCard>
+            </Slider>
           </Grid>
         </Grid>
       </Section>
-      <Section bgcolor="elephant" sx={{ pt: 23.5, pb: 34.125 }}>
+      <Section bgcolor="elephant" angle="topRight" sx={{ pt: 23.5, pb: 34.125, mt: '-10%' }}>
         <Box sx={customerSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             Trusted by the industry's best

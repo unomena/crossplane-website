@@ -135,18 +135,22 @@ declare module '@mui/material/styles' {
     h1_new: React.CSSProperties;
     h2_new: React.CSSProperties;
     h3_new: React.CSSProperties;
+    h6_new: React.CSSProperties;
     body_big: React.CSSProperties;
     body_normal: React.CSSProperties;
     body_small: React.CSSProperties;
+    body_xs: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
     h1_new?: React.CSSProperties;
     h2_new?: React.CSSProperties;
     h3_new?: React.CSSProperties;
+    h6_new?: React.CSSProperties;
     body_big?: React.CSSProperties;
     body_normal?: React.CSSProperties;
     body_small?: React.CSSProperties;
+    body_xs?: React.CSSProperties;
   }
 
   interface BreakpointOverrides {
@@ -159,14 +163,19 @@ declare module '@mui/material/Typography' {
     h1_new: true;
     h2_new: true;
     h3_new: true;
+    h6_new: true;
     body_big: true;
     body_normal: true;
     body_small: true;
+    body_xs: true;
   }
 }
 
 const theme = createTheme({
   palette: {
+    background: {
+      default: COLORS.firefly,
+    },
     primary: {
       main: COLORS.cornflower,
     },
@@ -218,6 +227,12 @@ const theme = createTheme({
       lineHeight: '36px',
       color: COLORS.linkWater,
     },
+    h6_new: {
+      fontFamily: 'Avenir-Black',
+      fontSize: '16px',
+      lineHeight: '20px',
+      color: COLORS.linkWater,
+    },
     body_big: {
       fontFamily: 'Avenir-Book',
       fontSize: '24px',
@@ -235,6 +250,12 @@ const theme = createTheme({
       fontSize: '16px',
       lineHeight: '28px',
       letterSpacing: '0px',
+      color: COLORS.linkWater,
+    },
+    body_xs: {
+      fontFamily: 'Avenir-Book',
+      fontSize: '14px',
+      lineHeight: '20px',
       color: COLORS.linkWater,
     },
   },
@@ -255,9 +276,11 @@ const theme = createTheme({
           h1_new: 'h1',
           h2_new: 'h2',
           h3_new: 'h3',
+          h6_new: 'h6',
           body_big: 'p',
           body_normal: 'p',
           body_small: 'p',
+          body_xs: 'p',
         },
       },
     },

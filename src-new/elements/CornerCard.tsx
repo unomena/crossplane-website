@@ -42,9 +42,9 @@ const logoContained: SxProps = {
 };
 
 const quoteCard: SxProps = {
-  backgroundImage: `linear-gradient(-45deg, transparent 15%, ${COLORS.bigStone} 0% 100%)`,
+  backgroundImage: `linear-gradient(-45deg, transparent 14%, ${COLORS.bigStone} 0% 100%)`,
   '&:hover': {
-    backgroundImage: `linear-gradient(-45deg, transparent 15%, #6D64F5 0%, #C9C3FF 100%)`,
+    backgroundImage: `linear-gradient(-45deg, transparent 14%, ${COLORS.bigStone} 0% 100%)`,
   },
   '&:before': {
     zIndex: '-1',
@@ -55,7 +55,7 @@ const quoteCard: SxProps = {
     top: '3px',
     bottom: '3px',
     borderRadius: 1.25,
-    background: `linear-gradient(-45deg, transparent 15%, ${COLORS.bigStone} 0%)`,
+    background: `linear-gradient(-45deg, transparent 14%, ${COLORS.bigStone} 0%)`,
   },
 };
 
@@ -69,7 +69,7 @@ type Props = {
   styleType?: 'logoContained' | 'quoteCard';
 };
 
-export const CornerCard = ({ children, styleType = 'logoContained', ...props }: Props) => {
+const CornerCard = ({ children, styleType = 'logoContained', ...props }: Props) => {
   return (
     <Box
       {...props}
@@ -79,9 +79,8 @@ export const CornerCard = ({ children, styleType = 'logoContained', ...props }: 
       }}
     >
       {children}
-      {/* <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-        <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-      </Box> */}
     </Box>
   );
 };
+
+export default CornerCard;
