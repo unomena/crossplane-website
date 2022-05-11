@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, gradient_1 } from 'src/theme';
+import { keyframes } from '@emotion/react';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -174,6 +175,9 @@ const cpLogoBoxImageContainer: SxProps = {
   position: 'relative',
   width: '100%',
   height: '100%',
+  '& > span': {
+    transition: 'all 1.5s ease-in-out',
+  },
 };
 
 const cpLogoBoxBigger: SxProps = {
@@ -196,71 +200,239 @@ const cpLogoBoxSmaller: SxProps = {
   height: 59,
 };
 
+const pulsate = keyframes`
+  from { opacity: 1; }
+  50% { opacity: 0.5; }
+  to { opacity: 1; }
+`;
+
 const getRandomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+type CPLogoBoxProps = {
+  sizeStyles: SxProps;
+  shouldUpdate?: Boolean;
+};
+
+const CPLogoBox = memo(({ sizeStyles, shouldUpdate }: CPLogoBoxProps) => {
+  const [show, setShow] = useState(false);
+  const [imageOne, setImageOne] = useState(
+    crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)]
+  );
+  const [imageTwo, setImageTwo] = useState(
+    crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)]
+  );
+
+  useEffect(() => {
+    if (shouldUpdate) {
+      setShow(!show);
+    }
+  }, [shouldUpdate]);
+
+  useEffect(() => {
+    let t: NodeJS.Timeout;
+    if (show) {
+      t = setTimeout(() => {
+        setImageOne(crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)]);
+      }, 4000);
+    } else {
+      t = setTimeout(() => {
+        setImageTwo(crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)]);
+      }, 4000);
+    }
+    return () => {
+      clearTimeout(t);
+    };
+  }, [show]);
+
+  return (
+    <Box
+      sx={{
+        ...cpLogoBox,
+        ...sizeStyles,
+        // bgcolor: shouldUpdate ? 'red' : COLORS.bigStone,
+        animation: shouldUpdate ? `${pulsate} 2s ease-in-out` : null,
+      }}
+    >
+      <Box
+        sx={{
+          ...cpLogoBoxImageContainer,
+          '& > span:first-of-type': {
+            opacity: show ? '0 !important' : '1 !important',
+            transitionDelay: show ? '0s' : '1s',
+          },
+          '& > span:last-of-type': {
+            opacity: show ? '1 !important' : '0 !important',
+            transitionDelay: show ? '1s' : '0s',
+          },
+        }}
+      >
+        <Image src={imageOne} alt="company logo" layout="fill" objectFit="contain" />
+        <Image src={imageTwo} alt="company logo" layout="fill" objectFit="contain" />
+      </Box>
+    </Box>
+  );
+});
+
+CPLogoBox.displayName = 'CPLogoBox';
+
+const cpColumnsLeftList = [
+  {
+    sizeStyles: cpLogoBoxBigger,
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxBig,
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxSmall,
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxSmaller,
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+];
+
+const cpColumnsRightList = [
+  {
+    sizeStyles: cpLogoBoxSmaller,
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxSmall,
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxBig,
+
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxBigger,
+
+    logos: [
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+      crossplaneLogos[getRandomInt(0, 48)],
+    ],
+  },
+];
+
 const CrossplaneLogosSection = () => {
+  const [logoToUpdateLeft, _setLogoToUpdateLeft] = useState<number | null>(null);
+  const logoToUpdateRefLeft = useRef(logoToUpdateLeft);
+  const setLogoToUpdateLeft = (val: number | null) => {
+    logoToUpdateRefLeft.current = val;
+    _setLogoToUpdateLeft(val);
+  };
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      let row = null;
+      do {
+        row = getRandomInt(0, 23);
+      } while (row === logoToUpdateRefLeft.current);
+      setLogoToUpdateLeft(row);
+    }, getRandomInt(22, 32) * 100);
+    return () => {
+      clearTimeout(t);
+    };
+  }, [logoToUpdateLeft]);
+
+  const [logoToUpdateRight, _setLogoToUpdateRight] = useState<number | null>(null);
+  const logoToUpdateRefRight = useRef(logoToUpdateRight);
+  const setLogoToUpdateRight = (val: number | null) => {
+    logoToUpdateRefRight.current = val;
+    _setLogoToUpdateRight(val);
+  };
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      let row = null;
+      do {
+        row = getRandomInt(24, 47);
+      } while (row === logoToUpdateRefRight.current);
+      setLogoToUpdateRight(row);
+    }, getRandomInt(22, 32) * 100);
+    return () => {
+      clearTimeout(t);
+    };
+  }, [logoToUpdateRight]);
+
   return (
     <Box sx={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
       <Box sx={cpLeftColumns}>
         <Box sx={{ ...cpColumnShadow, left: -176 }} />
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxBigger }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
+        {cpColumnsLeftList.map((c, columnIndex) => (
+          <Box key={columnIndex} sx={cpLogoBoxColumn}>
+            {c.logos.map((v, logoIndex) => {
+              const columnStartIndex = (columnIndex + 1) * 6 - 6;
+              const realIndex = logoIndex + columnStartIndex;
+              return (
+                <CPLogoBox
+                  key={logoIndex}
+                  sizeStyles={c.sizeStyles}
+                  shouldUpdate={logoToUpdateLeft === realIndex}
                 />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxBig }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxSmall }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxSmaller }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Box>
+              );
+            })}
+          </Box>
+        ))}
       </Box>
       <Box sx={cpCenterBox}>
         <Typography sx={cpCenterBoxTitleNum}>XX</Typography>
@@ -275,62 +447,21 @@ const CrossplaneLogosSection = () => {
         </Button>
       </Box>
       <Box sx={cpRightColumns}>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxSmaller }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
+        {cpColumnsRightList.map((c, columnIndex) => (
+          <Box key={columnIndex} sx={cpLogoBoxColumn}>
+            {c.logos.map((v, logoIndex) => {
+              const columnStartIndex = (columnIndex + 1) * 6 - 6;
+              const realIndex = logoIndex + columnStartIndex + 24;
+              return (
+                <CPLogoBox
+                  key={logoIndex}
+                  sizeStyles={c.sizeStyles}
+                  shouldUpdate={logoToUpdateRight === realIndex}
                 />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxSmall }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxBig }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Box>
-        <Box sx={cpLogoBoxColumn}>
-          {[...Array(6)].map((v, i) => (
-            <Box key={i} sx={{ ...cpLogoBox, ...cpLogoBoxBigger }}>
-              <Box sx={cpLogoBoxImageContainer}>
-                <Image
-                  src={crossplaneLogos[getRandomInt(0, 48)]}
-                  alt="company logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          ))}
-        </Box>
+              );
+            })}
+          </Box>
+        ))}
         <Box sx={{ ...cpColumnShadow, right: -176 }} />
       </Box>
     </Box>
