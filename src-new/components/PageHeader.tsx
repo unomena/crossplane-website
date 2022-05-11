@@ -193,7 +193,7 @@ const linkBar: SxProps = {
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
 
   '&:hover': {
-    transform: 'scale(1.1)',
+    transform: 'scale(1.05)',
   },
 };
 

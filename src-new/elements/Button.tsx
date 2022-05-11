@@ -3,6 +3,8 @@ import React from 'react';
 import { Button as MuiButton, ButtonProps, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
+const scale = 1.05;
+
 const defaultStyles: SxProps = {
   textTransform: 'none',
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
@@ -14,7 +16,7 @@ const whiteContained: SxProps = {
 
   '&:hover': {
     backgroundColor: '#fff',
-    transform: 'scale(1.1)',
+    transform: `scale(${scale})`,
   },
 };
 
@@ -25,7 +27,7 @@ const whiteOutlined: SxProps = {
 
   '&:hover': {
     backgroundColor: 'unset',
-    transform: 'scale(1.1)',
+    transform: `scale(${scale})`,
   },
 };
 
@@ -35,7 +37,7 @@ const cornflowerContained: SxProps = {
 
   '&:hover': {
     backgroundColor: COLORS.cornflower,
-    transform: 'scale(1.1)',
+    transform: `scale(${scale})`,
   },
 };
 
@@ -44,7 +46,7 @@ const gradientContained: SxProps = {
   color: '#fff',
 
   '&:hover': {
-    transform: 'scale(1.1)',
+    transform: `scale(${scale})`,
   },
 };
 
@@ -54,7 +56,7 @@ const linkWaterContained: SxProps = {
 
   '&:hover': {
     backgroundColor: COLORS.linkWater,
-    transform: 'scale(1.1)',
+    transform: `scale(${scale})`,
   },
 };
 
