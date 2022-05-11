@@ -9,9 +9,9 @@ type Props = {
   children: React.ReactNode;
 } & NextLinkProps;
 
-const Link = ({ href, muiProps, children }: Props) => {
+const Link = ({ href, muiProps, children, ...props }: Props) => {
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref {...props}>
       <MuiLink underline="none" {...muiProps}>
         {children}
       </MuiLink>

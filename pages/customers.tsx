@@ -153,12 +153,7 @@ const Customers = ({}: Props) => {
           </Grid>
         </Grid>
       </Section>
-      <Section
-        bgcolor
-        angleTop="topRight"
-        angleBottom="btmLeft"
-        sx={{ pt: 23.5, pb: 34.125, mt: '-10%' }}
-      >
+      <Section bgcolor angleTop="topLeft" sx={{ pt: 23.5, pb: 34.125 }}>
         <Box sx={customerSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             Trusted by the industry's best

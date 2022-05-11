@@ -5,16 +5,20 @@ import { SxProps } from '@mui/system';
 import { COLORS } from 'src/theme';
 
 const topRight: SxProps = {
-  clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0% 100%)',
+  clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
+  // mt: '-10%',
 };
 const topLeft: SxProps = {
   clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0% 100%)',
+  mt: '-10%',
 };
 const btmRight: SxProps = {
-  clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0% 100%)',
+  clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
+  // mb: '-10%',
 };
 const btmLeft: SxProps = {
-  clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0 85%)',
+  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 90%)',
+  // mb: '-10%',
 };
 
 const angleStyles = {

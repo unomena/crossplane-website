@@ -8,6 +8,9 @@ const root: SxProps = {
   '.axis-vertical .slide': {
     my: 3.75,
   },
+  '.axis-horizontal .slide': {
+    mx: 1.875,
+  },
   '.carousel.carousel-slider': {
     overflow: 'visible',
   },
@@ -28,7 +31,7 @@ const root: SxProps = {
 
 type Props = {
   children: React.ReactChild[];
-  axis: 'vertical' | 'horizontal';
+  axis?: 'vertical' | 'horizontal';
 };
 
 const Slider = ({ children, axis = 'horizontal' }: Props) => {
