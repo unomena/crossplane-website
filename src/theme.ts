@@ -217,14 +217,15 @@ const theme = createTheme({
     h2_new: {
       fontFamily: 'Avenir-Black',
       fontSize: '54px',
-      lineHeight: '64px',
+      lineHeight: '62px',
       letterSpacing: '-0.54px',
       color: COLORS.linkWater,
     },
     h3_new: {
       fontFamily: 'Avenir-Black',
       fontSize: '30px',
-      lineHeight: '36px',
+      lineHeight: '62px',
+      letterSpacing: '-0.3px',
       color: COLORS.linkWater,
     },
     h6_new: {

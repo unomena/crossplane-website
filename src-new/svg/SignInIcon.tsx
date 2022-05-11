@@ -3,14 +3,21 @@ import React from 'react';
 
 const SignInIcon = () => {
   return (
-    <svg width="10" height="13" viewBox="0 0 10 13" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#fff" fill="none" fillRule="evenodd">
-        <circle cx="5" cy="3.472" r="2.833" />
-        <path
-          d="M4.95 8.845c-1.118 0-2.02.296-2.67.954-.497.5-.845 1.188-1.071 2.046h7.557c-.245-.854-.608-1.54-1.113-2.04-.668-.66-1.578-.96-2.703-.96Z"
-          strokeWidth="2"
-        />
-      </g>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="10"
+      height="13"
+      viewBox="0 0 10 13"
+      xmlSpace="preserve"
+    >
+      <circle cx="5" cy="3.8" r="2.8" fill="none" stroke="#fff" />
+      <path
+        d="M1.1 12.1C1.1 10 2.8 8.3 5 8.3s3.9 1.7 3.9 3.8"
+        fill="none"
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 };
