@@ -42,6 +42,7 @@ const logoContained: SxProps = {
 };
 
 const quoteCard: SxProps = {
+  display: 'flex',
   backgroundImage: `linear-gradient(-45deg, transparent 14%, ${COLORS.bigStone} 0% 100%)`,
   '&:hover': {
     backgroundImage: `linear-gradient(-45deg, transparent 14%, ${COLORS.bigStone} 0% 100%)`,

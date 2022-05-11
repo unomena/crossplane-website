@@ -18,6 +18,7 @@ import internalCloudImg from 'public/new-images/products-page/internal-cloud-pla
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
+import shapesIcon from 'public/new-images/icons/shapes-icon.svg';
 
 import * as routes from 'src/routes';
 
@@ -30,6 +31,16 @@ const headerButtons: SxProps = {
   mb: 10,
   display: 'flex',
   alignItems: 'center',
+};
+
+const gridLayout: SxProps = {
+  display: 'grid',
+  gap: 2,
+  gridTemplateColumns: 'repeat(1, 1fr)',
+
+  [MQ.md]: {
+    gridTemplateColumns: 'repeat(3, 1fr)',
+  },
 };
 
 const iconBtmRight: SxProps = {
@@ -126,6 +137,90 @@ const Products = ({}: Props) => {
         </Box>
       </Section>
       <Section sx={{ pt: 23.5, pb: 10 }}>
+        <Box sx={gridLayout}>
+          <CornerCard styleType="quoteCard">
+            <Box display="flex" flexDirection="column">
+              <Box flex={1}>
+                <Typography
+                  variant="h3_new"
+                  sx={{
+                    mb: 3,
+                    lineHeight: '34px',
+                  }}
+                >
+                  Internal Developer Platform
+                </Typography>
+                <Typography variant="body_small">
+                  Upbound makes building Internal Developer Platforms straightforward. Platform
+                  teams compose their custom cloud API, and Upbound dynamically renders a
+                  self-service console for it.
+                </Typography>
+              </Box>
+
+              <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+                <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
+              </Box>
+            </Box>
+            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
+              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+            </Box>
+          </CornerCard>
+          <CornerCard styleType="quoteCard">
+            <Box display="flex" flexDirection="column">
+              <Box flex={1}>
+                <Typography
+                  variant="h3_new"
+                  sx={{
+                    mb: 3,
+                    lineHeight: '34px',
+                  }}
+                >
+                  Infrastructure-as-Code Modernization
+                </Typography>
+                <Typography variant="body_small">
+                  Upbound’s control planes continuously reconcile infrastructure resources they
+                  manage, eliminating configuration drift entirely. Using control planes, teams can
+                  unify both their application and infrastructure deployment workflows.
+                </Typography>
+              </Box>
+
+              <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+                <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
+              </Box>
+            </Box>
+            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
+              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+            </Box>
+          </CornerCard>
+          <CornerCard styleType="quoteCard">
+            <Box display="flex" flexDirection="column">
+              <Box flex={1}>
+                <Typography
+                  variant="h3_new"
+                  sx={{
+                    mb: 3,
+                    lineHeight: '34px',
+                  }}
+                >
+                  Global Application Deployment
+                </Typography>
+                <Typography variant="body_small">
+                  Deploy workloads across zones, regions, and vendors by building applications
+                  against your Internal Cloud Platforms running in Upbound. Infrastructure
+                  environment where the application is deployed simply becomes a configuration
+                  detail chosen during deployment.
+                </Typography>
+              </Box>
+
+              <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+                <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
+              </Box>
+            </Box>
+            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
+              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+            </Box>
+          </CornerCard>
+        </Box>
         <Box sx={productsSectionHeader}>
           <Typography variant="h3_new" sx={{ mb: 7.5 }}>
             Trusted by the industry’s best
