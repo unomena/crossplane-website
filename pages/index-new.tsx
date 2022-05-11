@@ -15,7 +15,7 @@ import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
 import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
-import headerBg from 'public/new-images/home-page/header-bg.png';
+import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
 
 import crossplaneLogos from 'src-new/constants/crossplaneLogos';
@@ -27,8 +27,11 @@ const headerSection: SxProps = {
   color: COLORS.linkWater,
   backgroundImage: `url(${headerBg.src})`,
   backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center',
-  // backgroundSize: 'cover',
+  backgroundPosition: 'top center',
+
+  '@media screen and (min-width: 1980px)': {
+    backgroundSize: 'contain',
+  },
 };
 
 const h1: SxProps = {
@@ -171,7 +174,6 @@ const cpLogoBoxImageContainer: SxProps = {
   position: 'relative',
   width: '100%',
   height: '100%',
-  // filter: 'grayscale(100%)',
 };
 
 const cpLogoBoxBigger: SxProps = {
