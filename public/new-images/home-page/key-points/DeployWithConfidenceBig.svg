@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="523px" height="415px" viewBox="0 0 523 415" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>Group 25</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="473" height="336" rx="8"></rect>
+        <filter x="-9.1%" y="-9.8%" width="118.2%" height="125.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.53164557" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="10" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.192156863   0 0 0 0 0.250980392   0 0 0 0 0.466666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M1.81337366,0 C0.811875041,0 0,0.813537952 0,1.83153999 L0,104.985745 C0,105.997276 0.821192184,106.817285 1.81337366,106.817285 L96.5954961,106.817285 C97.5969947,106.817285 98.4088697,106.003747 98.4088697,104.985745 L98.4088697,1.83153999 C98.4088697,0.820008387 97.5876775,0 96.5954961,0 L1.81337366,0 Z" id="path-4"></path>
+        <filter x="-0.6%" y="-0.5%" width="101.2%" height="101.1%" filterUnits="objectBoundingBox" id="filter-5">
+            <feMorphology radius="1.43036857" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="1" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.743069384   0 0 0 0 0.813890002   0 0 0 0 1  0 0 0 0.716959173 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-6" points="-3.16208962e-17 -9.48626886e-17 8.45290077 -9.48626886e-17 8.45290077 3.81993785 -3.16208962e-17 3.81993785"></polygon>
+        <polygon id="path-8" points="0 2.05535825e-16 6.96118224 2.05535825e-16 6.96118224 9.36015863 0 9.36015863"></polygon>
+        <polygon id="path-10" points="0 3.16208962e-17 6.72691092 3.16208962e-17 6.72691092 6.70599099 0 6.70599099"></polygon>
+        <polygon id="path-12" points="0.0758008392 0.251215116 8.50719054 0.251215116 8.50719054 4.12005065 0.0758008392 4.12005065"></polygon>
+        <polygon id="path-14" points="0.252658487 0.0212846394 7.19612581 0.0212846394 7.19612581 9.50125938 0.252658487 9.50125938"></polygon>
+        <polygon id="path-16" points="0 0.192152784 6.70979217 0.192152784 6.70979217 6.98398481 0 6.98398481"></polygon>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-v2" transform="translate(-111.000000, -3317.000000)">
+            <g id="Group-25" transform="translate(136.000000, 3317.000000)">
+                <g id="Group-10" transform="translate(0.000000, 44.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <rect stroke="#D2DCEA" stroke-width="0.53164557" fill="#FFFFFF" fill-rule="evenodd" x="-0.265822785" y="-0.265822785" width="473.531646" height="336.531646" rx="8"></rect>
+                    </g>
+                    <g id="Cards/Standard" mask="url(#mask-2)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.569631425">
+                        <g transform="translate(116.000000, 114.000000)" id="Rectangle-21-Copy-2">
+                            <rect x="-0.284815713" y="-0.284815713" width="98.9785011" height="107.386916" rx="1.82282056"></rect>
+                        </g>
+                    </g>
+                    <g id="Cards/Standard-Copy-5" mask="url(#mask-2)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.569631425">
+                        <g transform="translate(225.000000, 114.000000)" id="Rectangle-21-Copy-2">
+                            <rect x="-0.284815713" y="-0.284815713" width="98.6140238" height="107.386916" rx="1.82282056"></rect>
+                        </g>
+                    </g>
+                    <g id="Cards/Standard-Copy" mask="url(#mask-2)">
+                        <g transform="translate(116.000000, 232.000000)" id="shadow">
+                            <g>
+                                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                                <path stroke="#D2DCEA" stroke-width="0.569631425" d="M1.81337366,-0.284815713 C1.23275942,-0.284815713 0.707193264,-0.0486278113 0.327160137,0.335212478 C-0.0506738852,0.716831634 -0.284815713,1.24462196 -0.284815713,1.83153999 L-0.284815713,104.985745 C-0.284815713,105.568518 -0.0488948159,106.096297 0.329915939,106.478903 C0.711484264,106.864293 1.23775367,107.102101 1.81337366,107.102101 L96.5954961,107.102101 C97.1761103,107.102101 97.7016764,106.865913 98.0817096,106.482072 C98.4595436,106.100453 98.6936854,105.572663 98.6936854,104.985745 L98.5561225,1.40456819 C98.466744,1.28509942 98.2766722,1.14257163 97.8022081,1.01865284 C97.305026,0.88880064 96.4509943,0.76314981 94.9832573,0.6470568 C92.4488842,0.446596497 88.0551303,0.269385201 80.4387269,0.124971145 C66.9268087,-0.131227328 43.2611632,-0.284815713 1.81337366,-0.284815713 Z" fill="#FFFFFF" fill-rule="evenodd"></path>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Cards/Standard-Copy-7" mask="url(#mask-2)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.569631425">
+                        <g transform="translate(334.000000, 114.000000)" id="Rectangle-21-Copy-2">
+                            <rect x="-0.284815713" y="-0.284815713" width="98.9785011" height="107.386916" rx="1.82282056"></rect>
+                        </g>
+                    </g>
+                    <g id="Application-Icons/Gitlab/65x65-Copy-7" mask="url(#mask-2)">
+                        <g transform="translate(127.000000, 125.000000)">
+                            <rect id="Rectangle-Copy-13" stroke="#D8D8DA" stroke-width="0.569631425" fill="#FAFAFA" fill-rule="nonzero" x="0.284815713" y="0.284815713" width="23.4916" height="23.1270359" rx="5.83302579"></rect>
+                            <g id="Group-13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(5.552592, 6.237161)">
+                                <g id="Group-12">
+                                    <g id="Group-3" transform="translate(1.604104, 0.000000)">
+                                        <mask id="mask-7" fill="white">
+                                            <use xlink:href="#path-6"></use>
+                                        </mask>
+                                        <g id="Clip-2"></g>
+                                        <path d="M6.8345191,2.93523477 L7.24012854,2.93523477 L8.39611545,1.78390884 L8.45290077,1.29510028 C6.30154829,-0.596306038 3.01813986,-0.392299162 1.11907645,1.75037899 C0.591378567,2.34583669 0.208888863,3.05359915 -3.16208962e-17,3.81993785 C0.128578193,3.76742123 0.271352717,3.75893778 0.405609442,3.79569941 L2.71758326,3.41596384 C2.71758326,3.41596384 2.83521,3.22205632 2.89605142,3.23417554 C3.92427135,2.10910791 5.65500684,1.97822034 6.84263129,2.93523477 L6.8345191,2.93523477 Z" id="Fill-1" fill="#EA4335" mask="url(#mask-7)"></path>
+                                    </g>
+                                    <g id="Group-6" transform="translate(6.337445, 1.299100)">
+                                        <mask id="mask-9" fill="white">
+                                            <use xlink:href="#path-8"></use>
+                                        </mask>
+                                        <g id="Clip-5"></g>
+                                        <path d="M5.3094276,2.52079783 C5.04375341,1.54600854 4.49820871,0.670192884 3.73971906,2.05535825e-16 L2.11728129,1.61589604 C2.80235564,2.17338018 3.19255192,3.01324215 3.17592193,3.89430947 L3.17592193,4.18113102 C3.9737557,4.18113102 4.61989155,4.82506559 4.61989155,5.61887452 C4.61989155,6.4134914 3.9737557,7.05742597 3.17592193,7.05742597 L0.287982704,7.05742597 L0,7.34828726 L0,9.07325629 L0.287982704,9.36007784 L3.17592193,9.36007784 C5.25020862,9.37583282 6.94484487,7.71428772 6.96106925,5.6487686 C6.97080387,4.39644916 6.35103265,3.22209671 5.3094276,2.52079783" id="Fill-4" fill="#4285F4" mask="url(#mask-9)"></path>
+                                    </g>
+                                    <path d="M3.73351323,10.6430589 L6.62145246,10.6430589 L6.62145246,8.34040704 L3.73351323,8.34040704 C3.52786925,8.34040704 3.32425331,8.2959699 3.13726735,8.21073138 L2.73165791,8.3363673 L1.56755881,9.48769323 L1.46615645,9.89166724 C2.11918765,10.3824957 2.91539899,10.6466947 3.73351323,10.6430589" id="Fill-7" fill="#34A853"></path>
+                                    <g id="Group-11" transform="translate(0.000000, 3.173476)">
+                                        <mask id="mask-11" fill="white">
+                                            <use xlink:href="#path-10"></use>
+                                        </mask>
+                                        <g id="Clip-10"></g>
+                                        <path d="M3.73351323,3.16208962e-17 C1.65922655,0.0125455957 -0.0122899661,1.69711722 -0.000187700126,3.76304032 C0.00677367768,4.91679009 0.547856674,6.00267223 1.46615645,6.70599099 L3.14132345,5.03757832 C2.41447133,4.71035937 2.09160621,3.85878216 2.42014986,3.13486073 C2.7482879,2.4109393 3.60371821,2.08937599 4.33057033,2.41619096 C4.65059618,2.56040968 4.90734696,2.81612523 5.05174392,3.13486073 L6.72691092,1.46644806 C6.01425513,0.538519758 4.90653574,-0.00401733873 3.73351323,3.16208962e-17" id="Fill-9" fill="#FBBC05" mask="url(#mask-11)"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <image id="Bitmap" mask="url(#mask-2)" x="127" y="125" width="24" height="24" xlink:href="data:image/png;base64,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"></image>
+                    <g id="Application-Icons/Azure/65x65" mask="url(#mask-2)">
+                        <g transform="translate(346.000000, 125.000000)">
+                            <rect id="Rectangle-Copy-13" fill="#1A1A1F" fill-rule="nonzero" x="0" y="0" width="24" height="24" rx="5.83302579"></rect>
+                            <g id="Group" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(6.646154, 6.646154)">
+                                <path d="M0.00115998921,0.164378692 C0.00115998921,0.111663397 0.00115998921,0.0558472032 0.00426207251,0 C1.7259183,0.00313190867 3.44757454,0 5.16923077,0.00313190867 L5.16923077,5.16612987 C3.44757454,5.17233167 1.7259183,5.16612987 0.00426207251,5.16923077 C-0.00504417739,3.50094674 0.00426207251,1.83266272 0.00115998921,0.164378692 Z" id="Path" stroke="#F25022" stroke-width="0.5" fill="#F25022" fill-rule="nonzero"></path>
+                                <path d="M5.90769231,0.0124035987 C5.94490333,0.00310089968 5.98211435,0 6.02242628,0 C7.70622491,0.00313190867 9.39312445,0 11.0769231,0.00313190867 L11.0769231,5.16612987 C9.35591343,5.17233167 7.63490379,5.16612987 5.91389414,5.16923077 C5.90149047,3.45130134 5.91699506,1.73030202 5.90769231,0.0124035987 Z" id="Path" stroke="#7FBA00" stroke-width="0.5" fill="#7FBA00" fill-rule="nonzero"></path>
+                                <path d="M0,11.0644885 C0.0124036731,9.34659005 -0.00620183656,7.62559073 0.00930275483,5.90769231 C1.72721148,5.91079321 3.44822113,5.90459141 5.16923077,5.91079321 L5.16923077,11.0737912 C3.51334041,11.0769231 1.86055097,11.0737912 0.204660606,11.0769231 C0.136440404,11.0769231 0.0682202021,11.0769231 0,11.0644885 L0,11.0644885 Z" id="Path" stroke="#00A4EF" stroke-width="0.5" fill="#00A4EF" fill-rule="nonzero"></path>
+                                <path d="M5.91079323,6.28910297 C5.91079323,6.16196608 5.90459139,6.03482919 5.91389414,5.90769231 C7.63490379,5.91079321 9.35591343,5.90459141 11.0769231,5.91079321 L11.0769231,11.0737912 C9.39312445,11.0769231 7.70622491,11.0737912 6.02242628,11.0769231 C5.98211435,11.0737912 5.94490333,11.0707213 5.90769231,11.0676204 C5.91389414,9.47372694 5.90769231,7.8829654 5.91079323,6.28910297 Z" id="Path" stroke="#FFB900" stroke-width="0.5" fill="#FFB900" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Application-Icons/GoogleCloud/65x65" mask="url(#mask-2)">
+                        <g transform="translate(127.000000, 243.000000)">
+                            <rect id="Rectangle-Copy-13" stroke="#D8D8DA" stroke-width="0.5" fill="#FAFAFA" fill-rule="nonzero" x="0.25" y="0.25" width="23.5" height="23.5" rx="5.83302579"></rect>
+                            <g id="Group-13" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(5.538462, 5.907692)">
+                                <g id="Group-12">
+                                    <g id="Group-3" transform="translate(1.524221, 0.158094)">
+                                        <mask id="mask-13" fill="white">
+                                            <use xlink:href="#path-12"></use>
+                                        </mask>
+                                        <g id="Clip-2"></g>
+                                        <path d="M6.89292735,3.22402279 L7.29750459,3.22402279 L8.45054973,2.05795914 L8.50719054,1.56289352 C6.36131285,-0.352724026 3.08626009,-0.14610573 1.19202945,2.0240001 C0.665674456,2.62708003 0.284158118,3.34390232 0.0758008392,4.12005065 C0.204051825,4.06686178 0.346463013,4.05826973 0.48037808,4.09550194 L2.78646835,3.71090551 C2.78646835,3.71090551 2.90379575,3.51451584 2.96448234,3.5267902 C3.99008565,2.38732098 5.71641673,2.25475796 6.90101889,3.22402279 L6.89292735,3.22402279 Z" id="Fill-1" fill="#EA4335" mask="url(#mask-13)"></path>
+                                    </g>
+                                    <g id="Group-6" transform="translate(6.068659, 1.703753)">
+                                        <mask id="mask-15" fill="white">
+                                            <use xlink:href="#path-14"></use>
+                                        </mask>
+                                        <g id="Clip-5"></g>
+                                        <path d="M5.54857457,2.57435032 C5.28357648,1.58708309 4.73942009,0.700056428 3.98286065,0.0212846394 L2.36455168,1.6578652 C3.04788264,2.2224855 3.43708595,3.07309824 3.42049828,3.96544379 L3.42049828,4.25593684 C4.21630172,4.25593684 4.86079326,4.9081142 4.86079326,5.7120844 C4.86079326,6.51687289 4.21630172,7.16905025 3.42049828,7.16905025 L0.539908328,7.16905025 L0.252658487,7.46363475 L0.252658487,9.2106845 L0.539908328,9.50117755 L3.42049828,9.50117755 C5.48950629,9.51713421 7.17983001,7.83432024 7.1960131,5.74236114 C7.20572295,4.4740112 6.58752893,3.28462628 5.54857457,2.57435032" id="Fill-4" fill="#4285F4" mask="url(#mask-15)"></path>
+                                    </g>
+                                    <path d="M3.72401213,11.1886058 L6.60460209,11.1886058 L6.60460209,8.85647846 L3.72401213,8.85647846 C3.51889147,8.85647846 3.31579369,8.81147249 3.12928359,8.72514287 L2.72470634,8.852387 L1.56356966,10.0184507 L1.46242535,10.4275958 C2.11379471,10.9247071 2.90797983,11.1922881 3.72401213,11.1886058" id="Fill-7" fill="#34A853"></path>
+                                    <g id="Group-11" transform="translate(0.000000, 3.431255)">
+                                        <mask id="mask-17" fill="white">
+                                            <use xlink:href="#path-16"></use>
+                                        </mask>
+                                        <g id="Clip-10"></g>
+                                        <path d="M3.72401213,0.192152784 C1.65500412,0.204858972 -0.0122586904,1.91099421 -0.000187222464,4.00336246 C0.00675643992,5.17188098 0.546462479,6.27166312 1.46242535,6.98398481 L3.13332936,5.29421538 C2.40832694,4.96280781 2.08628346,4.10032986 2.41399102,3.36714176 C2.74129401,2.63395367 3.59454741,2.30827414 4.31954983,2.63927256 C4.63876127,2.78533737 4.89485866,3.04432625 5.03888816,3.36714176 L6.70979217,1.67737233 C5.99894996,0.737565945 4.89404951,0.188084021 3.72401213,0.192152784" id="Fill-9" fill="#FBBC05" mask="url(#mask-17)"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Application-Icons/AWS/65x65" mask="url(#mask-2)">
+                        <g transform="translate(235.000000, 125.000000)">
+                            <rect id="Rectangle-Copy-13" stroke="#D8D8DA" stroke-width="0.5" fill="#FAFAFA" fill-rule="nonzero" x="0.25" y="0.25" width="23.5" height="23.5" rx="5.83302579"></rect>
+                            <g id="Group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(4.061538, 7.200000)">
+                                <path d="M4.52173497,3.8654758 C4.52173497,4.07379004 4.54256867,4.24269348 4.57902764,4.366556 C4.62069504,4.49041852 4.67277929,4.62554127 4.74569723,4.77192425 C4.77173936,4.81696516 4.7821562,4.86200608 4.7821562,4.90141688 C4.7821562,4.95771803 4.75090566,5.01401917 4.68319614,5.07032032 L4.35506538,5.30678513 C4.30818956,5.34056582 4.26126166,5.35745616 4.21964634,5.35745616 C4.1675621,5.35745616 4.11547785,5.32930559 4.0633936,5.27863456 C3.99047566,5.19418284 3.92797456,5.10410101 3.87589032,5.01401917 C3.82380607,4.91830722 3.77172182,4.81133505 3.71442915,4.68184241 C3.30811995,5.19981295 2.79774642,5.45879822 2.18315231,5.45879822 C1.74564464,5.45879822 1.39668019,5.32367547 1.14146738,5.05342997 C0.886254572,4.78318448 0.756043956,4.42285714 0.756043956,3.97244798 C0.756043956,3.49388824 0.912244611,3.10541033 1.2300106,2.81264438 C1.5477245,2.51987842 1.9696069,2.37349544 2.50607464,2.37349544 C2.68310899,2.37349544 2.86545594,2.39038578 3.05816765,2.41853636 C3.25087936,2.44668693 3.4487995,2.49172785 3.65713648,2.54239888 L3.65713648,2.13140051 C3.65713648,1.70351181 3.57380169,1.40511574 3.41234052,1.23058218 C3.24567094,1.05604863 2.964416,0.971596914 2.56336731,0.971596914 C2.38107244,0.971596914 2.19356916,0.994117372 2.00085745,1.0447884 C1.80814573,1.09545943 1.62064245,1.15739069 1.43834758,1.2362123 C1.35501279,1.2756231 1.29251169,1.29814356 1.25604396,1.30940379 C1.21959375,1.32066402 1.19355163,1.32629413 1.17266584,1.32629413 C1.09979998,1.32629413 1.06334101,1.26999299 1.06334101,1.15176058 L1.06334101,0.875884966 C1.06334101,0.785803133 1.07375786,0.718241758 1.09979998,0.678830956 C1.12584211,0.639420154 1.17266584,0.600009352 1.24563587,0.56059855 C1.42787865,0.459256488 1.64668457,0.37480477 1.90189738,0.307243395 C2.15711018,0.234051906 2.42794827,0.200271218 2.71441162,0.200271218 C3.33421415,0.200271218 3.7873471,0.352284311 4.07901888,0.656310498 C4.36548223,0.960336685 4.51131812,1.42200608 4.51131812,2.04131868 L4.51131812,3.8654758 L4.52173497,3.8654758 Z M2.40711457,4.72125321 C2.57899258,4.72125321 2.75602693,4.68747253 2.94358231,4.61991115 C3.13108559,4.55234978 3.29775518,4.42848726 3.43838265,4.25958382 C3.52171744,4.15261164 3.58416645,4.03437924 3.61546908,3.89925649 C3.64671963,3.76413374 3.66755333,3.60086042 3.66755333,3.40943652 L3.66755333,3.17297171 C3.51650902,3.13356091 3.35504785,3.09978022 3.18837826,3.07725976 C3.02170868,3.0547393 2.86024751,3.04347907 2.69878635,3.04347907 C2.3498219,3.04347907 2.09460909,3.11667056 1.92273108,3.26868366 C1.75085306,3.42069675 1.66751827,3.6346411 1.66751827,3.91614683 C1.66751827,4.18076222 1.73001936,4.37781623 1.86022998,4.51293898 C1.98523217,4.65369184 2.16751827,4.72125321 2.40711457,4.72125321 Z M6.58947956,5.32930559 C6.49572791,5.32930559 6.43322682,5.31241524 6.39155942,5.27300444 C6.34989202,5.23922375 6.31343305,5.16040215 6.2821825,5.05342997 L5.05820271,0.701351415 C5.02690008,0.588749123 5.01132689,0.515557634 5.01132689,0.476146832 C5.01132689,0.386064999 5.0529422,0.335393968 5.13632908,0.335393968 L5.6467547,0.335393968 C5.74566268,0.335393968 5.81342428,0.352284311 5.84988326,0.391695113 C5.89155065,0.425475801 5.9228012,0.504297405 5.95405175,0.611269581 L6.82906709,4.33840542 L7.64152925,0.611269581 C7.66762346,0.49866729 7.69882192,0.425475801 7.7405414,0.391695113 C7.7822088,0.357914426 7.85507466,0.335393968 7.94887839,0.335393968 L8.36555236,0.335393968 C8.46446034,0.335393968 8.53222195,0.352284311 8.57388934,0.391695113 C8.61555674,0.425475801 8.65201571,0.504297405 8.67284941,0.611269581 L9.49572842,4.38344634 L10.396838,0.611269581 C10.4280885,0.49866729 10.4645475,0.425475801 10.5010065,0.391695113 C10.5426739,0.357914426 10.6103834,0.335393968 10.704135,0.335393968 L11.1885185,0.335393968 C11.2718533,0.335393968 11.3187291,0.380434884 11.3187291,0.476146832 C11.3187291,0.504297405 11.3135207,0.532447978 11.3083123,0.566228665 C11.3030518,0.600009352 11.292687,0.645050269 11.2718533,0.706981529 L10.016623,5.05906009 C9.98532034,5.17166238 9.94886137,5.24485387 9.90719397,5.27863456 C9.86557866,5.31241524 9.79786914,5.3349357 9.70932592,5.3349357 L9.26134931,5.3349357 C9.16244133,5.3349357 9.09473181,5.31804536 9.05301233,5.27863456 C9.01134493,5.23922375 8.97488596,5.16603227 8.95410434,5.05342997 L8.14679852,1.42200608 L7.34470113,5.04779986 C7.31860692,5.16040215 7.28740846,5.23359364 7.24574106,5.27300444 C7.20407366,5.31241524 7.13115572,5.32930559 7.03740408,5.32930559 L6.58947956,5.32930559 Z M13.2823052,5.48131868 C13.0114671,5.48131868 12.7406291,5.44753799 12.4802078,5.37997662 C12.2197866,5.31241524 12.016658,5.23922375 11.881239,5.15477204 C11.7979042,5.10410101 11.7405594,5.04779986 11.7197778,4.99712883 C11.6989441,4.9464578 11.6885273,4.89015665 11.6885273,4.83948562 L11.6885273,4.55234978 C11.6885273,4.43411737 11.7301947,4.37781623 11.808321,4.37781623 C11.8395716,4.37781623 11.8707701,4.38344634 11.9020206,4.39470657 C11.9333232,4.4059668 11.980147,4.42848726 12.0322833,4.45100772 C12.2093177,4.53545943 12.4020815,4.60302081 12.6051579,4.64806173 C12.813547,4.69310264 13.0166235,4.7156231 13.2250126,4.7156231 C13.5531433,4.7156231 13.8083561,4.65369184 13.9853905,4.52982932 C14.162529,4.4059668 14.2562806,4.22580313 14.2562806,3.99496844 C14.2562806,3.83732523 14.2094048,3.70783259 14.1156011,3.60086042 C14.0219015,3.49388824 13.8448151,3.39817629 13.5895502,3.30809446 L12.8343807,3.0547393 C12.4541657,2.92524667 12.1729108,2.73382277 12.0010328,2.48046762 C11.8291547,2.23274258 11.7405594,1.95686696 11.7405594,1.66410101 C11.7405594,1.42763619 11.7874873,1.21932195 11.881239,1.03915829 C11.9749386,0.858994622 12.0999928,0.701351415 12.2562456,0.577488894 C12.4124983,0.447996259 12.5895847,0.352284311 12.7979217,0.284722937 C13.0062587,0.217161562 13.2250126,0.189010989 13.4541832,0.189010989 C13.5687165,0.189010989 13.6885623,0.194641104 13.8030956,0.211531447 C13.9229415,0.228421791 14.0322663,0.250942249 14.1416432,0.273462708 C14.2458117,0.30161328 14.3447718,0.329763853 14.4385755,0.363544541 C14.5322751,0.397325228 14.6052451,0.431105915 14.6573293,0.464886603 C14.7302473,0.509927519 14.7823315,0.554968436 14.8135821,0.605639467 C14.8448326,0.650680383 14.8604579,0.712611644 14.8604579,0.791433248 L14.8604579,1.05604863 C14.8604579,1.17428104 14.8187905,1.2362123 14.7406641,1.2362123 C14.6989967,1.2362123 14.6312872,1.21369184 14.542744,1.16865092 C14.2458638,1.02226794 13.9125246,0.949076455 13.5427265,0.949076455 C13.2458462,0.949076455 13.0114671,0.999747487 12.850006,1.10671966 C12.6885448,1.21369184 12.60521,1.37696516 12.60521,1.60779986 C12.60521,1.76544307 12.6572943,1.90056582 12.7614628,2.00753799 C12.8656313,2.11451017 13.058343,2.22148235 13.3343895,2.3171943 L14.0739858,2.57054945 C14.4489923,2.70004209 14.7198304,2.88020575 14.8812916,3.11104045 C15.0427528,3.34187515 15.1208791,3.60649053 15.1208791,3.89925649 C15.1208791,4.14135141 15.0740033,4.36092588 14.9854601,4.55234978 C14.8917084,4.74377367 14.7667062,4.91267711 14.6052451,5.04779986 C14.4437839,5.18855272 14.2510722,5.28989479 14.0271099,5.36308628 C13.7927308,5.44190788 13.5479349,5.48131868 13.2823052,5.48131868 L13.2823052,5.48131868 Z" id="Fill-1" fill="#252F3E"></path>
+                                <path d="M14.3540334,7.94065373 C12.6167521,9.29735715 10.0926778,10.0175824 7.92244917,10.0175824 C4.88088685,10.0175824 2.14031247,8.82837325 0.0703603286,6.85194111 C-0.0933876708,6.69561315 0.0545188581,6.48345377 0.249896993,6.60628288 C2.48882481,7.97973572 5.25046836,8.81162383 8.10726633,8.81162383 C10.0346452,8.81162383 12.1521218,8.38730506 14.1006226,7.51633497 C14.3910496,7.37675643 14.6392326,7.71732807 14.3540334,7.94065373 Z M15.0775133,7.06968364 C14.8556799,6.76819399 13.6095371,6.92452196 13.0445246,6.9971028 C12.8754961,7.01943536 12.8490937,6.8631074 13.0022807,6.74586142 C13.9950128,6.00888673 15.6266315,6.22104611 15.8167819,6.46670434 C16.0068796,6.71794572 15.763977,8.44313648 14.834558,9.26944144 C14.6920375,9.3978537 14.5547448,9.330856 14.6180579,9.16336175 C14.8292775,8.61063073 15.2992939,7.36559014 15.0775133,7.06968364 L15.0775133,7.06968364 Z" id="Fill-2" fill="#FF9900"></path>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="Title-Copy-88" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                        <tspan x="127" y="160">provider-alibaba</tspan>
+                    </text>
+                    <text id="Title-Copy-103" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                        <tspan x="346" y="160">provider-azure</tspan>
+                    </text>
+                    <text id="Title-Copy-92" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                        <tspan x="127" y="278">provider-gcp</tspan>
+                    </text>
+                    <text id="Title-Copy-95" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                        <tspan x="235" y="160">provider-aws</tspan>
+                    </text>
+                    <g id="Text" mask="url(#mask-2)">
+                        <g transform="translate(235.000000, 170.000000)" id="Rectangle">
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="0" width="58.1341286" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="5.92416682" width="66.4032072" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="11.3926285" width="60.8904881" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="17.3167953" width="54.3754565" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#E7F0FC" x="0" y="25.0637827" width="66.4032072" height="3.50892958" rx="1.75446479"></rect>
+                        </g>
+                    </g>
+                    <g id="Cards/Standard-Copy" mask="url(#mask-2)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.569631425">
+                        <g transform="translate(225.000000, 232.000000)" id="Rectangle-21-Copy-2">
+                            <rect x="-0.284815713" y="-0.284815713" width="98.6140238" height="107.386916" rx="1.82282056"></rect>
+                        </g>
+                    </g>
+                    <g id="Cards/Standard-Copy-8" mask="url(#mask-2)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.569631425">
+                        <g transform="translate(334.000000, 232.000000)" id="Rectangle-21-Copy-2">
+                            <rect x="-0.284815713" y="-0.284815713" width="98.6140238" height="107.386916" rx="1.82282056"></rect>
+                        </g>
+                    </g>
+                    <rect id="Rectangle" fill="#EA595B" mask="url(#mask-2)" x="344" y="243" width="24" height="24" rx="6"></rect>
+                    <text id="J-Copy" mask="url(#mask-2)" font-family="Avenir-Roman, Avenir" font-size="9.95511222" font-weight="normal" line-spacing="15.5548628" fill="#FFFFFF">
+                        <tspan x="351.206613" y="259">W</tspan>
+                    </text>
+                    <image id="Bitmap" mask="url(#mask-2)" x="235" y="243" width="24" height="24" xlink:href="data:image/png;base64,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"></image>
+                    <text id="Title-Copy-92" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                        <tspan x="236" y="278">provider-rook</tspan>
+                    </text>
+                    <text id="Title-Copy-94" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                        <tspan x="345" y="278">provider-weyland-yutani</tspan>
+                    </text>
+                    <g id="Lock/16x16/Light" mask="url(#mask-2)" stroke="#929394" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.569631425">
+                        <g transform="translate(313.000000, 238.000000)">
+                            <rect id="Rectangle-path" x="0" y="1.82282056" width="3.64477295" height="3.28107701" rx="0.729128224"></rect>
+                            <path d="M0.72895459,1.82282056 L0.72895459,1.01267809 C0.72895459,0.453391424 1.21850072,0 1.82238648,0 C2.42627223,0 2.91581836,0.453391424 2.91581836,1.01267809 L2.91581836,1.82282056" id="Shape"></path>
+                        </g>
+                    </g>
+                    <g id="Lock/16x16/Light-Copy-2" mask="url(#mask-2)" stroke="#929394" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.569631425">
+                        <g transform="translate(422.000000, 238.000000)">
+                            <rect id="Rectangle-path" x="0" y="1.82282056" width="3.64477295" height="3.28107701" rx="0.729128224"></rect>
+                            <path d="M0.72895459,1.82282056 L0.72895459,1.01267809 C0.72895459,0.453391424 1.21850072,0 1.82238648,0 C2.42627223,0 2.91581836,0.453391424 2.91581836,1.01267809 L2.91581836,1.82282056" id="Shape"></path>
+                        </g>
+                    </g>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="170" width="58" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="176" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="181" width="61" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="187" width="54" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#E7F0FC" mask="url(#mask-2)" x="127" y="195" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="288" width="58" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="294" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="300" width="61" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="127" y="306" width="54" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#E7F0FC" mask="url(#mask-2)" x="127" y="313" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="237" y="288" width="58" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle-Copy-2" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="346" y="288" width="58" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="237" y="294" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle-Copy-5" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="346" y="294" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="237" y="300" width="61" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle-Copy-6" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="346" y="300" width="61" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="237" y="306" width="54" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle-Copy-7" fill="#D2DCEA" opacity="0.717754546" mask="url(#mask-2)" x="346" y="306" width="54" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle" fill="#E7F0FC" mask="url(#mask-2)" x="237" y="313" width="66" height="4" rx="1.75446479"></rect>
+                    <rect id="Rectangle-Copy-8" fill="#E7F0FC" mask="url(#mask-2)" x="346" y="313" width="66" height="4" rx="1.75446479"></rect>
+                    <g id="Text" mask="url(#mask-2)">
+                        <g transform="translate(345.000000, 170.000000)" id="Rectangle">
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="0" width="58.1341286" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="5.92416682" width="66.4032072" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="11.3926285" width="60.8904881" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#D2DCEA" opacity="0.717754546" x="0" y="17.3167953" width="54.3754565" height="3.50892958" rx="1.75446479"></rect>
+                            <rect fill="#E7F0FC" x="0" y="25.0637827" width="66.4032072" height="3.50892958" rx="1.75446479"></rect>
+                        </g>
+                    </g>
+                    <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)">
+                        <g transform="translate(115.898734, 50.037975)">
+                            <text id="Providers" font-family="Avenir-Black, Avenir" font-size="16" font-weight="700" line-spacing="17.8632911">
+                                <tspan x="0" y="16" fill="#505A72">Providers</tspan>
+                            </text>
+                            <text id="Subtext" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949">
+                                <tspan x="0" y="30.9670886" fill="#929394">Providers are plugins that implement resource types. Find providers for the cloud platforms and services </tspan>
+                                <tspan x="0" y="41.1746835" fill="#929394">you use, add them to your configuration, then use their resources to provision infrastructure. Learn More</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <path d="M4.25316456,1.11910481e-13 L468.468354,1.11910481e-13 C470.817312,1.41885212e-13 472.721519,1.90420663 472.721519,4.25316456 L472.721519,24.9448101 L472.721519,24.9448101 L0,24.9448101 L0,4.25316456 C-2.8766438e-16,1.90420663 1.90420663,1.14118334e-13 4.25316456,1.11910481e-13 Z" id="Rectangle" fill="#F4F8FF" mask="url(#mask-2)"></path>
+                    <circle id="Oval" fill="#FF6C70" mask="url(#mask-2)" cx="14.1311392" cy="12.961519" r="4.15746835"></circle>
+                    <circle id="Oval-Copy" fill="#FFCE3C" mask="url(#mask-2)" cx="25.3807595" cy="12.961519" r="4.15746835"></circle>
+                    <circle id="Oval-Copy-2" fill="#2FD3BC" mask="url(#mask-2)" cx="37.1194937" cy="12.961519" r="4.15746835"></circle>
+                    <text id="Description-Copy-27" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="7.15875539" font-weight="700" line-spacing="11.1855553" fill="#043C58">
+                        <tspan x="13" y="129.824665">Visibility</tspan>
+                    </text>
+                    <g id="Checkboxes/Checked-Copy-3" mask="url(#mask-2)">
+                        <g transform="translate(13.671133, 156.381331)" id="Stacked-Group">
+                            <g>
+                                <text id="Title" font-family="Avenir-Medium, Avenir" font-size="6.26391097" font-weight="400" line-spacing="8.94844424" fill="#505A72">
+                                    <tspan x="16" y="6">Public</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="4.5" cy="4.5" r="4.25"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Checkboxes/Default-Copy-7" mask="url(#mask-2)">
+                        <g transform="translate(13.671133, 172.041108)" id="Stacked-Group">
+                            <g>
+                                <text id="Title" font-family="Avenir-Medium, Avenir" font-size="6.26391097" font-weight="400" line-spacing="8.94844424" fill="#505A72">
+                                    <tspan x="16" y="6">Private</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="4.5" cy="4.5" r="4.25"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Checkboxes/Default-Copy-11" mask="url(#mask-2)">
+                        <g transform="translate(13.671133, 140.721553)" id="Stacked-Group">
+                            <g>
+                                <text id="Title" font-family="Avenir-Medium, Avenir" font-size="6.26391097" font-weight="400" line-spacing="8.94844424" fill="#003D5B">
+                                    <tspan x="16" y="6">Show All</tspan>
+                                </text>
+                                <g id="Forms/Radio-Button/Checked-Blue">
+                                    <circle id="Oval-8" fill="#1F3C6A" cx="4.5" cy="4.5" r="4.5"></circle>
+                                    <circle id="Oval-8" fill="#FFFFFF" cx="4.5" cy="4.5" r="1.8"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="Description-Copy-28" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="7.15875539" font-weight="700" line-spacing="11.1855553" fill="#043C58">
+                        <tspan x="13" y="76.1339995">Type</tspan>
+                    </text>
+                    <g id="Forms/Radio-Button/Checked-Blue-Copy" mask="url(#mask-2)">
+                        <g transform="translate(13.671133, 87.030888)" id="Oval-8">
+                            <circle fill="#1F3C6A" cx="4.47422212" cy="4.47422212" r="4.47422212"></circle>
+                            <circle fill="#FFFFFF" cx="4.47422212" cy="4.47422212" r="1.78968885"></circle>
+                        </g>
+                    </g>
+                    <text id="Title-Copy" mask="url(#mask-2)" font-family="Avenir-Medium, Avenir" font-size="6.26391097" font-weight="400" line-spacing="8.94844424" fill="#003E5E">
+                        <tspan x="25.751533" y="93.030888">Providers</tspan>
+                    </text>
+                    <g id="Checkboxes/Default-Copy-9" mask="url(#mask-2)">
+                        <g transform="translate(13.671133, 102.690665)" id="Stacked-Group">
+                            <g>
+                                <text id="Title" font-family="Avenir-Medium, Avenir" font-size="6.26391097" font-weight="400" line-spacing="8.94844424" fill="#505A72">
+                                    <tspan x="16" y="6">Configurations</tspan>
+                                </text>
+                                <g id="Forms/Checkbox/Empty-Dark" fill="#FFFFFF" stroke="#282F36" stroke-opacity="0.15" stroke-width="0.5">
+                                    <circle id="Oval-8" cx="4.5" cy="4.5" r="4.25"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="Header-Copy" mask="url(#mask-2)" font-family="Avenir-Black, Avenir" font-size="8.94844424" font-weight="700" line-spacing="11.1855553" fill="#183B56">
+                        <tspan x="13" y="58">Filter Packages</tspan>
+                    </text>
+                </g>
+                <g id="Group-19-Copy-7" opacity="0.277265276" transform="translate(77.000000, 0.000000)" fill="#6C72FC">
+                    <circle id="Oval" cx="77.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-6" cx="77.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-12" cx="77.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-18" cx="77.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-24" cx="77.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-2" cx="107.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-7" cx="107.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-13" cx="107.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-19" cx="107.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-25" cx="107.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-4" cx="137.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-8" cx="137.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-14" cx="137.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-20" cx="137.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-26" cx="137.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy" cx="92.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-9" cx="92.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-15" cx="92.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-21" cx="92.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-27" cx="92.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-3" cx="122.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-10" cx="122.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-16" cx="122.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-22" cx="122.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-28" cx="122.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-36" cx="152.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-37" cx="152.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-38" cx="152.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-39" cx="152.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-40" cx="152.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-42" cx="182.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-43" cx="182.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-44" cx="182.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-45" cx="182.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-46" cx="182.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-48" cx="212.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-49" cx="212.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-50" cx="212.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-51" cx="212.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-52" cx="212.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-54" cx="167.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-55" cx="167.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-56" cx="167.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-57" cx="167.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-58" cx="167.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-60" cx="197.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-61" cx="197.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-62" cx="197.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-63" cx="197.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-64" cx="197.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-36" cx="2.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-37" cx="2.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-38" cx="2.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-39" cx="2.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-40" cx="2.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-42" cx="32.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-43" cx="32.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-44" cx="32.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-45" cx="32.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-46" cx="32.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-48" cx="62.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-49" cx="62.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-50" cx="62.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-51" cx="62.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-52" cx="62.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-54" cx="17.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-55" cx="17.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-56" cx="17.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-57" cx="17.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-58" cx="17.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-60" cx="47.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-61" cx="47.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-62" cx="47.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-63" cx="47.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-64" cx="47.5" cy="62.5" r="2.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

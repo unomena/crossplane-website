@@ -3,26 +3,35 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
-import { COLORS, gradient_1 } from 'src/theme';
+import { COLORS, gradient_1, gradient_2 } from 'src/theme';
 import { keyframes } from '@emotion/react';
+
+import getRandomInt from 'src-new/utils/getRandomInt';
+import useOnScreen from 'src-new/utils/useOnScreen';
+
+import crossplaneLogos from 'src-new/constants/crossplaneLogos';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
+import Link from 'src-new/elements/Link';
 
 import RocketShipIcon from 'src-new/svg/RocketShipIcon';
 import ArrowRight from 'src-new/svg/ArrowRight';
+import CircleTriangleIcon from 'src-new/svg/CircleTriangleIcon';
 import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
 import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
-
-import crossplaneLogos from 'src-new/constants/crossplaneLogos';
-
-import getRandomInt from 'src-new/utils/getRandomInt';
-import useOnScreen from 'src-new/utils/useOnScreen';
+import keyPointTempImg from 'public/new-images/home-page/key-point-temp.png';
+import EnterpriseReadyBig from 'public/new-images/home-page/key-points/EnterpriseReadyBig.svg';
+import EnterpriseReadySmall from 'public/new-images/home-page/key-points/EnterpriseReadySmall.svg';
+import DeployWithConfidenceBig from 'public/new-images/home-page/key-points/DeployWithConfidenceBig.svg';
+import DeployWithConfidenceSmall from 'public/new-images/home-page/key-points/DeployWithConfidenceSmall.svg';
+import EfficiencyEaseBig from 'public/new-images/home-page/key-points/EfficiencyEaseBig.svg';
+import EfficiencyEaseSmall from 'public/new-images/home-page/key-points/EfficiencyEaseSmall.svg';
 
 const headerSection: SxProps = {
   pt: 24,
@@ -484,6 +493,88 @@ const CrossplaneLogosSection = () => {
   );
 };
 
+const smallTitleStyle: SxProps = {
+  fontFamily: 'Avenir-Medium',
+  fontSize: '20px',
+  lineHeight: '56px',
+  letterSpacing: '-0.2px',
+  ml: 1.5,
+};
+
+interface StaticRequire {
+  default: StaticImageData;
+}
+declare type StaticImport = StaticRequire | StaticImageData;
+
+type KeyPointsBlockProps = {
+  smallTitle: string;
+  bigTitle: string;
+  body: string;
+  href: string;
+  imgBig: string | StaticImport;
+  reversed?: Boolean;
+};
+
+const KeyPointsBlock = ({
+  smallTitle,
+  bigTitle,
+  body,
+  href,
+  imgBig,
+  reversed,
+}: KeyPointsBlockProps) => {
+  let smallTitleGradient = gradient_1;
+  if (reversed) {
+    smallTitleGradient = gradient_2;
+  }
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        color: COLORS.linkWater,
+        flexDirection: reversed ? 'row-reverse' : 'row',
+        mb: 25,
+      }}
+    >
+      <Box
+        sx={{
+          flex: 1,
+          pr: reversed ? 0 : 3.5,
+          pl: reversed ? 3.5 : 0,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <CircleTriangleIcon secondColor={reversed ? 'sun' : 'shakespeare'} />
+          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
+        </Box>
+        <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
+          {bigTitle}
+        </Typography>
+        <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
+          {body}
+        </Typography>
+        <Link
+          href={href}
+          muiProps={{
+            color: reversed ? COLORS.sun : COLORS.turquoise,
+            sx: { mt: 5 },
+          }}
+          hasArrow
+        >
+          Learn More
+        </Link>
+      </Box>
+      <Box sx={{ flex: 1, pr: reversed ? 3.5 : 0, pl: reversed ? 0 : 3.5 }}>
+        <Image src={imgBig} alt="keyPointTempImg" />
+      </Box>
+    </Box>
+  );
+};
+
 type Props = {};
 
 const Home = ({}: Props) => {
@@ -531,7 +622,7 @@ const Home = ({}: Props) => {
         </Box>
         <Box sx={{ textAlign: 'left', position: 'relative' }}>
           <Typography variant="h3_new" sx={{ lineHeight: '56px', mb: 0.5 }}>
-            Single point of control. Endless possibility.
+            The control center of your internal cloud platform
           </Typography>
           <Typography variant="body_small" sx={{ maxWidth: 600 }}>
             Upbound offers a control-plane driven approach for customers to build internal cloud
@@ -552,6 +643,39 @@ const Home = ({}: Props) => {
           Invented by Upbound, Crossplane is a framework for building cloud native control planes.
         </Typography>
         <CrossplaneLogosSection />
+      </Section>
+      <Section sx={{ pt: 10, pb: 20 }}>
+        <KeyPointsBlock
+          smallTitle="Enterprise ready"
+          bigTitle="Fully-managed control planes"
+          body="Control planes running in Upbound
+            are designed to be high performance, scalable, multitenant,
+            and secure for the most demanding platforms."
+          href="/"
+          imgBig={EnterpriseReadyBig}
+        />
+        <KeyPointsBlock
+          smallTitle="Deploy with confidence"
+          bigTitle="Best-in-class platform building blocks"
+          body="Upbound Marketplace is a one-stop-shop
+            for all the components you need in your platform
+            powered by an Upbound control plane. Supported and
+            Certified listings are available so you can run your
+            platform in production with confidence."
+          href="/"
+          imgBig={DeployWithConfidenceBig}
+          reversed
+        />
+        <KeyPointsBlock
+          smallTitle="Efficiency + ease"
+          bigTitle="Self-Service Console"
+          body="The Upbound Console is dynamically rendered
+            from your Upbound control plane and the Crossplane
+            packages installed in it. Centralize control and empower
+            your team to deploy without red tape."
+          imgBig={EfficiencyEaseBig}
+          href="/"
+        />
       </Section>
       <Box sx={{ height: 1000 }} bgcolor={COLORS.firefly} />
     </PageProvider>
