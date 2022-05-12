@@ -24,7 +24,7 @@ const root: SxProps = {
     opacity: '.25',
   },
   '.selected > div': {
-    backgroundImage: `linear-gradient(-45deg, transparent 14%, #6D64F5 0%, #C9C3FF 100%)`,
+    backgroundImage: `linear-gradient(-45deg, transparent 75px, #6D64F5 0%, #C9C3FF 100%)`,
     opacity: '1',
   },
 };
