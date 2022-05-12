@@ -99,7 +99,6 @@ export const COLORS = {
   teal25Dcc3: '#2fd3bc',
   tealPrimary: '#3bbdc4',
   testYellowOrange: '#ffce3c',
-  turquoise: '#30e3ca',
   veryLightBlue: '#e5eaf4',
   veryLightGreen: '#ccffbf',
   veryLightPink: '#d8d8d8',
@@ -113,6 +112,9 @@ export const COLORS = {
   elephant: '#0D2436',
   cornflower: '#6D64F5',
   bigStone: '#1B3549',
+  turquoise: '#3DE2CB',
+  shakespeare: '#4AC0D6',
+  sun: '#FAAD13',
 } as const;
 
 export const fontAvenirRoman = {
@@ -289,13 +291,13 @@ const theme = createTheme({
 });
 
 export const gradient_1: SxProps = {
-  background: 'linear-gradient(45deg, #6D64F5, #3DE2CB)',
+  background: `linear-gradient(45deg, ${COLORS.cornflower}, ${COLORS.turquoise})`,
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
 };
 
 export const gradient_2: SxProps = {
-  background: 'linear-gradient(145deg, #6D64F5, #FAAD13)',
+  background: `linear-gradient(145deg, ${COLORS.cornflower}, ${COLORS.sun})`,
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
 };

@@ -42,7 +42,7 @@ const cornflowerContained: SxProps = {
 };
 
 const gradientContained: SxProps = {
-  backgroundImage: 'linear-gradient(-55deg, #3DE2CB 0%, #6D64F5 100%)',
+  backgroundImage: `linear-gradient(-55deg, ${COLORS.turquoise} 0%, ${COLORS.cornflower} 100%)`,
   color: '#fff',
 
   '&:hover': {
