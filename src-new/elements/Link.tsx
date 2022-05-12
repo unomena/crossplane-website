@@ -12,7 +12,7 @@ import {
 
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 
-const hasLinkStyle: SxProps = {
+const hasArrowStyle: SxProps = {
   fontFamily: 'Avenir-Black',
   fontSize: '16px',
   lineHeight: '25px',
@@ -31,7 +31,7 @@ const Link = ({ href, muiProps, hasArrow, children, ...props }: Props) => {
     <NextLink href={href} passHref {...props}>
       <MuiLink underline="none" {...muiProps}>
         {hasArrow ? (
-          <Typography component="span" sx={hasLinkStyle}>
+          <Typography component="span" sx={hasArrowStyle}>
             {children}
             <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
               <ArrowRightRounded height={11} color="currentColor" />
