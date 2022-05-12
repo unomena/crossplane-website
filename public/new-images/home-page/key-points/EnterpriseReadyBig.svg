@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="523px" height="395px" viewBox="0 0 523 395" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>Enterprise Grade (Desktop) Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="473" height="336" rx="8"></rect>
+        <filter x="-9.1%" y="-9.8%" width="118.2%" height="125.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.53164557" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="10" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.192156863   0 0 0 0 0.250980392   0 0 0 0 0.466666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-4" points="0 0 5.37700056 0 5.37700056 7.16825924 0 7.16825924"></polygon>
+        <polygon id="path-6" points="0 0 2.15435119 0 2.15435119 2.17528709 0 2.17528709"></polygon>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-v2" transform="translate(-758.000000, -2690.000000)">
+            <g id="Enterprise-Grade-(Desktop)-Copy" transform="translate(783.000000, 2705.000000)">
+                <g id="Group-6">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <rect stroke="#D2DCEA" stroke-width="0.53164557" fill="#FFFFFF" fill-rule="evenodd" x="-0.265822785" y="-0.265822785" width="473.531646" height="336.531646" rx="8"></rect>
+                    </g>
+                    <g id="Navigation/Desktop/Side/Subnavigation/User-Console/User-Console" transform="translate(0.000000, 24.455696)">
+                        <g id="Group-Copy">
+                            <path d="M2.17977372,0 L93.6701323,0 L93.6701323,0 L93.6701323,311.544304 L2.17977372,311.544304 C1.00529476,311.544304 0.0531914437,310.5922 0.0531914437,309.417722 L0.0531914437,2.12658228 C0.0531914437,0.952103317 1.00529476,-2.00469776e-15 2.17977372,0 Z" id="Rectangle-Copy" fill-opacity="0.121011801" fill="#DFE6F0"></path>
+                            <polygon id="Shape-Copy-41" fill="#DCE0E6" transform="translate(0.053196, 155.772152) scale(-1, 1) translate(-0.053196, -155.772152) " points="0 0 0.106391753 0 0.106391753 311.544304 0 311.544304"></polygon>
+                        </g>
+                        <text id="Backend-Team" font-family="Avenir-Black, Avenir" font-size="8.50632911" font-weight="700" line-spacing="8.50632911" fill="#505A72">
+                            <tspan x="13.8759494" y="48.5544304">Backend Team</tspan>
+                        </text>
+                        <g id="Group" transform="translate(13.000000, 276.544304)">
+                            <text id="Janice-Masterson" font-family="Avenir-Black, Avenir" font-size="5.44405063" font-weight="700" line-spacing="8.50632911" fill="#505A72">
+                                <tspan x="20.1853165" y="6.05974684">Janice Masterson</tspan>
+                            </text>
+                            <text id="My-Account" font-family="Avenir-Roman, Avenir" font-size="4.08303797" font-weight="normal" line-spacing="6.80506329" fill="#505A72">
+                                <tspan x="20.8658228" y="13.5660759">My Account</tspan>
+                            </text>
+                            <image id="48x48-Copy@3x" x="0" y="0" width="17" height="17" xlink:href="data:image/png;base64,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"></image>
+                        </g>
+                        <g id="Logo-Copy" transform="translate(13.836879, 17.012658)">
+                            <rect id="Rectangle" fill="#6553C0" x="0" y="0" width="20.2025316" height="20.2025316" rx="3.40253165"></rect>
+                            <g id="Group-4" transform="translate(4.253165, 5.316456)">
+                                <path d="M5.35055172,4.13325656 L5.33037577,6.15088839 C5.33037577,8.09000738 3.48079147,8.48331226 2.8373621,8.48331226 C1.49841273,8.48331226 0.367825899,7.66003848 0.367825899,6.15088839 L0.367825899,4.0188204 C0.367825899,3.54700268 0.637449949,3.26406018 1.07398413,3.26406018 C1.52042286,3.26406018 1.79004691,3.54700268 1.79004691,4.0188204 L1.79004691,5.98904825 C1.79004691,6.75417808 2.17302311,7.17303667 2.8373621,7.17303667 C3.54315349,7.17303667 3.92833071,6.81676615 3.92833071,5.98904825 L3.92833071,4.13325656 C3.92833071,3.66180919 4.19832159,3.37886669 4.64476033,3.37886669 C5.08092767,3.37886669 5.35055172,3.66180919 5.35055172,4.13325656" id="Fill-1" fill="#FFFFFF"></path>
+                                <g id="Group-5" transform="translate(6.326884, 3.201361)">
+                                    <mask id="mask-5" fill="white">
+                                        <use xlink:href="#path-4"></use>
+                                    </mask>
+                                    <g id="Clip-4"></g>
+                                    <path d="M3.9236719,2.64092007 C3.9236719,1.84431103 3.41487114,1.30990524 2.68853696,1.30990524 C1.95156456,1.30990524 1.42185418,1.86542061 1.42185418,2.64092007 C1.42185418,3.41641953 1.95156456,3.9719349 2.68853696,3.9719349 C3.41487114,3.9719349 3.9236719,3.42678915 3.9236719,2.64092007 M5.37707392,2.64092007 C5.37707392,4.24450778 4.42183443,5.28184014 2.97907063,5.28184014 C2.32536987,5.28184014 1.79565949,5.05148644 1.4427638,4.65299675 L1.42185418,4.65299675 L1.42185418,6.40324051 C1.42185418,6.87468788 1.15186329,7.16837034 0.705791392,7.16837034 C0.269624051,7.16837034 0,6.87468788 0,6.40324051 L0,0.817348282 C0,0.345530561 0.269624051,0.0629584087 0.705791392,0.0629584087 C1.08950127,0.0629584087 1.34922076,0.272572875 1.41158278,0.63921302 L1.43212557,0.63921302 C1.7853881,0.230353707 2.31473165,2.27373675e-13 2.97907063,2.27373675e-13 C4.42183443,2.27373675e-13 5.37707392,1.03733237 5.37707392,2.64092007" id="Fill-3" fill="#FFFFFF" mask="url(#mask-5)"></path>
+                                </g>
+                                <g id="Group-8">
+                                    <mask id="mask-7" fill="white">
+                                        <use xlink:href="#path-6"></use>
+                                    </mask>
+                                    <g id="Clip-7"></g>
+                                    <path d="M2.15435119,1.08758799 C2.15435119,1.68828528 1.67232942,2.17528709 1.07695549,2.17528709 C0.482315241,2.17528709 -7.33670886e-05,1.68828528 -7.33670886e-05,1.08758799 C-7.33670886e-05,0.486890705 0.482315241,-0.000111103074 1.07695549,-0.000111103074 C1.67232942,-0.000111103074 2.15435119,0.486890705 2.15435119,1.08758799" id="Fill-6" fill="#FFFFFF" mask="url(#mask-7)"></path>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Avatar/Companies/32x32/Strawberry" transform="translate(26.970006, 11.270886)">
+                            <circle id="Oval-2" fill="#EA595B" fill-rule="evenodd" cx="7.2240587" cy="7.2240587" r="7.2240587"></circle>
+                            <text id="J" font-family="Avenir-Roman, Avenir" font-size="4.7635443" font-weight="normal" line-spacing="6.80506329" fill="#FFFFFF">
+                                <tspan x="3.83778118" y="9.27303072">M</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 251.872405)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Lambda</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 235.200000)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">EC2</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 218.527595)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Cloud Run</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 201.855190)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Cloud Functions</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 185.182785)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Kubernetes Engine</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 168.510380)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Computer Engine</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 151.837975)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">App Engine</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 135.165570)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Memory Store</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Favorite-Copy-3" transform="translate(17.059702, 118.493165)" fill="#6553C0" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Database</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 101.820759)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">File Store</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 85.148354)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Data Store</tspan>
+                            </text>
+                        </g>
+                        <g id="Navigation/Desktop/Side/Browser/Resource" transform="translate(17.051775, 68.475949)" fill="#505A72" font-family="Avenir-Roman, Avenir" font-size="6.66896203" font-weight="normal" line-spacing="9.52708861">
+                            <text id="Text">
+                                <tspan x="0" y="7">Big Table</tspan>
+                            </text>
+                        </g>
+                        <text id="Description-Copy-11" font-family="Avenir-Black, Avenir" font-size="4.08303797" font-weight="700" line-spacing="6.80506329" fill="#505A72">
+                            <tspan x="13.8759494" y="54.8253165">Control Plane</tspan>
+                        </text>
+                    </g>
+                    <polygon id="Shape--Copy-8" fill="#DCE0E6" points="115.96701 149.392405 115.96701 148.860759 450.96701 148.860759 450.96701 149.392405"></polygon>
+                    <polygon id="Shape--Copy-9" fill="#DCE0E6" points="115.96701 188.734177 115.96701 188.202532 450.96701 188.202532 450.96701 188.734177"></polygon>
+                    <polygon id="Shape--Copy-10" fill="#DCE0E6" points="115.96701 227.012658 115.96701 226.481013 450.96701 226.481013 450.96701 227.012658"></polygon>
+                    <polygon id="Shape--Copy-11" fill="#DCE0E6" points="115.96701 266.35443 115.96701 265.822785 450.96701 265.822785 450.96701 266.35443"></polygon>
+                    <text id="Title" font-family="Avenir-Black, Avenir" font-size="10.2075949" font-weight="700" line-spacing="12.7594937" fill="#505A72">
+                        <tspan x="117.030928" y="111.012658">Instances (10)</tspan>
+                    </text>
+                    <text id="Content" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="389.164557" y="135.658228">Status</tspan>
+                    </text>
+                    <text id="Content" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="323.240506" y="135.658228">Date Created</tspan>
+                    </text>
+                    <text id="Content" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="116.962025" y="135.658228">Created By</tspan>
+                    </text>
+                    <text id="Content" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="246.683544" y="135.658228">Owner</tspan>
+                    </text>
+                    <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(385.974684, 280.708861)" fill="#FF4F52">
+                        <g id="Pills/Valuless/Red" transform="translate(2.000000, 5.000000)">
+                            <path d="M2.5,-0.0518987342 C3.88071187,-0.0518987342 5,1.06738939 5,2.44810127 L5,2.55189873 C5,3.93261061 3.88071187,5.05189873 2.5,5.05189873 C1.11928813,5.05189873 1.69088438e-16,3.93261061 0,2.55189873 L0,2.44810127 C-1.69088438e-16,1.06738939 1.11928813,-0.0518987342 2.5,-0.0518987342 Z" id="BG"></path>
+                        </g>
+                    </g>
+                    <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(385.974684, 239.240506)" fill="#FFA34D">
+                        <g id="Pills/Valuless/Orange" transform="translate(2.000000, 5.000000)">
+                            <path d="M2.5,-0.0518987342 C3.88071187,-0.0518987342 5,1.06738939 5,2.44810127 L5,2.55189873 C5,3.93261061 3.88071187,5.05189873 2.5,5.05189873 C1.11928813,5.05189873 1.69088438e-16,3.93261061 0,2.55189873 L0,2.44810127 C-1.69088438e-16,1.06738939 1.11928813,-0.0518987342 2.5,-0.0518987342 Z" id="BG"></path>
+                        </g>
+                    </g>
+                    <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(385.974684, 200.962025)" fill="#3DC47E">
+                        <g id="Pills/Valuless/Green" transform="translate(2.000000, 5.000000)">
+                            <path d="M2.5,-0.0518987342 C3.88071187,-0.0518987342 5,1.06738939 5,2.44810127 L5,2.55189873 C5,3.93261061 3.88071187,5.05189873 2.5,5.05189873 C1.11928813,5.05189873 1.69088438e-16,3.93261061 0,2.55189873 L0,2.44810127 C-1.69088438e-16,1.06738939 1.11928813,-0.0518987342 2.5,-0.0518987342 Z" id="BG"></path>
+                        </g>
+                    </g>
+                    <g id="Tables/Components/Column-Title-Unsorted-Copy-3" transform="translate(385.974684, 161.620253)" fill="#3DC47E">
+                        <g id="Pills/Valuless/Green" transform="translate(2.000000, 5.000000)">
+                            <path d="M2.5,-0.0518987342 C3.88071187,-0.0518987342 5,1.06738939 5,2.44810127 L5,2.55189873 C5,3.93261061 3.88071187,5.05189873 2.5,5.05189873 C1.11928813,5.05189873 1.69088438e-16,3.93261061 0,2.55189873 L0,2.44810127 C-1.69088438e-16,1.06738939 1.11928813,-0.0518987342 2.5,-0.0518987342 Z" id="BG"></path>
+                        </g>
+                    </g>
+                    <g id="Margins/Header/Subtext-and-Buttons" transform="translate(115.898734, 50.037975)">
+                        <text id="Databases" font-family="Avenir-Black, Avenir" font-size="16" font-weight="700" line-spacing="17.8632911" fill="#505A72">
+                            <tspan x="0" y="16">Databases</tspan>
+                        </text>
+                        <text id="Subtext" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#929394">
+                            <tspan x="0" y="30.9670886">database.azure.microsoft.crossplane.io</tspan>
+                        </text>
+                    </g>
+                    <g id="Buttons/Medium/Basic-Copy-2" transform="translate(375.987342, 53.164557)">
+                        <rect id="BG" fill="#6553C0" x="0" y="0" width="74.4303797" height="20.2025316" rx="10.1012658"></rect>
+                        <text id="Medium-Button" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#FFFFFF">
+                            <tspan x="10.8018471" y="12.3164557">Create Database</tspan>
+                        </text>
+                    </g>
+                    <g id="Buttons/Medium/Basic-Copy-3" transform="translate(293.417722, 53.164557)">
+                        <rect id="BG" fill="#6553C0" x="0" y="0" width="78" height="20.2025316" rx="10.1012658"></rect>
+                        <g id="Medium-Button-2" transform="translate(12.000000, 5.000000)">
+                            <text id="Add-Favorite" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#FFFFFF">
+                                <tspan x="13" y="7">Add Favorite</tspan>
+                            </text>
+                            <g id="Star/16x16-White" transform="translate(0.000000, 0.700000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.76556962">
+                                <polygon id="Shape" points="5.0815 2.70389064 7.5 3.07560463 5.75 4.8679285 6.163 7.4 4 6.20389064 1.837 7.4 2.25 4.8679285 0.5 3.07560463 2.9185 2.70389064 4 0.4"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="118.025316" y="289.835443">frontend-database-instance-4</tspan>
+                    </text>
+                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="118.025316" y="249.43038">frontend-database-instance-3</tspan>
+                    </text>
+                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="118.025316" y="210.088608">frontend-database-instance-2</tspan>
+                    </text>
+                    <text id="Content" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
+                        <tspan x="118.025316" y="170.746835">frontend-database-instance-1</tspan>
+                    </text>
+                    <rect id="Rectangle" fill="#DFE6F0" x="243.493671" y="165.873418" width="42.5316456" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-35" fill="#DFE6F0" x="324.303797" y="165.873418" width="42.5316456" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-39" fill="#DFE6F0" x="399.797468" y="165.873418" width="29.7721519" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-40" fill="#DFE6F0" x="399.797468" y="205.21519" width="29.7721519" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-41" fill="#DFE6F0" x="399.797468" y="243.493671" width="29.7721519" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-42" fill="#DFE6F0" x="399.797468" y="284.962025" width="29.7721519" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-36" fill="#DFE6F0" x="324.303797" y="205.21519" width="42.5316456" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-37" fill="#DFE6F0" x="324.303797" y="243.493671" width="42.5316456" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-38" fill="#DFE6F0" x="324.303797" y="284.962025" width="42.5316456" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-33" fill="#DFE6F0" x="243.493671" y="243.493671" width="42.5316456" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-34" fill="#DFE6F0" x="243.493671" y="284.962025" width="59.5443038" height="6.37974684" rx="3.18987342"></rect>
+                    <rect id="Rectangle-Copy-32" fill="#DFE6F0" x="243.493671" y="205.21519" width="59.5443038" height="6.37974684" rx="3.18987342"></rect>
+                    <path d="M4.25316456,1.13686838e-13 L468.468354,1.13686838e-13 C470.817312,1.43661569e-13 472.721519,1.90420663 472.721519,4.25316456 L472.721519,24.9448101 L472.721519,24.9448101 L0,24.9448101 L0,4.25316456 C-2.8766438e-16,1.90420663 1.90420663,1.15894691e-13 4.25316456,1.13686838e-13 Z" id="Rectangle" fill="#F4F8FF"></path>
+                    <circle id="Oval" fill="#FF6C70" cx="14.1311392" cy="12.961519" r="4.15746835"></circle>
+                    <circle id="Oval-Copy" fill="#FFCE3C" cx="25.3807595" cy="12.961519" r="4.15746835"></circle>
+                    <circle id="Oval-Copy-2" fill="#2FD3BC" cx="37.1194937" cy="12.961519" r="4.15746835"></circle>
+                </g>
+                <g id="Group-19-Copy-7" opacity="0.277265276" transform="translate(149.000000, 315.000000)" fill="#6C72FC">
+                    <circle id="Oval" cx="77.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-6" cx="77.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-12" cx="77.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-18" cx="77.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-24" cx="77.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-2" cx="107.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-7" cx="107.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-13" cx="107.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-19" cx="107.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-25" cx="107.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-4" cx="137.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-8" cx="137.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-14" cx="137.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-20" cx="137.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-26" cx="137.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy" cx="92.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-9" cx="92.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-15" cx="92.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-21" cx="92.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-27" cx="92.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-3" cx="122.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-10" cx="122.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-16" cx="122.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-22" cx="122.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-28" cx="122.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-36" cx="152.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-37" cx="152.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-38" cx="152.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-39" cx="152.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-40" cx="152.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-42" cx="182.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-43" cx="182.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-44" cx="182.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-45" cx="182.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-46" cx="182.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-48" cx="212.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-49" cx="212.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-50" cx="212.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-51" cx="212.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-52" cx="212.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-54" cx="167.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-55" cx="167.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-56" cx="167.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-57" cx="167.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-58" cx="167.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-60" cx="197.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-61" cx="197.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-62" cx="197.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-63" cx="197.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-64" cx="197.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-36" cx="2.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-37" cx="2.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-38" cx="2.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-39" cx="2.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-40" cx="2.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-42" cx="32.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-43" cx="32.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-44" cx="32.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-45" cx="32.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-46" cx="32.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-48" cx="62.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-49" cx="62.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-50" cx="62.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-51" cx="62.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-52" cx="62.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-54" cx="17.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-55" cx="17.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-56" cx="17.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-57" cx="17.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-58" cx="17.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-60" cx="47.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-61" cx="47.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-62" cx="47.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-63" cx="47.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-64" cx="47.5" cy="62.5" r="2.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
