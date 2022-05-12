@@ -119,6 +119,7 @@ const Button = ({
 }: Props) => {
   return (
     <MuiButton
+      variant=""
       {...props}
       sx={{
         ...defaultStyles,

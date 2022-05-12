@@ -22,6 +22,15 @@ const customerSectionHeader: SxProps = {
   textAlign: 'center',
 };
 
+const logoContainer: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  minHeight: '250px',
+  maxWidth: '355px',
+};
+
 const gridLayout: SxProps = {
   display: 'grid',
   gap: 2,
@@ -37,14 +46,6 @@ const logoSVG: SxProps = {
   height: '100%',
   maxHeight: '80px',
   position: 'relative',
-};
-
-const iconBtmRight: SxProps = {
-  position: 'absolute',
-  content: '""',
-  bottom: '0',
-  right: '0',
-  zIndex: '-2',
 };
 
 type Props = {};
@@ -66,7 +67,7 @@ const Customers = ({}: Props) => {
           </Grid>
           <Grid item md={5}>
             <Slider axis="vertical">
-              <CornerCard styleType="quoteCard">
+              <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
                 <Box>
                   <Typography
                     variant="h3_new"
@@ -103,12 +104,9 @@ const Customers = ({}: Props) => {
                     </Box>
                   </Box>
                 </Box>
-                <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-                  <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-                </Box>
               </CornerCard>
 
-              <CornerCard styleType="quoteCard">
+              <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
                 <Box>
                   <Typography
                     variant="h3_new"
@@ -145,9 +143,6 @@ const Customers = ({}: Props) => {
                     </Box>
                   </Box>
                 </Box>
-                <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-                  <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-                </Box>
               </CornerCard>
             </Slider>
           </Grid>
@@ -160,44 +155,44 @@ const Customers = ({}: Props) => {
           </Typography>
         </Box>
         <Box sx={gridLayout}>
-          <CornerCard styleType="logoContained">
-            <Box sx={logoSVG}>
-              <Image src={dfdsLogo.src} alt="DFDS" layout="fill" objectFit="contain" />
-            </Box>
-            <Box sx={iconBtmRight} width={'48px'} height={'48px'}>
-              <Image src={arrowCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-            </Box>
-          </CornerCard>
-          <CornerCard styleType="logoContained">
-            <Box sx={logoSVG}>
-              <Image src={grupoLogo.src} alt="Grupo Boticario" layout="fill" objectFit="contain" />
-            </Box>
-            <Box sx={iconBtmRight} width={'48px'} height={'48px'}>
-              <Image src={arrowCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+          <CornerCard icon={arrowCircle} iconSize="small">
+            <Box sx={logoContainer}>
+              <Box sx={logoSVG}>
+                <Image src={dfdsLogo.src} alt="DFDS" layout="fill" objectFit="contain" />
+              </Box>
             </Box>
           </CornerCard>
-          <CornerCard styleType="logoContained">
-            <Box sx={logoSVG}>
-              <Image src={dbLogo.src} alt="DB" layout="fill" objectFit="contain" />
-            </Box>
-            <Box sx={iconBtmRight} width={'48px'} height={'48px'}>
-              <Image src={arrowCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-            </Box>
-          </CornerCard>
-          <CornerCard styleType="logoContained">
-            <Box sx={logoSVG}>
-              <Image src={plotlyLogo.src} alt="plotly" layout="fill" objectFit="contain" />
-            </Box>
-            <Box sx={iconBtmRight} width={'48px'} height={'48px'}>
-              <Image src={arrowCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+          <CornerCard icon={arrowCircle} iconSize="small">
+            <Box sx={logoContainer}>
+              <Box sx={logoSVG}>
+                <Image
+                  src={grupoLogo.src}
+                  alt="Grupo Boticario"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Box>
             </Box>
           </CornerCard>
-          <CornerCard styleType="logoContained">
-            <Box sx={logoSVG}>
-              <Image src={ptcLogo.src} alt="ptc" layout="fill" objectFit="contain" />
+          <CornerCard icon={arrowCircle} iconSize="small">
+            <Box sx={logoContainer}>
+              <Box sx={logoSVG}>
+                <Image src={dbLogo.src} alt="DB" layout="fill" objectFit="contain" />
+              </Box>
             </Box>
-            <Box sx={iconBtmRight} width={'48px'} height={'48px'}>
-              <Image src={arrowCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
+          </CornerCard>
+          <CornerCard icon={arrowCircle} iconSize="small">
+            <Box sx={logoContainer}>
+              <Box sx={logoSVG}>
+                <Image src={plotlyLogo.src} alt="plotly" layout="fill" objectFit="contain" />
+              </Box>
+            </Box>
+          </CornerCard>
+          <CornerCard icon={arrowCircle} iconSize="small">
+            <Box sx={logoContainer}>
+              <Box sx={logoSVG}>
+                <Image src={ptcLogo.src} alt="ptc" layout="fill" objectFit="contain" />
+              </Box>
             </Box>
           </CornerCard>
         </Box>

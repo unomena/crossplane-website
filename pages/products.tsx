@@ -17,6 +17,7 @@ import headerImg from 'public/new-images/products-page/products-header.png';
 import internalCloudImg from 'public/new-images/products-page/internal-cloud-platform.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
+import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import shapesIcon from 'public/new-images/icons/shapes-icon.svg';
 
@@ -41,14 +42,6 @@ const gridLayout: SxProps = {
   [MQ.md]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
-};
-
-const iconBtmRight: SxProps = {
-  position: 'absolute',
-  content: '""',
-  bottom: '0',
-  right: '0',
-  zIndex: '-2',
 };
 
 // const gridLayout: SxProps = {
@@ -108,9 +101,6 @@ const Products = ({}: Props) => {
                 >
                   Contact Us
                 </Button>
-                {/* <Link href={routes.faqRoute} endIcon={<ArrowRight />}>
-                  Contact Us
-                </Link> */}
               </Box>
             </Box>{' '}
           </Grid>
@@ -138,7 +128,7 @@ const Products = ({}: Props) => {
       </Section>
       <Section sx={{ pt: 23.5, pb: 10 }}>
         <Box sx={gridLayout}>
-          <CornerCard styleType="quoteCard">
+          <CornerCard cornerSize="cornerSM" icon={arrowCircle} iconSize="small">
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
                 <Typography
@@ -161,11 +151,8 @@ const Products = ({}: Props) => {
                 <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
-            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-            </Box>
           </CornerCard>
-          <CornerCard styleType="quoteCard">
+          <CornerCard cornerSize="cornerSM" icon={arrowCircle} iconSize="small">
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
                 <Typography
@@ -188,11 +175,8 @@ const Products = ({}: Props) => {
                 <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
-            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-            </Box>
           </CornerCard>
-          <CornerCard styleType="quoteCard">
+          <CornerCard cornerSize="cornerSM" icon={arrowCircle} iconSize="small">
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
                 <Typography
@@ -216,9 +200,6 @@ const Products = ({}: Props) => {
                 <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
-            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-            </Box>
           </CornerCard>
         </Box>
         <Box sx={productsSectionHeader}>
@@ -226,8 +207,47 @@ const Products = ({}: Props) => {
             Trusted by the industry’s best
           </Typography>
         </Box>
+        <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
+          <Box>
+            <Typography
+              variant="h3_new"
+              sx={{
+                mb: 3,
+                lineHeight: '34px',
+                ...gradient_1,
+              }}
+            >
+              We chose Upbound as our partner in this important transformation…
+            </Typography>
+            <Typography variant="body_small">
+              …because they created Crossplane and offer enterprise-grade products and services that
+              will help us accelerate time to market."
+            </Typography>
+            <Box
+              sx={{
+                mt: 3,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
+                <Image src={plotlyLogo.src} alt="plotly" layout="fill" objectFit="contain" />
+              </Box>
+              <Box>
+                <Typography variant="h6_new">Jack Parmer</Typography>
+                <Typography
+                  variant="body_xs"
+                  sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
+                >
+                  CEO and co-founder Plotly
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
+        </CornerCard>
+
         <Slider>
-          <CornerCard styleType="quoteCard">
+          <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
             <Box>
               <Typography
                 variant="h3_new"
@@ -264,12 +284,9 @@ const Products = ({}: Props) => {
                 </Box>
               </Box>
             </Box>
-            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
-            </Box>
           </CornerCard>
 
-          <CornerCard styleType="quoteCard">
+          <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
             <Box>
               <Typography
                 variant="h3_new"
@@ -305,9 +322,6 @@ const Products = ({}: Props) => {
                   </Typography>
                 </Box>
               </Box>
-            </Box>
-            <Box sx={iconBtmRight} width={'84px'} height={'84px'}>
-              <Image src={quoteCircle.src} alt="arrow icon" layout="fill" objectFit="contain" />
             </Box>
           </CornerCard>
         </Slider>
