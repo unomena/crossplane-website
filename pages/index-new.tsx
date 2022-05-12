@@ -31,6 +31,8 @@ import DeployWithConfidenceBig from 'public/new-images/home-page/features/Deploy
 import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
 import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
 import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
+import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
+import plotlyQuoteBg from 'public/new-images/home-page/quotes/plotly-quote-bg.png';
 
 const headerSection: SxProps = {
   pt: 24,
@@ -216,6 +218,94 @@ const pulsate = keyframes`
   50% { opacity: 0.5; }
   to { opacity: 1; }
 `;
+
+const smallTitleStyle: SxProps = {
+  fontFamily: 'Avenir-Medium',
+  fontSize: '20px',
+  lineHeight: '56px',
+  letterSpacing: '-0.2px',
+  ml: 1.5,
+};
+
+const quoteSectionLeftContainer: SxProps = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  width: '40%',
+};
+
+const quoteSectionLeftInner: SxProps = {
+  width: '100%',
+  height: '100%',
+  clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
+  backgroundPosition: 'center',
+};
+
+const quoteSectionLeftLogo: SxProps = {
+  position: 'absolute',
+  top: '58%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '100%',
+};
+
+const quoteSectionRightContainer: SxProps = {
+  width: '100%',
+  maxWidth: 660,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+};
+
+const quoteSectionQuoteLogos: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  '& > div:not(:last-of-type)': {
+    mr: 1.5,
+  },
+};
+
+const quoteSectionQuoteLogoBox: SxProps = {
+  bgcolor: COLORS.bigStone,
+  px: '18px',
+  py: '34px',
+  width: 116,
+  height: 108,
+  border: `2px solid ${COLORS.bigStone}`,
+  borderRadius: '10px',
+  boxShadow: '0 15px 35px 0 rgba(0,0,0,0.05)',
+  transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+
+  '&:hover': {
+    backgroundColor: '#23435C',
+    transform: `scale(1.05)`,
+    cursor: 'pointer',
+  },
+};
+
+const quoteSectionQuoteLogoBoxActive: SxProps = {
+  bgcolor: '#23435C',
+  position: 'relative',
+  border: `2px solid transparent`,
+  backgroundClip: 'padding-box',
+  transition: 'none',
+
+  '&:before': {
+    content: "''",
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    zIndex: -1,
+    margin: '-2px',
+    borderRadius: 'inherit',
+    background: 'linear-gradient(-45deg, #6D64F5 0, #C9C3FF 100%)',
+  },
+
+  '&:hover': {},
+};
 
 const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
 
@@ -492,14 +582,6 @@ const CrossplaneLogosSection = () => {
   );
 };
 
-const smallTitleStyle: SxProps = {
-  fontFamily: 'Avenir-Medium',
-  fontSize: '20px',
-  lineHeight: '56px',
-  letterSpacing: '-0.2px',
-  ml: 1.5,
-};
-
 interface StaticRequire {
   default: StaticImageData;
 }
@@ -687,6 +769,95 @@ const FeaturesSection = () => {
   );
 };
 
+const quotes = [
+  {
+    title: 'We chose Upbound as our partner in this important transformation…',
+    body: `…because they created Crossplane and offer 
+    enterprise-grade products and services that will 
+    help us accelerate time to market."`,
+    person: 'Jack Parmer',
+    role: 'CEO and co-founder Plotly',
+    logo: plotlyLogo,
+    bgImage: plotlyQuoteBg.src,
+  },
+  {
+    title: 'Upbound Cloud automates and simplifies…',
+    body: `…how software developers manage the lifecycle 
+    of our application portfolios, allowing us to innovate more quickly."`,
+    person: 'Jan Willies',
+    role: 'Platform Architect at Accenture referring to Deutsche Bahn',
+    logo: dbLogo,
+    bgImage: plotlyQuoteBg.src,
+  },
+];
+
+const QuoteSection = () => {
+  const [activeQuote, setActiveQuote] = useState(0);
+
+  return (
+    <Box sx={{ display: 'flex', color: COLORS.linkWater }}>
+      <Box sx={{ flex: 1 }}>
+        <Box sx={quoteSectionLeftContainer}>
+          <Box
+            sx={{
+              ...quoteSectionLeftInner,
+              backgroundImage: `url("${quotes[activeQuote].bgImage}"),
+              linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
+            }}
+          >
+            <Box sx={quoteSectionLeftLogo}>
+              <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
+                <Image
+                  src={quotes[activeQuote].logo}
+                  alt="quote-logo"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Box>
+            </Box>
+          </Box>
+          <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
+            <Box sx={{ position: 'relative' }}>
+              <Image src={bigQuotes} alt="big-quotes" />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={quoteSectionRightContainer}>
+        <Typography variant="h2_new" sx={{ mb: 3 }}>
+          {quotes[activeQuote].title}
+        </Typography>
+        <Typography variant="body_normal" sx={{ mb: 4.5 }}>
+          {quotes[activeQuote].body}
+        </Typography>
+        <Typography
+          sx={{ fontFamily: 'Avenir-Heavy', fontSize: '18px', lineHeight: '20px', mb: '2px' }}
+        >
+          {quotes[activeQuote].person}
+        </Typography>
+        <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', mb: 7 }}>
+          {quotes[activeQuote].role}
+        </Typography>
+        <Box sx={quoteSectionQuoteLogos}>
+          {quotes.map((quote, index) => {
+            let styles = quoteSectionQuoteLogoBox;
+            if (index === activeQuote) {
+              styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
+            }
+            return (
+              <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                  <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                </Box>
+              </Box>
+            );
+          })}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
 type Props = {};
 
 const Home = ({}: Props) => {
@@ -763,8 +934,8 @@ const Home = ({}: Props) => {
       <Section sx={{ pt: 20, pb: 23.5, position: 'relative' }}>
         <FeaturesSection />
       </Section>
-      <Section bgcolor sx={{ pt: 18, pb: 20 }}>
-        <Box></Box>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 18, pb: 7.5, position: 'relative' }}>
+        <QuoteSection />
       </Section>
       <Box sx={{ height: 1000 }} bgcolor={COLORS.firefly} />
     </PageProvider>
