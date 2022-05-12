@@ -632,7 +632,11 @@ const Home = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor sx={{ pt: 10, pb: 20, textAlign: 'center' }}>
+      <Section
+        bgcolor
+        angleTopBottom="topBtmRight"
+        sx={{ pt: 23.5, pb: 23.5, textAlign: 'center' }}
+      >
         <Typography variant="h2_new" sx={{ mb: 2.5 }}>
           Committed to open source.
           <br />
@@ -643,7 +647,7 @@ const Home = ({}: Props) => {
         </Typography>
         <CrossplaneLogosSection />
       </Section>
-      <Section sx={{ pt: 10, pb: 20 }}>
+      <Section sx={{ pt: 20, pb: 20 }}>
         <KeyPointsBlock
           smallTitle="Enterprise ready"
           bigTitle="Fully-managed control planes"
@@ -675,6 +679,9 @@ const Home = ({}: Props) => {
           imgBig={EfficiencyEaseBig}
           href="/"
         />
+      </Section>
+      <Section bgcolor sx={{ pt: 18, pb: 20 }}>
+        <Box></Box>
       </Section>
       <Box sx={{ height: 1000 }} bgcolor={COLORS.firefly} />
     </PageProvider>
