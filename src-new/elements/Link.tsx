@@ -34,7 +34,7 @@ const Link = ({ href, muiProps, hasArrow, children, ...props }: Props) => {
           <Typography component="span" sx={hasLinkStyle}>
             {children}
             <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
-              <ArrowRightRounded height={12} color="currentColor" />
+              <ArrowRightRounded height={11} color="currentColor" />
             </Box>
           </Typography>
         ) : (
