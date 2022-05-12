@@ -12,7 +12,7 @@ import Link from 'src-new/elements/Link';
 import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
-import headerImg from 'public/new-images/products-page/products-header.png';
+import headerImg from 'public/new-images/products-page/products-header-bg.png';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import internalCloudImg from 'public/new-images/products-page/internal-cloud-platform.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
@@ -20,8 +20,6 @@ import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import shapesIcon from 'public/new-images/icons/shapes-icon.svg';
-
-import * as routes from 'src/routes';
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
@@ -52,31 +50,6 @@ const gridLayout: SxProps = {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
 };
-
-// const gridLayout: SxProps = {
-//   display: 'grid',
-//   gap: 2,
-//   gridTemplateColumns: 'repeat(1, 1fr)',
-
-//   [MQ.md]: {
-//     gridTemplateColumns: 'repeat(3, 1fr)',
-//   },
-// };
-
-// const logoSVG: SxProps = {
-//   width: '100%',
-//   height: '100%',
-//   maxHeight: '80px',
-//   position: 'relative',
-// };
-
-// const iconBtmRight: SxProps = {
-//   position: 'absolute',
-//   content: '""',
-//   bottom: '0',
-//   right: '0',
-//   zIndex: '-2',
-// };
 
 type Props = {};
 
