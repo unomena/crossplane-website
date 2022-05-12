@@ -12,7 +12,8 @@ import Link from 'src-new/elements/Link';
 import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
-import headerImg from 'public/new-images/products-page/products-header-bg.png';
+import headerImg from 'public/new-images/products-page/products-header-graphic.svg';
+import headerSlideInImg from 'public/new-images/products-page/products-header-slideIn-graphic.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import internalCloudImg from 'public/new-images/products-page/internal-cloud-platform.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
@@ -56,50 +57,39 @@ type Props = {};
 const Products = ({}: Props) => {
   return (
     <PageProvider displayTitle="Products">
-      <Section sx={{ pt: 40, pb: 23.5, display: 'flex', position: 'relative' }}>
-        <Grid container spacing={2} columns={12} sx={{ alignItems: 'center' }}>
-          <Grid item md={6}>
-            <Box>
-              <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
-                Upbound
-              </Typography>
-              <Typography variant="body_big">
-                The easiest way to build, deploy, and manage your internal cloud platforms using
-                control planes.
-              </Typography>
-              <Box sx={headerButtons}>
-                <Button styleType="gradientContained" sx={{ width: 156, mr: 3 }}>
-                  Try for free
-                </Button>
-                <Link href="/" muiProps={{ color: '#fff' }} hasArrow>
-                  Contact Us
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-          <Grid item md={6}>
-            <Box
-              sx={{
-                position: 'absolute',
-                right: '0',
-                top: '20%',
-                bottom: '0',
-                zIndex: '1',
-              }}
-            >
-              <Box sx={{ position: 'relative', width: '656px', height: '901px' }}>
-                <Image
-                  src={headerImg.src}
-                  alt="Products graphic"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
+      <Section sx={{ pt: 40, pb: 23.5 }}>
+        <Box sx={{ maxWidth: '501px' }}>
+          <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
+            Upbound
+          </Typography>
+          <Typography variant="body_big">
+            The easiest way to build, deploy, and manage your internal cloud platforms using control
+            planes.
+          </Typography>
+          <Box sx={headerButtons}>
+            <Button styleType="gradientContained" sx={{ width: 156, mr: 3 }}>
+              Try for free
+            </Button>
+            <Link href="/" muiProps={{ color: '#fff' }} hasArrow>
+              Contact Us
+            </Link>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            right: '0',
+            top: '6.5%',
+            bottom: '0',
+            zIndex: '1',
+          }}
+        >
+          <Box sx={{ position: 'relative', width: '656px', height: '901px' }}>
+            <Image src={headerImg} alt="Products graphic" layout="fill" objectFit="contain" />
+          </Box>
+        </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: 23.5, pb: 10 }}>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 23.5, pb: 10, zIndex: '-2' }}>
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             A platform for building internal cloud platforms
@@ -107,7 +97,7 @@ const Products = ({}: Props) => {
         </Box>
         <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
           <Image
-            src={internalCloudImg.src}
+            src={internalCloudImg}
             alt="Internal cloud platform"
             layout="fill"
             objectFit="contain"
@@ -145,7 +135,7 @@ const Products = ({}: Props) => {
               </Box>
 
               <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
+                <Image src={shapesIcon} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
@@ -169,7 +159,7 @@ const Products = ({}: Props) => {
               </Box>
 
               <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
+                <Image src={shapesIcon} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
@@ -194,7 +184,7 @@ const Products = ({}: Props) => {
               </Box>
 
               <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={shapesIcon.src} alt="icon" layout="fill" objectFit="contain" />
+                <Image src={shapesIcon} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
@@ -229,7 +219,7 @@ const Products = ({}: Props) => {
                 }}
               >
                 <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
-                  <Image src={plotlyLogo.src} alt="plotly" layout="fill" objectFit="contain" />
+                  <Image src={plotlyLogo} alt="plotly" layout="fill" objectFit="contain" />
                 </Box>
                 <Box>
                   <Typography variant="h6_new">Jack Parmer</Typography>
@@ -268,7 +258,7 @@ const Products = ({}: Props) => {
                 }}
               >
                 <Box sx={{ position: 'relative', width: '52px', height: '37px', mr: 2 }}>
-                  <Image src={dbLogo.src} alt="DB" layout="fill" objectFit="contain" />
+                  <Image src={dbLogo} alt="DB" layout="fill" objectFit="contain" />
                 </Box>
                 <Box>
                   <Typography variant="h6_new">Jan Willies</Typography>

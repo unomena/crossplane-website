@@ -158,40 +158,35 @@ const Customers = ({}: Props) => {
           <CornerCard icon={arrowCircle} iconSize="small">
             <Box sx={logoContainer}>
               <Box sx={logoSVG}>
-                <Image src={dfdsLogo.src} alt="DFDS" layout="fill" objectFit="contain" />
+                <Image src={dfdsLogo} alt="DFDS" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
           <CornerCard icon={arrowCircle} iconSize="small">
             <Box sx={logoContainer}>
               <Box sx={logoSVG}>
-                <Image
-                  src={grupoLogo.src}
-                  alt="Grupo Boticario"
-                  layout="fill"
-                  objectFit="contain"
-                />
+                <Image src={grupoLogo} alt="Grupo Boticario" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
           <CornerCard icon={arrowCircle} iconSize="small">
             <Box sx={logoContainer}>
               <Box sx={logoSVG}>
-                <Image src={dbLogo.src} alt="DB" layout="fill" objectFit="contain" />
+                <Image src={dbLogo} alt="DB" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
           <CornerCard icon={arrowCircle} iconSize="small">
             <Box sx={logoContainer}>
               <Box sx={logoSVG}>
-                <Image src={plotlyLogo.src} alt="plotly" layout="fill" objectFit="contain" />
+                <Image src={plotlyLogo} alt="plotly" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
           <CornerCard icon={arrowCircle} iconSize="small">
             <Box sx={logoContainer}>
               <Box sx={logoSVG}>
-                <Image src={ptcLogo.src} alt="ptc" layout="fill" objectFit="contain" />
+                <Image src={ptcLogo} alt="ptc" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
