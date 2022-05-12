@@ -25,12 +25,12 @@ import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
-import EnterpriseReadyBig from 'public/new-images/home-page/key-points/EnterpriseReadyBig.svg';
-import EnterpriseReadySmall from 'public/new-images/home-page/key-points/EnterpriseReadySmall.svg';
-import DeployWithConfidenceBig from 'public/new-images/home-page/key-points/DeployWithConfidenceBig.svg';
-import DeployWithConfidenceSmall from 'public/new-images/home-page/key-points/DeployWithConfidenceSmall.svg';
-import EfficiencyEaseBig from 'public/new-images/home-page/key-points/EfficiencyEaseBig.svg';
-import EfficiencyEaseSmall from 'public/new-images/home-page/key-points/EfficiencyEaseSmall.svg';
+import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
+import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
+import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
+import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
+import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
+import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
 
 const headerSection: SxProps = {
   pt: 24,
@@ -505,27 +505,41 @@ interface StaticRequire {
 }
 declare type StaticImport = StaticRequire | StaticImageData;
 
-type KeyPointsBlockProps = {
+type FeatureBlockProps = {
   smallTitle: string;
   bigTitle: string;
   body: string;
   href: string;
   imgBig: string | StaticImport;
+  imgSmall: string | StaticImport;
+  imgSmallOffset: { top: number; right: number };
   reversed?: Boolean;
 };
 
-const KeyPointsBlock = ({
+const FeatureBlock = ({
   smallTitle,
   bigTitle,
   body,
   href,
   imgBig,
+  imgSmall,
+  imgSmallOffset,
   reversed,
-}: KeyPointsBlockProps) => {
+}: FeatureBlockProps) => {
   let smallTitleGradient = gradient_1;
   if (reversed) {
     smallTitleGradient = gradient_2;
   }
+
+  const hiddenBarRef = useRef(undefined);
+  const isVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
 
   return (
     <Box
@@ -534,14 +548,17 @@ const KeyPointsBlock = ({
         alignItems: 'center',
         color: COLORS.linkWater,
         flexDirection: reversed ? 'row-reverse' : 'row',
-        mb: 25,
+        position: 'relative',
       }}
     >
       <Box
         sx={{
           flex: 1,
-          pr: reversed ? 0 : 3.5,
-          pl: reversed ? 3.5 : 0,
+          width: '50%',
+          minWidth: '50%',
+          maxWidth: '50%',
+          pr: reversed ? '0px' : '28px',
+          pl: reversed ? '28px' : '0px',
           display: 'flex',
           flexDirection: 'column',
         }}
@@ -567,9 +584,105 @@ const KeyPointsBlock = ({
           Learn More
         </Link>
       </Box>
-      <Box sx={{ flex: 1, pr: reversed ? 3.5 : 0, pl: reversed ? 0 : 3.5 }}>
-        <Image src={imgBig} alt="keyPointTempImg" />
+      <Box
+        sx={{
+          flex: 1,
+          width: '50%',
+          minWidth: '50%',
+          maxWidth: '50%',
+          pr: reversed ? '28px' : '0px',
+          pl: reversed ? '0px' : '28px',
+        }}
+      >
+        <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              ml: reversed ? '-68px' : 0,
+              transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+              transition: 'transform 1.5s',
+            }}
+          >
+            <Image src={imgBig} alt="feature-img-big" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: imgSmallOffset.top,
+              right: imgSmallOffset.right,
+              transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+              transition: 'transform 2s',
+            }}
+          >
+            <Image src={imgSmall} alt="feature-img-small" />
+          </Box>
+        </Box>
       </Box>
+      <Box
+        ref={hiddenBarRef}
+        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
+      />
+    </Box>
+  );
+};
+
+const features = [
+  {
+    smallTitle: 'Enterprise ready',
+    bigTitle: 'Fully-managed control planes',
+    body: `Control planes running in Upbound
+    are designed to be high performance, scalable, multitenant,
+    and secure for the most demanding platforms.`,
+    href: '/',
+    imgBig: EnterpriseReadyBig,
+    imgSmall: EnterpriseReadySmall,
+    imgSmallOffset: { top: 103, right: -68 },
+    reversed: false,
+  },
+  {
+    smallTitle: 'Deploy with confidence',
+    bigTitle: 'Best-in-class platform building blocks',
+    body: `Upbound Marketplace is a one-stop-shop
+    for all the components you need in your platform
+    powered by an Upbound control plane. Supported and
+    Certified listings are available so you can run your
+    platform in production with confidence.`,
+    href: '/',
+    imgBig: DeployWithConfidenceBig,
+    imgSmall: DeployWithConfidenceSmall,
+    imgSmallOffset: { top: 67, right: 0 },
+    reversed: true,
+  },
+  {
+    smallTitle: 'Efficiency + ease',
+    bigTitle: 'Self-Service Console',
+    body: `The Upbound Console is dynamically rendered
+    from your Upbound control plane and the Crossplane
+    packages installed in it. Centralize control and empower
+    your team to deploy without red tape.`,
+    href: '/',
+    imgBig: EfficiencyEaseBig,
+    imgSmall: EfficiencyEaseSmall,
+    imgSmallOffset: { top: 54, right: -17 },
+    reversed: false,
+  },
+];
+
+const FeaturesSection = () => {
+  return (
+    <Box sx={{ '& > div:not(:last-of-type)': { pb: 25 } }}>
+      {features.map((feature) => (
+        <FeatureBlock
+          key={feature.smallTitle}
+          smallTitle={feature.smallTitle}
+          bigTitle={feature.bigTitle}
+          body={feature.body}
+          href={feature.href}
+          imgBig={feature.imgBig}
+          imgSmall={feature.imgSmall}
+          imgSmallOffset={feature.imgSmallOffset}
+          reversed={feature.reversed}
+        />
+      ))}
     </Box>
   );
 };
@@ -647,38 +760,8 @@ const Home = ({}: Props) => {
         </Typography>
         <CrossplaneLogosSection />
       </Section>
-      <Section sx={{ pt: 20, pb: 20 }}>
-        <KeyPointsBlock
-          smallTitle="Enterprise ready"
-          bigTitle="Fully-managed control planes"
-          body="Control planes running in Upbound
-            are designed to be high performance, scalable, multitenant,
-            and secure for the most demanding platforms."
-          href="/"
-          imgBig={EnterpriseReadyBig}
-        />
-        <KeyPointsBlock
-          smallTitle="Deploy with confidence"
-          bigTitle="Best-in-class platform building blocks"
-          body="Upbound Marketplace is a one-stop-shop
-            for all the components you need in your platform
-            powered by an Upbound control plane. Supported and
-            Certified listings are available so you can run your
-            platform in production with confidence."
-          href="/"
-          imgBig={DeployWithConfidenceBig}
-          reversed
-        />
-        <KeyPointsBlock
-          smallTitle="Efficiency + ease"
-          bigTitle="Self-Service Console"
-          body="The Upbound Console is dynamically rendered
-            from your Upbound control plane and the Crossplane
-            packages installed in it. Centralize control and empower
-            your team to deploy without red tape."
-          imgBig={EfficiencyEaseBig}
-          href="/"
-        />
+      <Section sx={{ pt: 20, pb: 23.5, position: 'relative' }}>
+        <FeaturesSection />
       </Section>
       <Section bgcolor sx={{ pt: 18, pb: 20 }}>
         <Box></Box>
