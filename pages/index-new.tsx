@@ -25,7 +25,6 @@ import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
-import keyPointTempImg from 'public/new-images/home-page/key-point-temp.png';
 import EnterpriseReadyBig from 'public/new-images/home-page/key-points/EnterpriseReadyBig.svg';
 import EnterpriseReadySmall from 'public/new-images/home-page/key-points/EnterpriseReadySmall.svg';
 import DeployWithConfidenceBig from 'public/new-images/home-page/key-points/DeployWithConfidenceBig.svg';
