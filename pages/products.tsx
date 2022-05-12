@@ -8,11 +8,10 @@ import { Box, SxProps, Typography, Grid } from '@mui/material';
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
-// import Link from 'src-new/elements/Link';
+import Link from 'src-new/elements/Link';
 import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
-import ArrowRight from 'src-new/svg/ArrowRight';
 import headerImg from 'public/new-images/products-page/products-header.png';
 import internalCloudImg from 'public/new-images/products-page/internal-cloud-platform.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
@@ -86,21 +85,12 @@ const Products = ({}: Props) => {
                 control planes.
               </Typography>
               <Box sx={headerButtons}>
-                <Button
-                  styleType="gradientContained"
-                  sizeType="large"
-                  sx={{ width: 208, mr: '10px', '& > .MuiButton-iconSizeMedium': { mr: '10px' } }}
-                >
-                  Get Started
+                <Button styleType="gradientContained" sx={{ width: 156, mr: 3 }}>
+                  Try for free
                 </Button>
-                <Button
-                  styleType="whiteOutlined"
-                  sizeType="large"
-                  sx={{ width: 208, ml: '10px', '& > .MuiButton-iconSizeMedium': { ml: '16px' } }}
-                  endIcon={<ArrowRight />}
-                >
+                <Link href="/" muiProps={{ color: '#fff' }} hasArrow>
                   Contact Us
-                </Button>
+                </Link>
               </Box>
             </Box>{' '}
           </Grid>
