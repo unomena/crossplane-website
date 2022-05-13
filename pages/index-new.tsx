@@ -25,12 +25,14 @@ import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
-import EnterpriseReadyBig from 'public/new-images/home-page/key-points/EnterpriseReadyBig.svg';
-import EnterpriseReadySmall from 'public/new-images/home-page/key-points/EnterpriseReadySmall.svg';
-import DeployWithConfidenceBig from 'public/new-images/home-page/key-points/DeployWithConfidenceBig.svg';
-import DeployWithConfidenceSmall from 'public/new-images/home-page/key-points/DeployWithConfidenceSmall.svg';
-import EfficiencyEaseBig from 'public/new-images/home-page/key-points/EfficiencyEaseBig.svg';
-import EfficiencyEaseSmall from 'public/new-images/home-page/key-points/EfficiencyEaseSmall.svg';
+import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
+import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
+import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
+import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
+import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
+import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
+import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
+import plotlyQuoteBg from 'public/new-images/home-page/quotes/plotly-quote-bg.png';
 
 const headerSection: SxProps = {
   pt: 24,
@@ -216,6 +218,94 @@ const pulsate = keyframes`
   50% { opacity: 0.5; }
   to { opacity: 1; }
 `;
+
+const smallTitleStyle: SxProps = {
+  fontFamily: 'Avenir-Medium',
+  fontSize: '20px',
+  lineHeight: '56px',
+  letterSpacing: '-0.2px',
+  ml: 1.5,
+};
+
+const quoteSectionLeftContainer: SxProps = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  width: '40%',
+};
+
+const quoteSectionLeftInner: SxProps = {
+  width: '100%',
+  height: '100%',
+  clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
+  backgroundPosition: 'center',
+};
+
+const quoteSectionLeftLogo: SxProps = {
+  position: 'absolute',
+  top: '58%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '100%',
+};
+
+const quoteSectionRightContainer: SxProps = {
+  width: '100%',
+  maxWidth: 660,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+};
+
+const quoteSectionQuoteLogos: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  '& > div:not(:last-of-type)': {
+    mr: 1.5,
+  },
+};
+
+const quoteSectionQuoteLogoBox: SxProps = {
+  bgcolor: COLORS.bigStone,
+  px: '18px',
+  py: '34px',
+  width: 116,
+  height: 108,
+  border: `2px solid ${COLORS.bigStone}`,
+  borderRadius: '10px',
+  boxShadow: '0 15px 35px 0 rgba(0,0,0,0.05)',
+  transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+
+  '&:hover': {
+    backgroundColor: '#23435C',
+    transform: `scale(1.05)`,
+    cursor: 'pointer',
+  },
+};
+
+const quoteSectionQuoteLogoBoxActive: SxProps = {
+  bgcolor: '#23435C',
+  position: 'relative',
+  border: `2px solid transparent`,
+  backgroundClip: 'padding-box',
+  transition: 'none',
+
+  '&:before': {
+    content: "''",
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    zIndex: -1,
+    margin: '-2px',
+    borderRadius: 'inherit',
+    background: 'linear-gradient(-45deg, #6D64F5 0, #C9C3FF 100%)',
+  },
+
+  '&:hover': {},
+};
 
 const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
 
@@ -492,40 +582,46 @@ const CrossplaneLogosSection = () => {
   );
 };
 
-const smallTitleStyle: SxProps = {
-  fontFamily: 'Avenir-Medium',
-  fontSize: '20px',
-  lineHeight: '56px',
-  letterSpacing: '-0.2px',
-  ml: 1.5,
-};
-
 interface StaticRequire {
   default: StaticImageData;
 }
 declare type StaticImport = StaticRequire | StaticImageData;
 
-type KeyPointsBlockProps = {
+type FeatureBlockProps = {
   smallTitle: string;
   bigTitle: string;
   body: string;
   href: string;
   imgBig: string | StaticImport;
+  imgSmall: string | StaticImport;
+  imgSmallOffset: { top: number; right: number };
   reversed?: Boolean;
 };
 
-const KeyPointsBlock = ({
+const FeatureBlock = ({
   smallTitle,
   bigTitle,
   body,
   href,
   imgBig,
+  imgSmall,
+  imgSmallOffset,
   reversed,
-}: KeyPointsBlockProps) => {
+}: FeatureBlockProps) => {
   let smallTitleGradient = gradient_1;
   if (reversed) {
     smallTitleGradient = gradient_2;
   }
+
+  const hiddenBarRef = useRef(undefined);
+  const isVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
 
   return (
     <Box
@@ -534,14 +630,17 @@ const KeyPointsBlock = ({
         alignItems: 'center',
         color: COLORS.linkWater,
         flexDirection: reversed ? 'row-reverse' : 'row',
-        mb: 25,
+        position: 'relative',
       }}
     >
       <Box
         sx={{
           flex: 1,
-          pr: reversed ? 0 : 3.5,
-          pl: reversed ? 3.5 : 0,
+          width: '50%',
+          minWidth: '50%',
+          maxWidth: '50%',
+          pr: reversed ? '0px' : '28px',
+          pl: reversed ? '28px' : '0px',
           display: 'flex',
           flexDirection: 'column',
         }}
@@ -567,8 +666,193 @@ const KeyPointsBlock = ({
           Learn More
         </Link>
       </Box>
-      <Box sx={{ flex: 1, pr: reversed ? 3.5 : 0, pl: reversed ? 0 : 3.5 }}>
-        <Image src={imgBig} alt="keyPointTempImg" />
+      <Box
+        sx={{
+          flex: 1,
+          width: '50%',
+          minWidth: '50%',
+          maxWidth: '50%',
+          pr: reversed ? '28px' : '0px',
+          pl: reversed ? '0px' : '28px',
+        }}
+      >
+        <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              ml: reversed ? '-68px' : 0,
+              transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+              transition: 'transform 1.5s',
+            }}
+          >
+            <Image src={imgBig} alt="feature-img-big" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: imgSmallOffset.top,
+              right: imgSmallOffset.right,
+              transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+              transition: 'transform 2s',
+            }}
+          >
+            <Image src={imgSmall} alt="feature-img-small" />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        ref={hiddenBarRef}
+        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
+      />
+    </Box>
+  );
+};
+
+const features = [
+  {
+    smallTitle: 'Enterprise ready',
+    bigTitle: 'Fully-managed control planes',
+    body: `Control planes running in Upbound
+    are designed to be high performance, scalable, multitenant,
+    and secure for the most demanding platforms.`,
+    href: '/',
+    imgBig: EnterpriseReadyBig,
+    imgSmall: EnterpriseReadySmall,
+    imgSmallOffset: { top: 103, right: -68 },
+    reversed: false,
+  },
+  {
+    smallTitle: 'Deploy with confidence',
+    bigTitle: 'Best-in-class platform building blocks',
+    body: `Upbound Marketplace is a one-stop-shop
+    for all the components you need in your platform
+    powered by an Upbound control plane. Supported and
+    Certified listings are available so you can run your
+    platform in production with confidence.`,
+    href: '/',
+    imgBig: DeployWithConfidenceBig,
+    imgSmall: DeployWithConfidenceSmall,
+    imgSmallOffset: { top: 67, right: 0 },
+    reversed: true,
+  },
+  {
+    smallTitle: 'Efficiency + ease',
+    bigTitle: 'Self-Service Console',
+    body: `The Upbound Console is dynamically rendered
+    from your Upbound control plane and the Crossplane
+    packages installed in it. Centralize control and empower
+    your team to deploy without red tape.`,
+    href: '/',
+    imgBig: EfficiencyEaseBig,
+    imgSmall: EfficiencyEaseSmall,
+    imgSmallOffset: { top: 54, right: -17 },
+    reversed: false,
+  },
+];
+
+const FeaturesSection = () => {
+  return (
+    <Box sx={{ '& > div:not(:last-of-type)': { pb: 25 } }}>
+      {features.map((feature) => (
+        <FeatureBlock
+          key={feature.smallTitle}
+          smallTitle={feature.smallTitle}
+          bigTitle={feature.bigTitle}
+          body={feature.body}
+          href={feature.href}
+          imgBig={feature.imgBig}
+          imgSmall={feature.imgSmall}
+          imgSmallOffset={feature.imgSmallOffset}
+          reversed={feature.reversed}
+        />
+      ))}
+    </Box>
+  );
+};
+
+const quotes = [
+  {
+    title: 'We chose Upbound as our partner in this important transformation…',
+    body: `…because they created Crossplane and offer 
+    enterprise-grade products and services that will 
+    help us accelerate time to market."`,
+    person: 'Jack Parmer',
+    role: 'CEO and co-founder Plotly',
+    logo: plotlyLogo,
+    bgImage: plotlyQuoteBg.src,
+  },
+  {
+    title: 'Upbound Cloud automates and simplifies…',
+    body: `…how software developers manage the lifecycle 
+    of our application portfolios, allowing us to innovate more quickly."`,
+    person: 'Jan Willies',
+    role: 'Platform Architect at Accenture referring to Deutsche Bahn',
+    logo: dbLogo,
+    bgImage: plotlyQuoteBg.src,
+  },
+];
+
+const QuoteSection = () => {
+  const [activeQuote, setActiveQuote] = useState(0);
+
+  return (
+    <Box sx={{ display: 'flex', color: COLORS.linkWater }}>
+      <Box sx={{ flex: 1 }}>
+        <Box sx={quoteSectionLeftContainer}>
+          <Box
+            sx={{
+              ...quoteSectionLeftInner,
+              backgroundImage: `url("${quotes[activeQuote].bgImage}"),
+              linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
+            }}
+          >
+            <Box sx={quoteSectionLeftLogo}>
+              <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
+                <Image
+                  src={quotes[activeQuote].logo}
+                  alt="quote-logo"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </Box>
+            </Box>
+          </Box>
+          <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
+            <Box sx={{ position: 'relative' }}>
+              <Image src={bigQuotes} alt="big-quotes" />
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={quoteSectionRightContainer}>
+        <Typography variant="h2_new" sx={{ mb: 3 }}>
+          {quotes[activeQuote].title}
+        </Typography>
+        <Typography variant="body_normal" sx={{ mb: 4.5 }}>
+          {quotes[activeQuote].body}
+        </Typography>
+        <Typography
+          sx={{ fontFamily: 'Avenir-Heavy', fontSize: '18px', lineHeight: '20px', mb: '2px' }}
+        >
+          {quotes[activeQuote].person}
+        </Typography>
+        <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', mb: 7 }}>
+          {quotes[activeQuote].role}
+        </Typography>
+        <Box sx={quoteSectionQuoteLogos}>
+          {quotes.map((quote, index) => {
+            let styles = quoteSectionQuoteLogoBox;
+            if (index === activeQuote) {
+              styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
+            }
+            return (
+              <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                  <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                </Box>
+              </Box>
+            );
+          })}
+        </Box>
       </Box>
     </Box>
   );
@@ -647,41 +931,11 @@ const Home = ({}: Props) => {
         </Typography>
         <CrossplaneLogosSection />
       </Section>
-      <Section sx={{ pt: 20, pb: 20 }}>
-        <KeyPointsBlock
-          smallTitle="Enterprise ready"
-          bigTitle="Fully-managed control planes"
-          body="Control planes running in Upbound
-            are designed to be high performance, scalable, multitenant,
-            and secure for the most demanding platforms."
-          href="/"
-          imgBig={EnterpriseReadyBig}
-        />
-        <KeyPointsBlock
-          smallTitle="Deploy with confidence"
-          bigTitle="Best-in-class platform building blocks"
-          body="Upbound Marketplace is a one-stop-shop
-            for all the components you need in your platform
-            powered by an Upbound control plane. Supported and
-            Certified listings are available so you can run your
-            platform in production with confidence."
-          href="/"
-          imgBig={DeployWithConfidenceBig}
-          reversed
-        />
-        <KeyPointsBlock
-          smallTitle="Efficiency + ease"
-          bigTitle="Self-Service Console"
-          body="The Upbound Console is dynamically rendered
-            from your Upbound control plane and the Crossplane
-            packages installed in it. Centralize control and empower
-            your team to deploy without red tape."
-          imgBig={EfficiencyEaseBig}
-          href="/"
-        />
+      <Section sx={{ pt: 20, pb: 23.5, position: 'relative' }}>
+        <FeaturesSection />
       </Section>
-      <Section bgcolor sx={{ pt: 18, pb: 20 }}>
-        <Box></Box>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 18, pb: 7.5, position: 'relative' }}>
+        <QuoteSection />
       </Section>
       <Box sx={{ height: 1000 }} bgcolor={COLORS.firefly} />
     </PageProvider>
