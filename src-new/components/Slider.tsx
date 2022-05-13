@@ -19,9 +19,11 @@ const root: SxProps = {
   },
   '.carousel .slide': {
     textAlign: 'left',
+    display: 'flex',
   },
   '.slide > div': {
     opacity: '.25',
+    flex: '1',
   },
   '.selected > div': {
     backgroundImage: `linear-gradient(-45deg, transparent 75px, #6D64F5 0%, #C9C3FF 100%)`,
@@ -46,6 +48,8 @@ const Slider = ({ children, axis = 'horizontal' }: Props) => {
         interval={7000}
         infiniteLoop={true}
         centerMode={true}
+        emulateTouch={true}
+        stopOnHover={false}
       >
         {children}
       </Carousel>

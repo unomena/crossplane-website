@@ -12,12 +12,25 @@ import Link from 'src-new/elements/Link';
 import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
-import headerImg from 'public/new-images/products-page/products-header-graphic.svg';
-import headerSlideInImg from 'public/new-images/products-page/products-header-slideIn-graphic.svg';
-import headerBg from 'public/new-images/home-page/header-bg.jpg';
-import internalCloudImg from 'public/new-images/products-page/internal-cloud-platform.svg';
+import heroMain from 'public/new-images/products-page/hero-main.svg';
+import heroFlyover from 'public/new-images/products-page/hero-main.svg';
+import platformOne from 'public/new-images/products-page/001-platform.svg';
+import platformTwo from 'public/new-images/products-page/002-platform.svg';
+import platformThree from 'public/new-images/products-page/003-platform.svg';
+import platformFour from 'public/new-images/products-page/004-platform.svg';
+import platformFive from 'public/new-images/products-page/005-platform.svg';
+import platformSix from 'public/new-images/products-page/006-platform.svg';
+import platformFlyoverOne from 'public/new-images/products-page/001-platform-flyover.svg';
+import platformFlyoverTwo from 'public/new-images/products-page/002-platform-flyover.svg';
+import platformFlyoverThree from 'public/new-images/products-page/003-platform-flyover.svg';
+import platformFlyoverFour from 'public/new-images/products-page/004-platform-flyover.svg';
+import platformFlyoverFive from 'public/new-images/products-page/005-platform-flyover.svg';
+import platformFlyoverSix from 'public/new-images/products-page/006-platform-flyover.svg';
+import sectionBg from 'public/new-images/home-page/header-bg.jpg';
+import productDiagram from 'public/new-images/products-page/product-diagram.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
+import bpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import shapesIcon from 'public/new-images/icons/shapes-icon.svg';
@@ -26,7 +39,7 @@ const productsSectionHeader: SxProps = {
   textAlign: 'center',
 };
 const caseStudiesSection: SxProps = {
-  backgroundImage: `url(${headerBg.src})`,
+  backgroundImage: `url(${sectionBg.src})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'top center',
 
@@ -85,7 +98,7 @@ const Products = ({}: Props) => {
           }}
         >
           <Box sx={{ position: 'relative', width: '656px', height: '901px' }}>
-            <Image src={headerImg} alt="Products graphic" layout="fill" objectFit="contain" />
+            <Image src={heroMain} alt="Products graphic" layout="fill" objectFit="contain" />
           </Box>
         </Box>
       </Section>
@@ -97,7 +110,7 @@ const Products = ({}: Props) => {
         </Box>
         <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
           <Image
-            src={internalCloudImg}
+            src={productDiagram}
             alt="Internal cloud platform"
             layout="fill"
             objectFit="contain"
@@ -194,23 +207,17 @@ const Products = ({}: Props) => {
             Trusted by the industry’s best
           </Typography>
         </Box>
+
         <Slider>
           <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-            <Box>
-              <Typography
-                variant="h3_new"
-                sx={{
-                  mb: 3,
-                  lineHeight: '34px',
-                  ...gradient_1,
-                }}
-              >
-                We chose Upbound as our partner in this important transformation…
-              </Typography>
-              <Typography variant="body_small">
-                …because they created Crossplane and offer enterprise-grade products and services
-                that will help us accelerate time to market."
-              </Typography>
+            <Box display="flex" flexDirection="column" maxWidth="744px">
+              <Box flex={1}>
+                <Typography variant="body_big">
+                  We chose Upbound as our partner in this important transformation because they
+                  created Crossplane and offer enterprise-grade products and services that will help
+                  us accelerate time to market."
+                </Typography>
+              </Box>
               <Box
                 sx={{
                   mt: 3,
@@ -235,21 +242,13 @@ const Products = ({}: Props) => {
           </CornerCard>
 
           <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-            <Box>
-              <Typography
-                variant="h3_new"
-                sx={{
-                  mb: 3,
-                  lineHeight: '34px',
-                  ...gradient_1,
-                }}
-              >
-                Upbound Cloud automates and simplifies…
-              </Typography>
-              <Typography variant="body_small">
-                …how software developers manage the lifecycle of our application portfolios,
-                allowing us to innovate more quickly.
-              </Typography>
+            <Box display="flex" flexDirection="column">
+              <Box flex={1}>
+                <Typography variant="body_big">
+                  Upbound Cloud automates and simplifies how software developers manage the
+                  lifecycle of our application portfolios, allowing us to innovate more quickly.
+                </Typography>
+              </Box>
               <Box
                 sx={{
                   mt: 3,
@@ -267,6 +266,37 @@ const Products = ({}: Props) => {
                     sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
                   >
                     Platform Architect at Accenture referring to Deutsche Bahn
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          </CornerCard>
+          <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
+            <Box display="flex" flexDirection="column">
+              <Box flex={1}>
+                <Typography variant="body_big">
+                  We found in Upbound a unique vision that aligned perfectly with our roadmap as
+                  well as a set of enterprise services that allowed us to innovate faster than ever
+                  before"
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  mt: 3,
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
+                  <Image src={bpcLogo} alt="DB" layout="fill" objectFit="contain" />
+                </Box>
+                <Box>
+                  <Typography variant="h6_new">Nuno Guedes</Typography>
+                  <Typography
+                    variant="body_xs"
+                    sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
+                  >
+                    Millennium bcp
                   </Typography>
                 </Box>
               </Box>
