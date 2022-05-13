@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { gradient_1, MQ } from 'src/theme';
+import { COLORS, gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Grid } from '@mui/material';
+
+import useOnScreen from 'src-new/utils/useOnScreen';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -13,7 +15,7 @@ import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
 import heroMain from 'public/new-images/products-page/hero-main.svg';
-import heroFlyover from 'public/new-images/products-page/hero-main.svg';
+import heroFlyover from 'public/new-images/products-page/hero-flyover.svg';
 import platformOne from 'public/new-images/products-page/001-platform.svg';
 import platformTwo from 'public/new-images/products-page/002-platform.svg';
 import platformThree from 'public/new-images/products-page/003-platform.svg';
@@ -65,40 +67,270 @@ const gridLayout: SxProps = {
   },
 };
 
+interface StaticRequire {
+  default: StaticImageData;
+}
+declare type StaticImport = StaticRequire | StaticImageData;
+
+type FeatureBlockProps = {
+  smallTitle: string;
+  bigTitle: string;
+  body: string;
+  href: string;
+  imgBig: string | StaticImport;
+  imgSmall: string | StaticImport;
+  imgSmallOffset: { top: number; right: number };
+  reversed?: Boolean;
+};
+
+const FeatureBlock = ({
+  bigTitle,
+  body,
+  href,
+  imgBig,
+  imgSmall,
+  imgSmallOffset,
+  reversed,
+}: FeatureBlockProps) => {
+  const hiddenBarRef = useRef(undefined);
+  const isVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        color: COLORS.linkWater,
+        flexDirection: reversed ? 'row-reverse' : 'row',
+        position: 'relative',
+        // backgroundColor: COLORS.elephant,
+        // position: 'sticky',
+        // top: '0',
+        // width: '100%',
+        // height: '100vh',
+      }}
+    >
+      <Box
+        sx={{
+          flex: 1,
+          width: '50%',
+          minWidth: '50%',
+          maxWidth: '50%',
+          pr: reversed ? '0px' : '28px',
+          pl: reversed ? '28px' : '0px',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
+          {bigTitle}
+        </Typography>
+        <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
+          {body}
+        </Typography>
+        <Link
+          href={href}
+          muiProps={{
+            color: reversed ? COLORS.sun : COLORS.turquoise,
+            sx: { mt: 5 },
+          }}
+          hasArrow
+        >
+          Learn More
+        </Link>
+      </Box>
+      <Box
+        sx={{
+          flex: 1,
+          width: '50%',
+          minWidth: '50%',
+          maxWidth: '50%',
+          pr: reversed ? '28px' : '0px',
+          pl: reversed ? '0px' : '28px',
+        }}
+      >
+        <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              ml: reversed ? '-68px' : 0,
+              transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+              transition: 'transform 1.5s',
+            }}
+          >
+            <Image src={imgBig} alt="feature-img-big" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: imgSmallOffset.top,
+              right: imgSmallOffset.right,
+              transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+              transition: 'transform 2s',
+            }}
+          >
+            <Image src={imgSmall} alt="feature-img-small" />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        ref={hiddenBarRef}
+        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
+      />
+    </Box>
+  );
+};
+
+const features = [
+  {
+    smallTitle: 'Enterprise ready',
+    bigTitle: 'Fully-managed control planes',
+    body: `Control planes running in Upbound
+    are designed to be high performance, scalable, multitenant,
+    and secure for the most demanding platforms.`,
+    href: '/',
+    imgBig: plotlyLogo,
+    imgSmall: plotlyLogo,
+    imgSmallOffset: { top: 103, right: -68 },
+    reversed: false,
+  },
+  {
+    smallTitle: 'Deploy with confidence',
+    bigTitle: 'Best-in-class platform building blocks',
+    body: `Upbound Marketplace is a one-stop-shop
+    for all the components you need in your platform
+    powered by an Upbound control plane. Supported and
+    Certified listings are available so you can run your
+    platform in production with confidence.`,
+    href: '/',
+    imgBig: plotlyLogo,
+    imgSmall: plotlyLogo,
+    imgSmallOffset: { top: 67, right: 0 },
+    reversed: true,
+  },
+  {
+    smallTitle: 'Efficiency + ease',
+    bigTitle: 'Self-Service Console',
+    body: `The Upbound Console is dynamically rendered
+    from your Upbound control plane and the Crossplane
+    packages installed in it. Centralize control and empower
+    your team to deploy without red tape.`,
+    href: '/',
+    imgBig: plotlyLogo,
+    imgSmall: plotlyLogo,
+    imgSmallOffset: { top: 54, right: -17 },
+    reversed: false,
+  },
+];
+
+const FeaturesSection = () => {
+  return (
+    <Box sx={{ '& > div:not(:last-of-type)': { pb: 25 } }}>
+      {features.map((feature) => (
+        <FeatureBlock
+          key={feature.smallTitle}
+          smallTitle={feature.smallTitle}
+          bigTitle={feature.bigTitle}
+          body={feature.body}
+          href={feature.href}
+          imgBig={feature.imgBig}
+          imgSmall={feature.imgSmall}
+          imgSmallOffset={feature.imgSmallOffset}
+          reversed={feature.reversed}
+        />
+      ))}
+    </Box>
+  );
+};
+
 type Props = {};
 
 const Products = ({}: Props) => {
+  const productsHeader = useRef(undefined);
+  const isVisible = useOnScreen(productsHeader);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
   return (
     <PageProvider displayTitle="Products">
-      <Section sx={{ pt: 40, pb: 23.5 }}>
-        <Box sx={{ maxWidth: '501px' }}>
-          <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
-            Upbound
-          </Typography>
-          <Typography variant="body_big">
-            The easiest way to build, deploy, and manage your internal cloud platforms using control
-            planes.
-          </Typography>
-          <Box sx={headerButtons}>
-            <Button styleType="gradientContained" sx={{ width: 156, mr: 3 }}>
-              Try for free
-            </Button>
-            <Link href="/" muiProps={{ color: '#fff' }} hasArrow>
-              Contact Us
-            </Link>
-          </Box>
-        </Box>
+      <Section sx={{ pt: 40, pb: 20, overflow: 'hidden' }}>
         <Box
           sx={{
-            position: 'absolute',
-            right: '0',
-            top: '6.5%',
-            bottom: '0',
-            zIndex: '1',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row',
           }}
+          ref={productsHeader}
         >
-          <Box sx={{ position: 'relative', width: '656px', height: '901px' }}>
-            <Image src={heroMain} alt="Products graphic" layout="fill" objectFit="contain" />
+          <Box
+            sx={{
+              flex: 1,
+              width: '50%',
+              minWidth: '50%',
+              maxWidth: '50%',
+              pr: '28px',
+              pl: '0px',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <Box sx={{ maxWidth: '501px' }}>
+              <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
+                Upbound
+              </Typography>
+              <Typography variant="body_big">
+                The easiest way to build, deploy, and manage your internal cloud platforms using
+                control planes.
+              </Typography>
+              <Box sx={headerButtons}>
+                <Button styleType="gradientContained" sx={{ width: 156, mr: 3 }}>
+                  Try for free
+                </Button>
+                <Link href="/" muiProps={{ color: '#fff' }} hasArrow>
+                  Contact Us
+                </Link>
+              </Box>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '4%',
+              right: '0',
+              zIndex: '1',
+            }}
+          >
+            <Box sx={{ position: 'relative' }}>
+              <Box
+                sx={{
+                  transform: show ? '' : 'translate(50vw)',
+                  transition: 'transform 1.5s',
+                }}
+              >
+                <Image src={heroMain} alt="feature-img-big" />
+              </Box>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: '29%',
+                  right: '0',
+                  transform: show ? '' : 'translate(100vw)',
+                  transition: 'transform 2s',
+                }}
+              >
+                <Image src={heroFlyover} alt="feature-img-small" />
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Section>
@@ -117,7 +349,10 @@ const Products = ({}: Props) => {
           />
         </Box>
       </Section>
-      <Section sx={{ pt: 23.5, pb: 34.125, ...caseStudiesSection }}>
+      <Section bgcolor sx={{ py: 23.5, position: 'relative' }}>
+        <FeaturesSection />
+      </Section>
+      <Section sx={{ pt: 23.5, pb: 34.125, overflow: 'hidden', ...caseStudiesSection }}>
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
             Any platform. Any business
