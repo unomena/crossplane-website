@@ -22,7 +22,6 @@ import dfds from 'public/new-images/home-page/crossplane-logos/021-dfds.svg';
 import didi from 'public/new-images/home-page/crossplane-logos/022-didi.svg';
 import dkb from 'public/new-images/home-page/crossplane-logos/023-dkb.svg';
 import ea from 'public/new-images/home-page/crossplane-logos/024-ea.svg';
-import evry from 'public/new-images/home-page/crossplane-logos/025-evry.svg';
 import expedia_group from 'public/new-images/home-page/crossplane-logos/026-expedia_group.svg';
 import godaddy from 'public/new-images/home-page/crossplane-logos/027-godaddy.svg';
 import google from 'public/new-images/home-page/crossplane-logos/028-google.svg';
@@ -35,7 +34,6 @@ import intuit from 'public/new-images/home-page/crossplane-logos/034-intuit.svg'
 import jd from 'public/new-images/home-page/crossplane-logos/035-jd.svg';
 import kiratech from 'public/new-images/home-page/crossplane-logos/036-kiratech.svg';
 import kohls from 'public/new-images/home-page/crossplane-logos/037-kohls.svg';
-import ksyun from 'public/new-images/home-page/crossplane-logos/038-ksyun.svg';
 import libertyMutual from 'public/new-images/home-page/crossplane-logos/039-liberty-mutual.svg';
 import logzIo from 'public/new-images/home-page/crossplane-logos/040-logz-io.svg';
 import mcKinsey from 'public/new-images/home-page/crossplane-logos/041-mcKinsey.svg';
@@ -73,7 +71,6 @@ const crossplaneLogos = [
   didi,
   dkb,
   ea,
-  evry,
   expedia_group,
   godaddy,
   google,
@@ -86,7 +83,6 @@ const crossplaneLogos = [
   jd,
   kiratech,
   kohls,
-  ksyun,
   libertyMutual,
   logzIo,
   mcKinsey,

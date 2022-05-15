@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Box, SxProps, Typography } from '@mui/material';
+import { Box, SxProps, TextField, Typography } from '@mui/material';
 import { COLORS, gradient_1, gradient_2 } from 'src/theme';
 import { keyframes } from '@emotion/react';
 
@@ -15,9 +15,13 @@ import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
+import MediaCard from 'src-new/elements/MediaCard';
+import CornerCard from 'src-new/elements/CornerCard';
 
 import RocketShipIcon from 'src-new/svg/RocketShipIcon';
 import ArrowRight from 'src-new/svg/ArrowRight';
+import FullArrowRight from 'src-new/svg/FullArrowRight';
+import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 import CircleTriangleIcon from 'src-new/svg/CircleTriangleIcon';
 import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
 import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
@@ -33,6 +37,12 @@ import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEa
 import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
 import plotlyQuoteBg from 'public/new-images/home-page/quotes/plotly-quote-bg.png';
+import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
+import bassamTabbaraProfile from 'public/new-images/media-cards/bassam-tabbara-profile.png';
+import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
+import taylorThorntonProfile from 'public/new-images/media-cards/taylor-thornton-profile.png';
+import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
+import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
   pt: 24,
@@ -46,6 +56,15 @@ const headerSection: SxProps = {
   '@media screen and (min-width: 1980px)': {
     backgroundSize: 'contain',
   },
+};
+
+const discoverSection: SxProps = {
+  pt: 15,
+  pb: 32,
+  backgroundImage: `url(${headerBg.src})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'top center',
+  backgroundSize: 'cover',
 };
 
 const h1: SxProps = {
@@ -307,6 +326,63 @@ const quoteSectionQuoteLogoBoxActive: SxProps = {
   '&:hover': {},
 };
 
+const registerFormContainer: SxProps = {
+  backgroundImage: 'linear-gradient(-57deg, #FAAD13 0%, #6D64F5 100%)',
+  borderRadius: '10px',
+  height: 280,
+  px: '22px',
+  py: '24px',
+  mb: 2.5,
+};
+
+const registerFormTitle: SxProps = {
+  fontFamily: 'Avenir-Heavy',
+  fontSize: '30px',
+  lineHeight: '36px',
+  color: '#fff',
+  mb: 2.5,
+};
+
+const registerFormField: SxProps = {
+  mb: 2.5,
+  '& > .MuiOutlinedInput-root': {
+    bgcolor: '#fff',
+    borderRadius: '8px',
+
+    '& > input': {
+      p: '12.5px 14px',
+    },
+
+    '&.Mui-focused': {
+      '& > .MuiOutlinedInput-notchedOutline': {
+        borderColor: COLORS.cornflower,
+        borderWidth: '1px',
+      },
+    },
+
+    '& > .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'transparent',
+    },
+  },
+};
+
+const registerFormSubmit: SxProps = {
+  fontFamily: 'Avenir-Black',
+  fontSize: '16px',
+  lineHeight: '25px',
+  color: '#fff',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const visitCard: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  pl: 2.5,
+  maxWidth: 150,
+};
+
 const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
 
 type CPLogoBoxProps = {
@@ -549,7 +625,7 @@ const CrossplaneLogosSection = () => {
         ))}
       </Box>
       <Box sx={cpCenterBox}>
-        <Typography sx={cpCenterBoxTitleNum}>XX</Typography>
+        <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
         <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
         <Typography variant="body_normal">
           Adopted by hundreds of amazing
@@ -751,7 +827,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <Box sx={{ '& > div:not(:last-of-type)': { pb: 25 } }}>
+    <Box sx={{ '& > div': { pb: 25 } }}>
       {features.map((feature) => (
         <FeatureBlock
           key={feature.smallTitle}
@@ -830,9 +906,7 @@ const QuoteSection = () => {
         <Typography variant="body_normal" sx={{ mb: 4.5 }}>
           {quotes[activeQuote].body}
         </Typography>
-        <Typography
-          sx={{ fontFamily: 'Avenir-Heavy', fontSize: '18px', lineHeight: '20px', mb: '2px' }}
-        >
+        <Typography variant="h6_new" sx={{ mb: '2px' }}>
           {quotes[activeQuote].person}
         </Typography>
         <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', mb: 7 }}>
@@ -931,13 +1005,94 @@ const Home = ({}: Props) => {
         </Typography>
         <CrossplaneLogosSection />
       </Section>
-      <Section sx={{ pt: 20, pb: 23.5, position: 'relative' }}>
+      <Section sx={{ pt: 20, position: 'relative' }}>
         <FeaturesSection />
       </Section>
       <Section bgcolor angleTop="topRight" sx={{ pt: 18, pb: 7.5, position: 'relative' }}>
         <QuoteSection />
       </Section>
-      <Box sx={{ height: 1000 }} bgcolor={COLORS.firefly} />
+      <Section sx={discoverSection}>
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
+          <Typography variant="h2_new">Discover Upbound</Typography>
+          <Box sx={{ display: 'flex', ml: 3.5 }}>
+            <FullArrowRight />
+          </Box>
+        </Box>
+        <Box sx={{ display: 'flex', height: 550 }}>
+          <Box sx={{ height: '100%', width: 540 }}>
+            <MediaCard
+              img={mainArticleImg}
+              imgHeight={350}
+              profileImg={bassamTabbaraProfile}
+              profileImgSize="big"
+              person="Bassam Tabbara"
+              type="video"
+              title="Lorem ipsum dolor sit amet"
+              titleVariant="h4_new"
+              body="Lorem ipsum dolor sit amet, consectetuer 
+              adipiscing elit. Aenean commodo ligula eget dolor. 
+              Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes"
+            />
+          </Box>
+          <Box sx={{ flex: 1, ml: 2.5 }}>
+            <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
+              <MediaCard
+                layout="horizontal"
+                img={matthiasArticleImg}
+                imgHeight={130}
+                imgWidth={130}
+                person="Matthias Luebken"
+                type="Blog"
+                title="Announcing 100% Cloud Service Coverage for Crossplane"
+                pillText="Must read!"
+              />
+            </Box>
+            <Box sx={{ display: 'flex' }}>
+              <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
+                <MediaCard
+                  img={laptopArticleImg}
+                  imgHeight={200}
+                  profileImg={taylorThorntonProfile}
+                  person="Taylor Thornton"
+                  type="Blog"
+                  title="Moving Crossplane package authoring from plain YAML to IDE aided development"
+                  date="May 22, 2022"
+                  pillText="New!"
+                />
+              </Box>
+              <Box
+                sx={{ flex: 1, width: '50%', ml: '10px', display: 'flex', flexDirection: 'column' }}
+              >
+                <Box sx={registerFormContainer}>
+                  <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
+                  <TextField
+                    fullWidth
+                    variant="outlined"
+                    placeholder="Your Email"
+                    size="small"
+                    sx={registerFormField}
+                  />
+                  <Box sx={{ cursor: 'pointer', width: 'fit-content' }} onClick={() => {}}>
+                    <Typography component="span" sx={registerFormSubmit}>
+                      Submit email
+                      <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
+                        <ArrowRightRounded height={11} color="currentColor" />
+                      </Box>
+                    </Typography>
+                  </Box>
+                </Box>
+                <Box sx={{ flex: 1 }}>
+                  <CornerCard icon={arrowCircle} iconSize="small" withPadding={false} href="/">
+                    <Box sx={visitCard}>
+                      <Typography variant="h5_new">Visit the Upbound Blog</Typography>
+                    </Box>
+                  </CornerCard>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Section>
     </PageProvider>
   );
 };

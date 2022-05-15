@@ -137,6 +137,8 @@ declare module '@mui/material/styles' {
     h1_new: React.CSSProperties;
     h2_new: React.CSSProperties;
     h3_new: React.CSSProperties;
+    h4_new: React.CSSProperties;
+    h5_new: React.CSSProperties;
     h6_new: React.CSSProperties;
     body_big: React.CSSProperties;
     body_normal: React.CSSProperties;
@@ -148,6 +150,8 @@ declare module '@mui/material/styles' {
     h1_new?: React.CSSProperties;
     h2_new?: React.CSSProperties;
     h3_new?: React.CSSProperties;
+    h4_new?: React.CSSProperties;
+    h5_new?: React.CSSProperties;
     h6_new?: React.CSSProperties;
     body_big?: React.CSSProperties;
     body_normal?: React.CSSProperties;
@@ -165,6 +169,8 @@ declare module '@mui/material/Typography' {
     h1_new: true;
     h2_new: true;
     h3_new: true;
+    h4_new: true;
+    h5_new: true;
     h6_new: true;
     body_big: true;
     body_normal: true;
@@ -230,9 +236,21 @@ const theme = createTheme({
       letterSpacing: '-0.3px',
       color: COLORS.linkWater,
     },
+    h4_new: {
+      fontFamily: 'Avenir-Heavy',
+      fontSize: '30px',
+      lineHeight: '36px',
+      color: COLORS.linkWater,
+    },
+    h5_new: {
+      fontFamily: 'Avenir-Heavy',
+      fontSize: '18px',
+      lineHeight: '25px',
+      color: COLORS.linkWater,
+    },
     h6_new: {
-      fontFamily: 'Avenir-Black',
-      fontSize: '16px',
+      fontFamily: 'Avenir-Heavy',
+      fontSize: '18px',
       lineHeight: '20px',
       color: COLORS.linkWater,
     },
@@ -279,6 +297,8 @@ const theme = createTheme({
           h1_new: 'h1',
           h2_new: 'h2',
           h3_new: 'h3',
+          h4_new: 'h4',
+          h5_new: 'h5',
           h6_new: 'h6',
           body_big: 'p',
           body_normal: 'p',

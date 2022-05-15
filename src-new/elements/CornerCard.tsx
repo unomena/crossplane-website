@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Box, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
+import Link from 'src-new/elements/Link';
+
 const defaultStyles: SxProps = {
   display: 'flex',
   fontFamily: 'Avenir',
@@ -15,7 +17,7 @@ const defaultStyles: SxProps = {
   color: '#fff',
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
   width: '100%',
-  p: 3.75,
+  height: '100%',
   m: '0 auto',
 };
 
@@ -24,6 +26,7 @@ const cornerSM: SxProps = {
 
   '&:hover': {
     backgroundImage: `linear-gradient(-45deg, transparent 39px, #6D64F5 0, #C9C3FF 100%)`,
+    transition: 'background-image 3s ease-in-out',
   },
 
   '&:before': {
@@ -96,15 +99,26 @@ type Props = {
   cornerSize?: 'cornerSM' | 'cornerLG';
   icon?: string | StaticImport;
   iconSize?: 'small' | 'normal';
+  withPadding?: Boolean;
+  href?: string;
 };
 
-const CornerCard = ({ children, icon, iconSize, cornerSize = 'cornerSM', ...props }: Props) => {
-  return (
+const CornerCard = ({
+  children,
+  icon,
+  iconSize,
+  cornerSize = 'cornerSM',
+  withPadding = true,
+  href,
+  ...props
+}: Props) => {
+  const RenderCard = () => (
     <Box
       {...props}
       sx={{
         ...defaultStyles,
         ...cornerSizes[cornerSize],
+        p: withPadding ? 3.75 : 0,
       }}
     >
       {children}
@@ -115,6 +129,16 @@ const CornerCard = ({ children, icon, iconSize, cornerSize = 'cornerSM', ...prop
       )}
     </Box>
   );
+
+  if (href) {
+    return (
+      <Link href={href}>
+        <RenderCard />
+      </Link>
+    );
+  }
+
+  return <RenderCard />;
 };
 
 export default CornerCard;
