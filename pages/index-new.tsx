@@ -1064,6 +1064,7 @@ const Home = ({}: Props) => {
               body="Lorem ipsum dolor sit amet, consectetuer 
               adipiscing elit. Aenean commodo ligula eget dolor. 
               Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes"
+              href="/"
             />
           </Box>
           <Box sx={{ flex: 1, ml: 2.5 }}>

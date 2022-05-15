@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS } from 'src/theme';
 
+import Link from 'src-new/elements/Link';
+
 const rootBase: SxProps = {
   position: 'relative',
   bgcolor: COLORS.bigStone,
@@ -118,6 +120,7 @@ type Props = {
   body?: string;
   date?: string;
   pillText?: string;
+  href?: string;
 };
 
 const MediaCard = ({
@@ -134,8 +137,9 @@ const MediaCard = ({
   body,
   date,
   pillText,
+  href,
 }: Props) => {
-  return (
+  const RenderCard = () => (
     <Box sx={root[layout]}>
       {pillText && (
         <Box sx={pillStyle}>
@@ -174,6 +178,16 @@ const MediaCard = ({
       </Box>
     </Box>
   );
+
+  if (href) {
+    return (
+      <Link href={href}>
+        <RenderCard />
+      </Link>
+    );
+  }
+
+  return <RenderCard />;
 };
 
 export default MediaCard;
