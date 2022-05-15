@@ -181,9 +181,9 @@ declare module '@mui/material/Typography' {
 
 const theme = createTheme({
   palette: {
-    background: {
-      default: COLORS.firefly,
-    },
+    // background: {
+    //   default: COLORS.firefly,
+    // },
     primary: {
       main: COLORS.cornflower,
     },
