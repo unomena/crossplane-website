@@ -92,16 +92,6 @@ const navItem: SxProps = {
   },
 };
 
-const buttonHover: SxProps = {
-  opacity: 0.5,
-  transition: '0.3s',
-  borderRadius: '20px',
-
-  '&:hover': {
-    opacity: 1,
-  },
-};
-
 const popoverContainer: SxProps = {
   mt: 3.5,
   bgcolor: COLORS.elephant,
@@ -430,11 +420,9 @@ const PageHeader = ({}: Props) => {
             </Box>
             Sign In
           </Typography>
-          <Box sx={buttonHover}>
-            <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
-              Try For Free
-            </Button>
-          </Box>
+          <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
+            Try For Free
+          </Button>
         </Box>
       </Box>
     </Box>
