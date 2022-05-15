@@ -10,6 +10,7 @@ import getRandomInt from 'src-new/utils/getRandomInt';
 import useOnScreen from 'src-new/utils/useOnScreen';
 
 import crossplaneLogos from 'src-new/constants/crossplaneLogos';
+import quotes from 'src-new/constants/quotes';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -36,7 +37,6 @@ import DeployWithConfidenceSmall from 'public/new-images/home-page/features/Depl
 import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
 import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
-import plotlyQuoteBg from 'public/new-images/home-page/quotes/plotly-quote-bg.png';
 import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
 import bassamTabbaraProfile from 'public/new-images/media-cards/bassam-tabbara-profile.png';
 import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
@@ -878,28 +878,6 @@ const FeaturesSection = () => {
   );
 };
 
-const quotes = [
-  {
-    title: 'We chose Upbound as our partner in this important transformation…',
-    body: `…because they created Crossplane and offer 
-    enterprise-grade products and services that will 
-    help us accelerate time to market."`,
-    person: 'Jack Parmer',
-    role: 'CEO and co-founder Plotly',
-    logo: plotlyLogo,
-    bgImage: plotlyQuoteBg.src,
-  },
-  {
-    title: 'Upbound Cloud automates and simplifies…',
-    body: `…how software developers manage the lifecycle 
-    of our application portfolios, allowing us to innovate more quickly."`,
-    person: 'Jan Willies',
-    role: 'Platform Architect at Accenture referring to Deutsche Bahn',
-    logo: dbLogo,
-    bgImage: plotlyQuoteBg.src,
-  },
-];
-
 const QuoteSection = () => {
   const [activeQuote, setActiveQuote] = useState(0);
 
@@ -933,18 +911,20 @@ const QuoteSection = () => {
         </Box>
       </Box>
       <Box sx={quoteSectionRightContainer}>
-        <Typography variant="h2_new" sx={{ mb: 3 }}>
-          {quotes[activeQuote].title}
-        </Typography>
-        <Typography variant="body_normal" sx={{ mb: 4.5 }}>
-          {quotes[activeQuote].body}
-        </Typography>
-        <Typography variant="h6_new" sx={{ mb: '2px' }}>
-          {quotes[activeQuote].person}
-        </Typography>
-        <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', mb: 7 }}>
-          {quotes[activeQuote].role}
-        </Typography>
+        <Box sx={{ mb: 7 }}>
+          <Box sx={{ minHeight: 275, mb: 4.5 }}>
+            <Typography variant="h2_new" sx={{ mb: 3 }}>
+              {quotes[activeQuote].title}
+            </Typography>
+            <Typography variant="body_normal">{quotes[activeQuote].body}</Typography>
+          </Box>
+          <Typography variant="h6_new" sx={{ mb: '2px' }}>
+            {quotes[activeQuote].person}
+          </Typography>
+          <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
+            {quotes[activeQuote].role}
+          </Typography>
+        </Box>
         <Box sx={quoteSectionQuoteLogos}>
           {quotes.map((quote, index) => {
             let styles = quoteSectionQuoteLogoBox;

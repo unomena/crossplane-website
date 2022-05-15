@@ -124,7 +124,9 @@ const CornerCard = ({
       {children}
       {icon && iconSize && (
         <Box sx={{ ...iconBtmRight, ...iconSizeTypes[iconSize] }}>
-          <Image src={icon} alt="arrow icon" layout="fill" objectFit="contain" />
+          <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+            <Image src={icon} alt="arrow icon" layout="fill" objectFit="contain" />
+          </Box>
         </Box>
       )}
     </Box>

@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Grid } from '@mui/material';
 
+import quotes from 'src-new/constants/quotes';
+
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import CornerCard from 'src-new/elements/CornerCard';
@@ -15,7 +17,6 @@ import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import ptcLogo from 'public/new-images/trusted-logos/ptc.svg';
-import bpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 
@@ -49,12 +50,72 @@ const logoSVG: SxProps = {
   position: 'relative',
 };
 
+interface StaticRequire {
+  default: StaticImageData;
+}
+declare type StaticImport = StaticRequire | StaticImageData;
+
+type QuoteCardProps = {
+  quote: {
+    title: string;
+    body: string;
+    person: string;
+    role: string;
+    logo: string | StaticImport;
+    logoSize: {
+      width: number;
+      height: number;
+    };
+  };
+};
+
+const QuoteCard = ({ quote }: QuoteCardProps) => {
+  const { title, body, person, role, logo, logoSize } = quote;
+
+  return (
+    <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
+      <Box display="flex" flexDirection="column">
+        <Box flex={1}>
+          <Typography
+            variant="h3_new"
+            sx={{
+              mb: 3,
+              lineHeight: '34px',
+              ...gradient_1,
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="body_small">{body}</Typography>
+        </Box>
+        <Box
+          sx={{
+            mt: 3,
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Box sx={{ position: 'relative', display: 'flex', mr: 3 }}>
+            <Image src={logo} alt="company logo" width={logoSize.width} height={logoSize.height} />
+          </Box>
+          <Box>
+            <Typography variant="h6_new">{person}</Typography>
+            <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}>
+              {role}
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </CornerCard>
+  );
+};
+
 type Props = {};
 
 const Customers = ({}: Props) => {
   return (
     <PageProvider displayTitle="Customers">
-      <Section sx={{ py: 23.5, overflow: 'hidden' }}>
+      <Section sx={{ pt: 23.5, pb: 26, overflow: 'hidden' }}>
         <Grid container spacing={2} columns={12} sx={{ alignItems: 'center' }}>
           <Grid item md={7}>
             <Box>
@@ -64,131 +125,13 @@ const Customers = ({}: Props) => {
               <Typography variant="body_big">
                 Upbound is trusted by leading enterprises in various industries
               </Typography>
-            </Box>{' '}
+            </Box>
           </Grid>
           <Grid item md={5}>
             <Slider axis="vertical">
-              <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-                <Box display="flex" flexDirection="column">
-                  <Box flex={1}>
-                    <Typography
-                      variant="h3_new"
-                      sx={{
-                        mb: 3,
-                        lineHeight: '34px',
-                        ...gradient_1,
-                      }}
-                    >
-                      We chose Upbound as our partner in this important transformation…
-                    </Typography>
-                    <Typography variant="body_small">
-                      …because they created Crossplane and offer enterprise-grade products and
-                      services that will help us accelerate time to market."
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      mt: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
-                      <Image src={plotlyLogo} alt="plotly" layout="fill" objectFit="contain" />
-                    </Box>
-                    <Box>
-                      <Typography variant="h6_new">Jack Parmer</Typography>
-                      <Typography
-                        variant="body_xs"
-                        sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
-                      >
-                        CEO and co-founder Plotly
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-              </CornerCard>
-
-              <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-                <Box display="flex" flexDirection="column">
-                  <Box flex={1}>
-                    <Typography
-                      variant="h3_new"
-                      sx={{
-                        mb: 3,
-                        lineHeight: '34px',
-                        ...gradient_1,
-                      }}
-                    >
-                      Upbound Cloud automates and simplifies…
-                    </Typography>
-                    <Typography variant="body_small">
-                      …how software developers manage the lifecycle of our application portfolios,
-                      allowing us to innovate more quickly.
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      mt: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Box sx={{ position: 'relative', width: '52px', height: '37px', mr: 2 }}>
-                      <Image src={dbLogo} alt="DB" layout="fill" objectFit="contain" />
-                    </Box>
-                    <Box>
-                      <Typography variant="h6_new">Jan Willies</Typography>
-                      <Typography
-                        variant="body_xs"
-                        sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
-                      >
-                        Platform Architect at Accenture referring to Deutsche Bahn
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-              </CornerCard>
-              <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-                <Box display="flex" flexDirection="column">
-                  <Box flex={1}>
-                    <Typography
-                      variant="h3_new"
-                      sx={{
-                        mb: 3,
-                        lineHeight: '34px',
-                        ...gradient_1,
-                      }}
-                    >
-                      We found in Upbound a unique vision…
-                    </Typography>
-                    <Typography variant="body_small">
-                      …that aligned perfectly with our roadmap as well as a set of enterprise
-                      services that allowed us to innovate faster than ever before"
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      mt: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
-                      <Image src={bpcLogo} alt="DB" layout="fill" objectFit="contain" />
-                    </Box>
-                    <Box>
-                      <Typography variant="h6_new">Nuno Guedes</Typography>
-                      <Typography
-                        variant="body_xs"
-                        sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
-                      >
-                        Millennium bcp
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-              </CornerCard>
+              {quotes.map((quote) => (
+                <QuoteCard key={quote.title} quote={quote} />
+              ))}
             </Slider>
           </Grid>
         </Grid>

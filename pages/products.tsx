@@ -7,6 +7,8 @@ import { Box, SxProps, Typography, Grid } from '@mui/material';
 
 import useOnScreen from 'src-new/utils/useOnScreen';
 
+import quotes from 'src-new/constants/quotes';
+
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
@@ -249,6 +251,50 @@ const FeaturesSection = () => {
   );
 };
 
+type QuoteCardProps = {
+  quote: {
+    full: string;
+    person: string;
+    role: string;
+    logo: string | StaticImport;
+    logoSize: {
+      width: number;
+      height: number;
+    };
+  };
+};
+
+const QuoteCard = ({ quote }: QuoteCardProps) => {
+  const { full, person, role, logo, logoSize } = quote;
+
+  return (
+    <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
+      <Box display="flex" flexDirection="column">
+        <Box flex={1}>
+          <Typography variant="body_big">{full}</Typography>
+        </Box>
+        <Box
+          sx={{
+            mt: 3,
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Box sx={{ position: 'relative', display: 'flex', mr: 3 }}>
+            <Image src={logo} alt="company logo" width={logoSize.width} height={logoSize.height} />
+          </Box>
+          <Box>
+            <Typography variant="h6_new">{person}</Typography>
+            <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}>
+              {role}
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </CornerCard>
+  );
+};
+
 type Props = {};
 
 const Products = ({}: Props) => {
@@ -444,99 +490,9 @@ const Products = ({}: Props) => {
         </Box>
 
         <Slider>
-          <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-            <Box display="flex" flexDirection="column" maxWidth="744px">
-              <Box flex={1}>
-                <Typography variant="body_big">
-                  We chose Upbound as our partner in this important transformation because they
-                  created Crossplane and offer enterprise-grade products and services that will help
-                  us accelerate time to market."
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  mt: 3,
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
-                  <Image src={plotlyLogo} alt="plotly" layout="fill" objectFit="contain" />
-                </Box>
-                <Box>
-                  <Typography variant="h6_new">Jack Parmer</Typography>
-                  <Typography
-                    variant="body_xs"
-                    sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
-                  >
-                    CEO and co-founder Plotly
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </CornerCard>
-
-          <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-            <Box display="flex" flexDirection="column">
-              <Box flex={1}>
-                <Typography variant="body_big">
-                  Upbound Cloud automates and simplifies how software developers manage the
-                  lifecycle of our application portfolios, allowing us to innovate more quickly.
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  mt: 3,
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <Box sx={{ position: 'relative', width: '52px', height: '37px', mr: 2 }}>
-                  <Image src={dbLogo} alt="DB" layout="fill" objectFit="contain" />
-                </Box>
-                <Box>
-                  <Typography variant="h6_new">Jan Willies</Typography>
-                  <Typography
-                    variant="body_xs"
-                    sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
-                  >
-                    Platform Architect at Accenture referring to Deutsche Bahn
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </CornerCard>
-          <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
-            <Box display="flex" flexDirection="column">
-              <Box flex={1}>
-                <Typography variant="body_big">
-                  We found in Upbound a unique vision that aligned perfectly with our roadmap as
-                  well as a set of enterprise services that allowed us to innovate faster than ever
-                  before"
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  mt: 3,
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <Box sx={{ position: 'relative', width: '105px', height: '33px', mr: 2 }}>
-                  <Image src={bpcLogo} alt="DB" layout="fill" objectFit="contain" />
-                </Box>
-                <Box>
-                  <Typography variant="h6_new">Nuno Guedes</Typography>
-                  <Typography
-                    variant="body_xs"
-                    sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}
-                  >
-                    Millennium bcp
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </CornerCard>
+          {quotes.map((quote) => (
+            <QuoteCard key={quote.title} quote={quote} />
+          ))}
         </Slider>
       </Section>
     </PageProvider>

@@ -50,6 +50,7 @@ const Slider = ({ children, axis = 'horizontal' }: Props) => {
         centerMode={true}
         emulateTouch={true}
         stopOnHover={false}
+        showThumbs={false}
       >
         {children}
       </Carousel>
