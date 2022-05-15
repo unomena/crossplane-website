@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { jsx } from '@emotion/react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/system';
+import { COLORS } from 'src/theme';
 
 import PageHeader from 'src-new/components/PageHeader';
 import PageFooter from 'src-new/components/PageFooter';
@@ -62,7 +63,7 @@ const PageProvider: React.FC<{
         metaDescription={metaDescription}
       />
       <PageHeader />
-      <Box sx={{ overflow: 'hidden' }}>
+      <Box sx={{ overflow: 'hidden', bgcolor: COLORS.firefly }}>
         {children}
         <PageFooter isFooterVisible={isFooterVisible} />
       </Box>
