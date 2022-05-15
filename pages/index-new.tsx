@@ -751,6 +751,7 @@ const FeatureBlock = ({
           pl: reversed ? '28px' : '0px',
           display: 'flex',
           flexDirection: 'column',
+          position: 'relative',
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
@@ -773,6 +774,10 @@ const FeatureBlock = ({
         >
           Learn More
         </Link>
+        <Box
+          ref={hiddenBarRef}
+          sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
+        />
       </Box>
       <Box
         sx={{
@@ -807,10 +812,6 @@ const FeatureBlock = ({
           </Box>
         </Box>
       </Box>
-      <Box
-        ref={hiddenBarRef}
-        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
-      />
     </Box>
   );
 };
