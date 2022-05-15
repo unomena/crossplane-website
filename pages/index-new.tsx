@@ -139,6 +139,7 @@ const cpLogoBoxColumn: SxProps = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  transition: 'opacity 2s ease',
 
   '& > div': {
     ':not(:first-of-type)': {
@@ -179,6 +180,7 @@ const cpCenterBox: SxProps = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  transition: 'opacity 3s ease',
 };
 
 const cpCenterBoxTitleNum: SxProps = {
@@ -601,6 +603,18 @@ const CrossplaneLogosSection = () => {
     };
   }, [logoToUpdateRight, isVisible]);
 
+  const hiddenBarRef = useRef(undefined);
+  const hiddenBarIsVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (hiddenBarIsVisible) {
+      setShow(true);
+    }
+  }, [hiddenBarIsVisible]);
+
+  const delayMulti = 0.25;
+
   return (
     <Box
       ref={cpSectionRef}
@@ -609,7 +623,14 @@ const CrossplaneLogosSection = () => {
       <Box sx={cpLeftColumns}>
         <Box sx={{ ...cpColumnShadow, left: -176 }} />
         {cpColumnsLeftList.map((c, columnIndex) => (
-          <Box key={columnIndex} sx={cpLogoBoxColumn}>
+          <Box
+            key={columnIndex}
+            sx={{
+              ...cpLogoBoxColumn,
+              opacity: show ? 1 : 0,
+              transitionDelay: `${(columnIndex - 3) * -delayMulti}s`,
+            }}
+          >
             {c.logos.map((v, logoIndex) => {
               const columnStartIndex = (columnIndex + 1) * 6 - 6;
               const realIndex = logoIndex + columnStartIndex;
@@ -624,7 +645,7 @@ const CrossplaneLogosSection = () => {
           </Box>
         ))}
       </Box>
-      <Box sx={cpCenterBox}>
+      <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
         <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
         <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
         <Typography variant="body_normal">
@@ -638,7 +659,14 @@ const CrossplaneLogosSection = () => {
       </Box>
       <Box sx={cpRightColumns}>
         {cpColumnsRightList.map((c, columnIndex) => (
-          <Box key={columnIndex} sx={cpLogoBoxColumn}>
+          <Box
+            key={columnIndex}
+            sx={{
+              ...cpLogoBoxColumn,
+              opacity: show ? 1 : 0,
+              transitionDelay: `${columnIndex * delayMulti}s`,
+            }}
+          >
             {c.logos.map((v, logoIndex) => {
               const columnStartIndex = (columnIndex + 1) * 6 - 6;
               const realIndex = logoIndex + columnStartIndex + 24;
@@ -654,6 +682,10 @@ const CrossplaneLogosSection = () => {
         ))}
         <Box sx={{ ...cpColumnShadow, right: -176 }} />
       </Box>
+      <Box
+        ref={hiddenBarRef}
+        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: -40 }}
+      />
     </Box>
   );
 };
