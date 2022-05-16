@@ -343,29 +343,38 @@ const LearnPopoverContent = () => {
           body="Lorem ipsum dolor sit amet, consect"
           sx={{ mb: 1.5 }}
         />
-        <LinkBar href="/" title="Crossplane Slack" body="Lorem ipsum dolor sit amet, consect" />
+        <LinkBar
+          href={routes.crossplaneSlackUrl}
+          title="Crossplane Slack"
+          body="Lorem ipsum dolor sit amet, consect"
+        />
       </Box>
       <Box sx={popoverDivider} />
-      <Box sx={{ width: 268 }}>
-        <Box sx={{ position: 'relative', height: 206 }}>
-          <Box sx={popoverBlogPill}>
-            <Typography variant="inherit">New!</Typography>
+      <Link
+        href={`${routes.upboundBlogUrl}moving-crossplane-package-authoring-from-plain-yaml-to-ide-aided-development/`}
+        muiProps={{ color: COLORS.linkWater }}
+      >
+        <Box sx={{ width: 268 }}>
+          <Box sx={{ position: 'relative', height: 206 }}>
+            <Box sx={popoverBlogPill}>
+              <Typography variant="inherit">New!</Typography>
+            </Box>
+            <Image src={learnBlogLaptop} alt="learnBlogLaptop" />
           </Box>
-          <Image src={learnBlogLaptop} alt="learnBlogLaptop" />
-        </Box>
-        <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
-          <Box sx={popoverBlogProfilePic}>
-            <Image src={taylorThorntonProfile} alt="taylorThorntonProfile" />
+          <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
+            <Box sx={popoverBlogProfilePic}>
+              <Image src={taylorThorntonProfile} alt="taylorThorntonProfile" />
+            </Box>
+            <Typography sx={popoverBlogDarkText}>Taylor Thornton | Blog</Typography>
+            <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
+              Moving Crossplane package authoring from plain YAML to IDE aided development
+            </Typography>
+            <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
+              23 Feb, 2022
+            </Typography>
           </Box>
-          <Typography sx={popoverBlogDarkText}>Taylor Thornton | Blog</Typography>
-          <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
-            Moving Crossplane package authoring from plain YAML to IDE aided development
-          </Typography>
-          <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
-            May 22, 2022
-          </Typography>
         </Box>
-      </Box>
+      </Link>
     </Box>
   );
 };

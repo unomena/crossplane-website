@@ -6,6 +6,8 @@ import { Box, SxProps, TextField, Typography } from '@mui/material';
 import { COLORS, gradient_1, gradient_2 } from 'src/theme';
 import { keyframes } from '@emotion/react';
 
+import * as routes from 'src/routes';
+
 import getRandomInt from 'src-new/utils/getRandomInt';
 import useOnScreen from 'src-new/utils/useOnScreen';
 
@@ -669,7 +671,7 @@ const CrossplaneLogosSection = () => {
           <br />
           companies
         </Typography>
-        <Button styleType="cornflowerContained" sx={{ mt: 3.5 }}>
+        <Button styleType="cornflowerContained" sx={{ mt: 3.5 }} href={routes.crossplaneUrl}>
           Learn more about Crossplane
         </Button>
       </Box>
@@ -838,7 +840,7 @@ const features = [
     body: `Control planes running in Upbound
     are designed to be high performance, scalable, multitenant,
     and secure for the most demanding platforms.`,
-    href: '/',
+    href: routes.productsUCPRoute,
     icon: EnterpriseReadyIcon,
     imgBig: EnterpriseReadyBig,
     imgSmall: EnterpriseReadySmall,
@@ -853,7 +855,7 @@ const features = [
     powered by an Upbound control plane. Supported and
     Certified listings are available so you can run your
     platform in production with confidence.`,
-    href: '/',
+    href: routes.productsUCPRoute,
     icon: DeployWithConfidenceIcon,
     imgBig: DeployWithConfidenceBig,
     imgSmall: DeployWithConfidenceSmall,
@@ -867,7 +869,7 @@ const features = [
     from your Upbound control plane and the Crossplane
     packages installed in it. Centralize control and empower
     your team to deploy without red tape.`,
-    href: '/',
+    href: routes.productsUCPRoute,
     icon: EfficiencyEaseIcon,
     imgBig: EfficiencyEaseBig,
     imgSmall: EfficiencyEaseSmall,
@@ -1046,6 +1048,7 @@ const Home = ({}: Props) => {
             sizeType="large"
             sx={{ width: 208, mr: '10px', '& > .MuiButton-iconSizeMedium': { mr: '10px' } }}
             startIcon={<RocketShipIcon />}
+            href={routes.cloudRegisterUrl}
           >
             Get Started
           </Button>
@@ -1054,6 +1057,7 @@ const Home = ({}: Props) => {
             sizeType="large"
             sx={{ width: 208, ml: '10px', '& > .MuiButton-iconSizeMedium': { ml: '16px' } }}
             endIcon={<ArrowRight />}
+            href={routes.contactSalesUrl}
           >
             Contact Us
           </Button>
@@ -1093,7 +1097,7 @@ const Home = ({}: Props) => {
       </Section>
       <Section sx={discoverSection}>
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
-          <Typography variant="h2_new">Discover Upbound</Typography>
+          <Typography variant="h2_new">Learn more about Upbound</Typography>
           <Box sx={{ display: 'flex', ml: 3.5 }}>
             <FullArrowRight />
           </Box>
@@ -1126,7 +1130,7 @@ const Home = ({}: Props) => {
                 type="Blog"
                 title="Announcing 100% Cloud Service Coverage for Crossplane"
                 pillText="Must read!"
-                href="/"
+                href={`${routes.upboundBlogUrl}cloud-service-coverage/`}
               />
             </Box>
             <Box sx={{ display: 'flex' }}>
@@ -1138,8 +1142,10 @@ const Home = ({}: Props) => {
                   person="Taylor Thornton"
                   type="Blog"
                   title="Moving Crossplane package authoring from plain YAML to IDE aided development"
-                  date="May 22, 2022"
+                  date="23 Feb, 2022"
                   pillText="New!"
+                  // eslint-disable-next-line max-len
+                  href={`${routes.upboundBlogUrl}moving-crossplane-package-authoring-from-plain-yaml-to-ide-aided-development/`}
                 />
               </Box>
               <Box
@@ -1164,7 +1170,12 @@ const Home = ({}: Props) => {
                   </Box>
                 </Box>
                 <Box sx={{ flex: 1 }}>
-                  <CornerCard icon={arrowCircle} iconSize="small" withPadding={false} href="/">
+                  <CornerCard
+                    icon={arrowCircle}
+                    iconSize="small"
+                    withPadding={false}
+                    href={routes.upboundBlogUrl}
+                  >
                     <Box sx={visitCard}>
                       <Typography variant="h5_new">Visit the Upbound Blog</Typography>
                     </Box>
