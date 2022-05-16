@@ -54,9 +54,12 @@ export const sitemapRoute = '/sitemap-0.xml';
 // "/products" Routes
 
 export const productsUCPRoute = '/products/universal-cloud-platform';
-export const productsUbcRoute = '/products/cloud';
-export const productsRegistryRoute = '/products/registry';
-export const productsUxpRoute = '/products/uxp';
+// export const productsUbcRoute = '/products/cloud';
+export const productsUbcRoute = productsUCPRoute;
+// export const productsRegistryRoute = '/products/registry';
+export const productsRegistryRoute = 'https://marketplace.upbound.io/';
+// export const productsUxpRoute = '/products/uxp';
+export const productsUxpRoute = productsUCPRoute;
 
 // "/why-upbound" Routes
 

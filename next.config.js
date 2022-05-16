@@ -18,6 +18,21 @@ const nextConfig = {
         destination: '/about',
         permanent: true,
       },
+      {
+        source: '/products/cloud',
+        destination: '/products/universal-cloud-platform',
+        permanent: true,
+      },
+      {
+        source: '/products/uxp',
+        destination: '/products/universal-cloud-platform',
+        permanent: true,
+      },
+      {
+        source: '/products/registry',
+        destination: 'https://marketplace.upbound.io',
+        permanent: true,
+      },
     ];
   },
 };
