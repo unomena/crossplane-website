@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { COLORS, gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Grid } from '@mui/material';
 
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+
 import useOnScreen from 'src-new/utils/useOnScreen';
 
 import quotes from 'src-new/constants/quotes';
@@ -197,7 +199,7 @@ const features = [
   },
   // {
   //   title: 'Self-service console',
-  //   body: `The Upbound Console is dynamically rendered from your 
+  //   body: `The Upbound Console is dynamically rendered from your
   //   Upbound control plane and the Crossplane packages installed in it.`,
   //   imgBig: platformThree,
   //   imgSmall: platformFlyoverThree,
@@ -230,18 +232,78 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  const featureSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(featureSectionRef);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // console.log('scrolling');
+      if (featureSectionRef.current && window.scrollY >= featureSectionRef.current.offsetTop) {
+        window.scrollTo(0, featureSectionRef.current.offsetTop);
+        disableBodyScroll(featureSectionRef);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // if (isVisible) {
+    // }
+    return () => {
+      enableBodyScroll(featureSectionRef);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isVisible]);
+
+  let t: NodeJS.Timeout;
+  const handleSectionScroll = () => {
+    if (t) {
+      clearTimeout(t);
+    }
+    t = setTimeout(() => {
+      console.log('done scrolling');
+    }, 500);
+  };
+
   return (
-    <Box sx={{ '& > div:not(:last-of-type)': { pb: 2 }, position: 'relative' }}>
-      {features.map((feature) => (
-        <FeatureBlock
-          key={feature.title}
-          title={feature.title}
-          body={feature.body}
-          imgBig={feature.imgBig}
-          imgSmall={feature.imgSmall}
-          imgSmallOffset={feature.imgSmallOffset}
-        />
-      ))}
+    <Box
+      ref={featureSectionRef}
+      sx={{
+        '& > div:not(:last-of-type)': { pb: 2 },
+        pt: 7.5,
+        pb: 20,
+        position: 'relative',
+      }}
+    >
+      <div
+        style={{
+          overflow: 'scroll',
+          maxHeight: '100vh',
+          '&::WebkitScrollbar': { display: 'none' },
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
+        }}
+        onScroll={handleSectionScroll}
+      >
+        <div style={{ minHeight: '200vh' }}>
+          <Box
+            sx={{
+              position: 'sticky',
+              top: '0',
+            }}
+          >
+            {features.map((feature) => (
+              <FeatureBlock
+                key={feature.title}
+                title={feature.title}
+                body={feature.body}
+                imgBig={feature.imgBig}
+                imgSmall={feature.imgSmall}
+                imgSmallOffset={feature.imgSmallOffset}
+              />
+            ))}
+          </Box>
+        </div>
+      </div>
     </Box>
   );
 };
@@ -402,7 +464,7 @@ const Products = ({}: Props) => {
           </Typography>
         </Box>
       </Section>
-      <Section bgcolor sx={{ pt: 7.5, pb: 20, position: 'sticky', top: 0 }}>
+      <Section bgcolor>
         <FeaturesSection />
       </Section>
       <Section sx={{ pt: 23.5, pb: 34.125, overflow: 'hidden', ...caseStudiesSection }}>
