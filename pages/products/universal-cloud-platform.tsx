@@ -431,7 +431,7 @@ const Products = ({}: Props) => {
     }
   }, [isVisible]);
   return (
-    <PageProvider displayTitle="Products">
+    <PageProvider displayTitle="Products" isDark>
       <Section sx={{ pt: 40, pb: 10 }}>
         <Box
           sx={{

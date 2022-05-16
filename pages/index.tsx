@@ -1034,7 +1034,7 @@ type Props = {};
 
 const Home = ({}: Props) => {
   return (
-    <PageProvider>
+    <PageProvider isDark>
       <Section sx={headerSection}>
         <Typography variant="h1_new" sx={h1}>
           The cloud on your terms

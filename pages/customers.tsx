@@ -114,7 +114,7 @@ type Props = {};
 
 const Customers = ({}: Props) => {
   return (
-    <PageProvider displayTitle="Customers">
+    <PageProvider displayTitle="Customers" isDark>
       <Section sx={{ pt: 23.5, pb: 26, overflow: 'hidden' }}>
         <Grid container spacing={2} columns={12} sx={{ alignItems: 'center' }}>
           <Grid item md={7}>

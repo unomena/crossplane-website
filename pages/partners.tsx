@@ -7,7 +7,7 @@ import { COLORS, MQ } from 'src/theme';
 import { Box, Hidden } from '@mui/material';
 
 import { JoinUs } from 'src/components/JoinUs';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import { Wave } from 'src/components/Wave';
 
 import { Anchor } from 'src/elements/Anchor';
@@ -199,13 +199,13 @@ const metaDescription =
 
 const Partners: React.FC = () => {
   return (
-    <PageProvider displayTitle={displayTitle} metaDescription={metaDescription}>
+    <PageProvider displayTitle={displayTitle} metaDescription={metaDescription} hideTryForFreeCard>
       <Hero>
         <Box display="flex" maxWidth="1100px" mx="auto" px="30px">
           <Box
             flex={3}
             mr={{ _: '0', lg: '80px' }}
-            mt={{ _: '70px', lg: '100px' }}
+            mt={{ _: '134px', lg: '180px' }}
             textAlign={{ _: 'center', lg: 'left' }}
           >
             <Header pill="Partners" variant="h2" bold={true} color="white" sx={{ mt: '25px' }}>
@@ -220,7 +220,7 @@ const Partners: React.FC = () => {
             </AnchorButton>
           </Box>
           <Hidden lgDown>
-            <Box flex={2} mt="65px" position="relative" zIndex={20}>
+            <Box flex={2} mt="145px" position="relative" zIndex={20}>
               <Img
                 src={hero3x}
                 // srcSet={`${hero1x} 1x, ${hero2x} 2x, ${hero3x} 3x`}

@@ -8,7 +8,7 @@ import { Box, Hidden } from '@mui/material';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
 import { JoinUs } from 'src/components/JoinUs';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import { Wave } from 'src/components/Wave';
 
 const EmployeeMap = dynamic(() => import('src/components/EmployeeMap'), { ssr: false });
@@ -170,7 +170,7 @@ const About: React.FC = () => {
       metaDescription={metaDescription}
       isOverflowVisible={!showMap}
     >
-      <Box pt={{ _: '62px', md: '50px' }} bgcolor={COLORS.cornflower} textAlign="center">
+      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.cornflower} textAlign="center">
         <Box maxWidth="930px" mx="auto" px="30px">
           <Header
             pill="About Us"
@@ -387,7 +387,7 @@ const About: React.FC = () => {
           href={routes.upboundGreenhouseUrl}
           button="View All Open Positions"
         />
-        <Box bgcolor={COLORS.cornflower} height="75px" mt="-75px" position="relative" zIndex={-1} />
+        <Box bgcolor={COLORS.cornflower} height="75px" mt="-75px" zIndex={-1} />
       </Box>
       <Box
         sx={{
@@ -493,6 +493,7 @@ const About: React.FC = () => {
       <Box
         sx={{
           backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          mb: 40,
         }}
       >
         <Box px="30px" textAlign="center">

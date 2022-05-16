@@ -18,6 +18,10 @@ import SignInIcon from 'src-new/svg/SignInIcon';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 
 const root: SxProps = {
+  position: 'absolute',
+  top: 0,
+  width: '100%',
+  minHeight: 88,
   bgcolor: 'transparent',
   display: 'flex',
   flexDirection: 'column',
@@ -229,9 +233,10 @@ const LinkBar = ({ href, title, body, sx }: LinkBarProps) => {
 type PopoverItemProps = {
   title: string;
   content: React.ReactNode;
+  isDark?: boolean;
 };
 
-const PopoverItem = ({ title, content }: PopoverItemProps) => {
+const PopoverItem = ({ title, content, isDark }: PopoverItemProps) => {
   const [open, setOpen] = useState(false);
   const anchorEl = useRef(null);
 
@@ -248,7 +253,7 @@ const PopoverItem = ({ title, content }: PopoverItemProps) => {
       <Typography
         ref={anchorEl}
         component="span"
-        sx={{ ...navItem, opacity: open ? 1 : 0.5 }}
+        sx={{ ...navItem, opacity: open || !isDark ? 1 : 0.5 }}
         aria-owns={open ? `mouse-over-popover-${title}` : undefined}
         aria-haspopup="true"
         onMouseEnter={popoverEnter}
@@ -258,7 +263,7 @@ const PopoverItem = ({ title, content }: PopoverItemProps) => {
       </Typography>
       <Popover
         id={`mouse-over-popover-${title}`}
-        sx={{ pointerEvents: 'none' }}
+        sx={{ pointerEvents: 'none', '& .MuiPaper-root': { boxShadow: 'none' } }}
         open={open}
         anchorEl={anchorEl.current}
         anchorOrigin={{
@@ -383,12 +388,13 @@ type LinkItemProps = {
   href: string;
   title: string;
   icon?: React.ReactNode;
+  isDark?: boolean;
 };
 
-const LinkItem = ({ href, title, icon }: LinkItemProps) => {
+const LinkItem = ({ href, title, icon, isDark }: LinkItemProps) => {
   return (
     <Link href={href} muiProps={{ underline: 'none' }}>
-      <Typography component="span" sx={navItem}>
+      <Typography component="span" sx={{ ...navItem, opacity: isDark ? 0.5 : 1 }}>
         {icon && <Box component="span">{icon}</Box>}
         {title}
       </Typography>
@@ -396,11 +402,13 @@ const LinkItem = ({ href, title, icon }: LinkItemProps) => {
   );
 };
 
-type Props = {};
+type Props = {
+  isDark?: boolean;
+};
 
-const PageHeader = ({}: Props) => {
+const PageHeader = ({ isDark }: Props) => {
   return (
-    <Box sx={root}>
+    <Box sx={{ ...root, bgcolor: isDark ? 'transparent' : COLORS.cornflower }}>
       {/* <Box sx={announceContainer}>
         <Typography variant="inherit">
           🎉 Announcing the NEW Upbound Marketplace — giving customers access to best-in-class
@@ -420,14 +428,24 @@ const PageHeader = ({}: Props) => {
           </Link>
         </Box>
         <Box sx={centerItems}>
-          <PopoverItem title="Products" content={<ProductsPopoverContent />} />
-          <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" />
-          <PopoverItem title="Learn" content={<LearnPopoverContent />} />
-          <LinkItem href={routes.aboutRoute} title="About" />
+          <PopoverItem title="Products" content={<ProductsPopoverContent />} isDark={isDark} />
+          <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" isDark={isDark} />
+          <PopoverItem title="Learn" content={<LearnPopoverContent />} isDark={isDark} />
+          <LinkItem href={routes.aboutRoute} title="About" isDark={isDark} />
         </Box>
         <Box sx={rightItems}>
-          <LinkItem href={routes.partnersRoute} title="Partners" icon={<PartnersIcon />} />
-          <LinkItem href={routes.cloudLoginUrl} title="Sign In" icon={<SignInIcon />} />
+          <LinkItem
+            href={routes.partnersRoute}
+            title="Partners"
+            icon={<PartnersIcon />}
+            isDark={isDark}
+          />
+          <LinkItem
+            href={routes.cloudLoginUrl}
+            title="Sign In"
+            icon={<SignInIcon />}
+            isDark={isDark}
+          />
           <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
             Try For Free
           </Button>

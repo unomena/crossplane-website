@@ -344,9 +344,13 @@ const mobileFooterCNCFSpan: SxProps = {
   },
 };
 
-const PageFooter: React.FC<{
+type Props = {
   isFooterVisible?: boolean;
-}> = ({ isFooterVisible = true }) => {
+  hideTryForFreeCard?: boolean;
+  removeFooterPadding?: boolean;
+};
+
+const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPadding }: Props) => {
   if (isFooterVisible === false) {
     return null;
   }
@@ -469,8 +473,8 @@ const PageFooter: React.FC<{
           </Box>
         </Hidden>
         <Hidden lgDown>
-          <Box sx={largeFooterWidthContainer}>
-            <TryForFreeCard />
+          <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '268px' }}>
+            {!hideTryForFreeCard && <TryForFreeCard />}
             <Box sx={largeFooterLinkColumnsContainer}>
               <Box sx={largeFooterLogoAndSocialsContainer}>
                 <Link sx={largeFooterLogoLink} href={routes.homeRoute}>

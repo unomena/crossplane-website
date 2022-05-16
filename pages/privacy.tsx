@@ -4,7 +4,7 @@ import { styled, SxProps } from '@mui/system';
 import { COLORS, fontAvenirRoman } from 'src/theme';
 import { Box } from '@mui/material';
 
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 
 import { Anchor } from 'src/elements/Anchor';
 import { Header } from 'src/elements/Header';
@@ -81,9 +81,9 @@ const paragraphSpacingLg: SxProps = {
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <PageProvider displayTitle="Upbound - Privacy Policy">
+    <PageProvider displayTitle="Upbound - Privacy Policy" hideTryForFreeCard removeFooterPadding>
       <Box
-        mt="50px"
+        pt="130px"
         mb="50px"
         ml={['50px', '50px', '50px', '145px']}
         mr={['50px', '50px', '50px', '145px']}

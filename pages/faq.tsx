@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 import { COLORS } from 'src/theme';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import QuestionAndAnswerRow from 'src/components/QuestionAndAnswerRow';
 import { Wave } from 'src/components/Wave';
 
@@ -367,7 +367,7 @@ const Faq: React.FC = () => {
     <PageProvider displayTitle={displayTitle} metaDescription={metaDescription}>
       <Box bgcolor={COLORS.cornflower} textAlign="center">
         <Box mx="30px">
-          <Header variant="h1" bold={true} color="white" sx={{ pt: '65px', mb: '22px' }}>
+          <Header variant="h1" bold={true} color="white" sx={{ pt: '145px', mb: '22px' }}>
             Frequently Asked Questions
           </Header>
           <Header variant="h6" color="white">
@@ -425,13 +425,14 @@ const Faq: React.FC = () => {
         textAlign="center"
         sx={{
           backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          mb: 40,
         }}
       >
         <Box px="30px" textAlign="center">
           <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
             Still Have Questions?
           </Header>
-          <Header variant="h6" color="fillBlackGray" sx={{ maxWidth: '670px', mx: 'auto' }}>
+          <Header variant="h6" color="fillBlackGray" sx={{ maxWidth: '670px', mx: 'auto', mb: 3 }}>
             If you cannot find the answer to your question in our FAQ, you can always contact us
             directly. We will answer to you shortly!
           </Header>

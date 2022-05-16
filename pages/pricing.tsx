@@ -5,7 +5,7 @@ import { COLORS, fontAvenirBold, fontAvenirRoman } from 'src/theme';
 import { Box, Hidden } from '@mui/material';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import QuestionAndAnswerRow from 'src/components/QuestionAndAnswerRow';
 import { Wave } from 'src/components/Wave';
 
@@ -475,7 +475,7 @@ const Pricing: React.FC = () => {
 
   return (
     <PageProvider displayTitle={displayTitle} metaDescription={metaDescription}>
-      <Box pt={{ _: '62px', md: '50px' }} bgcolor={COLORS.cornflower} textAlign="center">
+      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.cornflower} textAlign="center">
         <Box px="30px" maxWidth="1100px" mx="auto">
           <Header
             pill="Plans & Pricing"
@@ -684,7 +684,10 @@ const Pricing: React.FC = () => {
       </Box>
       <Wave type="light" />
       <Box
-        sx={{ backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})` }}
+        sx={{
+          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          mb: 40,
+        }}
       >
         <Box px="30px" textAlign="center">
           <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>

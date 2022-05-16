@@ -23,14 +23,20 @@ const defaultDescription =
   'The Upbound universal cloud platform empowers you to manage infrastructure, eliminate configuration drift, and ' +
   'empower developers with self-service infrastructure.';
 
-const PageProvider: React.FC<{
+type Props = {
+  children: React.ReactNode;
   isHeaderVisible?: boolean;
   isFooterVisible?: boolean;
   isOverflowVisible?: boolean;
   displayTitle?: string;
   metaTitle?: string;
   metaDescription?: string;
-}> = ({
+  isDark?: boolean;
+  hideTryForFreeCard?: boolean;
+  removeFooterPadding?: boolean;
+};
+
+const PageProvider = ({
   children,
   isHeaderVisible = true,
   isFooterVisible = true,
@@ -38,7 +44,10 @@ const PageProvider: React.FC<{
   displayTitle = defaultTitle,
   metaTitle = displayTitle,
   metaDescription = defaultDescription,
-}) => {
+  isDark,
+  hideTryForFreeCard,
+  removeFooterPadding,
+}: Props) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
 
   // useEffect(() => {
@@ -62,10 +71,14 @@ const PageProvider: React.FC<{
         metaTitle={metaTitle}
         metaDescription={metaDescription}
       />
-      <PageHeader />
-      <Box sx={{ bgcolor: COLORS.firefly }}>
+      <PageHeader isDark={isDark} />
+      <Box sx={{ bgcolor: isDark ? COLORS.firefly : '#fff' }}>
         {children}
-        <PageFooter isFooterVisible={isFooterVisible} />
+        <PageFooter
+          isFooterVisible={isFooterVisible}
+          hideTryForFreeCard={hideTryForFreeCard}
+          removeFooterPadding={removeFooterPadding}
+        />
       </Box>
     </PageContainer>
   );
