@@ -23,17 +23,20 @@ import RocketShipIcon from 'src-new/svg/RocketShipIcon';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import FullArrowRight from 'src-new/svg/FullArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
-import CircleTriangleIcon from 'src-new/svg/CircleTriangleIcon';
+import mbpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
 import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
 import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
+import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
 import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
 import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
+import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
 import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
+import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
 import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
 import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
@@ -46,7 +49,7 @@ import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
   pt: 24,
-  pb: 30,
+  pb: 4,
   textAlign: 'center',
   color: COLORS.linkWater,
   backgroundImage: `url(${headerBg.src})`,
@@ -96,12 +99,12 @@ const logosContainer: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  mb: 18,
+  mb: 9,
 };
 
 const logoSVG: SxProps = {
   position: 'relative',
-  mx: 5,
+  mx: '25px',
 };
 
 const cpLeftColumns: SxProps = {
@@ -667,7 +670,7 @@ const CrossplaneLogosSection = () => {
           companies
         </Typography>
         <Button styleType="cornflowerContained" sx={{ mt: 3.5 }}>
-          Learn about Crossplane
+          Learn more about Crossplane
         </Button>
       </Box>
       <Box sx={cpRightColumns}>
@@ -709,26 +712,23 @@ interface StaticRequire {
 declare type StaticImport = StaticRequire | StaticImageData;
 
 type FeatureBlockProps = {
-  smallTitle: string;
-  bigTitle: string;
-  body: string;
-  href: string;
-  imgBig: string | StaticImport;
-  imgSmall: string | StaticImport;
-  imgSmallOffset: { top: number; right: number };
-  reversed?: Boolean;
+  feature: {
+    smallTitle: string;
+    bigTitle: string;
+    body: string;
+    href: string;
+    icon: string | StaticImport;
+    imgBig: string | StaticImport;
+    imgSmall: string | StaticImport;
+    imgSmallOffset: { top: number; right: number };
+    reversed?: Boolean;
+  };
 };
 
-const FeatureBlock = ({
-  smallTitle,
-  bigTitle,
-  body,
-  href,
-  imgBig,
-  imgSmall,
-  imgSmallOffset,
-  reversed,
-}: FeatureBlockProps) => {
+const FeatureBlock = ({ feature }: FeatureBlockProps) => {
+  const { smallTitle, bigTitle, body, href, icon, imgBig, imgSmall, imgSmallOffset, reversed } =
+    feature;
+
   let smallTitleGradient = gradient_1;
   if (reversed) {
     smallTitleGradient = gradient_2;
@@ -768,7 +768,9 @@ const FeatureBlock = ({
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <CircleTriangleIcon secondColor={reversed ? 'sun' : 'shakespeare'} />
+          <Box sx={{ position: 'relative', display: 'flex' }}>
+            <Image src={icon} alt="icon" />
+          </Box>
           <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
         </Box>
         <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
@@ -837,6 +839,7 @@ const features = [
     are designed to be high performance, scalable, multitenant,
     and secure for the most demanding platforms.`,
     href: '/',
+    icon: EnterpriseReadyIcon,
     imgBig: EnterpriseReadyBig,
     imgSmall: EnterpriseReadySmall,
     imgSmallOffset: { top: 103, right: -68 },
@@ -846,11 +849,12 @@ const features = [
     smallTitle: 'Deploy with confidence',
     bigTitle: 'Best-in-class platform building blocks',
     body: `Upbound Marketplace is a one-stop-shop
-    for all the components you need in your platform
+    for all the components you need in your platform,
     powered by an Upbound control plane. Supported and
     Certified listings are available so you can run your
     platform in production with confidence.`,
     href: '/',
+    icon: DeployWithConfidenceIcon,
     imgBig: DeployWithConfidenceBig,
     imgSmall: DeployWithConfidenceSmall,
     imgSmallOffset: { top: 67, right: 0 },
@@ -864,6 +868,7 @@ const features = [
     packages installed in it. Centralize control and empower
     your team to deploy without red tape.`,
     href: '/',
+    icon: EfficiencyEaseIcon,
     imgBig: EfficiencyEaseBig,
     imgSmall: EfficiencyEaseSmall,
     imgSmallOffset: { top: 54, right: -17 },
@@ -875,17 +880,7 @@ const FeaturesSection = () => {
   return (
     <Box sx={{ '& > div': { pb: 25 } }}>
       {features.map((feature) => (
-        <FeatureBlock
-          key={feature.smallTitle}
-          smallTitle={feature.smallTitle}
-          bigTitle={feature.bigTitle}
-          body={feature.body}
-          href={feature.href}
-          imgBig={feature.imgBig}
-          imgSmall={feature.imgSmall}
-          imgSmallOffset={feature.imgSmallOffset}
-          reversed={feature.reversed}
-        />
+        <FeatureBlock key={feature.smallTitle} feature={feature} />
       ))}
     </Box>
   );
@@ -1000,6 +995,39 @@ const QuoteSection = () => {
   );
 };
 
+const headerLogos = [
+  {
+    id: 1,
+    src: mbpcLogo,
+    width: 90,
+    height: 21,
+  },
+  {
+    id: 2,
+    src: dfdsLogo,
+    width: 80,
+    height: 28,
+  },
+  {
+    id: 3,
+    src: grupoLogo,
+    width: 80,
+    height: 26,
+  },
+  {
+    id: 4,
+    src: dbLogo,
+    width: 47,
+    height: 34,
+  },
+  {
+    id: 5,
+    src: plotlyLogo,
+    width: 80,
+    height: 26,
+  },
+];
+
 type Props = {};
 
 const Home = ({}: Props) => {
@@ -1032,30 +1060,14 @@ const Home = ({}: Props) => {
         </Box>
         <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
         <Box sx={logosContainer}>
-          <Box sx={{ ...logoSVG, width: 80, height: 28 }}>
-            <Image src={dfdsLogo} alt="DFDS" layout="fill" objectFit="contain" />
-          </Box>
-          <Box sx={{ ...logoSVG, width: 80, height: 26 }}>
-            <Image src={grupoLogo} alt="Grupo Boticario" layout="fill" objectFit="contain" />
-          </Box>
-          <Box sx={{ ...logoSVG, width: 47, height: 34 }}>
-            <Image src={dbLogo} alt="DB" layout="fill" objectFit="contain" />
-          </Box>
-          <Box sx={{ ...logoSVG, width: 80, height: 26 }}>
-            <Image src={plotlyLogo} alt="plotly" layout="fill" objectFit="contain" />
-          </Box>
+          {headerLogos.map((logo) => (
+            <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
+              <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+            </Box>
+          ))}
         </Box>
-        <Box sx={{ textAlign: 'left', position: 'relative' }}>
-          <Typography variant="h3_new" sx={{ lineHeight: '56px', mb: 0.5 }}>
-            The control center of your internal cloud platform
-          </Typography>
-          <Typography variant="body_small" sx={{ maxWidth: 600 }}>
-            Upbound offers a control-plane driven approach for customers to build internal cloud
-            platforms on top of the services and infrastructure they already have.
-          </Typography>
-          <Box sx={{ mt: '-106px' }}>
-            <Image src={headerDiagram} alt="headerDiagram" />
-          </Box>
+        <Box sx={{ position: 'relative' }}>
+          <Image src={headerDiagram} alt="headerDiagram" />
         </Box>
       </Section>
       <Section
@@ -1069,7 +1081,7 @@ const Home = ({}: Props) => {
           Powered by Crossplane.
         </Typography>
         <Typography variant="body_normal" sx={{ mb: 8 }}>
-          Invented by Upbound, Crossplane is a framework for building cloud native control planes.
+          Created by Upbound, Crossplane is a framework for building cloud native control planes.
         </Typography>
         <CrossplaneLogosSection />
       </Section>
