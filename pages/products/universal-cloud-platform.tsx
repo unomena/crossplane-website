@@ -7,6 +7,8 @@ import { Box, SxProps, Typography, Grid } from '@mui/material';
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
+import * as routes from 'src/routes';
+
 import useOnScreen from 'src-new/utils/useOnScreen';
 
 import quotes from 'src-new/constants/quotes';
@@ -460,10 +462,14 @@ const Products = ({}: Props) => {
                 control planes.
               </Typography>
               <Box sx={headerButtons}>
-                <Button styleType="gradientContained" sx={{ width: 156, mr: 3 }}>
+                <Button
+                  styleType="gradientContained"
+                  sx={{ width: 156, mr: 3 }}
+                  href={routes.cloudRegisterUrl}
+                >
                   Try for free
                 </Button>
-                <Link href="/" muiProps={{ color: '#fff' }} hasArrow>
+                <Link href={routes.contactSalesUrl} muiProps={{ color: '#fff' }} hasArrow>
                   Contact Us
                 </Link>
               </Box>
