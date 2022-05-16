@@ -53,6 +53,7 @@ export const sitemapRoute = '/sitemap-0.xml';
 
 // "/products" Routes
 
+export const productsUCPRoute = '/products/universal-cloud-platform';
 export const productsUbcRoute = '/products/cloud';
 export const productsRegistryRoute = '/products/registry';
 export const productsUxpRoute = '/products/uxp';
@@ -66,6 +67,7 @@ export const whyUpboundSelfServiceRoute = '/why-upbound/self-service';
 
 // External URLs
 
+export const upboundMarketplaceUrl = 'https://marketplace.upbound.io/';
 export const upboundBlogUrl = 'https://blog.upbound.io/';
 export const upboundStatusUrl = 'https://status.upbound.io/';
 export const upboundGreenhouseUrl = 'https://boards.greenhouse.io/upbound';
@@ -95,6 +97,8 @@ export const youtubeUrl = 'https://www.youtube.com/channel/UCm_v2HL0pdqtShHD-ZDD
 
 // Hubspot URLs
 
+export const scheduleDemoUrl =
+  'https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar';
 export const partnerRegistrationUrl = 'https://upbound.hubspotpagebuilder.com/partner-registration';
 export const contactSalesUrl = 'https://upbound.hubspotpagebuilder.com/contact';
 

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Box, Typography, SxProps } from '@mui/material';
 
+import * as routes from 'src/routes';
+
 import Button from 'src-new/elements/Button';
 
 import footerCTABackground from 'public/new-images/footer-bg.svg';
@@ -43,7 +45,9 @@ const TryForFreeCard = ({}: Props) => {
         <Typography variant="body_normal" color="#fff" sx={{ maxWidth: 640, mb: 5 }}>
           Start your control-plane transformation for free by creating a free Upbound account.
         </Typography>
-        <Button styleType="whiteContained">Get started now</Button>
+        <Button styleType="whiteContained" href={routes.cloudRegisterUrl}>
+          Get started now
+        </Button>
       </Box>
     </Box>
   );

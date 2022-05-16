@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/image';
 
@@ -6,6 +6,9 @@ import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS } from 'src/theme';
 
 import Link from 'src-new/elements/Link';
+import VideoModal from 'src/elements/VideoModal';
+
+import VideoPlayIcon from 'public/new-images/icons/video-play-icon.svg';
 
 const rootBase: SxProps = {
   position: 'relative',
@@ -29,6 +32,15 @@ const rootHorizontal: SxProps = {
 const root = {
   vertical: rootVertical,
   horizontal: rootHorizontal,
+};
+
+const videoPlayIconContainer: SxProps = {
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 const pillStyle: SxProps = {
@@ -121,6 +133,7 @@ type Props = {
   date?: string;
   pillText?: string;
   href?: string;
+  videoId?: string;
 };
 
 const MediaCard = ({
@@ -138,45 +151,74 @@ const MediaCard = ({
   date,
   pillText,
   href,
+  videoId,
 }: Props) => {
+  const [isVideoVisible, setVideoVisible] = useState(false);
+
   const RenderCard = () => (
-    <Box sx={root[layout]}>
-      {pillText && (
-        <Box sx={pillStyle}>
-          <Typography variant="inherit">{pillText}</Typography>
-        </Box>
-      )}
-      {img && (
-        <Box sx={{ position: 'relative', width: imgWidth || '100%', height: imgHeight || '100%' }}>
-          <Image src={img} alt="card-img" layout="fill" objectFit="cover" objectPosition="center" />
-        </Box>
-      )}
-      <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
-        {profileImg && (
-          <Box sx={profilePic[profileImgSize]}>
-            <Image src={profileImg} alt="profile-img" />
+    <>
+      <Box
+        sx={{
+          ...root[layout],
+          cursor: (type === 'video' && videoId) || href ? 'pointer' : 'default',
+        }}
+        onClick={() => setVideoVisible(true)}
+      >
+        {pillText && (
+          <Box sx={pillStyle}>
+            <Typography variant="inherit">{pillText}</Typography>
           </Box>
         )}
-        {(person || type) && (
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: '2px' }}>
-            {person && <Typography sx={smallTitleText}>{person}</Typography>}
-            {type && (
-              <>
-                <Typography sx={divider}>|</Typography>
-                <Typography sx={typeText}>{type}</Typography>
-              </>
+        {img && (
+          <Box
+            sx={{ position: 'relative', width: imgWidth || '100%', height: imgHeight || '100%' }}
+          >
+            <Image
+              src={img}
+              alt="card-img"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+            />
+            {type === 'video' && videoId && (
+              <Box sx={videoPlayIconContainer}>
+                <Box sx={{ position: 'relative', maxWidth: '50%' }}>
+                  <Image src={VideoPlayIcon} alt="video-play" />
+                </Box>
+              </Box>
             )}
           </Box>
         )}
-        {title && (
-          <Typography variant={titleVariant} sx={{ mb: 1.5 }}>
-            {title}
-          </Typography>
-        )}
-        {body && <Typography variant="body_small">{body}</Typography>}
-        {date && <Typography sx={dateText}>{date}</Typography>}
+        <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
+          {profileImg && (
+            <Box sx={profilePic[profileImgSize]}>
+              <Image src={profileImg} alt="profile-img" />
+            </Box>
+          )}
+          {(person || type) && (
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: '2px' }}>
+              {person && <Typography sx={smallTitleText}>{person}</Typography>}
+              {type && (
+                <>
+                  <Typography sx={divider}>|</Typography>
+                  <Typography sx={typeText}>{type}</Typography>
+                </>
+              )}
+            </Box>
+          )}
+          {title && (
+            <Typography variant={titleVariant} sx={{ mb: 1.5 }}>
+              {title}
+            </Typography>
+          )}
+          {body && <Typography variant="body_small">{body}</Typography>}
+          {date && <Typography sx={dateText}>{date}</Typography>}
+        </Box>
       </Box>
-    </Box>
+      {type === 'video' && videoId && (
+        <VideoModal open={isVideoVisible} setOpen={setVideoVisible} videoId={videoId} />
+      )}
+    </>
   );
 
   if (href) {
