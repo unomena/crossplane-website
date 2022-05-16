@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { COLORS, gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Grid } from '@mui/material';
 
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import useOnScreen from 'src-new/utils/useOnScreen';
 
@@ -83,9 +83,19 @@ type FeatureBlockProps = {
   imgBig: string | StaticImport;
   imgSmall: string | StaticImport;
   imgSmallOffset: { top: number; right: number };
+  isActive: Boolean;
+  finalScrolled: Boolean;
 };
 
-const FeatureBlock = ({ title, body, imgBig, imgSmall, imgSmallOffset }: FeatureBlockProps) => {
+const FeatureBlock = ({
+  title,
+  body,
+  imgBig,
+  imgSmall,
+  imgSmallOffset,
+  isActive,
+  finalScrolled,
+}: FeatureBlockProps) => {
   // const hiddenBarRef = useRef(undefined);
   // const isVisible = useOnScreen(hiddenBarRef);
   // const [show, setShow] = useState(false);
@@ -105,6 +115,7 @@ const FeatureBlock = ({ title, body, imgBig, imgSmall, imgSmallOffset }: Feature
           color: COLORS.linkWater,
           flexDirection: 'row',
           position: 'relative',
+          bgcolor: isActive ? 'red' : 'unset',
         }}
       >
         <Box
@@ -132,13 +143,17 @@ const FeatureBlock = ({ title, body, imgBig, imgSmall, imgSmallOffset }: Feature
                 mr: '20px',
               }}
             >
-              <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
+              {isActive ? (
+                <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
+              ) : (
+                <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
+              )}
             </Box>
             <Box>
               <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
                 {title}
               </Typography>
-              <Typography variant="body_small">{body}</Typography>
+              {(isActive || finalScrolled) && <Typography variant="body_small">{body}</Typography>}
             </Box>
           </Box>
         </Box>
@@ -158,8 +173,9 @@ const FeatureBlock = ({ title, body, imgBig, imgSmall, imgSmallOffset }: Feature
         <Box sx={{ position: 'relative' }}>
           <Box
             sx={{
-              // transform: show ? '' : `translate('50vw')`,
-              transition: 'transform 1.5s',
+              transform: isActive ? '' : `translate(50vw)`,
+              opacity: isActive ? 1 : 0,
+              transition: 'transform 1.5s, opacity 1.5s',
             }}
           >
             <Image src={imgBig} alt="feature-img-big" />
@@ -169,8 +185,9 @@ const FeatureBlock = ({ title, body, imgBig, imgSmall, imgSmallOffset }: Feature
               position: 'absolute',
               top: imgSmallOffset.top,
               right: imgSmallOffset.right,
-              // transform: show ? '' : `translate('100vw')`,
-              transition: 'transform 2s',
+              transform: isActive ? '' : `translate(100vw)`,
+              opacity: isActive ? 1 : 0,
+              transition: 'transform 2s, opacity 2s',
             }}
           >
             <Image src={imgSmall} alt="feature-img-small" />
@@ -232,36 +249,78 @@ const features = [
 ];
 
 const FeaturesSection = () => {
-  const featureSectionRef = useRef(undefined);
-  const isVisible = useOnScreen(featureSectionRef);
+  const featureSectionRef = useRef<HTMLElement>(null);
+
+  const [finalScrolled, _setFinalScrolled] = useState(false);
+  const finalScrolledRef = useRef(finalScrolled);
+  const setFinalScrolled = (val: boolean) => {
+    finalScrolledRef.current = val;
+    _setFinalScrolled(val);
+  };
+
+  const [canScroll, _setCanScroll] = useState(false);
+  const canScrollRef = useRef(canScroll);
+  const setCanScroll = (val: boolean) => {
+    canScrollRef.current = val;
+    _setCanScroll(val);
+  };
+
+  const [activeIndex, _setActiveIndex] = useState(0);
+  const activeIndexRef = useRef(activeIndex);
+  const setActiveIndex = (val: number) => {
+    activeIndexRef.current = val;
+    _setActiveIndex(val);
+  };
+
+  const handleScroll = () => {
+    if (featureSectionRef.current) {
+      if (window.scrollY >= featureSectionRef.current.offsetTop) {
+        if (!finalScrolledRef.current) {
+          window.scrollTo(0, featureSectionRef.current.offsetTop);
+          disableBodyScroll(featureSectionRef.current);
+          setTimeout(() => {
+            setCanScroll(true);
+          }, 1000);
+          // setActiveIndex(0);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      // console.log('scrolling');
-      if (featureSectionRef.current && window.scrollY >= featureSectionRef.current.offsetTop) {
-        window.scrollTo(0, featureSectionRef.current.offsetTop);
-        disableBodyScroll(featureSectionRef);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // if (isVisible) {
-    // }
     return () => {
-      enableBodyScroll(featureSectionRef);
+      if (featureSectionRef.current) {
+        enableBodyScroll(featureSectionRef.current);
+      }
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isVisible]);
+  }, []);
 
   let t: NodeJS.Timeout;
   const handleSectionScroll = () => {
+    if (canScrollRef.current && document.getElementById('featureSectionID')?.scrollTop !== 0) {
+      setActiveIndex(activeIndexRef.current + 1);
+      setCanScroll(false);
+    }
     if (t) {
       clearTimeout(t);
     }
     t = setTimeout(() => {
-      console.log('done scrolling');
-    }, 500);
+      if (document.getElementById('featureSectionID')?.scrollTop !== 0) {
+        if (activeIndexRef.current === features.length - 1) {
+          if (featureSectionRef.current) {
+            enableBodyScroll(featureSectionRef.current);
+          }
+          window.removeEventListener('scroll', handleScroll);
+          setFinalScrolled(true);
+        } else {
+          setCanScroll(true);
+          document.getElementById('featureSectionID')?.scrollTo(0, 0);
+        }
+      }
+    }, 2000);
   };
 
   return (
@@ -275,23 +334,26 @@ const FeaturesSection = () => {
       }}
     >
       <div
+        id="featureSectionID"
         style={{
-          overflow: 'scroll',
+          overflow: canScrollRef.current ? 'scroll' : 'hidden',
           maxHeight: '100vh',
-          '&::WebkitScrollbar': { display: 'none' },
-          msOverflowStyle: 'none',
-          scrollbarWidth: 'none',
+          // '&::WebkitScrollbar': {
+          //   display: 'none',
+          // },
+          // msOverflowStyle: 'none',
+          // scrollbarWidth: 'none',
         }}
         onScroll={handleSectionScroll}
       >
-        <div style={{ minHeight: '200vh' }}>
+        <div style={{ minHeight: !finalScrolled ? '200vh' : 'unset' }}>
           <Box
             sx={{
-              position: 'sticky',
+              position: !finalScrolled ? 'sticky' : 'unset',
               top: '0',
             }}
           >
-            {features.map((feature) => (
+            {features.map((feature, index) => (
               <FeatureBlock
                 key={feature.title}
                 title={feature.title}
@@ -299,6 +361,8 @@ const FeaturesSection = () => {
                 imgBig={feature.imgBig}
                 imgSmall={feature.imgSmall}
                 imgSmallOffset={feature.imgSmallOffset}
+                isActive={activeIndex === index}
+                finalScrolled={finalScrolled}
               />
             ))}
           </Box>
