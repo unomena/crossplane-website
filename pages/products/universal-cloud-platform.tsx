@@ -24,22 +24,20 @@ import heroMain from 'public/new-images/products-page/hero-main.svg';
 import heroFlyover from 'public/new-images/products-page/hero-flyover.svg';
 import platformOne from 'public/new-images/products-page/001-platform.svg';
 import platformTwo from 'public/new-images/products-page/002-platform.svg';
-import platformThree from 'public/new-images/products-page/003-platform.svg';
+// import platformThree from 'public/new-images/products-page/003-platform.svg';
 import platformFour from 'public/new-images/products-page/004-platform.svg';
 import platformFive from 'public/new-images/products-page/005-platform.svg';
 import platformSix from 'public/new-images/products-page/006-platform.svg';
 import platformFlyoverOne from 'public/new-images/products-page/001-platform-flyover.svg';
 import platformFlyoverTwo from 'public/new-images/products-page/002-platform-flyover.svg';
-import platformFlyoverThree from 'public/new-images/products-page/003-platform-flyover.svg';
+// import platformFlyoverThree from 'public/new-images/products-page/003-platform-flyover.svg';
 import platformFlyoverFour from 'public/new-images/products-page/004-platform-flyover.svg';
 import platformFlyoverFive from 'public/new-images/products-page/005-platform-flyover.svg';
 import platformFlyoverSix from 'public/new-images/products-page/006-platform-flyover.svg';
 import sectionBg from 'public/new-images/home-page/header-bg.jpg';
 import productDiagram from 'public/new-images/products-page/product-diagram.svg';
 import arrowBullet from 'public/new-images/icons/arrow-bullet.svg';
-import dbLogo from 'public/new-images/trusted-logos/db.svg';
-import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
-import bpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
+import circleBullet from 'public/new-images/icons/circle-bullet.svg';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import shapesIcon from 'public/new-images/icons/shapes-icon.svg';
@@ -71,6 +69,12 @@ const gridLayout: SxProps = {
 
   [MQ.md]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
+  },
+};
+
+const style = {
+  '::-webkit-scrollbar ': {
+    display: 'none',
   },
 };
 
@@ -117,7 +121,6 @@ const FeatureBlock = ({
           color: COLORS.linkWater,
           flexDirection: 'row',
           position: 'relative',
-          bgcolor: isActive ? 'red' : 'unset',
         }}
       >
         <Box
@@ -128,6 +131,10 @@ const FeatureBlock = ({
             maxWidth: '55%',
             display: 'flex',
             flexDirection: 'column',
+            background: isActive
+              ? 'linear-gradient(45deg, rgba(13,36,54,1) 20%, rgba(27,53,73,1) 40%, rgba(27,53,73,1) 60%, rgba(13,36,54,1) 80%)'
+              : 'unset',
+            py: 2,
           }}
         >
           <Box
@@ -140,13 +147,13 @@ const FeatureBlock = ({
               sx={{
                 position: 'relative',
                 width: '100%',
-                maxWidth: '17px',
+                maxWidth: '23px',
                 height: '23px',
                 mr: '20px',
               }}
             >
-              {isActive ? (
-                <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
+              {isActive || finalScrolled ? (
+                <Image src={circleBullet} layout="fill" objectFit="contain" alt="circle bullet" />
               ) : (
                 <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
               )}
@@ -207,14 +214,16 @@ const features = [
     most demanding scenarios.`,
     imgBig: platformOne,
     imgSmall: platformFlyoverOne,
-    imgSmallOffset: { top: 103, right: -0 },
+    // imgSmallOffset: { top: 82, right: -75 },
+    imgSmallOffset: { top: 82, right: -25 },
   },
   {
     title: 'Best-in-class platform building blocks',
     body: `Upbound Marketplace is a one-stop-shop for all the components you need in your Upbound-powered platform.`,
     imgBig: platformTwo,
     imgSmall: platformFlyoverTwo,
-    imgSmallOffset: { top: 67, right: 0 },
+    // imgSmallOffset: { top: 67, right: -105 },
+    imgSmallOffset: { top: 67, right: -25 },
   },
   // {
   //   title: 'Self-service console',
@@ -222,7 +231,7 @@ const features = [
   //   Upbound control plane and the Crossplane packages installed in it.`,
   //   imgBig: platformThree,
   //   imgSmall: platformFlyoverThree,
-  //   imgSmallOffset: { top: 54, right: -0 },
+  //   imgSmallOffset: { top: 67, right: -25 },
   // },
   {
     title: 'Real-time platform dashboard',
@@ -230,7 +239,8 @@ const features = [
     plane in real-time so you can see who’s doing what.`,
     imgBig: platformFour,
     imgSmall: platformFlyoverFour,
-    imgSmallOffset: { top: 54, right: -0 },
+    // imgSmallOffset: { top: 67, right: -105 },
+    imgSmallOffset: { top: 67, right: -25 },
   },
   {
     title: 'Backup & Restore',
@@ -238,7 +248,8 @@ const features = [
     for your platforms so your customers have continuous platform availability.`,
     imgBig: platformFive,
     imgSmall: platformFlyoverFive,
-    imgSmallOffset: { top: 54, right: -0 },
+    // imgSmallOffset: { top: 67, right: -105 },
+    imgSmallOffset: { top: 67, right: -25 },
   },
   {
     title: 'Support for multi-tenancy',
@@ -246,7 +257,8 @@ const features = [
     where isolation of cloud credentials, control plane resources, and users is critical.`,
     imgBig: platformSix,
     imgSmall: platformFlyoverSix,
-    imgSmallOffset: { top: 54, right: -0 },
+    // imgSmallOffset: { top: 97, right: -105 },
+    imgSmallOffset: { top: 97, right: -25 },
   },
 ];
 
@@ -338,11 +350,9 @@ const FeaturesSection = () => {
       <div
         id="featureSectionID"
         style={{
-          overflow: canScrollRef.current ? 'scroll' : 'hidden',
+          overflowY: canScrollRef.current ? 'scroll' : 'hidden',
+          // overflowX: 'visible',
           maxHeight: '100vh',
-          // '&::WebkitScrollbar': {
-          //   display: 'none',
-          // },
           // msOverflowStyle: 'none',
           // scrollbarWidth: 'none',
         }}
@@ -351,8 +361,9 @@ const FeaturesSection = () => {
         <div style={{ minHeight: !finalScrolled ? '200vh' : 'unset' }}>
           <Box
             sx={{
-              position: !finalScrolled ? 'sticky' : 'unset',
-              top: '0',
+              position: !finalScrolled ? 'sticky' : 'relative',
+              top: !finalScrolled ? '50%' : '',
+              transform: !finalScrolled ? 'translateY(-50%)' : '',
             }}
           >
             {features.map((feature, index) => (
@@ -432,7 +443,7 @@ const Products = ({}: Props) => {
   }, [isVisible]);
   return (
     <PageProvider displayTitle="Products">
-      <Section sx={{ pt: 40, pb: 10 }}>
+      <Section sx={{ pt: 40, pb: 23.5 }}>
         <Box
           sx={{
             display: 'flex',
