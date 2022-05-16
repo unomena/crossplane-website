@@ -77,6 +77,8 @@ export const upboundGreenhouseUrl = 'https://boards.greenhouse.io/upbound';
 export const upboundZendeskUrl = 'https://upbound.zendesk.com/';
 export const cncfUrl = 'https://www.cncf.io/';
 export const enterpriseBlogUrl = 'https://blog.upbound.io/upbound-enterprise-and-unified-pricing/';
+export const upboundValuesDoc =
+  'https://www.google.com/url?q=https://docs.google.com/document/d/16hCEaKM0NQFTF6ri0xa0tBxyNu0Pppj6ZRM7XYFNs9k/edit&sa=D&source=editors&ust=1652739928247780&usg=AOvVaw0AXM788rKKg1unwnpoxj0M';
 
 // Crossplane URLs
 
