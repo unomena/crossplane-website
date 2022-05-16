@@ -1100,7 +1100,7 @@ const Home = ({}: Props) => {
               body="Lorem ipsum dolor sit amet, consectetuer 
               adipiscing elit. Aenean commodo ligula eget dolor. 
               Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes"
-              href="/"
+              videoId="S-Pvhcz4KKI"
             />
           </Box>
           <Box sx={{ flex: 1, ml: 2.5 }}>
@@ -1114,6 +1114,7 @@ const Home = ({}: Props) => {
                 type="Blog"
                 title="Announcing 100% Cloud Service Coverage for Crossplane"
                 pillText="Must read!"
+                href="/"
               />
             </Box>
             <Box sx={{ display: 'flex' }}>
