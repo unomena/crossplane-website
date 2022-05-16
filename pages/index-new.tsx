@@ -260,7 +260,18 @@ const quoteSectionLeftInner: SxProps = {
   width: '100%',
   height: '100%',
   clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
+  backgroundImage: `linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
   backgroundPosition: 'center',
+};
+
+const quoteSectionLeftBg: SxProps = {
+  backgroundPosition: 'center',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  transition: 'opacity 0.5s',
 };
 
 const quoteSectionLeftLogo: SxProps = {
@@ -269,6 +280,7 @@ const quoteSectionLeftLogo: SxProps = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '100%',
+  transition: 'opacity 0.5s',
 };
 
 const quoteSectionRightContainer: SxProps = {
@@ -277,6 +289,7 @@ const quoteSectionRightContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
+  position: 'relative',
 };
 
 const quoteSectionQuoteLogos: SxProps = {
@@ -296,13 +309,13 @@ const quoteSectionQuoteLogoBox: SxProps = {
   border: `2px solid ${COLORS.bigStone}`,
   borderRadius: '10px',
   boxShadow: '0 15px 35px 0 rgba(0,0,0,0.05)',
-  transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+  transition: 'all 0.5s',
 
-  '&:hover': {
-    backgroundColor: '#23435C',
-    transform: `scale(1.05)`,
-    cursor: 'pointer',
-  },
+  // '&:hover': {
+  //   backgroundColor: '#23435C',
+  //   transform: `scale(1.05)`,
+  //   cursor: 'pointer',
+  // },
 };
 
 const quoteSectionQuoteLogoBoxActive: SxProps = {
@@ -325,7 +338,7 @@ const quoteSectionQuoteLogoBoxActive: SxProps = {
     background: 'linear-gradient(-45deg, #6D64F5 0, #C9C3FF 100%)',
   },
 
-  '&:hover': {},
+  // '&:hover': {},
 };
 
 const registerFormContainer: SxProps = {
@@ -879,29 +892,60 @@ const FeaturesSection = () => {
 };
 
 const QuoteSection = () => {
-  const [activeQuote, setActiveQuote] = useState(0);
+  const quoteSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(quoteSectionRef);
+  const [activeQuote, _setActiveQuote] = useState(0);
+
+  const activeQuoteRef = useRef(activeQuote);
+  const setActiveQuote = (val: number) => {
+    activeQuoteRef.current = val;
+    _setActiveQuote(val);
+  };
+
+  useEffect(() => {
+    let t: NodeJS.Timeout;
+    if (isVisible) {
+      t = setInterval(() => {
+        if (activeQuoteRef.current === quotes.length - 1) {
+          setActiveQuote(0);
+        } else {
+          setActiveQuote(activeQuoteRef.current + 1);
+        }
+      }, 4000);
+    }
+    return () => {
+      clearInterval(t);
+    };
+  }, [isVisible]);
 
   return (
-    <Box sx={{ display: 'flex', color: COLORS.linkWater }}>
+    <Box ref={quoteSectionRef} sx={{ display: 'flex', color: COLORS.linkWater }}>
       <Box sx={{ flex: 1 }}>
         <Box sx={quoteSectionLeftContainer}>
-          <Box
-            sx={{
-              ...quoteSectionLeftInner,
-              backgroundImage: `url("${quotes[activeQuote].bgImage}"),
-              linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
-            }}
-          >
-            <Box sx={quoteSectionLeftLogo}>
-              <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
-                <Image
-                  src={quotes[activeQuote].logo}
-                  alt="quote-logo"
-                  layout="fill"
-                  objectFit="contain"
-                />
+          <Box sx={quoteSectionLeftInner}>
+            {quotes.map((quote, index) => (
+              <Box
+                key={quote.title}
+                sx={{
+                  ...quoteSectionLeftBg,
+                  backgroundImage: `url("${quote.bgImage}")`,
+                  opacity: activeQuote === index ? 1 : 0,
+                }}
+              />
+            ))}
+            {quotes.map((quote, index) => (
+              <Box
+                key={quote.title}
+                sx={{
+                  ...quoteSectionLeftLogo,
+                  opacity: activeQuote === index ? 1 : 0,
+                }}
+              >
+                <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
+                  <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                </Box>
               </Box>
-            </Box>
+            ))}
           </Box>
           <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
             <Box sx={{ position: 'relative' }}>
@@ -911,20 +955,31 @@ const QuoteSection = () => {
         </Box>
       </Box>
       <Box sx={quoteSectionRightContainer}>
-        <Box sx={{ mb: 7 }}>
-          <Box sx={{ minHeight: 275, mb: 4.5 }}>
-            <Typography variant="h2_new" sx={{ mb: 3 }}>
-              {quotes[activeQuote].title}
+        {quotes.map((quote, index) => (
+          <Box
+            key={quote.title}
+            sx={{
+              mb: activeQuote === index ? 7 : 0,
+              opacity: activeQuote === index ? 1 : 0,
+              transition: 'opacity 0.5s',
+              position: activeQuote === index ? 'relative' : 'absolute',
+              top: 0,
+            }}
+          >
+            <Box sx={{ minHeight: 275, mb: 4.5 }}>
+              <Typography variant="h2_new" sx={{ mb: 3 }}>
+                {quote.title}
+              </Typography>
+              <Typography variant="body_normal">{quote.body}</Typography>
+            </Box>
+            <Typography variant="h6_new" sx={{ mb: '2px' }}>
+              {quote.person}
             </Typography>
-            <Typography variant="body_normal">{quotes[activeQuote].body}</Typography>
+            <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
+              {quote.role}
+            </Typography>
           </Box>
-          <Typography variant="h6_new" sx={{ mb: '2px' }}>
-            {quotes[activeQuote].person}
-          </Typography>
-          <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
-            {quotes[activeQuote].role}
-          </Typography>
-        </Box>
+        ))}
         <Box sx={quoteSectionQuoteLogos}>
           {quotes.map((quote, index) => {
             let styles = quoteSectionQuoteLogoBox;
@@ -932,7 +987,7 @@ const QuoteSection = () => {
               styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
             }
             return (
-              <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+              <Box key={quote.title} sx={styles}>
                 <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
                   <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
                 </Box>
