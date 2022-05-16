@@ -340,6 +340,7 @@ export const globalStyle = css`
   }
 
   body {
+    overflow-x: hidden;
     &.overflow-hidden {
       overflow: hidden;
     }

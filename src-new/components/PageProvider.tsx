@@ -63,7 +63,7 @@ const PageProvider: React.FC<{
         metaDescription={metaDescription}
       />
       <PageHeader />
-      <Box sx={{ overflow: 'hidden', bgcolor: COLORS.firefly }}>
+      <Box sx={{ bgcolor: COLORS.firefly }}>
         {children}
         <PageFooter isFooterVisible={isFooterVisible} />
       </Box>

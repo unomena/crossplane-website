@@ -32,6 +32,7 @@ import platformFlyoverFive from 'public/new-images/products-page/005-platform-fl
 import platformFlyoverSix from 'public/new-images/products-page/006-platform-flyover.svg';
 import sectionBg from 'public/new-images/home-page/header-bg.jpg';
 import productDiagram from 'public/new-images/products-page/product-diagram.svg';
+import arrowBullet from 'public/new-images/icons/arrow-bullet.svg';
 import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import bpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
@@ -75,94 +76,87 @@ interface StaticRequire {
 declare type StaticImport = StaticRequire | StaticImageData;
 
 type FeatureBlockProps = {
-  smallTitle: string;
-  bigTitle: string;
+  title: string;
   body: string;
-  href: string;
   imgBig: string | StaticImport;
   imgSmall: string | StaticImport;
   imgSmallOffset: { top: number; right: number };
-  reversed?: Boolean;
 };
 
-const FeatureBlock = ({
-  bigTitle,
-  body,
-  href,
-  imgBig,
-  imgSmall,
-  imgSmallOffset,
-  reversed,
-}: FeatureBlockProps) => {
-  const hiddenBarRef = useRef(undefined);
-  const isVisible = useOnScreen(hiddenBarRef);
-  const [show, setShow] = useState(false);
+const FeatureBlock = ({ title, body, imgBig, imgSmall, imgSmallOffset }: FeatureBlockProps) => {
+  // const hiddenBarRef = useRef(undefined);
+  // const isVisible = useOnScreen(hiddenBarRef);
+  // const [show, setShow] = useState(false);
 
-  useEffect(() => {
-    if (isVisible) {
-      setShow(true);
-    }
-  }, [isVisible]);
+  // useEffect(() => {
+  //   if (isVisible) {
+  //     setShow(true);
+  //   }
+  // }, [isVisible]);
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        color: COLORS.linkWater,
-        flexDirection: reversed ? 'row-reverse' : 'row',
-        position: 'relative',
-        // backgroundColor: COLORS.elephant,
-        // position: 'sticky',
-        // top: '0',
-        // width: '100%',
-        // height: '100vh',
-      }}
-    >
+    <Box>
       <Box
         sx={{
-          flex: 1,
-          width: '50%',
-          minWidth: '50%',
-          maxWidth: '50%',
-          pr: reversed ? '0px' : '28px',
-          pl: reversed ? '28px' : '0px',
           display: 'flex',
-          flexDirection: 'column',
+          alignItems: 'center',
+          color: COLORS.linkWater,
+          flexDirection: 'row',
+          position: 'relative',
         }}
       >
-        <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
-          {bigTitle}
-        </Typography>
-        <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
-          {body}
-        </Typography>
-        <Link
-          href={href}
-          muiProps={{
-            color: reversed ? COLORS.sun : COLORS.turquoise,
-            sx: { mt: 5 },
+        <Box
+          sx={{
+            flex: 1,
+            width: '55%',
+            minWidth: '55%',
+            maxWidth: '55%',
+            display: 'flex',
+            flexDirection: 'column',
           }}
-          hasArrow
         >
-          Learn More
-        </Link>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'baseline',
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                width: '100%',
+                maxWidth: '17px',
+                height: '23px',
+                mr: '20px',
+              }}
+            >
+              <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
+            </Box>
+            <Box>
+              <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                {title}
+              </Typography>
+              <Typography variant="body_small">{body}</Typography>
+            </Box>
+          </Box>
+        </Box>
       </Box>
+
       <Box
         sx={{
           flex: 1,
-          width: '50%',
-          minWidth: '50%',
-          maxWidth: '50%',
-          pr: reversed ? '28px' : '0px',
-          pl: reversed ? '0px' : '28px',
+          width: '45%',
+          minWidth: '45%',
+          maxWidth: '45%',
+          position: 'absolute',
+          right: '0',
+          top: '0',
         }}
       >
         <Box sx={{ position: 'relative' }}>
           <Box
             sx={{
-              ml: reversed ? '-68px' : 0,
-              transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+              // transform: show ? '' : `translate('50vw')`,
               transition: 'transform 1.5s',
             }}
           >
@@ -173,7 +167,7 @@ const FeatureBlock = ({
               position: 'absolute',
               top: imgSmallOffset.top,
               right: imgSmallOffset.right,
-              transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+              // transform: show ? '' : `translate('100vw')`,
               transition: 'transform 2s',
             }}
           >
@@ -181,70 +175,71 @@ const FeatureBlock = ({
           </Box>
         </Box>
       </Box>
-      <Box
-        ref={hiddenBarRef}
-        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
-      />
     </Box>
   );
 };
 
 const features = [
   {
-    smallTitle: 'Enterprise ready',
-    bigTitle: 'Fully-managed control planes',
-    body: `Control planes running in Upbound
-    are designed to be high performance, scalable, multitenant,
-    and secure for the most demanding platforms.`,
-    href: '/',
-    imgBig: plotlyLogo,
-    imgSmall: plotlyLogo,
-    imgSmallOffset: { top: 103, right: -68 },
-    reversed: false,
+    title: 'Fully managed control planes',
+    body: `Control planes designed to be high performance, scalable, multitenant, and secure for the
+    most demanding scenarios.`,
+    imgBig: platformOne,
+    imgSmall: platformFlyoverOne,
+    imgSmallOffset: { top: 103, right: -0 },
   },
   {
-    smallTitle: 'Deploy with confidence',
-    bigTitle: 'Best-in-class platform building blocks',
-    body: `Upbound Marketplace is a one-stop-shop
-    for all the components you need in your platform
-    powered by an Upbound control plane. Supported and
-    Certified listings are available so you can run your
-    platform in production with confidence.`,
-    href: '/',
-    imgBig: plotlyLogo,
-    imgSmall: plotlyLogo,
+    title: 'Best-in-class platform building blocks',
+    body: `Upbound Marketplace is a one-stop-shop for all the components you need in your Upbound-powered platform.`,
+    imgBig: platformTwo,
+    imgSmall: platformFlyoverTwo,
     imgSmallOffset: { top: 67, right: 0 },
-    reversed: true,
+  },
+  // {
+  //   title: 'Self-service console',
+  //   body: `The Upbound Console is dynamically rendered from your 
+  //   Upbound control plane and the Crossplane packages installed in it.`,
+  //   imgBig: platformThree,
+  //   imgSmall: platformFlyoverThree,
+  //   imgSmallOffset: { top: 54, right: -0 },
+  // },
+  {
+    title: 'Real-time platform dashboard',
+    body: `View all your platform resources being managed by your control 
+    plane in real-time so you can see who’s doing what.`,
+    imgBig: platformFour,
+    imgSmall: platformFlyoverFour,
+    imgSmallOffset: { top: 54, right: -0 },
   },
   {
-    smallTitle: 'Efficiency + ease',
-    bigTitle: 'Self-Service Console',
-    body: `The Upbound Console is dynamically rendered
-    from your Upbound control plane and the Crossplane
-    packages installed in it. Centralize control and empower
-    your team to deploy without red tape.`,
-    href: '/',
-    imgBig: plotlyLogo,
-    imgSmall: plotlyLogo,
-    imgSmallOffset: { top: 54, right: -17 },
-    reversed: false,
+    title: 'Backup & Restore',
+    body: `Upbound automatically backs up and restores your control planes 
+    for your platforms so your customers have continuous platform availability.`,
+    imgBig: platformFive,
+    imgSmall: platformFlyoverFive,
+    imgSmallOffset: { top: 54, right: -0 },
+  },
+  {
+    title: 'Support for multi-tenancy',
+    body: `Designed for complex multi-tenant Kubernetes deployments, 
+    where isolation of cloud credentials, control plane resources, and users is critical.`,
+    imgBig: platformSix,
+    imgSmall: platformFlyoverSix,
+    imgSmallOffset: { top: 54, right: -0 },
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <Box sx={{ '& > div:not(:last-of-type)': { pb: 25 } }}>
+    <Box sx={{ '& > div:not(:last-of-type)': { pb: 2 }, position: 'relative' }}>
       {features.map((feature) => (
         <FeatureBlock
-          key={feature.smallTitle}
-          smallTitle={feature.smallTitle}
-          bigTitle={feature.bigTitle}
+          key={feature.title}
+          title={feature.title}
           body={feature.body}
-          href={feature.href}
           imgBig={feature.imgBig}
           imgSmall={feature.imgSmall}
           imgSmallOffset={feature.imgSmallOffset}
-          reversed={feature.reversed}
         />
       ))}
     </Box>
@@ -309,7 +304,7 @@ const Products = ({}: Props) => {
   }, [isVisible]);
   return (
     <PageProvider displayTitle="Products">
-      <Section sx={{ pt: 40, pb: 20, overflow: 'hidden' }}>
+      <Section sx={{ pt: 40, pb: 10 }}>
         <Box
           sx={{
             display: 'flex',
@@ -395,7 +390,19 @@ const Products = ({}: Props) => {
           />
         </Box>
       </Section>
-      <Section bgcolor sx={{ py: 23.5, position: 'relative' }}>
+      <Section bgcolor sx={{ pt: 10, position: 'relative' }}>
+        <Box>
+          <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
+            The last platform you’ll ever need to build
+          </Typography>
+          <Typography variant="body_big">
+            Never re-platform again. No matter what tools and vendors you add to your
+            infrastructure, Upbound can manage them. Enterprise-ready, flexible and easy to use,
+            Upbound transforms the way you manage your infrastructure. It’s the cloud on your terms.
+          </Typography>
+        </Box>
+      </Section>
+      <Section bgcolor sx={{ pt: 7.5, pb: 20, position: 'sticky', top: 0 }}>
         <FeaturesSection />
       </Section>
       <Section sx={{ pt: 23.5, pb: 34.125, overflow: 'hidden', ...caseStudiesSection }}>
