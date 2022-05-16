@@ -25,18 +25,18 @@ const root: SxProps = {
   justifyContent: 'center',
 };
 
-const announceContainer: SxProps = {
-  bgcolor: COLORS.cornflower,
-  width: '100%',
-  height: 60,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontFamily: 'Avenir-Black',
-  fontSize: 14,
-  lineHeight: 14,
-  color: '#fff',
-};
+// const announceContainer: SxProps = {
+//   bgcolor: COLORS.cornflower,
+//   width: '100%',
+//   height: 60,
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   fontFamily: 'Avenir-Black',
+//   fontSize: 14,
+//   lineHeight: 14,
+//   color: '#fff',
+// };
 
 const mainContainer: SxProps = {
   bgcolor: 'transparent',
@@ -45,7 +45,8 @@ const mainContainer: SxProps = {
   alignItems: 'center',
   px: '50px',
   position: 'absolute',
-  top: 60,
+  // top: 60,
+  top: 0,
   width: '100%',
   maxWidth: 1440,
 };
@@ -65,7 +66,7 @@ const rightItems: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
-  '& > span': {
+  '& > span,a': {
     mr: '18px',
   },
 };
@@ -295,12 +296,16 @@ const ProductsPopoverContent = () => {
           approach to infrastructure management.
         </Typography>
         <LinkBar
-          href="/"
+          href={routes.productsUCPRoute}
           title="Upbound"
           body="Build, run and manage a universal cloud platform using Crossplane."
           sx={{ mb: 1.5 }}
         />
-        <LinkBar href="/" title="Plans & Pricing" body="Choose a Plan That’s Right For You" />
+        <LinkBar
+          href={routes.pricingRoute}
+          title="Plans & Pricing"
+          body="Choose a Plan That’s Right For You"
+        />
       </Box>
       <Box sx={popoverDivider} />
       <Box sx={popoverFreeDemoContainer}>
@@ -309,7 +314,7 @@ const ProductsPopoverContent = () => {
           Have one of our Upbound specialists show you the power of the Universal Cloud Platform and
           how it can be used to transform how you manage infrastructure.
         </Typography>
-        <Button styleType="linkWaterContained" sizeType="small" href={routes.contactSalesUrl}>
+        <Button styleType="linkWaterContained" sizeType="small" href={routes.scheduleDemoUrl}>
           Schedule Demo
         </Button>
       </Box>
@@ -327,13 +332,13 @@ const LearnPopoverContent = () => {
           dolor. Aenean massa.
         </Typography>
         <LinkBar
-          href="/"
+          href={routes.cloudDocsUrl}
           title="Tech Documents"
           body="Lorem ipsum dolor sit amet, consect"
           sx={{ mb: 1.5 }}
         />
         <LinkBar
-          href="/"
+          href={routes.upboundBlogUrl}
           title="Upbound Blog"
           body="Lorem ipsum dolor sit amet, consect"
           sx={{ mb: 1.5 }}
@@ -368,12 +373,14 @@ const LearnPopoverContent = () => {
 type LinkItemProps = {
   href: string;
   title: string;
+  icon?: React.ReactNode;
 };
 
-const LinkItem = ({ href, title }: LinkItemProps) => {
+const LinkItem = ({ href, title, icon }: LinkItemProps) => {
   return (
     <Link href={href} muiProps={{ underline: 'none' }}>
       <Typography component="span" sx={navItem}>
+        {icon && <Box component="span">{icon}</Box>}
         {title}
       </Typography>
     </Link>
@@ -385,41 +392,33 @@ type Props = {};
 const PageHeader = ({}: Props) => {
   return (
     <Box sx={root}>
-      <Box sx={announceContainer}>
+      {/* <Box sx={announceContainer}>
         <Typography variant="inherit">
-          🎉 We just launched Universal Crossplane (UXP) and it’s ready for you to{' '}
-          <Link href={routes.cloudRegisterUrl} muiProps={{ color: 'inherit', underline: 'always' }}>
-            Try Out for Free
+          🎉 Announcing the NEW Upbound Marketplace — giving customers access to best-in-class
+          components{' '}
+          <Link
+            href={routes.upboundMarketplaceUrl}
+            muiProps={{ color: 'inherit', underline: 'always' }}
+          >
+            Learn More
           </Link>
         </Typography>
-      </Box>
+      </Box> */}
       <Box sx={mainContainer}>
         <Box sx={{ flex: 1 }}>
-          <Link href="/">
+          <Link href={routes.homeRoute}>
             <Image src={logoWhite} alt="upbound logo" width={117} height={31} />
           </Link>
         </Box>
         <Box sx={centerItems}>
           <PopoverItem title="Products" content={<ProductsPopoverContent />} />
-          <Typography component="span" sx={navItem}>
-            Marketplace
-          </Typography>
+          <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" />
           <PopoverItem title="Learn" content={<LearnPopoverContent />} />
-          <LinkItem href="/about" title="About" />
+          <LinkItem href={routes.aboutRoute} title="About" />
         </Box>
         <Box sx={rightItems}>
-          <Typography component="span" sx={navItem}>
-            <Box component="span">
-              <PartnersIcon />
-            </Box>
-            Partners
-          </Typography>
-          <Typography component="span" sx={navItem}>
-            <Box component="span">
-              <SignInIcon />
-            </Box>
-            Sign In
-          </Typography>
+          <LinkItem href={routes.partnersRoute} title="Partners" icon={<PartnersIcon />} />
+          <LinkItem href={routes.cloudLoginUrl} title="Sign In" icon={<SignInIcon />} />
           <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
             Try For Free
           </Button>
