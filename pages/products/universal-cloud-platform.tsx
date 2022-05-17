@@ -40,7 +40,9 @@ import arrowBullet from 'public/new-images/icons/arrow-bullet.svg';
 import circleBullet from 'public/new-images/icons/circle-bullet.svg';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
-import shapesIcon from 'public/new-images/icons/shapes-icon.svg';
+import caseStudyIconOne from 'public/new-images/icons/case-study-icon-one.svg';
+import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
+import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
@@ -579,7 +581,7 @@ const Products = ({}: Props) => {
               </Box>
 
               <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={shapesIcon} alt="icon" layout="fill" objectFit="contain" />
+                <Image src={caseStudyIconOne} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
@@ -603,7 +605,7 @@ const Products = ({}: Props) => {
               </Box>
 
               <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={shapesIcon} alt="icon" layout="fill" objectFit="contain" />
+                <Image src={caseStudyIconTwo} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
@@ -628,7 +630,7 @@ const Products = ({}: Props) => {
               </Box>
 
               <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={shapesIcon} alt="icon" layout="fill" objectFit="contain" />
+                <Image src={caseStudyIconThree} alt="icon" layout="fill" objectFit="contain" />
               </Box>
             </Box>
           </CornerCard>
