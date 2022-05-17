@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button as MuiButton, ButtonProps, SxProps } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
 
 const scale = 1.05;
 
@@ -88,11 +88,18 @@ const normal: SxProps = {
 
 const large: SxProps = {
   fontFamily: 'Avenir-Heavy',
-  fontSize: '18px',
-  lineHeight: '18px',
   borderRadius: '32px',
-  px: '36px',
-  height: '64px',
+  fontSize: '14px',
+  lineHeight: '18px',
+  px: '14px',
+  height: '52px',
+
+  [MQ.md]: {
+    fontSize: '18px',
+    lineHeight: '18px',
+    px: '36px',
+    height: '64px',
+  },
 };
 
 const sizeStyles = {
