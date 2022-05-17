@@ -17,7 +17,7 @@ const getImage = (color: WaveColor) => {
 };
 
 const Wave = styled(Box)<{ type: WaveColor }>`
-  position: relative;
+  // position: relative;
   height: 175px;
   z-index: 10;
 

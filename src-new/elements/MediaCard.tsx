@@ -12,8 +12,6 @@ import VideoPlayIcon from 'public/new-images/icons/video-play-icon.svg';
 
 const rootBase: SxProps = {
   position: 'relative',
-  bgcolor: COLORS.bigStone,
-  borderRadius: '10px',
   width: '100%',
   height: '100%',
   display: 'flex',
@@ -67,6 +65,7 @@ const profilePicBase: SxProps = {
   right: 20,
   border: '1px solid #fff',
   borderRadius: 100,
+  overflow: 'hidden',
 };
 
 const profilePicSmall: SxProps = {
@@ -90,6 +89,14 @@ const profilePic = {
   big: profilePicBig,
 };
 
+const profilePicInner: SxProps = {
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  borderRadius: 100,
+  overflow: 'hidden',
+};
+
 const smallTitleText: SxProps = {
   fontFamily: 'Avenir-Medium',
   fontSize: '13px',
@@ -111,6 +118,7 @@ const divider: SxProps = {
 const dateText: SxProps = {
   ...smallTitleText,
   fontFamily: 'Avenir-Oblique',
+  mt: 'auto',
 };
 
 interface StaticRequire {
@@ -120,6 +128,8 @@ declare type StaticImport = StaticRequire | StaticImageData;
 
 type Props = {
   layout?: 'vertical' | 'horizontal';
+  noBg?: boolean;
+  rounded?: boolean;
   img?: string | StaticImport;
   imgHeight?: number;
   imgWidth?: number;
@@ -130,6 +140,7 @@ type Props = {
   title?: string;
   titleVariant?: 'h4_new' | 'h5_new';
   body?: string;
+  bodyVariant?: 'body_xs' | 'body_small';
   date?: string;
   pillText?: string;
   href?: string;
@@ -138,6 +149,8 @@ type Props = {
 
 const MediaCard = ({
   layout = 'vertical',
+  noBg,
+  rounded = true,
   img,
   imgHeight,
   imgWidth,
@@ -148,6 +161,7 @@ const MediaCard = ({
   title,
   titleVariant = 'h5_new',
   body,
+  bodyVariant = 'body_small',
   date,
   pillText,
   href,
@@ -160,6 +174,8 @@ const MediaCard = ({
       <Box
         sx={{
           ...root[layout],
+          bgcolor: noBg ? 'transparent' : COLORS.bigStone,
+          borderRadius: rounded ? '10px' : '0px',
           cursor: (type === 'video' && videoId) || href ? 'pointer' : 'default',
         }}
         onClick={() => setVideoVisible(true)}
@@ -189,10 +205,21 @@ const MediaCard = ({
             )}
           </Box>
         )}
-        <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
+        <Box
+          sx={{
+            flex: 1,
+            position: 'relative',
+            py: 2,
+            px: '22px',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           {profileImg && (
             <Box sx={profilePic[profileImgSize]}>
-              <Image src={profileImg} alt="profile-img" />
+              <Box sx={profilePicInner}>
+                <Image src={profileImg} alt="profile-img" layout="fill" objectFit="cover" />
+              </Box>
             </Box>
           )}
           {(person || type) && (
@@ -207,11 +234,15 @@ const MediaCard = ({
             </Box>
           )}
           {title && (
-            <Typography variant={titleVariant} sx={{ mb: 1.5 }}>
+            <Typography variant={titleVariant} sx={{ mb: titleVariant === 'h4_new' ? 1.5 : 1 }}>
               {title}
             </Typography>
           )}
-          {body && <Typography variant="body_small">{body}</Typography>}
+          {body && (
+            <Typography variant={bodyVariant} sx={{ mb: date ? 1 : 0 }}>
+              {body}
+            </Typography>
+          )}
           {date && <Typography sx={dateText}>{date}</Typography>}
         </Box>
       </Box>

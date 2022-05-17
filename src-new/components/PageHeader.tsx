@@ -11,11 +11,14 @@ import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 
 import logoWhite from 'public/logo-white.svg';
-import learnBlogLaptop from 'public/new-images/top-nav/LearnBlogLaptop.png';
-import taylorThorntonProfile from 'public/new-images/top-nav/TaylorThorntonProfile.png';
+// import learnBlogLaptop from 'public/new-images/top-nav/LearnBlogLaptop.png';
+// import taylorThorntonProfile from 'public/new-images/top-nav/TaylorThorntonProfile.png';
+import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
+import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
 import PartnersIcon from 'src-new/svg/PartnersIcon';
 import SignInIcon from 'src-new/svg/SignInIcon';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
+import MediaCard from 'src-new/elements/MediaCard';
 
 const root: SxProps = {
   position: 'absolute',
@@ -23,7 +26,7 @@ const root: SxProps = {
   width: '100%',
   minHeight: 88,
   bgcolor: 'transparent',
-  display: 'flex',
+  display: { _: 'none', lg: 'flex' },
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
@@ -120,43 +123,43 @@ const popoverFreeDemoContainer: SxProps = {
   alignItems: 'flex-start',
 };
 
-const popoverBlogPill: SxProps = {
-  position: 'absolute',
-  top: 24,
-  right: 20,
-  zIndex: 100,
-  width: 55,
-  height: 22,
-  borderRadius: 100,
-  bgcolor: COLORS.cornflower,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontFamily: 'Avenir-Heavy',
-  fontSize: '11px',
-  lineHeight: '20px',
-  letterSpacing: '0',
-  color: '#fff',
-};
+// const popoverBlogPill: SxProps = {
+//   position: 'absolute',
+//   top: 24,
+//   right: 20,
+//   zIndex: 100,
+//   width: 55,
+//   height: 22,
+//   borderRadius: 100,
+//   bgcolor: COLORS.cornflower,
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   fontFamily: 'Avenir-Heavy',
+//   fontSize: '11px',
+//   lineHeight: '20px',
+//   letterSpacing: '0',
+//   color: '#fff',
+// };
 
-const popoverBlogProfilePic: SxProps = {
-  position: 'absolute',
-  top: -43,
-  right: 20,
-  width: 58,
-  height: 58,
-  border: '1px solid #fff',
-  borderRadius: 100,
-  p: '3px',
-};
+// const popoverBlogProfilePic: SxProps = {
+//   position: 'absolute',
+//   top: -43,
+//   right: 20,
+//   width: 58,
+//   height: 58,
+//   border: '1px solid #fff',
+//   borderRadius: 100,
+//   p: '3px',
+// };
 
-const popoverBlogDarkText: SxProps = {
-  fontFamily: 'Avenir-Medium',
-  fontSize: '13px',
-  lineHeight: '24px',
-  color: COLORS.linkWater,
-  opacity: 0.41,
-};
+// const popoverBlogDarkText: SxProps = {
+//   fontFamily: 'Avenir-Medium',
+//   fontSize: '13px',
+//   lineHeight: '24px',
+//   color: COLORS.linkWater,
+//   opacity: 0.41,
+// };
 
 const popoverContentHeader: SxProps = {
   fontFamily: 'Avenir-Medium',
@@ -297,19 +300,19 @@ const ProductsPopoverContent = () => {
       <Box sx={{ width: 328, py: 3.5, pl: 3.5, pr: 2.5 }}>
         <Typography sx={popoverContentHeader}>Products</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
-          Everything you need to take full advantage of Kubernetes and adopt a control plane centric
-          approach to infrastructure management.
+          Future-proof your cloud infrastructure, reduce costs, and increase efficiency by deploying
+          production-ready control planes.
         </Typography>
         <LinkBar
           href={routes.productsUCPRoute}
           title="Upbound"
-          body="Build, run and manage a universal cloud platform using Crossplane."
+          body="A simple and all-encompassing solution to adopt control plane architecture"
           sx={{ mb: 1.5 }}
         />
         <LinkBar
           href={routes.pricingRoute}
           title="Plans & Pricing"
-          body="Choose a Plan That’s Right For You"
+          body="Choose the tier that’s right for you"
         />
       </Box>
       <Box sx={popoverDivider} />
@@ -319,7 +322,7 @@ const ProductsPopoverContent = () => {
           Have one of our Upbound specialists show you the power of the Universal Cloud Platform and
           how it can be used to transform how you manage infrastructure.
         </Typography>
-        <Button styleType="linkWaterContained" sizeType="small" href={routes.scheduleDemoUrl}>
+        <Button styleType="linkWaterContained" sizeType="small" href={routes.contactSalesUrl}>
           Schedule Demo
         </Button>
       </Box>
@@ -333,53 +336,68 @@ const LearnPopoverContent = () => {
       <Box sx={{ width: 328, py: 3.5, pl: 3.5, pr: 2.5 }}>
         <Typography sx={popoverContentHeader}>More on Upbound</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
-          dolor. Aenean massa.
+          From tutorials to in-depth knowledge from industry experts, discover comprehensive insight
+          into cloud infrastructure management from Upbound.
         </Typography>
         <LinkBar
           href={routes.cloudDocsUrl}
-          title="Tech Documents"
-          body="Lorem ipsum dolor sit amet, consect"
+          title="Docs"
+          body="Learn how to use Upbound"
           sx={{ mb: 1.5 }}
         />
         <LinkBar
           href={routes.upboundBlogUrl}
           title="Upbound Blog"
-          body="Lorem ipsum dolor sit amet, consect"
+          body="Discover cutting-edge thought leadership & news"
           sx={{ mb: 1.5 }}
         />
         <LinkBar
           href={routes.crossplaneSlackUrl}
           title="Crossplane Slack"
-          body="Lorem ipsum dolor sit amet, consect"
+          body="Join a passionate community to get the support you need"
         />
       </Box>
       <Box sx={popoverDivider} />
-      <Link
+      {/* <Link
         href={`${routes.upboundBlogUrl}moving-crossplane-package-authoring-from-plain-yaml-to-ide-aided-development/`}
         muiProps={{ color: COLORS.linkWater }}
-      >
-        <Box sx={{ width: 268 }}>
-          <Box sx={{ position: 'relative', height: 206 }}>
-            <Box sx={popoverBlogPill}>
-              <Typography variant="inherit">New!</Typography>
-            </Box>
-            <Image src={learnBlogLaptop} alt="learnBlogLaptop" />
+      > */}
+      <Box sx={{ width: 268, pb: '12px' }}>
+        <MediaCard
+          noBg
+          rounded={false}
+          img={laptopArticleImg}
+          imgHeight={200}
+          profileImg={grantGuminaProfile}
+          person="Grant Gumina"
+          type="Blog"
+          title="Announcing the Upbound VSCode Plugin"
+          body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
+          bodyVariant="body_xs"
+          date="15 Feb, 2022"
+          pillText="New!"
+          href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
+        />
+        {/* <Box sx={{ position: 'relative', height: 206 }}>
+          <Box sx={popoverBlogPill}>
+            <Typography variant="inherit">New!</Typography>
           </Box>
-          <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
-            <Box sx={popoverBlogProfilePic}>
-              <Image src={taylorThorntonProfile} alt="taylorThorntonProfile" />
-            </Box>
-            <Typography sx={popoverBlogDarkText}>Taylor Thornton | Blog</Typography>
-            <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
-              Moving Crossplane package authoring from plain YAML to IDE aided development
-            </Typography>
-            <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
-              23 Feb, 2022
-            </Typography>
-          </Box>
+          <Image src={learnBlogLaptop} alt="learnBlogLaptop" />
         </Box>
-      </Link>
+        <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
+          <Box sx={popoverBlogProfilePic}>
+            <Image src={taylorThorntonProfile} alt="taylorThorntonProfile" />
+          </Box>
+          <Typography sx={popoverBlogDarkText}>Taylor Thornton | Blog</Typography>
+          <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
+            Moving Crossplane package authoring from plain YAML to IDE aided development
+          </Typography>
+          <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
+            23 Feb, 2022
+          </Typography>
+        </Box> */}
+      </Box>
+      {/* </Link> */}
     </Box>
   );
 };

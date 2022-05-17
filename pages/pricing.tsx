@@ -140,7 +140,7 @@ const features: Array<{
     data: [
       ['Public Listings', true, true, true, true],
       ['Private Listings', false, '1', 'Unlimited', 'Unlimited'],
-      ['Official Providers', false, true, true, true],
+      ['Official Providers', false, false, true, true],
     ],
   },
   // {
@@ -307,7 +307,7 @@ const Plan: React.FC<{
       <PlanTile>
         <Box display="flex" pt="40px" pb="50px" px="36px" flexDirection="column" height="100%">
           <Box flex={1}>
-            <Header variant="h3" color={color} sx={{ mb: '15px' }}>
+            <Header variant="h3" color={color} sx={{ mb: '15px', minHeight: 100 }}>
               {title}
             </Header>
             <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
