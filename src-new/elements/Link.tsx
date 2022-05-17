@@ -29,7 +29,7 @@ type Props = {
 const Link = ({ href, muiProps, hasArrow, children, ...props }: Props) => {
   return (
     <NextLink href={href} passHref {...props}>
-      <MuiLink underline="none" {...muiProps}>
+      <MuiLink underline="none" color="inherit" {...muiProps}>
         {hasArrow ? (
           <Typography component="span" sx={hasArrowStyle}>
             {children}

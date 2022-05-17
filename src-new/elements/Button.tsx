@@ -5,6 +5,10 @@ import { COLORS, MQ } from 'src/theme';
 
 const scale = 1.05;
 
+const hoverScale: SxProps = {
+  transform: { md: `scale(${scale})` },
+};
+
 const defaultStyles: SxProps = {
   textTransform: 'none',
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
@@ -16,7 +20,7 @@ const whiteContained: SxProps = {
 
   '&:hover': {
     backgroundColor: '#fff',
-    transform: `scale(${scale})`,
+    ...hoverScale,
   },
 };
 
@@ -27,7 +31,7 @@ const whiteOutlined: SxProps = {
 
   '&:hover': {
     backgroundColor: 'unset',
-    transform: `scale(${scale})`,
+    ...hoverScale,
   },
 };
 
@@ -37,7 +41,7 @@ const cornflowerContained: SxProps = {
 
   '&:hover': {
     backgroundColor: COLORS.cornflower,
-    transform: `scale(${scale})`,
+    ...hoverScale,
   },
 };
 
@@ -46,7 +50,7 @@ const gradientContained: SxProps = {
   color: '#fff',
 
   '&:hover': {
-    transform: `scale(${scale})`,
+    ...hoverScale,
   },
 };
 
@@ -56,7 +60,7 @@ const linkWaterContained: SxProps = {
 
   '&:hover': {
     backgroundColor: COLORS.linkWater,
-    transform: `scale(${scale})`,
+    ...hoverScale,
   },
 };
 

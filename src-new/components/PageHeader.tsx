@@ -2,7 +2,17 @@ import React, { useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Box, Popover, SxProps, Typography } from '@mui/material';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Hidden,
+  IconButton,
+  Popover,
+  SxProps,
+  Typography,
+} from '@mui/material';
 import { COLORS } from 'src/theme';
 
 import * as routes from 'src/routes';
@@ -19,6 +29,9 @@ import PartnersIcon from 'src-new/svg/PartnersIcon';
 import SignInIcon from 'src-new/svg/SignInIcon';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 import MediaCard from 'src-new/elements/MediaCard';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const root: SxProps = {
   position: 'absolute',
@@ -26,7 +39,7 @@ const root: SxProps = {
   width: '100%',
   minHeight: 88,
   bgcolor: 'transparent',
-  display: { _: 'none', lg: 'flex' },
+  display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
@@ -50,7 +63,7 @@ const mainContainer: SxProps = {
   height: 88,
   display: 'flex',
   alignItems: 'center',
-  px: '50px',
+  px: { _: '20px', lg: '50px' },
   position: 'absolute',
   // top: 60,
   top: 0,
@@ -64,7 +77,7 @@ const centerItems: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   '& > span,a': {
-    mx: '19px',
+    mx: { lg: '10px', xl: '19px' },
   },
 };
 
@@ -74,7 +87,7 @@ const rightItems: SxProps = {
   alignItems: 'center',
   justifyContent: 'flex-end',
   '& > span,a': {
-    mr: '18px',
+    ml: { lg: '10px', xl: '18px' },
   },
 };
 
@@ -208,6 +221,58 @@ const linkBarBody: SxProps = {
   fontSize: '12px',
   lineHeight: '16px',
   color: COLORS.linkWater,
+};
+
+const menuContainer: SxProps = {
+  flex: 1,
+  width: '100%',
+  height: '100%',
+  bgcolor: COLORS.elephant,
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const accordionRoot: SxProps = {
+  bgcolor: 'transparent',
+  boxShadow: 'none',
+  color: COLORS.linkWater,
+
+  '&:before': {
+    display: 'none',
+  },
+
+  '& .MuiAccordionSummary-expandIconWrapper': {
+    color: COLORS.linkWater,
+  },
+};
+
+const accordionLinkItem: SxProps = {
+  px: 2,
+  height: 48,
+  display: 'flex',
+  alignItems: 'center',
+  color: COLORS.linkWater,
+};
+
+const accordionLinkChild: SxProps = {
+  ml: 2,
+  '&:not(:last-of-type)': {
+    mb: 3,
+  },
+};
+
+const accordionLinkChildText: SxProps = {
+  fontFamily: 'Avenir-Medium',
+  fontSize: 14,
+};
+
+const menuButtonsContainer: SxProps = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  px: 2,
+  py: 4,
 };
 
 type LinkBarProps = {
@@ -418,14 +483,171 @@ const LinkItem = ({ href, title, icon, isDark }: LinkItemProps) => {
   );
 };
 
-type Props = {
+const mobileLinks = [
+  {
+    title: 'Products',
+    children: [
+      {
+        title: 'Upbound Product Page',
+        href: routes.productsUCPRoute,
+      },
+      {
+        title: 'Plans & Pricing',
+        href: routes.pricingRoute,
+      },
+    ],
+  },
+
+  {
+    title: 'Learn',
+    children: [
+      {
+        title: 'Docs',
+        href: routes.cloudDocsUrl,
+      },
+      {
+        title: 'Upbound Blog',
+        href: routes.upboundBlogUrl,
+      },
+      {
+        title: 'Crossplane Slack',
+        href: routes.crossplaneSlackUrl,
+      },
+    ],
+  },
+  {
+    title: 'Marketplace',
+    href: routes.upboundMarketplaceUrl,
+  },
+  {
+    title: 'About',
+    href: routes.aboutRoute,
+  },
+  {
+    title: 'Partners',
+    href: routes.partnersRoute,
+  },
+];
+
+type PageHeaderMobileProps = {
   isDark?: boolean;
+  setOverflowVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const PageHeader = ({ isDark }: Props) => {
+const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps) => {
+  const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
+
+  const handleOpen = () => {
+    setOverflowVisible(false);
+    setExpanded(null);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOverflowVisible(true);
+    setOpen(false);
+  };
+
+  const handleChange = (val: string) => {
+    if (val === expanded) {
+      setExpanded(null);
+    } else {
+      setExpanded(val);
+    }
+  };
+
   return (
-    <Box sx={{ ...root, bgcolor: isDark ? 'transparent' : COLORS.cornflower }}>
-      {/* <Box sx={announceContainer}>
+    <Box
+      sx={{
+        ...root,
+        bgcolor: open ? COLORS.firefly : isDark ? 'transparent' : COLORS.cornflower,
+        height: open ? '100%' : 'unset',
+        zIndex: 1000,
+      }}
+    >
+      <Box
+        sx={{
+          ...mainContainer,
+          position: open ? 'relative' : 'absolute',
+        }}
+      >
+        <Box sx={{ flex: 1 }}>
+          <Link href={routes.homeRoute}>
+            <Image src={logoWhite} alt="upbound logo" width={117} height={31} />
+          </Link>
+        </Box>
+        <Box sx={{ color: '#fff' }}>
+          <IconButton color="inherit" onClick={open ? handleClose : handleOpen}>
+            {open ? <CloseIcon color="inherit" /> : <MenuIcon color="inherit" />}
+          </IconButton>
+        </Box>
+      </Box>
+      {open && (
+        <Box sx={menuContainer}>
+          {mobileLinks.map((item) => (
+            <Box key={item.title}>
+              {item.children ? (
+                <Accordion
+                  expanded={expanded === item.title}
+                  onChange={() => handleChange(item.title)}
+                  disableGutters
+                  square
+                  sx={accordionRoot}
+                >
+                  <AccordionSummary expandIcon={<ExpandMoreIcon color="inherit" />}>
+                    <Typography sx={{ fontFamily: 'Avenir-Medium' }}>{item.title}</Typography>
+                  </AccordionSummary>
+
+                  <AccordionDetails>
+                    {item.children.map((child) => (
+                      <Box key={child.title} sx={accordionLinkChild}>
+                        <Link href={child.href}>
+                          <Typography sx={accordionLinkChildText}>{child.title}</Typography>
+                        </Link>
+                      </Box>
+                    ))}
+                  </AccordionDetails>
+                </Accordion>
+              ) : (
+                <Box sx={accordionLinkItem}>
+                  <Link href={item.href}>
+                    <Typography sx={{ fontFamily: 'Avenir-Medium' }}>{item.title}</Typography>
+                  </Link>
+                </Box>
+              )}
+            </Box>
+          ))}
+          <Box sx={menuButtonsContainer}>
+            <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
+              Try For Free
+            </Button>
+            <Button
+              styleType="whiteOutlined"
+              sizeType="small"
+              href={routes.cloudLoginUrl}
+              sx={{ mt: 2 }}
+            >
+              Sign in
+            </Button>
+          </Box>
+        </Box>
+      )}
+    </Box>
+  );
+};
+
+type Props = {
+  isDark?: boolean;
+  setOverflowVisible: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const PageHeader = ({ isDark, setOverflowVisible }: Props) => {
+  return (
+    <>
+      <Hidden lgDown>
+        <Box sx={{ ...root, bgcolor: isDark ? 'transparent' : COLORS.cornflower }}>
+          {/* <Box sx={announceContainer}>
         <Typography variant="inherit">
           🎉 Announcing the NEW Upbound Marketplace — giving customers access to best-in-class
           components{' '}
@@ -437,37 +659,46 @@ const PageHeader = ({ isDark }: Props) => {
           </Link>
         </Typography>
       </Box> */}
-      <Box sx={mainContainer}>
-        <Box sx={{ flex: 1 }}>
-          <Link href={routes.homeRoute}>
-            <Image src={logoWhite} alt="upbound logo" width={117} height={31} />
-          </Link>
+          <Box sx={mainContainer}>
+            <Box sx={{ flex: { lg: 0.75, xl: 1 } }}>
+              <Link href={routes.homeRoute}>
+                <Image src={logoWhite} alt="upbound logo" width={117} height={31} />
+              </Link>
+            </Box>
+            <Box sx={centerItems}>
+              <PopoverItem title="Products" content={<ProductsPopoverContent />} isDark={isDark} />
+              <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" isDark={isDark} />
+              <PopoverItem title="Learn" content={<LearnPopoverContent />} isDark={isDark} />
+              <LinkItem href={routes.aboutRoute} title="About" isDark={isDark} />
+            </Box>
+            <Box sx={rightItems}>
+              <LinkItem
+                href={routes.partnersRoute}
+                title="Partners"
+                icon={<PartnersIcon />}
+                isDark={isDark}
+              />
+              <LinkItem
+                href={routes.cloudLoginUrl}
+                title="Sign In"
+                icon={<SignInIcon />}
+                isDark={isDark}
+              />
+              <Button
+                styleType="linkWaterContained"
+                sizeType="small"
+                href={routes.cloudRegisterUrl}
+              >
+                Try For Free
+              </Button>
+            </Box>
+          </Box>
         </Box>
-        <Box sx={centerItems}>
-          <PopoverItem title="Products" content={<ProductsPopoverContent />} isDark={isDark} />
-          <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" isDark={isDark} />
-          <PopoverItem title="Learn" content={<LearnPopoverContent />} isDark={isDark} />
-          <LinkItem href={routes.aboutRoute} title="About" isDark={isDark} />
-        </Box>
-        <Box sx={rightItems}>
-          <LinkItem
-            href={routes.partnersRoute}
-            title="Partners"
-            icon={<PartnersIcon />}
-            isDark={isDark}
-          />
-          <LinkItem
-            href={routes.cloudLoginUrl}
-            title="Sign In"
-            icon={<SignInIcon />}
-            isDark={isDark}
-          />
-          <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
-            Try For Free
-          </Button>
-        </Box>
-      </Box>
-    </Box>
+      </Hidden>
+      <Hidden lgUp>
+        <PageHeaderMobile isDark={isDark} setOverflowVisible={setOverflowVisible} />
+      </Hidden>
+    </>
   );
 };
 
