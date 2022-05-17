@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
 
 import Link from 'src-new/elements/Link';
 import VideoModal from 'src/elements/VideoModal';
@@ -42,9 +42,6 @@ const videoPlayIconContainer: SxProps = {
 };
 
 const pillStyle: SxProps = {
-  position: 'absolute',
-  top: 12,
-  right: 12,
   zIndex: 100,
   height: 28,
   px: 2.5,
@@ -58,6 +55,16 @@ const pillStyle: SxProps = {
   lineHeight: '20px',
   letterSpacing: '0',
   color: '#fff',
+  width: 'fit-content',
+  mt: '22px',
+  ml: '16px',
+
+  [MQ.xl]: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+    m: 0,
+  },
 };
 
 const profilePicBase: SxProps = {
@@ -130,10 +137,10 @@ type Props = {
   layout?: 'vertical' | 'horizontal';
   noBg?: boolean;
   rounded?: boolean;
-  img?: string | StaticImport;
+  img?: string | StaticImport | null;
   imgHeight?: number;
   imgWidth?: number;
-  profileImg?: string | StaticImport;
+  profileImg?: string | StaticImport | null;
   profileImgSize?: 'small' | 'big';
   person?: string;
   type?: string;

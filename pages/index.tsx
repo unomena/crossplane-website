@@ -1,9 +1,9 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Box, SxProps, TextField, Typography } from '@mui/material';
-import { COLORS, gradient_1, gradient_2 } from 'src/theme';
+import { Box, Hidden, SxProps, TextField, Typography, useMediaQuery } from '@mui/material';
+import { COLORS, gradient_1, gradient_2, MQ } from 'src/theme';
 import { keyframes } from '@emotion/react';
 
 import * as routes from 'src/routes';
@@ -16,6 +16,7 @@ import quotes from 'src-new/constants/quotes';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
+import Slider from 'src-new/components/Slider';
 import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 import MediaCard from 'src-new/elements/MediaCard';
@@ -32,15 +33,22 @@ import dbLogo from 'public/new-images/trusted-logos/db.svg';
 import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
+import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
 import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
 import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
+import EnterpriseReadyBigMobile from 'public/new-images/home-page/features/EnterpriseReadyBigMobile.svg';
 import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
+import EnterpriseReadySmallMobile from 'public/new-images/home-page/features/EnterpriseReadySmallMobile.svg';
 import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
+import DeployWithConfidenceBigMobile from 'public/new-images/home-page/features/DeployWithConfidenceBigMobile.svg';
 import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
+import DeployWithConfidenceSmallMobile from 'public/new-images/home-page/features/DeployWithConfidenceSmallMobile.svg';
 import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
 import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
+import EfficiencyEaseBigMobile from 'public/new-images/home-page/features/EfficiencyEaseBigMobile.svg';
 import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
+import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
 import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
 import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
@@ -49,7 +57,7 @@ import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-i
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
-  pt: 24,
+  pt: { _: 10, md: 24 },
   pb: 4,
   textAlign: 'center',
   color: COLORS.linkWater,
@@ -73,27 +81,41 @@ const discoverSection: SxProps = {
 
 const h1: SxProps = {
   fontFamily: 'Avenir-Black',
-  fontSize: '95px',
-  lineHeight: '104px',
-  letterSpacing: '-3.28px',
+  fontSize: '46px',
+  lineHeight: '54px',
+  letterSpacing: '-1.59px',
   mb: 3.5,
   ...gradient_1,
+
+  [MQ.md]: {
+    fontFamily: 'Avenir-Black',
+    fontSize: '95px',
+    lineHeight: '104px',
+    letterSpacing: '-3.28px',
+  },
 };
 
 const headerButtons: SxProps = {
-  mt: 7.5,
-  mb: 10,
+  mt: { _: 5, sm: 7.5 },
+  mb: { _: 6, sm: 10 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  flexDirection: { _: 'column', sm: 'row' },
 };
 
 const poweringTitle: SxProps = {
   fontFamily: 'Avenir-Medium',
-  fontSize: '16px',
-  lineHeight: '40px',
-  letterSpacing: '2px',
+  fontSize: '14px',
+  lineHeight: '23px',
+  letterSpacing: '1.75px;',
   mb: 3,
+
+  [MQ.md]: {
+    fontSize: '16px',
+    lineHeight: '40px',
+    letterSpacing: '2px',
+  },
 };
 
 const logosContainer: SxProps = {
@@ -219,18 +241,18 @@ const cpLogoBoxImageContainer: SxProps = {
 };
 
 const cpLogoBoxBigger: SxProps = {
-  width: 108,
-  height: 78,
+  width: { _: 48, md: 108 },
+  height: { _: 35, md: 78 },
 };
 
 const cpLogoBoxBig: SxProps = {
-  width: 98,
-  height: 72,
+  width: { _: 43, md: 98 },
+  height: { _: 32, md: 72 },
 };
 
 const cpLogoBoxSmall: SxProps = {
-  width: 93,
-  height: 66,
+  width: { _: 41, md: 93 },
+  height: { _: 29, md: 66 },
 };
 
 const cpLogoBoxSmaller: SxProps = {
@@ -246,10 +268,16 @@ const pulsate = keyframes`
 
 const smallTitleStyle: SxProps = {
   fontFamily: 'Avenir-Medium',
-  fontSize: '20px',
-  lineHeight: '56px',
-  letterSpacing: '-0.2px',
   ml: 1.5,
+  fontSize: '13px',
+  lineHeight: '16px',
+  letterSpacing: '-0.13px',
+
+  [MQ.md]: {
+    fontSize: '20px',
+    lineHeight: '56px',
+    letterSpacing: '-0.2px',
+  },
 };
 
 const quoteSectionLeftContainer: SxProps = {
@@ -268,7 +296,24 @@ const quoteSectionLeftInner: SxProps = {
   backgroundPosition: 'center',
 };
 
+const quoteSectionContainerMobile: SxProps = {
+  width: '100%',
+  height: 460,
+  backgroundImage: `linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
+  backgroundPosition: 'center',
+};
+
 const quoteSectionLeftBg: SxProps = {
+  backgroundPosition: 'center',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  transition: 'opacity 0.5s',
+};
+
+const quoteSectionBgMobile: SxProps = {
   backgroundPosition: 'center',
   position: 'absolute',
   top: 0,
@@ -283,6 +328,14 @@ const quoteSectionLeftLogo: SxProps = {
   top: '58%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
+  width: '100%',
+  transition: 'opacity 0.5s',
+};
+
+const quoteSectionLogoMobile: SxProps = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
   width: '100%',
   transition: 'opacity 0.5s',
 };
@@ -348,18 +401,23 @@ const quoteSectionQuoteLogoBoxActive: SxProps = {
 const registerFormContainer: SxProps = {
   backgroundImage: 'linear-gradient(-57deg, #FAAD13 0%, #6D64F5 100%)',
   borderRadius: '10px',
-  height: 280,
+  height: { xl: 280 },
   px: '22px',
   py: '24px',
-  mb: 2.5,
+  mb: { xl: 2.5 },
 };
 
 const registerFormTitle: SxProps = {
   fontFamily: 'Avenir-Heavy',
-  fontSize: '30px',
-  lineHeight: '36px',
   color: '#fff',
   mb: 2.5,
+  fontSize: '22px',
+  lineHeight: '27px',
+
+  [MQ.md]: {
+    fontSize: '30px',
+    lineHeight: '36px',
+  },
 };
 
 const registerFormField: SxProps = {
@@ -398,8 +456,14 @@ const visitCard: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  pl: 2.5,
-  maxWidth: 150,
+  px: 2.5,
+  py: 2.5,
+
+  [MQ.xl]: {
+    pl: 2.5,
+    pr: 0,
+    maxWidth: 150,
+  },
 };
 
 const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
@@ -521,6 +585,48 @@ const cpColumnsLeftList = [
   },
 ];
 
+const cpColumnsLeftListMobile = [
+  {
+    sizeStyles: cpLogoBoxBigger,
+    logos: [
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxBig,
+    logos: [
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxSmall,
+    logos: [
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+    ],
+  },
+];
+
 const cpColumnsRightList = [
   {
     sizeStyles: cpLogoBoxSmaller,
@@ -560,6 +666,48 @@ const cpColumnsRightList = [
     sizeStyles: cpLogoBoxBigger,
 
     logos: [
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+    ],
+  },
+];
+
+const cpColumnsRightListMobile = [
+  {
+    sizeStyles: cpLogoBoxSmall,
+    logos: [
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxBig,
+    logos: [
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+      getRandomLogo(),
+    ],
+  },
+  {
+    sizeStyles: cpLogoBoxBigger,
+    logos: [
+      getRandomLogo(),
+      getRandomLogo(),
       getRandomLogo(),
       getRandomLogo(),
       getRandomLogo(),
@@ -632,73 +780,93 @@ const CrossplaneLogosSection = () => {
 
   const delayMulti = 0.25;
 
+  const matches = useMediaQuery(MQ.md);
+
+  const leftList = useMemo(() => {
+    if (matches) {
+      return cpColumnsLeftList;
+    } else {
+      return cpColumnsLeftListMobile;
+    }
+  }, [matches]);
+
+  const rightList = useMemo(() => {
+    if (matches) {
+      return cpColumnsRightList;
+    } else {
+      return cpColumnsRightListMobile;
+    }
+  }, [matches]);
+
   return (
     <Box
       ref={cpSectionRef}
       sx={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}
     >
-      <Box sx={cpLeftColumns}>
-        <Box sx={{ ...cpColumnShadow, left: -176 }} />
-        {cpColumnsLeftList.map((c, columnIndex) => (
-          <Box
-            key={columnIndex}
-            sx={{
-              ...cpLogoBoxColumn,
-              opacity: show ? 1 : 0,
-              transitionDelay: `${(columnIndex - 3) * -delayMulti}s`,
-            }}
-          >
-            {c.logos.map((v, logoIndex) => {
-              const columnStartIndex = (columnIndex + 1) * 6 - 6;
-              const realIndex = logoIndex + columnStartIndex;
-              return (
-                <CPLogoBox
-                  key={logoIndex}
-                  sizeStyles={c.sizeStyles}
-                  shouldUpdate={logoToUpdateLeft === realIndex}
-                />
-              );
-            })}
-          </Box>
-        ))}
-      </Box>
-      <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
-        <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
-        <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
-        <Typography variant="body_normal">
-          Adopted by hundreds of amazing
-          <br />
-          companies
-        </Typography>
-        <Button styleType="cornflowerContained" sx={{ mt: 3.5 }} href={routes.crossplaneUrl}>
-          Learn more about Crossplane
-        </Button>
-      </Box>
-      <Box sx={cpRightColumns}>
-        {cpColumnsRightList.map((c, columnIndex) => (
-          <Box
-            key={columnIndex}
-            sx={{
-              ...cpLogoBoxColumn,
-              opacity: show ? 1 : 0,
-              transitionDelay: `${columnIndex * delayMulti}s`,
-            }}
-          >
-            {c.logos.map((v, logoIndex) => {
-              const columnStartIndex = (columnIndex + 1) * 6 - 6;
-              const realIndex = logoIndex + columnStartIndex + 24;
-              return (
-                <CPLogoBox
-                  key={logoIndex}
-                  sizeStyles={c.sizeStyles}
-                  shouldUpdate={logoToUpdateRight === realIndex}
-                />
-              );
-            })}
-          </Box>
-        ))}
-        <Box sx={{ ...cpColumnShadow, right: -176 }} />
-      </Box>
+      <Hidden mdDown>
+        <Box sx={cpLeftColumns}>
+          <Box sx={{ ...cpColumnShadow, left: -176 }} />
+          {leftList.map((c, columnIndex) => (
+            <Box
+              key={columnIndex}
+              sx={{
+                ...cpLogoBoxColumn,
+                opacity: show ? 1 : 0,
+                transitionDelay: `${(columnIndex - 3) * -delayMulti}s`,
+              }}
+            >
+              {c.logos.map((v, logoIndex) => {
+                const columnStartIndex = (columnIndex + 1) * 6 - 6;
+                const realIndex = logoIndex + columnStartIndex;
+                return (
+                  <CPLogoBox
+                    key={logoIndex}
+                    sizeStyles={c.sizeStyles}
+                    shouldUpdate={logoToUpdateLeft === realIndex}
+                  />
+                );
+              })}
+            </Box>
+          ))}
+        </Box>
+        <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
+          <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
+          <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
+          <Typography variant="body_normal">
+            Adopted by hundreds of amazing
+            <br />
+            companies
+          </Typography>
+          <Button styleType="cornflowerContained" sx={{ mt: 3.5 }} href={routes.crossplaneUrl}>
+            Learn more about Crossplane
+          </Button>
+        </Box>
+        <Box sx={cpRightColumns}>
+          {rightList.map((c, columnIndex) => (
+            <Box
+              key={columnIndex}
+              sx={{
+                ...cpLogoBoxColumn,
+                opacity: show ? 1 : 0,
+                transitionDelay: `${columnIndex * delayMulti}s`,
+              }}
+            >
+              {c.logos.map((v, logoIndex) => {
+                const columnStartIndex = (columnIndex + 1) * 6 - 6;
+                const realIndex = logoIndex + columnStartIndex + 24;
+                return (
+                  <CPLogoBox
+                    key={logoIndex}
+                    sizeStyles={c.sizeStyles}
+                    shouldUpdate={logoToUpdateRight === realIndex}
+                  />
+                );
+              })}
+            </Box>
+          ))}
+          <Box sx={{ ...cpColumnShadow, right: -176 }} />
+        </Box>
+      </Hidden>
       <Box
         ref={hiddenBarRef}
         sx={{ width: '100%', height: '1px', position: 'absolute', bottom: -40 }}
@@ -720,15 +888,30 @@ type FeatureBlockProps = {
     href: string;
     icon: string | StaticImport;
     imgBig: string | StaticImport;
+    imgBigMobile: string | StaticImport;
     imgSmall: string | StaticImport;
+    imgSmallMobile: string | StaticImport;
     imgSmallOffset: { top: number; right: number };
+    imgSmallOffsetMobile: { top: number; right: number };
     reversed?: Boolean;
   };
 };
 
 const FeatureBlock = ({ feature }: FeatureBlockProps) => {
-  const { smallTitle, bigTitle, body, href, icon, imgBig, imgSmall, imgSmallOffset, reversed } =
-    feature;
+  const {
+    smallTitle,
+    bigTitle,
+    body,
+    href,
+    icon,
+    imgBig,
+    imgBigMobile,
+    imgSmall,
+    imgSmallMobile,
+    imgSmallOffset,
+    imgSmallOffsetMobile,
+    reversed,
+  } = feature;
 
   let smallTitleGradient = gradient_1;
   if (reversed) {
@@ -749,27 +932,43 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'center',
         color: COLORS.linkWater,
-        flexDirection: reversed ? 'row-reverse' : 'row',
         position: 'relative',
+        flexDirection: 'column',
+        [MQ.lg]: {
+          alignItems: 'center',
+          flexDirection: reversed ? 'row-reverse' : 'row',
+        },
       }}
     >
       <Box
         sx={{
-          flex: 1,
-          width: '50%',
-          minWidth: '50%',
-          maxWidth: '50%',
-          pr: reversed ? '0px' : '28px',
-          pl: reversed ? '28px' : '0px',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
+          [MQ.lg]: {
+            flex: 1,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: reversed ? '0px' : '28px',
+            pl: reversed ? '28px' : '0px',
+          },
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <Box sx={{ position: 'relative', display: 'flex' }}>
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              maxHeight: 16,
+              maxWidth: 16,
+              [MQ.md]: {
+                maxHeight: 'unset',
+                maxWidth: 'unset',
+              },
+            }}
+          >
             <Image src={icon} alt="icon" />
           </Box>
           <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
@@ -797,35 +996,73 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
       </Box>
       <Box
         sx={{
-          flex: 1,
-          width: '50%',
-          minWidth: '50%',
-          maxWidth: '50%',
-          pr: reversed ? '28px' : '0px',
-          pl: reversed ? '0px' : '28px',
+          mt: '40px',
+          [MQ.lg]: {
+            flex: 1,
+            mt: 0,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: reversed ? '28px' : '0px',
+            pl: reversed ? '0px' : '28px',
+          },
         }}
       >
-        <Box sx={{ position: 'relative' }}>
+        <Box
+          sx={{
+            position: 'relative',
+            width: { _: 'fit-content', lg: 'unset' },
+            ml: { _: '-14px', lg: 0 },
+          }}
+        >
           <Box
             sx={{
-              ml: reversed ? '-68px' : 0,
-              transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
               transition: 'transform 1.5s',
+              transform: show ? '' : `translate(100vw)`,
+
+              [MQ.lg]: {
+                transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+                ml: reversed ? '-68px' : 0,
+              },
             }}
           >
-            <Image src={imgBig} alt="feature-img-big" />
+            <Hidden lgDown>
+              <Image src={imgBig} alt="feature-img-big" />
+            </Hidden>
+            <Hidden lgUp>
+              <Image src={imgBigMobile} alt="feature-img-big-mobile" />
+            </Hidden>
           </Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: imgSmallOffset.top,
-              right: imgSmallOffset.right,
-              transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-              transition: 'transform 2s',
-            }}
-          >
-            <Image src={imgSmall} alt="feature-img-small" />
-          </Box>
+          <Hidden lgDown>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imgSmallOffset.top,
+                right: imgSmallOffset.right,
+                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                transition: 'transform 2s',
+              }}
+            >
+              <Image src={imgSmall} alt="feature-img-small" />
+            </Box>
+          </Hidden>
+          <Hidden lgUp>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imgSmallOffsetMobile.top,
+                right: imgSmallOffsetMobile.right,
+                transition: 'transform 2s',
+                transform: show ? '' : `translate(-100vw)`,
+
+                [MQ.lg]: {
+                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                },
+              }}
+            >
+              <Image src={imgSmallMobile} alt="feature-img-small-mobile" />
+            </Box>
+          </Hidden>
         </Box>
       </Box>
     </Box>
@@ -842,8 +1079,11 @@ const features = [
     href: routes.productsUCPRoute,
     icon: EnterpriseReadyIcon,
     imgBig: EnterpriseReadyBig,
+    imgBigMobile: EnterpriseReadyBigMobile,
     imgSmall: EnterpriseReadySmall,
+    imgSmallMobile: EnterpriseReadySmallMobile,
     imgSmallOffset: { top: 103, right: -68 },
+    imgSmallOffsetMobile: { top: 53, right: -32 },
     reversed: false,
   },
   {
@@ -857,8 +1097,11 @@ const features = [
     href: routes.productsUCPRoute,
     icon: DeployWithConfidenceIcon,
     imgBig: DeployWithConfidenceBig,
+    imgBigMobile: DeployWithConfidenceBigMobile,
     imgSmall: DeployWithConfidenceSmall,
+    imgSmallMobile: DeployWithConfidenceSmallMobile,
     imgSmallOffset: { top: 67, right: 0 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
     reversed: true,
   },
   {
@@ -871,15 +1114,25 @@ const features = [
     href: routes.productsUCPRoute,
     icon: EfficiencyEaseIcon,
     imgBig: EfficiencyEaseBig,
+    imgBigMobile: EfficiencyEaseBigMobile,
     imgSmall: EfficiencyEaseSmall,
+    imgSmallMobile: EfficiencyEaseSmallMobile,
     imgSmallOffset: { top: 54, right: -17 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
     reversed: false,
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <Box sx={{ '& > div': { pb: 25 } }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > div': { pb: { _: 10, lg: 25 } },
+      }}
+    >
       {features.map((feature) => (
         <FeatureBlock key={feature.smallTitle} feature={feature} />
       ))}
@@ -916,82 +1169,153 @@ const QuoteSection = () => {
 
   return (
     <Box ref={quoteSectionRef} sx={{ display: 'flex', color: COLORS.linkWater }}>
-      <Box sx={{ flex: 1 }}>
-        <Box sx={quoteSectionLeftContainer}>
-          <Box sx={quoteSectionLeftInner}>
-            {quotes.map((quote, index) => (
+      <Hidden xlDown>
+        <Box sx={{ flex: 1 }}>
+          <Box sx={quoteSectionLeftContainer}>
+            <Box sx={quoteSectionLeftInner}>
+              {quotes.map((quote, index) => (
+                <Box
+                  key={quote.title}
+                  sx={{
+                    ...quoteSectionLeftBg,
+                    backgroundImage: `url("${quote.bgImage}")`,
+                    opacity: activeQuote === index ? 1 : 0,
+                  }}
+                />
+              ))}
+              {quotes.map((quote, index) => (
+                <Box
+                  key={quote.title}
+                  sx={{
+                    ...quoteSectionLeftLogo,
+                    opacity: activeQuote === index ? 1 : 0,
+                  }}
+                >
+                  <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+            <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
+              <Box sx={{ position: 'relative' }}>
+                <Image src={bigQuotes} alt="big-quotes" />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box sx={quoteSectionRightContainer}>
+          {quotes.map((quote, index) => (
+            <Box
+              key={quote.title}
+              sx={{
+                mb: activeQuote === index ? 7 : 0,
+                opacity: activeQuote === index ? 1 : 0,
+                transition: 'opacity 0.5s',
+                position: activeQuote === index ? 'relative' : 'absolute',
+                top: 0,
+              }}
+            >
+              <Box sx={{ minHeight: 275, mb: 4.5 }}>
+                <Typography variant="h2_new" sx={{ mb: 3 }}>
+                  {quote.title}
+                </Typography>
+                <Typography variant="body_normal">{quote.body}</Typography>
+              </Box>
+              <Typography variant="h6_new" sx={{ mb: '2px' }}>
+                {quote.person}
+              </Typography>
+              <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
+                {quote.role}
+              </Typography>
+            </Box>
+          ))}
+          <Box sx={quoteSectionQuoteLogos}>
+            {quotes.map((quote, index) => {
+              let styles = quoteSectionQuoteLogoBox;
+              if (index === activeQuote) {
+                styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
+              }
+              return (
+                <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                  <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              );
+            })}
+          </Box>
+        </Box>
+      </Hidden>
+      <Hidden xlUp>
+        <Box sx={quoteSectionContainerMobile}>
+          {quotes.map((quote, index) => (
+            <Box
+              key={quote.title}
+              sx={{
+                height: '100%',
+                pt: 7,
+                pb: 4,
+                px: 2,
+                zIndex: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                position: activeQuote === index ? 'relative' : 'absolute',
+                opacity: activeQuote === index ? 1 : 0,
+              }}
+            >
               <Box
-                key={quote.title}
                 sx={{
-                  ...quoteSectionLeftBg,
+                  ...quoteSectionBgMobile,
                   backgroundImage: `url("${quote.bgImage}")`,
-                  opacity: activeQuote === index ? 1 : 0,
+                  zIndex: -1,
                 }}
               />
-            ))}
-            {quotes.map((quote, index) => (
+              <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
+                <Box
+                  sx={{
+                    ...quoteSectionLogoMobile,
+                    opacity: activeQuote === index ? 1 : 0,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      width: quote.logoSize.width,
+                      height: quote.logoSize.height,
+                    }}
+                  >
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              </Box>
               <Box
-                key={quote.title}
                 sx={{
-                  ...quoteSectionLeftLogo,
-                  opacity: activeQuote === index ? 1 : 0,
+                  // minHeight: 275,
+                  mb: 2.5,
                 }}
               >
-                <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
-                  <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
-                </Box>
+                <Typography variant="h2_new" sx={{ mb: 1.5 }}>
+                  {quote.title}
+                </Typography>
+                <Typography variant="body_normal">{quote.body}</Typography>
               </Box>
-            ))}
-          </Box>
-          <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
-            <Box sx={{ position: 'relative' }}>
-              <Image src={bigQuotes} alt="big-quotes" />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-      <Box sx={quoteSectionRightContainer}>
-        {quotes.map((quote, index) => (
-          <Box
-            key={quote.title}
-            sx={{
-              mb: activeQuote === index ? 7 : 0,
-              opacity: activeQuote === index ? 1 : 0,
-              transition: 'opacity 0.5s',
-              position: activeQuote === index ? 'relative' : 'absolute',
-              top: 0,
-            }}
-          >
-            <Box sx={{ minHeight: 275, mb: 4.5 }}>
-              <Typography variant="h2_new" sx={{ mb: 3 }}>
-                {quote.title}
+              <Typography variant="h6_new" sx={{ mb: '2px' }}>
+                {quote.person}
               </Typography>
-              <Typography variant="body_normal">{quote.body}</Typography>
+              <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
+                {quote.role}
+              </Typography>
             </Box>
-            <Typography variant="h6_new" sx={{ mb: '2px' }}>
-              {quote.person}
-            </Typography>
-            <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
-              {quote.role}
-            </Typography>
+          ))}
+          <Box sx={{ position: 'absolute', bottom: -24, right: 16 }}>
+            <Box sx={{ position: 'relative' }}>
+              <Image src={bigQuotes} alt="big-quotes" width={72} height={57} />
+            </Box>
           </Box>
-        ))}
-        <Box sx={quoteSectionQuoteLogos}>
-          {quotes.map((quote, index) => {
-            let styles = quoteSectionQuoteLogoBox;
-            if (index === activeQuote) {
-              styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
-            }
-            return (
-              <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
-                <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                  <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
-                </Box>
-              </Box>
-            );
-          })}
         </Box>
-      </Box>
+      </Hidden>
     </Box>
   );
 };
@@ -1029,9 +1353,110 @@ const headerLogos = [
   },
 ];
 
+const MediaCard_1 = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <MediaCard
+      img={mainArticleImg}
+      imgHeight={matchesXL ? 260 : 180}
+      profileImg={grantGuminaProfile}
+      profileImgSize="big"
+      person="Grant Gumina"
+      type="webinar"
+      title="Control Planes: The Missing Ingredient for Cloud Native Developer Platforms"
+      titleVariant="h4_new"
+      body={
+        matchesXL
+          ? `Who you get infrastructure from and how you build applications for it has changed.
+          Now more than ever, customers are utilizing best-in-class infrastructure from the vendors
+          of their choice. However, this presents challenges...`
+          : ''
+      }
+      href="https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar"
+    />
+  );
+};
+
+const MediaCard_2 = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <MediaCard
+      layout={matchesXL ? 'horizontal' : 'vertical'}
+      img={matchesXL ? matthiasArticleImg : null}
+      imgHeight={130}
+      imgWidth={130}
+      person="Matthias Luebken"
+      type="Blog"
+      title="Announcing 100% Cloud Service Coverage for Crossplane"
+      pillText="Must read!"
+      href={`${routes.upboundBlogUrl}cloud-service-coverage/`}
+    />
+  );
+};
+
+const MediaCard_3 = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <MediaCard
+      img={laptopArticleImg}
+      profileImg={matchesXL ? grantGuminaProfile : null}
+      person="Grant Gumina"
+      type="Blog"
+      title="Announcing the Upbound VSCode Plugin"
+      body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
+      date="15 Feb, 2022"
+      pillText="New!"
+      href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
+    />
+  );
+};
+
+const RegisterForm = () => {
+  return (
+    <Box sx={registerFormContainer}>
+      <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
+      <TextField
+        fullWidth
+        variant="outlined"
+        placeholder="Your Email"
+        size="small"
+        sx={registerFormField}
+      />
+      <Box sx={{ cursor: 'pointer', width: 'fit-content' }} onClick={() => {}}>
+        <Typography component="span" sx={registerFormSubmit}>
+          Submit email
+          <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
+            <ArrowRightRounded height={11} color="currentColor" />
+          </Box>
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
+
+const VisitBlogCard = () => {
+  return (
+    <CornerCard
+      icon={arrowCircle}
+      iconSize="small"
+      withPadding={false}
+      href={routes.upboundBlogUrl}
+    >
+      <Box sx={visitCard}>
+        <Typography variant="h5_new">Visit the Upbound Blog</Typography>
+      </Box>
+    </CornerCard>
+  );
+};
+
 type Props = {};
 
 const Home = ({}: Props) => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
   return (
     <PageProvider isDark>
       <Section sx={headerSection}>
@@ -1045,7 +1470,12 @@ const Home = ({}: Props) => {
           <Button
             styleType="gradientContained"
             sizeType="large"
-            sx={{ width: 208, mr: '10px', '& > .MuiButton-iconSizeMedium': { mr: '10px' } }}
+            sx={{
+              width: { _: 225, sm: 208 },
+              mr: { _: 0, sm: '10px' },
+              mb: { _: '20px', sm: 0 },
+              '& > .MuiButton-iconSizeMedium': { mr: '10px' },
+            }}
             startIcon={<RocketShipIcon />}
             href={routes.cloudRegisterUrl}
           >
@@ -1054,7 +1484,11 @@ const Home = ({}: Props) => {
           <Button
             styleType="whiteOutlined"
             sizeType="large"
-            sx={{ width: 208, ml: '10px', '& > .MuiButton-iconSizeMedium': { ml: '16px' } }}
+            sx={{
+              width: { _: 225, sm: 208 },
+              ml: { _: 0, sm: '10px' },
+              '& > .MuiButton-iconSizeMedium': { ml: '16px' },
+            }}
             endIcon={<ArrowRight />}
             href={routes.contactSalesUrl}
           >
@@ -1069,8 +1503,22 @@ const Home = ({}: Props) => {
             </Box>
           ))}
         </Box>
+
+        {/* <Slider>
+          {headerLogos.map((logo) => (
+            <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
+              <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+            </Box>
+          ))}
+        </Slider> */}
+
         <Box sx={{ position: 'relative' }}>
-          <Image src={headerDiagram} alt="headerDiagram" />
+          <Hidden smDown>
+            <Image src={headerDiagram} alt="headerDiagram" />
+          </Hidden>
+          <Hidden smUp>
+            <Image src={headerDiagramMobile} alt="headerDiagramMobile" />
+          </Hidden>
         </Box>
       </Section>
       <Section
@@ -1080,110 +1528,121 @@ const Home = ({}: Props) => {
       >
         <Typography variant="h2_new" sx={{ mb: 2.5 }}>
           Committed to open source.
-          <br />
+          <Hidden smDown>
+            <br />
+          </Hidden>
+          <Hidden smUp> </Hidden>
           Powered by Crossplane.
         </Typography>
-        <Typography variant="body_normal" sx={{ mb: 8 }}>
-          Created by Upbound, Crossplane is a framework for building cloud native control planes.
-        </Typography>
+        <Hidden smDown>
+          <Typography variant="body_normal" sx={{ mb: 8, mx: 'auto' }}>
+            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+          </Typography>
+        </Hidden>
+        <Hidden smUp>
+          <Typography variant="body_big" sx={{ mb: 8, mx: 'auto', maxWidth: 480 }}>
+            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+          </Typography>
+        </Hidden>
+
         <CrossplaneLogosSection />
       </Section>
       <Section sx={{ pt: 20, position: 'relative' }}>
         <FeaturesSection />
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: 18, pb: 7.5, position: 'relative' }}>
+      <Section
+        bgcolor
+        angleTop="topRight"
+        hasContainer={matchesXL}
+        sx={{
+          position: 'relative',
+          [MQ.xl]: {
+            pt: 18,
+            pb: 7.5,
+          },
+        }}
+      >
         <QuoteSection />
       </Section>
       <Section sx={discoverSection}>
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
-          <Typography variant="h2_new">Learn more about Upbound</Typography>
-          <Box sx={{ display: 'flex', ml: 3.5 }}>
-            <FullArrowRight />
-          </Box>
-        </Box>
-        <Box sx={{ display: 'flex', height: 550 }}>
-          <Box sx={{ height: '100%', width: 540 }}>
-            <MediaCard
-              img={mainArticleImg}
-              imgHeight={350}
-              profileImg={grantGuminaProfile}
-              profileImgSize="big"
-              person="Grant Gumina"
-              type="webinar"
-              title="Control Planes: The Missing Ingredient for Cloud Native Developer Platforms"
-              titleVariant="h4_new"
-              body="Who you get infrastructure from and how you build applications for it has changed.
-              Now more than ever, customers are utilizing best-in-class infrastructure from the vendors
-              of their choice. However, this presents challenges..."
-              href="https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar"
-            />
-          </Box>
-          <Box sx={{ flex: 1, ml: 2.5 }}>
-            <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
-              <MediaCard
-                layout="horizontal"
-                img={matthiasArticleImg}
-                imgHeight={130}
-                imgWidth={130}
-                person="Matthias Luebken"
-                type="Blog"
-                title="Announcing 100% Cloud Service Coverage for Crossplane"
-                pillText="Must read!"
-                href={`${routes.upboundBlogUrl}cloud-service-coverage/`}
-              />
+        <Hidden xlDown>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
+            <Typography variant="h2_new">Learn more about Upbound</Typography>
+            <Box sx={{ display: 'flex', ml: 3.5 }}>
+              <FullArrowRight width={32} height={32} />
             </Box>
-            <Box sx={{ display: 'flex' }}>
-              <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
-                <MediaCard
-                  img={laptopArticleImg}
-                  imgHeight={200}
-                  profileImg={grantGuminaProfile}
-                  person="Grant Gumina"
-                  type="Blog"
-                  title="Announcing the Upbound VSCode Plugin"
-                  body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
-                  date="15 Feb, 2022"
-                  pillText="New!"
-                  href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
-                />
+          </Box>
+          <Box sx={{ display: 'flex', height: 550 }}>
+            <Box sx={{ height: '100%', width: 540 }}>
+              <MediaCard_1 />
+            </Box>
+            <Box sx={{ flex: 1, ml: 2.5 }}>
+              <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
+                <MediaCard_2 />
               </Box>
-              <Box
-                sx={{ flex: 1, width: '50%', ml: '10px', display: 'flex', flexDirection: 'column' }}
-              >
-                <Box sx={registerFormContainer}>
-                  <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
-                  <TextField
-                    fullWidth
-                    variant="outlined"
-                    placeholder="Your Email"
-                    size="small"
-                    sx={registerFormField}
-                  />
-                  <Box sx={{ cursor: 'pointer', width: 'fit-content' }} onClick={() => {}}>
-                    <Typography component="span" sx={registerFormSubmit}>
-                      Submit email
-                      <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
-                        <ArrowRightRounded height={11} color="currentColor" />
-                      </Box>
-                    </Typography>
+              <Box sx={{ display: 'flex' }}>
+                <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
+                  <MediaCard_3 />
+                </Box>
+                <Box
+                  sx={{
+                    flex: 1,
+                    width: '50%',
+                    ml: '10px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <RegisterForm />
+                  <Box sx={{ flex: 1 }}>
+                    <VisitBlogCard />
                   </Box>
                 </Box>
-                <Box sx={{ flex: 1 }}>
-                  <CornerCard
-                    icon={arrowCircle}
-                    iconSize="small"
-                    withPadding={false}
-                    href={routes.upboundBlogUrl}
-                  >
-                    <Box sx={visitCard}>
-                      <Typography variant="h5_new">Visit the Upbound Blog</Typography>
-                    </Box>
-                  </CornerCard>
-                </Box>
               </Box>
             </Box>
           </Box>
-        </Box>
+        </Hidden>
+        <Hidden xlUp>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Box sx={{ width: '100%', maxWidth: 400 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  mb: 5,
+                  color: COLORS.linkWater,
+                }}
+              >
+                <Typography variant="h2_new">Learn more</Typography>
+                <Hidden mdDown>
+                  <Box sx={{ display: 'flex', ml: 3.5 }}>
+                    <FullArrowRight width={32} height={32} />
+                  </Box>
+                </Hidden>
+                <Hidden mdUp>
+                  <Box sx={{ display: 'flex', ml: 1.5 }}>
+                    <FullArrowRight width={18} height={18} />
+                  </Box>
+                </Hidden>
+              </Box>
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <MediaCard_1 />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <MediaCard_2 />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <MediaCard_3 />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <RegisterForm />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400 }}>
+              <VisitBlogCard />
+            </Box>
+          </Box>
+        </Hidden>
       </Section>
     </PageProvider>
   );

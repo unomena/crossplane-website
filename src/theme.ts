@@ -179,6 +179,23 @@ declare module '@mui/material/Typography' {
   }
 }
 
+const customBreakpoints = {
+  _: 0,
+  xs: 480,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1170,
+};
+
+export const MQ = {
+  xs: `@media screen and (min-width: ${customBreakpoints.xs}px)`,
+  sm: `@media screen and (min-width: ${customBreakpoints.sm}px)`,
+  md: `@media screen and (min-width: ${customBreakpoints.md}px)`,
+  lg: `@media screen and (min-width: ${customBreakpoints.lg}px)`,
+  xl: `@media screen and (min-width: ${customBreakpoints.xl}px)`,
+};
+
 const theme = createTheme({
   palette: {
     // background: {
@@ -224,10 +241,16 @@ const theme = createTheme({
     },
     h2_new: {
       fontFamily: 'Avenir-Black',
-      fontSize: '54px',
-      lineHeight: '62px',
-      letterSpacing: '-0.54px',
       color: COLORS.linkWater,
+      fontSize: '27px',
+      lineHeight: '32px',
+      letterSpacing: '-0.27px',
+
+      [MQ.md]: {
+        fontSize: '54px',
+        lineHeight: '62px',
+        letterSpacing: '-0.54px',
+      },
     },
     h3_new: {
       fontFamily: 'Avenir-Black',
@@ -238,15 +261,25 @@ const theme = createTheme({
     },
     h4_new: {
       fontFamily: 'Avenir-Heavy',
-      fontSize: '30px',
-      lineHeight: '36px',
       color: COLORS.linkWater,
+      fontSize: '18px',
+      lineHeight: '24px',
+
+      [MQ.md]: {
+        fontSize: '30px',
+        lineHeight: '36px',
+      },
     },
     h5_new: {
       fontFamily: 'Avenir-Heavy',
-      fontSize: '18px',
-      lineHeight: '25px',
       color: COLORS.linkWater,
+      fontSize: '16px',
+      lineHeight: '24px',
+
+      [MQ.md]: {
+        fontSize: '18px',
+        lineHeight: '25px',
+      },
     },
     h6_new: {
       fontFamily: 'Avenir-Heavy',
@@ -256,15 +289,25 @@ const theme = createTheme({
     },
     body_big: {
       fontFamily: 'Avenir-Book',
-      fontSize: '24px',
-      lineHeight: '40px',
       color: COLORS.linkWater,
+      fontSize: '18px',
+      lineHeight: '28px',
+
+      [MQ.md]: {
+        fontSize: '24px',
+        lineHeight: '40px',
+      },
     },
     body_normal: {
       fontFamily: 'Avenir-Book',
-      fontSize: '20px',
-      lineHeight: '32px',
       color: COLORS.linkWater,
+      fontSize: '14px',
+      lineHeight: '22px',
+
+      [MQ.md]: {
+        fontSize: '20px',
+        lineHeight: '32px',
+      },
     },
     body_small: {
       fontFamily: 'Avenir-Book',
@@ -281,14 +324,7 @@ const theme = createTheme({
     },
   },
   breakpoints: {
-    values: {
-      _: 0,
-      xs: 480,
-      sm: 576,
-      md: 768,
-      lg: 992,
-      xl: 1170,
-    },
+    values: customBreakpoints,
   },
   components: {
     MuiTypography: {
@@ -320,14 +356,6 @@ export const gradient_2: SxProps = {
   background: `linear-gradient(145deg, ${COLORS.cornflower}, ${COLORS.sun})`,
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
-};
-
-export const MQ = {
-  xs: `@media screen and (min-width: ${theme.breakpoints.values.xs}px)`,
-  sm: `@media screen and (min-width: ${theme.breakpoints.values.sm}px)`,
-  md: `@media screen and (min-width: ${theme.breakpoints.values.md}px)`,
-  lg: `@media screen and (min-width: ${theme.breakpoints.values.lg}px)`,
-  xl: `@media screen and (min-width: ${theme.breakpoints.values.xl}px)`,
 };
 
 export const globalStyle = css`
