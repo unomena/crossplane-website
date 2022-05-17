@@ -170,13 +170,13 @@ const popoverContentHeader: SxProps = {
 };
 
 const popoverContentBodySmall: SxProps = {
-  fontSize: '13px',
-  lineHeight: '20px',
+  fontSize: '13px !important',
+  lineHeight: '20px !important',
 };
 
 const popoverContentBodyBig: SxProps = {
-  fontSize: '16px',
-  lineHeight: '26px',
+  fontSize: '16px !important',
+  lineHeight: '26px !important',
 };
 
 const linkBar: SxProps = {
@@ -300,13 +300,12 @@ const ProductsPopoverContent = () => {
       <Box sx={{ width: 328, py: 3.5, pl: 3.5, pr: 2.5 }}>
         <Typography sx={popoverContentHeader}>Products</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
-          Future-proof your cloud infrastructure, reduce costs, and increase efficiency by deploying
-          production-ready control planes.
+          Future-proof cloud infrastructure, reduce costs, & increase efficiency
         </Typography>
         <LinkBar
           href={routes.productsUCPRoute}
-          title="Upbound"
-          body="A simple and all-encompassing solution to adopt control plane architecture"
+          title="Upbound Product Page"
+          body="The single control center for your infrastructure"
           sx={{ mb: 1.5 }}
         />
         <LinkBar
@@ -336,8 +335,7 @@ const LearnPopoverContent = () => {
       <Box sx={{ width: 328, py: 3.5, pl: 3.5, pr: 2.5 }}>
         <Typography sx={popoverContentHeader}>More on Upbound</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
-          From tutorials to in-depth knowledge from industry experts, discover comprehensive insight
-          into cloud infrastructure management from Upbound.
+          From tutorials to knowledge from industry experts, discover comprehensive insights
         </Typography>
         <LinkBar
           href={routes.cloudDocsUrl}
@@ -348,13 +346,13 @@ const LearnPopoverContent = () => {
         <LinkBar
           href={routes.upboundBlogUrl}
           title="Upbound Blog"
-          body="Discover cutting-edge thought leadership & news"
+          body="Discover cutting-edge thought leadership"
           sx={{ mb: 1.5 }}
         />
         <LinkBar
           href={routes.crossplaneSlackUrl}
           title="Crossplane Slack"
-          body="Join a passionate community to get the support you need"
+          body="Join a passionate community for the support you need"
         />
       </Box>
       <Box sx={popoverDivider} />

@@ -1,10 +1,13 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
 import { Box, Hidden, SxProps, TextField, Typography, useMediaQuery } from '@mui/material';
 import { COLORS, gradient_1, gradient_2, MQ } from 'src/theme';
 import { keyframes } from '@emotion/react';
+
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import * as routes from 'src/routes';
 
@@ -16,7 +19,6 @@ import quotes from 'src-new/constants/quotes';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
-import Slider from 'src-new/components/Slider';
 import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 import MediaCard from 'src-new/elements/MediaCard';
@@ -211,18 +213,29 @@ const cpCenterBox: SxProps = {
 
 const cpCenterBoxTitleNum: SxProps = {
   fontFamily: 'Avenir-Book',
-  fontSize: '74px',
-  lineHeight: '36px',
   color: '#fff',
-  mb: 1.5,
+  fontSize: '50px',
+  lineHeight: '50px',
+
+  [MQ.lg]: {
+    fontSize: '74px',
+    lineHeight: '36px',
+    mb: 1.5,
+  },
 };
 
 const cpCenterBoxTitleText: SxProps = {
   fontFamily: 'Avenir-Black',
-  fontSize: '24px',
-  lineHeight: '36px',
   color: '#fff',
-  mb: 3,
+  fontSize: '20px',
+  lineHeight: '24px',
+  mb: 1.5,
+
+  [MQ.lg]: {
+    fontSize: '24px',
+    lineHeight: '36px',
+    mb: 3,
+  },
 };
 
 const cpLogoBox: SxProps = {
@@ -241,23 +254,29 @@ const cpLogoBoxImageContainer: SxProps = {
 };
 
 const cpLogoBoxBigger: SxProps = {
-  width: { _: 48, md: 108 },
-  height: { _: 35, md: 78 },
+  width: 108,
+  height: 78,
 };
 
 const cpLogoBoxBig: SxProps = {
-  width: { _: 43, md: 98 },
-  height: { _: 32, md: 72 },
+  width: 98,
+  height: 72,
 };
 
 const cpLogoBoxSmall: SxProps = {
-  width: { _: 41, md: 93 },
-  height: { _: 29, md: 66 },
+  width: 93,
+  height: 66,
 };
 
 const cpLogoBoxSmaller: SxProps = {
   width: 83,
   height: 59,
+};
+
+const cpLogoBoxMobile: SxProps = {
+  width: 83,
+  height: 59,
+  m: 0.5,
 };
 
 const pulsate = keyframes`
@@ -471,6 +490,158 @@ const visitCard: SxProps = {
   },
 };
 
+const headerLogos = [
+  {
+    id: 1,
+    src: mbpcLogo,
+    width: 90,
+    height: 21,
+  },
+  {
+    id: 2,
+    src: dfdsLogo,
+    width: 80,
+    height: 28,
+  },
+  {
+    id: 3,
+    src: grupoLogo,
+    width: 80,
+    height: 26,
+  },
+  {
+    id: 4,
+    src: dbLogo,
+    width: 47,
+    height: 34,
+  },
+  {
+    id: 5,
+    src: plotlyLogo,
+    width: 80,
+    height: 26,
+  },
+];
+
+const HeaderSection = () => {
+  const logosSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(logosSectionRef);
+
+  return (
+    <>
+      <Typography variant="h1_new" sx={h1}>
+        The cloud on your terms
+      </Typography>
+      <Typography variant="body_big">
+        Upbound is the easiest way to build your internal cloud platform
+      </Typography>
+      <Box sx={headerButtons}>
+        <Button
+          styleType="gradientContained"
+          sizeType="large"
+          sx={{
+            width: { _: 225, sm: 208 },
+            mr: { _: 0, sm: '10px' },
+            mb: { _: '20px', sm: 0 },
+            '& > .MuiButton-iconSizeMedium': {
+              mr: '10px',
+              '& > svg': {
+                height: { _: 20, md: 25 },
+                width: { _: 20, md: 25 },
+              },
+            },
+          }}
+          startIcon={<RocketShipIcon />}
+          href={routes.cloudRegisterUrl}
+        >
+          Get Started
+        </Button>
+        <Button
+          styleType="whiteOutlined"
+          sizeType="large"
+          sx={{
+            width: { _: 225, sm: 208 },
+            ml: { _: 0, sm: '10px' },
+            '& > .MuiButton-iconSizeMedium': {
+              ml: '16px',
+              '& > svg': {
+                height: { _: 12, md: 13 },
+                width: { _: 7, md: 8 },
+              },
+            },
+          }}
+          endIcon={<ArrowRight />}
+          href={routes.contactSalesUrl}
+        >
+          Contact Us
+        </Button>
+      </Box>
+      <Box ref={logosSectionRef}>
+        <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
+        <Hidden smDown>
+          <Box sx={logosContainer}>
+            {headerLogos.map((logo) => (
+              <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
+                <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+              </Box>
+            ))}
+          </Box>
+        </Hidden>
+        <Hidden smUp>
+          <Box
+            sx={{
+              maxWidth: 400,
+              mx: 'auto',
+              '.slide > div': {
+                opacity: '.3',
+                minHeight: 80,
+                transition: 'all 0.5s',
+              },
+
+              '.selected > div': {
+                opacity: '1',
+                transform: 'scale(1.5)',
+              },
+            }}
+          >
+            <Carousel
+              showArrows={false}
+              showStatus={false}
+              showIndicators={false}
+              autoPlay={isVisible}
+              infiniteLoop={true}
+              centerMode={true}
+              centerSlidePercentage={50}
+              stopOnHover={false}
+              showThumbs={false}
+              swipeable={false}
+            >
+              {headerLogos.map((logo) => (
+                <Box
+                  key={logo.id}
+                  sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <Box sx={{ position: 'relative', width: logo.width, height: logo.height }}>
+                    <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              ))}
+            </Carousel>
+          </Box>
+        </Hidden>
+      </Box>
+      <Box sx={{ position: 'relative' }}>
+        <Hidden smDown>
+          <Image src={headerDiagram} alt="headerDiagram" />
+        </Hidden>
+        <Hidden smUp>
+          <Image src={headerDiagramMobile} alt="headerDiagramMobile" layout="responsive" />
+        </Hidden>
+      </Box>
+    </>
+  );
+};
+
 const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
 
 type CPLogoBoxProps = {
@@ -546,186 +717,52 @@ CPLogoBox.displayName = 'CPLogoBox';
 const cpColumnsLeftList = [
   {
     sizeStyles: cpLogoBoxBigger,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
   {
     sizeStyles: cpLogoBoxBig,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
   {
     sizeStyles: cpLogoBoxSmall,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
   {
     sizeStyles: cpLogoBoxSmaller,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
-  },
-];
-
-const cpColumnsLeftListMobile = [
-  {
-    sizeStyles: cpLogoBoxBigger,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
-  },
-  {
-    sizeStyles: cpLogoBoxBig,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
-  },
-  {
-    sizeStyles: cpLogoBoxSmall,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
 ];
 
 const cpColumnsRightList = [
   {
     sizeStyles: cpLogoBoxSmaller,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
   {
     sizeStyles: cpLogoBoxSmall,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
   {
     sizeStyles: cpLogoBoxBig,
 
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
   {
     sizeStyles: cpLogoBoxBigger,
 
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
+    logos: [...Array(6)],
   },
 ];
 
-const cpColumnsRightListMobile = [
-  {
-    sizeStyles: cpLogoBoxSmall,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
-  },
-  {
-    sizeStyles: cpLogoBoxBig,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
-  },
-  {
-    sizeStyles: cpLogoBoxBigger,
-    logos: [
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-      getRandomLogo(),
-    ],
-  },
-];
+const cpLogosListTopMobile = [...Array(12)];
+
+const cpLogosListBottomMobile = [...Array(12)];
 
 const CrossplaneLogosSection = () => {
   const cpSectionRef = useRef(undefined);
   const isVisible = useOnScreen(cpSectionRef);
+
+  const matchesLG = useMediaQuery(MQ.lg);
 
   const [logoToUpdateLeft, _setLogoToUpdateLeft] = useState<number | null>(null);
   const logoToUpdateRefLeft = useRef(logoToUpdateLeft);
@@ -740,7 +777,11 @@ const CrossplaneLogosSection = () => {
       t = setTimeout(() => {
         let row = null;
         do {
-          row = getRandomInt(0, 23);
+          if (matchesLG) {
+            row = getRandomInt(0, 23);
+          } else {
+            row = getRandomInt(0, 11);
+          }
         } while (row === logoToUpdateRefLeft.current);
         setLogoToUpdateLeft(row);
       }, getRandomInt(22, 32) * 100);
@@ -763,7 +804,11 @@ const CrossplaneLogosSection = () => {
       t = setTimeout(() => {
         let row = null;
         do {
-          row = getRandomInt(24, 47);
+          if (matchesLG) {
+            row = getRandomInt(24, 47);
+          } else {
+            row = getRandomInt(12, 23);
+          }
         } while (row === logoToUpdateRefRight.current);
         setLogoToUpdateRight(row);
       }, getRandomInt(22, 32) * 100);
@@ -785,33 +830,15 @@ const CrossplaneLogosSection = () => {
 
   const delayMulti = 0.25;
 
-  const matches = useMediaQuery(MQ.md);
-
-  const leftList = useMemo(() => {
-    if (matches) {
-      return cpColumnsLeftList;
-    } else {
-      return cpColumnsLeftListMobile;
-    }
-  }, [matches]);
-
-  const rightList = useMemo(() => {
-    if (matches) {
-      return cpColumnsRightList;
-    } else {
-      return cpColumnsRightListMobile;
-    }
-  }, [matches]);
-
   return (
     <Box
       ref={cpSectionRef}
       sx={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}
     >
-      <Hidden mdDown>
+      <Hidden lgDown>
         <Box sx={cpLeftColumns}>
           <Box sx={{ ...cpColumnShadow, left: -176 }} />
-          {leftList.map((c, columnIndex) => (
+          {cpColumnsLeftList.map((c, columnIndex) => (
             <Box
               key={columnIndex}
               sx={{
@@ -847,7 +874,7 @@ const CrossplaneLogosSection = () => {
           </Button>
         </Box>
         <Box sx={cpRightColumns}>
-          {rightList.map((c, columnIndex) => (
+          {cpColumnsRightList.map((c, columnIndex) => (
             <Box
               key={columnIndex}
               sx={{
@@ -870,6 +897,36 @@ const CrossplaneLogosSection = () => {
             </Box>
           ))}
           <Box sx={{ ...cpColumnShadow, right: -176 }} />
+        </Box>
+      </Hidden>
+      <Hidden lgUp>
+        <Box sx={{ maxWidth: 400, mx: 'auto' }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {cpLogosListTopMobile.map((logo, index) => (
+              <CPLogoBox
+                key={index}
+                sizeStyles={cpLogoBoxMobile}
+                shouldUpdate={logoToUpdateLeft === index}
+              />
+            ))}
+          </Box>
+          <Box sx={{ my: 3 }}>
+            <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
+            <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
+            <Typography variant="body_normal">Adopted by hundreds of amazing companies</Typography>
+            <Button styleType="cornflowerContained" sx={{ mt: 2 }} href={routes.crossplaneUrl}>
+              Learn more about Crossplane
+            </Button>
+          </Box>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {cpLogosListBottomMobile.map((logo, index) => (
+              <CPLogoBox
+                key={index}
+                sizeStyles={cpLogoBoxMobile}
+                shouldUpdate={logoToUpdateRight === index + 12}
+              />
+            ))}
+          </Box>
         </Box>
       </Hidden>
       <Box
@@ -1325,39 +1382,6 @@ const QuoteSection = () => {
   );
 };
 
-const headerLogos = [
-  {
-    id: 1,
-    src: mbpcLogo,
-    width: 90,
-    height: 21,
-  },
-  {
-    id: 2,
-    src: dfdsLogo,
-    width: 80,
-    height: 28,
-  },
-  {
-    id: 3,
-    src: grupoLogo,
-    width: 80,
-    height: 26,
-  },
-  {
-    id: 4,
-    src: dbLogo,
-    width: 47,
-    height: 34,
-  },
-  {
-    id: 5,
-    src: plotlyLogo,
-    width: 80,
-    height: 26,
-  },
-];
-
 const MediaCard_1 = () => {
   const matchesXL = useMediaQuery(MQ.xl);
 
@@ -1465,66 +1489,7 @@ const Home = ({}: Props) => {
   return (
     <PageProvider isDark>
       <Section sx={headerSection}>
-        <Typography variant="h1_new" sx={h1}>
-          The cloud on your terms
-        </Typography>
-        <Typography variant="body_big">
-          Upbound is the easiest way to build your internal cloud platform
-        </Typography>
-        <Box sx={headerButtons}>
-          <Button
-            styleType="gradientContained"
-            sizeType="large"
-            sx={{
-              width: { _: 225, sm: 208 },
-              mr: { _: 0, sm: '10px' },
-              mb: { _: '20px', sm: 0 },
-              '& > .MuiButton-iconSizeMedium': { mr: '10px' },
-            }}
-            startIcon={<RocketShipIcon />}
-            href={routes.cloudRegisterUrl}
-          >
-            Get Started
-          </Button>
-          <Button
-            styleType="whiteOutlined"
-            sizeType="large"
-            sx={{
-              width: { _: 225, sm: 208 },
-              ml: { _: 0, sm: '10px' },
-              '& > .MuiButton-iconSizeMedium': { ml: '16px' },
-            }}
-            endIcon={<ArrowRight />}
-            href={routes.contactSalesUrl}
-          >
-            Contact Us
-          </Button>
-        </Box>
-        <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
-        <Box sx={logosContainer}>
-          {headerLogos.map((logo) => (
-            <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
-              <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
-            </Box>
-          ))}
-        </Box>
-
-        {/* <Slider>
-          {headerLogos.map((logo) => (
-            <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
-              <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
-            </Box>
-          ))}
-        </Slider> */}
-
-        <Box sx={{ position: 'relative' }}>
-          <Hidden smDown>
-            <Image src={headerDiagram} alt="headerDiagram" />
-          </Hidden>
-          <Hidden smUp>
-            <Image src={headerDiagramMobile} alt="headerDiagramMobile" />
-          </Hidden>
-        </Box>
+        <HeaderSection />
       </Section>
       <Section
         bgcolor
