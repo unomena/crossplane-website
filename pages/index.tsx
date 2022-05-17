@@ -2,12 +2,23 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Box, Hidden, SxProps, TextField, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  Button as MuiButton,
+  Hidden,
+  SxProps,
+  TextField,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
 import { COLORS, gradient_1, gradient_2, MQ } from 'src/theme';
 import { keyframes } from '@emotion/react';
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+import validator from 'validator';
 
 import * as routes from 'src/routes';
 
@@ -424,6 +435,8 @@ const registerFormContainer: SxProps = {
   px: '22px',
   py: '24px',
   mb: { xl: 2.5 },
+  display: 'flex',
+  flexDirection: 'column',
 };
 
 const registerFormTitle: SxProps = {
@@ -1444,24 +1457,181 @@ const MediaCard_3 = () => {
 };
 
 const RegisterForm = () => {
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (email) {
+      if (validator.isEmail(email)) {
+        setEmailError('');
+      } else {
+        setEmailError('Please enter a valid email');
+      }
+    } else {
+      setEmailError('');
+    }
+  }, [email]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const submitEmail = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (validator.isEmail(email)) {
+      setEmailSubmitted(true);
+    } else {
+      setEmailError('Please enter a valid email');
+    }
+  };
+
+  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      setLoading(true);
+      const response = await fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/5557732/4d8994c1-6bcd-4fad-8e77-55e3453b3f33',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            submittedAt: new Date().toISOString(),
+            fields: [
+              {
+                objectTypeId: '0-1',
+                name: 'email',
+                value: email,
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'newsletter_subscriber',
+                value: email,
+              },
+            ],
+            legalConsentOptions: {
+              consent: {
+                // Include this object when GDPR options are enabled
+                consentToProcess: true,
+                text: `Yes, I wish to subscribe to stay in the know about exciting product
+                announcements and educational material. You can always unsubscribe in the
+                email footer. Read our Privacy Policy to learn more.`,
+                communications: [
+                  {
+                    value: true,
+                    subscriptionTypeId: 999,
+                    text: `Yes, I wish to subscribe to stay in the know about exciting product
+                    announcements and educational material. You can always unsubscribe in the
+                    email footer. Read our Privacy Policy to learn more.`,
+                  },
+                ],
+              },
+            },
+          }),
+        }
+      );
+
+      const json = await response.json();
+
+      setLoading(false);
+
+      if ('inlineMessage' in json) {
+        setFormSubmitted(true);
+        return;
+      }
+
+      setSubmitError(true);
+    } catch (error) {
+      console.log('newsletter form error', error);
+      setSubmitError(true);
+    }
+  };
+
   return (
     <Box sx={registerFormContainer}>
-      <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
-      <TextField
-        fullWidth
-        variant="outlined"
-        placeholder="Your Email"
-        size="small"
-        sx={registerFormField}
-      />
-      <Box sx={{ cursor: 'pointer', width: 'fit-content' }} onClick={() => {}}>
-        <Typography component="span" sx={registerFormSubmit}>
-          Submit email
-          <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
-            <ArrowRightRounded height={11} color="currentColor" />
-          </Box>
+      {formSubmitted ? (
+        <Typography sx={{ color: '#fff', fontSize: 20, fontFamily: 'Avenir-Black' }}>
+          Thank you for your interest! We hope you enjoy our monlty newsletter.
         </Typography>
-      </Box>
+      ) : submitError ? (
+        <Typography sx={{ color: '#fff', fontSize: 20, fontFamily: 'Avenir-Black' }}>
+          Something went wrong, please try again later.
+        </Typography>
+      ) : emailSubmitted ? (
+        <>
+          <Typography sx={{ color: '#fff' }}>
+            Yes, I wish to subscribe to stay in the know about exciting product announcements and
+            educational material. You can always unsubscribe in the email footer. Read our Privacy
+            Policy to learn more.
+          </Typography>
+          <Box sx={{ mt: 'auto', color: '#fff' }}>
+            <form onSubmit={submitForm}>
+              <MuiButton
+                sx={{ textTransform: 'none', mt: '-6px', ml: '-8px' }}
+                disableRipple
+                type="submit"
+                disabled={loading}
+              >
+                <Typography
+                  component="span"
+                  sx={{ ...registerFormSubmit, opacity: loading ? 0.6 : 1 }}
+                >
+                  Submit
+                  <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
+                    <ArrowRightRounded height={11} color="currentColor" />
+                  </Box>
+                </Typography>
+              </MuiButton>
+            </form>
+          </Box>
+        </>
+      ) : (
+        <>
+          <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
+          <form onSubmit={submitEmail}>
+            <Tooltip
+              onClose={() => setEmailError('')}
+              open={!!emailError}
+              title={emailError}
+              arrow
+              placement="top"
+            >
+              <TextField
+                fullWidth
+                variant="outlined"
+                placeholder="Your Email"
+                size="small"
+                name="email"
+                sx={registerFormField}
+                value={email}
+                onChange={handleChange}
+                error={!!emailError}
+              />
+            </Tooltip>
+            <MuiButton
+              sx={{ textTransform: 'none', color: '#fff', mt: '-6px', ml: '-8px' }}
+              disableRipple
+              type="submit"
+              disabled={!!emailError}
+            >
+              <Typography
+                component="span"
+                sx={{ ...registerFormSubmit, opacity: !!emailError ? 0.6 : 1 }}
+              >
+                Continue
+                <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
+                  <ArrowRightRounded height={11} color="currentColor" />
+                </Box>
+              </Typography>
+            </MuiButton>
+          </form>
+        </>
+      )}
     </Box>
   );
 };
