@@ -85,7 +85,7 @@ const teamFeatures = [
   },
   {
     img: '',
-    title: 'Upbounders in 9 Countries?',
+    title: 'Diverse and Global',
     body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
     Aut nemo ipsa accusamus impedit ducimus! Consequuntur digniss voluptatum quod delectus.`,
   },
