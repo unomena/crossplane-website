@@ -358,46 +358,46 @@ const LearnPopoverContent = () => {
         />
       </Box>
       <Box sx={popoverDivider} />
-      <Link
+      {/* <Link
         href={`${routes.upboundBlogUrl}moving-crossplane-package-authoring-from-plain-yaml-to-ide-aided-development/`}
         muiProps={{ color: COLORS.linkWater }}
-      >
-        <Box sx={{ width: 268, height: '100%', pb: '12px' }}>
-          <MediaCard
-            noBg
-            rounded={false}
-            img={laptopArticleImg}
-            imgHeight={200}
-            profileImg={grantGuminaProfile}
-            person="Grant Gumina"
-            type="Blog"
-            title="Announcing the Upbound VSCode Plugin"
-            body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
-            bodyVariant="body_xs"
-            date="15 Feb, 2022"
-            pillText="New!"
-            href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
-          />
-          {/* <Box sx={{ position: 'relative', height: 206 }}>
-            <Box sx={popoverBlogPill}>
-              <Typography variant="inherit">New!</Typography>
-            </Box>
-            <Image src={learnBlogLaptop} alt="learnBlogLaptop" />
+      > */}
+      <Box sx={{ width: 268, pb: '12px' }}>
+        <MediaCard
+          noBg
+          rounded={false}
+          img={laptopArticleImg}
+          imgHeight={200}
+          profileImg={grantGuminaProfile}
+          person="Grant Gumina"
+          type="Blog"
+          title="Announcing the Upbound VSCode Plugin"
+          body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
+          bodyVariant="body_xs"
+          date="15 Feb, 2022"
+          pillText="New!"
+          href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
+        />
+        {/* <Box sx={{ position: 'relative', height: 206 }}>
+          <Box sx={popoverBlogPill}>
+            <Typography variant="inherit">New!</Typography>
           </Box>
-          <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
-            <Box sx={popoverBlogProfilePic}>
-              <Image src={taylorThorntonProfile} alt="taylorThorntonProfile" />
-            </Box>
-            <Typography sx={popoverBlogDarkText}>Taylor Thornton | Blog</Typography>
-            <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
-              Moving Crossplane package authoring from plain YAML to IDE aided development
-            </Typography>
-            <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
-              23 Feb, 2022
-            </Typography>
-          </Box> */}
+          <Image src={learnBlogLaptop} alt="learnBlogLaptop" />
         </Box>
-      </Link>
+        <Box sx={{ position: 'relative', pt: 2, px: '22px' }}>
+          <Box sx={popoverBlogProfilePic}>
+            <Image src={taylorThorntonProfile} alt="taylorThorntonProfile" />
+          </Box>
+          <Typography sx={popoverBlogDarkText}>Taylor Thornton | Blog</Typography>
+          <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
+            Moving Crossplane package authoring from plain YAML to IDE aided development
+          </Typography>
+          <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
+            23 Feb, 2022
+          </Typography>
+        </Box> */}
+      </Box>
+      {/* </Link> */}
     </Box>
   );
 };
