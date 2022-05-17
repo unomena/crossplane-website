@@ -459,10 +459,15 @@ const visitCard: SxProps = {
   px: 2.5,
   py: 2.5,
 
+  [MQ.sm]: {
+    minHeight: 100,
+  },
+
   [MQ.xl]: {
     pl: 2.5,
     pr: 0,
     maxWidth: 150,
+    minHeight: 'unset',
   },
 };
 

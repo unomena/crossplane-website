@@ -234,10 +234,16 @@ const theme = createTheme({
     },
     h1_new: {
       fontFamily: 'Avenir-Black',
-      fontSize: '80px',
-      lineHeight: '64px',
-      letterSpacing: '-0.8px',
       color: COLORS.linkWater,
+      fontSize: '46px',
+      lineHeight: '44px',
+      letterSpacing: '-1.59px',
+
+      [MQ.md]: {
+        fontSize: '80px',
+        lineHeight: '64px',
+        letterSpacing: '-0.8px',
+      },
     },
     h2_new: {
       fontFamily: 'Avenir-Black',
