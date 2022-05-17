@@ -59,7 +59,7 @@ import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-i
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
-  pt: { _: 10, md: 24 },
+  pt: { _: 13, md: 24 },
   pb: 4,
   textAlign: 'center',
   color: COLORS.linkWater,
@@ -73,7 +73,7 @@ const headerSection: SxProps = {
 };
 
 const discoverSection: SxProps = {
-  pt: 15,
+  pt: { _: 10, md: 15 },
   pb: 32,
   backgroundImage: `url(${headerBg.src})`,
   backgroundRepeat: 'no-repeat',
@@ -1494,7 +1494,7 @@ const Home = ({}: Props) => {
       <Section
         bgcolor
         angleTopBottom="topBtmRight"
-        sx={{ pt: 23.5, pb: 23.5, textAlign: 'center' }}
+        sx={{ pt: { _: 16, md: 23.5 }, pb: { _: 16, md: 23.5 }, textAlign: 'center' }}
       >
         <Typography variant="h2_new" sx={{ mb: 2.5 }}>
           Committed to open source.
@@ -1517,7 +1517,7 @@ const Home = ({}: Props) => {
 
         <CrossplaneLogosSection />
       </Section>
-      <Section sx={{ pt: 20, position: 'relative' }}>
+      <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative' }}>
         <FeaturesSection />
       </Section>
       <Section
