@@ -738,7 +738,7 @@ const Products = ({}: Props) => {
       </Hidden>
       <Section
         sx={{
-          pb: { _: 0, lg: 34.125 },
+          pb: { _: 30, md: 34.125 },
           pt: { _: 15, lg: 23.5 },
           overflow: 'hidden',
           ...caseStudiesSection,

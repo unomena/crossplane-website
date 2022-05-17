@@ -10,17 +10,23 @@ import footerCTABackground from 'public/new-images/footer-bg.svg';
 
 const wrapper: SxProps = {
   width: '100%',
-  maxWidth: '1160px',
   position: 'absolute',
   top: 0,
+  left: 0,
+  right: 0,
   transform: 'translateY(-50%)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundImage: { _: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)', xl: 'unset' },
 };
 
 const root: SxProps = {
   width: '100%',
-  minHeight: 401,
+  maxWidth: '1160px',
+  minHeight: { md: 401 },
   py: 8,
-  backgroundImage: `url(${footerCTABackground.src})`,
+  backgroundImage: { xl: `url(${footerCTABackground.src})` },
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
   backgroundSize: 'cover',
@@ -42,7 +48,11 @@ const TryForFreeCard = ({}: Props) => {
         <Typography variant="h2_new" color="#fff" sx={{ mb: 2.5 }}>
           Try Upbound for free
         </Typography>
-        <Typography variant="body_normal" color="#fff" sx={{ maxWidth: 640, mb: 5 }}>
+        <Typography
+          variant="body_normal"
+          color="#fff"
+          sx={{ maxWidth: { _: 300, md: 640 }, mb: 5 }}
+        >
           Start your control-plane transformation for free by creating a free Upbound account.
         </Typography>
         <Button styleType="whiteContained" href={routes.cloudRegisterUrl}>

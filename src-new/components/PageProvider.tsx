@@ -5,18 +5,11 @@ import React, { useEffect, useState } from 'react';
 
 import { jsx } from '@emotion/react';
 import { Box } from '@mui/material';
-import { styled } from '@mui/system';
 import { COLORS } from 'src/theme';
 
 import PageHeader from 'src-new/components/PageHeader';
 import PageFooter from 'src-new/components/PageFooter';
 import PageHead from 'src/components/PageHead';
-
-const PageContainer = styled(Box)`
-  position: relative;
-  width: 100%;
-  min-height: 100%;
-`;
 
 const defaultTitle = 'Upbound - The Universal Cloud Platform';
 const defaultDescription =
@@ -25,7 +18,6 @@ const defaultDescription =
 
 type Props = {
   children: React.ReactNode;
-  isHeaderVisible?: boolean;
   isFooterVisible?: boolean;
   isOverflowVisible?: boolean;
   displayTitle?: string;
@@ -38,7 +30,6 @@ type Props = {
 
 const PageProvider = ({
   children,
-  isHeaderVisible = true,
   isFooterVisible = true,
   isOverflowVisible: isOverflowVisibleProp = true,
   displayTitle = defaultTitle,
@@ -50,11 +41,11 @@ const PageProvider = ({
 }: Props) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }, [isOverflowVisible]);
 
   useEffect(() => {
     document.body.classList.toggle(
@@ -65,13 +56,20 @@ const PageProvider = ({
   }, [isOverflowVisible, isOverflowVisibleProp]);
 
   return (
-    <PageContainer id="page-container">
+    <Box
+      id="page-container"
+      sx={{
+        position: isOverflowVisible ? 'relative' : 'unset',
+        width: '100%',
+        minHeight: '100%',
+      }}
+    >
       <PageHead
         displayTitle={displayTitle}
         metaTitle={metaTitle}
         metaDescription={metaDescription}
       />
-      <PageHeader isDark={isDark} />
+      <PageHeader isDark={isDark} setOverflowVisible={setOverflowVisible} />
       <Box sx={{ bgcolor: isDark ? COLORS.firefly : '#fff' }}>
         {children}
         <PageFooter
@@ -80,7 +78,7 @@ const PageProvider = ({
           removeFooterPadding={removeFooterPadding}
         />
       </Box>
-    </PageContainer>
+    </Box>
   );
 };
 

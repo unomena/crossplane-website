@@ -155,7 +155,7 @@ const largeFooterCNCFSpan: SxProps = {
 const mobileFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '0 24px 60px 24px',
+  padding: '60px 24px 60px 24px',
   margin: '0 auto',
 
   [MQ.lg]: {
@@ -170,7 +170,7 @@ const mobileFooterLinkColumnsContainer: SxProps = {
   // borderTop: `1px solid ${COLORS.darkBlue1A3245}`,
   width: '100%',
   flexWrap: 'wrap',
-  marginTop: '60px',
+  // marginTop: '60px',
   padding: '30px 20px 0 20px',
 
   [MQ.lg]: {
@@ -187,6 +187,7 @@ const mobileFooterLogoAndSocialsContainer: SxProps = {
   margin: '60px auto 0 auto',
 
   [MQ.md]: {
+    margin: '60px 0 0 0',
     maxwidth: 'unset',
   },
 };
@@ -359,17 +360,12 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
     <Box sx={footerMarginContainer}>
       <Box sx={footerBackgroundContainer}>
         <Hidden lgUp>
-          <Box sx={mobileFooterWidthContainer}>
+          <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}>
+            {!hideTryForFreeCard && <TryForFreeCard />}
             <Box sx={mobileFooterLinkColumnsContainer}>
               <Box sx={mobileFooterLinkColumnsWidthContainer}>
                 <Box sx={mobileFooterLinkColumnContainer}>
                   <Typography sx={mobileFooterColumnSpan}>Product</Typography>
-                  <Link
-                    sx={mobileFooterColumnLink}
-                    href={routes.whyUpboundUniversalCloudPlatformRoute}
-                  >
-                    Why Upbound
-                  </Link>
                   <Link sx={mobileFooterColumnLink} href={routes.productsUbcRoute}>
                     Upbound Cloud
                   </Link>
