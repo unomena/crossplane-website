@@ -316,11 +316,11 @@ const quoteSectionQuoteLogoBox: SxProps = {
   boxShadow: '0 15px 35px 0 rgba(0,0,0,0.05)',
   transition: 'all 0.5s',
 
-  // '&:hover': {
-  //   backgroundColor: '#23435C',
-  //   transform: `scale(1.05)`,
-  //   cursor: 'pointer',
-  // },
+  '&:hover': {
+    backgroundColor: '#23435C',
+    transform: `scale(1.05)`,
+    cursor: 'pointer',
+  },
 };
 
 const quoteSectionQuoteLogoBoxActive: SxProps = {
@@ -343,7 +343,7 @@ const quoteSectionQuoteLogoBoxActive: SxProps = {
     background: 'linear-gradient(-45deg, #6D64F5 0, #C9C3FF 100%)',
   },
 
-  // '&:hover': {},
+  '&:hover': {},
 };
 
 const registerFormContainer: SxProps = {
@@ -984,7 +984,7 @@ const QuoteSection = () => {
               styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
             }
             return (
-              <Box key={quote.title} sx={styles}>
+              <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
                 <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
                   <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
                 </Box>
