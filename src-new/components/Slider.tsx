@@ -2,14 +2,15 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { Carousel } from 'react-responsive-carousel';
-import { Box, SxProps } from '@mui/material';
+import { Box, SxProps, useMediaQuery } from '@mui/material';
+import { MQ } from 'src/theme';
 
 const root: SxProps = {
   '.axis-vertical .slide': {
     my: 3.75,
   },
   '.axis-horizontal .slide': {
-    mx: 1.875,
+    px: 1.875,
   },
   '.carousel.carousel-slider': {
     overflow: 'visible',
@@ -37,6 +38,7 @@ type Props = {
 };
 
 const Slider = ({ children, axis = 'horizontal' }: Props) => {
+  const matches = useMediaQuery(MQ.md);
   return (
     <Box sx={root}>
       <Carousel
@@ -47,7 +49,7 @@ const Slider = ({ children, axis = 'horizontal' }: Props) => {
         autoPlay={true}
         interval={7000}
         infiniteLoop={true}
-        centerMode={true}
+        centerMode={matches}
         emulateTouch={true}
         stopOnHover={false}
         showThumbs={false}
