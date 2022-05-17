@@ -90,7 +90,20 @@ const platformCarousel: SxProps = {
   pb: 17.5,
   pt: 10,
   '.carousel.carousel-slider .control-dots': {
-    bottom: '-50px',
+    bottom: '-70px',
+  },
+  '.carousel.carousel-slider .control-dots .dot': {
+    background: 'none',
+    boxShadow: 'none',
+    opacity: '1',
+    width: '25px',
+    height: '25px',
+  },
+  '.carousel.carousel-slider .control-dots .dot:before': {
+    content: `url(${arrowBullet.src})`,
+  },
+  '.carousel.carousel-slider .control-dots .dot.selected:before': {
+    content: `url(${circleBullet.src})`,
   },
   '.carousel.carousel-slider': {
     overflow: 'unset',
