@@ -44,7 +44,7 @@ import platformFlyoverThree from 'public/new-images/products-page/003-platform-f
 import platformFlyoverSix from 'public/new-images/products-page/006-platform-flyover.svg';
 import sectionBg from 'public/new-images/home-page/header-bg.jpg';
 import productDiagram from 'public/new-images/products-page/product-diagram.svg';
-import productDiagramMobile from 'public/new-images/products-page/product-diagram-mobile.svg';
+import productDiagramMobile from 'public/new-images/products-page/mobile/product-diagram-mobile.svg';
 import arrowBullet from 'public/new-images/icons/arrow-bullet.svg';
 import circleBullet from 'public/new-images/icons/circle-bullet.svg';
 // import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
