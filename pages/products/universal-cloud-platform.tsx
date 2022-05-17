@@ -87,7 +87,8 @@ const gridLayout: SxProps = {
 };
 
 const platformCarousel: SxProps = {
-  pb: 10,
+  pb: 17.5,
+  pt: 10,
   '.carousel.carousel-slider .control-dots': {
     bottom: '-50px',
   },
@@ -459,7 +460,7 @@ const Products = ({}: Props) => {
   }, [isVisible]);
   return (
     <PageProvider displayTitle="Products" isDark>
-      <Section sx={{ pt: 40, pb: { _: 80, sx: 80, md: 20 } }}>
+      <Section sx={{ pt: 40, pb: { _: 60, xs: 80, md: 20 } }}>
         <Box
           sx={{
             [MQ.md]: {
@@ -565,7 +566,7 @@ const Products = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pb: { _: 10, lg: 0 }, pt: 23.5, zIndex: '-2' }}>
+      <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: 23.5, zIndex: '-2' }}>
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             A platform for building internal cloud platforms
@@ -599,6 +600,17 @@ const Products = ({}: Props) => {
       </Hidden>
       <Hidden mdUp>
         <Section bgcolor sx={platformCarousel}>
+          <Box sx={{ mb: 10 }}>
+            <Typography variant="h3_new" sx={{ fontFamily: 'Avenir-Black', mb: 3 }}>
+              The last platform you’ll ever need to build
+            </Typography>
+            <Typography variant="body_big">
+              Never re-platform again. No matter what tools and vendors you add to your
+              infrastructure, Upbound can manage them. Enterprise-ready, flexible and easy to use,
+              Upbound transforms the way you manage your infrastructure. It’s the cloud on your
+              terms.
+            </Typography>
+          </Box>
           <Carousel
             showArrows={false}
             showStatus={false}
@@ -622,7 +634,10 @@ const Products = ({}: Props) => {
                   <Image src={platformMobileOne} alt="feature-img-big" />
                 </Box>
                 <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                  <Typography
+                    variant="h4_new"
+                    sx={{ mb: 1, fontFamily: 'Avenir-Black', fontSize: '22px' }}
+                  >
                     Fully managed control planes
                   </Typography>
 
@@ -709,7 +724,12 @@ const Products = ({}: Props) => {
         </Section>
       </Hidden>
       <Section
-        sx={{ pb: { _: 0, lg: 34.125 }, pt: 23.5, overflow: 'hidden', ...caseStudiesSection }}
+        sx={{
+          pb: { _: 0, lg: 34.125 },
+          pt: { _: 15, lg: 23.5 },
+          overflow: 'hidden',
+          ...caseStudiesSection,
+        }}
       >
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
