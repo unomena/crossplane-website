@@ -26,7 +26,7 @@ const root: SxProps = {
   width: '100%',
   minHeight: 88,
   bgcolor: 'transparent',
-  display: 'flex',
+  display: { _: 'none', lg: 'flex' },
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
