@@ -110,7 +110,7 @@ const FeatureBlock = ({
   // }, [isVisible]);
 
   return (
-    <Hidden lgDown>
+    <Hidden mdDown>
       <Box>
         <Box
           sx={{
@@ -402,11 +402,13 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
         <Box
           sx={{
             mt: 3,
-            display: 'flex',
-            alignItems: 'center',
+            [MQ.md]: {
+              display: 'flex',
+              alignItems: 'center',
+            },
           }}
         >
-          <Box sx={{ position: 'relative', display: 'flex', mr: 3 }}>
+          <Box sx={{ position: 'relative', display: 'flex', mr: 3, mb: { _: 3, md: 0 } }}>
             <Image src={logo} alt="company logo" width={logoSize.width} height={logoSize.height} />
           </Box>
           <Box>
@@ -438,22 +440,26 @@ const Products = ({}: Props) => {
       <Section sx={{ pt: 40, pb: 23.5 }}>
         <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'row',
+            [MQ.md]: {
+              display: 'flex',
+              alignItems: 'center',
+              flexDirection: 'row',
+            },
           }}
           ref={productsHeader}
         >
           <Box
             sx={{
-              flex: 1,
-              width: '50%',
-              minWidth: '50%',
-              maxWidth: '50%',
-              pr: '28px',
-              pl: '0px',
-              display: 'flex',
-              flexDirection: 'column',
+              [MQ.md]: {
+                flex: 1,
+                width: '50%',
+                minWidth: '50%',
+                maxWidth: '50%',
+                pr: '28px',
+                pl: '0px',
+                display: 'flex',
+                flexDirection: 'column',
+              },
             }}
           >
             <Box sx={{ maxWidth: '501px' }}>
@@ -480,10 +486,12 @@ const Products = ({}: Props) => {
           </Box>
           <Box
             sx={{
-              position: 'absolute',
-              top: '4%',
-              right: '0',
-              zIndex: '1',
+              [MQ.md]: {
+                position: 'absolute',
+                top: '4%',
+                right: '0',
+                zIndex: '1',
+              },
             }}
           >
             <Box sx={{ position: 'relative' }}>
@@ -516,7 +524,7 @@ const Products = ({}: Props) => {
             A platform for building internal cloud platforms
           </Typography>
         </Box>
-        <Hidden lgDown>
+        <Hidden mdDown>
           <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
             <Image
               src={productDiagram}
@@ -526,7 +534,7 @@ const Products = ({}: Props) => {
             />
           </Box>
         </Hidden>
-        <Hidden lgUp>
+        <Hidden mdUp>
           <Box sx={{ position: 'relative', width: '100%', height: '270px' }}>
             <Image
               src={productDiagramMobile}
@@ -537,12 +545,14 @@ const Products = ({}: Props) => {
           </Box>
         </Hidden>
       </Section>
-      <Hidden lgDown>
+      <Hidden mdDown>
         <Section bgcolor hasContainer={false}>
           <FeaturesSection />
         </Section>
       </Hidden>
-      <Section sx={{ pt: 23.5, pb: 34.125, overflow: 'hidden', ...caseStudiesSection }}>
+      <Section
+        sx={{ pb: { _: 0, lg: 34.125 }, pt: 23.5, overflow: 'hidden', ...caseStudiesSection }}
+      >
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
             Any platform. Any business
