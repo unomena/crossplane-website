@@ -27,8 +27,12 @@ const root: SxProps = {
     flex: '1',
   },
   '.selected > div': {
-    backgroundImage: `linear-gradient(-45deg, transparent 75px, #6D64F5 0%, #C9C3FF 100%)`,
     opacity: '1',
+    backgroundImage: `linear-gradient(-45deg, transparent 35px, #6D64F5 0%, #C9C3FF 100%)`,
+
+    [MQ.sm]: {
+      backgroundImage: `linear-gradient(-45deg, transparent 75px, #6D64F5 0%, #C9C3FF 100%)`,
+    },
   },
 };
 

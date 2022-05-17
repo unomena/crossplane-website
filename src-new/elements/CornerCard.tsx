@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { Box, SxProps } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
 
 import Link from 'src-new/elements/Link';
 
@@ -22,10 +22,10 @@ const defaultStyles: SxProps = {
 };
 
 const cornerSM: SxProps = {
-  backgroundImage: `linear-gradient(-45deg, transparent 42px, ${COLORS.bigStone} 0 100%)`,
+  backgroundImage: `linear-gradient(-45deg, transparent 24px, ${COLORS.bigStone} 0 100%)`,
 
   '&:hover': {
-    backgroundImage: `linear-gradient(-45deg, transparent 39px, #6D64F5 0, #C9C3FF 100%)`,
+    backgroundImage: `linear-gradient(-45deg, transparent 21px, #6D64F5 0, #C9C3FF 100%)`,
     transition: 'background-image 3s ease-in-out',
   },
 
@@ -38,15 +38,38 @@ const cornerSM: SxProps = {
     top: '3px',
     bottom: '3px',
     borderRadius: 1.25,
-    background: `linear-gradient(-45deg, transparent 38px, ${COLORS.bigStone} 0)`,
+    background: `linear-gradient(-45deg, transparent 20px, ${COLORS.bigStone} 0)`,
+  },
+
+  [MQ.sm]: {
+    backgroundImage: `linear-gradient(-45deg, transparent 42px, ${COLORS.bigStone} 0 100%)`,
+
+    '&:hover': {
+      backgroundImage: `linear-gradient(-45deg, transparent 39px, #6D64F5 0, #C9C3FF 100%)`,
+      transition: 'background-image 3s ease-in-out',
+    },
+
+    '&:before': {
+      zIndex: '-1',
+      content: '""',
+      position: 'absolute',
+      left: '3px',
+      right: '3px',
+      top: '3px',
+      bottom: '3px',
+      borderRadius: 1.25,
+      background: `linear-gradient(-45deg, transparent 38px, ${COLORS.bigStone} 0)`,
+    },
   },
 };
 
 const cornerLG: SxProps = {
-  backgroundImage: `linear-gradient(-45deg, transparent 78px, ${COLORS.bigStone} 0 100%)`,
+  backgroundImage: `linear-gradient(-45deg, transparent 38px, ${COLORS.bigStone} 0 100%)`,
+
   '&:hover': {
-    backgroundImage: `linear-gradient(-45deg, transparent 76px, ${COLORS.bigStone} 0 100%)`,
+    backgroundImage: `linear-gradient(-45deg, transparent 36px, ${COLORS.bigStone} 0 100%)`,
   },
+
   '&:before': {
     zIndex: '-1',
     content: '""',
@@ -56,7 +79,27 @@ const cornerLG: SxProps = {
     top: '3px',
     bottom: '3px',
     borderRadius: 1.25,
-    background: `linear-gradient(-45deg, transparent 74px, ${COLORS.bigStone} 0)`,
+    background: `linear-gradient(-45deg, transparent 34px, ${COLORS.bigStone} 0)`,
+  },
+
+  [MQ.sm]: {
+    backgroundImage: `linear-gradient(-45deg, transparent 78px, ${COLORS.bigStone} 0 100%)`,
+
+    '&:hover': {
+      backgroundImage: `linear-gradient(-45deg, transparent 76px, ${COLORS.bigStone} 0 100%)`,
+    },
+
+    '&:before': {
+      zIndex: '-1',
+      content: '""',
+      position: 'absolute',
+      left: '3px',
+      right: '3px',
+      top: '3px',
+      bottom: '3px',
+      borderRadius: 1.25,
+      background: `linear-gradient(-45deg, transparent 74px, ${COLORS.bigStone} 0)`,
+    },
   },
 };
 
@@ -69,13 +112,23 @@ const iconBtmRight: SxProps = {
 };
 
 const small: SxProps = {
-  width: '48px',
-  height: '48px',
+  width: '28px',
+  height: '28px',
+
+  [MQ.sm]: {
+    width: '48px',
+    height: '48px',
+  },
 };
 
 const normal: SxProps = {
-  width: '84px',
-  height: '84px',
+  width: '44px',
+  height: '44px',
+
+  [MQ.sm]: {
+    width: '84px',
+    height: '84px',
+  },
 };
 
 const iconSizeTypes = {
