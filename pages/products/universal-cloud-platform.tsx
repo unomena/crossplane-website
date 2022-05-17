@@ -1,4 +1,7 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+import { Carousel } from 'react-responsive-carousel';
 
 import Image from 'next/image';
 
@@ -23,11 +26,15 @@ import Slider from 'src-new/components/Slider';
 import heroMain from 'public/new-images/products-page/hero-main.svg';
 import heroFlyover from 'public/new-images/products-page/hero-flyover.svg';
 import platformOne from 'public/new-images/products-page/001-platform.svg';
+import platformMobileOne from 'public/new-images/products-page/mobile/001-platform-mobile.svg';
 import platformTwo from 'public/new-images/products-page/002-platform.svg';
+import platformMobileTwo from 'public/new-images/products-page/mobile/002-platform-mobile.svg';
 import platformThree from 'public/new-images/products-page/003-platform.svg';
+import platformMobileThree from 'public/new-images/products-page/mobile/003-platform-mobile.svg';
 // import platformFour from 'public/new-images/products-page/004-platform.svg';
 // import platformFive from 'public/new-images/products-page/005-platform.svg';
 import platformSix from 'public/new-images/products-page/006-platform.svg';
+import platformMobileSix from 'public/new-images/products-page/mobile/006-platform-mobile.svg';
 import platformFlyoverOne from 'public/new-images/products-page/001-platform-flyover.svg';
 import platformFlyoverTwo from 'public/new-images/products-page/002-platform-flyover.svg';
 import platformFlyoverThree from 'public/new-images/products-page/003-platform-flyover.svg';
@@ -72,6 +79,16 @@ const gridLayout: SxProps = {
 
   [MQ.md]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
+  },
+};
+
+const platformCarousel: SxProps = {
+  pb: 10,
+  '.carousel.control-dots': {
+    bottom: '-50px',
+  },
+  '.carousel.carousel-slider': {
+    overflow: 'unset',
   },
 };
 
@@ -518,7 +535,7 @@ const Products = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pb: { _: 23.5, lg: 0 }, pt: 23.5, zIndex: '-2' }}>
+      <Section bgcolor angleTop="topRight" sx={{ pb: { _: 10, lg: 0 }, pt: 23.5, zIndex: '-2' }}>
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             A platform for building internal cloud platforms
@@ -545,9 +562,120 @@ const Products = ({}: Props) => {
           </Box>
         </Hidden>
       </Section>
-      <Hidden mdDown>
+      <Hidden lgDown>
         <Section bgcolor hasContainer={false}>
           <FeaturesSection />
+        </Section>
+      </Hidden>
+      <Hidden lgUp>
+        <Section bgcolor sx={platformCarousel}>
+          <Carousel
+            showArrows={false}
+            showStatus={false}
+            autoPlay={true}
+            interval={7000}
+            infiniteLoop={true}
+            emulateTouch={true}
+            stopOnHover={false}
+            showThumbs={false}
+          >
+            <Box>
+              <Box>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    height: 'auto',
+                    width: '100%',
+                    mb: 3,
+                  }}
+                >
+                  <Image src={platformMobileOne} alt="feature-img-big" />
+                </Box>
+                <Box>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                    Fully managed control planes
+                  </Typography>
+
+                  <Typography variant="body_small">
+                    Control planes designed to be high performance, scalable, multitenant, and
+                    secure for the most demanding scenarios.
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <Box>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    height: 'auto',
+                    width: '100%',
+                    mb: 3,
+                  }}
+                >
+                  <Image src={platformMobileTwo} alt="feature-img-big" />
+                </Box>
+                <Box>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                    Best-in-class platform building blocks
+                  </Typography>
+
+                  <Typography variant="body_small">
+                    Upbound Marketplace is a one-stop-shop for all the components you need in your
+                    Upbound-powered platform.
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <Box>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    height: 'auto',
+                    width: '100%',
+                    mb: 3,
+                  }}
+                >
+                  <Image src={platformMobileThree} alt="feature-img-big" />
+                </Box>
+                <Box>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                    Self-service console
+                  </Typography>
+
+                  <Typography variant="body_small">
+                    The Upbound Console is dynamically rendered from your Upbound control plane and
+                    the Crossplane packages installed in it.
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <Box>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    height: 'auto',
+                    width: '100%',
+                    mb: 3,
+                  }}
+                >
+                  <Image src={platformMobileSix} alt="feature-img-big" />
+                </Box>
+                <Box>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                    Support for multi-tenancy
+                  </Typography>
+
+                  <Typography variant="body_small">
+                    Designed for complex multi-tenant Kubernetes deployments, where isolation of
+                    cloud credentials, control plane resources, and users is critical.
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          </Carousel>
         </Section>
       </Hidden>
       <Section
