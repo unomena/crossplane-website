@@ -573,7 +573,7 @@ const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps)
         }}
       >
         <Box sx={{ flex: 1 }}>
-          <Link href={routes.homeRoute}>
+          <Link href={routes.homeRoute} muiProps={{ sx: { display: 'flex' } }}>
             <Image src={logoWhite} alt="upbound logo" width={117} height={31} />
           </Link>
         </Box>
@@ -661,7 +661,7 @@ const PageHeader = ({ isDark, setOverflowVisible }: Props) => {
       </Box> */}
           <Box sx={mainContainer}>
             <Box sx={{ flex: { lg: 0.75, xl: 1 } }}>
-              <Link href={routes.homeRoute}>
+              <Link href={routes.homeRoute} muiProps={{ sx: { display: 'flex' } }}>
                 <Image src={logoWhite} alt="upbound logo" width={117} height={31} />
               </Link>
             </Box>
