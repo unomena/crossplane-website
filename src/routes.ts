@@ -102,8 +102,6 @@ export const youtubeUrl = 'https://www.youtube.com/channel/UCm_v2HL0pdqtShHD-ZDD
 
 // Hubspot URLs
 
-export const scheduleDemoUrl =
-  'https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar';
 export const partnerRegistrationUrl = 'https://upbound.hubspotpagebuilder.com/partner-registration';
 export const contactSalesUrl = 'https://upbound.hubspotpagebuilder.com/contact';
 

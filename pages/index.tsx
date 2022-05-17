@@ -43,9 +43,8 @@ import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEa
 import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
 import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
-import bassamTabbaraProfile from 'public/new-images/media-cards/bassam-tabbara-profile.png';
 import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
-import taylorThorntonProfile from 'public/new-images/media-cards/taylor-thornton-profile.png';
+import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
 import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
@@ -1107,16 +1106,16 @@ const Home = ({}: Props) => {
             <MediaCard
               img={mainArticleImg}
               imgHeight={350}
-              profileImg={bassamTabbaraProfile}
+              profileImg={grantGuminaProfile}
               profileImgSize="big"
-              person="Bassam Tabbara"
-              type="video"
-              title="Lorem ipsum dolor sit amet"
+              person="Grant Gumina"
+              type="webinar"
+              title="Control Planes: The Missing Ingredient for Cloud Native Developer Platforms"
               titleVariant="h4_new"
-              body="Lorem ipsum dolor sit amet, consectetuer 
-              adipiscing elit. Aenean commodo ligula eget dolor. 
-              Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes"
-              videoId="S-Pvhcz4KKI"
+              body="Who you get infrastructure from and how you build applications for it has changed.
+              Now more than ever, customers are utilizing best-in-class infrastructure from the vendors
+              of their choice. However, this presents challenges..."
+              href="https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar"
             />
           </Box>
           <Box sx={{ flex: 1, ml: 2.5 }}>
@@ -1138,14 +1137,14 @@ const Home = ({}: Props) => {
                 <MediaCard
                   img={laptopArticleImg}
                   imgHeight={200}
-                  profileImg={taylorThorntonProfile}
-                  person="Taylor Thornton"
+                  profileImg={grantGuminaProfile}
+                  person="Grant Gumina"
                   type="Blog"
-                  title="Moving Crossplane package authoring from plain YAML to IDE aided development"
-                  date="23 Feb, 2022"
+                  title="Announcing the Upbound VSCode Plugin"
+                  body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
+                  date="15 Feb, 2022"
                   pillText="New!"
-                  // eslint-disable-next-line max-len
-                  href={`${routes.upboundBlogUrl}moving-crossplane-package-authoring-from-plain-yaml-to-ide-aided-development/`}
+                  href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
                 />
               </Box>
               <Box
