@@ -67,27 +67,25 @@ import purpleOval from 'public/about/purple-oval.svg';
 const teamFeatures = [
   {
     img: '',
-    title: 'Company "On"-Sites',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur digniss voluptatum quod delectus.`,
+    title: 'Company "On"sites',
+    body: `Everyone comes together for our annual company “on”site  where we celebrate our wins and have some fun!`,
   },
   {
     img: '',
     title: 'Quarterly Get Togethers',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur digniss voluptatum quod delectus.`,
+    body: `Teams come together in person to plan, exchange ideas and strengthen relationships with each other.`,
   },
   {
     img: '',
-    title: 'Upbounders in 9 Countries',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur digniss voluptatum quod delectus.`,
+    title: 'Upbounders in 10 Countries',
+    body: `A global footprint gives us the ability to bring in the
+    best talent from across the globe and work with the best and brightest.`,
   },
   {
     img: '',
-    title: 'Diverse and Global',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur digniss voluptatum quod delectus.`,
+    title: 'Diverse and inclusive',
+    body: `We are stronger because we are all unique and bring different
+    perspectives and ideas. Be your authentic self at Upbound.`,
   },
 ];
 
@@ -176,24 +174,24 @@ const founders = [
     title: 'Founder & CEO',
   },
   {
-    pictureUrl: michaelProfilePic3x,
-    name: 'Michael Goff',
-    title: 'Founding Engineer',
+    pictureUrl: sumbryProfilePic3x,
+    name: 'Sumbry',
+    title: 'Engineering',
+  },
+  {
+    pictureUrl: kelseyProfilePic3x,
+    name: 'Kelsey Havens',
+    title: 'Marketing',
+  },
+  {
+    pictureUrl: lemProfilePic3x,
+    name: 'Lem Diaz',
+    title: 'People Ops',
   },
   {
     pictureUrl: jaredProfilePic3x,
     name: 'Jared Watts',
     title: 'Founding Engineer',
-  },
-  {
-    pictureUrl: mattProfilePic3x,
-    name: 'Matt Heilman',
-    title: 'Founding Designer',
-  },
-  {
-    pictureUrl: sumbryProfilePic3x,
-    name: 'Sumbry',
-    title: 'Engineering',
   },
   {
     pictureUrl: robProfilePic3x,
@@ -206,9 +204,9 @@ const founders = [
     title: 'Software',
   },
   {
-    pictureUrl: kelseyProfilePic3x,
-    name: 'Kelsey Havens',
-    title: 'Marketing',
+    pictureUrl: michaelProfilePic3x,
+    name: 'Michael Goff',
+    title: 'Founding Engineer',
   },
   {
     pictureUrl: scottProfilePic3x,
@@ -221,9 +219,9 @@ const founders = [
     title: 'Product',
   },
   {
-    pictureUrl: lemProfilePic3x,
-    name: 'Lem Diaz',
-    title: 'People Ops',
+    pictureUrl: mattProfilePic3x,
+    name: 'Matt Heilman',
+    title: 'Founding Designer',
   },
 ];
 
@@ -337,7 +335,7 @@ const About: React.FC = () => {
                 >
                   {feature.title}
                 </Header>
-                <Paragraph color="fillBlackGray" sx={{ maxHeight: 140 }}>
+                <Paragraph color="fillBlackGray" sx={{ minHeight: 84, maxHeight: 112 }}>
                   {feature.body}
                 </Paragraph>
               </Box>
@@ -558,8 +556,8 @@ const About: React.FC = () => {
         <JoinUs
           type="dark"
           title="Join Our Fast Growing Team"
-          subtitle={`We’re looking for ambitious individuals who strive in chaotic unstructured environments,
-          and love open source, culture, pushing technological boundaries, and proactively solving problems!`}
+          subtitle={`Come build the next generation of the cloud with us.  We’re looking for problem solvers,
+          builders, and innovators who love open source and pushing technological boundaries!`}
           href={routes.upboundGreenhouseUrl}
           button="View All Open Positions"
         />

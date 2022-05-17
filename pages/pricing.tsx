@@ -528,7 +528,7 @@ const Pricing: React.FC = () => {
             color="aquaMarine"
             title="Enterprise"
             subTitle="14 Day Free Trial"
-            description="Unlimited functionality for teams who can use SaaS products"
+            description="Unlimited functionality for teams who need enterprise grade features"
           >
             <li>All Free Tier Features…</li>
             <li>Organizations</li>
