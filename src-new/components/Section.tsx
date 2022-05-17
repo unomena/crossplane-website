@@ -2,27 +2,37 @@ import React from 'react';
 
 import { Box, Container } from '@mui/material';
 import { SxProps } from '@mui/system';
-import { COLORS } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
 
 const topRight: SxProps = {
   clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
-  // mt: '-10%',
+  [MQ.xl]: {
+    clipPath: 'polygon(0 7%, 100% 0, 100% 100%, 0% 100%)',
+  },
 };
 const topLeft: SxProps = {
-  clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0% 100%)',
-  mt: '-10%',
+  clipPath: 'polygon(0 0, 100% 7%, 100% 100%, 0% 100%)',
+  [MQ.xl]: {
+    clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
+  },
 };
 const btmRight: SxProps = {
-  clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
-  // mb: '-10%',
+  clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 100%)',
+  [MQ.xl]: {
+    clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0 100%)',
+  },
 };
 const btmLeft: SxProps = {
-  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 90%)',
-  // mb: '-10%',
+  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 97%)',
+  [MQ.xl]: {
+    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 90%)',
+  },
 };
 const topBtmRight: SxProps = {
-  clipPath: 'polygon(0 10%, 100% 0, 100% 90%, 0% 100%)',
-  // mt: '-10%',
+  clipPath: 'polygon(0 3%, 100% 0, 100% 97%, 0% 100%)',
+  [MQ.xl]: {
+    clipPath: 'polygon(0 10%, 100% 0, 100% 90%, 0% 100%)',
+  },
 };
 
 const angleStyles = {

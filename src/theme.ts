@@ -371,10 +371,16 @@ export const globalStyle = css`
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+
+    @media screen and (max-width: 767px) : {
+      overflow-x: hidden;
+    }
   }
 
   body {
+    @media screen and (min-width: 768px) : {
+      overflow-x: hidden;
+    }
     &.overflow-hidden {
       overflow: hidden;
     }

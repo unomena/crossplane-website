@@ -6,7 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 
 import { COLORS, gradient_1, MQ } from 'src/theme';
-import { Box, SxProps, Typography, Grid, Container, Hidden } from '@mui/material';
+import { Box, SxProps, Typography, Grid, Container, Hidden, useMediaQuery } from '@mui/material';
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
@@ -24,6 +24,7 @@ import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
 import heroMain from 'public/new-images/products-page/hero-main.svg';
+// import heroMainMobile from 'public/new-images/products-page/mobile/hero-main-mobile.svg';
 import heroFlyover from 'public/new-images/products-page/hero-flyover.svg';
 import platformOne from 'public/new-images/products-page/001-platform.svg';
 import platformMobileOne from 'public/new-images/products-page/mobile/001-platform-mobile.svg';
@@ -51,6 +52,7 @@ import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import caseStudyIconOne from 'public/new-images/icons/case-study-icon-one.svg';
 import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
 import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
+import ArrowRight from 'src-new/svg/ArrowRight';
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
@@ -68,8 +70,10 @@ const caseStudiesSection: SxProps = {
 const headerButtons: SxProps = {
   mt: 7.5,
   mb: 10,
-  display: 'flex',
-  alignItems: 'center',
+  [MQ.md]: {
+    display: 'flex',
+    alignItems: 'center',
+  },
 };
 
 const gridLayout: SxProps = {
@@ -84,7 +88,7 @@ const gridLayout: SxProps = {
 
 const platformCarousel: SxProps = {
   pb: 10,
-  '.carousel.control-dots': {
+  '.carousel.carousel-slider .control-dots': {
     bottom: '-50px',
   },
   '.carousel.carousel-slider': {
@@ -446,6 +450,7 @@ const Products = ({}: Props) => {
   const productsHeader = useRef(undefined);
   const isVisible = useOnScreen(productsHeader);
   const [show, setShow] = useState(false);
+  const matchesMD = useMediaQuery(MQ.md);
 
   useEffect(() => {
     if (isVisible) {
@@ -454,7 +459,7 @@ const Products = ({}: Props) => {
   }, [isVisible]);
   return (
     <PageProvider displayTitle="Products" isDark>
-      <Section sx={{ pt: 40, pb: 23.5 }}>
+      <Section sx={{ pt: 40, pb: { _: 80, sx: 80, md: 20 } }}>
         <Box
           sx={{
             [MQ.md]: {
@@ -479,7 +484,7 @@ const Products = ({}: Props) => {
               },
             }}
           >
-            <Box sx={{ maxWidth: '501px' }}>
+            <Box sx={{ [MQ.md]: { maxWidth: '501px' }, textAlign: { _: 'center', md: 'left' } }}>
               <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
                 Upbound
               </Typography>
@@ -490,23 +495,48 @@ const Products = ({}: Props) => {
               <Box sx={headerButtons}>
                 <Button
                   styleType="gradientContained"
-                  sx={{ width: 156, mr: 3 }}
+                  sizeType={matchesMD ? 'normal' : 'large'}
+                  sx={{
+                    width: { _: 225, md: 156 },
+                    mr: { _: 0, xs: 3 },
+                    mb: { _: '20px', xs: 0 },
+                  }}
                   href={routes.cloudRegisterUrl}
                 >
                   Try for free
                 </Button>
-                <Link href={routes.contactSalesUrl} muiProps={{ color: '#fff' }} hasArrow>
-                  Contact Us
-                </Link>
+                <Hidden mdUp>
+                  <Button
+                    styleType="whiteOutlined"
+                    sizeType="large"
+                    sx={{
+                      width: { _: 225, md: 156 },
+                      '& > .MuiButton-iconSizeMedium': { ml: '16px' },
+                    }}
+                    endIcon={<ArrowRight />}
+                    href={routes.contactSalesUrl}
+                  >
+                    Contact Us
+                  </Button>
+                </Hidden>
+                <Hidden mdDown>
+                  <Link href={routes.contactSalesUrl} muiProps={{ color: '#fff' }} hasArrow>
+                    Contact Us
+                  </Link>
+                </Hidden>
               </Box>
             </Box>
           </Box>
           <Box
             sx={{
+              position: 'absolute',
+              right: '0',
+              ml: '30px',
+              maxWidth: '500px',
+              zIndex: '1',
               [MQ.md]: {
-                position: 'absolute',
+                maxWidth: '50%',
                 top: '4%',
-                right: '0',
                 zIndex: '1',
               },
             }}
@@ -562,12 +592,12 @@ const Products = ({}: Props) => {
           </Box>
         </Hidden>
       </Section>
-      <Hidden lgDown>
+      <Hidden mdDown>
         <Section bgcolor hasContainer={false}>
           <FeaturesSection />
         </Section>
       </Hidden>
-      <Hidden lgUp>
+      <Hidden mdUp>
         <Section bgcolor sx={platformCarousel}>
           <Carousel
             showArrows={false}
