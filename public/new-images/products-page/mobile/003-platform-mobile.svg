@@ -46,11 +46,11 @@
                             <path d="M2.17977372,0 L93.6701323,0 L93.6701323,0 L93.6701323,311.544304 L2.17977372,311.544304 C1.00529476,311.544304 0.0531914437,310.5922 0.0531914437,309.417722 L0.0531914437,2.12658228 C0.0531914437,0.952103317 1.00529476,-2.00469776e-15 2.17977372,0 Z" id="Rectangle-Copy" fill-opacity="0.121011801" fill="#DFE6F0"></path>
                             <polygon id="Shape-Copy-41" fill="#DCE0E6" transform="translate(0.053196, 155.772152) scale(-1, 1) translate(-0.053196, -155.772152) " points="0 0 0.106391753 0 0.106391753 311.544304 0 311.544304"></polygon>
                         </g>
-                        <text id="Backend-Team" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8.50632911" font-weight="700" line-spacing="8.50632911" fill="#505A72">
+                        <text id="Backend-Team" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.50632911" font-weight="700" line-spacing="8.50632911" fill="#505A72">
                             <tspan x="13.8759494" y="48.5544304">Backend Team</tspan>
                         </text>
                         <g id="Group" transform="translate(13.000000, 276.544304)">
-                            <text id="Janice-Masterson" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.44405063" font-weight="700" line-spacing="8.50632911" fill="#505A72">
+                            <text id="Janice-Masterson" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.44405063" font-weight="700" line-spacing="8.50632911" fill="#505A72">
                                 <tspan x="20.1853165" y="6.05974684">Janice Masterson</tspan>
                             </text>
                             <text id="My-Account" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="4.08303797" font-weight="normal" line-spacing="6.80506329" fill="#505A72">
@@ -144,7 +144,7 @@
                                 <tspan x="0" y="7">Big Table</tspan>
                             </text>
                         </g>
-                        <text id="Description-Copy-11" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="4.08303797" font-weight="700" line-spacing="6.80506329" fill="#505A72">
+                        <text id="Description-Copy-11" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="4.08303797" font-weight="700" line-spacing="6.80506329" fill="#505A72">
                             <tspan x="13.8759494" y="54.8253165">Control Plane</tspan>
                         </text>
                     </g>
@@ -152,7 +152,7 @@
                     <polygon id="Shape--Copy-9" fill="#DCE0E6" points="115.96701 188.734177 115.96701 188.202532 450.96701 188.202532 450.96701 188.734177"></polygon>
                     <polygon id="Shape--Copy-10" fill="#DCE0E6" points="115.96701 227.012658 115.96701 226.481013 450.96701 226.481013 450.96701 227.012658"></polygon>
                     <polygon id="Shape--Copy-11" fill="#DCE0E6" points="115.96701 266.35443 115.96701 265.822785 450.96701 265.822785 450.96701 266.35443"></polygon>
-                    <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.2075949" font-weight="700" line-spacing="12.7594937" fill="#505A72">
+                    <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.2075949" font-weight="700" line-spacing="12.7594937" fill="#505A72">
                         <tspan x="117.030928" y="111.012658">Instances (10)</tspan>
                     </text>
                     <text id="Content" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#505A72">
@@ -188,7 +188,7 @@
                         </g>
                     </g>
                     <g id="Margins/Header/Subtext-and-Buttons" transform="translate(115.898734, 50.037975)">
-                        <text id="Databases" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911" fill="#505A72">
+                        <text id="Databases" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911" fill="#505A72">
                             <tspan x="0" y="16">Databases</tspan>
                         </text>
                         <text id="Subtext" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949" fill="#929394">
@@ -337,7 +337,7 @@
                                 <polygon id="Path" points="0 0 15 0 15 15 0 15"></polygon>
                                 <polyline id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="3.26086957 7.82608696 6.30434783 11.0869565 12.3913043 4.56521739"></polyline>
                             </g>
-                            <text id="Connected" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
+                            <text id="Connected" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
                                 <tspan x="27.1288516" y="16.8399996">Connected</tspan>
                             </text>
                         </g>
@@ -358,7 +358,7 @@
                         <polygon id="Fill-4" fill="#EA595B" points="10.2991512 9.14786341 19.0214927 5.06259512 19.0214927 15.1480585 10.2991512 19.2148878"></polygon>
                         <polygon id="Fill-5" fill="#6553C0" points="0 27.4882634 17.7916098 35.6868 17.7916098 25.6197756 8.8964878 21.6280683 8.8964878 9.53645854 0 5.45050732"></polygon>
                     </g>
-                    <text id="My-Stack" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
+                    <text id="My-Stack" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
                         <tspan x="0" y="88.2175743">My Application</tspan>
                     </text>
                 </g>

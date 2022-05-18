@@ -129,8 +129,8 @@ export const fontAvenirRomanItalic = {
 };
 
 export const fontAvenirBold = {
-  fontFamily: `'Avenir-Black', 'Arial Black', sans-serif`,
-  fontWeight: '900',
+  fontFamily: `'Avenir-Black', 'Arial', sans-serif`,
+  fontWeight: '700',
 };
 
 const blacklistProps = ['color', 'display', 'height', 'size', 'width'];

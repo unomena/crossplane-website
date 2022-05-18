@@ -40,7 +40,7 @@
                                 <polygon id="Path" points="0 0 15 0 15 15 0 15"></polygon>
                                 <polyline id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="3.26086957 7.82608696 6.30434783 11.0869565 12.3913043 4.56521739"></polyline>
                             </g>
-                            <text id="Connected" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
+                            <text id="Connected" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
                                 <tspan x="27.1288516" y="16.8399996">Connected</tspan>
                             </text>
                         </g>
@@ -61,7 +61,7 @@
                         <polygon id="Fill-4" fill="#EA595B" points="10.2991512 9.14786341 19.0214927 5.06259512 19.0214927 15.1480585 10.2991512 19.2148878"></polygon>
                         <polygon id="Fill-5" fill="#6553C0" points="0 27.4882634 17.7916098 35.6868 17.7916098 25.6197756 8.8964878 21.6280683 8.8964878 9.53645854 0 5.45050732"></polygon>
                     </g>
-                    <text id="My-Stack" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
+                    <text id="My-Stack" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
                         <tspan x="0" y="88.2175743">My Application</tspan>
                     </text>
                 </g>

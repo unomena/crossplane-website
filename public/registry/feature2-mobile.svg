@@ -53,13 +53,13 @@
                                 <rect stroke="#D2DCEA" stroke-width="0.5" fill="#FFFFFF" fill-rule="evenodd" x="-0.25" y="-0.25" width="147.797379" height="55.2993616" rx="2.00768731"></rect>
                             </g>
                             <rect id="Rectangle" fill="#DFE6F0" x="78.7129414" y="31.7259462" width="49.1955884" height="4.0378477" rx="2.01892385"></rect>
-                            <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.84054492" font-weight="700" line-spacing="10.0384366" fill="#505A72">
+                            <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.84054492" font-weight="700" line-spacing="10.0384366" fill="#505A72">
                                 <tspan x="72.8121266" y="22.5482106">Team Alpha</tspan>
                             </text>
                         </g>
                         <g id="Group-Copy" transform="translate(48.038045, 18.684345)">
                             <rect id="BG" stroke="#DCDCDE" stroke-width="0.780767289" fill="#F4F5F7" x="0.390383645" y="0.390383645" width="21.1643236" height="17.9576476" rx="8.97882382"></rect>
-                            <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.30068114" font-weight="700" line-spacing="15.6153458" fill="#828282">
+                            <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.30068114" font-weight="700" line-spacing="15.6153458" fill="#828282">
                                 <tspan x="5.99003336" y="8.41910158">+3</tspan>
                             </text>
                         </g>
@@ -83,7 +83,7 @@
                                 <path d="M4.092601,4.78194615 C4.67968701,4.78194615 5.15561425,5.21776299 5.15561425,5.7553703 C5.15561425,6.20005783 4.82998746,6.57510088 4.38517045,6.69146102 L4.38492965,7.42205777 C4.38492965,7.58350642 4.25404965,7.71438641 4.092601,7.71438641 C3.93115235,7.71438641 3.80027236,7.58350642 3.80027236,7.42205777 L3.79943597,6.69130505 C3.35492392,6.57476606 3.02958775,6.19985934 3.02958775,5.7553703 C3.02958775,5.21776299 3.505515,4.78194615 4.092601,4.78194615 Z" id="Combined-Shape" fill="#BDD0FF"></path>
                                 <rect id="Rectangle" stroke="#BDD0FF" stroke-width="0.730068114" stroke-linejoin="round" x="0" y="3.47999135" width="8.185202" height="5.35383284" rx="2.14153314"></rect>
                             </g>
-                            <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.13967953" font-weight="700" line-spacing="8.03074926" fill="#BDD0FF">
+                            <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.13967953" font-weight="700" line-spacing="8.03074926" fill="#BDD0FF">
                                 <tspan x="46.7243593" y="6.46013623">Private</tspan>
                             </text>
                             <g id="Application-Icons/No-Icon/48x48" transform="translate(0.000000, 8.760817)">
@@ -95,7 +95,7 @@
                                     <polygon id="Fill-4" fill="#6553C0" points="17.395542 0 11.3903059 5.7601076 11.3273297 11.7318772 17.3325658 5.98171785"></polygon>
                                 </g>
                             </g>
-                            <text id="My-Stack" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.81396907" font-weight="700" line-spacing="6.69229105" fill="#505A72">
+                            <text id="My-Stack" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.81396907" font-weight="700" line-spacing="6.69229105" fill="#505A72">
                                 <tspan x="0" y="48.6868893">My Configuration</tspan>
                             </text>
                         </g>
@@ -107,13 +107,13 @@
                                 <rect stroke="#D2DCEA" stroke-width="0.5" fill="#FFFFFF" fill-rule="evenodd" x="-0.25" y="-0.25" width="147.797379" height="55.2993616" rx="2.00768731"></rect>
                             </g>
                             <rect id="Rectangle" fill="#DFE6F0" x="78.7129414" y="32.0143639" width="41.960943" height="4.0378477" rx="2.01892385"></rect>
-                            <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.84054492" font-weight="700" line-spacing="10.0384366" fill="#505A72">
+                            <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.84054492" font-weight="700" line-spacing="10.0384366" fill="#505A72">
                                 <tspan x="72.8121266" y="22.8159022">Team Beta</tspan>
                             </text>
                         </g>
                         <g id="Group-Copy" transform="translate(48.038045, 18.972763)">
                             <rect id="BG" stroke="#DCDCDE" stroke-width="0.780767289" fill="#F4F5F7" x="0.390383645" y="0.390383645" width="21.1643236" height="17.9576476" rx="8.97882382"></rect>
-                            <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.30068114" font-weight="700" line-spacing="15.6153458" fill="#828282">
+                            <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.30068114" font-weight="700" line-spacing="15.6153458" fill="#828282">
                                 <tspan x="5.99003336" y="8.41910158">+2</tspan>
                             </text>
                         </g>
@@ -141,7 +141,7 @@
                         <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
                         <use fill="#5A53C0" fill-rule="evenodd" xlink:href="#path-9"></use>
                     </g>
-                    <text id="Install" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="4.60229885" font-weight="700" line-spacing="6.57471264" fill="#FFFFFF">
+                    <text id="Install" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="4.60229885" font-weight="700" line-spacing="6.57471264" fill="#FFFFFF">
                         <tspan x="11.375" y="9.98084291">Install</tspan>
                     </text>
                 </g>

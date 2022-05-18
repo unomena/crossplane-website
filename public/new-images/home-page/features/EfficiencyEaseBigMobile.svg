@@ -33,7 +33,7 @@
                                     <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
                                     <rect stroke="#D2DCEA" stroke-width="0.5" fill="#FFFFFF" fill-rule="evenodd" x="-0.25" y="-0.25" width="246.016592" height="174.905021" rx="4.1525005"></rect>
                                 </g>
-                                <text id="Title-Copy-103" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.02770532" font-weight="700" line-spacing="4.73078956" fill="#505A72">
+                                <text id="Title-Copy-103" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.02770532" font-weight="700" line-spacing="4.73078956" fill="#505A72">
                                     <tspan x="179.595647" y="93.8359485">provider-azure</tspan>
                                 </text>
                                 <g id="Text" mask="url(#mask-2)">
@@ -146,7 +146,7 @@
                                 </g>
                                 <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)">
                                     <g transform="translate(47.701193, 41.544716)">
-                                        <text id="My-Dashboard" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8.30500101" font-weight="700" line-spacing="9.27216568">
+                                        <text id="My-Dashboard" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.30500101" font-weight="700" line-spacing="9.27216568">
                                             <tspan x="0" y="8" fill="#505A72">My Dashboard</tspan>
                                         </text>
                                         <text id="Subtext" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.70886627" font-weight="normal" line-spacing="5.29838039">
@@ -177,19 +177,19 @@
                             <rect id="Rectangle-Copy-3" fill="#D2DCEA" opacity="0.717754546" x="116.270014" y="125.094078" width="30.1056287" height="2.07625025" rx="0.91067699"></rect>
                             <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="53.463444" y="124.575015" width="34.2581292" height="2.07625025" rx="0.91067699"></rect>
                             <rect id="Rectangle-Copy-4" fill="#D2DCEA" opacity="0.717754546" x="116.270014" y="128.208453" width="34.2581292" height="2.07625025" rx="0.91067699"></rect>
-                            <text id="Monthly-Change" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
+                            <text id="Monthly-Change" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
                                 <tspan x="47.7537558" y="72.9971958">Monthly Change</tspan>
                             </text>
-                            <text id="Cost-Projection" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
+                            <text id="Cost-Projection" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
                                 <tspan x="110.560326" y="72.9971958">Cost Projection</tspan>
                             </text>
-                            <text id="Monthly-Budget" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
+                            <text id="Monthly-Budget" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
                                 <tspan x="173.885959" y="72.9971958">Monthly Budget</tspan>
                             </text>
-                            <text id="$7,392" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.3812513" font-weight="700" line-spacing="16.1478939" fill="#505A72">
+                            <text id="$7,392" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.3812513" font-weight="700" line-spacing="16.1478939" fill="#505A72">
                                 <tspan x="53.4051951" y="97.80118">$7,392</tspan>
                             </text>
-                            <text id="$7,392-copy" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.3812513" font-weight="700" line-spacing="16.1478939" fill="#505A72">
+                            <text id="$7,392-copy" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.3812513" font-weight="700" line-spacing="16.1478939" fill="#505A72">
                                 <tspan x="116.211765" y="101.434618">$7,392</tspan>
                             </text>
                             <circle id="Oval" fill="#E95B4B" cx="57.6036475" cy="112.611335" r="4.19845243"></circle>
@@ -207,7 +207,7 @@
                             </g>
                             <rect id="Rectangle-Copy-3" fill="#D2DCEA" opacity="0.717754546" x="179.595647" y="125.094078" width="30.1056287" height="2.07625025" rx="0.91067699"></rect>
                             <rect id="Rectangle-Copy-4" fill="#D2DCEA" opacity="0.717754546" x="179.595647" y="128.208453" width="34.2581292" height="2.07625025" rx="0.91067699"></rect>
-                            <text id="$34,200" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.3812513" font-weight="700" line-spacing="16.1478939" fill="#505A72">
+                            <text id="$34,200" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.3812513" font-weight="700" line-spacing="16.1478939" fill="#505A72">
                                 <tspan x="179.537398" y="101.434618">$34,200</tspan>
                             </text>
                             <g id="Arrow-Up/16x16-Copy-2" transform="translate(182.121061, 114.307026)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.645915758">
@@ -218,7 +218,7 @@
                             <g id="Cards/Standard-Copy-6" transform="translate(47.638552, 150.585098)" fill="#FFFFFF" stroke="#DCDCDE" stroke-width="0.5">
                                 <rect id="Rectangle-21-Copy-2" x="0.365203412" y="0.712108067" width="176.500334" height="17.1481271" rx="1.61478939"></rect>
                             </g>
-                            <text id="Monthly-Provider-Usa" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
+                            <text id="Monthly-Provider-Usa" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.19062563" font-weight="700" line-spacing="8.07394697" fill="#505A72">
                                 <tspan x="47.7537558" y="144.108767">Monthly Provider Usage</tspan>
                             </text>
                             <rect id="Path" fill="url(#linearGradient-8)" transform="translate(119.788249, 159.871269) rotate(-270.000000) translate(-119.788249, -159.871269) " x="115.116686" y="91.3550111" width="9.34312613" height="137.032517"></rect>

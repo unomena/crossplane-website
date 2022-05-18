@@ -42,7 +42,7 @@
                                 <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
                                 <use fill="#5A53C0" fill-rule="evenodd" xlink:href="#path-3"></use>
                             </g>
-                            <text id="Install" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
+                            <text id="Install" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
                                 <tspan x="13.6943711" y="16.8399996">Install</tspan>
                             </text>
                         </g>
@@ -54,7 +54,7 @@
                             <rect id="Rectangle" x="0" y="38.962789" width="138.905242" height="8.33370764" rx="4.16685382"></rect>
                             <rect id="Rectangle" x="0" y="58.4441835" width="124.042953" height="8.33370764" rx="4.16685382"></rect>
                         </g>
-                        <text id="My-Stack" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
+                        <text id="My-Stack" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
                             <tspan x="0" y="15.2175743">provider-gcp</tspan>
                         </text>
                     </g>

@@ -148,7 +148,7 @@
                             </g>
                         </g>
                     </g>
-                    <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
+                    <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
                         <g transform="translate(93.000000, 60.037975)" id="Control-Planes">
                             <text>
                                 <tspan x="0" y="16.9620253" fill="#505A72">Control Planes</tspan>
@@ -341,7 +341,7 @@
                         <path stroke="#D2DCEA" stroke-width="0.5" d="M178,-0.25 L8,-0.25 C5.72182541,-0.25 3.65932541,0.673412703 2.16636906,2.16636906 C0.673412703,3.65932541 -0.25,5.72182541 -0.25,8 L-0.25,58 C-0.25,60.2781746 0.673412703,62.3406746 2.16636906,63.8336309 C3.65932541,65.3265873 5.72182541,66.25 8,66.25 L178,66.25 C180.278175,66.25 182.340675,65.3265873 183.833631,63.8336309 C185.326587,62.3406746 186.25,60.2781746 186.25,58 L186.25,8 C186.25,5.72182541 185.326587,3.65932541 183.833631,2.16636906 C182.340675,0.673412703 180.278175,-0.25 178,-0.25 Z" fill="#FFFFFF" fill-rule="evenodd"></path>
                     </g>
                     <rect id="Rectangle" fill="#DFE6F0" x="99.6799929" y="36.8399971" width="63.7999962" height="6.15999963" rx="3.07999982"></rect>
-                    <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="9.59999943" font-weight="700" line-spacing="16.499999" fill="#505A72">
+                    <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="9.59999943" font-weight="700" line-spacing="16.499999" fill="#505A72">
                         <tspan x="99.6799929" y="25.6399984">Team Beta</tspan>
                     </text>
                 </g>
@@ -359,7 +359,7 @@
                         <path stroke="#D2DCEA" stroke-width="0.5" d="M178,-0.25 L8,-0.25 C5.72182541,-0.25 3.65932541,0.673412703 2.16636906,2.16636906 C0.673412703,3.65932541 -0.25,5.72182541 -0.25,8 L-0.25,58 C-0.25,60.2781746 0.673412703,62.3406746 2.16636906,63.8336309 C3.65932541,65.3265873 5.72182541,66.25 8,66.25 L178,66.25 C180.278175,66.25 182.340675,65.3265873 183.833631,63.8336309 C185.326587,62.3406746 186.25,60.2781746 186.25,58 L186.25,8 C186.25,5.72182541 185.326587,3.65932541 183.833631,2.16636906 C182.340675,0.673412703 180.278175,-0.25 178,-0.25 Z" fill="#FFFFFF" fill-rule="evenodd"></path>
                     </g>
                     <rect id="Rectangle" fill="#DFE6F0" x="99.6799929" y="36.8399971" width="63.7999962" height="6.15999963" rx="3.07999982"></rect>
-                    <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="9.59999943" font-weight="700" line-spacing="16.499999" fill="#505A72">
+                    <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="9.59999943" font-weight="700" line-spacing="16.499999" fill="#505A72">
                         <tspan x="99.6799929" y="25.6399984">Team Alpha</tspan>
                     </text>
                 </g>

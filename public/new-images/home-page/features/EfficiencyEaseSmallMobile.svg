@@ -77,7 +77,7 @@
                         <polygon id="Rectangle-9-Copy-2" fill="url(#linearGradient-2)" points="167.138145 14.5337518 167.657208 14.5337518 167.657208 98.621887 167.138145 98.621887"></polygon>
                         <polygon id="Rectangle-9-Copy" fill="url(#linearGradient-2)" points="43.6012553 14.5337518 44.1203179 14.5337518 44.1203179 98.621887 43.6012553 98.621887"></polygon>
                         <polygon id="Rectangle-9-Copy-10" fill="url(#linearGradient-2)" points="59.1731322 14.5337518 59.6921947 14.5337518 59.6921947 98.621887 59.1731322 98.621887"></polygon>
-                        <text id="Total-Monthly-Spend-Copy" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.45915758" font-weight="700" line-spacing="8.07394697" fill="#505A72">
+                        <text id="Total-Monthly-Spend-Copy" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.45915758" font-weight="700" line-spacing="8.07394697" fill="#505A72">
                             <tspan x="12.4575015" y="15.3431261">Total Monthly Spend</tspan>
                         </text>
                     </g>

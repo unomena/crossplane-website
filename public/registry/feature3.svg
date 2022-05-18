@@ -139,11 +139,11 @@
                             </g>
                             <rect fill="#F4F8FF" mask="url(#mask-2)" x="-5.6" y="-6.4" width="425.6" height="25.6"></rect>
                         </g>
-                        <text id="Find-the-perfect-sol" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="12.8" font-weight="700" line-spacing="16" fill="#1D285E">
+                        <text id="Find-the-perfect-sol" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="12.8" font-weight="700" line-spacing="16" fill="#1D285E">
                             <tspan x="98.88" y="53.8">Find the perfect solution for building your </tspan>
                             <tspan x="98.88" y="69.8">next Crossplane project. </tspan>
                         </text>
-                        <text id="Description-Copy-25" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.4" font-weight="600" line-spacing="8" fill="#505A72">
+                        <text id="Description-Copy-25" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.4" font-weight="600" line-spacing="8" fill="#505A72">
                             <tspan x="27.2" y="114.32">Visibility</tspan>
                         </text>
                         <g id="Group" transform="translate(27.200000, 132.640000)">
@@ -177,7 +177,7 @@
                                 </g>
                             </g>
                         </g>
-                        <text id="Description-Copy-26" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.4" font-weight="600" line-spacing="8" fill="#505A72">
+                        <text id="Description-Copy-26" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.4" font-weight="600" line-spacing="8" fill="#505A72">
                             <tspan x="27.2" y="64.72">Type</tspan>
                         </text>
                         <g id="Group" transform="translate(27.200000, 71.840000)">
@@ -211,7 +211,7 @@
                                 </g>
                             </g>
                         </g>
-                        <g id="Lists/Titles/Divider-Title-with-Subtext-Copy-3" transform="translate(27.200000, 43.200000)" fill="#3F4E97" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8" font-weight="700" line-spacing="9.6">
+                        <g id="Lists/Titles/Divider-Title-with-Subtext-Copy-3" transform="translate(27.200000, 43.200000)" fill="#3F4E97" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8" font-weight="700" line-spacing="9.6">
                             <text id="Header">
                                 <tspan x="0" y="8">Filter By</tspan>
                             </text>
@@ -302,16 +302,16 @@
                                 <path d="M12.6315494,6.71809038 C11.1027419,7.8939 8.88155648,8.51809524 6.97175527,8.51809524 C4.29518043,8.51809524 1.88347497,7.48744729 0.0619170891,5.77453944 C-0.0821811503,5.63905521 0.0479765952,5.45518374 0.219909354,5.56163564 C2.19016584,6.75196144 4.62041215,7.47293113 7.13439437,7.47293113 C8.8304878,7.47293113 10.6938672,7.1051882 12.4085479,6.35034745 C12.6641236,6.22937938 12.8825247,6.52454147 12.6315494,6.71809038 Z M13.2682117,5.96324963 C13.0729983,5.7019586 11.9763926,5.83744284 11.4791817,5.90034623 C11.3304366,5.91970112 11.3072024,5.78421689 11.442007,5.68260371 C12.3156113,5.04389231 13.7514357,5.22776377 13.9187681,5.44066757 C14.086054,5.6584101 13.8722998,7.15357542 13.054411,7.86970639 C12.928993,7.98099701 12.8081754,7.92293234 12.8638909,7.77777066 C13.0497642,7.29873711 13.4633786,6.21970193 13.2682117,5.96324963 L13.2682117,5.96324963 Z" id="Fill-2" fill="#FF9900"></path>
                             </g>
                         </g>
-                        <text id="Title-Copy-88" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
+                        <text id="Title-Copy-88" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
                             <tspan x="109.12" y="190.36">provider-alibaba</tspan>
                         </text>
-                        <text id="Title-Copy-103" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
+                        <text id="Title-Copy-103" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
                             <tspan x="301.12" y="208.36">provider-azure</tspan>
                         </text>
-                        <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
+                        <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
                             <tspan x="109.12" y="294.04">provider-gcp</tspan>
                         </text>
-                        <text id="Title-Copy-95" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
+                        <text id="Title-Copy-95" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
                             <tspan x="204.12" y="190.04">provider-aws</tspan>
                         </text>
                         <g id="Text" transform="translate(204.000000, 199.000000)">
@@ -325,14 +325,14 @@
                             <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="86.58" height="94.26" rx="1.6"></rect>
                         </g>
                         <image id="Bitmap" x="204" y="263" width="21.12" height="21.12" xlink:href="data:image/png;base64,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"></image>
-                        <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
+                        <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.12" font-weight="700" line-spacing="8" fill="#505A72">
                             <tspan x="205.12" y="293.72">provider-rook</tspan>
                         </text>
                         <g id="Lock/16x16/Light" transform="translate(272.640000, 276.640000)" stroke="#BDD0FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
                             <rect id="Rectangle-path" x="0" y="1.6" width="3.2" height="2.88" rx="0.64"></rect>
                             <path d="M0.64,1.6 L0.64,0.888888889 C0.64,0.397969111 1.06980664,0 1.6,0 C2.13019336,0 2.56,0.397969111 2.56,0.888888889 L2.56,1.6" id="Shape"></path>
                         </g>
-                        <text id="Header" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.68" font-weight="700" line-spacing="10.24" fill="#3F4E97">
+                        <text id="Header" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.68" font-weight="700" line-spacing="10.24" fill="#3F4E97">
                             <tspan x="99.2" y="139.08">Providers</tspan>
                         </text>
                         <g id="Form-Fields/Search/Large-Default" transform="translate(99.200000, 99.080000)">
@@ -356,7 +356,7 @@
                             <tspan x="99.2" y="87.76">Have a provider or configuration you want to make available to the community?</tspan>
                         </text>
                         <g id="Group" transform="translate(337.600000, 82.080000)">
-                            <text id="View-All" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.76" font-weight="600" line-spacing="7.68" fill="#637CFF">
+                            <text id="View-All" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.76" font-weight="600" line-spacing="7.68" fill="#637CFF">
                                 <tspan x="0" y="6">Learn More</tspan>
                             </text>
                             <g id="chevron-right" transform="translate(33.619264, 1.920000)" stroke="#637CFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.64">
@@ -403,7 +403,7 @@
                                     <use fill="black" fill-opacity="1" filter="url(#filter-23)" xlink:href="#path-22"></use>
                                     <use fill="#5A53C0" fill-rule="evenodd" xlink:href="#path-22"></use>
                                 </g>
-                                <text id="Install" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="9.24" font-weight="700" line-spacing="13.2" fill="#FFFFFF">
+                                <text id="Install" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="9.24" font-weight="700" line-spacing="13.2" fill="#FFFFFF">
                                     <tspan x="20.07786" y="19">Install</tspan>
                                 </text>
                             </g>
@@ -428,7 +428,7 @@
                                     <polygon id="Fill-4" fill="#6553C0" points="35.7409295 0 23.4025546 11.8347333 23.2731634 24.1043478 35.6115383 12.2900543"></polygon>
                                 </g>
                             </g>
-                            <text id="My-Stack" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="14" font-weight="700" line-spacing="13.75" fill="#505A72">
+                            <text id="My-Stack" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="14" font-weight="700" line-spacing="13.75" fill="#505A72">
                                 <tspan x="0" y="81.65">My Configuration</tspan>
                             </text>
                         </g>

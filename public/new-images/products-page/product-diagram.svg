@@ -153,31 +153,31 @@
                         </g>
                     </g>
                 </g>
-                <text id="App" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#6D64F5">
+                <text id="App" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#6D64F5">
                     <tspan x="966.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-3" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#49C2D6">
+                <text id="App-Copy-3" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#49C2D6">
                     <tspan x="682.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-6" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#FAAD13">
+                <text id="App-Copy-6" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#FAAD13">
                     <tspan x="398.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#6D64F5">
+                <text id="App-Copy" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#6D64F5">
                     <tspan x="906.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-4" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#49C2D6">
+                <text id="App-Copy-4" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#49C2D6">
                     <tspan x="622.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-7" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#FAAD13">
+                <text id="App-Copy-7" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#FAAD13">
                     <tspan x="338.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-2" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#6D64F5">
+                <text id="App-Copy-2" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#6D64F5">
                     <tspan x="845.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-5" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#49C2D6">
+                <text id="App-Copy-5" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#49C2D6">
                     <tspan x="561.992" y="38">App</tspan>
                 </text>
-                <text id="App-Copy-8" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#FAAD13">
+                <text id="App-Copy-8" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="32" fill="#FAAD13">
                     <tspan x="277.992" y="38">App</tspan>
                 </text>
                 <g transform="translate(319.000000, 489.000000)">
@@ -363,7 +363,7 @@
                     <use fill="black" fill-opacity="1" filter="url(#filter-53)" xlink:href="#path-52"></use>
                     <path stroke="url(#linearGradient-51)" stroke-width="2" d="M1181,319 L954,319 C951.514719,319 949.264719,317.992641 947.636039,316.363961 C946.007359,314.735281 945,312.485281 945,310 L945,210 C945,207.514719 946.007359,205.264719 947.636039,203.636039 C949.264719,202.007359 951.514719,201 954,201 L1181,201 C1183.48528,201 1185.73528,202.007359 1187.36396,203.636039 C1188.99264,205.264719 1190,207.514719 1190,210 L1190,277.5 L1190,310 C1190,312.485281 1188.99264,314.735281 1187.36396,316.363961 C1185.73528,317.992641 1183.48528,319 1181,319 Z" stroke-linejoin="square" fill="#1B3549" fill-rule="evenodd"></path>
                 </g>
-                <text id="Crossplane" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="18" font-weight="700" line-spacing="22" fill="#FFFFFF">
+                <text id="Crossplane" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="18" font-weight="700" line-spacing="22" fill="#FFFFFF">
                     <tspan x="1009" y="265">Crossplane</tspan>
                 </text>
                 <g id="Crossplane-Icon" transform="translate(976.000000, 241.000000)">
@@ -399,10 +399,10 @@
                 </g>
                 <path d="M349.558059,252.660966 L358.669555,243.312704 C359.110148,242.865449 359.110148,242.134551 358.669555,241.682506 L349.558059,232.339034 C349.12218,231.886989 348.409751,231.886989 347.969203,232.339034 L346.928685,233.406595 C346.478754,233.86343 346.488091,234.608793 346.947451,235.056001 L352.595255,240.576484 L339.124874,240.576484 C338.501515,240.576484 338,241.091034 338,241.730593 L338,243.269407 C338,243.908966 338.501515,244.423516 339.124874,244.423516 L352.595255,244.423516 L346.947451,249.943999 C346.492806,250.391207 346.483423,251.13657 346.928685,251.593405 L347.969203,252.660966 C348.405082,253.113011 349.117511,253.113011 349.558059,252.660966 Z" id="arrow-right-copy" fill="#0B1C28" fill-rule="nonzero"></path>
                 <path d="M355,258 L99,258 C96.5147186,258 94.2647186,256.992641 92.636039,255.363961 C91.0073593,253.735281 90,251.485281 90,249 L90,149 C90,146.514719 91.0073593,144.264719 92.636039,142.636039 C94.2647186,141.007359 96.5147186,140 99,140 L355,140 C357.485281,140 359.735281,141.007359 361.363961,142.636039 C362.992641,144.264719 364,146.514719 364,149 L364,218.535635 L364,249 C364,251.485281 362.992641,253.735281 361.363961,255.363961 C359.735281,256.992641 357.485281,258 355,258 Z" id="Rectangle-Copy-29" stroke-opacity="0.35" stroke="#C8C3FF" stroke-width="2" fill="#1B3549"></path>
-                <text id="Operator" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="18" font-weight="700" line-spacing="20" fill="#D3E7F7">
+                <text id="Operator" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="18" font-weight="700" line-spacing="20" fill="#D3E7F7">
                     <tspan x="158" y="354">Operator</tspan>
                 </text>
-                <text id="Developer" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="18" font-weight="700" line-spacing="20" fill="#D3E7F7">
+                <text id="Developer" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="18" font-weight="700" line-spacing="20" fill="#D3E7F7">
                     <tspan x="158" y="205">Developer</tspan>
                 </text>
                 <g id="Group-4-Copy" transform="translate(113.000000, 331.000000)">
@@ -462,7 +462,7 @@
                 </g>
                 <line x1="638.5" y1="70" x2="638.5" y2="115" id="Path-7" stroke="#49C2D6"></line>
                 <path d="M729.481357,180 L533,180 C530.790861,180 528.790861,179.104569 527.343146,177.656854 C525.895431,176.209139 525,174.209139 525,172 L525,120 C525,117.790861 525.895431,115.790861 527.343146,114.343146 C528.790861,112.895431 530.790861,112 533,112 L746,112 C748.209139,112 750.209139,112.895431 751.656854,114.343146 C753.104569,115.790861 754,117.790861 754,120 L754,162.460938 L754,172 C754,174.209139 753.104569,176.209139 751.656854,177.656854 C750.209139,179.104569 748.209139,180 746,180 L729.481357,180 Z" id="Rectangle-Copy-18" stroke="url(#linearGradient-65)" stroke-width="4" fill="#1B3549"></path>
-                <text id="Internal-Cloud-API" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="18" font-weight="700" line-spacing="32" fill="#FFFFFF">
+                <text id="Internal-Cloud-API" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="18" font-weight="700" line-spacing="32" fill="#FFFFFF">
                     <tspan x="561.515" y="150">Internal Cloud API</tspan>
                 </text>
                 <path d="M578,70 L578,82.3882531 C578,87.9111006 582.477153,92.3882531 588,92.3882531 L628.859377,92.3882531 C634.238202,92.3882531 638.653449,96.6430017 638.852526,102.018141 L639,106 L639,106" id="Path-8" stroke="#49C2D6"></path>

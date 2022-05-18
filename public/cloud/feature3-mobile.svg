@@ -91,12 +91,12 @@
                         </g>
                         <rect fill="#F4F8FF" mask="url(#mask-2)" x="-3.54085603" y="-4.03196273" width="269.105058" height="22.0497962"></rect>
                     </g>
-                    <text id="Find-the-perfect-sol" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8.09388078" font-weight="700" line-spacing="10.117351" fill="#1D285E">
+                    <text id="Find-the-perfect-sol" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.09388078" font-weight="700" line-spacing="10.117351" fill="#1D285E">
                         <tspan x="58.7276265" y="38.0762775">Find the perfect solution for building your </tspan>
                         <tspan x="58.7276265" y="48.1936285">next Crossplane project. </tspan>
                     </text>
                     <g id="Group-25" transform="translate(13.278210, 31.499709)">
-                        <text id="Description-Copy-25" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.79400662" font-weight="600" line-spacing="5.05867549" fill="#505A72">
+                        <text id="Description-Copy-25" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.79400662" font-weight="600" line-spacing="5.05867549" fill="#505A72">
                             <tspan x="0.126466887" y="44.5118405">Visibility</tspan>
                         </text>
                         <g id="Group" transform="translate(0.126467, 55.851322)">
@@ -130,7 +130,7 @@
                                 </g>
                             </g>
                         </g>
-                        <text id="Description-Copy-26" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.79400662" font-weight="600" line-spacing="5.05867549" fill="#505A72">
+                        <text id="Description-Copy-26" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.79400662" font-weight="600" line-spacing="5.05867549" fill="#505A72">
                             <tspan x="0.126466887" y="13.2659775">Type</tspan>
                         </text>
                         <g id="Group" transform="translate(0.126467, 17.541751)">
@@ -164,7 +164,7 @@
                                 </g>
                             </g>
                         </g>
-                        <text id="Header" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="4.42634105" font-weight="700" line-spacing="6.07041059" fill="#505A72">
+                        <text id="Header" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="4.42634105" font-weight="700" line-spacing="6.07041059" fill="#505A72">
                             <tspan x="0" y="4">Filter By</tspan>
                         </text>
                     </g>
@@ -193,7 +193,7 @@
                                 </g>
                             </g>
                         </g>
-                        <text id="Title-Copy-103" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                        <text id="Title-Copy-103" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
                             <tspan x="6.27275761" y="25.9741969">provider-azure</tspan>
                         </text>
                     </g>
@@ -201,7 +201,7 @@
                         <g id="Cards/Standard-Copy-7" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.5">
                             <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="55.1303502" height="59.5682541" rx="1.0117351"></rect>
                         </g>
-                        <text id="Title-Copy-103" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                        <text id="Title-Copy-103" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
                             <tspan x="6.27275761" y="25.9741969">provider-aws</tspan>
                         </text>
                     </g>
@@ -232,13 +232,13 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Title-Copy-88" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                    <text id="Title-Copy-88" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
                         <tspan x="65.2063271" y="116.995756">provider-alibaba</tspan>
                     </text>
-                    <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="4.76331839" font-weight="700" line-spacing="6.25678284" fill="#505A72">
+                    <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="4.76331839" font-weight="700" line-spacing="6.25678284" fill="#505A72">
                         <tspan x="66.6933868" y="188.733607">provider-gcp</tspan>
                     </text>
-                    <text id="Title-Copy-95" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
+                    <text id="Title-Copy-95" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.85119359" font-weight="700" line-spacing="5.05867549" fill="#505A72">
                         <tspan x="125.278099" y="116.794157">provider-rook</tspan>
                     </text>
                     <g id="Lock/16x16/Light-Copy-2" transform="translate(227.033296, 96.634757)" stroke="#BDD0FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
@@ -291,7 +291,7 @@
                             <use fill="black" fill-opacity="1" filter="url(#filter-19)" xlink:href="#path-18"></use>
                             <use fill="#5A53C0" fill-rule="evenodd" xlink:href="#path-18"></use>
                         </g>
-                        <text id="Install-Provider" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="3.5743487" font-weight="700" line-spacing="5.10621242" fill="#FFFFFF">
+                        <text id="Install-Provider" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="3.5743487" font-weight="700" line-spacing="5.10621242" fill="#FFFFFF">
                             <tspan x="4.6784004" y="8.07774523">Install Provider</tspan>
                         </text>
                     </g>

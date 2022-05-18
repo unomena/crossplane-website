@@ -122,7 +122,7 @@
                     </g>
                     <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)">
                         <g transform="translate(92.898734, 80.037975)">
-                            <text id="My-Dashboard" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
+                            <text id="My-Dashboard" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
                                 <tspan x="0" y="16" fill="#505A72">My Dashboard</tspan>
                             </text>
                             <text id="Subtext" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949">
@@ -236,7 +236,7 @@
                 <g id="Cards/Standard-Copy-2" transform="translate(92.000000, 202.998753)" stroke="#DCDCDE" stroke-width="0.622194514">
                     <path d="M338.889027,148.69015 L3.11097257,148.69015 C2.33780835,148.69015 1.63783952,148.376763 1.13116175,147.870085 C0.624483976,147.363407 0.311097257,146.663439 0.311097257,145.890274 L0.311097257,3.11221945 C0.311097257,2.33905523 0.624483976,1.63908641 1.13116175,1.13240863 C1.63783952,0.625730859 2.33780835,0.31234414 3.11097257,0.31234414 L338.889027,0.31234414 C339.662192,0.31234414 340.36216,0.625730859 340.868838,1.13240863 C341.375516,1.63908641 341.688903,2.33905523 341.688903,3.11221945 L341.688903,145.890274 C341.688903,146.663439 341.375516,147.363407 340.868838,147.870085 C340.36216,148.376763 339.662192,148.69015 338.889027,148.69015 Z" id="Rectangle-21-Copy-2"></path>
                 </g>
-                <text id="Total-Monthly-Spend" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10" font-weight="700" line-spacing="15.5548628" fill="#505A72">
+                <text id="Total-Monthly-Spend" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10" font-weight="700" line-spacing="15.5548628" fill="#505A72">
                     <tspan x="93" y="184">Total Monthly Spend</tspan>
                 </text>
                 <g id="Arrow-Up/16x16-Copy-2" transform="translate(350.865337, 263.218204)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.24438903">

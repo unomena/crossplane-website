@@ -52,10 +52,10 @@
                                     </text>
                                 </g>
                             </g>
-                            <text id="Title" mask="url(#mask-7)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.7036013" font-weight="700" line-spacing="11.6343492" fill="#505A72">
+                            <text id="Title" mask="url(#mask-7)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.7036013" font-weight="700" line-spacing="11.6343492" fill="#505A72">
                                 <tspan x="21.934096" y="96.0397292">Control Plane List (8)</tspan>
                             </text>
-                            <text id="Control-Planes" mask="url(#mask-7)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16.7534629" font-weight="700" line-spacing="17.6842108" fill="#505A72">
+                            <text id="Control-Planes" mask="url(#mask-7)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16.7534629" font-weight="700" line-spacing="17.6842108" fill="#505A72">
                                 <tspan x="21.8725765" y="57.8892885">Control Planes</tspan>
                             </text>
                             <rect id="Rectangle" fill="#DFE6F0" mask="url(#mask-7)" x="22.8033244" y="67.0138514" width="132.631581" height="7.91874441" rx="3.9593722"></rect>
@@ -222,7 +222,7 @@
                                 <g id="Group-2" transform="translate(0.000000, 17.218837)">
                                     <rect id="Rectangle" fill="#DFE6F0" x="0.0409476052" y="13.9351562" width="60.0332419" height="4.58672563" rx="2.29336281"></rect>
                                     <rect id="Rectangle" fill="#DFE6F0" x="0.0409476052" y="22.3118876" width="47.5053725" height="4.58672563" rx="2.29336281"></rect>
-                                    <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.91135746" font-weight="700" line-spacing="9.30747936" fill="#505A72">
+                                    <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.91135746" font-weight="700" line-spacing="9.30747936" fill="#505A72">
                                         <tspan x="0.0409476052" y="8.19731679">Team Alpha</tspan>
                                     </text>
                                 </g>

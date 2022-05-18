@@ -24,7 +24,7 @@
                         <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
                         <rect stroke="#D2DCEA" stroke-width="0.53164557" fill="#FFFFFF" fill-rule="evenodd" x="-0.265822785" y="-0.265822785" width="473.531646" height="336.531646" rx="8"></rect>
                     </g>
-                    <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
+                    <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
                         <g transform="translate(35.000000, 60.037975)" id="Backend-Team-Permiss">
                             <text>
                                 <tspan x="0" y="16.9620253" fill="#505A72">Backend Team Permissions</tspan>

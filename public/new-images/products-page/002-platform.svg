@@ -143,16 +143,16 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Title-Copy-88" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                    <text id="Title-Copy-88" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
                         <tspan x="127" y="160">provider-alibaba</tspan>
                     </text>
-                    <text id="Title-Copy-103" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                    <text id="Title-Copy-103" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
                         <tspan x="346" y="160">provider-azure</tspan>
                     </text>
-                    <text id="Title-Copy-92" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                    <text id="Title-Copy-92" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
                         <tspan x="127" y="278">provider-gcp</tspan>
                     </text>
-                    <text id="Title-Copy-95" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                    <text id="Title-Copy-95" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
                         <tspan x="235" y="160">provider-aws</tspan>
                     </text>
                     <g id="Text" mask="url(#mask-2)">
@@ -179,10 +179,10 @@
                         <tspan x="351.206613" y="259">W</tspan>
                     </text>
                     <image id="Bitmap" mask="url(#mask-2)" x="235" y="243" width="24" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAEAmlDQ1BJQ0MgUHJvZmlsZQAAOI2NVV1oHFUUPpu5syskzoPUpqaSDv41lLRsUtGE2uj+ZbNt3CyTbLRBkMns3Z1pJjPj/KRpKT4UQRDBqOCT4P9bwSchaqvtiy2itFCiBIMo+ND6R6HSFwnruTOzu5O4a73L3PnmnO9+595z7t4LkLgsW5beJQIsGq4t5dPis8fmxMQ6dMF90A190C0rjpUqlSYBG+PCv9rt7yDG3tf2t/f/Z+uuUEcBiN2F2Kw4yiLiZQD+FcWyXYAEQfvICddi+AnEO2ycIOISw7UAVxieD/Cyz5mRMohfRSwoqoz+xNuIB+cj9loEB3Pw2448NaitKSLLRck2q5pOI9O9g/t/tkXda8Tbg0+PszB9FN8DuPaXKnKW4YcQn1Xk3HSIry5ps8UQ/2W5aQnxIwBdu7yFcgrxPsRjVXu8HOh0qao30cArp9SZZxDfg3h1wTzKxu5E/LUxX5wKdX5SnAzmDx4A4OIqLbB69yMesE1pKojLjVdoNsfyiPi45hZmAn3uLWdpOtfQOaVmikEs7ovj8hFWpz7EV6mel0L9Xy23FMYlPYZenAx0yDB1/PX6dledmQjikjkXCxqMJS9WtfFCyH9XtSekEF+2dH+P4tzITduTygGfv58a5VCTH5PtXD7EFZiNyUDBhHnsFTBgE0SQIA9pfFtgo6cKGuhooeilaKH41eDs38Ip+f4At1Rq/sjr6NEwQqb/I/DQqsLvaFUjvAx+eWirddAJZnAj1DFJL0mSg/gcIpPkMBkhoyCSJ8lTZIxk0TpKDjXHliJzZPO50dR5ASNSnzeLvIvod0HG/mdkmOC0z8VKnzcQ2M/Yz2vKldduXjp9bleLu0ZWn7vWc+l0JGcaai10yNrUnXLP/8Jf59ewX+c3Wgz+B34Df+vbVrc16zTMVgp9um9bxEfzPU5kPqUtVWxhs6OiWTVW+gIfywB9uXi7CGcGW/zk98k/kmvJ95IfJn/j3uQ+4c5zn3Kfcd+AyF3gLnJfcl9xH3OfR2rUee80a+6vo7EK5mmXUdyfQlrYLTwoZIU9wsPCZEtP6BWGhAlhL3p2N6sTjRdduwbHsG9kq32sgBepc+xurLPW4T9URpYGJ3ym4+8zA05u44QjST8ZIoVtu3qE7fWmdn5LPdqvgcZz8Ww8BWJ8X3w0PhQ/wnCDGd+LvlHs8dRy6bLLDuKMaZ20tZrqisPJ5ONiCq8yKhYM5cCgKOu66Lsc0aYOtZdo5QCwezI4wm9J/v0X23mlZXOfBjj8Jzv3WrY5D+CsA9D7aMs2gGfjve8ArD6mePZSeCfEYt8CONWDw8FXTxrPqx/r9Vt4biXeANh8vV7/+/16ffMD1N8AuKD/A/8leAsfQg3ZAAAAOGVYSWZNTQAqAAAACAABh2kABAAAAAEAAAAaAAAAAAACoAIABAAAAAEAAABBoAMABAAAAAEAAABBAAAAAN9fgnkAAAcCSURBVHgB7VxrbBRVFD53drovaGFblhJrAkIRjYghgIpiMCFRURDBNDEElGjiD6I/NDEmkiD80KiJGmLiD0PigwgkRB4CsWL8gRhBEDRVAlpePyihFAp97YvZuZ4zZaa7szOzs3t3p9stJ5mdmXvPufec7577vrMM3NKcpeEojH9GYvA8B7ibAUwAxicAsJDbJMrHx+PA2VXU6yrq9Z/K4bsuuLEfju+NuckTZZxp7OyW6Bg58D5mshIYhJ25KyiWQwwLaeuAknyn/88dXU6a2YMwvyXUeDP4JmfwNjLVOiVSyXHoHX2M8w86a5KfwuEdcStdLUGou6+lPhgK7GWMPWIlNBLDOIdf4xJ7ru/oN9fM+ueAMGHuqhk+xlqRcYqZeaS/c87PpVW25NqJLacybckCofbBFxtCqnoEPaA5k6manjnw9jiT5md6hGQYOGVNMMTVfdUMANnKgE0Pcb4X0F7ddgOExqiyARke1iOq+Y7uP5/s1W3UqsP42SsnB2TfaQw00NEZqviegCRM7mzbckXzhIDPt36UAUBlG+R+2EgPDOa8WjNRiuFIi9VRwGgi7C16rvBwVI5KsUWjEQAqbOwExkVZbJHEOFs2mkrfbCvZj/MhuNccMZreyX4ZBw+TsDoUZXfNA7OgZupdtrKp06dBOfVvVnxgwaPgi+Lk04aSf7VB+vz5rNh8MvGDh4B3d2fJuH0h+2VknuRWwMxX9/JL5qCsd9+dTdBnAmFsy4osHvOLJvPZ50awr+kOyCfD0wrEv99vyBT4MEmmxqFAoRx2BUtB7b5uhEv1EZDr6413qwfl4iVQE0OTOjsZFhparjDLyAiQlBFvlU++MLKfPEGYUr8fg3jrASOd0FNPgLz4SZAi44GerWhg125Qzpw1ouxkpAwwzTK1r68Ff/M0I41iH0oCgl3mckODBoZdvFV4MTJW6RQSZswdChHKx5v6+x+gKmJHKfQApeNSVjS9FyqTlYDAS1k8IY0G9Wx8ryC1biJwPXgNB5XFE4bDEJE8b4OA6JWkOlALLk/LbqU5dn9ULUpF5vQpXSlYmpl/SUAIPjQP6DJT/OAvENu5xxxc2DuOAyLr14EUHhovFJZAfm6h6uDUmlPWvojzgCm/erc48ozq1b5+10lZMbLGeatxab444jj9Yv6ArTBPJYHhdpAwyeiwdNlRImEX4yrcIeX88pqBDgrkKcD8GegcigJAV5lICATu9zvOCMukc1ayPJnU5i1MVbPCC3kRAqF+4/qyNlhuDRnY3wqJAz+5Zc/hE2oYy9li52jqEMCCfofY/FFCnqAnH/vhx6xZpB5e7nupZpFCnlBuI71K/zYIiPSwg0DLZ8NNJWkTCjWC5hrh5c9CYNb9hmiq/YzWrmSuNhmRZX7wHAQq+brX1uZ0rf7pzUBX39btQMt1XpK3IOBkaOwrazQA1HgcBnbtAfVaNx79CkF4xTJtcbZ25Qtwvf0sDoDsV6ZKDZCnbYJ/1kygNUSivs1faiVO7q+tKn30CRAwRMHHH9PuXv14CoIvEtHsoqXznLqPAKTaBpfXfE1NXtmv5eMpCLplmfsNehjdvawCmfkOCwiZClTC820QsBS87R1uFTvtGjVs+rgSnEDTQcgT9NbcrTVq3OUKUGxoj9JN2qLLa0KeQLtGVKoyDnIgYy/STvEkLrymOzrsoo1w8+6UEZH5gGMLfR8yfTXnkGomZ95nIRCoSyNFNCDwntPtWWTvhsdCLCcotHBoLKGcv5ATX0iAUHVIHj1mDHDGLMdTP1g6XhANvcO4602kjS36xVabhUAAHOD0f7tdU0bGAxnj3noDZPSIclIQPYDmHkT60Fs0PzZx7qobogc1/LjxQmN+nZSLHUA706UkbZereaox7CYAevFEi+guFx3jozbhMl5Cp1Vo1teLLbo+CSKvoKtcRFv7sZ27hQG4pd9lGbdPCIQZogrrW+vkFYGZMwFw20xvvUXTplKnHoN6FmoDStW4kl5kP55eg1O4SbJQVFFdnrzC6/UAPe9i7mS/xBkX3DEtJuvKkSH7pS41/DM1DpWjlnea4BnGXrJfguNf3MSasc27rCsoJ862kv3aOIGl4F1UzeXAvoKMEFMlEUsn6BOHwSV3+vABgG8SS3OkSfNN+veSxoixs0vegC3l4ZFmSjH6YltwhOzVZQ0Q4MJXiThjS5GhXY+sxjt2Amfwa7glZK9u3xAIGEKfyfE0PI2M53SGKrtf4CoszvwckOyzPEwy+H0k380YLKgWELBgf0vEk0t7T+7I2dCwBEE3vHHu6nXV8a00fNj5xxbbI7Y+3WCr+8CltkOsccZmv+SL4Ffz96Df1FjxVWTY4FfzX8eU5LLrJ7a1Ouno6AlZgiPk/xOwqz8J+P8JV6DngNv/T/gf+8Jg0wHVlkMAAAAASUVORK5CYII="></image>
-                    <text id="Title-Copy-92" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                    <text id="Title-Copy-92" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
                         <tspan x="236" y="278">provider-rook</tspan>
                     </text>
-                    <text id="Title-Copy-94" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
+                    <text id="Title-Copy-94" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.83302579" font-weight="700" line-spacing="9.1141028" fill="#505A72">
                         <tspan x="345" y="278">provider-weyland-yutani</tspan>
                     </text>
                     <g id="Lock/16x16/Light" mask="url(#mask-2)" stroke="#929394" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.569631425">
@@ -228,7 +228,7 @@
                     </g>
                     <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)">
                         <g transform="translate(115.898734, 50.037975)">
-                            <text id="Providers" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
+                            <text id="Providers" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
                                 <tspan x="0" y="16" fill="#505A72">Providers</tspan>
                             </text>
                             <text id="Subtext" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949">
@@ -241,7 +241,7 @@
                     <circle id="Oval" fill="#FF6C70" mask="url(#mask-2)" cx="14.1311392" cy="12.961519" r="4.15746835"></circle>
                     <circle id="Oval-Copy" fill="#FFCE3C" mask="url(#mask-2)" cx="25.3807595" cy="12.961519" r="4.15746835"></circle>
                     <circle id="Oval-Copy-2" fill="#2FD3BC" mask="url(#mask-2)" cx="37.1194937" cy="12.961519" r="4.15746835"></circle>
-                    <text id="Description-Copy-27" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.15875539" font-weight="700" line-spacing="11.1855553" fill="#043C58">
+                    <text id="Description-Copy-27" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.15875539" font-weight="700" line-spacing="11.1855553" fill="#043C58">
                         <tspan x="13" y="129.824665">Visibility</tspan>
                     </text>
                     <g id="Checkboxes/Checked-Copy-3" mask="url(#mask-2)">
@@ -281,7 +281,7 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Description-Copy-28" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.15875539" font-weight="700" line-spacing="11.1855553" fill="#043C58">
+                    <text id="Description-Copy-28" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.15875539" font-weight="700" line-spacing="11.1855553" fill="#043C58">
                         <tspan x="13" y="76.1339995">Type</tspan>
                     </text>
                     <g id="Forms/Radio-Button/Checked-Blue-Copy" mask="url(#mask-2)">
@@ -305,7 +305,7 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Header-Copy" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8.94844424" font-weight="700" line-spacing="11.1855553" fill="#183B56">
+                    <text id="Header-Copy" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.94844424" font-weight="700" line-spacing="11.1855553" fill="#183B56">
                         <tspan x="13" y="58">Filter Packages</tspan>
                     </text>
                 </g>

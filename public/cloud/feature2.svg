@@ -248,42 +248,42 @@
                                 <polygon id="Shape-Copy-41" fill="#DCE0E6" transform="translate(0.205544, 191.778875) scale(-1, 1) translate(-0.205544, -191.778875) " points="0 0 0.411087113 0 0.411087113 383.557749 0 383.557749"></polygon>
                             </g>
                             <polygon id="Vertical-Line-Copy-5" fill="#DCE0E6" transform="translate(56.524478, 50.306022) scale(-1, 1) rotate(-270.000000) translate(-56.524478, -50.306022) " points="56.3191473 -6.15992103 56.7298087 -6.15992103 56.7298087 106.771964 56.3191473 106.771964"></polygon>
-                            <g id="Group" transform="translate(22.586377, 118.270484)" fill="#505A72" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
+                            <g id="Group" transform="translate(22.586377, 118.270484)" fill="#505A72" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
                                 <g id="Navigation/Desktop/Side/Browser/Package-Name">
                                     <text id="Text">
                                         <tspan x="0" y="6">Platform Ref AWS</tspan>
                                     </text>
                                 </g>
                             </g>
-                            <g id="Group" transform="translate(22.586377, 143.731491)" fill="#6553C0" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
+                            <g id="Group" transform="translate(22.586377, 143.731491)" fill="#6553C0" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
                                 <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy">
                                     <text id="Text">
                                         <tspan x="0" y="6">Platform Ref Azure</tspan>
                                     </text>
                                 </g>
                             </g>
-                            <g id="Group" transform="translate(22.586377, 249.682132)" fill="#505A72" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
+                            <g id="Group" transform="translate(22.586377, 249.682132)" fill="#505A72" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
                                 <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-4">
                                     <text id="Text">
                                         <tspan x="0" y="6">Provider AWS</tspan>
                                     </text>
                                 </g>
                             </g>
-                            <g id="Group" transform="translate(22.586377, 211.490622)" fill="#505A72" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
+                            <g id="Group" transform="translate(22.586377, 211.490622)" fill="#505A72" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
                                 <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-3">
                                     <text id="Text">
                                         <tspan x="0" y="6">Provider Azure</tspan>
                                     </text>
                                 </g>
                             </g>
-                            <g id="Group" transform="translate(22.586377, 168.371175)" fill="#505A72" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
+                            <g id="Group" transform="translate(22.586377, 168.371175)" fill="#505A72" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
                                 <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-2">
                                     <text id="Text">
                                         <tspan x="0" y="6">More</tspan>
                                     </text>
                                 </g>
                             </g>
-                            <g id="Group" transform="translate(22.586377, 299.372162)" fill="#505A72" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
+                            <g id="Group" transform="translate(22.586377, 299.372162)" fill="#505A72" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804">
                                 <g id="Navigation/Desktop/Side/Browser/Package-Name-Copy-5">
                                     <text id="Text">
                                         <tspan x="0" y="6">Provider Alibaba</tspan>
@@ -354,7 +354,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Browser/Section-Title" transform="translate(12.379442, 62.831194)">
-                                <text id="Text" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
+                                <text id="Text" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
                                     <tspan x="10.266535" y="7">Browser</tspan>
                                 </text>
                                 <g id="Group" transform="translate(0.000000, 2.053307)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.615992103">
@@ -366,7 +366,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Browser/Section-Title-Copy" transform="translate(12.379442, 81.310958)">
-                                <text id="Text" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
+                                <text id="Text" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
                                     <tspan x="10.266535" y="7">Namespaces</tspan>
                                 </text>
                                 <g id="Group" transform="translate(0.000000, 2.053307)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.615992103">
@@ -379,7 +379,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Browser/Section-Title-Copy-2" transform="translate(12.379442, 99.790721)">
-                                <text id="Text" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#6553C0">
+                                <text id="Text" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#6553C0">
                                     <tspan x="10.266535" y="7">Configurations</tspan>
                                 </text>
                                 <g id="Group" transform="translate(0.000000, 2.053307)" stroke="#6553C0" stroke-width="0.615992103">
@@ -394,7 +394,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Browser/Section-Title-Copy-3" transform="translate(12.379442, 196.296150)">
-                                <text id="Text" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
+                                <text id="Text" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
                                     <tspan x="10.266535" y="7">Providers</tspan>
                                 </text>
                                 <g id="Group" transform="translate(0.000000, 2.053307)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.615992103">
@@ -405,7 +405,7 @@
                                     </g>
                                 </g>
                             </g>
-                            <text id="Global-Resour…-Copy" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.266535" font-weight="700" line-spacing="14.3731491" fill="#505A72">
+                            <text id="Global-Resour…-Copy" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.266535" font-weight="700" line-spacing="14.3731491" fill="#505A72">
                                 <tspan x="12.3728431" y="34.6396841">Global Resour…</tspan>
                             </text>
                             <g id="Buttons/Small/Primary-Copy" transform="translate(94.145547, 25.461007)">
@@ -418,14 +418,14 @@
                                     </g>
                                 </g>
                             </g>
-                            <text id="Description-Copy-10" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
+                            <text id="Description-Copy-10" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.57058243" font-weight="700" line-spacing="10.266535" fill="#505A72">
                                 <tspan x="12.3545375" y="19.3198421">Control Plane</tspan>
                             </text>
                         </g>
                         <g id="Group-24" transform="translate(157.857451, 0.000000)">
                             <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="403.276458" height="383.557749"></rect>
                             <g id="Margins/Header/Subtext-and-Buttons" transform="translate(16.443485, 34.906219)">
-                                <text id="Page-Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.266535" font-weight="700" line-spacing="14.3731491" fill="#505A72">
+                                <text id="Page-Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.266535" font-weight="700" line-spacing="14.3731491" fill="#505A72">
                                     <tspan x="0" y="10">AKS Cluster</tspan>
                                 </text>
                                 <text id="Subtext" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.74925962" font-weight="normal" line-spacing="8.21322804" fill="#929394">
@@ -492,7 +492,7 @@
                             </g>
                             <g id="Tables/Components/Tables/Components/Standard-Table-Header-2" transform="translate(16.854572, 81.310958)">
                                 <polygon id="Shape--Copy-8" fill="#DCE0E6" points="0 39.4234946 0 39.0128332 376.966883 39.0128332 376.966883 39.4234946"></polygon>
-                                <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8.21322804" font-weight="700" line-spacing="10.266535" fill="#505A72">
+                                <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.21322804" font-weight="700" line-spacing="10.266535" fill="#505A72">
                                     <tspan x="0" y="8">Resource Instances (10)</tspan>
                                 </text>
                                 <g id="Columns" transform="translate(6.570582, 20.533070)">
@@ -631,7 +631,7 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Row-Title-Copy-14" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="13.1411649" font-weight="700" line-spacing="14.3731491" fill="#505A72">
+                    <text id="Row-Title-Copy-14" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="13.1411649" font-weight="700" line-spacing="14.3731491" fill="#505A72">
                         <tspan x="272.679171" y="62.6900296">aks-cluster-instance-1</tspan>
                     </text>
                     <text id="Value-Copy-3" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="4.92793682" font-weight="normal" line-spacing="10.266535">
@@ -704,18 +704,18 @@
                         </text>
                     </g>
                     <polygon id="Shape--Copy-8" fill="#DCE0E6" points="266.929911 170.835143 266.929911 170.424482 557.037512 170.424482 557.037512 170.835143"></polygon>
-                    <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8.21322804" font-weight="700" line-spacing="10.266535" fill="#505A72">
+                    <text id="Title" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.21322804" font-weight="700" line-spacing="10.266535" fill="#505A72">
                         <tspan x="270.625864" y="139.411649">Events</tspan>
                     </text>
                     <g id="Columns" transform="translate(273.089832, 151.944719)">
                         <g id="Tables/Components/Column-Title-Unsorted-Copy" transform="translate(99.267406, 0.000000)">
                             <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="135.811567" height="12.3198421"></rect>
-                            <text id="Content" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804" fill="#505A72">
+                            <text id="Content" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804" fill="#505A72">
                                 <tspan x="0" y="8.05330701">Summary</tspan>
                             </text>
                         </g>
                         <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="90.5261599" height="12.3198421"></rect>
-                        <text id="Content" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804" fill="#505A72">
+                        <text id="Content" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="5.74925962" font-weight="700" line-spacing="8.21322804" fill="#505A72">
                             <tspan x="0" y="8.05330701">Date</tspan>
                         </text>
                     </g>

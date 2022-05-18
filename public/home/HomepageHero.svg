@@ -569,7 +569,7 @@
                     <path d="M683.894 367.864a2.5 2.5 0 0 1 2.5 2.5v1.72a2.5 2.5 0 0 1-5 0v-1.72a2.5 2.5 0 0 1 2.5-2.5z" fill="#ED2929"/>
                 </g>
                 <g>
-                    <text font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="18.9" font-weight="700" fill="#505A72" transform="translate(505.27 96.348)">
+                    <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="18.9" font-weight="700" fill="#505A72" transform="translate(505.27 96.348)">
                                         <tspan x="0" y="19">Control Planes</tspan>
                                     </text>
                     <g transform="translate(831.27 96.348)">

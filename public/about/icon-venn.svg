@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75">
   <g fill="none" fill-rule="evenodd">
     <path d="M0 0h75v75H0z"/>
-    <text fill="#7667F9" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8" font-weight="700">
+    <text fill="#7667F9" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8" font-weight="700">
       <tspan x="11.559" y="16.438">Application</tspan> <tspan x="23.347" y="25.438">Team</tspan>
     </text>
-    <text fill="#2FD3BC" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="8" font-weight="700">
+    <text fill="#2FD3BC" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8" font-weight="700">
       <tspan x="25.059" y="57.438">Platform</tspan> <tspan x="31.719" y="66.438">Team</tspan>
     </text>
     <rect width="61" height="40.87" x="3" y="3" stroke="#7667F9" stroke-width="1.95" rx="7"/>

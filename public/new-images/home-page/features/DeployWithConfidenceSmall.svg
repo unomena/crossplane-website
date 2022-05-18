@@ -40,7 +40,7 @@
                                     <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
                                     <use fill="#5A53C0" fill-rule="evenodd" xlink:href="#path-3"></use>
                                 </g>
-                                <text id="Install" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
+                                <text id="Install" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="10.0004492" font-weight="700" line-spacing="14.286356" fill="#FFFFFF">
                                     <tspan x="13.6943711" y="16.8399996">Install</tspan>
                                 </text>
                             </g>
@@ -59,7 +59,7 @@
                                     <path d="M30.1434687,16.6753721 C26.4951782,19.5244491 21.1946225,21.0369221 16.6371425,21.0369221 C10.2498619,21.0369221 4.49465597,18.539583 0.147756683,14.3890757 C-0.1961141,14.060787 0.114489597,13.6152523 0.524783662,13.8731934 C5.22653187,16.7574443 11.025983,18.5044092 17.0252585,18.5044092 C21.072754,18.5044092 25.5194546,17.6133398 29.6113062,15.7843027 C30.2212028,15.4911878 30.7423871,16.2063882 30.1434687,16.6753721 Z M31.6627765,14.846335 C31.1969264,14.2132067 28.5800265,14.5414954 27.3935004,14.6939152 C27.0385406,14.7408136 26.9830955,14.4125249 27.3047882,14.1663083 C29.3895256,12.6186616 32.8159246,13.0641962 33.2152406,13.5800785 C33.6144456,14.1076854 33.1043503,17.7305858 31.1525703,19.4658261 C30.8532774,19.7354919 30.5649627,19.5947967 30.6979201,19.2430588 C31.1414813,18.0823237 32.1285157,15.4677386 31.6627765,14.846335 L31.6627765,14.846335 Z" id="Fill-2" fill="#FF9900"></path>
                                 </g>
                             </g>
-                            <text id="My-Stack" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
+                            <text id="My-Stack" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="15.1521957" font-weight="700" line-spacing="14.8816208" fill="#505A72">
                                 <tspan x="0" y="88.2175743">provider-aws</tspan>
                             </text>
                         </g>

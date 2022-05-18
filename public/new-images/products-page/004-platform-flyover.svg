@@ -38,7 +38,7 @@
                     </g>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="125" y="23" width="58" height="4" rx="1.75446479"></rect>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="125" y="29" width="66" height="4" rx="1.75446479"></rect>
-                    <text id="$7,392" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="20" font-weight="700" line-spacing="31.1097257" fill="#505A72">
+                    <text id="$7,392" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="20" font-weight="700" line-spacing="31.1097257" fill="#505A72">
                         <tspan x="13" y="31">$7,392</tspan>
                     </text>
                     <circle id="Oval" fill="#E95B4B" cx="105.088529" cy="27.0885287" r="8.08852868"></circle>
@@ -56,7 +56,7 @@
                     </g>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="125" y="23" width="58" height="4" rx="1.75446479"></rect>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="125" y="29" width="66" height="4" rx="1.75446479"></rect>
-                    <text id="$25,823" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="20" font-weight="700" line-spacing="31.1097257" fill="#505A72">
+                    <text id="$25,823" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="20" font-weight="700" line-spacing="31.1097257" fill="#505A72">
                         <tspan x="13" y="31">$25,823</tspan>
                     </text>
                     <circle id="Oval" fill="#E95B4B" cx="105.088529" cy="27.0885287" r="8.08852868"></circle>
@@ -91,7 +91,7 @@
                     <circle id="Oval-6" stroke="#FFA6BC" stroke-width="1.24438903" fill="#FFFFFF" cx="82.3092269" cy="60.9326683" r="2.48877805"></circle>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="125" y="34" width="58" height="4" rx="1.75446479"></rect>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="125" y="40" width="66" height="4" rx="1.75446479"></rect>
-                    <text id="$34,200" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="20" font-weight="700" line-spacing="31.1097257" fill="#505A72">
+                    <text id="$34,200" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="20" font-weight="700" line-spacing="31.1097257" fill="#505A72">
                         <tspan x="13" y="29">$34,200</tspan>
                     </text>
                 </g>

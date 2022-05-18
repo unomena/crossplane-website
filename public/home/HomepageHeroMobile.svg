@@ -251,7 +251,7 @@
             </g>
         </g>
         <g>
-            <text font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.479" font-weight="700" fill="#505A72" transform="translate(172.155 31.138)">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.479" font-weight="700" fill="#505A72" transform="translate(172.155 31.138)">
                                 <tspan x="0" y="7.002">Control Planes</tspan>
                             </text>
             <g transform="translate(302.155 31.138)">
