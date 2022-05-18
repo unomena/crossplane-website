@@ -26,9 +26,13 @@ import advisors3x from 'public/about/advisors@3x.png';
 // import advisorsMobile1x from 'public/about/advisors-mobile.png';
 // import advisorsMobile2x from 'public/about/advisors-mobile@2x.png';
 import advisorsMobile3x from 'public/about/advisors-mobile@3x.png';
-import iconInnovation from 'public/about/icon-innovation.svg';
-import iconNucleus from 'public/about/icon-nucleus.svg';
-import iconTalent from 'public/about/icon-talent.svg';
+import actAsAnOwner from 'public/about/values/act-as-an-owner.svg';
+import beAccountable from 'public/about/values/be-accountable.svg';
+import careForOurCommunities from 'public/about/values/care-for-our-communities.svg';
+import championTheCustomer from 'public/about/values/champion-the-customer.svg';
+import collaborateDecisively from 'public/about/values/collaborate-decisively.svg';
+import demonstrateCraftsmanship from 'public/about/values/demonstrate-craftsmanship.svg';
+import engageVulnerability from 'public/about/values/engage-vulnerability.svg';
 // import bassamProfilePic1x from 'public/about/people/founders/bassam.png';
 // import bassamProfilePic2x from 'public/about/people/founders/bassam@2x.png';
 import bassamProfilePic3x from 'public/about/people/founders/bassam@3x.png';
@@ -91,46 +95,45 @@ const teamFeatures = [
 
 const values = [
   {
-    icon: iconInnovation,
+    icon: beAccountable,
     title: 'Be Accountable',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `We expect everyone at Upbound to hold ourselves and each other accountable
+    to focusing and driving results that tie directly back into compan goals.`,
   },
   {
-    icon: iconInnovation,
+    icon: collaborateDecisively,
     title: 'Collaborate Decisively',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `Your goal with every interaction is to add clarity, alignment, and context to
+    every decision and objective. You habitually dismantle ambiguity and rebuild it with intent and clarity.`,
   },
   {
-    icon: iconInnovation,
+    icon: demonstrateCraftsmanship,
     title: 'Demonstrate Craftsmanship',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `A true craftsperson is a lifelong learner who strives to deliver the best possible result.
+    They are constantly iterating on their solutions to improve results and delight their customers.`,
   },
   {
-    icon: iconInnovation,
+    icon: careForOurCommunities,
     title: 'Care For Our Communities',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `We care deeply about our customers, our open source ecosystem, and our fellow Upbounders.
+    We have an unwavering determination to make them thrive.`,
   },
   {
-    icon: iconInnovation,
+    icon: championTheCustomer,
     title: 'Champion The Customer',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `Have a deep empathy for the customer and keep their business objectives and challenges
+    top of mind as we navigate through solutions to problems.`,
   },
   {
-    icon: iconInnovation,
+    icon: actAsAnOwner,
     title: 'Act as an owner',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `As an owner, our employees care deeply about the success of Upbound and champion the people and culture.`,
   },
   {
-    icon: iconInnovation,
+    icon: engageVulnerability,
     title: 'Engage Vulnerability',
-    body: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Aut nemo ipsa accusamus impedit ducimus! Consequuntur.`,
+    body: `Upbounders work to make themselves and everyone around them better by creating a safe
+    environment where everyone can contribute, fail forward, and learn from each other.`,
   },
 ];
 
@@ -384,8 +387,9 @@ const About: React.FC = () => {
               mx={{ _: '0', lg: '20px' }}
               mt="48px"
               maxWidth="300px"
+              minHeight="274px"
             >
-              <Img src={iconInnovation} alt="Innovation" width={64} />
+              <Img src={value.icon} alt="value icon" width={64} height={64} />
               <Header
                 variant="h5"
                 bold={true}
@@ -405,12 +409,13 @@ const About: React.FC = () => {
             mx={{ _: '0', lg: '20px' }}
             mt="48px"
             maxWidth="300px"
+            minHeight="274px"
             border="solid 1px rgba(90, 113, 132, 0.5);" // TODO: Unnamed color
             borderRadius="8px"
             padding="35px"
           >
             <Header variant="h6" color="fillBlackGray" sx={{ mb: '20px' }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut nemo accusamus.
+              At Upbound, our values are highly important to us
             </Header>
             <Button
               btnType="blackOutline"
