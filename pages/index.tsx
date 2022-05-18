@@ -1215,6 +1215,17 @@ const FeaturesSection = () => {
   );
 };
 
+const quoteLessIcons = [
+  {
+    id: 1,
+    logo: dfdsLogo,
+  },
+  {
+    id: 2,
+    logo: grupoLogo,
+  },
+];
+
 const QuoteSection = () => {
   const quoteSectionRef = useRef(undefined);
   const isVisible = useOnScreen(quoteSectionRef);
@@ -1313,6 +1324,15 @@ const QuoteSection = () => {
               }
               return (
                 <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                  <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              );
+            })}
+            {quoteLessIcons.map((quote) => {
+              return (
+                <Box key={quote.id} sx={{ ...quoteSectionQuoteLogoBox, '&:hover': {} }}>
                   <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
                     <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
                   </Box>
@@ -1565,9 +1585,11 @@ const RegisterForm = () => {
       ) : emailSubmitted ? (
         <>
           <Typography sx={{ color: '#fff' }}>
-            Yes, I wish to subscribe to stay in the know about exciting product announcements and
-            educational material. You can always unsubscribe in the email footer. Read our Privacy
-            Policy to learn more.
+            <Typography variant="inherit" sx={{ fontFamily: 'Avenir-Black' }}>
+              Yes, I wish to subscribe to stay in the know about exciting product announcements and
+              educational material.
+            </Typography>
+            You can always unsubscribe in the email footer. Read our Privacy Policy to learn more.
           </Typography>
           <Box sx={{ mt: 'auto', color: '#fff' }}>
             <form onSubmit={submitForm}>
@@ -1696,10 +1718,8 @@ const Home = ({}: Props) => {
         hasContainer={matchesXL}
         sx={{
           position: 'relative',
-          [MQ.xl]: {
-            pt: 18,
-            pb: 7.5,
-          },
+          pt: { xl: 18 },
+          pb: { xl: 7.5 },
         }}
       >
         <QuoteSection />
