@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 import { styled } from '@mui/system';
 import { COLORS } from 'src/theme';
@@ -8,7 +9,7 @@ import { Box, Hidden } from '@mui/material';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
 import { JoinUs } from 'src/components/JoinUs';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import { Wave } from 'src/components/Wave';
 
 const EmployeeMap = dynamic(() => import('src/components/EmployeeMap'), { ssr: false });
@@ -26,9 +27,17 @@ import advisors3x from 'public/about/advisors@3x.png';
 // import advisorsMobile1x from 'public/about/advisors-mobile.png';
 // import advisorsMobile2x from 'public/about/advisors-mobile@2x.png';
 import advisorsMobile3x from 'public/about/advisors-mobile@3x.png';
-import iconInnovation from 'public/about/icon-innovation.svg';
-import iconNucleus from 'public/about/icon-nucleus.svg';
-import iconTalent from 'public/about/icon-talent.svg';
+import actAsAnOwner from 'public/about/values/act-as-an-owner.svg';
+import beAccountable from 'public/about/values/be-accountable.svg';
+import careForOurCommunities from 'public/about/values/care-for-our-communities.svg';
+import championTheCustomer from 'public/about/values/champion-the-customer.svg';
+import collaborateDecisively from 'public/about/values/collaborate-decisively.svg';
+import demonstrateCraftsmanship from 'public/about/values/demonstrate-craftsmanship.svg';
+import engageVulnerability from 'public/about/values/engage-vulnerability.svg';
+import companyOnSites from 'public/about/team-features/company-On-sites.png';
+import diverseAndInclusive from 'public/about/team-features/diverse-and-inclusive.png';
+import quarterlyGetTogethers from 'public/about/team-features/quarterly-get-togethers.png';
+import upboundersIn10Countries from 'public/about/team-features/upbounders-in-10-countries.png';
 // import bassamProfilePic1x from 'public/about/people/founders/bassam.png';
 // import bassamProfilePic2x from 'public/about/people/founders/bassam@2x.png';
 import bassamProfilePic3x from 'public/about/people/founders/bassam@3x.png';
@@ -64,6 +73,108 @@ import scottProfilePic3x from 'public/about/people/founders/scott@3x.png';
 import sumbryProfilePic3x from 'public/about/people/founders/sumbry@3x.png';
 import purpleOval from 'public/about/purple-oval.svg';
 
+const teamFeatures = [
+  {
+    img: companyOnSites,
+    title: 'Company "On"sites',
+    body: `Everyone comes together for our annual company “on”site  where we celebrate our wins and have some fun!`,
+  },
+  {
+    img: quarterlyGetTogethers,
+    title: 'Quarterly Get Togethers',
+    body: `Teams come together in person to plan, exchange ideas and strengthen relationships with each other.`,
+  },
+  {
+    img: upboundersIn10Countries,
+    title: 'Upbounders in 10 Countries',
+    body: `A global footprint gives us the ability to bring in the
+    best talent from across the globe and work with the best and brightest.`,
+  },
+  {
+    img: diverseAndInclusive,
+    title: 'Diverse and inclusive',
+    body: `We are stronger because we are all unique and bring different
+    perspectives and ideas. Be your authentic self at Upbound.`,
+  },
+];
+
+const values = [
+  {
+    icon: beAccountable,
+    title: 'Be Accountable',
+    body: `We expect everyone at Upbound to hold ourselves and each other accountable
+    to focusing and driving results that tie directly back into company goals.`,
+  },
+  {
+    icon: collaborateDecisively,
+    title: 'Collaborate Decisively',
+    body: `Your goal with every interaction is to add clarity, alignment, and context to
+    every decision and objective. You habitually dismantle ambiguity and rebuild it with intent and clarity.`,
+  },
+  {
+    icon: demonstrateCraftsmanship,
+    title: 'Demonstrate Craftsmanship',
+    body: `A true craftsperson is a lifelong learner who strives to deliver the best possible result.
+    They are constantly iterating on their solutions to improve results and delight their customers.`,
+  },
+  {
+    icon: careForOurCommunities,
+    title: 'Care For Our Communities',
+    body: `We care deeply about our customers, our open source ecosystem, and our fellow Upbounders.
+    We have an unwavering determination to make them thrive.`,
+  },
+  {
+    icon: championTheCustomer,
+    title: 'Champion The Customer',
+    body: `Have a deep empathy for the customer and keep their business objectives and challenges
+    top of mind as we navigate through solutions to problems.`,
+  },
+  {
+    icon: actAsAnOwner,
+    title: 'Act as an owner',
+    body: `As an owner, our employees care deeply about the success of Upbound and champion the people and culture.`,
+  },
+  {
+    icon: engageVulnerability,
+    title: 'Engage Vulnerability',
+    body: `Upbounders work to make themselves and everyone around them better by creating a safe
+    environment where everyone can contribute, fail forward, and learn from each other.`,
+  },
+];
+
+const caringFeatures = [
+  {
+    title: 'Ownership',
+    body: `Upbounders are giving meaningful equity.
+    Everyone here is an owner and benefits from the success of the company.`,
+  },
+  {
+    title: 'Health Care Benefits',
+    body: `We cover 100% of the medical and dental premiums
+    and 99% vision for Upbounders. We believe you do your best
+    when you’re not worried about your health.`,
+  },
+  {
+    title: 'Flexible Hours',
+    body: `Mid day workout? No problem. Take the kids to the park,
+    absolutely! Work hours that make sense for you.`,
+  },
+  {
+    title: 'Work From Anywhere',
+    body: `Upbound is a remote first company. Work where you want,
+    how you want.  You have flexibility to work anywhere.`,
+  },
+  {
+    title: 'Flexible PTO',
+    body: `We care too deeply about you to let you burn out.
+    Take the time off that you need to recharge or disconnect.`,
+  },
+  {
+    title: 'Home Office Stipend',
+    body: `Comfortable desk, chair, and fast internet. Upgrade your workstation.`,
+  },
+];
+
 const founders = [
   {
     pictureUrl: bassamProfilePic3x,
@@ -71,24 +182,24 @@ const founders = [
     title: 'Founder & CEO',
   },
   {
-    pictureUrl: michaelProfilePic3x,
-    name: 'Michael Goff',
-    title: 'Founding Engineer',
+    pictureUrl: sumbryProfilePic3x,
+    name: 'Sumbry',
+    title: 'Engineering',
+  },
+  {
+    pictureUrl: kelseyProfilePic3x,
+    name: 'Kelsey Havens',
+    title: 'Marketing',
+  },
+  {
+    pictureUrl: lemProfilePic3x,
+    name: 'Lem Diaz',
+    title: 'People Ops',
   },
   {
     pictureUrl: jaredProfilePic3x,
     name: 'Jared Watts',
     title: 'Founding Engineer',
-  },
-  {
-    pictureUrl: mattProfilePic3x,
-    name: 'Matt Heilman',
-    title: 'Founding Designer',
-  },
-  {
-    pictureUrl: sumbryProfilePic3x,
-    name: 'Sumbry',
-    title: 'Engineering',
   },
   {
     pictureUrl: robProfilePic3x,
@@ -101,9 +212,9 @@ const founders = [
     title: 'Software',
   },
   {
-    pictureUrl: kelseyProfilePic3x,
-    name: 'Kelsey Havens',
-    title: 'Marketing',
+    pictureUrl: michaelProfilePic3x,
+    name: 'Michael Goff',
+    title: 'Founding Engineer',
   },
   {
     pictureUrl: scottProfilePic3x,
@@ -116,9 +227,9 @@ const founders = [
     title: 'Product',
   },
   {
-    pictureUrl: lemProfilePic3x,
-    name: 'Lem Diaz',
-    title: 'People Ops',
+    pictureUrl: mattProfilePic3x,
+    name: 'Matt Heilman',
+    title: 'Founding Designer',
   },
 ];
 
@@ -170,7 +281,7 @@ const About: React.FC = () => {
       metaDescription={metaDescription}
       isOverflowVisible={!showMap}
     >
-      <Box pt={{ _: '62px', md: '50px' }} bgcolor={COLORS.cornflower} textAlign="center">
+      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.cornflower} textAlign="center">
         <Box maxWidth="930px" mx="auto" px="30px">
           <Header
             pill="About Us"
@@ -182,103 +293,61 @@ const About: React.FC = () => {
               mb: { _: '20px', md: '24px' },
             }}
           >
-            We’re Fundamentally Changing How The World Manages Infrastructure
+            Life at Upbound
           </Header>
-          <Header variant="h6" color="white" sx={{ mb: { _: '0', md: '80px' } }}>
+          <Header variant="h6" color="white" sx={{ mb: { _: '0', md: '100px' } }}>
             Our mission at Upbound is to enable a new era of infrastructure management that is
             automated, reliable, efficient and empowers application teams to accelerate innovation
             by delivering software faster.
           </Header>
         </Box>
-        <Wave type="white" />
+        <Wave type="light" />
       </Box>
-      <Box>
+      <Box sx={{ bgcolor: COLORS.paleGrey }}>
         <Box textAlign="center" px="30px">
-          <Box>
-            <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '20px' }}>
-              What Makes Upbounders Thrive
-            </Header>
-            <Header variant="h6" color="fillBlackGray" sx={{ maxWidth: '993px', mx: 'auto' }}>
-              Our story at Upbound is your story. You're motivated by mission and purpose and you
-              want your work to make a difference. We want the same thing.
-            </Header>
-          </Box>
           <Box
             display="flex"
-            maxWidth="1100px"
-            mx="auto"
+            alignItems="center"
+            justifyContent="center"
+            width="100%"
+            flexWrap={{ _: 'wrap', xl: 'nowrap' }}
             flexDirection={{ _: 'column', lg: 'row' }}
+            mt={{ _: '-48px', xl: '0' }}
           >
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              mx="auto"
-              mt="40px"
-              maxWidth="300px"
-            >
-              <Img src={iconInnovation} alt="Innovation" width={64} />
-              <Header
-                variant="h5"
-                bold={true}
-                color="fillBlackBlack"
-                sx={{ mt: '35px', mb: '11px' }}
+            {teamFeatures.map((feature) => (
+              <Box
+                key={feature.title}
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                mx={{ _: '0', lg: '20px' }}
+                mt={{ _: '48px', xl: '0' }}
+                maxWidth={{ _: '400px', xl: '260px' }}
+                position="relative"
               >
-                We Enable Innovation
-              </Header>
-              <Paragraph color="fillBlackGray">
-                We are the intersection between dev tools and cloud ops which enables those teams to
-                work better. Founded in 2017 by the creators of Crossplane, we simplify how
-                infrastructure and services are provisioned with a user friendly, control plane
-                approach.
-              </Paragraph>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              mx="auto"
-              mt="40px"
-              maxWidth="300px"
-            >
-              <Img src={iconNucleus} alt="Innovation" width={64} />
-              <Header
-                variant="h5"
-                bold={true}
-                color="fillBlackBlack"
-                sx={{ mt: '35px', mb: '11px' }}
-              >
-                Our Open Source Nucleus
-              </Header>
-              <Paragraph color="fillBlackGray">
-                Open source has been at the core of our product and culture since day one. We value
-                the open source community, innovation, and commitment to delivering quality results
-                that run in production and we value those qualities across our team.
-              </Paragraph>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              mx="auto"
-              mt="40px"
-              maxWidth="300px"
-            >
-              <Img src={iconTalent} alt="Innovation" width={64} />
-              <Header
-                variant="h5"
-                bold={true}
-                color="fillBlackBlack"
-                sx={{ mt: '35px', mb: '11px' }}
-              >
-                Talent Without Borders
-              </Header>
-              <Paragraph color="fillBlackGray">
-                We are a remote only team which understands that great code and amazing ideas can
-                come from anywhere around the globe. We welcome amazing talent to help us solve
-                tough problems, no matter where you call home.
-              </Paragraph>
-            </Box>
+                <Box position={{ _: 'relative', xl: 'absolute' }} top={{ _: '0', xl: '-180px' }}>
+                  <Box sx={{ width: 260, height: 180, position: 'relative' }}>
+                    <Image src={feature.img} alt="feature image" />
+                  </Box>
+                </Box>
+                <Header
+                  variant="h5"
+                  bold={true}
+                  color="fillBlackBlack"
+                  sx={{
+                    mt: '35px',
+                    mb: '11px',
+                    width: '260px',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {feature.title}
+                </Header>
+                <Paragraph color="fillBlackGray" sx={{ minHeight: 84, maxHeight: 112 }}>
+                  {feature.body}
+                </Paragraph>
+              </Box>
+            ))}
           </Box>
           <AnchorButton
             btnType="blackOutline"
@@ -289,9 +358,124 @@ const About: React.FC = () => {
               mb: '20px',
             }}
           >
-            <Hidden lgUp>View Our Open Positions & Help Us Accelerate</Hidden>
-            <Hidden lgDown>View Our Open Positions</Hidden>
+            View All Open Positions
           </AnchorButton>
+        </Box>
+        <Wave type="white" />
+      </Box>
+      <Box sx={{ textAlign: 'center' }}>
+        <Box mx="30px">
+          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '20px' }}>
+            Upbound's Values
+          </Header>
+          <Header variant="h6" color="fillBlackGray" sx={{ mb: '16px', maxWidth: 800, mx: 'auto' }}>
+            Upbound operates like a healthy open source project. As part of that cultural DNA we are
+            continuously iterating, improving, and innovating collaboratively and with transparency.
+          </Header>
+        </Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          maxWidth="1360px"
+          mx="auto"
+          flexWrap="wrap"
+          flexDirection={{ _: 'column', lg: 'row' }}
+          pb="40px"
+        >
+          {values.map((value) => (
+            <Box
+              key={value.title}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              mx={{ _: '0', lg: '20px' }}
+              mt="48px"
+              maxWidth="300px"
+              minHeight="274px"
+            >
+              <Img src={value.icon} alt="value icon" width={64} height={64} />
+              <Header
+                variant="h5"
+                bold={true}
+                color="fillBlackBlack"
+                sx={{ mt: '35px', mb: '11px' }}
+              >
+                {value.title}
+              </Header>
+              <Paragraph color="fillBlackGray">{value.body}</Paragraph>
+            </Box>
+          ))}
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            mx={{ _: '0', lg: '20px' }}
+            mt="48px"
+            maxWidth="300px"
+            minHeight="274px"
+            border="solid 1px rgba(90, 113, 132, 0.5);" // TODO: Unnamed color
+            borderRadius="8px"
+            padding="35px"
+          >
+            <Header variant="h6" color="fillBlackGray" sx={{ mb: '20px' }}>
+              At Upbound, our values are highly important to us
+            </Header>
+            <Button
+              btnType="blackOutline"
+              onClick={() => {
+                window.open(routes.upboundValuesDoc, '_blank');
+              }}
+            >
+              Zoom in on Upbound’s Values
+            </Button>
+          </Box>
+        </Box>
+        <Wave type="cornflower" />
+      </Box>
+      <Box sx={{ bgcolor: COLORS.cornflower, textAlign: 'center' }}>
+        <Box mx="30px">
+          <Header variant="h3" bold={true} color="white" sx={{ mb: '20px' }}>
+            Caring For Our Team
+          </Header>
+          <Header variant="h6" color="white" sx={{ mb: '40px', maxWidth: 800, mx: 'auto' }}>
+            We want all of our Upbounders to thrive and we believe that you do your best when you
+            feel your best. Here are a few benefits we provide for all Upbound employees.
+          </Header>
+        </Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          maxWidth="1180px"
+          mx="auto"
+          flexWrap="wrap"
+          mb={{ _: '0', md: '100px' }}
+          flexDirection={{ _: 'column', lg: 'row' }}
+        >
+          {caringFeatures.map((feature) => (
+            <Box
+              key={feature.title}
+              sx={{
+                borderRadius: '16px',
+                padding: '40px 20px',
+                bgcolor: COLORS.white,
+                border: `solid 1px ${COLORS.veryLightBlue}`,
+                boxShadow: '0 50px 50px 0 rgba(0, 0, 0, 0.05)',
+                textAlign: 'left',
+                maxWidth: '350px',
+                minHeight: '228px',
+                mx: '20px',
+                mb: '40px',
+              }}
+            >
+              <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '10px' }}>
+                {feature.title}
+              </Header>
+              <Paragraph color="fillBlackGray">{feature.body}</Paragraph>
+            </Box>
+          ))}
         </Box>
         <Wave type="light" />
       </Box>
@@ -382,12 +566,12 @@ const About: React.FC = () => {
         <JoinUs
           type="dark"
           title="Join Our Fast Growing Team"
-          subtitle={`We’re looking for ambitious individuals who strive in chaotic unstructured environments,
-          and love open source, culture, pushing technological boundaries, and proactively solving problems!`}
+          subtitle={`Come build the next generation of the cloud with us.  We’re looking for problem solvers,
+          builders, and innovators who love open source and pushing technological boundaries!`}
           href={routes.upboundGreenhouseUrl}
           button="View All Open Positions"
         />
-        <Box bgcolor={COLORS.cornflower} height="75px" mt="-75px" position="relative" zIndex={-1} />
+        <Box bgcolor={COLORS.cornflower} height="75px" mt="-75px" zIndex={-1} />
       </Box>
       <Box
         sx={{
@@ -493,6 +677,7 @@ const About: React.FC = () => {
       <Box
         sx={{
           backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          mb: 40,
         }}
       >
         <Box px="30px" textAlign="center">

@@ -160,47 +160,47 @@
             <use fill="#000" filter="url(#b)" xlink:href="#a"/>
             <rect stroke="#D2DCEA" stroke-width=".607" fill="#FFF" x="-.303" y="-.303" width="499.607" height="443.607" rx="6.796"/>
             <path fill="#F4F8FF" mask="url(#c)" d="M-6.796-7.746h516.475v42.363H-6.796z"/>
-            <text font-family="Avenir-Black, Avenir" font-size="15.534" font-weight="700" fill="#1D285E">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="15.534" font-weight="700" fill="#1D285E">
                             <tspan x="112.712" y="73.805">Find the perfect solution for building your </tspan>
                             <tspan x="112.712" y="93.222">next Crossplane project. </tspan>
                         </text>
-            <text font-family="Avenir-Heavy, Avenir" font-size="7.282" font-weight="600" fill="#505A72" transform="translate(25.468 60.52)">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.282" font-weight="600" fill="#505A72" transform="translate(25.468 60.52)">
                                 <tspan x=".258" y="84.839">Visibility</tspan>
                             </text>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.437" fill="#505A72" transform="translate(26.449 167.814)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.437" fill="#505A72" transform="translate(26.449 167.814)">
                                     <tspan x="15" y="5">Public</tspan>
                                 </text>
             <circle cx="4" cy="4" r="3.75" fill="#FFF" stroke="#282F36" stroke-opacity=".15" stroke-width=".5" transform="translate(26.449 167.814)"/>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.437" fill="#505A72" transform="translate(26.42 181.372)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.437" fill="#505A72" transform="translate(26.42 181.372)">
                                     <tspan x="15" y="5">Private</tspan>
                                 </text>
             <circle cx="4" cy="4" r="3.75" fill="#FFF" stroke="#282F36" stroke-opacity=".15" stroke-width=".5" transform="translate(26.42 181.372)"/>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.437" fill="#505A72" transform="translate(25.468 154.256)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.437" fill="#505A72" transform="translate(25.468 154.256)">
                                     <tspan x="18" y="5">Show All</tspan>
                                 </text>
             <g transform="translate(25.468 154.256)">
                 <circle fill="#7667F9" cx="4" cy="4" r="4"/>
                 <circle fill="#FFF" cx="4" cy="4" r="1.6"/>
             </g>
-            <text font-family="Avenir-Heavy, Avenir" font-size="7.282" font-weight="600" fill="#505A72" transform="translate(25.468 60.52)">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.282" font-weight="600" fill="#505A72" transform="translate(25.468 60.52)">
                                 <tspan x=".258" y="24.807">Type</tspan>
                             </text>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.437" fill="#505A72" transform="translate(25.468 94.211)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.437" fill="#505A72" transform="translate(25.468 94.211)">
                                     <tspan x="18" y="5">Show All</tspan>
                                 </text>
             <g transform="translate(25.468 94.211)">
                 <circle fill="#7667F9" cx="4" cy="4" r="4"/>
                 <circle fill="#FFF" cx="4" cy="4" r="1.6"/>
             </g>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.437" fill="#505A72" transform="translate(26.33 107.77)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.437" fill="#505A72" transform="translate(26.33 107.77)">
                                     <tspan x="15" y="5">Providers</tspan>
                                 </text>
             <circle cx="4" cy="4" r="3.75" fill="#FFF" stroke="#282F36" stroke-opacity=".15" stroke-width=".5" transform="translate(26.33 107.77)"/>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.437" fill="#505A72" transform="translate(26.433 121.328)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.437" fill="#505A72" transform="translate(26.433 121.328)">
                                     <tspan x="15" y="5">Configurations</tspan>
                                 </text>
             <circle cx="4" cy="4" r="3.75" fill="#FFF" stroke="#282F36" stroke-opacity=".15" stroke-width=".5" transform="translate(26.433 121.328)"/>
-            <text font-family="Avenir-Black, Avenir" font-size="8.495" font-weight="700" fill="#505A72" transform="translate(25.468 60.52)">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="8.495" font-weight="700" fill="#505A72" transform="translate(25.468 60.52)">
                                 <tspan x=".016" y="8">Filter By</tspan>
                             </text>
             <g filter="url(#d)" transform="translate(113.1 174.489)" fill="#FFF" stroke="#D2DCEA" stroke-width=".607">
@@ -224,13 +224,13 @@
                         <path d="M13.614 13.605c0-.134-.007-.267.003-.401 1.866.003 3.732-.003 5.597.003v5.43c-1.825.004-3.654 0-5.48.004a22.453 22.453 0 0 1-.124-.01c.007-1.676 0-3.35.004-5.026z" stroke="#FFB900" fill="#FFB900"/>
                     </g>
                 </g>
-                <text font-family="Avenir-Black, Avenir" font-size="7.391" font-weight="700" fill="#505A72">
+                <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.391" font-weight="700" fill="#505A72">
                                 <tspan x="12.039" y="49.218">provider-azure</tspan>
                             </text>
             </g>
             <g filter="url(#i)" transform="translate(257.312 300.549)">
                 <rect x="-.303" y="-.303" width="105.455" height="114.092" rx="1.942" fill="#FFF" stroke="#D2DCEA" stroke-width=".607"/>
-                <text font-family="Avenir-Black, Avenir" font-size="7.391" font-weight="700" fill="#505A72">
+                <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.391" font-weight="700" fill="#505A72">
                                 <tspan x="12.039" y="49.218">provider-aws</tspan>
                             </text>
             </g>
@@ -256,13 +256,13 @@
                     <path d="M4.965 0C2.207.016-.016 2.22 0 4.923a4.86 4.86 0 0 0 1.95 3.85L4.178 6.59a1.866 1.866 0 0 1-.96-2.489c.437-.947 1.575-1.368 2.541-.94.426.189.767.523.96.94l2.227-2.183A5.028 5.028 0 0 0 4.966 0" fill="#FBBC05" mask="url(#o)"/>
                 </g>
             </g>
-            <text font-family="Avenir-Black, Avenir" font-size="7.391" font-weight="700" fill="#505A72">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.391" font-weight="700" fill="#505A72">
                             <tspan x="125.146" y="224.094">provider-alibaba</tspan>
                         </text>
-            <text font-family="Avenir-Black, Avenir" font-size="9.142" font-weight="700" fill="#505A72">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="9.142" font-weight="700" fill="#505A72">
                             <tspan x="128" y="362">provider-gcp</tspan>
                         </text>
-            <text font-family="Avenir-Black, Avenir" font-size="7.391" font-weight="700" fill="#505A72">
+            <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="7.391" font-weight="700" fill="#505A72">
                             <tspan x="240.438" y="223.707">provider-rook</tspan>
                         </text>
             <g transform="translate(435.73 185.66)" stroke="#BDD0FF" stroke-linecap="round" stroke-linejoin="round" stroke-width=".92">
@@ -274,7 +274,7 @@
                 <path stroke="#D2DCEA" stroke-width=".5" d="M336.058-.25c.605 0 1.153.245 1.55.642s.642.945.642 1.55v15.116c0 .605-.245 1.153-.642 1.55a2.185 2.185 0 0 1-1.55.642H1.942a2.185 2.185 0 0 1-1.55-.642 2.185 2.185 0 0 1-.642-1.55V1.942c0-.605.245-1.153.642-1.55a2.185 2.185 0 0 1 1.55-.642z" fill="#FFF"/>
             </g>
             <g opacity=".75">
-                <text font-family="Avenir-Roman, Avenir" font-size="6.214" fill="#505A72" transform="translate(122.032 133.433)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="6.214" fill="#505A72" transform="translate(122.032 133.433)">
                                     <tspan x="12.039" y="6">Search the Upbound Registry</tspan>
                                 </text>
                 <g transform="translate(122.032 134.462)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width=".777">
@@ -282,7 +282,7 @@
                     <path d="M7.206 7.206 5.243 5.243"/>
                 </g>
             </g>
-            <text font-family="Avenir-Roman, Avenir" font-size="7.767" fill="#505A72">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.767" fill="#505A72">
                             <tspan x="113.1" y="115.421">Have a provider or configuration you want to make available to the community?</tspan>
                         </text>
             <ellipse fill="#FF6C70" cx="19.902" cy="16.945" rx="3.398" ry="3.389"/>
@@ -311,7 +311,7 @@
                     <use fill="#000" filter="url(#r)" xlink:href="#s"/>
                     <use fill="#5A53C0" xlink:href="#s"/>
                 </g>
-                <text font-family="Avenir-Black, Avenir" font-size="6.86" font-weight="700" fill="#FFF" transform="translate(128 441.879)">
+                <text font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.86" font-weight="700" fill="#FFF" transform="translate(128 441.879)">
                                 <tspan x="8.5" y="14.826">Install Provider</tspan>
                             </text>
             </g>

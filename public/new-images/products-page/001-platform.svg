@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="523px" height="393px" viewBox="0 0 523 393" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group 15 Copy 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="473" height="336" rx="8"></rect>
+        <filter x="-9.1%" y="-9.8%" width="118.2%" height="125.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.53164557" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="10" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.192156863   0 0 0 0 0.250980392   0 0 0 0 0.466666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-4" points="0 0 8.88578194 0 8.88578194 11.7337206 0 11.7337206"></polygon>
+        <polygon id="path-6" points="0 0 3.56018094 0 3.56018094 3.56072653 0 3.56072653"></polygon>
+        <rect id="path-8" x="2.27373675e-13" y="0.576124567" width="341" height="106" rx="8"></rect>
+        <filter x="-2.6%" y="-8.5%" width="105.3%" height="117.0%" filterUnits="objectBoundingBox" id="filter-9">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.396078431   0 0 0 0 0.325490196   0 0 0 0 0.752941176  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="*Images" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-31.000000, -144.000000)">
+            <g id="Group-15-Copy-7" transform="translate(56.000000, 159.000000)">
+                <g id="Group-14">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <rect stroke="#D2DCEA" stroke-width="0.53164557" fill="#FFFFFF" fill-rule="evenodd" x="-0.265822785" y="-0.265822785" width="473.531646" height="336.531646" rx="8"></rect>
+                    </g>
+                    <g id="Navigation/Desktop/Side/Minimized-with-Labels" mask="url(#mask-2)">
+                        <g transform="translate(-1.000000, 23.000000)">
+                            <rect id="Background" fill="#263B67" fill-rule="evenodd" x="0" y="0" width="57.7021277" height="324"></rect>
+                            <polygon id="Vertical-HR" fill="#DCE0E6" fill-rule="evenodd" transform="translate(57.439845, 162.000000) scale(-1, 1) translate(-57.439845, -162.000000) " points="57.1775629 0 57.7021277 0 57.7021277 324 57.1775629 324"></polygon>
+                            <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Unselected" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(4.602454, 125.383122)">
+                                <text id="Text" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051" fill="#FFFFFF">
+                                    <tspan x="0.453449009" y="27.3781589">Control Planes</tspan>
+                                </text>
+                                <g id="Icon" transform="translate(16.974027, 0.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.21243051">
+                                    <g id="Group" transform="translate(0.606215, 0.606215)">
+                                        <polygon id="Stroke-5" points="6.49244989 4.52278937e-14 1.39991099e-14 2.84016898 6.49244989 5.68089366 12.9848998 2.84016898"></polygon>
+                                        <polyline id="Stroke-6" points="-2.69213653e-14 10.3056593 6.49244989 13.1458283 12.9842647 10.3056593"></polyline>
+                                        <polyline id="Stroke-7" points="-2.69213653e-14 6.66836779 6.49244989 9.50853676 12.9842647 6.66836779"></polyline>
+                                    </g>
+                                </g>
+                            </g>
+                            <text id="Text-Copy" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.46633416" font-weight="normal" line-spacing="12.4438903">
+                                <tspan x="10.1664165" y="106.048724" fill="#505A72">Dashboard</tspan>
+                            </text>
+                            <g id="Group" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(22.900249, 80.000000)" stroke-linecap="round" stroke-linejoin="round">
+                                <rect id="Rectangle-path" stroke="#505A72" stroke-width="1.24438903" x="0" y="0" width="4.97755611" height="4.97755611" rx="1.24438903"></rect>
+                                <rect id="Rectangle-path" stroke="#505A72" stroke-width="1.24438903" x="7.46633416" y="0" width="4.97755611" height="4.97755611" rx="1.24438903"></rect>
+                                <rect id="Rectangle-path" stroke="#505A72" stroke-width="1.24438903" x="7.46633416" y="7.46633416" width="4.97755611" height="4.97755611" rx="1.24438903"></rect>
+                                <rect id="Rectangle-path" stroke="#505A72" stroke-width="1.24438903" x="0" y="7.46633416" width="4.97755611" height="4.97755611" rx="1.24438903"></rect>
+                            </g>
+                            <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 170.274127)">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                    <tspan x="9.35026407" y="27.3781589" fill="#505A72">Consoles</tspan>
+                                </text>
+                                <g id="Layout/24x24-Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.21243051">
+                                    <rect id="Rectangle-path" x="0.90932288" y="0.90932288" width="12.7305203" height="12.7305203" rx="1.21243051"></rect>
+                                    <line x1="0.90932288" y1="5.45593728" x2="13.6398432" y2="5.45593728" id="Shape"></line>
+                                    <line x1="5.45593728" y1="13.6398432" x2="5.45593728" y2="5.45593728" id="Shape"></line>
+                                </g>
+                            </g>
+                            <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 216.165132)">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                    <tspan x="4.03254386" y="27.3781589" fill="#505A72">Repositories</tspan>
+                                </text>
+                                <g id="Repository/24x24/Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-width="1.21243051">
+                                    <path d="M3.63729152,10.0025517 L12.7305203,10.0025517 L12.7305203,10.0025517 L12.7305203,13.6398432 L3.63729152,13.6398432 C2.6328812,13.6398432 1.81864576,12.8256078 1.81864576,11.8211974 C1.81864576,10.8167871 2.6328812,10.0025517 3.63729152,10.0025517 Z" id="Rectangle"></path>
+                                    <path d="M3.52362616,0.90932288 L12.7305203,0.90932288 L12.7305203,13.6398432 L3.52362616,13.6398432 C2.58199149,13.6398432 1.81864576,12.9273872 1.81864576,12.0485282 L1.81864576,2.50063792 C1.81864576,1.62177889 2.58199149,0.90932288 3.52362616,0.90932288 Z" id="Shape" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </g>
+                            <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 262.056137)">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                    <tspan x="9.96496633" y="27.3781589" fill="#505A72">All Users</tspan>
+                                </text>
+                                <g id="Users/24x24-Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                                    <g id="Group" transform="translate(0.606215, 1.212431)">
+                                        <path d="M8.81767641,12.344747 L8.81767641,10.0301069 C8.81767641,9.15363694 8.30616455,8.39663695 7.56537674,8.04134288 C7.27716781,7.90311312 6.95425438,7.82568781 6.61325731,7.82568781 L2.2044191,7.82568781 C0.98695205,7.82568781 3.99513061e-13,8.81263986 3.99513061e-13,10.0301069 L3.99513061e-13,12.344747" id="Shape" stroke-width="1.21243051"></path>
+                                        <path d="M13.3367356,12.344747 L13.3367356,10.0301069 C13.3359862,9.0255078 12.6561205,8.148481 11.6834212,7.89733144" id="Shape" stroke-width="1.21243051"></path>
+                                        <circle id="Oval" stroke-width="1.21243051" cx="4.45017106" cy="2.75552388" r="2.75552388"></circle>
+                                        <path d="M9.8785531,0.089554526 C11.0978137,0.401734569 11.9505991,1.50037665 11.9505991,2.75896828 C11.9505991,4.01755991 11.0978137,5.116202 9.8785531,5.42838204" id="Shape" stroke-width="1.21243051"></path>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 315.838147)">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                    <tspan x="12.6529248" y="27.3781589" fill="#505A72">Robots</tspan>
+                                </text>
+                                <g id="Robot/24x24/Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+                                    <g id="Group" transform="translate(0.606215, 0.606215)">
+                                        <rect id="Rectangle-path" stroke-width="1.21243051" x="0" y="0" width="13.3367356" height="13.3367356" rx="3.63729152"></rect>
+                                        <path d="M6.76940366,4.24350677 C8.16441799,4.24350677 9.29530055,5.37438933 9.29530055,6.76940366 C9.29530055,8.16441799 8.16441799,9.29530055 6.76940366,9.29530055 C5.37438933,9.29530055 4.24350677,8.16441799 4.24350677,6.76940366 C4.24350677,5.37438933 5.37438933,4.24350677 6.76940366,4.24350677 Z" id="Rectangle-path" stroke-width="1.21243051"></path>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Logo" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(12.864047, 18.186458)">
+                                <rect id="Rectangle" fill="#6553C0" x="0" y="0" width="33.9480542" height="33.9480542" rx="6.06215253"></rect>
+                                <g id="Group-4" transform="translate(7.880798, 8.487014)">
+                                    <path d="M8.84207382,6.76572596 L8.80873198,10.0683867 C8.80873198,13.2425297 5.75219467,13.8863303 4.68889312,13.8863303 C2.47620744,13.8863303 0.607852034,12.5387138 0.607852034,10.0683867 L0.607852034,6.57840544 C0.607852034,5.80608721 1.05342025,5.34293876 1.7748164,5.34293876 C2.51258036,5.34293876 2.95814857,5.80608721 2.95814857,6.57840544 L2.95814857,9.80347059 C2.95814857,11.0559113 3.5910373,11.7415408 4.68889312,11.7415408 C5.85525127,11.7415408 6.49177728,11.1583617 6.49177728,9.80347059 L6.49177728,6.76572596 C6.49177728,5.99401394 6.93795171,5.53086548 7.67571567,5.53086548 C8.39650561,5.53086548 8.84207382,5.99401394 8.84207382,6.76572596" id="Fill-1" fill="#FFFFFF"></path>
+                                    <g id="Group-5" transform="translate(10.455516, 5.240307)">
+                                        <mask id="mask-5" fill="white">
+                                            <use xlink:href="#path-4"></use>
+                                        </mask>
+                                        <g id="Clip-4"></g>
+                                        <path d="M6.48407835,4.32292097 C6.48407835,3.01895196 5.64325779,2.14418335 4.44295159,2.14418335 C3.22506515,2.14418335 2.34969032,3.05350623 2.34969032,4.32292097 C2.34969032,5.59233571 3.22506515,6.50165859 4.44295159,6.50165859 C5.64325779,6.50165859 6.48407835,5.60930974 6.48407835,4.32292097 M8.88590318,4.32292097 C8.88590318,6.94783302 7.30731866,8.64584194 4.92307407,8.64584194 C3.84279849,8.64584194 2.96742366,8.26877605 2.38424459,7.61648844 L2.34969032,7.61648844 L2.34969032,10.4814617 C2.34969032,11.2531737 1.9035159,11.7339024 1.16635815,11.7339024 C0.445568211,11.7339024 0,11.2531737 0,10.4814617 L0,1.33791706 C0,0.565598831 0.445568211,0.103056593 1.16635815,0.103056593 C1.8004593,0.103056593 2.2296597,0.446174426 2.33271629,1.04632753 L2.36666435,1.04632753 C2.95044964,0.377065887 3.82521825,0 4.92307407,0 C7.30731866,0 8.88590318,1.69800892 8.88590318,4.32292097" id="Fill-3" fill="#FFFFFF" mask="url(#mask-5)"></path>
+                                    </g>
+                                    <g id="Group-8">
+                                        <mask id="mask-7" fill="white">
+                                            <use xlink:href="#path-6"></use>
+                                        </mask>
+                                        <g id="Clip-7"></g>
+                                        <path d="M3.56018094,1.78027233 C3.56018094,2.76355347 2.7636141,3.56072653 1.77972674,3.56072653 C0.797051815,3.56072653 -0.000121243051,2.76355347 -0.000121243051,1.78027233 C-0.000121243051,0.796991193 0.797051815,-0.000181864576 1.77972674,-0.000181864576 C2.7636141,-0.000181864576 3.56018094,0.796991193 3.56018094,1.78027233" id="Fill-6" fill="#FFFFFF" mask="url(#mask-7)"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
+                        <g transform="translate(93.000000, 60.037975)" id="Control-Planes">
+                            <text>
+                                <tspan x="0" y="16.9620253" fill="#505A72">Control Planes</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <path d="M4.25316456,1.11910481e-13 L468.468354,1.11910481e-13 C470.817312,1.41885212e-13 472.721519,1.90420663 472.721519,4.25316456 L472.721519,24.9448101 L472.721519,24.9448101 L0,24.9448101 L0,4.25316456 C-2.8766438e-16,1.90420663 1.90420663,1.14118334e-13 4.25316456,1.11910481e-13 Z" id="Rectangle" fill="#F4F8FF" mask="url(#mask-2)"></path>
+                    <circle id="Oval" fill="#FF6C70" mask="url(#mask-2)" cx="14.1311392" cy="12.961519" r="4.15746835"></circle>
+                    <circle id="Oval-Copy" fill="#FFCE3C" mask="url(#mask-2)" cx="25.3807595" cy="12.961519" r="4.15746835"></circle>
+                    <circle id="Oval-Copy-2" fill="#2FD3BC" mask="url(#mask-2)" cx="37.1194937" cy="12.961519" r="4.15746835"></circle>
+                </g>
+                <g id="Group-20-Copy-4" transform="translate(92.000000, 100.582999)">
+                    <g id="Cards/Standard" transform="translate(0.000000, 117.923875)" fill="#FFFFFF" stroke="#DCDCDE" stroke-width="0.606215253">
+                        <rect id="Rectangle-21-Copy-2" x="0.303107627" y="0.796233258" width="341.393785" height="80.3937847" rx="3.03107627"></rect>
+                    </g>
+                    <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(24.302321, 138.715198)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
+                        <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
+                            <tspan x="0" y="30.1864576">Staging</tspan>
+                        </text>
+                        <text id="Column-Title" font-size="10.6087669" line-spacing="15.1553813" fill="#929394">
+                            <tspan x="0" y="11">Name</tspan>
+                        </text>
+                    </g>
+                    <g id="Cards/Standard-Copy-15" transform="translate(0.000000, 0.417001)">
+                        <g id="Rectangle-21-Copy-2">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-9)" xlink:href="#path-8"></use>
+                            <rect stroke-opacity="0.25" stroke="#6553C0" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="0.5" y="1.07612457" width="340" height="105" rx="8"></rect>
+                        </g>
+                    </g>
+                    <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(24.302321, 33.208323)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
+                        <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
+                            <tspan x="0" y="30.1864576">Production</tspan>
+                        </text>
+                        <text id="Column-Title" font-size="10.6087669" line-spacing="15.1553813" fill="#929394">
+                            <tspan x="0" y="11">Name</tspan>
+                        </text>
+                    </g>
+                    <g id="Cards/Horizontal/Data/Elements/Status-With-Link" transform="translate(130.000000, 33.417001)">
+                        <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.1844163" font-weight="normal" line-spacing="14.5491661" fill="#929394">
+                            <tspan x="0" y="10">Status</tspan>
+                        </text>
+                        <g id="Stacked-Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 17.568804)">
+                            <line x1="0.457771648" y1="17.2027876" x2="52.6437395" y2="17.2027876" id="Line" stroke="#505A72" stroke-width="0.727458304" stroke-linecap="square" stroke-dasharray="0.7274583038551087,2.182374911565326"></line>
+                            <g>
+                                <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="11.6393329" font-weight="normal" line-spacing="18.1864576" fill="#505A72">
+                                    <tspan x="10.9118746" y="12">Healthy</tspan>
+                                </text>
+                                <g id="Pills/Valuless/Green" transform="translate(0.000000, 5.856268)" fill="#3DC47E">
+                                    <path d="M3.63115726,0.0228760473 C5.63659004,0.0228760473 7.26231452,1.64860053 7.26231452,3.65403331 L7.26231452,3.66630183 C7.26231452,5.6717346 5.63659004,7.29745909 3.63115726,7.29745909 C1.62572448,7.29745909 2.45594683e-16,5.6717346 0,3.66630183 L0,3.65403331 C-2.45594683e-16,1.64860053 1.62572448,0.0228760473 3.63115726,0.0228760473 Z" id="BG"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Card-Title-Copy-3" transform="translate(217.062370, 33.417001)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
+                        <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
+                            <tspan x="0.120280804" y="28.1864576">Hosted</tspan>
+                        </text>
+                        <text id="Column-Title" font-size="10.6087669" line-spacing="15.1553813" fill="#929394">
+                            <tspan x="1.01308924" y="11">Server</tspan>
+                        </text>
+                    </g>
+                    <g id="Card-Title-Copy" transform="translate(217.062370, 138.321413)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
+                        <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
+                            <tspan x="0.120280804" y="29.1864576">Hosted</tspan>
+                        </text>
+                        <text id="Column-Title" font-size="10.6087669" line-spacing="15.1553813" fill="#929394">
+                            <tspan x="1.01308924" y="11">Server</tspan>
+                        </text>
+                    </g>
+                    <g id="Cards/Horizontal/Data/Elements/Status-With-Link" transform="translate(130.208147, 139.321413)">
+                        <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.1844163" font-weight="normal" line-spacing="14.5491661" fill="#929394">
+                            <tspan x="0" y="10">Status</tspan>
+                        </text>
+                        <g id="Stacked-Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 17.568804)">
+                            <line x1="0.457771648" y1="17.2027876" x2="52.6437395" y2="17.2027876" id="Line" stroke="#505A72" stroke-width="0.727458304" stroke-linecap="square" stroke-dasharray="0.7274583038551087,2.182374911565326"></line>
+                            <g>
+                                <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="11.6393329" font-weight="normal" line-spacing="18.1864576" fill="#505A72">
+                                    <tspan x="10.9118746" y="12">Healthy</tspan>
+                                </text>
+                                <g id="Pills/Valuless/Green" transform="translate(0.000000, 5.856268)" fill="#3DC47E">
+                                    <path d="M3.63115726,0.0228760473 C5.63659004,0.0228760473 7.26231452,1.64860053 7.26231452,3.65403331 L7.26231452,3.66630183 C7.26231452,5.6717346 5.63659004,7.29745909 3.63115726,7.29745909 C1.62572448,7.29745909 -1.98494526e-16,5.6717346 0,3.66630183 L0,3.65403331 C-1.1337731e-15,1.64860053 1.62572448,0.0228760473 3.63115726,0.0228760473 Z" id="BG"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Column-Title-4-Copy-6" transform="translate(297.000000, 149.417001)" stroke="#929394" stroke-linecap="round" stroke-linejoin="round">
+                        <g id="More-horizontal/24x24-Light" transform="translate(0.000000, 0.000000)">
+                            <g id="Group" transform="translate(1.363984, 8.183906)">
+                                <circle id="Oval" stroke-width="1.81864576" cx="9.54789024" cy="1.90957805" r="1.90957805"></circle>
+                                <circle id="Oval" stroke-width="1.81864576" cx="17.1862024" cy="1.90957805" r="1.90957805"></circle>
+                                <circle id="Oval" stroke-width="1.81864576" cx="1.90957805" cy="1.90957805" r="1.90957805"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-19-Copy-16" opacity="0.277265276" transform="translate(162.000000, 313.000000)" fill="#6C72FC">
+                    <circle id="Oval" cx="77.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-6" cx="77.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-12" cx="77.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-18" cx="77.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-24" cx="77.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-2" cx="107.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-7" cx="107.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-13" cx="107.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-19" cx="107.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-25" cx="107.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-4" cx="137.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-8" cx="137.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-14" cx="137.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-20" cx="137.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-26" cx="137.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy" cx="92.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-9" cx="92.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-15" cx="92.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-21" cx="92.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-27" cx="92.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-3" cx="122.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-10" cx="122.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-16" cx="122.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-22" cx="122.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-28" cx="122.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-36" cx="152.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-37" cx="152.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-38" cx="152.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-39" cx="152.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-40" cx="152.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-42" cx="182.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-43" cx="182.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-44" cx="182.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-45" cx="182.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-46" cx="182.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-48" cx="212.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-49" cx="212.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-50" cx="212.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-51" cx="212.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-52" cx="212.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-54" cx="167.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-55" cx="167.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-56" cx="167.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-57" cx="167.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-58" cx="167.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-60" cx="197.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-61" cx="197.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-62" cx="197.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-63" cx="197.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-64" cx="197.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-36" cx="2.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-37" cx="2.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-38" cx="2.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-39" cx="2.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-40" cx="2.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-42" cx="32.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-43" cx="32.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-44" cx="32.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-45" cx="32.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-46" cx="32.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-48" cx="62.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-49" cx="62.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-50" cx="62.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-51" cx="62.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-52" cx="62.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-54" cx="17.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-55" cx="17.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-56" cx="17.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-57" cx="17.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-58" cx="17.5" cy="62.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-60" cx="47.5" cy="2.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-61" cx="47.5" cy="17.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-62" cx="47.5" cy="32.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-63" cx="47.5" cy="47.5" r="2.5"></circle>
+                    <circle id="Oval-Copy-64" cx="47.5" cy="62.5" r="2.5"></circle>
+                </g>
+                <g id="Buttons/Medium/Basic-2-Copy-4" transform="translate(335.000000, 55.000000)">
+                    <g id="Buttons/Medium/Primary">
+                        <rect id="BG" fill="#6553C0" fill-rule="evenodd" x="0" y="0" width="98.6999983" height="23.0999996" rx="11.5499998"></rect>
+                        <text id="Medium-Button" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="8.02022766" font-weight="normal" line-spacing="11.4574681" fill="#FFFFFF">
+                            <tspan x="11.7376461" y="13.8234565">Create Control Plane</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Arrow-Up/16x16-Copy-2" transform="translate(350.865337, 220.218204)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.24438903">
+                    <line x1="3.11097257" y1="8.08852868" x2="3.11097257" y2="0" id="Shape"></line>
+                    <polyline id="Shape" points="0 3.11097257 3.11097257 0 6.22194514 3.11097257"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

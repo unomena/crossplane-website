@@ -53,9 +53,13 @@ export const sitemapRoute = '/sitemap-0.xml';
 
 // "/products" Routes
 
-export const productsUbcRoute = '/products/cloud';
-export const productsRegistryRoute = '/products/registry';
-export const productsUxpRoute = '/products/uxp';
+export const productsUCPRoute = '/products/universal-cloud-platform';
+// export const productsUbcRoute = '/products/cloud';
+export const productsUbcRoute = productsUCPRoute;
+// export const productsRegistryRoute = '/products/registry';
+export const productsRegistryRoute = 'https://marketplace.upbound.io/';
+// export const productsUxpRoute = '/products/uxp';
+export const productsUxpRoute = productsUCPRoute;
 
 // "/why-upbound" Routes
 
@@ -66,12 +70,15 @@ export const whyUpboundSelfServiceRoute = '/why-upbound/self-service';
 
 // External URLs
 
+export const upboundMarketplaceUrl = 'https://marketplace.upbound.io/';
 export const upboundBlogUrl = 'https://blog.upbound.io/';
 export const upboundStatusUrl = 'https://status.upbound.io/';
 export const upboundGreenhouseUrl = 'https://boards.greenhouse.io/upbound';
 export const upboundZendeskUrl = 'https://upbound.zendesk.com/';
 export const cncfUrl = 'https://www.cncf.io/';
 export const enterpriseBlogUrl = 'https://blog.upbound.io/upbound-enterprise-and-unified-pricing/';
+export const upboundValuesDoc =
+  'https://www.google.com/url?q=https://docs.google.com/document/d/16hCEaKM0NQFTF6ri0xa0tBxyNu0Pppj6ZRM7XYFNs9k/edit&sa=D&source=editors&ust=1652739928247780&usg=AOvVaw0AXM788rKKg1unwnpoxj0M';
 
 // Crossplane URLs
 

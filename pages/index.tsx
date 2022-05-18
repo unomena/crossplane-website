@@ -1,1443 +1,1817 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
-import { css } from '@emotion/react';
-import { Box, Hidden } from '@mui/material';
-import { styled } from '@mui/system';
-import { COLORS, fontAvenirBold, MQ } from 'src/theme';
+import Image from 'next/image';
 
-import Image, { ImageProps } from 'next/image';
+import {
+  Box,
+  Button as MuiButton,
+  Hidden,
+  SxProps,
+  TextField,
+  Tooltip,
+  Typography,
+  useMediaQuery,
+} from '@mui/material';
+import {
+  COLORS,
+  fontAvenirBold,
+  fontAvenirRoman,
+  fontAvenirRomanItalic,
+  gradient_1,
+  gradient_2,
+  MQ,
+} from 'src/theme';
+import { keyframes } from '@emotion/react';
 
-import PageProvider from 'src/components/PageProvider';
-import { Wave } from 'src/components/Wave';
-import { Anchor, Link } from 'src/elements/Anchor';
-import { AnchorButton, Button, LinkButton } from 'src/elements/Button';
-import { Card } from 'src/elements/Div';
-import { Header } from 'src/elements/Header';
-import { Avatar, Img } from 'src/elements/Img';
-import { Paragraph } from 'src/elements/Paragraph';
-import { Span } from 'src/elements/Span';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+import validator from 'validator';
+
 import * as routes from 'src/routes';
 
-import ArrowLeft from 'src/svg/ArrowLeft';
-import ArrowRight from 'src/svg/ArrowRight';
-import TwitterIcon from 'src/svg/TwitterIcon';
-// import bassam from 'public/home/bassam.png';
-// import bassam2x from 'public/home/bassam@2x.png';
-import bassam3x from 'public/home/bassam@3x.png';
-// import daniel from 'public/home/daniel.png';
-// import daniel2x from 'public/home/daniel@2x.png';
-import daniel3x from 'public/home/daniel@3x.png';
-// import enterpriseGrade from 'public/home/enterprise-grade-desktop.png';
-// import enterpriseGrade2x from 'public/home/enterprise-grade-desktop@2x.png';
-import enterpriseGrade3x from 'public/home/enterprise-grade-desktop@3x.png';
-// import hero1x from 'public/home/hero.png';
-// import hero2x from 'public/home/hero@2x.png';
-import hero3x from 'public/home/hero@3x.png';
-// import heroMobile1x from 'public/home/hero-mobile.png';
-// import heroMobile2x from 'public/home/hero-mobile@2x.png';
-import heroMobile3x from 'public/home/hero-mobile@3x.png';
-import janakiram from 'public/home/janakiram.png';
-// import jay from 'public/home/jay.png';
-// import jay2x from 'public/home/jay@2x.png';
-import jay3x from 'public/home/jay@3x.png';
-// import kelseyHightower from 'public/home/Kelsey Hightower.png';
-// import kelseyHightower2x from 'public/home/Kelsey Hightower@2x.png';
-import kelseyHightower3x from 'public/home/Kelsey Hightower@3x.png';
-// import customerSlot3Logo from 'public/home/logo-db.png';
-// import customerSlot3Logo2x from 'public/home/logo-db@2x.png';
-import customerSlot3Logo3x from 'public/home/logo-db@3x.png';
-// import customerSlot1Logo from 'public/home/logo-dfds.png';
-// import customerSlot1Logo2x from 'public/home/logo-dfds@2x.png';
-import customerSlot1Logo3x from 'public/home/logo-dfds@3x.png';
-// import customerSlot2Logo from 'public/home/logo-grupo-boticario.png';
-// import customerSlot2Logo2x from 'public/home/logo-grupo-boticario@2x.png';
-import customerSlot2Logo3x from 'public/home/logo-grupo-boticario@3x.png';
-// import customerSlot4Logo from 'public/home/logo-plotly.png';
-// import customerSlot4Logo2x from 'public/home/logo-plotly@2x.png';
-import customerSlot4Logo3x from 'public/home/logo-plotly@3x.png';
-// import customerSlot5Logo from 'public/home/logo-ptc.png';
-// import customerSlot5Logo2x from 'public/home/logo-ptc@2x.png';
-import customerSlot5Logo3x from 'public/home/logo-ptc@3x.png';
-// import marcCambell from 'public/home/Marc Campbell.png';
-// import marcCambell2x from 'public/home/Marc Campbell@2x.png';
-import marcCambell3x from 'public/home/Marc Campbell@3x.png';
-import mauricio from 'public/home/mauricio.png';
-// import nic from 'public/home/nic.png';
-// import nic2x from 'public/home/nic@2x.png';
-import nic3x from 'public/home/nic@3x.png';
-// import normanJoyner from 'public/home/Norman Joyner.png';
-// import normanJoyner2x from 'public/home/Norman Joyner@2x.png';
-import normanJoyner3x from 'public/home/Norman Joyner@3x.png';
-import largeRightOval from 'public/home/oval-copy-5.svg';
-import largeLeftOval from 'public/home/oval-copy-11.svg';
-import largeRightOvalMobile from 'public/home/oval-copy-30.svg';
-import largeLeftOvalMobile from 'public/home/oval-copy-31.svg';
-import cornflowerOvalLeft from 'public/home/oval-cornflower-left.svg';
-import cornflowerOvalRight from 'public/home/oval-cornflower-right.svg';
-// import runLikeVendors from 'public/home/run-like-vendors-desktop.png';
-// import runLikeVendors2x from 'public/home/run-like-vendors-desktop@2x.png';
-import runLikeVendors3x from 'public/home/run-like-vendors-desktop@3x.png';
-import supportTeam from 'public/home/support-team-desktop.svg';
-import unlockKubernetes from 'public/home/unlock-kubernetes-desktop.svg';
+import getRandomInt from 'src-new/utils/getRandomInt';
+import useOnScreen from 'src-new/utils/useOnScreen';
 
-// const BackgroundOval = styled(Img)`
-//   position: absolute;
-//   z-index: 10;
-// `;
+import crossplaneLogos from 'src-new/constants/crossplaneLogos';
+import quotes from 'src-new/constants/quotes';
 
-const SubHeader = styled(Header)`
-  && {
-    font-size: 16px;
-    line-height: 28px;
+import PageProvider from 'src-new/components/PageProvider';
+import Section from 'src-new/components/Section';
+import Button from 'src-new/elements/Button';
+import Link from 'src-new/elements/Link';
+import MediaCard from 'src-new/elements/MediaCard';
+import CornerCard from 'src-new/elements/CornerCard';
 
-    ${MQ.md} {
-      font-size: 24px;
-      line-height: 40px;
-    }
-  }
-`;
+import RocketShipIcon from 'src-new/svg/RocketShipIcon';
+import ArrowRight from 'src-new/svg/ArrowRight';
+import FullArrowRight from 'src-new/svg/FullArrowRight';
+import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
+import mbpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
+import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
+import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
+import dbLogo from 'public/new-images/trusted-logos/db.svg';
+import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
+import headerBg from 'public/new-images/home-page/header-bg.jpg';
+import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
+import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
+import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
+import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
+import EnterpriseReadyBigMobile from 'public/new-images/home-page/features/EnterpriseReadyBigMobile.svg';
+import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
+import EnterpriseReadySmallMobile from 'public/new-images/home-page/features/EnterpriseReadySmallMobile.svg';
+import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
+import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
+import DeployWithConfidenceBigMobile from 'public/new-images/home-page/features/DeployWithConfidenceBigMobile.svg';
+import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
+import DeployWithConfidenceSmallMobile from 'public/new-images/home-page/features/DeployWithConfidenceSmallMobile.svg';
+import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
+import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
+import EfficiencyEaseBigMobile from 'public/new-images/home-page/features/EfficiencyEaseBigMobile.svg';
+import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
+import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
+import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
+import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
+import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
+import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
+import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
+import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
-const HeaderButton = styled(AnchorButton)`
-  text-align: center;
-  width: 100%;
-  font-size: 14px;
-  line-height: 20px;
-  padding: 10px 20px;
+const headerSection: SxProps = {
+  pt: { _: 13, md: 24 },
+  pb: 4,
+  textAlign: 'center',
+  color: COLORS.linkWater,
+  backgroundImage: `url(${headerBg.src})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'top center',
 
-  ${MQ.md} {
-    width: unset;
-    font-size: 20px;
-    line-height: 25px;
-    padding: 18px 27px;
-  }
-`;
-
-const CustomersHeader = styled(Header)`
-  & {
-    width: 100%;
-    margin-bottom: 60px;
-    text-align: center;
-
-    font-size: 24px;
-    line-height: 28px;
-
-    ${MQ.md} {
-      font-size: 32px;
-      line-height: 52px;
-    }
-  }
-`;
-
-const CircleButton = styled(Button)`
-  display: flex;
-  padding: 18px;
-  width: 55px;
-  height: 55px;
-`;
-
-const TwitterCardsContainer = styled(Box)<{ currentIndex: number }>`
-  display: flex;
-  width: 100%;
-  position: relative;
-  left: 0;
-  padding: 0 15px;
-  transition: left 0.2s ease-in-out;
-  ${({ currentIndex }) =>
-    currentIndex > 0 && `left: calc(-${currentIndex * 100}% + ${currentIndex * 15}px);`}
-
-  ${MQ.md} {
-    padding: 0 30px;
-    ${({ currentIndex }) => currentIndex > 0 && `left: -${currentIndex * 585}px;`}
-  }
-
-  ${MQ.xl} {
-    padding: 0;
-  }
-`;
-
-const activeTwitterCardStyle = css`
-  box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.05);
-`;
-
-const TwitterCard = styled(Card)<{ thisIndex: number; currentIndex: number }>`
-  display: flex;
-  flex-direction: column;
-  box-shadow: unset;
-  color: ${COLORS.fillBlackBlack};
-  width: 100%;
-  padding: 44px 15px 41px 40px;
-  margin-right: 15px;
-  flex-shrink: 0;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-
-  ${MQ.md} {
-    width: 555px;
-    height: 400px;
-    padding: 44px 40px 50px 40px;
-    margin-right: 30px;
-  }
-
-  ${({ thisIndex, currentIndex }) => thisIndex === currentIndex && activeTwitterCardStyle}
-`;
-
-const TwitterMessage = styled(Paragraph)`
-  font-size: 20px;
-  line-height: 36px;
-`;
-
-const TwitterTitle = styled(Span)`
-  font-size: 20px;
-  line-height: 24px;
-`;
-
-const TwitterSubtitle = styled(Box)`
-  display: flex;
-  color: ${COLORS.fillBlackGray};
-  fill: ${COLORS.fillBlackGray};
-`;
-
-const TwitterSubtitleMessage = styled(Span)`
-  font-size: 16px;
-  line-height: 28px;
-  color: ${COLORS.fillBlackGray};
-
-  ${MQ.sm} {
-    &:first-of-type::after {
-      content: '-';
-      margin: 0 4px;
-    }
-  }
-`;
-
-const TwitterCardBubbles = styled(Box)`
-  display: flex;
-  justify-content: center;
-
-  ${MQ.md} {
-    display: none;
-  }
-`;
-
-const bubbleActiveStyle = css`
-  border: 2px solid ${COLORS.fillBlackBlack};
-  background-color: ${COLORS.fillBlackBlack};
-`;
-
-const Bubble = styled(Box)<{ thisIndex: number; currentIndex: number }>`
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
-  border: 2px solid ${COLORS.fillBlackGrayLight};
-  margin-right: 20px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-
-  ${({ thisIndex, currentIndex }) => thisIndex === currentIndex && bubbleActiveStyle}
-`;
-
-const CrossplaneSpeakersContainer = styled(Box)`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 70px;
-  flex-direction: column;
-  max-width: 1340px;
-
-  ${MQ.lg} {
-    margin-bottom: 54px;
-    align-items: initial;
-    flex-direction: row;
-    padding: 0 80px;
-  }
-`;
-
-const CrossplaneSpeakersOvalImg = styled('img')`
-  display: none;
-  position: absolute;
-  z-index: 20;
-
-  ${MQ.md} {
-    display: block;
-  }
-`;
-
-const CrossplaneSpeakerContainer = styled(Anchor)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 70px;
-  width: 100%;
-  text-decoration: none;
-
-  ${MQ.md} {
-    flex-direction: row;
-  }
-
-  ${MQ.lg} {
-    justify-content: unset;
-    flex-direction: column;
-    width: 159px;
-    margin-bottom: 0;
-  }
-
-  ${MQ.xl} {
-    align-items: center;
-  }
-
-  &:last-of-type {
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-`;
-
-const CrossplaneSpeakerAvatarContainer = styled(Box)`
-  display: flex;
-  flex-direction: column;
-`;
-
-// const CrossplaneSpeakerAvatar = styled(Avatar)`
-//   margin: 0 0 -30px 0;
-// `;
-
-const CrossplaneSpeakerKeynoteTag = styled(Button)`
-  ${fontAvenirBold}
-  padding: 6px 18px;
-  font-size: 14px;
-  line-height: 20px;
-  width: 97px;
-  height: 36px;
-  margin: -36px auto 0 auto;
-  z-index: 1;
-
-  &&&:hover {
-    cursor: default;
-    border-color: transparent;
-    background-color: ${COLORS.aquaMarine};
-    color: ${COLORS.white};
-    fill: ${COLORS.white};
-  }
-`;
-
-const CrossplaneSpeakerTextContainer = styled(Box)`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-`;
-
-const CrossplaneSpeakerHeader = styled(Header)`
-  ${fontAvenirBold}
-  font-size: 20px;
-  line-height: 25px;
-  color: ${COLORS.white};
-  text-align: center;
-  margin: 17px 0 28px 0;
-`;
-
-const CrossplaneSpeakerName = styled(Span)`
-  ${fontAvenirBold}
-  font-size: 16px;
-  line-height: 18px;
-  color: ${COLORS.white};
-  margin-bottom: 8px;
-  text-align: center;
-`;
-
-const CrossplaneSpeakerTitle = styled(Span)`
-  font-size: 14px;
-  line-height: 18px;
-  color: ${COLORS.white};
-  text-align: center;
-  margin-left: 0;
-`;
-
-const CrossplaneSpeakersButton = styled(AnchorButton)`
-  width: 100%;
-  font-size: 14px;
-  line-height: 16px;
-  padding: 12px 6px;
-
-  ${MQ.md} {
-    width: unset;
-    font-size: 20px;
-    line-height: 25px;
-    padding: 20px 40px;
-  }
-`;
-
-const CrossplaneSpeakersText = styled(Paragraph)`
-  text-align: center;
-  font-size: 16px;
-  line-height: 30px;
-  width: 260px;
-
-  ${MQ.md} {
-    width: unset;
-    font-size: 20px;
-    line-height: 26px;
-    margin-right: 13px;
-  }
-`;
-
-const NewsAndEventHeader = styled(Header)`
-  margin: 0 auto 20px auto;
-  color: ${COLORS.fillBlackBlack};
-  text-align: center;
-  font-size: 32px;
-  line-height: 37px;
-
-  ${MQ.md} {
-    font-size: 40px;
-    line-height: 50px;
-  }
-`;
-
-const NewsAndEventParagraph = styled(Paragraph)`
-  color: ${COLORS.fillBlackGray};
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 16px;
-  line-height: 28px;
-
-  ${MQ.md} {
-    font-size: 18px;
-    line-height: 32px;
-  }
-`;
-
-const NewsAndEventCard = styled(Card)`
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.02);
-  padding: 42px 32px 32px 28px;
-  border-radius: 16px;
-  margin-bottom: 25px;
-  width: 100%;
-  text-align: center;
-
-  ${MQ.lg} {
-    width: 300px;
-    height: 382px;
-    margin-right: 26px;
-    text-align: left;
-  }
-
-  ${MQ.xl} {
-    width: 364px;
-    height: 318px;
-  }
-
-  &:last-of-type {
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-`;
-
-const NewsAndEventTypeTag = styled(Button)`
-  padding: 6px 15px;
-  font-weight: 600;
-  background-color: rgba(54, 179, 126, 0.1);
-  color: ${COLORS.fillActionSuccess};
-  cursor: default;
-  margin-bottom: 17px;
-`;
-
-const NewsAndEventTitle = styled(Header)`
-  ${fontAvenirBold}
-  /* width: 297px; */
-  color: ${COLORS.fillBlackBlack};
-  margin-bottom: 8px;
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 0.2px;
-`;
-
-const NewsAndEventDescription = styled(Paragraph)`
-  /* width: 296px; */
-  font-size: 18px;
-  line-height: 32px;
-  color: ${COLORS.fillBlackGray};
-  margin-bottom: 13px;
-
-  ${MQ.lg} {
-    height: 128px;
-  }
-
-  ${MQ.xl} {
-    height: 96px;
-  }
-`;
-
-const CrossplaneSpeakerAvatar: typeof Avatar = (props) => {
-  return <Avatar sx={{ margin: '0 0 -30px 0' }} {...props} />;
+  '@media screen and (min-width: 1980px)': {
+    backgroundSize: 'contain',
+  },
 };
 
-const CustomerSlotBox = ({
-  href,
-  src,
-  alt,
-}: ImageProps & {
-  href: string;
-  alt: string;
-}) => {
-  return (
-    <Anchor
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      sx={{
-        mx: '1px',
-        flex: 1,
-        height: { _: '20px', sm: '30px', md: '40px' },
-        position: 'relative',
-      }}
-    >
-      <Image src={src} alt={alt} layout="fill" objectFit="contain" placeholder="blur" />
-    </Anchor>
-  );
+const discoverSection: SxProps = {
+  pt: { _: 10, md: 15 },
+  pb: 32,
+  backgroundImage: `url(${headerBg.src})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'top center',
+  backgroundSize: 'cover',
 };
 
-const BackgroundOval = ({
-  position,
-  mt,
-  mtMobile,
-}: {
-  position: 'left' | 'right';
-  mt?: string;
-  mtMobile?: string;
-}) => {
-  let imageSrc = '';
-  let imgStyles: CSSProperties = { position: 'absolute', zIndex: 10 };
-  let imageSrcMobile = '';
-  let imgStylesMobile: CSSProperties = { position: 'absolute', zIndex: 10 };
+const h1: SxProps = {
+  ...fontAvenirBold,
+  fontSize: '46px',
+  lineHeight: '54px',
+  letterSpacing: '-1.59px',
+  mb: 3.5,
+  ...gradient_1,
 
-  if (position === 'left') {
-    imageSrcMobile = largeLeftOvalMobile.src;
-    imgStylesMobile = {
-      ...imgStyles,
-      // left: '-120px',
-      left: '0',
-      width: '64.4%',
-      marginTop: mtMobile,
-    };
+  [MQ.md]: {
+    ...fontAvenirBold,
+    fontSize: '95px',
+    lineHeight: '104px',
+    letterSpacing: '-3.28px',
+  },
+};
 
-    imageSrc = largeLeftOval.src;
-    imgStyles = {
-      ...imgStyles,
-      left: '0',
-      width: '31.8%',
-      height: '919px',
-      marginTop: mt,
-    };
-  }
-  if (position === 'right') {
-    imageSrcMobile = largeRightOvalMobile.src;
-    imgStylesMobile = {
-      ...imgStyles,
-      // right: '-120px',
-      right: '0',
-      width: '64.4%',
-      marginTop: mtMobile,
-    };
+const headerButtons: SxProps = {
+  mt: { _: 5, sm: 7.5 },
+  mb: { _: 6, sm: 10 },
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: { _: 'column', sm: 'row' },
+};
 
-    imageSrc = largeRightOval.src;
-    imgStyles = {
-      ...imgStyles,
-      right: '0',
-      width: '31.8%',
-      height: '919px',
-      marginTop: mt,
-    };
-  }
+const poweringTitle: SxProps = {
+  ...fontAvenirRoman,
+  fontSize: '14px',
+  lineHeight: '23px',
+  letterSpacing: '1.75px;',
+  mb: 3,
+
+  [MQ.md]: {
+    fontSize: '16px',
+    lineHeight: '40px',
+    letterSpacing: '2px',
+  },
+};
+
+const logosContainer: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  mb: 9,
+};
+
+const logoSVG: SxProps = {
+  position: 'relative',
+  mx: '25px',
+};
+
+const cpLeftColumns: SxProps = {
+  display: 'flex',
+  position: 'relative',
+
+  '& > div': {
+    mr: '10px',
+    ':first-of-type': {
+      mr: 0,
+    },
+    ':last-of-type': {
+      mr: 0,
+    },
+  },
+};
+
+const cpRightColumns: SxProps = {
+  display: 'flex',
+  position: 'relative',
+
+  '& > div': {
+    ml: '10px',
+    ':first-of-type': {
+      ml: 0,
+    },
+    ':last-of-type': {
+      ml: 0,
+    },
+  },
+};
+
+const cpLogoBoxColumn: SxProps = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'opacity 2s ease',
+
+  '& > div': {
+    ':not(:first-of-type)': {
+      mt: 0.5,
+    },
+    ':not(:last-of-type)': {
+      mb: 0.5,
+    },
+  },
+};
+
+const cpColumnShadow: SxProps = {
+  backgroundImage:
+    // eslint-disable-next-line max-len
+    'linear-gradient(270deg, rgba(13,36,54,0.20) 0%, rgba(13,36,54,0.85) 17%, #0D2436 51%, rgba(13,36,54,0.85) 82%, rgba(13,36,54,0.20) 100%)',
+  width: 284,
+  height: '100%',
+  position: 'absolute',
+  top: 0,
+  zIndex: 100,
+};
+
+const cpCenterBox: SxProps = {
+  backgroundImage:
+    // eslint-disable-next-line max-len
+    'linear-gradient(270deg, rgba(13,36,54,0.20) 0%, rgba(13,36,54,0.85) 17%, #0D2436 51%, rgba(13,36,54,0.85) 82%, rgba(13,36,54,0.20) 100%)',
+  width: 474,
+  height: 418,
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  m: 'auto',
+  zIndex: 101,
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'opacity 3s ease',
+};
+
+const cpCenterBoxTitleNum: SxProps = {
+  ...fontAvenirRoman,
+  color: '#fff',
+  fontSize: '50px',
+  lineHeight: '50px',
+
+  [MQ.lg]: {
+    fontSize: '74px',
+    lineHeight: '36px',
+    mb: 1.5,
+  },
+};
+
+const cpCenterBoxTitleText: SxProps = {
+  ...fontAvenirBold,
+  color: '#fff',
+  fontSize: '20px',
+  lineHeight: '24px',
+  mb: 1.5,
+
+  [MQ.lg]: {
+    fontSize: '24px',
+    lineHeight: '36px',
+    mb: 3,
+  },
+};
+
+const cpLogoBox: SxProps = {
+  bgcolor: COLORS.bigStone,
+  borderRadius: '10px',
+  p: 2,
+};
+
+const cpLogoBoxImageContainer: SxProps = {
+  position: 'relative',
+  width: '100%',
+  height: '100%',
+  '& > span': {
+    transition: 'all 1.5s ease-in-out',
+  },
+};
+
+const cpLogoBoxBigger: SxProps = {
+  width: 108,
+  height: 78,
+};
+
+const cpLogoBoxBig: SxProps = {
+  width: 98,
+  height: 72,
+};
+
+const cpLogoBoxSmall: SxProps = {
+  width: 93,
+  height: 66,
+};
+
+const cpLogoBoxSmaller: SxProps = {
+  width: 83,
+  height: 59,
+};
+
+const cpLogoBoxMobile: SxProps = {
+  width: 83,
+  height: 59,
+  m: 0.5,
+};
+
+const pulsate = keyframes`
+  from { opacity: 1; }
+  50% { opacity: 0.5; }
+  to { opacity: 1; }
+`;
+
+const smallTitleStyle: SxProps = {
+  ...fontAvenirRoman,
+  ml: 1.5,
+  fontSize: '13px',
+  lineHeight: '16px',
+  letterSpacing: '-0.13px',
+
+  [MQ.md]: {
+    fontSize: '20px',
+    lineHeight: '56px',
+    letterSpacing: '-0.2px',
+  },
+};
+
+const quoteSectionLeftContainer: SxProps = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  height: '100%',
+  width: '40%',
+};
+
+const quoteSectionLeftInner: SxProps = {
+  width: '100%',
+  height: '100%',
+  clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
+  backgroundImage: `linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
+  backgroundPosition: 'center',
+};
+
+const quoteSectionContainerMobile: SxProps = {
+  width: '100%',
+  height: 460,
+  backgroundImage: `linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
+  backgroundPosition: 'center',
+};
+
+const quoteSectionLeftBg: SxProps = {
+  backgroundPosition: 'center',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  transition: 'opacity 0.5s',
+};
+
+const quoteSectionBgMobile: SxProps = {
+  backgroundPosition: 'center',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  transition: 'opacity 0.5s',
+};
+
+const quoteSectionLeftLogo: SxProps = {
+  position: 'absolute',
+  top: '58%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '100%',
+  transition: 'opacity 0.5s',
+};
+
+const quoteSectionLogoMobile: SxProps = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  transition: 'opacity 0.5s',
+};
+
+const quoteSectionRightContainer: SxProps = {
+  width: '100%',
+  maxWidth: 660,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  position: 'relative',
+};
+
+const quoteSectionQuoteLogos: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  '& > div:not(:last-of-type)': {
+    mr: 1.5,
+  },
+};
+
+const quoteSectionQuoteLogoBox: SxProps = {
+  bgcolor: COLORS.bigStone,
+  px: '18px',
+  py: '34px',
+  width: 116,
+  height: 108,
+  border: `2px solid ${COLORS.bigStone}`,
+  borderRadius: '10px',
+  boxShadow: '0 15px 35px 0 rgba(0,0,0,0.05)',
+  transition: 'all 0.5s',
+
+  '&:hover': {
+    backgroundColor: '#23435C',
+    transform: `scale(1.05)`,
+    cursor: 'pointer',
+  },
+};
+
+const quoteSectionQuoteLogoBoxActive: SxProps = {
+  bgcolor: '#23435C',
+  position: 'relative',
+  border: `2px solid transparent`,
+  backgroundClip: 'padding-box',
+  transition: 'none',
+
+  '&:before': {
+    content: "''",
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    zIndex: -1,
+    margin: '-2px',
+    borderRadius: 'inherit',
+    background: 'linear-gradient(-45deg, #6D64F5 0, #C9C3FF 100%)',
+  },
+
+  '&:hover': {},
+};
+
+const registerFormContainer: SxProps = {
+  backgroundImage: 'linear-gradient(-57deg, #FAAD13 0%, #6D64F5 100%)',
+  borderRadius: '10px',
+  height: { xl: 280 },
+  px: '22px',
+  py: '24px',
+  mb: { xl: 2.5 },
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const registerFormTitle: SxProps = {
+  ...fontAvenirBold,
+  color: '#fff',
+  mb: 2.5,
+  fontSize: '22px',
+  lineHeight: '27px',
+
+  [MQ.md]: {
+    fontSize: '30px',
+    lineHeight: '36px',
+  },
+};
+
+const registerFormField: SxProps = {
+  mb: 2.5,
+  '& > .MuiOutlinedInput-root': {
+    bgcolor: '#fff',
+    borderRadius: '8px',
+
+    '& > input': {
+      p: '12.5px 14px',
+    },
+
+    '&.Mui-focused': {
+      '& > .MuiOutlinedInput-notchedOutline': {
+        borderColor: COLORS.cornflower,
+        borderWidth: '1px',
+      },
+    },
+
+    '& > .MuiOutlinedInput-notchedOutline': {
+      borderColor: 'transparent',
+    },
+  },
+};
+
+const registerFormSubmit: SxProps = {
+  ...fontAvenirBold,
+  fontSize: '16px',
+  lineHeight: '25px',
+  color: '#fff',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const visitCard: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  px: 2.5,
+  py: 2.5,
+
+  [MQ.sm]: {
+    minHeight: 100,
+  },
+
+  [MQ.xl]: {
+    pl: 2.5,
+    pr: 0,
+    maxWidth: 150,
+    minHeight: 'unset',
+  },
+};
+
+const headerLogos = [
+  {
+    id: 1,
+    src: mbpcLogo,
+    width: 90,
+    height: 21,
+  },
+  {
+    id: 2,
+    src: dfdsLogo,
+    width: 80,
+    height: 28,
+  },
+  {
+    id: 3,
+    src: grupoLogo,
+    width: 80,
+    height: 26,
+  },
+  {
+    id: 4,
+    src: dbLogo,
+    width: 47,
+    height: 34,
+  },
+  {
+    id: 5,
+    src: plotlyLogo,
+    width: 80,
+    height: 26,
+  },
+];
+
+const HeaderSection = () => {
+  const logosSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(logosSectionRef);
 
   return (
     <>
-      <Hidden lgUp>
-        <img src={imageSrcMobile} alt="background oval" style={imgStylesMobile} />
-      </Hidden>
-      <Hidden lgDown>
-        <img src={imageSrc} alt="background oval" style={imgStyles} />
-      </Hidden>
+      <Typography variant="h1_new" sx={h1}>
+        The cloud on your terms
+      </Typography>
+      <Typography variant="body_big">
+        Upbound is the easiest way to build your internal cloud platform
+      </Typography>
+      <Box sx={headerButtons}>
+        <Button
+          styleType="gradientContained"
+          sizeType="large"
+          sx={{
+            width: { _: 225, sm: 208 },
+            mr: { _: 0, sm: '10px' },
+            mb: { _: '20px', sm: 0 },
+            '& > .MuiButton-iconSizeMedium': {
+              mr: '10px',
+              '& > svg': {
+                height: { _: 20, md: 25 },
+                width: { _: 20, md: 25 },
+              },
+            },
+          }}
+          startIcon={<RocketShipIcon />}
+          href={routes.cloudRegisterUrl}
+        >
+          Get Started
+        </Button>
+        <Button
+          styleType="whiteOutlined"
+          sizeType="large"
+          sx={{
+            width: { _: 225, sm: 208 },
+            ml: { _: 0, sm: '10px' },
+            '& > .MuiButton-iconSizeMedium': {
+              ml: '16px',
+              '& > svg': {
+                height: { _: 12, md: 13 },
+                width: { _: 7, md: 8 },
+              },
+            },
+          }}
+          endIcon={<ArrowRight />}
+          href={routes.contactSalesUrl}
+        >
+          Contact Us
+        </Button>
+      </Box>
+      <Box ref={logosSectionRef}>
+        <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
+        <Hidden smDown>
+          <Box sx={logosContainer}>
+            {headerLogos.map((logo) => (
+              <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
+                <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+              </Box>
+            ))}
+          </Box>
+        </Hidden>
+        <Hidden smUp>
+          <Box
+            sx={{
+              maxWidth: 400,
+              mx: 'auto',
+              '.slide > div': {
+                opacity: '.3',
+                minHeight: 80,
+                transition: 'all 0.5s',
+              },
+
+              '.selected > div': {
+                opacity: '1',
+                transform: 'scale(1.5)',
+              },
+            }}
+          >
+            <Carousel
+              showArrows={false}
+              showStatus={false}
+              showIndicators={false}
+              autoPlay={isVisible}
+              infiniteLoop={true}
+              centerMode={true}
+              centerSlidePercentage={50}
+              stopOnHover={false}
+              showThumbs={false}
+              swipeable={false}
+            >
+              {headerLogos.map((logo) => (
+                <Box
+                  key={logo.id}
+                  sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  <Box sx={{ position: 'relative', width: logo.width, height: logo.height }}>
+                    <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              ))}
+            </Carousel>
+          </Box>
+        </Hidden>
+      </Box>
+      <Box sx={{ position: 'relative' }}>
+        <Hidden smDown>
+          <Image src={headerDiagram} alt="headerDiagram" />
+        </Hidden>
+        <Hidden smUp>
+          <Image src={headerDiagramMobile} alt="headerDiagramMobile" layout="responsive" />
+        </Hidden>
+      </Box>
     </>
   );
 };
 
-const Home: React.FC = () => {
-  const [twitterCarouselIndex, setTwitterCarouselIndex] = useState(0);
+const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
 
-  const handleClickCard = (index: number) => () => setTwitterCarouselIndex(index);
-  const handleClickPrevious = () => {
-    if (twitterCarouselIndex <= 0) {
-      return;
+type CPLogoBoxProps = {
+  sizeStyles: SxProps;
+  shouldUpdate?: Boolean;
+};
+
+const CPLogoBox = memo(({ sizeStyles, shouldUpdate }: CPLogoBoxProps) => {
+  const [show, setShow] = useState(false);
+  const [imageOne, setImageOne] = useState(getRandomLogo());
+  const [imageTwo, setImageTwo] = useState(getRandomLogo());
+
+  useEffect(() => {
+    if (shouldUpdate) {
+      setShow(!show);
     }
+  }, [shouldUpdate]);
 
-    setTwitterCarouselIndex(twitterCarouselIndex - 1);
-  };
-  const handleClickNext = () => {
-    if (twitterCarouselIndex >= 4) {
-      return;
+  useEffect(() => {
+    let t: NodeJS.Timeout;
+    if (show) {
+      t = setTimeout(() => {
+        let newImage = null;
+        do {
+          newImage = getRandomLogo();
+        } while (newImage.src === imageOne.src || newImage.src === imageTwo.src);
+        setImageOne(newImage);
+      }, 4000);
+    } else {
+      t = setTimeout(() => {
+        let newImage = null;
+        do {
+          newImage = getRandomLogo();
+        } while (newImage.src === imageTwo.src || newImage.src === imageOne.src);
+        setImageTwo(newImage);
+      }, 4000);
     }
-
-    setTwitterCarouselIndex(twitterCarouselIndex + 1);
-  };
+    return () => {
+      clearTimeout(t);
+    };
+  }, [show]);
 
   return (
-    <PageProvider>
-      <Box pt={{ _: '37px', md: '80px' }} bgcolor={COLORS.cornflower} textAlign="center">
-        <Box mx="auto" maxWidth="1156px" px="30px">
-          <Header variant="h1" bold={true} color="white" sx={{ mb: { _: '10px', lg: '25px' } }}>
-            Rise Above The Clouds
-          </Header>
-          <SubHeader variant="h3" color="white" sx={{ mb: { _: '28px', lg: '33px' } }}>
-            Manage infrastructure, eliminate configuration drift, and empower developers with
-            self-service using the Upbound Universal Cloud Platform.
-          </SubHeader>
-          <HeaderButton
-            href={routes.cloudRegisterUrl}
-            btnType="aquaMarineFill"
-            bold={true}
-            hasShadow={true}
-            sx={{
-              mr: { _: '0', md: '10px' },
-              mb: { _: '10px', md: '0' },
-              minWidth: '220px',
-            }}
-          >
-            Try for Free
-          </HeaderButton>
-          <HeaderButton
-            href={routes.contactSalesUrl}
-            btnType="whiteOutline"
-            bold={true}
-            sx={{
-              minWidth: '220px',
-              '&:hover': {
-                color: COLORS.cornflower,
-              },
-            }}
-          >
-            Request Demo
-          </HeaderButton>
-          <Hidden mdUp>
-            <Img
-              src={heroMobile3x}
-              priority
-              // srcSet={`${heroMobile1x} 1x, ${heroMobile2x} 2x, ${heroMobile3x} 3x`}
-              alt="cli and console screenshot"
-              width="100%"
-              sx={{
-                m: { _: '60px 0 -150px 0', md: '60px 0 -20% 0' },
-                position: 'relative',
-                zIndex: 11,
-              }}
-            />
-          </Hidden>
-          <Hidden mdDown>
-            <Img
-              src={hero3x}
-              priority
-              // srcSet={`${hero1x} 1x, ${hero2x} 2x, ${hero3x} 3x`}
-              alt="cli and console screenshot"
-              width="100%"
-              sx={{
-                mb: '-90px',
-                mt: '60px',
-              }}
-            />
-          </Hidden>
-        </Box>
-        <Wave type="white" />
-      </Box>
+    <Box
+      sx={{
+        ...cpLogoBox,
+        ...sizeStyles,
+        // bgcolor: shouldUpdate ? 'red' : COLORS.bigStone,
+        animation: shouldUpdate ? `${pulsate} 2s ease-in-out` : null,
+      }}
+    >
       <Box
-        display="flex"
-        flexShrink={0}
-        zIndex={20}
-        position="relative"
-        px={{ _: '30px', sm: '60px', md: '60px', lg: '30px' }}
-        maxWidth={{ _: 'unset', lg: '1250px' }}
-        m={{ _: '25px auto 0 auto', sm: '0 auto' }}
-        flexDirection={{ _: 'row', sm: 'row' }}
-        justifyContent="center"
-        flexWrap="wrap"
+        sx={{
+          ...cpLogoBoxImageContainer,
+          '& > span:first-of-type': {
+            opacity: show ? '0 !important' : '1 !important',
+            transitionDelay: show ? '0s' : '1s',
+          },
+          '& > span:last-of-type': {
+            opacity: show ? '1 !important' : '0 !important',
+            transitionDelay: show ? '1s' : '0s',
+          },
+        }}
       >
-        <CustomersHeader variant="h2" color="fillBlackBlack" bold={true}>
-          Trusted by Industry Leaders and Best-in-class Brands
-        </CustomersHeader>
-        <Box
-          flex={1}
-          display="flex"
-          justifyContent="center"
-          flexWrap="wrap"
-          height={{ _: '20px', sm: '30px', md: '46px' }}
-        >
-          <CustomerSlotBox
-            href={routes.customerSlot1Url}
-            src={customerSlot1Logo3x}
-            alt={'Dfds Logo'}
-          />
-          <CustomerSlotBox
-            href={routes.customerSlot2Url}
-            src={customerSlot2Logo3x}
-            alt={'Grupo Boticario Logo'}
-          />
-          <CustomerSlotBox
-            href={routes.customerSlot3Url}
-            src={customerSlot3Logo3x}
-            alt={'Db Logo'}
-          />
-          <CustomerSlotBox
-            href={routes.customerSlot4Url}
-            src={customerSlot4Logo3x}
-            alt={'Plotly Logo'}
-          />
-          <CustomerSlotBox
-            href={routes.customerSlot5Url}
-            src={customerSlot5Logo3x}
-            alt={'Ptc Logo'}
-          />
-        </Box>
+        <Image src={imageOne} alt="company logo" layout="fill" objectFit="contain" />
+        <Image src={imageTwo} alt="company logo" layout="fill" objectFit="contain" />
       </Box>
-      <Box
-        display="flex"
-        maxWidth={{ _: 'unset', lg: '1250px' }}
-        mx="auto"
-        mt="150px"
-        flexDirection={{ _: 'column', lg: 'unset' }}
-        px={{ _: '0', md: '60px', lg: '0' }}
-      >
-        <Box
-          display="flex"
-          px={{ _: '30px', md: '0' }}
-          width={{ _: '100%', lg: '345px', xl: '480px' }}
-          m={{ _: '0 0 70px 0', lg: '0 auto', xl: '74px auto 0 50px' }}
-          flexDirection="column"
-          alignItems={{ _: 'center', lg: 'start' }}
-          flexShrink={0}
-          zIndex={20}
-          position="relative"
-        >
-          <Header
-            variant="h2"
-            bold={true}
-            color="fillBlackBlack"
-            sx={{
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Run Your Business Like the Cloud Vendors Run Theirs
-          </Header>
-          <Paragraph
-            color="slate"
-            sx={{
-              mt: '30px',
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Operate your infrastructure environments like an internal cloud platform. Using the
-            strong separation of concerns enabled by Upbound's{' '}
-            <Link href={routes.productsUxpRoute}>Enterprise Crossplane</Link> distribution, platform
-            teams can abstract away the complexities of infrastructure while providing a simple
-            interface to application teams.
-          </Paragraph>
-          <LinkButton
-            href={routes.productsUbcRoute}
-            btnType="blackOutline"
-            sx={{
-              mt: '30px',
-              width: '137px',
-            }}
-          >
-            Learn More
-          </LinkButton>
-        </Box>
-        <Box display="flex" flexShrink={1} flexDirection="column" justifyContent="center">
-          <BackgroundOval position="right" mt="-6%" mtMobile="0" />
-          <Img
-            src={runLikeVendors3x}
-            // srcSet={`${runLikeVendors} 1x, ${runLikeVendors2x} 2x, ${runLikeVendors3x} 3x`}
-            alt="Run like vendors image"
-            sx={{
-              width: { _: '100%', lg: '518px' },
-              height: { _: 'initial', lg: '465px' },
-              position: 'relative',
-              zIndex: 20,
-              ml: { _: 'unset', lg: '22px' },
-            }}
-          />
-        </Box>
-      </Box>
-      <Box
-        display="flex"
-        maxWidth={{ _: 'unset', lg: '1250px' }}
-        mx="auto"
-        mt={{ _: '160px', xl: '180px' }}
-        flexDirection={{ _: 'column-reverse', lg: 'unset' }}
-        px={{ _: '0', md: '60px', lg: '0' }}
-      >
-        <Box display="flex" flexShrink={1} flexDirection="column" justifyContent="center">
-          <BackgroundOval position="left" mt="-6.5%" mtMobile="14%" />
-          <Img
-            src={unlockKubernetes}
-            alt="Unlock kubernetes"
-            sx={{
-              width: { _: '100%', lg: '495px' },
-              position: 'relative',
-              zIndex: 20,
-              mt: { _: 'unset', xl: '95px' },
-            }}
-          />
-        </Box>
-        <Box
-          display="flex"
-          px={{ _: '30px', md: '0' }}
-          width={{ _: '100%', lg: '345px', xl: '531px' }}
-          m={{ _: '0 0 70px 0', lg: '0 auto', xl: '74px 50px 0 10%' }}
-          flexDirection="column"
-          alignItems={{ _: 'center', lg: 'start' }}
-          flexShrink={0}
-          zIndex={20}
-          position="relative"
-        >
-          <Header
-            variant="h2"
-            bold={true}
-            color="fillBlackBlack"
-            sx={{
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Unlock the Full Power of Kubernetes
-          </Header>
-          <Paragraph
-            color="slate"
-            sx={{
-              mt: '30px',
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Upbound empowers platform teams with a Kubernetes-based approach for infrastructure
-            management, allowing them to eliminate configuration drift and deliver more reliable
-            applications.
-          </Paragraph>
-          <LinkButton
-            href={routes.productsUxpRoute}
-            btnType="blackOutline"
-            sx={{
-              mt: '30px',
-              width: '137px',
-            }}
-          >
-            Learn More
-          </LinkButton>
-        </Box>
-      </Box>
-      <Box
-        display="flex"
-        maxWidth={{ _: 'unset', lg: '1250px' }}
-        mx="auto"
-        mt={{ _: '160px', xl: '180px' }}
-        flexDirection={{ _: 'column', lg: 'unset' }}
-        px={{ _: '0', md: '60px', lg: '0' }}
-      >
-        <Box
-          display="flex"
-          px={{ _: '30px', md: '0' }}
-          width={{ _: '100%', lg: '345px', xl: '480px' }}
-          m={{ _: '0 0 70px 0', lg: '0 auto', xl: '74px auto 0 50px' }}
-          flexDirection="column"
-          alignItems={{ _: 'center', lg: 'start' }}
-          flexShrink={0}
-          zIndex={20}
-          position="relative"
-        >
-          <Header
-            variant="h2"
-            bold={true}
-            color="fillBlackBlack"
-            sx={{
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Enterprise Grade Products With an Open Source DNA
-          </Header>
-          <Paragraph
-            color="slate"
-            sx={{
-              mt: '30px',
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Break free of vendor lock-in and misaligned incentives. Our{' '}
-            <Link href={routes.productsUbcRoute}>Universal Cloud Platform</Link> is based on the
-            well established patterns and efforts of the Crossplane community and the control plane
-            architecture pioneered by Kubernetes before it.
-          </Paragraph>
-          <LinkButton
-            href={routes.productsUbcRoute}
-            btnType="blackOutline"
-            sx={{
-              mt: '30px',
-              width: '137px',
-            }}
-          >
-            Learn More
-          </LinkButton>
-        </Box>
-        <Box display="flex" flexShrink={1} flexDirection="column" justifyContent="center">
-          <BackgroundOval position="right" mt="-9.5%" mtMobile="15%" />
-          <Img
-            src={enterpriseGrade3x}
-            // srcSet={`${enterpriseGrade} 1x, ${enterpriseGrade2x} 2x, ${enterpriseGrade3x} 3x`}
-            alt="Enterprise open source software"
-            sx={{
-              width: { _: '100%', lg: '525px' },
-              height: { _: 'initial', lg: '397px' },
-              position: 'relative',
-              zIndex: 20,
-              ml: { _: 'unset', lg: '22px' },
-            }}
-          />
-        </Box>
-      </Box>
-      <Box
-        display="flex"
-        maxWidth={{ _: 'unset', lg: '1250px' }}
-        mx="auto"
-        mt={{ _: '160px', xl: '180px' }}
-        flexDirection={{ _: 'column-reverse', lg: 'unset' }}
-        px={{ _: '0', md: '60px', lg: '0' }}
-      >
-        <Box display="flex" flexShrink={1} flexDirection="column" justifyContent="center">
-          <BackgroundOval position="left" mt="12%" mtMobile="52%" />
-          <Img
-            src={supportTeam}
-            alt="24/7 customer support"
-            sx={{
-              width: { _: '100%', lg: '514px' },
-              height: { _: 'initial', lg: '519px' },
-              position: 'relative',
-              zIndex: 20,
-              mt: { _: 'unset', xl: '95px' },
-            }}
-          />
-        </Box>
-        <Box
-          display="flex"
-          px={{ _: '30px', md: '0' }}
-          width={{ _: '100%', lg: '345px', xl: '531px' }}
-          m={{ _: '0 0 70px 0', lg: '0 auto', xl: '74px 50px 0 10%' }}
-          flexDirection="column"
-          alignItems={{ _: 'center', lg: 'start' }}
-          flexShrink={0}
-          zIndex={20}
-          position="relative"
-        >
-          <Header
-            variant="h2"
-            bold={true}
-            color="fillBlackBlack"
-            sx={{
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            24/7 Customer Support for Your Team
-          </Header>
-          <Paragraph
-            color="slate"
-            sx={{
-              mt: '30px',
-              textAlign: { _: 'center', lg: 'left' },
-            }}
-          >
-            Designed to accelerate time to value. Access to Upbound expertise, API development,
-            solution guidance and guaranteed enterprise SLAs for Crossplane.
-          </Paragraph>
-          <LinkButton
-            href={routes.pricingRoute}
-            btnType="blackOutline"
-            sx={{
-              mt: '30px',
-              width: '137px',
-            }}
-          >
-            Learn More
-          </LinkButton>
-        </Box>
-      </Box>
-      <Box
-        maxWidth="1143px"
-        mx="auto"
-        mt="180px"
-        position="relative"
-        mb={{ _: '121px', md: '147px' }}
-        zIndex={20}
-      >
-        <Box
-          display="flex"
-          mb="45px"
-          px={{ _: '30px', xl: '0' }}
-          flexWrap={{ _: 'wrap', md: 'nowrap' }}
-          justifyContent="center"
-        >
-          <Header
-            variant="h3"
-            bold={true}
-            color="fillBlackBlack"
-            sx={{
-              width: { _: '100%', md: 'auto' },
-              mr: { _: '0', md: 'auto' },
-              mb: { _: '30px', md: '0' },
-              textAlign: { _: 'center', md: 'left' },
-              fontSize: '32px',
-              lineHeight: '37px',
+    </Box>
+  );
+});
+CPLogoBox.displayName = 'CPLogoBox';
 
-              [MQ.md]: {
-                fontSize: '40px',
-                lineHeight: '52px',
-                position: 'relative',
-                left: '10px',
-              },
-            }}
-          >
-            What Engineers Are Saying
-          </Header>
-          <CircleButton
-            btnType="blackOutline"
-            disabled={twitterCarouselIndex <= 0}
-            onClick={handleClickPrevious}
-            sx={{
-              mr: '15px',
-            }}
-          >
-            <ArrowLeft />
-          </CircleButton>
-          <CircleButton
-            btnType="blackOutline"
-            disabled={twitterCarouselIndex >= 4}
-            onClick={handleClickNext}
-            sx={{
-              mr: { _: '0', xl: '70px' },
-            }}
-          >
-            <ArrowRight />
-          </CircleButton>
+const cpColumnsLeftList = [
+  {
+    sizeStyles: cpLogoBoxBigger,
+    logos: [...Array(6)],
+  },
+  {
+    sizeStyles: cpLogoBoxBig,
+    logos: [...Array(6)],
+  },
+  {
+    sizeStyles: cpLogoBoxSmall,
+    logos: [...Array(6)],
+  },
+  {
+    sizeStyles: cpLogoBoxSmaller,
+    logos: [...Array(6)],
+  },
+];
+
+const cpColumnsRightList = [
+  {
+    sizeStyles: cpLogoBoxSmaller,
+    logos: [...Array(6)],
+  },
+  {
+    sizeStyles: cpLogoBoxSmall,
+    logos: [...Array(6)],
+  },
+  {
+    sizeStyles: cpLogoBoxBig,
+
+    logos: [...Array(6)],
+  },
+  {
+    sizeStyles: cpLogoBoxBigger,
+
+    logos: [...Array(6)],
+  },
+];
+
+const cpLogosListTopMobile = [...Array(12)];
+
+const cpLogosListBottomMobile = [...Array(12)];
+
+const CrossplaneLogosSection = () => {
+  const cpSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(cpSectionRef);
+
+  const matchesLG = useMediaQuery(MQ.lg);
+
+  const [logoToUpdateLeft, _setLogoToUpdateLeft] = useState<number | null>(null);
+  const logoToUpdateRefLeft = useRef(logoToUpdateLeft);
+  const setLogoToUpdateLeft = (val: number | null) => {
+    logoToUpdateRefLeft.current = val;
+    _setLogoToUpdateLeft(val);
+  };
+
+  useEffect(() => {
+    let t: NodeJS.Timeout;
+    if (isVisible) {
+      t = setTimeout(() => {
+        let row = null;
+        do {
+          if (matchesLG) {
+            row = getRandomInt(0, 23);
+          } else {
+            row = getRandomInt(0, 11);
+          }
+        } while (row === logoToUpdateRefLeft.current);
+        setLogoToUpdateLeft(row);
+      }, getRandomInt(22, 32) * 100);
+    }
+    return () => {
+      clearTimeout(t);
+    };
+  }, [logoToUpdateLeft, isVisible]);
+
+  const [logoToUpdateRight, _setLogoToUpdateRight] = useState<number | null>(null);
+  const logoToUpdateRefRight = useRef(logoToUpdateRight);
+  const setLogoToUpdateRight = (val: number | null) => {
+    logoToUpdateRefRight.current = val;
+    _setLogoToUpdateRight(val);
+  };
+
+  useEffect(() => {
+    let t: NodeJS.Timeout;
+    if (isVisible) {
+      t = setTimeout(() => {
+        let row = null;
+        do {
+          if (matchesLG) {
+            row = getRandomInt(24, 47);
+          } else {
+            row = getRandomInt(12, 23);
+          }
+        } while (row === logoToUpdateRefRight.current);
+        setLogoToUpdateRight(row);
+      }, getRandomInt(22, 32) * 100);
+    }
+    return () => {
+      clearTimeout(t);
+    };
+  }, [logoToUpdateRight, isVisible]);
+
+  const hiddenBarRef = useRef(undefined);
+  const hiddenBarIsVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (hiddenBarIsVisible) {
+      setShow(true);
+    }
+  }, [hiddenBarIsVisible]);
+
+  const delayMulti = 0.25;
+
+  return (
+    <Box
+      ref={cpSectionRef}
+      sx={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}
+    >
+      <Hidden lgDown>
+        <Box sx={cpLeftColumns}>
+          <Box sx={{ ...cpColumnShadow, left: -176 }} />
+          {cpColumnsLeftList.map((c, columnIndex) => (
+            <Box
+              key={columnIndex}
+              sx={{
+                ...cpLogoBoxColumn,
+                opacity: show ? 1 : 0,
+                transitionDelay: `${(columnIndex - 3) * -delayMulti}s`,
+              }}
+            >
+              {c.logos.map((v, logoIndex) => {
+                const columnStartIndex = (columnIndex + 1) * 6 - 6;
+                const realIndex = logoIndex + columnStartIndex;
+                return (
+                  <CPLogoBox
+                    key={logoIndex}
+                    sizeStyles={c.sizeStyles}
+                    shouldUpdate={logoToUpdateLeft === realIndex}
+                  />
+                );
+              })}
+            </Box>
+          ))}
         </Box>
-        <TwitterCardsContainer currentIndex={twitterCarouselIndex} mb={{ _: '30px', md: '0' }}>
-          <TwitterCard
-            onClick={handleClickCard(0)}
-            thisIndex={0}
-            currentIndex={twitterCarouselIndex}
-          >
-            <Avatar
-              size="54px"
-              src={kelseyHightower3x}
-              // srcSet={`${kelseyHightower} 1x, ${kelseyHightower2x} 2x, ${kelseyHightower3x} 3x`}
-            />
-            <TwitterMessage
+        <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
+          <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
+          <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
+          <Typography variant="body_normal">
+            Adopted by hundreds of amazing
+            <br />
+            companies
+          </Typography>
+          <Button styleType="cornflowerContained" sx={{ mt: 3.5 }} href={routes.crossplaneUrl}>
+            Learn more about Crossplane
+          </Button>
+        </Box>
+        <Box sx={cpRightColumns}>
+          {cpColumnsRightList.map((c, columnIndex) => (
+            <Box
+              key={columnIndex}
               sx={{
-                mt: '32px',
-                mb: '23px',
-                maxWidth: 475,
+                ...cpLogoBoxColumn,
+                opacity: show ? 1 : 0,
+                transitionDelay: `${columnIndex * delayMulti}s`,
               }}
             >
-              The @crossplane_io team got GKE Autopilot integrated on the day it came out. That's
-              pretty dope!{' '}
-              <Anchor href="https://shorturl.at/ehtEH" target="_blank" rel="noopener noreferrer">
-                shorturl.at/ehtEH
-              </Anchor>
-            </TwitterMessage>
-            <TwitterTitle sx={{ mt: 'auto' }} bold={true}>
-              Kelsey Hightower
-            </TwitterTitle>
-            <TwitterSubtitle sx={{ mt: '10px' }}>
-              <TwitterIcon />
-              <Box display="flex" flexDirection={{ _: 'column', sm: 'row' }} ml="10px">
-                <TwitterSubtitleMessage>@Kelseyhightower</TwitterSubtitleMessage>
-                <TwitterSubtitleMessage>Feb 26, 2021</TwitterSubtitleMessage>
-              </Box>
-            </TwitterSubtitle>
-          </TwitterCard>
-          <TwitterCard
-            onClick={handleClickCard(1)}
-            thisIndex={1}
-            currentIndex={twitterCarouselIndex}
-          >
-            <Avatar
-              size="54px"
-              src={marcCambell3x}
-              // srcSet={`${marcCambell} 1x, ${marcCambell2x} 2x, ${marcCambell3x} 3x`}
-            />
-            <TwitterMessage
-              sx={{
-                mt: '32px',
-                mb: '23px',
-                maxWidth: 475,
-              }}
-            >
-              Excited to share this episode… Compositions are such a great idea, and more evidence
-              that the real value of K8s is the control plane, not the container orchestration bits.{' '}
-              <Anchor href="https://shorturl.at/qyERT" target="_blank" rel="noopener noreferrer">
-                shorturl.at/qyERT
-              </Anchor>
-            </TwitterMessage>
-            <TwitterTitle sx={{ mt: 'auto' }} bold={true}>
-              Marc Campbell
-            </TwitterTitle>
-            <TwitterSubtitle sx={{ mt: '10px' }}>
-              <TwitterIcon />
-              <Box display="flex" flexDirection={{ _: 'column', sm: 'row' }} ml="10px">
-                <TwitterSubtitleMessage>@mccode</TwitterSubtitleMessage>
-                <TwitterSubtitleMessage>Feb 24, 2021</TwitterSubtitleMessage>
-              </Box>
-            </TwitterSubtitle>
-          </TwitterCard>
-          <TwitterCard
-            onClick={handleClickCard(2)}
-            thisIndex={2}
-            currentIndex={twitterCarouselIndex}
-          >
-            <Avatar
-              size="54px"
-              src={normanJoyner3x}
-              // srcSet={`${normanJoyner} 1x, ${normanJoyner2x} 2x, ${normanJoyner3x} 3x`}
-            />
-            <TwitterMessage sx={{ mt: '32px', mb: '23px', maxWidth: 475 }}>
-              ... Very few companies in the cloud native space are doing truly exciting and
-              impactful work. What @upbound_io is doing with @crossplane_io can't be understated;
-              it's so vitally important to the industry.
-            </TwitterMessage>
-            <TwitterTitle sx={{ mt: 'auto' }} bold={true}>
-              Norman Joyner
-            </TwitterTitle>
-            <TwitterSubtitle sx={{ mt: '10px' }}>
-              <TwitterIcon />
-              <Box display="flex" flexDirection={{ _: 'column', sm: 'row' }} ml="10px">
-                <TwitterSubtitleMessage>@normanjoyner</TwitterSubtitleMessage>
-                <TwitterSubtitleMessage>Feb 24, 2021</TwitterSubtitleMessage>
-              </Box>
-            </TwitterSubtitle>
-          </TwitterCard>
-          <TwitterCard
-            onClick={handleClickCard(3)}
-            thisIndex={3}
-            currentIndex={twitterCarouselIndex}
-          >
-            <Avatar size="54px" src={janakiram} />
-            <TwitterMessage sx={{ mt: '32px', mb: '23px', maxWidth: 475 }}>
-              How Crossplane Transforms Kubernetes Into A Universal Control Plane via @forbes{' '}
-              <Anchor href="https://shorturl.at/hpALP" target="_blank" rel="noopener noreferrer">
-                shorturl.at/hpALP
-              </Anchor>
-            </TwitterMessage>
-            <TwitterTitle sx={{ mt: 'auto' }} bold={true}>
-              Janakiram MSV
-            </TwitterTitle>
-            <TwitterSubtitle sx={{ mt: '10px' }}>
-              <TwitterIcon />
-              <Box display="flex" flexDirection={{ _: 'column', sm: 'row' }} ml="10px">
-                <TwitterSubtitleMessage>@janakiramm</TwitterSubtitleMessage>
-                <TwitterSubtitleMessage>Sep 14, 2021</TwitterSubtitleMessage>
-              </Box>
-            </TwitterSubtitle>
-          </TwitterCard>
-          <TwitterCard
-            onClick={handleClickCard(4)}
-            thisIndex={4}
-            currentIndex={twitterCarouselIndex}
-          >
-            <Avatar size="54px" src={mauricio} />
-            <TwitterMessage sx={{ mt: '32px', mb: '23px', maxWidth: 475 }}>
-              You folks @crossplane_io made my day... there are some really interesting integrations
-              coming{' '}
-              <Anchor href="https://shorturl.at/yBFVX" target="_blank" rel="noopener noreferrer">
-                shorturl.at/yBFVX
-              </Anchor>
-            </TwitterMessage>
-            <TwitterTitle sx={{ mt: 'auto' }} bold={true}>
-              Mauricio Salatino
-            </TwitterTitle>
-            <TwitterSubtitle sx={{ mt: '10px' }}>
-              <TwitterIcon />
-              <Box display="flex" flexDirection={{ _: 'column', sm: 'row' }} ml="10px">
-                <TwitterSubtitleMessage>@salaboy</TwitterSubtitleMessage>
-                <TwitterSubtitleMessage>Oct 15, 2021</TwitterSubtitleMessage>
-              </Box>
-            </TwitterSubtitle>
-          </TwitterCard>
-        </TwitterCardsContainer>
-        <TwitterCardBubbles>
-          <Bubble onClick={handleClickCard(0)} thisIndex={0} currentIndex={twitterCarouselIndex} />
-          <Bubble onClick={handleClickCard(1)} thisIndex={1} currentIndex={twitterCarouselIndex} />
-          <Bubble onClick={handleClickCard(2)} thisIndex={2} currentIndex={twitterCarouselIndex} />
-          <Bubble onClick={handleClickCard(3)} thisIndex={3} currentIndex={twitterCarouselIndex} />
-          <Bubble onClick={handleClickCard(4)} thisIndex={4} currentIndex={twitterCarouselIndex} />
-        </TwitterCardBubbles>
-      </Box>
-      <Wave type="cornflower" />
-      <Box bgcolor={COLORS.cornflower}>
-        <Box position="relative">
-          <CrossplaneSpeakersOvalImg
-            src={cornflowerOvalLeft.src}
-            alt="oval"
-            sx={{ left: 0, top: '-177px' }}
-          />
-          <CrossplaneSpeakersOvalImg
-            src={cornflowerOvalRight.src}
-            alt="oval"
-            sx={{
-              right: 0,
-              bottom: '-137px',
-            }}
-          />
-          <Box
-            display="flex"
-            position="relative"
-            zIndex={30}
-            flexDirection="column"
-            alignItems="center"
-            color="white"
-            mb={{ _: '15px', lg: '56px' }}
-            px={{ _: '30px', lg: '0' }}
-          >
-            <Header
-              color="white"
-              bold={true}
-              variant="h2"
-              sx={{
-                m: '20px auto 30px auto',
-                textAlign: 'center',
-                fontSize: '36px',
-                lineHeight: '48px',
-
-                [MQ.sm]: {
-                  fontSize: '40px',
-                  lineHeight: '50px',
-                },
-              }}
-            >
-              Virtual Crossplane Community Day EU 2021
-            </Header>
-            <Paragraph
-              sx={{
-                mb: { _: '49px', md: '86px' },
-                textAlign: 'center',
-                fontSize: '16px',
-                lineHeight: '30px',
-
-                [MQ.sm]: {
-                  fontSize: '18px',
-                  lineHeight: '32px',
-                },
-              }}
-            >
-              We share common trends and strategies for improving your rental income and making sure
-              you stay in high demand.
-            </Paragraph>
-            <CrossplaneSpeakersContainer>
-              <CrossplaneSpeakerContainer
-                href="https://www.youtube.com/watch?v=BsAE5oUQR6A&list=PLj6h78yzYM2OFWBatWHbWgyoLNmCyAqJ0&index=2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <CrossplaneSpeakerAvatarContainer>
-                  <CrossplaneSpeakerAvatar
-                    size="208px"
-                    src={bassam3x}
-                    // srcSet={`${bassam} 1x, ${bassam2x} 2x, ${bassam3x} 3x`}
+              {c.logos.map((v, logoIndex) => {
+                const columnStartIndex = (columnIndex + 1) * 6 - 6;
+                const realIndex = logoIndex + columnStartIndex + 24;
+                return (
+                  <CPLogoBox
+                    key={logoIndex}
+                    sizeStyles={c.sizeStyles}
+                    shouldUpdate={logoToUpdateRight === realIndex}
                   />
-                  <CrossplaneSpeakerKeynoteTag btnType="aquaMarineFill" hasShadow={false}>
-                    Keynote
-                  </CrossplaneSpeakerKeynoteTag>
-                </CrossplaneSpeakerAvatarContainer>
-                <CrossplaneSpeakerTextContainer>
-                  <CrossplaneSpeakerHeader variant="h5" sx={{ maxWidth: '272px' }}>
-                    Crossplane at the Crossroads
-                  </CrossplaneSpeakerHeader>
-                  <CrossplaneSpeakerName sx={{ mt: { _: 'auto' } }}>
-                    Bassam Tabbara
-                  </CrossplaneSpeakerName>
-                  <CrossplaneSpeakerTitle sx={{ width: { xl: '272px' } }}>
-                    CEO & Founder of Upbound
-                  </CrossplaneSpeakerTitle>
-                </CrossplaneSpeakerTextContainer>
-              </CrossplaneSpeakerContainer>
-              <CrossplaneSpeakerContainer
-                href="https://www.youtube.com/watch?v=AvIFoVQt4p8&list=PLj6h78yzYM2OFWBatWHbWgyoLNmCyAqJ0&index=3"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <CrossplaneSpeakerAvatarContainer>
-                  <CrossplaneSpeakerAvatar
-                    size="208px"
-                    src={jay3x}
-                    // srcSet={`${jay} 1x, ${jay2x} 2x, ${jay3x} 3x`}
-                  />
-                  <CrossplaneSpeakerKeynoteTag btnType="aquaMarineFill" hasShadow={false}>
-                    Keynote
-                  </CrossplaneSpeakerKeynoteTag>
-                </CrossplaneSpeakerAvatarContainer>
-                <CrossplaneSpeakerTextContainer>
-                  <CrossplaneSpeakerHeader variant="h5" sx={{ maxWidth: '312px' }}>
-                    Operational Nirvana: The Future Belongs to the Robots
-                  </CrossplaneSpeakerHeader>
-                  <CrossplaneSpeakerName sx={{ mt: { _: 'auto' } }}>
-                    Jay Pipes
-                  </CrossplaneSpeakerName>
-                  <CrossplaneSpeakerTitle sx={{ width: { xl: '312px' } }}>
-                    Principal Open Source Engineer, AWS
-                  </CrossplaneSpeakerTitle>
-                </CrossplaneSpeakerTextContainer>
-              </CrossplaneSpeakerContainer>
-              <CrossplaneSpeakerContainer
-                href="https://www.youtube.com/watch?v=wRgQxfrFJYU&list=PLj6h78yzYM2OFWBatWHbWgyoLNmCyAqJ0&index=5"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <CrossplaneSpeakerAvatarContainer>
-                  <CrossplaneSpeakerAvatar
-                    size="208px"
-                    src={nic3x}
-                    // srcSet={`${nic} 1x, ${nic2x} 2x, ${nic3x} 3x`}
-                  />
-                </CrossplaneSpeakerAvatarContainer>
-                <CrossplaneSpeakerTextContainer>
-                  <CrossplaneSpeakerHeader variant="h5" sx={{ maxWidth: '302px' }}>
-                    Outgrowing Terraform Breakout Session
-                  </CrossplaneSpeakerHeader>
-                  <CrossplaneSpeakerName sx={{ mt: { _: 'auto' } }}>Nic Cope</CrossplaneSpeakerName>
-                  <CrossplaneSpeakerTitle sx={{ width: { xl: '302px' } }}>
-                    Principal Software Architect, Upbound
-                  </CrossplaneSpeakerTitle>
-                </CrossplaneSpeakerTextContainer>
-              </CrossplaneSpeakerContainer>
-              <CrossplaneSpeakerContainer
-                href="https://www.youtube.com/watch?v=ictc3lucceI&list=PLj6h78yzYM2OFWBatWHbWgyoLNmCyAqJ0&index=16"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <CrossplaneSpeakerAvatarContainer>
-                  <CrossplaneSpeakerAvatar
-                    size="208px"
-                    src={daniel3x}
-                    // srcSet={`${daniel} 1x, ${daniel2x} 2x, ${daniel3x} 3x`}
-                  />
-                </CrossplaneSpeakerAvatarContainer>
-                <CrossplaneSpeakerTextContainer>
-                  <CrossplaneSpeakerHeader variant="h5" sx={{ maxWidth: '288px' }}>
-                    Emerging Trends in Cloud Engineering Panel
-                  </CrossplaneSpeakerHeader>
-                  <CrossplaneSpeakerName sx={{ mt: { _: 'auto' } }}>
-                    Daniel Bryant
-                  </CrossplaneSpeakerName>
-                  <CrossplaneSpeakerTitle sx={{ width: { xl: '288px' }, minWidth: '170px' }}>
-                    Director of Dev Relations, Ambassador Labs
-                  </CrossplaneSpeakerTitle>
-                </CrossplaneSpeakerTextContainer>
-              </CrossplaneSpeakerContainer>
-            </CrossplaneSpeakersContainer>
-            <CrossplaneSpeakersButton
-              href="https://www.youtube.com/playlist?list=PLj6h78yzYM2OFWBatWHbWgyoLNmCyAqJ0"
-              target="_blank"
-              rel="noopener noreferrer"
-              btnType="aquaMarineFill"
-              hasShadow={true}
-              sx={{ mb: '30px' }}
-            >
-              Watch All Sessions On Demand
-            </CrossplaneSpeakersButton>
-            <CrossplaneSpeakersText>
-              Miss the event? Read the{' '}
-              <Anchor
-                href="https://blog.upbound.io/crossplane-community-day-europe-2021-recap/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Community Day Recap Blog Post
-              </Anchor>
-            </CrossplaneSpeakersText>
+                );
+              })}
+            </Box>
+          ))}
+          <Box sx={{ ...cpColumnShadow, right: -176 }} />
+        </Box>
+      </Hidden>
+      <Hidden lgUp>
+        <Box sx={{ maxWidth: 400, mx: 'auto' }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {cpLogosListTopMobile.map((logo, index) => (
+              <CPLogoBox
+                key={index}
+                sizeStyles={cpLogoBoxMobile}
+                shouldUpdate={logoToUpdateLeft === index}
+              />
+            ))}
+          </Box>
+          <Box sx={{ my: 3 }}>
+            <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
+            <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
+            <Typography variant="body_normal">Adopted by hundreds of amazing companies</Typography>
+            <Button styleType="cornflowerContained" sx={{ mt: 2 }} href={routes.crossplaneUrl}>
+              Learn more about Crossplane
+            </Button>
+          </Box>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {cpLogosListBottomMobile.map((logo, index) => (
+              <CPLogoBox
+                key={index}
+                sizeStyles={cpLogoBoxMobile}
+                shouldUpdate={logoToUpdateRight === index + 12}
+              />
+            ))}
           </Box>
         </Box>
-        <Wave type="light" />
+      </Hidden>
+      <Box
+        ref={hiddenBarRef}
+        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: -40 }}
+      />
+    </Box>
+  );
+};
+
+interface StaticRequire {
+  default: StaticImageData;
+}
+declare type StaticImport = StaticRequire | StaticImageData;
+
+type FeatureBlockProps = {
+  feature: {
+    smallTitle: string;
+    bigTitle: string;
+    body: string;
+    href: string;
+    icon: string | StaticImport;
+    imgBig: string | StaticImport;
+    imgBigMobile: string | StaticImport;
+    imgSmall: string | StaticImport;
+    imgSmallMobile: string | StaticImport;
+    imgSmallOffset: { top: number; right: number };
+    imgSmallOffsetMobile: { top: number; right: number };
+    reversed?: Boolean;
+  };
+};
+
+const FeatureBlock = ({ feature }: FeatureBlockProps) => {
+  const {
+    smallTitle,
+    bigTitle,
+    body,
+    href,
+    icon,
+    imgBig,
+    imgBigMobile,
+    imgSmall,
+    imgSmallMobile,
+    imgSmallOffset,
+    imgSmallOffsetMobile,
+    reversed,
+  } = feature;
+
+  let smallTitleGradient = gradient_1;
+  if (reversed) {
+    smallTitleGradient = gradient_2;
+  }
+
+  const hiddenBarRef = useRef(undefined);
+  const isVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        color: COLORS.linkWater,
+        position: 'relative',
+        flexDirection: 'column',
+        [MQ.lg]: {
+          alignItems: 'center',
+          flexDirection: reversed ? 'row-reverse' : 'row',
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          [MQ.lg]: {
+            flex: 1,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: reversed ? '0px' : '28px',
+            pl: reversed ? '28px' : '0px',
+          },
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              maxHeight: 16,
+              maxWidth: 16,
+              [MQ.md]: {
+                maxHeight: 'unset',
+                maxWidth: 'unset',
+              },
+            }}
+          >
+            <Image src={icon} alt="icon" />
+          </Box>
+          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
+        </Box>
+        <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
+          {bigTitle}
+        </Typography>
+        <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
+          {body}
+        </Typography>
+        <Link
+          href={href}
+          muiProps={{
+            color: reversed ? COLORS.sun : COLORS.turquoise,
+            sx: { mt: 5 },
+          }}
+          hasArrow
+        >
+          Learn More
+        </Link>
+        <Box
+          ref={hiddenBarRef}
+          sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
+        />
       </Box>
       <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
         sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          mt: '40px',
+          [MQ.lg]: {
+            flex: 1,
+            mt: 0,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: reversed ? '28px' : '0px',
+            pl: reversed ? '0px' : '28px',
+          },
         }}
       >
         <Box
-          display="flex"
-          flexDirection="column"
-          px={{ _: '30px', md: '0' }}
-          width={{ _: '320px', sm: '100%' }}
-          m={{ _: '50px auto 0 auto', lg: '44px auto 0 auto' }}
+          sx={{
+            position: 'relative',
+            width: { _: 'fit-content', lg: 'unset' },
+            ml: { _: '-14px', lg: 0 },
+          }}
         >
-          <NewsAndEventHeader bold={true} variant="h2">
-            The Latest News & Events
-          </NewsAndEventHeader>
-          <NewsAndEventParagraph>
-            Get caught up on the latest Upbound news and events.
-          </NewsAndEventParagraph>
-        </Box>
-        <Box display="flex" flexDirection={{ _: 'column', lg: 'row' }} px={{ _: '30px', lg: '0' }}>
-          <NewsAndEventCard>
-            <NewsAndEventTypeTag>Blog</NewsAndEventTypeTag>
-            <NewsAndEventTitle variant="h4">100% Service Coverage</NewsAndEventTitle>
-            <NewsAndEventDescription>
-              Crossplane now has 100% coverage for major cloud services with the new providers:
-              provider-jet-aws…
-            </NewsAndEventDescription>
-            <AnchorButton
-              href="https://blog.upbound.io/cloud-service-coverage/"
-              target="_blank"
-              rel="noopener noreferrer"
-              btnType="blackOutline"
+          <Box
+            sx={{
+              transition: 'transform 1.5s',
+              transform: show ? '' : `translate(100vw)`,
+
+              [MQ.lg]: {
+                transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+                ml: reversed ? '-68px' : 0,
+              },
+            }}
+          >
+            <Hidden lgDown>
+              <Image src={imgBig} alt="feature-img-big" />
+            </Hidden>
+            <Hidden lgUp>
+              <Image src={imgBigMobile} alt="feature-img-big-mobile" />
+            </Hidden>
+          </Box>
+          <Hidden lgDown>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imgSmallOffset.top,
+                right: imgSmallOffset.right,
+                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                transition: 'transform 2s',
+              }}
             >
-              Read More
-            </AnchorButton>
-          </NewsAndEventCard>
-          <NewsAndEventCard>
-            <NewsAndEventTypeTag>Blog</NewsAndEventTypeTag>
-            <NewsAndEventTitle variant="h4">$60M in New Funding</NewsAndEventTitle>
-            <NewsAndEventDescription>
-              Upbound raises $60M in funding to advance its Universal Cloud Platform. The company’s
-              Series B funding…
-            </NewsAndEventDescription>
-            <AnchorButton
-              href="https://blog.upbound.io/upbound-raises-60m-in-funding-to-advance-its-universal-cloud-platform/"
-              target="_blank"
-              rel="noopener noreferrer"
-              btnType="blackOutline"
+              <Image src={imgSmall} alt="feature-img-small" />
+            </Box>
+          </Hidden>
+          <Hidden lgUp>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imgSmallOffsetMobile.top,
+                right: imgSmallOffsetMobile.right,
+                transition: 'transform 2s',
+                transform: show ? '' : `translate(-100vw)`,
+
+                [MQ.lg]: {
+                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                },
+              }}
             >
-              Read More
-            </AnchorButton>
-          </NewsAndEventCard>
-          <NewsAndEventCard>
-            <NewsAndEventTypeTag>Announcement</NewsAndEventTypeTag>
-            <NewsAndEventTitle variant="h4">UXP Release Announcement</NewsAndEventTitle>
-            <NewsAndEventDescription>
-              Industry’s First Enterprise-Grade Distribution of the Popular CNCF Project Crossplane
-              Arrives, Bringi…
-            </NewsAndEventDescription>
-            <AnchorButton
-              href="https://www.businesswire.com/news/home/20210518005942/en/Industry%E2%80%99s-First-Enter%5B%E2%80%A6%5Dversal-Control-Plane-Approach-to-Platform-Teams-Everywhere"
-              target="_blank"
-              rel="noopener noreferrer"
-              btnType="blackOutline"
-            >
-              Read More
-            </AnchorButton>
-          </NewsAndEventCard>
+              <Image src={imgSmallMobile} alt="feature-img-small-mobile" />
+            </Box>
+          </Hidden>
         </Box>
       </Box>
+    </Box>
+  );
+};
+
+const features = [
+  {
+    smallTitle: 'Enterprise ready',
+    bigTitle: 'Fully-managed control planes',
+    body: `Control planes running in Upbound
+    are designed to be high performance, scalable, multitenant,
+    and secure for the most demanding platforms.`,
+    href: routes.productsUCPRoute,
+    icon: EnterpriseReadyIcon,
+    imgBig: EnterpriseReadyBig,
+    imgBigMobile: EnterpriseReadyBigMobile,
+    imgSmall: EnterpriseReadySmall,
+    imgSmallMobile: EnterpriseReadySmallMobile,
+    imgSmallOffset: { top: 103, right: -68 },
+    imgSmallOffsetMobile: { top: 53, right: -32 },
+    reversed: false,
+  },
+  {
+    smallTitle: 'Deploy with confidence',
+    bigTitle: 'Best-in-class platform building blocks',
+    body: `Upbound Marketplace is a one-stop-shop
+    for all the components you need in your platform,
+    powered by an Upbound control plane. Supported and
+    Certified listings are available so you can run your
+    platform in production with confidence.`,
+    href: routes.productsUCPRoute,
+    icon: DeployWithConfidenceIcon,
+    imgBig: DeployWithConfidenceBig,
+    imgBigMobile: DeployWithConfidenceBigMobile,
+    imgSmall: DeployWithConfidenceSmall,
+    imgSmallMobile: DeployWithConfidenceSmallMobile,
+    imgSmallOffset: { top: 67, right: 0 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
+    reversed: true,
+  },
+  {
+    smallTitle: 'Efficiency + ease',
+    bigTitle: 'Self-Service Console',
+    body: `The Upbound Console is dynamically rendered
+    from your Upbound control plane and the Crossplane
+    packages installed in it. Centralize control and empower
+    your team to deploy without red tape.`,
+    href: routes.productsUCPRoute,
+    icon: EfficiencyEaseIcon,
+    imgBig: EfficiencyEaseBig,
+    imgBigMobile: EfficiencyEaseBigMobile,
+    imgSmall: EfficiencyEaseSmall,
+    imgSmallMobile: EfficiencyEaseSmallMobile,
+    imgSmallOffset: { top: 54, right: -17 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
+    reversed: false,
+  },
+];
+
+const FeaturesSection = () => {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > div': { pb: { _: 10, lg: 25 } },
+      }}
+    >
+      {features.map((feature) => (
+        <FeatureBlock key={feature.smallTitle} feature={feature} />
+      ))}
+    </Box>
+  );
+};
+
+const quoteLessIcons = [
+  {
+    id: 1,
+    logo: dfdsLogo,
+  },
+  {
+    id: 2,
+    logo: grupoLogo,
+  },
+];
+
+const QuoteSection = () => {
+  const quoteSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(quoteSectionRef);
+  const [activeQuote, _setActiveQuote] = useState(0);
+
+  const activeQuoteRef = useRef(activeQuote);
+  const setActiveQuote = (val: number) => {
+    activeQuoteRef.current = val;
+    _setActiveQuote(val);
+  };
+
+  useEffect(() => {
+    let t: NodeJS.Timeout;
+    if (isVisible) {
+      t = setInterval(() => {
+        if (activeQuoteRef.current === quotes.length - 1) {
+          setActiveQuote(0);
+        } else {
+          setActiveQuote(activeQuoteRef.current + 1);
+        }
+      }, 4000);
+    }
+    return () => {
+      clearInterval(t);
+    };
+  }, [isVisible]);
+
+  return (
+    <Box ref={quoteSectionRef} sx={{ display: 'flex', color: COLORS.linkWater }}>
+      <Hidden xlDown>
+        <Box sx={{ flex: 1 }}>
+          <Box sx={quoteSectionLeftContainer}>
+            <Box sx={quoteSectionLeftInner}>
+              {quotes.map((quote, index) => (
+                <Box
+                  key={quote.title}
+                  sx={{
+                    ...quoteSectionLeftBg,
+                    backgroundImage: `url("${quote.bgImage}")`,
+                    opacity: activeQuote === index ? 1 : 0,
+                  }}
+                />
+              ))}
+              {quotes.map((quote, index) => (
+                <Box
+                  key={quote.title}
+                  sx={{
+                    ...quoteSectionLeftLogo,
+                    opacity: activeQuote === index ? 1 : 0,
+                  }}
+                >
+                  <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+            <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
+              <Box sx={{ position: 'relative' }}>
+                <Image src={bigQuotes} alt="big-quotes" />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box sx={quoteSectionRightContainer}>
+          {quotes.map((quote, index) => (
+            <Box
+              key={quote.title}
+              sx={{
+                mb: activeQuote === index ? 7 : 0,
+                opacity: activeQuote === index ? 1 : 0,
+                transition: 'opacity 0.5s',
+                position: activeQuote === index ? 'relative' : 'absolute',
+                top: 0,
+              }}
+            >
+              <Box sx={{ minHeight: 275, mb: 4.5 }}>
+                <Typography variant="h2_new" sx={{ mb: 3 }}>
+                  {quote.title}
+                </Typography>
+                <Typography variant="body_normal">{quote.body}</Typography>
+              </Box>
+              <Typography variant="h6_new" sx={{ mb: '2px' }}>
+                {quote.person}
+              </Typography>
+              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
+                {quote.role}
+              </Typography>
+            </Box>
+          ))}
+          <Box sx={quoteSectionQuoteLogos}>
+            {quotes.map((quote, index) => {
+              let styles = quoteSectionQuoteLogoBox;
+              if (index === activeQuote) {
+                styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
+              }
+              return (
+                <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                  <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              );
+            })}
+            {quoteLessIcons.map((quote) => {
+              return (
+                <Box key={quote.id} sx={{ ...quoteSectionQuoteLogoBox, '&:hover': {} }}>
+                  <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              );
+            })}
+          </Box>
+        </Box>
+      </Hidden>
+      <Hidden xlUp>
+        <Box sx={quoteSectionContainerMobile}>
+          {quotes.map((quote, index) => (
+            <Box
+              key={quote.title}
+              sx={{
+                height: '100%',
+                pt: 7,
+                pb: 4,
+                px: 2,
+                zIndex: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                position: activeQuote === index ? 'relative' : 'absolute',
+                opacity: activeQuote === index ? 1 : 0,
+              }}
+            >
+              <Box
+                sx={{
+                  ...quoteSectionBgMobile,
+                  backgroundImage: `url("${quote.bgImage}")`,
+                  zIndex: -1,
+                }}
+              />
+              <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
+                <Box
+                  sx={{
+                    ...quoteSectionLogoMobile,
+                    opacity: activeQuote === index ? 1 : 0,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      width: quote.logoSize.width,
+                      height: quote.logoSize.height,
+                    }}
+                  >
+                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                  </Box>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  // minHeight: 275,
+                  mb: 2.5,
+                }}
+              >
+                <Typography variant="h2_new" sx={{ mb: 1.5 }}>
+                  {quote.title}
+                </Typography>
+                <Typography variant="body_normal">{quote.body}</Typography>
+              </Box>
+              <Typography variant="h6_new" sx={{ mb: '2px' }}>
+                {quote.person}
+              </Typography>
+              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
+                {quote.role}
+              </Typography>
+            </Box>
+          ))}
+          <Box sx={{ position: 'absolute', bottom: -24, right: 16 }}>
+            <Box sx={{ position: 'relative' }}>
+              <Image src={bigQuotes} alt="big-quotes" width={72} height={57} />
+            </Box>
+          </Box>
+        </Box>
+      </Hidden>
+    </Box>
+  );
+};
+
+const MediaCard_1 = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <MediaCard
+      img={mainArticleImg}
+      imgHeight={matchesXL ? 260 : 180}
+      profileImg={grantGuminaProfile}
+      profileImgSize="big"
+      person="Grant Gumina"
+      type="webinar"
+      title="Control Planes: The Missing Ingredient for Cloud Native Developer Platforms"
+      titleVariant="h4_new"
+      body={
+        matchesXL
+          ? `Who you get infrastructure from and how you build applications for it has changed.
+          Now more than ever, customers are utilizing best-in-class infrastructure from the vendors
+          of their choice. However, this presents challenges...`
+          : ''
+      }
+      href="https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar"
+    />
+  );
+};
+
+const MediaCard_2 = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <MediaCard
+      layout={matchesXL ? 'horizontal' : 'vertical'}
+      img={matchesXL ? matthiasArticleImg : null}
+      imgHeight={130}
+      imgWidth={130}
+      person="Matthias Luebken"
+      type="Blog"
+      title="Announcing 100% Cloud Service Coverage for Crossplane"
+      pillText="Must read!"
+      href={`${routes.upboundBlogUrl}cloud-service-coverage/`}
+    />
+  );
+};
+
+const MediaCard_3 = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <MediaCard
+      img={laptopArticleImg}
+      profileImg={matchesXL ? grantGuminaProfile : null}
+      person="Grant Gumina"
+      type="Blog"
+      title="Announcing the Upbound VSCode Plugin"
+      body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
+      date="15 Feb, 2022"
+      pillText="New!"
+      href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
+    />
+  );
+};
+
+const RegisterForm = () => {
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (email) {
+      if (validator.isEmail(email)) {
+        setEmailError('');
+      } else {
+        setEmailError('Please enter a valid email');
+      }
+    } else {
+      setEmailError('');
+    }
+  }, [email]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const submitEmail = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (validator.isEmail(email)) {
+      setEmailSubmitted(true);
+    } else {
+      setEmailError('Please enter a valid email');
+    }
+  };
+
+  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      setLoading(true);
+      const response = await fetch(
+        'https://api.hsforms.com/submissions/v3/integration/submit/5557732/4d8994c1-6bcd-4fad-8e77-55e3453b3f33',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            submittedAt: new Date().toISOString(),
+            fields: [
+              {
+                objectTypeId: '0-1',
+                name: 'email',
+                value: email,
+              },
+              {
+                objectTypeId: '0-1',
+                name: 'newsletter_subscriber',
+                value: email,
+              },
+            ],
+            legalConsentOptions: {
+              consent: {
+                // Include this object when GDPR options are enabled
+                consentToProcess: true,
+                text: `Yes, I wish to subscribe to stay in the know about exciting product
+                announcements and educational material. You can always unsubscribe in the
+                email footer. Read our Privacy Policy to learn more.`,
+                communications: [
+                  {
+                    value: true,
+                    subscriptionTypeId: 999,
+                    text: `Yes, I wish to subscribe to stay in the know about exciting product
+                    announcements and educational material. You can always unsubscribe in the
+                    email footer. Read our Privacy Policy to learn more.`,
+                  },
+                ],
+              },
+            },
+          }),
+        }
+      );
+
+      const json = await response.json();
+
+      setLoading(false);
+
+      if ('inlineMessage' in json) {
+        setFormSubmitted(true);
+        return;
+      }
+
+      setSubmitError(true);
+    } catch (error) {
+      console.log('newsletter form error', error);
+      setSubmitError(true);
+    }
+  };
+
+  return (
+    <Box sx={registerFormContainer}>
+      {formSubmitted ? (
+        <Typography sx={{ color: '#fff', fontSize: 20, ...fontAvenirBold }}>
+          Thank you for your interest! We hope you enjoy our monlty newsletter.
+        </Typography>
+      ) : submitError ? (
+        <Typography sx={{ color: '#fff', fontSize: 20, ...fontAvenirBold }}>
+          Something went wrong, please try again later.
+        </Typography>
+      ) : emailSubmitted ? (
+        <>
+          <Typography sx={{ color: '#fff' }}>
+            <Typography variant="inherit" sx={{ ...fontAvenirBold }}>
+              Yes, I wish to subscribe to stay in the know about exciting product announcements and
+              educational material.
+            </Typography>
+            You can always unsubscribe in the email footer. Read our Privacy Policy to learn more.
+          </Typography>
+          <Box sx={{ mt: 'auto', color: '#fff' }}>
+            <form onSubmit={submitForm}>
+              <MuiButton
+                sx={{ textTransform: 'none', mt: '-6px', ml: '-8px' }}
+                disableRipple
+                type="submit"
+                disabled={loading}
+              >
+                <Typography
+                  component="span"
+                  sx={{ ...registerFormSubmit, opacity: loading ? 0.6 : 1 }}
+                >
+                  Submit
+                  <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
+                    <ArrowRightRounded height={11} color="currentColor" />
+                  </Box>
+                </Typography>
+              </MuiButton>
+            </form>
+          </Box>
+        </>
+      ) : (
+        <>
+          <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
+          <form onSubmit={submitEmail}>
+            <Tooltip
+              onClose={() => setEmailError('')}
+              open={!!emailError}
+              title={emailError}
+              arrow
+              placement="top"
+            >
+              <TextField
+                fullWidth
+                variant="outlined"
+                placeholder="Your Email"
+                size="small"
+                name="email"
+                sx={registerFormField}
+                value={email}
+                onChange={handleChange}
+                error={!!emailError}
+              />
+            </Tooltip>
+            <MuiButton
+              sx={{ textTransform: 'none', color: '#fff', mt: '-6px', ml: '-8px' }}
+              disableRipple
+              type="submit"
+              disabled={!!emailError}
+            >
+              <Typography
+                component="span"
+                sx={{ ...registerFormSubmit, opacity: !!emailError ? 0.6 : 1 }}
+              >
+                Continue
+                <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
+                  <ArrowRightRounded height={11} color="currentColor" />
+                </Box>
+              </Typography>
+            </MuiButton>
+          </form>
+        </>
+      )}
+    </Box>
+  );
+};
+
+const VisitBlogCard = () => {
+  return (
+    <CornerCard
+      icon={arrowCircle}
+      iconSize="small"
+      withPadding={false}
+      href={routes.upboundBlogUrl}
+    >
+      <Box sx={visitCard}>
+        <Typography variant="h6_new">Visit the Upbound Blog</Typography>
+      </Box>
+    </CornerCard>
+  );
+};
+
+type Props = {};
+
+const Home = ({}: Props) => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
+  return (
+    <PageProvider isDark>
+      <Section sx={headerSection}>
+        <HeaderSection />
+      </Section>
+      <Section
+        bgcolor
+        angleTopBottom="topBtmRight"
+        sx={{ pt: { _: 16, md: 23.5 }, pb: { _: 16, md: 23.5 }, textAlign: 'center' }}
+      >
+        <Typography variant="h2_new" sx={{ mb: 2.5 }}>
+          Committed to open source.
+          <Hidden smDown>
+            <br />
+          </Hidden>
+          <Hidden smUp> </Hidden>
+          Powered by Crossplane.
+        </Typography>
+        <Hidden smDown>
+          <Typography variant="body_normal" sx={{ mb: 8, mx: 'auto' }}>
+            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+          </Typography>
+        </Hidden>
+        <Hidden smUp>
+          <Typography variant="body_big" sx={{ mb: 8, mx: 'auto', maxWidth: 480 }}>
+            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+          </Typography>
+        </Hidden>
+
+        <CrossplaneLogosSection />
+      </Section>
+      <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative' }}>
+        <FeaturesSection />
+      </Section>
+      <Section
+        bgcolor
+        angleTop="topRight"
+        hasContainer={matchesXL}
+        sx={{
+          position: 'relative',
+          pt: { xl: 18 },
+          pb: { xl: 7.5 },
+        }}
+      >
+        <QuoteSection />
+      </Section>
+      <Section sx={discoverSection}>
+        <Hidden xlDown>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
+            <Typography variant="h2_new">Learn more about Upbound</Typography>
+            <Box sx={{ display: 'flex', ml: 3.5 }}>
+              <FullArrowRight width={32} height={32} />
+            </Box>
+          </Box>
+          <Box sx={{ display: 'flex', height: 550 }}>
+            <Box sx={{ height: '100%', width: 540 }}>
+              <MediaCard_1 />
+            </Box>
+            <Box sx={{ flex: 1, ml: 2.5 }}>
+              <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
+                <MediaCard_2 />
+              </Box>
+              <Box sx={{ display: 'flex' }}>
+                <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
+                  <MediaCard_3 />
+                </Box>
+                <Box
+                  sx={{
+                    flex: 1,
+                    width: '50%',
+                    ml: '10px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  <RegisterForm />
+                  <Box sx={{ flex: 1 }}>
+                    <VisitBlogCard />
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Hidden>
+        <Hidden xlUp>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Box sx={{ width: '100%', maxWidth: 400 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  mb: 5,
+                  color: COLORS.linkWater,
+                }}
+              >
+                <Typography variant="h2_new">Learn more</Typography>
+                <Hidden mdDown>
+                  <Box sx={{ display: 'flex', ml: 3.5 }}>
+                    <FullArrowRight width={32} height={32} />
+                  </Box>
+                </Hidden>
+                <Hidden mdUp>
+                  <Box sx={{ display: 'flex', ml: 1.5 }}>
+                    <FullArrowRight width={18} height={18} />
+                  </Box>
+                </Hidden>
+              </Box>
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <MediaCard_1 />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <MediaCard_2 />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <MediaCard_3 />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
+              <RegisterForm />
+            </Box>
+            <Box sx={{ width: '100%', maxWidth: 400 }}>
+              <VisitBlogCard />
+            </Box>
+          </Box>
+        </Hidden>
+      </Section>
     </PageProvider>
   );
 };

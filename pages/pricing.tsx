@@ -5,7 +5,7 @@ import { COLORS, fontAvenirBold, fontAvenirRoman } from 'src/theme';
 import { Box, Hidden } from '@mui/material';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import QuestionAndAnswerRow from 'src/components/QuestionAndAnswerRow';
 import { Wave } from 'src/components/Wave';
 
@@ -132,35 +132,36 @@ const features: Array<{
     header: 'Deployment Option',
     data: [
       ['Cloud (SaaS)', false, true, true, true],
-      ['Enterprise (On-Premise)', false, false, false, true],
+      ['Self-Hosted (On-Prem)', false, false, true, true],
     ],
   },
   {
-    header: 'Upbound Registry',
+    header: 'Upbound Marketplace',
     data: [
       ['Public Listings', true, true, true, true],
       ['Private Listings', false, '1', 'Unlimited', 'Unlimited'],
+      ['Official Providers', false, false, true, true],
     ],
   },
-  {
-    header: 'Hosting',
-    data: [
-      ['SaaS', false, false, true, false],
-      ['Single-Tenant Self-Hosted Upbound Cloud and Upbound Registry', false, false, false, true],
-    ],
-  },
+  // {
+  //   header: 'Hosting',
+  //   data: [
+  //     ['SaaS', false, false, true, false],
+  //     ['Single-Tenant Self-Hosted Upbound Cloud and Upbound Registry', false, false, false, true],
+  //   ],
+  // },
   {
     header: 'Control Planes',
     data: [
-      ['Control Planes', false, 'Time limited', 'Unlimited', false],
-      ['Self-hosted Control Planes', false, '1', 'Unlimited', 'Unlimited'],
+      ['Control Planes', false, 'Time limited', 'Unlimited', 'Unlimited'],
+      // ['Self-hosted Control Planes', false, '1', 'Unlimited', 'Unlimited'],
     ],
   },
   {
     header: 'Collaboration & Productivity',
     data: [
-      ['Upbound Management Console Connectivity', false, true, true, true],
-      ['Real-time Resource Dashboard', false, true, true, true],
+      ['Universal Console (self-service)', false, true, true, true],
+      ['Real-time Platform Dashboard', false, true, true, true],
     ],
   },
   {
@@ -185,7 +186,7 @@ const features: Array<{
   {
     header: 'Enterprise Support',
     data: [
-      ['24x7 Follow the Sun Service Levels', false, false, true, true],
+      ['24x7 Follow the Sun Service Levels', false, false, false, true],
       ['Support by email, phone', false, false, true, true],
       ['Support ticket ZenDesk System', false, false, true, true],
       ['Unlimited support incidents', false, false, true, true],
@@ -205,8 +206,8 @@ const features: Array<{
   {
     header: 'Services',
     data: [
-      ['Implementation Services', 'N/A', 'N/A', 'Available', 'Available'],
-      ['Onboarding & Training', 'N/A', 'N/A', 'Available', 'Available'],
+      ['Implementation Services', 'N/A', 'N/A', 'N/A', 'Available'],
+      ['Onboarding & Training', 'N/A', 'N/A', 'N/A', 'Available'],
     ],
   },
 ];
@@ -306,7 +307,7 @@ const Plan: React.FC<{
       <PlanTile>
         <Box display="flex" pt="40px" pb="50px" px="36px" flexDirection="column" height="100%">
           <Box flex={1}>
-            <Header variant="h3" color={color} sx={{ mb: '15px' }}>
+            <Header variant="h3" color={color} sx={{ mb: '15px', minHeight: 100 }}>
               {title}
             </Header>
             <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
@@ -474,7 +475,7 @@ const Pricing: React.FC = () => {
 
   return (
     <PageProvider displayTitle={displayTitle} metaDescription={metaDescription}>
-      <Box pt={{ _: '62px', md: '50px' }} bgcolor={COLORS.cornflower} textAlign="center">
+      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.cornflower} textAlign="center">
         <Box px="30px" maxWidth="1100px" mx="auto">
           <Header
             pill="Plans & Pricing"
@@ -525,31 +526,34 @@ const Pricing: React.FC = () => {
           </Plan>
           <Plan
             color="aquaMarine"
-            title="Business"
+            title="Enterprise"
             subTitle="14 Day Free Trial"
-            description="Unlimited functionality for teams who can use SaaS products"
+            description="Unlimited functionality for teams who need enterprise grade features"
           >
             <li>All Free Tier Features…</li>
             <li>Organizations</li>
             <li>Teams and Users</li>
             <li>Robot Accounts for CI/CD</li>
             <li>Unlimited Private Registry Listings</li>
-            <li>Self Hosted Control Planes</li>
-            <li>24/7 Customer Support</li>
-            <li>Implementation Services</li>
+            <li>Unlimited Control Planes</li>
+            <li>12/5 Customer Support</li>
+            {/* <li>Implementation Services</li> */}
           </Plan>
           <Plan
             color="brightCyan"
-            title="Enterprise"
+            title="Business Critical"
             subTitle="Contact Us"
             description="Our trusted plan used by some of the world's biggest organizations"
             buttonText="Contact Sales"
             buttonHref={routes.contactSalesUrl}
             darken={true}
           >
-            <li>All Business Tier Features…</li>
-            <li>Fully Self Hosted Deployment</li>
-            <li>Private Self Hosted Registry</li>
+            <li>All Enterprise Tier Features…</li>
+            {/* <li>Fully Self Hosted Deployment</li>
+            <li>Private Self Hosted Registry</li> */}
+            <li>Trainings, onboardings, and workshops</li>
+            <li>Private Slack channel</li>
+            <li>24/7 Customer Support</li>
           </Plan>
         </Box>
       </Box>
@@ -624,10 +628,10 @@ const Pricing: React.FC = () => {
               <Box key={index} position="relative">
                 <FeatureHeader>
                   <Box>{section.header}</Box>
-                  <Box>Community Crossplane</Box>
+                  <Box>Crossplane</Box>
                   <Box>Free</Box>
-                  <Box>Business</Box>
                   <Box>Enterprise</Box>
+                  <Box>Business Critical</Box>
                 </FeatureHeader>
                 {section.data.map((r, i) => (
                   <FeatureRow key={i}>
@@ -680,7 +684,10 @@ const Pricing: React.FC = () => {
       </Box>
       <Wave type="light" />
       <Box
-        sx={{ backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})` }}
+        sx={{
+          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          mb: 40,
+        }}
       >
         <Box px="30px" textAlign="center">
           <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>

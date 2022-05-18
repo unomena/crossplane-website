@@ -9,7 +9,7 @@ import { Box } from '@mui/material';
 import { COLORS, fontAvenirRoman, MQ } from 'src/theme';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
-import PageProvider from 'src/components/PageProvider';
+import PageProvider from 'src-new/components/PageProvider';
 import { Wave } from 'src/components/Wave';
 
 import { Anchor, Link } from 'src/elements/Anchor';
@@ -76,7 +76,7 @@ const LargeHeader = styled(Header)`
 const FourOhFour: React.FC = () => {
   return (
     <PageProvider displayTitle="Upbound - Page Not Found">
-      <Box textAlign="center" mx="auto" px="30px" mt="100px" maxWidth="900px">
+      <Box textAlign="center" mx="auto" px="30px" pt="180px" maxWidth="900px">
         <LargeHeader variant="h1" bold={true} color="fillBlackBlack" sx={{ mb: '30px' }}>
           404
         </LargeHeader>
@@ -104,8 +104,8 @@ const FourOhFour: React.FC = () => {
       <Box
         sx={{
           backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          pb: 32,
         }}
-        pb="130px"
       >
         <Box textAlign="center" mx="auto" px="30px" pt="50px" mb="100px" maxWidth="900px">
           <Header variant="h6" color="fillBlackGray">

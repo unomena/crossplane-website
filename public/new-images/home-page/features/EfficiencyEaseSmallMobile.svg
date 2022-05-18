@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="207px" height="137px" viewBox="0 0 207 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>Total Monthly Spend</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-20.0%" y="-32.7%" width="140.0%" height="164.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.192156863   0 0 0 0 0.250980392   0 0 0 0 0.466666667  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50.0019052%" y1="7.22020349%" x2="50.0000385%" y2="98.1268747%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#282F36" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile" transform="translate(-110.000000, -3071.000000)">
+            <g id="Group-23" transform="translate(18.000000, 3046.000000)">
+                <g id="Group-22">
+                    <g id="Total-Monthly-Spend" transform="translate(105.888763, 33.739067)">
+                        <g id="Cards/Horizontal/Data/Card-2-Copy" filter="url(#filter-1)" fill="#FFFFFF" stroke="#D2DCEA" stroke-width="0.5">
+                            <g id="Cards/Horizontal/Data/Card">
+                                <g id="Group-9">
+                                    <g id="Stacked-Group-2">
+                                        <rect id="Rectangle-21-Copy-2" x="-0.25" y="-0.25" width="180.334711" height="109.862308" rx="4.1525005"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Dropdown/Standard/Small-Default-No-Title-Copy-3" transform="translate(120.422515, 7.266876)">
+                            <rect id="BG" stroke="#DCDCDE" stroke-width="0.5" fill="#FFFFFF" x="0.570369038" y="0.25" width="46.7346932" height="9.18873637" rx="4.59436818"></rect>
+                            <g id="Chevron-Down/10x10-Light" transform="translate(39.100556, 2.260705)" stroke="#929394" stroke-linecap="round" stroke-linejoin="round">
+                                <g id="Chevron-Down/16x16-Light" transform="translate(0.968874, 1.776268)">
+                                    <polyline id="Shape" stroke-width="0.5" points="0.161478939 0.242218409 1.61478939 1.69552886 3.06809985 0.242218409"></polyline>
+                                </g>
+                            </g>
+                            <text id="Placeholder" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.63343794" font-weight="normal" line-spacing="6.45915758" fill="#929394">
+                                <tspan x="6.40155587" y="5.61478939">September 2021</tspan>
+                            </text>
+                        </g>
+                        <polygon id="Rectangle-9-Copy-6" fill="url(#linearGradient-2)" points="28.0293784 14.5337518 28.548441 14.5337518 28.548441 98.621887 28.0293784 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy-11" fill="url(#linearGradient-2)" points="12.4575015 14.5337518 12.9765641 14.5337518 12.9765641 98.621887 12.4575015 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy" fill="url(#linearGradient-2)" points="74.7450091 14.5337518 75.2640716 14.5337518 75.2640716 98.621887 74.7450091 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy-7" fill="url(#linearGradient-2)" points="90.316886 14.5337518 90.8359485 14.5337518 90.8359485 98.621887 90.316886 98.621887"></polygon>
+                        <path d="M12.9739752,87.090327 C15.3223649,85.6007412 16.8315797,82.432504 21.3921882,80.9577507 C28.162254,78.7685306 27.3258391,80.6703927 33.2167938,78.7654486 C39.1077485,76.8605044 40.8289068,78.8779125 46.8494491,76.931064 C52.8699914,74.9842154 54.2295931,69.3603612 60.8712375,67.2851746 C67.512882,65.2099881 69.3873754,67.5765974 73.5648945,66.2257229 C77.7424137,64.8748484 80.7306498,65.6487016 85.4030224,64.1740607 C90.0753949,62.6994198 90.740567,59.0765268 96.7611093,57.1296783 C99.5434646,56.2299546 98.8219738,57.6106157 102.324071,56.4629512 C105.826169,55.3152867 107.408864,57.0580835 110.222401,56.1482769 C115.014261,54.5987444 117.312371,51.4209961 121.709083,50.00224 C124.640224,49.0564026 126.978839,48.0964925 128.724927,47.1225097" id="Path-6" stroke="#3BBDC4" stroke-width="1.03812513" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <g id="Hover" transform="translate(127.086191, 45.353900)">
+                            <polygon id="Rectangle-9-Copy" fill="#FFA6BC" points="1.29183152 1.57789841 1.93774727 1.57789841 1.93774727 53.2679865 1.29183152 53.2679865"></polygon>
+                            <circle id="Oval-6" stroke="#94D8DB" stroke-width="0.645915758" fill="#FFFFFF" cx="1.61478939" cy="1.93839448" r="1.29183152"></circle>
+                        </g>
+                        <g id="Tooltip" transform="translate(50.868131, 33.739067)">
+                            <path d="M1.61478939,0 L72.3425649,0 C73.2343884,-3.85869935e-16 73.9573543,0.722965838 73.9573543,1.61478939 L73.9573543,25.8366303 C73.9573543,26.7284539 73.2343884,27.4514197 72.3425649,27.4514197 L1.61478939,27.4514197 C0.722965838,27.4514197 -5.93454537e-14,26.7284539 -5.90105814e-14,25.8366303 L-5.90105814e-14,1.61478939 C-5.93418429e-14,0.722965838 0.722965838,1.27404835e-15 1.61478939,0 Z" id="BG" fill="#282F36"></path>
+                            <polygon id="Shape-Copy" fill="#282F36" fill-rule="nonzero" transform="translate(74.926228, 13.887189) rotate(-360.000000) translate(-74.926228, -13.887189) " points="73.9573543 12.2723994 73.9573543 15.5019782 75.8951016 13.8871888"></polygon>
+                            <g id="Text" transform="translate(1.359904, 3.552537)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
+                                <text id="7:18:8:18" font-size="3.87549455" line-spacing="4.84436818" fill="#FFFFFF" fill-opacity="0.5">
+                                    <tspan x="12.5272846" y="18.5331046">+ 12% from this day last month </tspan>
+                                </text>
+                                <text id="7:18:8:18" font-size="4.52141031" line-spacing="6.45915758">
+                                    <tspan x="24.546485" y="10.7187209" fill="#92E7E8">August 14th:</tspan>
+                                    <tspan x="50.6892794" y="10.7187209" fill="#FFFFFF"> 35,097</tspan>
+                                </text>
+                                <text id="7:18:8:18-copy" font-size="4.52141031" line-spacing="6.45915758">
+                                    <tspan x="0" y="5" fill="#A2D2FC">September 14th (Today):</tspan>
+                                    <tspan x="50.106269" y="5" fill="#FFFFFF"> 54,764</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <path d="M12.9739752,87.090327 C14.685162,86.5659972 16.3445921,86.2361813 17.9522654,86.1008794 C23.8538017,85.6042057 22.0158348,80.2608676 31.066418,79.4991699 C40.1170012,78.7374722 38.7002265,81.2532816 44.120699,80.7970942 C49.5411716,80.3409069 50.6799604,69.8129229 58.7285409,69.1355538 C66.7771213,68.4581847 68.1287964,74.5473237 77.0078369,74.0820129 C85.8868773,73.6167021 88.1736234,78.0764214 93.7583527,77.6064102 C99.343082,77.136399 102.937462,71.1948993 109.183806,70.8101814 C115.430151,70.4254636 119.910253,75.9400979 128.758804,75.0836946 C133.120867,74.6615141 134.064505,69.365949 143.074404,68.6076752 C152.084304,67.8494015 153.171581,61.0462461 157.935026,60.6453542 C161.110657,60.3780929 164.350521,62.0790745 167.654619,65.7482989" id="Path-6" stroke="#D3D4D4" stroke-width="1.03812513" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <polygon id="Rectangle-9" fill="url(#linearGradient-2)" points="104.850638 14.5337518 105.3697 14.5337518 105.3697 98.621887 104.850638 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy-8" fill="url(#linearGradient-2)" points="120.422515 14.5337518 120.941577 14.5337518 120.941577 98.621887 120.422515 98.621887"></polygon>
+                        <polygon id="Rectangle-9" fill="url(#linearGradient-2)" points="135.994392 14.5337518 136.513454 14.5337518 136.513454 98.621887 135.994392 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy-9" fill="url(#linearGradient-2)" points="151.566268 14.5337518 152.085331 14.5337518 152.085331 98.621887 151.566268 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy-2" fill="url(#linearGradient-2)" points="167.138145 14.5337518 167.657208 14.5337518 167.657208 98.621887 167.138145 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy" fill="url(#linearGradient-2)" points="43.6012553 14.5337518 44.1203179 14.5337518 44.1203179 98.621887 43.6012553 98.621887"></polygon>
+                        <polygon id="Rectangle-9-Copy-10" fill="url(#linearGradient-2)" points="59.1731322 14.5337518 59.6921947 14.5337518 59.6921947 98.621887 59.1731322 98.621887"></polygon>
+                        <text id="Total-Monthly-Spend-Copy" font-family="'Avenir-Black', 'Arial', sans-serif" font-size="6.45915758" font-weight="700" line-spacing="8.07394697" fill="#505A72">
+                            <tspan x="12.4575015" y="15.3431261">Total Monthly Spend</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
