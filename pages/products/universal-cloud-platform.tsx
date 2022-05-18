@@ -342,11 +342,11 @@ const FeaturesSection = () => {
     }
     t = setTimeout(() => {
       if (document.getElementById('featureSectionID')?.scrollTop !== 0) {
-        if (activeIndexRef.current === features.length - 1) {
+        if (activeIndexRef.current >= features.length - 1) {
           if (featureSectionRef.current) {
             enableBodyScroll(featureSectionRef.current);
           }
-          window.removeEventListener('scroll', handleScroll);
+          document.body.removeEventListener('scroll', handleScroll);
           setFinalScrolled(true);
         } else {
           setCanScroll(true);
