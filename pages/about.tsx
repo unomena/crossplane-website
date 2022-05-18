@@ -98,7 +98,7 @@ const values = [
     icon: beAccountable,
     title: 'Be Accountable',
     body: `We expect everyone at Upbound to hold ourselves and each other accountable
-    to focusing and driving results that tie directly back into compan goals.`,
+    to focusing and driving results that tie directly back into company goals.`,
   },
   {
     icon: collaborateDecisively,
