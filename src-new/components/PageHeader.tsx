@@ -174,6 +174,15 @@ const popoverFreeDemoContainer: SxProps = {
 //   opacity: 0.41,
 // };
 
+const popoverContentContainer: SxProps = {
+  width: 328,
+  py: 3.5,
+  pl: 3.5,
+  pr: 2.5,
+  display: 'flex',
+  flexDirection: 'column',
+};
+
 const popoverContentHeader: SxProps = {
   fontFamily: 'Avenir-Medium',
   fontSize: '13px',
@@ -362,22 +371,24 @@ const PopoverItem = ({ title, content, isDark }: PopoverItemProps) => {
 const ProductsPopoverContent = () => {
   return (
     <Box sx={{ display: 'flex' }}>
-      <Box sx={{ width: 328, py: 3.5, pl: 3.5, pr: 2.5 }}>
+      <Box sx={popoverContentContainer}>
         <Typography sx={popoverContentHeader}>Products</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
           Future-proof cloud infrastructure, reduce costs, & increase efficiency
         </Typography>
-        <LinkBar
-          href={routes.productsUCPRoute}
-          title="Upbound Product Page"
-          body="The single control center for your infrastructure"
-          sx={{ mb: 1.5 }}
-        />
-        <LinkBar
-          href={routes.pricingRoute}
-          title="Plans & Pricing"
-          body="Choose the tier that’s right for you"
-        />
+        <Box sx={{ mt: 'auto' }}>
+          <LinkBar
+            href={routes.productsUCPRoute}
+            title="Upbound Product Page"
+            body="The single control center for your infrastructure"
+            sx={{ mb: 1.5 }}
+          />
+          <LinkBar
+            href={routes.pricingRoute}
+            title="Plans & Pricing"
+            body="Choose the tier that’s right for you"
+          />
+        </Box>
       </Box>
       <Box sx={popoverDivider} />
       <Box sx={popoverFreeDemoContainer}>
@@ -397,28 +408,30 @@ const ProductsPopoverContent = () => {
 const LearnPopoverContent = () => {
   return (
     <Box sx={{ display: 'flex' }}>
-      <Box sx={{ width: 328, py: 3.5, pl: 3.5, pr: 2.5 }}>
+      <Box sx={popoverContentContainer}>
         <Typography sx={popoverContentHeader}>More on Upbound</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
           From tutorials to knowledge from industry experts, discover comprehensive insights
         </Typography>
-        <LinkBar
-          href={routes.cloudDocsUrl}
-          title="Docs"
-          body="Learn how to use Upbound"
-          sx={{ mb: 1.5 }}
-        />
-        <LinkBar
-          href={routes.upboundBlogUrl}
-          title="Upbound Blog"
-          body="Discover cutting-edge thought leadership"
-          sx={{ mb: 1.5 }}
-        />
-        <LinkBar
-          href={routes.crossplaneSlackUrl}
-          title="Crossplane Slack"
-          body="Join a passionate community for the support you need"
-        />
+        <Box sx={{ mt: 'auto' }}>
+          <LinkBar
+            href={routes.cloudDocsUrl}
+            title="Docs"
+            body="Learn how to use Upbound"
+            sx={{ mb: 1.5 }}
+          />
+          <LinkBar
+            href={routes.upboundBlogUrl}
+            title="Upbound Blog"
+            body="Discover cutting-edge thought leadership"
+            sx={{ mb: 1.5 }}
+          />
+          <LinkBar
+            href={routes.crossplaneSlackUrl}
+            title="Crossplane Slack"
+            body="Join a passionate community for the support you need"
+          />
+        </Box>
       </Box>
       <Box sx={popoverDivider} />
       {/* <Link
@@ -430,7 +443,7 @@ const LearnPopoverContent = () => {
           noBg
           rounded={false}
           img={laptopArticleImg}
-          imgHeight={200}
+          imgHeight={180}
           profileImg={grantGuminaProfile}
           person="Grant Gumina"
           type="Blog"
