@@ -81,6 +81,10 @@ const gridLayout: SxProps = {
   gap: 2,
   gridTemplateColumns: 'repeat(1, 1fr)',
 
+  '& > div:hover': {
+    backgroundImage: 'linear-gradient(-45deg, transparent 42px, #1B3549 0 100%)',
+  },
+
   [MQ.md]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
