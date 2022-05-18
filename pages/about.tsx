@@ -239,7 +239,7 @@ const advisors = [
     { name: 'Brandon Philips', title: 'Former Co-Founder & CTO at CoreOS' },
   ],
   [
-    { name: 'Kelsey Hightower', title: 'Pricipal Engineer at Google Cloud' },
+    { name: 'Kelsey Hightower', title: 'Principal Engineer at Google Cloud' },
     { name: 'Eric Berg', title: 'CEO at Fauna Inc' },
   ],
   [
