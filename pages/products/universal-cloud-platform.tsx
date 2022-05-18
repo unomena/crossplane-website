@@ -69,7 +69,7 @@ const caseStudiesSection: SxProps = {
 
 const headerButtons: SxProps = {
   mt: 7.5,
-  mb: 10,
+  mb: 7.5,
   [MQ.md]: {
     display: 'flex',
     alignItems: 'center',
@@ -81,14 +81,18 @@ const gridLayout: SxProps = {
   gap: 2,
   gridTemplateColumns: 'repeat(1, 1fr)',
 
+  '& > div:hover': {
+    backgroundImage: 'linear-gradient(-45deg, transparent 42px, #1B3549 0 100%)',
+  },
+
   [MQ.md]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
 };
 
 const platformCarousel: SxProps = {
-  pb: 17.5,
-  pt: 10,
+  pb: 16.25,
+  pt: 7.5,
   '.carousel.carousel-slider .control-dots': {
     bottom: '-70px',
   },
@@ -474,7 +478,7 @@ const Products = ({}: Props) => {
   }, [isVisible]);
   return (
     <PageProvider displayTitle="Products" isDark>
-      <Section sx={{ pt: 40, pb: { _: 60, xs: 80, md: 20 } }}>
+      <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
         <Box
           sx={{
             [MQ.md]: {
@@ -580,7 +584,7 @@ const Products = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: 23.5, zIndex: '-2' }}>
+      <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
         <Box sx={productsSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             A platform for building internal cloud platforms
@@ -614,7 +618,7 @@ const Products = ({}: Props) => {
       </Hidden>
       <Hidden mdUp>
         <Section bgcolor sx={platformCarousel}>
-          <Box sx={{ mb: 10 }}>
+          <Box sx={{ mb: 7.5 }}>
             <Typography variant="h3_new" sx={{ fontFamily: 'Avenir-Black', mb: 3 }}>
               The last platform you’ll ever need to build
             </Typography>
@@ -739,8 +743,8 @@ const Products = ({}: Props) => {
       </Hidden>
       <Section
         sx={{
-          pb: { _: 30, md: 34.125 },
-          pt: { _: 15, lg: 23.5 },
+          pb: { _: 30, md: 33.125 },
+          pt: { _: 10, md: 23.5 },
           overflow: 'hidden',
           ...caseStudiesSection,
         }}
@@ -754,7 +758,7 @@ const Products = ({}: Props) => {
             their own custom API interface into their custom platform running on Upbound
           </Typography>
         </Box>
-        <Box sx={{ my: 10, ...gridLayout }}>
+        <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
           <CornerCard iconSize="small">
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
