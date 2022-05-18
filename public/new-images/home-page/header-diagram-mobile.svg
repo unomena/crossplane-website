@@ -175,7 +175,7 @@
                     <path stroke="#C8C3FF" stroke-width="1.20430108" d="M63.3591299,136.086022 L6.02150538,136.086022 C4.52499186,136.086022 3.17015315,136.692603 2.18944282,137.673314 C1.20873249,138.654024 0.602150538,140.008863 0.602150538,141.505376 L0.602150538,188.473118 C0.602150538,189.969632 1.20873249,191.324471 2.18944282,192.305181 C3.17015315,193.285891 4.52499186,193.892473 6.02150538,193.892473 L54.7630019,193.892473 C56.1720796,193.892473 57.5257544,193.343653 58.5369958,192.362383 L67.1331238,184.021027 C68.1849069,183.000417 68.7784848,181.597332 68.7784848,180.131763 L68.7784848,141.505376 C68.7784848,140.008863 68.1719028,138.654024 67.1911925,137.673314 C66.2104822,136.692603 64.8556434,136.086022 63.3591299,136.086022 Z" stroke-linejoin="square" fill="#0D2436" fill-rule="evenodd"></path>
                 </g>
                 <g id="Group-35" transform="translate(221.591398, 96.946237)">
-                    <text id="App" opacity="0.15734282" font-family="Avenir-Roman, Avenir" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
+                    <text id="App" opacity="0.15734282" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
                         <tspan x="22.8817204" y="13.4086022">App</tspan>
                     </text>
                     <g id="Group-6-Copy-10" opacity="0.163109189">
@@ -187,7 +187,7 @@
                     </g>
                 </g>
                 <g id="Group-36" transform="translate(224.000000, 38.537634)">
-                    <text id="App" opacity="0.084841" font-family="Avenir-Roman, Avenir" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
+                    <text id="App" opacity="0.084841" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
                         <tspan x="23.1827957" y="14.0107527">App</tspan>
                     </text>
                     <g id="Group-28" opacity="0.080167">
@@ -199,7 +199,7 @@
                     <polygon id="Fill-4" fill="#6553C0" opacity="0.100167411" points="6.20163944 5.50839087 11.453802 3.04844437 11.453802 9.12141159 6.20163944 11.570255"></polygon>
                 </g>
                 <g id="Group-38" transform="translate(220.989247, 211.956989)">
-                    <text id="App" opacity="0.162016369" font-family="Avenir-Roman, Avenir" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
+                    <text id="App" opacity="0.162016369" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
                         <tspan x="23.1827957" y="14.0107527">App</tspan>
                     </text>
                     <g id="Group-6-Copy-11" opacity="0.159295945">
@@ -211,7 +211,7 @@
                     </g>
                 </g>
                 <g id="Group-33" transform="translate(220.989247, 270.365591)" opacity="0.08">
-                    <text id="App" font-family="Avenir-Roman, Avenir" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
+                    <text id="App" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
                         <tspan x="23.1827957" y="13.4086022">App</tspan>
                     </text>
                     <g id="Group-6-Copy-12">
@@ -222,12 +222,12 @@
                         <polygon id="Fill-5" fill="#EA595B" points="0 16.5520726 10.7132274 21.4888258 10.7132274 15.4269617 5.35702491 13.023353 5.35702491 5.74238363 0 3.28202591"></polygon>
                     </g>
                 </g>
-                <text id="Your-internal-cloud-Copy" font-family="Avenir-Medium, Avenir" font-size="9.03225806" font-weight="400" fill="#FFFFFF">
+                <text id="Your-internal-cloud-Copy" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="9.03225806" font-weight="400" fill="#FFFFFF">
                     <tspan x="101.46086" y="175.795699">Your internal cloud </tspan>
                     <tspan x="122.135699" y="187.795699">platform</tspan>
                 </text>
                 <g id="Group-39" transform="translate(220.989247, 154.150538)">
-                    <text id="App" font-family="Avenir-Roman, Avenir" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
+                    <text id="App" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.8387097" font-weight="normal" fill="#FFFFFF">
                         <tspan x="23.483871" y="14.6129032">App</tspan>
                     </text>
                     <g id="Group-6-Copy-9">
@@ -254,7 +254,7 @@
                         </g>
                     </g>
                 </g>
-                <text id="Identity,-policy,-mo-Copy" font-family="Avenir-Medium, Avenir" font-size="7.22580645" font-weight="400" line-spacing="9.03225806" fill="#FFFFFF">
+                <text id="Identity,-policy,-mo-Copy" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.22580645" font-weight="400" line-spacing="9.03225806" fill="#FFFFFF">
                     <tspan x="95.1397849" y="227.387097">Identity, policy, monitoring, </tspan>
                     <tspan x="112.615398" y="236.419355">alerting, security</tspan>
                 </text>
@@ -308,10 +308,10 @@
                     <polygon id="Fill-29" fill="#263B67" mask="url(#mask-31)" points="8.32257321 9.45231954 9.38106874 9.45231954 9.38106874 9.14493903 8.32257321 9.14493903"></polygon>
                     <path d="M4.12049721,8.69765736 C4.12049721,8.69765736 4.06750481,10.8437881 3.21968789,11.6651703 C3.21968789,11.6651703 4.27947441,11.1882387 4.67691741,10.2873679 C5.07436041,9.38655855 4.12049721,8.69765736 4.12049721,8.69765736" id="Fill-31" fill="#2FD3BC" mask="url(#mask-31)"></path>
                 </g>
-                <text id="Operators-Copy" font-family="Avenir-Roman, Avenir" font-size="7.22580645" font-weight="normal" fill="#FFFFFF">
+                <text id="Operators-Copy" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.22580645" font-weight="normal" fill="#FFFFFF">
                     <tspan x="96.9004731" y="106.354839">Operators</tspan>
                 </text>
-                <text id="Developers" font-family="Avenir-Roman, Avenir" font-size="7.22580645" font-weight="normal" fill="#FFFFFF">
+                <text id="Developers" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.22580645" font-weight="normal" fill="#FFFFFF">
                     <tspan x="146.813935" y="106.354839">Developers</tspan>
                 </text>
                 <g id="Group-30-Copy" transform="translate(104.172043, 72.258065)">
@@ -372,7 +372,7 @@
                     <path d="M23.8245677,11.6478968 C23.0302452,11.6533161 22.3853419,11.7284129 21.7404387,11.8027355 C21.629729,11.8158968 21.5019871,11.8522839 21.4462452,11.7237677 C21.3850839,11.5844129 21.4911484,11.4930581 21.5910194,11.4218323 C22.0501161,11.096671 22.5641806,10.8938323 23.1107613,10.7738323 C24.0003097,10.5771871 24.8921806,10.5508645 25.7832774,10.7560258 C26.2756645,10.8698323 26.3972129,11.0045419 26.3646968,11.5038968 C26.2671484,12.9764129 25.7840516,14.2871226 24.6970839,15.3315097 C24.6846968,15.3423484 24.6730839,15.3539613 24.6599226,15.3648 C24.5585032,15.4422194 24.4516645,15.5467355 24.3200516,15.4623484 C24.1783742,15.3709935 24.2712774,15.2424774 24.3138581,15.1333161 C24.5995355,14.3993806 24.8945032,13.6677677 25.0601806,12.8943484 C25.0965677,12.7271226 25.117471,12.5552516 25.1329548,12.3841548 C25.1693419,12.0024774 25.0299871,11.8112516 24.6568258,11.7260903 C24.3355355,11.6517677 24.0080516,11.6440258 23.8245677,11.6478968" id="Fill-11" fill="#D3E7F7"></path>
                 </g>
                 <rect id="Rectangle-Copy-26" stroke="url(#linearGradient-42)" stroke-width="1.80645161" x="90.6236559" y="250.193548" width="98.1505376" height="31.311828" rx="9.03225806"></rect>
-                <text id="Powered-by-Crossplan" font-family="Avenir-Roman, Avenir" font-size="7.22580645" font-weight="normal" fill="#FFFFFF">
+                <text id="Powered-by-Crossplan" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.22580645" font-weight="normal" fill="#FFFFFF">
                     <tspan x="97.6856774" y="267.731183">Powered by     Crossplane</tspan>
                 </text>
                 <g id="Crossplane-Icon-Copy-2" transform="translate(139.698925, 261.333333)">

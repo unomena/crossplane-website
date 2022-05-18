@@ -47,15 +47,15 @@
                             <g id="Buttons/Medium/Basic-Copy-2" mask="url(#mask-7)">
                                 <g transform="translate(174.049864, 41.883657)">
                                     <rect id="BG" fill="#6553C0" fill-rule="evenodd" x="0" y="0" width="68.4099733" height="14.891967" rx="7.44598349"></rect>
-                                    <text id="Create-Control-Plane" fill="none" font-family="Avenir-Roman, Avenir" font-size="5.18673993" font-weight="normal" line-spacing="6.04986159">
+                                    <text id="Create-Control-Plane" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.18673993" font-weight="normal" line-spacing="6.04986159">
                                         <tspan x="9.77285333" y="9.28497499" fill="#FFFFFF">Create Control Plane</tspan>
                                     </text>
                                 </g>
                             </g>
-                            <text id="Title" mask="url(#mask-7)" font-family="Avenir-Black, Avenir" font-size="10.7036013" font-weight="700" line-spacing="11.6343492" fill="#505A72">
+                            <text id="Title" mask="url(#mask-7)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10.7036013" font-weight="700" line-spacing="11.6343492" fill="#505A72">
                                 <tspan x="21.934096" y="96.0397292">Control Plane List (8)</tspan>
                             </text>
-                            <text id="Control-Planes" mask="url(#mask-7)" font-family="Avenir-Black, Avenir" font-size="16.7534629" font-weight="700" line-spacing="17.6842108" fill="#505A72">
+                            <text id="Control-Planes" mask="url(#mask-7)" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16.7534629" font-weight="700" line-spacing="17.6842108" fill="#505A72">
                                 <tspan x="21.8725765" y="57.8892885">Control Planes</tspan>
                             </text>
                             <rect id="Rectangle" fill="#DFE6F0" mask="url(#mask-7)" x="22.8033244" y="67.0138514" width="132.631581" height="7.91874441" rx="3.9593722"></rect>
@@ -69,45 +69,45 @@
                                     <polygon id="Shape--Copy-17" fill="#DCE0E6" fill-rule="evenodd" points="0.465373968 170.574286 0.465373968 170.326872 221.052635 170.326872 221.052635 170.574286"></polygon>
                                     <polygon id="Shape--Copy-18" fill="#DCE0E6" fill-rule="evenodd" points="0.465373968 203.150464 0.465373968 202.90305 221.052635 202.90305 221.052635 203.150464"></polygon>
                                     <polygon id="Shape--Copy-19" fill="#DCE0E6" fill-rule="evenodd" points="0.465373968 235.726642 0.465373968 235.479228 221.052635 235.479228 221.052635 235.726642"></polygon>
-                                    <text id="Content-Copy" fill="none" font-family="Avenir-Roman, Avenir" font-size="6.51523555" font-weight="normal" line-spacing="4.75034896">
+                                    <text id="Content-Copy" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="6.51523555" font-weight="normal" line-spacing="4.75034896">
                                         <tspan x="88.978361" y="7" fill="#505A72">Status</tspan>
                                     </text>
-                                    <text id="Content-Copy-3" fill="none" font-family="Avenir-Roman, Avenir" font-size="6.51523555" font-weight="normal" line-spacing="4.75034896">
+                                    <text id="Content-Copy-3" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="6.51523555" font-weight="normal" line-spacing="4.75034896">
                                         <tspan x="0.92842805" y="7" fill="#505A72">Name</tspan>
                                     </text>
-                                    <text id="Content-Copy-4" fill="none" font-family="Avenir-Roman, Avenir" font-size="6.51523555" font-weight="normal" line-spacing="4.75034896">
+                                    <text id="Content-Copy-4" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="6.51523555" font-weight="normal" line-spacing="4.75034896">
                                         <tspan x="147.988922" y="7" fill="#505A72">Server</tspan>
                                     </text>
-                                    <text id="Content-Copy-5" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-5" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="0.0271341627" y="121.564467" fill="#505A72">Staging-2</tspan>
                                     </text>
-                                    <text id="Content-Copy-10" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-10" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="0.0271341627" y="186.634352" fill="#505A72">frontend-database-</tspan>
                                         <tspan x="0.0271341627" y="194.176945" fill="#505A72">instance-6</tspan>
                                     </text>
-                                    <text id="Content-Copy-11" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-11" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="0.0271341627" y="219.210529" fill="#505A72">frontend-database-</tspan>
                                         <tspan x="0.0271341627" y="226.753122" fill="#505A72">instance-6</tspan>
                                     </text>
-                                    <text id="Content-Copy-6" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-6" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="0.0271341627" y="89.2651578" fill="#505A72">Staging-1</tspan>
                                     </text>
-                                    <text id="Content-Copy-7" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-7" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="0.0271341627" y="59.7875459" fill="#505A72">Production-2</tspan>
                                     </text>
-                                    <text id="Content-Copy-13" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-13" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="147.988922" y="59.7875459" fill="#505A72">Hosted</tspan>
                                     </text>
-                                    <text id="Content-Copy-14" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-14" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="147.988922" y="125.405275" fill="#505A72">Hosted</tspan>
                                     </text>
-                                    <text id="Content-Copy-16" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-16" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="147.988922" y="191.488379" fill="#505A72">Hosted</tspan>
                                     </text>
-                                    <text id="Content-Copy-8" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-8" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="0" y="27.0110806" fill="#505A72">Production-1</tspan>
                                     </text>
-                                    <text id="Content-Copy-12" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-12" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="147.988922" y="26.5457067" fill="#505A72">Hosted</tspan>
                                     </text>
                                     <g id="Column-Title-4-Copy-7" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(206.626042, 19.080333)" stroke-linecap="round" stroke-linejoin="round">
@@ -173,10 +173,10 @@
                                             </g>
                                         </g>
                                     </g>
-                                    <text id="Content-Copy-15" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-15" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="147.988922" y="92.1634362" fill="#505A72">Hosted</tspan>
                                     </text>
-                                    <text id="Content-Copy-17" fill="none" opacity="0.75" font-family="Avenir-Roman, Avenir" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
+                                    <text id="Content-Copy-17" fill="none" opacity="0.75" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.44598349" font-weight="normal" line-spacing="7.5425928">
                                         <tspan x="147.988922" y="158.24654" fill="#505A72">Hosted</tspan>
                                     </text>
                                     <rect id="Rectangle-Copy-44" fill="#DFE6F0" fill-rule="evenodd" x="100.520777" y="21.4072025" width="25.1301943" height="7.44598349" rx="3.72299175"></rect>
@@ -222,7 +222,7 @@
                                 <g id="Group-2" transform="translate(0.000000, 17.218837)">
                                     <rect id="Rectangle" fill="#DFE6F0" x="0.0409476052" y="13.9351562" width="60.0332419" height="4.58672563" rx="2.29336281"></rect>
                                     <rect id="Rectangle" fill="#DFE6F0" x="0.0409476052" y="22.3118876" width="47.5053725" height="4.58672563" rx="2.29336281"></rect>
-                                    <text id="Title" font-family="Avenir-Black, Avenir" font-size="7.91135746" font-weight="700" line-spacing="9.30747936" fill="#505A72">
+                                    <text id="Title" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.91135746" font-weight="700" line-spacing="9.30747936" fill="#505A72">
                                         <tspan x="0.0409476052" y="8.19731679">Team Alpha</tspan>
                                     </text>
                                 </g>

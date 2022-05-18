@@ -39,7 +39,7 @@
                                 </g>
                             </g>
                         </g>
-                        <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(12.547305, 10.351526)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                        <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(12.547305, 10.351526)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                             <text id="Value" font-size="6.27365237" line-spacing="9.80258183" fill="#505A72">
                                 <tspan x="0" y="15.4104786">Production</tspan>
                             </text>
@@ -47,7 +47,7 @@
                                 <tspan x="0" y="5">Name</tspan>
                             </text>
                         </g>
-                        <g id="Card-Title-Copy" transform="translate(112.289891, 10.665209)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                        <g id="Card-Title-Copy" transform="translate(112.289891, 10.665209)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                             <text id="Value" font-size="6.27365237" line-spacing="9.80258183" fill="#505A72">
                                 <tspan x="0.0622386148" y="13.8581457">Hosted</tspan>
                             </text>
@@ -56,13 +56,13 @@
                             </text>
                         </g>
                         <g id="Cards/Horizontal/Data/Elements/Status-With-Link" transform="translate(67.375462, 10.665209)">
-                            <text id="Column-Title" font-family="Avenir-Roman, Avenir" font-size="5.26986799" font-weight="normal" line-spacing="7.52838284" fill="#929394">
+                            <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.26986799" font-weight="normal" line-spacing="7.52838284" fill="#929394">
                                 <tspan x="0" y="5">Status</tspan>
                             </text>
                             <g id="Stacked-Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 9.090877)">
                                 <line x1="0.239527468" y1="8.90148412" x2="27.5456589" y2="8.90148412" id="Line" stroke="#505A72" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="0.3764191421792231,1.129257426537669"></line>
                                 <g>
-                                    <text id="Title" font-family="Avenir-Roman, Avenir" font-size="6.02270627" font-weight="normal" line-spacing="9.41047855" fill="#505A72">
+                                    <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="6.02270627" font-weight="normal" line-spacing="9.41047855" fill="#505A72">
                                         <tspan x="5.64628713" y="6">Healthy</tspan>
                                     </text>
                                     <g id="Pills/Valuless/Green" transform="translate(0.000000, 3.030292)" fill="#3DC47E">
@@ -78,7 +78,7 @@
                             <rect stroke="#DCDCDE" stroke-width="0.525735294" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="0.262867647" y="0.302257869" width="179.544876" height="41.3872518" rx="4.13955428"></rect>
                         </g>
                     </g>
-                    <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(12.575097, 58.841279)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                    <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(12.575097, 58.841279)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                         <text id="Value" font-size="6.27365237" line-spacing="9.80258183" fill="#505A72">
                             <tspan x="0" y="15.4104786">Staging</tspan>
                         </text>
@@ -87,13 +87,13 @@
                         </text>
                     </g>
                     <g id="Cards/Horizontal/Data/Elements/Status-With-Link" transform="translate(67.375462, 58.787528)">
-                        <text id="Column-Title" font-family="Avenir-Roman, Avenir" font-size="5.26986799" font-weight="normal" line-spacing="7.52838284" fill="#929394">
+                        <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.26986799" font-weight="normal" line-spacing="7.52838284" fill="#929394">
                             <tspan x="0" y="5">Status</tspan>
                         </text>
                         <g id="Stacked-Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 9.090877)">
                             <line x1="0.239527468" y1="8.90148412" x2="27.5456589" y2="8.90148412" id="Line" stroke="#505A72" stroke-width="0.5" stroke-linecap="square" stroke-dasharray="0.3764191421792231,1.129257426537669"></line>
                             <g>
-                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="6.02270627" font-weight="normal" line-spacing="9.41047855" fill="#505A72">
+                                <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="6.02270627" font-weight="normal" line-spacing="9.41047855" fill="#505A72">
                                     <tspan x="5.64628713" y="6">Healthy</tspan>
                                 </text>
                                 <g id="Pills/Valuless/Green" transform="translate(0.000000, 3.030292)" fill="#3DC47E">
@@ -102,7 +102,7 @@
                             </g>
                         </g>
                     </g>
-                    <g id="Card-Title-Copy" transform="translate(112.317683, 59.154962)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                    <g id="Card-Title-Copy" transform="translate(112.317683, 59.154962)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                         <text id="Value" font-size="6.27365237" line-spacing="9.80258183" fill="#505A72">
                             <tspan x="0.0622386148" y="14.37559">Hosted</tspan>
                         </text>

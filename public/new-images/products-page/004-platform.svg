@@ -35,7 +35,7 @@
                             <rect id="Background" fill="#263B67" fill-rule="evenodd" x="0" y="0" width="57.7021277" height="324"></rect>
                             <polygon id="Vertical-HR" fill="#DCE0E6" fill-rule="evenodd" transform="translate(57.439845, 162.000000) scale(-1, 1) translate(-57.439845, -162.000000) " points="57.1775629 0 57.7021277 0 57.7021277 324 57.1775629 324"></polygon>
                             <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#FFFFFF" fill-rule="evenodd" transform="translate(4.602454, 125.383122)">
-                                <text id="Text" fill="none" font-family="Avenir-Roman, Avenir" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
                                     <tspan x="0.453449009" y="27.3781589" fill="#505A72">Control Planes</tspan>
                                 </text>
                                 <g id="Layers/24x24-Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
@@ -46,7 +46,7 @@
                                     </g>
                                 </g>
                             </g>
-                            <text id="Text-Copy" fill="none" font-family="Avenir-Roman, Avenir" font-size="7.46633416" font-weight="normal" line-spacing="12.4438903">
+                            <text id="Text-Copy" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.46633416" font-weight="normal" line-spacing="12.4438903">
                                 <tspan x="10.1664165" y="106.048724" fill="#FFFFFF">Dashboard</tspan>
                             </text>
                             <g id="Group" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(22.900249, 80.000000)" stroke-linecap="round" stroke-linejoin="round">
@@ -56,7 +56,7 @@
                                 <rect id="Rectangle-path" stroke="#FFFFFF" stroke-width="1.24438903" x="0" y="7.46633416" width="4.97755611" height="4.97755611" rx="1.24438903"></rect>
                             </g>
                             <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 170.274127)">
-                                <text id="Text" fill="none" font-family="Avenir-Roman, Avenir" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
                                     <tspan x="9.35026407" y="27.3781589" fill="#505A72">Consoles</tspan>
                                 </text>
                                 <g id="Layout/24x24-Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.21243051">
@@ -66,7 +66,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 216.165132)">
-                                <text id="Text" fill="none" font-family="Avenir-Roman, Avenir" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
                                     <tspan x="4.03254386" y="27.3781589" fill="#505A72">Repositories</tspan>
                                 </text>
                                 <g id="Repository/24x24/Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-width="1.21243051">
@@ -75,7 +75,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 262.056137)">
-                                <text id="Text" fill="none" font-family="Avenir-Roman, Avenir" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
                                     <tspan x="9.96496633" y="27.3781589" fill="#505A72">All Users</tspan>
                                 </text>
                                 <g id="Users/24x24-Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
@@ -88,7 +88,7 @@
                                 </g>
                             </g>
                             <g id="Navigation/Desktop/Side/Minimized-with-Labels/Labels/Light-Nav-Unselected" fill="#A6AEC1" fill-rule="evenodd" transform="translate(4.602454, 315.838147)">
-                                <text id="Text" fill="none" font-family="Avenir-Roman, Avenir" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
+                                <text id="Text" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.27458304" font-weight="normal" line-spacing="12.1243051">
                                     <tspan x="12.6529248" y="27.3781589" fill="#505A72">Robots</tspan>
                                 </text>
                                 <g id="Robot/24x24/Slate" fill="none" transform="translate(16.974027, 0.000000)" stroke="#505A72" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
@@ -122,10 +122,10 @@
                     </g>
                     <g id="Margins/Header/Subtext-and-Buttons" mask="url(#mask-2)">
                         <g transform="translate(92.898734, 80.037975)">
-                            <text id="My-Dashboard" font-family="Avenir-Black, Avenir" font-size="16" font-weight="700" line-spacing="17.8632911">
+                            <text id="My-Dashboard" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="16" font-weight="700" line-spacing="17.8632911">
                                 <tspan x="0" y="16" fill="#505A72">My Dashboard</tspan>
                             </text>
-                            <text id="Subtext" font-family="Avenir-Roman, Avenir" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949">
+                            <text id="Subtext" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="7.14531646" font-weight="normal" line-spacing="10.2075949">
                                 <tspan x="0" y="29.9670886" fill="#929394">Last Updated 3 Hours Ago</tspan>
                             </text>
                         </g>
@@ -133,7 +133,7 @@
                     <g id="Avatar/Companies/48x48-Copy-2" mask="url(#mask-2)">
                         <g transform="translate(93.000000, 42.000000)">
                             <circle id="Oval-2" fill="#EA595B" fill-rule="evenodd" cx="14.9326683" cy="14.9326683" r="14.9326683"></circle>
-                            <text id="M" fill="none" font-family="Avenir-Roman, Avenir" font-size="9.95511222" font-weight="normal" line-spacing="15.5548628">
+                            <text id="M" fill="none" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="9.95511222" font-weight="normal" line-spacing="15.5548628">
                                 <tspan x="10.4180249" y="17.4663342" fill="#FFFFFF">M</tspan>
                             </text>
                         </g>
@@ -236,7 +236,7 @@
                 <g id="Cards/Standard-Copy-2" transform="translate(92.000000, 202.998753)" stroke="#DCDCDE" stroke-width="0.622194514">
                     <path d="M338.889027,148.69015 L3.11097257,148.69015 C2.33780835,148.69015 1.63783952,148.376763 1.13116175,147.870085 C0.624483976,147.363407 0.311097257,146.663439 0.311097257,145.890274 L0.311097257,3.11221945 C0.311097257,2.33905523 0.624483976,1.63908641 1.13116175,1.13240863 C1.63783952,0.625730859 2.33780835,0.31234414 3.11097257,0.31234414 L338.889027,0.31234414 C339.662192,0.31234414 340.36216,0.625730859 340.868838,1.13240863 C341.375516,1.63908641 341.688903,2.33905523 341.688903,3.11221945 L341.688903,145.890274 C341.688903,146.663439 341.375516,147.363407 340.868838,147.870085 C340.36216,148.376763 339.662192,148.69015 338.889027,148.69015 Z" id="Rectangle-21-Copy-2"></path>
                 </g>
-                <text id="Total-Monthly-Spend" font-family="Avenir-Black, Avenir" font-size="10" font-weight="700" line-spacing="15.5548628" fill="#505A72">
+                <text id="Total-Monthly-Spend" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="10" font-weight="700" line-spacing="15.5548628" fill="#505A72">
                     <tspan x="93" y="184">Total Monthly Spend</tspan>
                 </text>
                 <g id="Arrow-Up/16x16-Copy-2" transform="translate(350.865337, 263.218204)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.24438903">

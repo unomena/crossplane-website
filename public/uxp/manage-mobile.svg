@@ -21,20 +21,20 @@
             <g mask="url(#c)">
                 <path fill="#263B67" d="M0 0h27.07v514.08H0z"/>
                 <path fill="#DCE0E6" d="M27.07 0h-.246v514.08h.246z"/>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.419" fill="#505A72" transform="translate(2.137 35.904)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.419" fill="#505A72" transform="translate(2.137 35.904)">
                                     <tspan x=".213" y="12.579">Control Planes</tspan>
                                 </text>
                 <g stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width=".57">
                     <path d="m13.452 36.189-3.051 1.335 3.051 1.335 3.052-1.335zM10.4 41.033l3.052 1.335 3.052-1.335M10.4 39.323l3.052 1.335 3.052-1.335"/>
                 </g>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.419" fill="#505A72" transform="translate(2.137 58.415)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.419" fill="#505A72" transform="translate(2.137 58.415)">
                                     <tspan x="4.395" y="12.579">Consoles</tspan>
                                 </text>
                 <g transform="translate(10.116 58.415)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".57">
                     <rect x=".427" y=".427" width="5.984" height="5.984" rx=".57"/>
                     <path d="M.427 2.565h5.984M2.565 6.411V2.565"/>
                 </g>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.419" fill="#505A72" transform="translate(2.137 80.926)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.419" fill="#505A72" transform="translate(2.137 80.926)">
                                     <tspan x="1.895" y="12.579">Repositories</tspan>
                                 </text>
                 <g stroke="#A6AEC1" stroke-width=".57">
@@ -42,7 +42,7 @@
                     <path d="M11.772 81.353H16.1v5.984h-4.328c-.443 0-.801-.334-.801-.748v-4.488c0-.413.358-.748.801-.748z" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
                 <g>
-                    <text font-family="Avenir-Roman, Avenir" font-size="3.419" fill="#505A72" transform="translate(2.137 103.437)">
+                    <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.419" fill="#505A72" transform="translate(2.137 103.437)">
                                     <tspan x="4.684" y="12.579">All Users</tspan>
                                 </text>
                     <g transform="translate(10.4 104.007)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".57">
@@ -52,7 +52,7 @@
                     </g>
                 </g>
                 <g>
-                    <text font-family="Avenir-Roman, Avenir" font-size="3.419" fill="#505A72" transform="translate(2.137 125.948)">
+                    <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.419" fill="#505A72" transform="translate(2.137 125.948)">
                                     <tspan x="6.584" y="12.579">Teams</tspan>
                                 </text>
                     <g stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".57">
@@ -79,7 +79,7 @@
             </g>
         </g>
         <rect x=".25" y=".25" width="190.824" height="44.695" rx="1.425" fill="#FFF" stroke="#DCDCDE" stroke-width=".5" transform="translate(53.778 55.29)"/>
-        <g font-family="Avenir-Roman, Avenir">
+        <g font-family="'Avenir-Roman', 'Arial', sans-serif">
             <text font-size="5.699" fill="#505A72" transform="translate(64.972 64.448)">
                                 <tspan x="0" y="14.549">UXP Instance</tspan>
                             </text>
@@ -87,7 +87,7 @@
                                 <tspan x="0" y="5">Name</tspan>
                             </text>
         </g>
-        <g font-family="Avenir-Roman, Avenir">
+        <g font-family="'Avenir-Roman', 'Arial', sans-serif">
             <text font-size="5.699" fill="#505A72" transform="translate(164.705 64.957)">
                                 <tspan x="0" y="14.65">Self-Hosted UXP</tspan>
                             </text>
@@ -95,10 +95,10 @@
                                 <tspan x="0" y="5">Type</tspan>
                             </text>
         </g>
-        <text font-family="Avenir-Roman, Avenir" font-size="4.787" fill="#929394" transform="translate(124.507 64.957)">
+        <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="4.787" fill="#929394" transform="translate(124.507 64.957)">
                                 <tspan x="0" y="5">Status</tspan>
                             </text>
-        <text font-family="Avenir-Roman, Avenir" font-size="5.471" fill="#505A72" transform="translate(124.507 73.252)">
+        <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.471" fill="#505A72" transform="translate(124.507 73.252)">
                                     <tspan x="8" y="5">Health</tspan>
                                     <tspan x="8" y="13.549">y</tspan>
                                 </text>
@@ -111,12 +111,12 @@
             </g>
         </g>
         <g>
-            <text font-family="Avenir-Black, Avenir" font-size="9.617" font-weight="700" fill="#505A72" transform="translate(52.76 29.767)">
+            <text font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="9.617" font-weight="700" fill="#505A72" transform="translate(52.76 29.767)">
                             <tspan x="0" y="10">Control Planes</tspan>
                         </text>
             <g transform="translate(173.76 29.767)">
                 <rect fill="#6553C0" width="70" height="13" rx="6.5"/>
-                <text font-family="Avenir-Roman, Avenir" font-size="5.386" fill="#FFF">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.386" fill="#FFF">
                                 <tspan x="10.147" y="8">Create Control Plane</tspan>
                             </text>
             </g>

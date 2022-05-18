@@ -45,7 +45,7 @@
                             <path d="M18.1484571,9.80075442 C15.9519334,11.5160962 12.7606315,12.4267098 10.0167128,12.4267098 C6.1711272,12.4267098 2.70609438,10.9231386 0.088959763,8.42424555 C-0.118074279,8.22659299 0.0689306716,7.95835024 0.315956133,8.11364868 C3.14673439,9.85016756 6.6384059,10.9019615 10.2503855,10.9019615 C12.6872583,10.9019615 15.3644802,10.365476 17.8280584,9.26426891 C18.1952584,9.08779342 18.5090475,9.51839363 18.1484571,9.80075442 Z M19.0631857,8.69954732 C18.7827117,8.31836025 17.2071566,8.51601281 16.4927857,8.60778007 C16.2790753,8.63601615 16.2456934,8.43836359 16.4393747,8.29012417 C17.6945311,7.35833355 19.7574608,7.62657631 19.9978767,7.93717318 C20.2382258,8.25482907 19.931113,10.4360662 18.7560062,11.4808011 C18.5758112,11.6431586 18.4022257,11.5584504 18.4822753,11.3466798 C18.7493299,10.6478368 19.343593,9.07367538 19.0631857,8.69954732 L19.0631857,8.69954732 Z" id="Fill-2" fill="#FF9900"></path>
                         </g>
                     </g>
-                    <text id="Title-Copy-95" font-family="Avenir-Black, Avenir" font-size="7.815876" font-weight="700" line-spacing="12.2123062" fill="#505A72">
+                    <text id="Title-Copy-95" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.815876" font-weight="700" line-spacing="12.2123062" fill="#505A72">
                         <tspan x="13.1282292" y="61.1566901">platform-ref-aws</tspan>
                     </text>
                     <g id="Text" transform="translate(12.945045, 107.959287)" fill="#E7F0FC">
@@ -84,7 +84,7 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Title-Copy-92" font-family="Avenir-Black, Avenir" font-size="7.815876" font-weight="700" line-spacing="12.2123062" fill="#505A72">
+                    <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.815876" font-weight="700" line-spacing="12.2123062" fill="#505A72">
                         <tspan x="15.1432597" y="61.6443662">platform-ref-gcp</tspan>
                     </text>
                     <rect id="Rectangle" fill="#D2DCEA" opacity="0.717754546" x="14.9600752" y="74.9192342" width="78.048158" height="4.69388204" rx="2.34694102"></rect>
@@ -110,7 +110,7 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Title-Copy-92" font-family="Avenir-Black, Avenir" font-size="7.815876" font-weight="700" line-spacing="12.2123062" fill="#505A72">
+                    <text id="Title-Copy-92" font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="7.815876" font-weight="700" line-spacing="12.2123062" fill="#505A72">
                         <tspan x="15.1432597" y="61.6443662">provider-helm</tspan>
                     </text>
                     <rect id="Rectangle" fill="#E7F0FC" x="14.9600752" y="108.446963" width="88.9971818" height="4.69388204" rx="2.34694102"></rect>

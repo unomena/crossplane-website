@@ -91,10 +91,10 @@
                             <path d="M13.4634848,7.13619005 C11.8339874,8.38517607 9.466511,9.04821803 7.43092701,9.04821803 C4.57806837,9.04821803 2.00752386,7.95342781 0.0659950547,6.13391732 C-0.0875937416,5.99000123 0.0511364159,5.79468655 0.234392961,5.90776347 C2.33441391,7.17216907 4.92472041,7.93800823 7.6042778,7.93800823 C9.41207885,7.93800823 11.3981836,7.54737886 13.2257961,6.74556068 C13.4982045,6.61706417 13.7309899,6.93059564 13.4634848,7.13619005 Z M14.1420789,6.33437186 C13.9340084,6.05681942 12.7651783,6.2007355 12.2352202,6.26755368 C12.0766785,6.28811312 12.0519141,6.14419704 12.1955972,6.03625997 C13.1267386,5.35779843 14.6571288,5.55311312 14.835482,5.77926697 C15.0137857,6.01056067 14.7859532,7.59877746 13.9141969,8.35947677 C13.7805187,8.47769355 13.6517438,8.41601523 13.7111288,8.26181942 C13.909244,7.75297327 14.3500998,6.60678445 14.1420789,6.33437186 L14.1420789,6.33437186 Z" id="Fill-2" fill="#FF9900"></path>
                         </g>
                     </g>
-                    <text id="Title" font-family="Avenir-Roman, Avenir" font-size="9.39622642" font-weight="normal" line-spacing="14.6816038" fill="#505A72">
+                    <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="9.39622642" font-weight="normal" line-spacing="14.6816038" fill="#505A72">
                         <tspan x="21.9245283" y="43.8443396">Maribel’s Control Plane</tspan>
                     </text>
-                    <text id="Column-Title" font-family="Avenir-Roman, Avenir" font-size="5.48113208" font-weight="normal" line-spacing="7.83018868" fill="#8D98A7">
+                    <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.48113208" font-weight="normal" line-spacing="7.83018868" fill="#8D98A7">
                         <tspan x="21.9245283" y="55.1132075">Development</tspan>
                     </text>
                 </g>
@@ -154,10 +154,10 @@
                             </g>
                         </g>
                     </g>
-                    <text id="Title" font-family="Avenir-Roman, Avenir" font-size="9.39622642" font-weight="normal" line-spacing="14.6816038" fill="#505A72">
+                    <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="9.39622642" font-weight="normal" line-spacing="14.6816038" fill="#505A72">
                         <tspan x="21.9245283" y="43.8443396">Phil’s Control Plane</tspan>
                     </text>
-                    <text id="Column-Title" font-family="Avenir-Roman, Avenir" font-size="5.48113208" font-weight="normal" line-spacing="7.83018868" fill="#8D98A7">
+                    <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.48113208" font-weight="normal" line-spacing="7.83018868" fill="#8D98A7">
                         <tspan x="21.9245283" y="55.1132075">Development</tspan>
                     </text>
                 </g>

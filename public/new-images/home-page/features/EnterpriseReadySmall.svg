@@ -38,7 +38,7 @@
                             </g>
                         </g>
                     </g>
-                    <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(24.248610, 20.005103)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                    <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(24.248610, 20.005103)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                         <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
                             <tspan x="0" y="30.1864576">Production</tspan>
                         </text>
@@ -46,7 +46,7 @@
                             <tspan x="0" y="11">Name</tspan>
                         </text>
                     </g>
-                    <g id="Card-Title-Copy" transform="translate(217.008660, 20.611319)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                    <g id="Card-Title-Copy" transform="translate(217.008660, 20.611319)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                         <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
                             <tspan x="0.120280804" y="27.1864576">Hosted</tspan>
                         </text>
@@ -55,13 +55,13 @@
                         </text>
                     </g>
                     <g id="Cards/Horizontal/Data/Elements/Status-With-Link" transform="translate(130.208147, 20.611319)">
-                        <text id="Column-Title" font-family="Avenir-Roman, Avenir" font-size="10.1844163" font-weight="normal" line-spacing="14.5491661" fill="#929394">
+                        <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.1844163" font-weight="normal" line-spacing="14.5491661" fill="#929394">
                             <tspan x="0" y="10">Status</tspan>
                         </text>
                         <g id="Stacked-Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 17.568804)">
                             <line x1="0.457771648" y1="17.2027876" x2="52.6437395" y2="17.2027876" id="Line" stroke="#505A72" stroke-width="0.727458304" stroke-linecap="square" stroke-dasharray="0.7274583038551087,2.182374911565326"></line>
                             <g>
-                                <text id="Title" font-family="Avenir-Roman, Avenir" font-size="11.6393329" font-weight="normal" line-spacing="18.1864576" fill="#505A72">
+                                <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="11.6393329" font-weight="normal" line-spacing="18.1864576" fill="#505A72">
                                     <tspan x="10.9118746" y="12">Healthy</tspan>
                                 </text>
                                 <g id="Pills/Valuless/Green" transform="translate(0.000000, 5.856268)" fill="#3DC47E">
@@ -77,7 +77,7 @@
                         <rect stroke="#DCDCDE" stroke-width="0.606215253" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="0.303107627" y="0.379232194" width="347.393785" height="80.3937847" rx="8"></rect>
                     </g>
                 </g>
-                <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(24.302321, 113.715198)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                <g id="Cards/Horizontal/Data/Elements/Card-Title" transform="translate(24.302321, 113.715198)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                     <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
                         <tspan x="0" y="30.1864576">Staging</tspan>
                     </text>
@@ -86,13 +86,13 @@
                     </text>
                 </g>
                 <g id="Cards/Horizontal/Data/Elements/Status-With-Link" transform="translate(130.208147, 113.611319)">
-                    <text id="Column-Title" font-family="Avenir-Roman, Avenir" font-size="10.1844163" font-weight="normal" line-spacing="14.5491661" fill="#929394">
+                    <text id="Column-Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="10.1844163" font-weight="normal" line-spacing="14.5491661" fill="#929394">
                         <tspan x="0" y="10">Status</tspan>
                     </text>
                     <g id="Stacked-Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 17.568804)">
                         <line x1="0.457771648" y1="17.2027876" x2="52.6437395" y2="17.2027876" id="Line" stroke="#505A72" stroke-width="0.727458304" stroke-linecap="square" stroke-dasharray="0.7274583038551087,2.182374911565326"></line>
                         <g>
-                            <text id="Title" font-family="Avenir-Roman, Avenir" font-size="11.6393329" font-weight="normal" line-spacing="18.1864576" fill="#505A72">
+                            <text id="Title" font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="11.6393329" font-weight="normal" line-spacing="18.1864576" fill="#505A72">
                                 <tspan x="10.9118746" y="12">Healthy</tspan>
                             </text>
                             <g id="Pills/Valuless/Green" transform="translate(0.000000, 5.856268)" fill="#3DC47E">
@@ -101,7 +101,7 @@
                         </g>
                     </g>
                 </g>
-                <g id="Card-Title-Copy" transform="translate(217.062370, 114.321413)" font-family="Avenir-Roman, Avenir" font-weight="normal">
+                <g id="Card-Title-Copy" transform="translate(217.062370, 114.321413)" font-family="'Avenir-Roman', 'Arial', sans-serif" font-weight="normal">
                     <text id="Value" font-size="12.1243051" line-spacing="18.9442267" fill="#505A72">
                         <tspan x="0.120280804" y="28.1864576">Hosted</tspan>
                     </text>

@@ -29,27 +29,27 @@
             <g mask="url(#c)">
                 <path fill="#263B67" d="M0 0h26.553v553.633H0z"/>
                 <path fill="#DCE0E6" d="M26.553 0h-.241v553.633h.241z"/>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.348" fill="#505A72" transform="translate(2.118 35.15)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.348" fill="#505A72" transform="translate(2.118 35.15)">
                                     <tspan x=".209" y="12.378">Control Planes</tspan>
                                 </text>
                 <g stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width=".558">
                     <path d="m13.196 35.429-2.988 1.307 2.988 1.307 2.987-1.307zM10.208 40.171l2.988 1.307 2.987-1.307M10.208 38.497l2.988 1.307 2.987-1.307"/>
                 </g>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.348" fill="#505A72" transform="translate(2.118 57.188)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.348" fill="#505A72" transform="translate(2.118 57.188)">
                                     <tspan x="4.303" y="12.378">Consoles</tspan>
                                 </text>
                 <g transform="translate(9.929 57.188)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".558">
                     <rect x=".418" y=".418" width="5.858" height="5.858" rx=".558"/>
                     <path d="M.418 2.511h5.859M2.511 6.277V2.511"/>
                 </g>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.348" fill="#505A72" transform="translate(2.118 79.226)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.348" fill="#505A72" transform="translate(2.118 79.226)">
                                     <tspan x="1.856" y="12.378">Repositories</tspan>
                                 </text>
                 <g stroke="#A6AEC1" stroke-width=".558">
                     <path d="M11.603 83.83h4.184v1.673h-4.184a.837.837 0 1 1 0-1.674z"/>
                     <path d="M11.55 79.645h4.237v5.858H11.55c-.433 0-.784-.328-.784-.732v-4.394c0-.404.351-.732.784-.732z" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
-                <text font-family="Avenir-Roman, Avenir" font-size="3.348" fill="#505A72" transform="translate(2.118 101.265)">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.348" fill="#505A72" transform="translate(2.118 101.265)">
                                     <tspan x="4.586" y="12.378">All Users</tspan>
                                 </text>
                 <g transform="translate(10.208 101.823)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".558">
@@ -58,7 +58,7 @@
                     <path d="M4.546.041a1.268 1.268 0 0 1 0 2.457"/>
                 </g>
                 <g>
-                    <text font-family="Avenir-Roman, Avenir" font-size="3.348" fill="#505A72" transform="translate(2.118 123.303)">
+                    <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.348" fill="#505A72" transform="translate(2.118 123.303)">
                                     <tspan x="6.445" y="12.378">Teams</tspan>
                                 </text>
                     <g stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".558">
@@ -67,7 +67,7 @@
                     </g>
                 </g>
                 <g>
-                    <text font-family="Avenir-Roman, Avenir" font-size="3.348" fill="#505A72" transform="translate(2.118 145.341)">
+                    <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="3.348" fill="#505A72" transform="translate(2.118 145.341)">
                                     <tspan x="5.823" y="12.378">Robots</tspan>
                                 </text>
                     <g transform="translate(10.208 145.62)" stroke="#A6AEC1" stroke-linecap="round" stroke-linejoin="round" stroke-width=".558">
@@ -97,7 +97,7 @@
             </g>
         </g>
         <rect x=".25" y=".25" width="186.856" height="36.563" rx="1.395" transform="translate(48.67 48.866)" fill="#FFF" stroke="#DCDCDE" stroke-width=".5"/>
-        <g font-family="Avenir-Roman, Avenir">
+        <g font-family="'Avenir-Roman', 'Arial', sans-serif">
             <text font-size="5.579" fill="#505A72" transform="translate(59.829 58.072)">
                                 <tspan x="0" y="14.369">UXP Instance</tspan>
                             </text>
@@ -105,7 +105,7 @@
                                 <tspan x="0" y="5">Name</tspan>
                             </text>
         </g>
-        <g font-family="Avenir-Roman, Avenir">
+        <g font-family="'Avenir-Roman', 'Arial', sans-serif">
             <text font-size="5.579" fill="#505A72" transform="translate(162.338 58.35)">
                                 <tspan x=".606" y="14.369">Self-Hosted</tspan>
                             </text>
@@ -113,11 +113,11 @@
                                 <tspan x="0" y="5">Server</tspan>
                             </text>
         </g>
-        <text font-family="Avenir-Roman, Avenir" font-size="4.687" fill="#929394" transform="translate(117.792 58.35)">
+        <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="4.687" fill="#929394" transform="translate(117.792 58.35)">
                                 <tspan x="0" y="5">Status</tspan>
                             </text>
         <path stroke="#505A72" stroke-width=".5" stroke-linecap="square" stroke-dasharray="0.3347595734554482,1.004278720366345" d="M118.008 73.935h24.568"/>
-        <text font-family="Avenir-Roman, Avenir" font-size="5.356" fill="#505A72" transform="translate(117.792 66.435)">
+        <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.356" fill="#505A72" transform="translate(117.792 66.435)">
                                         <tspan x="8" y="5">Healthy</tspan>
                                     </text>
         <path d="M119.292 69.262a1.5 1.5 0 0 1 1.5 1.5v.347a1.5 1.5 0 0 1-3 0v-.347a1.5 1.5 0 0 1 1.5-1.5z" fill="#3DC47E"/>
@@ -129,7 +129,7 @@
         <g transform="translate(48.67 92.05)" fill="#FFF" stroke="#DCDCDE" stroke-width=".5">
             <rect x=".25" y=".25" width="186.856" height="36.563" rx="1.395"/>
         </g>
-        <g font-family="Avenir-Roman, Avenir">
+        <g font-family="'Avenir-Roman', 'Arial', sans-serif">
             <text font-size="5.579" fill="#505A72" transform="translate(59.853 101.235)">
                             <tspan x="0" y="14.369">UXP - Test</tspan>
                         </text>
@@ -137,7 +137,7 @@
                             <tspan x="0" y="5">Name</tspan>
                         </text>
         </g>
-        <g font-family="Avenir-Roman, Avenir">
+        <g font-family="'Avenir-Roman', 'Arial', sans-serif">
             <text font-size="5.579" fill="#505A72" transform="translate(162.362 101.514)">
                             <tspan x=".603" y="14.369">Self-Hosted</tspan>
                         </text>
@@ -146,11 +146,11 @@
                         </text>
         </g>
         <g>
-            <text font-family="Avenir-Roman, Avenir" font-size="4.687" fill="#929394" transform="translate(117.792 101.514)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="4.687" fill="#929394" transform="translate(117.792 101.514)">
                             <tspan x="0" y="5">Status</tspan>
                         </text>
             <path stroke="#505A72" stroke-width=".5" stroke-linecap="square" stroke-dasharray="0.3347595734554482,1.004278720366345" d="M118.008 117.098h24.568"/>
-            <text font-family="Avenir-Roman, Avenir" font-size="5.356" fill="#505A72" transform="translate(117.792 109.598)">
+            <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.356" fill="#505A72" transform="translate(117.792 109.598)">
                                     <tspan x="8" y="5">Healthy</tspan>
                                 </text>
             <path d="M119.292 112.424a1.5 1.5 0 0 1 1.5 1.5v.348a1.5 1.5 0 0 1-3 0v-.348a1.5 1.5 0 0 1 1.5-1.5z" fill="#3DC47E"/>
@@ -163,12 +163,12 @@
             </g>
         </g>
         <g>
-            <text font-family="Avenir-Black, Avenir" font-size="9.415" font-weight="700" fill="#505A72" transform="translate(48.112 22.94)">
+            <text font-family="'Avenir-Black', 'Arial Black', sans-serif" font-size="9.415" font-weight="700" fill="#505A72" transform="translate(48.112 22.94)">
                             <tspan x=".105" y="9.002">Control Planes</tspan>
                         </text>
             <g transform="translate(170.112 22.94)">
                 <rect fill="#6553C0" width="64" height="15" rx="7.5"/>
-                <text font-family="Avenir-Roman, Avenir" font-size="5.272" fill="#FFF">
+                <text font-family="'Avenir-Roman', 'Arial', sans-serif" font-size="5.272" fill="#FFF">
                                 <tspan x="24.036" y="9">Create </tspan>
                                 <tspan x="23.105" y="16.532">Control </tspan>
                                 <tspan x="25.504" y="24.064">Plane</tspan>
