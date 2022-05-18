@@ -2,7 +2,7 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import { gradient_1, MQ } from 'src/theme';
+import { fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Grid } from '@mui/material';
 
 import quotes from 'src-new/constants/quotes';
@@ -100,7 +100,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
           </Box>
           <Box>
             <Typography variant="h6_new">{person}</Typography>
-            <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}>
+            <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic, maxWidth: '200px' }}>
               {role}
             </Typography>
           </Box>

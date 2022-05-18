@@ -122,8 +122,14 @@ export const fontAvenirRoman = {
   fontWeight: 'normal',
 };
 
+export const fontAvenirRomanItalic = {
+  fontFamily: `'Avenir-Roman', 'Arial', sans-serif`,
+  fontWeight: '300',
+  fontStyle: 'italic',
+};
+
 export const fontAvenirBold = {
-  fontFamily: `'Avenir', 'Arial Black', sans-serif`,
+  fontFamily: `'Avenir-Black', 'Arial Black', sans-serif`,
   fontWeight: '900',
 };
 
@@ -195,7 +201,7 @@ export const MQ = {
   lg: `@media screen and (min-width: ${customBreakpoints.lg}px)`,
   xl: `@media screen and (min-width: ${customBreakpoints.xl}px)`,
 };
-
+// TO DO CHANGE FONTS
 const theme = createTheme({
   palette: {
     // background: {
@@ -232,44 +238,55 @@ const theme = createTheme({
     body1: {
       lineHeight: 'normal',
     },
+    // H1 95 (104) -3.2 | 46 (50) -1.6
+    // H2 54 (62) -0.55 | 27 (32) -0.25
+    // H3 40 (48) -0.4 | 24 (28) -0.25
+    // H4 30 (36) 0 | 22 (30) 0
+    // H5 22 (30) 0 | 18 (24) 0
     h1_new: {
-      fontFamily: 'Avenir-Black',
+      ...fontAvenirBold,
       color: COLORS.linkWater,
       fontSize: '46px',
-      lineHeight: '44px',
-      letterSpacing: '-1.59px',
+      lineHeight: '50px',
+      letterSpacing: '-1.6px',
 
       [MQ.md]: {
-        fontSize: '80px',
-        lineHeight: '64px',
-        letterSpacing: '-0.8px',
+        fontSize: '95px',
+        lineHeight: '104px',
+        letterSpacing: '-3.2',
       },
     },
     h2_new: {
-      fontFamily: 'Avenir-Black',
+      ...fontAvenirBold,
       color: COLORS.linkWater,
       fontSize: '27px',
       lineHeight: '32px',
-      letterSpacing: '-0.27px',
+      letterSpacing: '-0.25px',
 
       [MQ.md]: {
         fontSize: '54px',
         lineHeight: '62px',
-        letterSpacing: '-0.54px',
+        letterSpacing: '-0.55px',
       },
     },
     h3_new: {
-      fontFamily: 'Avenir-Black',
-      fontSize: '30px',
-      lineHeight: '62px',
-      letterSpacing: '-0.3px',
+      ...fontAvenirBold,
       color: COLORS.linkWater,
+      fontSize: '24px',
+      lineHeight: '28px',
+      letterSpacing: '-0.25px',
+
+      [MQ.md]: {
+        fontSize: '40px',
+        lineHeight: '48px',
+        letterSpacing: '-0.4px',
+      },
     },
     h4_new: {
-      fontFamily: 'Avenir-Heavy',
+      ...fontAvenirBold,
       color: COLORS.linkWater,
-      fontSize: '18px',
-      lineHeight: '24px',
+      fontSize: '22px',
+      lineHeight: '30px',
 
       [MQ.md]: {
         fontSize: '30px',
@@ -277,24 +294,24 @@ const theme = createTheme({
       },
     },
     h5_new: {
-      fontFamily: 'Avenir-Heavy',
+      ...fontAvenirBold,
       color: COLORS.linkWater,
-      fontSize: '16px',
+      fontSize: '18px',
       lineHeight: '24px',
 
       [MQ.md]: {
-        fontSize: '18px',
-        lineHeight: '25px',
+        fontSize: '22px',
+        lineHeight: '30px',
       },
     },
     h6_new: {
-      fontFamily: 'Avenir-Heavy',
+      ...fontAvenirBold,
       fontSize: '18px',
       lineHeight: '20px',
       color: COLORS.linkWater,
     },
     body_big: {
-      fontFamily: 'Avenir-Book',
+      ...fontAvenirRoman,
       color: COLORS.linkWater,
       fontSize: '18px',
       lineHeight: '28px',
@@ -305,7 +322,7 @@ const theme = createTheme({
       },
     },
     body_normal: {
-      fontFamily: 'Avenir-Book',
+      ...fontAvenirRoman,
       color: COLORS.linkWater,
       fontSize: '14px',
       lineHeight: '22px',
@@ -316,14 +333,14 @@ const theme = createTheme({
       },
     },
     body_small: {
-      fontFamily: 'Avenir-Book',
+      ...fontAvenirRoman,
       fontSize: '16px',
       lineHeight: '28px',
       letterSpacing: '0px',
       color: COLORS.linkWater,
     },
     body_xs: {
-      fontFamily: 'Avenir-Book',
+      ...fontAvenirRoman,
       fontSize: '14px',
       lineHeight: '20px',
       color: COLORS.linkWater,
@@ -372,6 +389,10 @@ export const globalStyle = css`
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 
   body {

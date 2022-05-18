@@ -12,7 +12,15 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material';
-import { COLORS, gradient_1, gradient_2, MQ } from 'src/theme';
+import {
+  COLORS,
+  fontAvenirBold,
+  fontAvenirRoman,
+  fontAvenirRomanItalic,
+  gradient_1,
+  gradient_2,
+  MQ,
+} from 'src/theme';
 import { keyframes } from '@emotion/react';
 
 import { Carousel } from 'react-responsive-carousel';
@@ -93,7 +101,7 @@ const discoverSection: SxProps = {
 };
 
 const h1: SxProps = {
-  fontFamily: 'Avenir-Black',
+  ...fontAvenirBold,
   fontSize: '46px',
   lineHeight: '54px',
   letterSpacing: '-1.59px',
@@ -101,7 +109,7 @@ const h1: SxProps = {
   ...gradient_1,
 
   [MQ.md]: {
-    fontFamily: 'Avenir-Black',
+    ...fontAvenirBold,
     fontSize: '95px',
     lineHeight: '104px',
     letterSpacing: '-3.28px',
@@ -118,7 +126,7 @@ const headerButtons: SxProps = {
 };
 
 const poweringTitle: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   fontSize: '14px',
   lineHeight: '23px',
   letterSpacing: '1.75px;',
@@ -223,7 +231,7 @@ const cpCenterBox: SxProps = {
 };
 
 const cpCenterBoxTitleNum: SxProps = {
-  fontFamily: 'Avenir-Book',
+  ...fontAvenirRoman,
   color: '#fff',
   fontSize: '50px',
   lineHeight: '50px',
@@ -236,7 +244,7 @@ const cpCenterBoxTitleNum: SxProps = {
 };
 
 const cpCenterBoxTitleText: SxProps = {
-  fontFamily: 'Avenir-Black',
+  ...fontAvenirBold,
   color: '#fff',
   fontSize: '20px',
   lineHeight: '24px',
@@ -297,7 +305,7 @@ const pulsate = keyframes`
 `;
 
 const smallTitleStyle: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   ml: 1.5,
   fontSize: '13px',
   lineHeight: '16px',
@@ -440,7 +448,7 @@ const registerFormContainer: SxProps = {
 };
 
 const registerFormTitle: SxProps = {
-  fontFamily: 'Avenir-Heavy',
+  ...fontAvenirBold,
   color: '#fff',
   mb: 2.5,
   fontSize: '22px',
@@ -476,7 +484,7 @@ const registerFormField: SxProps = {
 };
 
 const registerFormSubmit: SxProps = {
-  fontFamily: 'Avenir-Black',
+  ...fontAvenirBold,
   fontSize: '16px',
   lineHeight: '25px',
   color: '#fff',
@@ -1311,7 +1319,7 @@ const QuoteSection = () => {
               <Typography variant="h6_new" sx={{ mb: '2px' }}>
                 {quote.person}
               </Typography>
-              <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
+              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
                 {quote.role}
               </Typography>
             </Box>
@@ -1399,7 +1407,7 @@ const QuoteSection = () => {
               <Typography variant="h6_new" sx={{ mb: '2px' }}>
                 {quote.person}
               </Typography>
-              <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique' }}>
+              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
                 {quote.role}
               </Typography>
             </Box>
@@ -1575,17 +1583,17 @@ const RegisterForm = () => {
   return (
     <Box sx={registerFormContainer}>
       {formSubmitted ? (
-        <Typography sx={{ color: '#fff', fontSize: 20, fontFamily: 'Avenir-Black' }}>
+        <Typography sx={{ color: '#fff', fontSize: 20, ...fontAvenirBold }}>
           Thank you for your interest! We hope you enjoy our monlty newsletter.
         </Typography>
       ) : submitError ? (
-        <Typography sx={{ color: '#fff', fontSize: 20, fontFamily: 'Avenir-Black' }}>
+        <Typography sx={{ color: '#fff', fontSize: 20, ...fontAvenirBold }}>
           Something went wrong, please try again later.
         </Typography>
       ) : emailSubmitted ? (
         <>
           <Typography sx={{ color: '#fff' }}>
-            <Typography variant="inherit" sx={{ fontFamily: 'Avenir-Black' }}>
+            <Typography variant="inherit" sx={{ ...fontAvenirBold }}>
               Yes, I wish to subscribe to stay in the know about exciting product announcements and
               educational material.
             </Typography>
@@ -1667,7 +1675,7 @@ const VisitBlogCard = () => {
       href={routes.upboundBlogUrl}
     >
       <Box sx={visitCard}>
-        <Typography variant="h5_new">Visit the Upbound Blog</Typography>
+        <Typography variant="h6_new">Visit the Upbound Blog</Typography>
       </Box>
     </CornerCard>
   );

@@ -9,11 +9,12 @@ import {
   SxProps,
   Typography,
 } from '@mui/material';
+import { fontAvenirBold } from 'src/theme';
 
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 
 const hasArrowStyle: SxProps = {
-  fontFamily: 'Avenir-Black',
+  ...fontAvenirBold,
   fontSize: '16px',
   lineHeight: '25px',
   display: 'flex',

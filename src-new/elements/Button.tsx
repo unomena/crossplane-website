@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button as MuiButton, ButtonProps, SxProps } from '@mui/material';
-import { COLORS, MQ } from 'src/theme';
+import { COLORS, fontAvenirBold, fontAvenirRoman, MQ } from 'src/theme';
 
 const scale = 1.05;
 
@@ -73,7 +73,7 @@ const typeStyles = {
 };
 
 const small: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   fontSize: '14px',
   lineHeight: '14px',
   borderRadius: '20px',
@@ -82,7 +82,7 @@ const small: SxProps = {
 };
 
 const normal: SxProps = {
-  fontFamily: 'Avenir-Black',
+  ...fontAvenirBold,
   fontSize: '16px',
   lineHeight: '16px',
   borderRadius: '24px',
@@ -91,7 +91,7 @@ const normal: SxProps = {
 };
 
 const large: SxProps = {
-  fontFamily: 'Avenir-Heavy',
+  ...fontAvenirBold,
   borderRadius: '32px',
   fontSize: '14px',
   lineHeight: '18px',

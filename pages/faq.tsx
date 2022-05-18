@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from '@mui/system';
 import { Box } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { COLORS, fontAvenirRoman } from 'src/theme';
 
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
 import PageProvider from 'src-new/components/PageProvider';
@@ -137,21 +137,21 @@ const generalFaqs = [
         <AnswerList>
           <li>
             <Span sx={{ fontFamily: 'Avenir' }}>Platform teams </Span>
-            <Span sx={{ fontFamily: 'Avenir-Roman' }}>
+            <Span sx={{ ...fontAvenirRoman }}>
               can assemble infrastructure from multiple vendors and expose higher level self-service
               APIs for application teams to consume without having to write any code.
             </Span>
           </li>
           <li>
             <Span sx={{ fontFamily: 'Avenir' }}>Developers </Span>
-            <Span sx={{ fontFamily: 'Avenir-Roman' }}>
+            <Span sx={{ ...fontAvenirRoman }}>
               can self-service what they need and it automatically adheres to their organization's
               policies, permissions and quotas.
             </Span>
           </li>
           <li>
             <Span sx={{ fontFamily: 'Avenir' }}>Enterprises </Span>
-            <Span sx={{ fontFamily: 'Avenir-Roman' }}>
+            <Span sx={{ ...fontAvenirRoman }}>
               can innovate faster with a modern and automated, self-service operations strategy.
             </Span>
           </li>

@@ -1,12 +1,12 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { Carousel } from 'react-responsive-carousel';
 
 import Image from 'next/image';
 
-import { COLORS, gradient_1, MQ } from 'src/theme';
-import { Box, SxProps, Typography, Grid, Container, Hidden, useMediaQuery } from '@mui/material';
+import { COLORS, fontAvenirBold, fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
+import { Box, SxProps, Typography, Container, Hidden, useMediaQuery } from '@mui/material';
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
@@ -169,7 +169,8 @@ const FeatureBlock = ({
               display: 'flex',
               flexDirection: 'column',
               background: isActive
-                ? 'linear-gradient(45deg, rgba(13,36,54,1) 20%, rgba(27,53,73,1) 40%, rgba(27,53,73,1) 60%, rgba(13,36,54,1) 80%)'
+                ? // eslint-disable-next-line max-len
+                  'linear-gradient(45deg, rgba(13,36,54,1) 20%, rgba(27,53,73,1) 40%, rgba(27,53,73,1) 60%, rgba(13,36,54,1) 80%)'
                 : 'unset',
               py: 2,
             }}
@@ -196,7 +197,7 @@ const FeatureBlock = ({
                 )}
               </Box>
               <Box>
-                <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                   {title}
                 </Typography>
                 {(isActive || finalScrolled) && (
@@ -309,7 +310,7 @@ const FeaturesSection = () => {
     if (featureSectionRef.current) {
       if (document.body.scrollTop >= featureSectionRef.current.offsetTop) {
         if (!finalScrolledRef.current) {
-          window.scrollTo(0, featureSectionRef.current.offsetTop);
+          document.body.scrollTo(0, featureSectionRef.current.offsetTop);
           disableBodyScroll(featureSectionRef.current);
           setTimeout(() => {
             setCanScroll(true);
@@ -453,7 +454,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
           </Box>
           <Box>
             <Typography variant="h6_new">{person}</Typography>
-            <Typography variant="body_xs" sx={{ fontFamily: 'Avenir-Oblique', maxWidth: '200px' }}>
+            <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic, maxWidth: '200px' }}>
               {role}
             </Typography>
           </Box>
@@ -619,7 +620,7 @@ const Products = ({}: Props) => {
       <Hidden mdUp>
         <Section bgcolor sx={platformCarousel}>
           <Box sx={{ mb: 7.5 }}>
-            <Typography variant="h3_new" sx={{ fontFamily: 'Avenir-Black', mb: 3 }}>
+            <Typography variant="h3_new" sx={{ ...fontAvenirBold, mb: 3 }}>
               The last platform you’ll ever need to build
             </Typography>
             <Typography variant="body_big">
@@ -654,7 +655,7 @@ const Products = ({}: Props) => {
                 <Box>
                   <Typography
                     variant="h4_new"
-                    sx={{ mb: 1, fontFamily: 'Avenir-Black', fontSize: '22px' }}
+                    sx={{ mb: 1, ...fontAvenirBold, fontSize: '22px !important' }}
                   >
                     Fully managed control planes
                   </Typography>
@@ -679,7 +680,7 @@ const Products = ({}: Props) => {
                   <Image src={platformMobileTwo} alt="feature-img-big" />
                 </Box>
                 <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                     Best-in-class platform building blocks
                   </Typography>
 
@@ -703,7 +704,7 @@ const Products = ({}: Props) => {
                   <Image src={platformMobileThree} alt="feature-img-big" />
                 </Box>
                 <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                     Self-service console
                   </Typography>
 
@@ -727,7 +728,7 @@ const Products = ({}: Props) => {
                   <Image src={platformMobileSix} alt="feature-img-big" />
                 </Box>
                 <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px' }}>
+                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                     Support for multi-tenancy
                   </Typography>
 
@@ -763,7 +764,7 @@ const Products = ({}: Props) => {
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
                 <Typography
-                  variant="h3_new"
+                  variant="h4_new"
                   sx={{
                     mb: 3,
                     lineHeight: '34px',
@@ -787,7 +788,7 @@ const Products = ({}: Props) => {
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
                 <Typography
-                  variant="h3_new"
+                  variant="h4_new"
                   sx={{
                     mb: 3,
                     lineHeight: '34px',
@@ -811,7 +812,7 @@ const Products = ({}: Props) => {
             <Box display="flex" flexDirection="column">
               <Box flex={1}>
                 <Typography
-                  variant="h3_new"
+                  variant="h4_new"
                   sx={{
                     mb: 3,
                     lineHeight: '34px',
@@ -834,7 +835,7 @@ const Products = ({}: Props) => {
           </CornerCard>
         </Box>
         <Box sx={productsSectionHeader}>
-          <Typography variant="h3_new" sx={{ mb: 7.5 }}>
+          <Typography variant="h4_new" sx={{ mb: 7.5 }}>
             Trusted by the industry’s best
           </Typography>
         </Box>

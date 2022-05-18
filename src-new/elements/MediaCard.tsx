@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
-import { COLORS, MQ } from 'src/theme';
+import { COLORS, fontAvenirBold, fontAvenirRoman, fontAvenirRomanItalic, MQ } from 'src/theme';
 
 import Link from 'src-new/elements/Link';
 import VideoModal from 'src/elements/VideoModal';
@@ -50,7 +50,7 @@ const pillStyle: SxProps = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  fontFamily: 'Avenir-Heavy',
+  ...fontAvenirBold,
   fontSize: '12px',
   lineHeight: '20px',
   letterSpacing: '0',
@@ -105,7 +105,7 @@ const profilePicInner: SxProps = {
 };
 
 const smallTitleText: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   fontSize: '13px',
   lineHeight: '24px',
   color: COLORS.linkWater,
@@ -124,7 +124,7 @@ const divider: SxProps = {
 
 const dateText: SxProps = {
   ...smallTitleText,
-  fontFamily: 'Avenir-Oblique',
+  ...fontAvenirRomanItalic,
   mt: 'auto',
 };
 

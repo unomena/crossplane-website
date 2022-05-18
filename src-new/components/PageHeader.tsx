@@ -13,7 +13,7 @@ import {
   SxProps,
   Typography,
 } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { COLORS, fontAvenirBold, fontAvenirRoman } from 'src/theme';
 
 import * as routes from 'src/routes';
 
@@ -52,7 +52,7 @@ const root: SxProps = {
 //   display: 'flex',
 //   alignItems: 'center',
 //   justifyContent: 'center',
-//   fontFamily: 'Avenir-Black',
+//   ...fontAvenirBold,
 //   fontSize: 14,
 //   lineHeight: 14,
 //   color: '#fff',
@@ -92,7 +92,7 @@ const rightItems: SxProps = {
 };
 
 const navItem: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   fontSize: '17px',
   lineHeight: '17px',
   color: '#fff',
@@ -148,7 +148,7 @@ const popoverFreeDemoContainer: SxProps = {
 //   display: 'flex',
 //   alignItems: 'center',
 //   justifyContent: 'center',
-//   fontFamily: 'Avenir-Heavy',
+//   ...fontAvenirBold,
 //   fontSize: '11px',
 //   lineHeight: '20px',
 //   letterSpacing: '0',
@@ -167,7 +167,7 @@ const popoverFreeDemoContainer: SxProps = {
 // };
 
 // const popoverBlogDarkText: SxProps = {
-//   fontFamily: 'Avenir-Medium',
+//   ...fontAvenirRoman,
 //   fontSize: '13px',
 //   lineHeight: '24px',
 //   color: COLORS.linkWater,
@@ -184,7 +184,7 @@ const popoverContentContainer: SxProps = {
 };
 
 const popoverContentHeader: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   fontSize: '13px',
   lineHeight: '13px',
   color: COLORS.cornflower,
@@ -218,7 +218,7 @@ const linkBar: SxProps = {
 };
 
 const linkBarTitle: SxProps = {
-  fontFamily: 'Avenir-Heavy',
+  ...fontAvenirBold,
   fontSize: '15px',
   lineHeight: '15px',
   color: '#fff',
@@ -226,7 +226,7 @@ const linkBarTitle: SxProps = {
 };
 
 const linkBarBody: SxProps = {
-  fontFamily: 'Avenir-Book',
+  ...fontAvenirRoman,
   fontSize: '12px',
   lineHeight: '16px',
   color: COLORS.linkWater,
@@ -271,7 +271,7 @@ const accordionLinkChild: SxProps = {
 };
 
 const accordionLinkChildText: SxProps = {
-  fontFamily: 'Avenir-Medium',
+  ...fontAvenirRoman,
   fontSize: 14,
 };
 
@@ -468,7 +468,7 @@ const LearnPopoverContent = () => {
           <Typography sx={{ ...popoverContentBodyBig, my: '2px' }}>
             Moving Crossplane package authoring from plain YAML to IDE aided development
           </Typography>
-          <Typography sx={{ ...popoverBlogDarkText, fontFamily: 'Avenir-Oblique' }}>
+          <Typography sx={{ ...popoverBlogDarkText, ...fontAvenirRomanItalic }}>
             23 Feb, 2022
           </Typography>
         </Box> */}
@@ -609,7 +609,7 @@ const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps)
                   sx={accordionRoot}
                 >
                   <AccordionSummary expandIcon={<ExpandMoreIcon color="inherit" />}>
-                    <Typography sx={{ fontFamily: 'Avenir-Medium' }}>{item.title}</Typography>
+                    <Typography sx={{ ...fontAvenirRoman }}>{item.title}</Typography>
                   </AccordionSummary>
 
                   <AccordionDetails>
@@ -625,7 +625,7 @@ const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps)
               ) : (
                 <Box sx={accordionLinkItem}>
                   <Link href={item.href}>
-                    <Typography sx={{ fontFamily: 'Avenir-Medium' }}>{item.title}</Typography>
+                    <Typography sx={{ ...fontAvenirRoman }}>{item.title}</Typography>
                   </Link>
                 </Box>
               )}
