@@ -303,7 +303,7 @@ const FeaturesSection = () => {
 
   const handleScroll = () => {
     if (featureSectionRef.current) {
-      if (window.scrollY >= featureSectionRef.current.offsetTop) {
+      if (document.body.scrollTop >= featureSectionRef.current.offsetTop) {
         if (!finalScrolledRef.current) {
           window.scrollTo(0, featureSectionRef.current.offsetTop);
           disableBodyScroll(featureSectionRef.current);
@@ -317,13 +317,13 @@ const FeaturesSection = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.body.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       if (featureSectionRef.current) {
         enableBodyScroll(featureSectionRef.current);
       }
-      window.removeEventListener('scroll', handleScroll);
+      document.body.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -365,7 +365,8 @@ const FeaturesSection = () => {
       <div
         id="featureSectionID"
         style={{
-          overflow: canScrollRef.current ? 'scroll' : 'hidden',
+          overflowY: canScrollRef.current ? 'scroll' : 'hidden',
+          overflowX: 'hidden',
           maxHeight: !finalScrolled ? '100vh' : '',
         }}
         onScroll={handleSectionScroll}
