@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 import { styled } from '@mui/system';
 import { COLORS } from 'src/theme';
@@ -33,6 +34,10 @@ import championTheCustomer from 'public/about/values/champion-the-customer.svg';
 import collaborateDecisively from 'public/about/values/collaborate-decisively.svg';
 import demonstrateCraftsmanship from 'public/about/values/demonstrate-craftsmanship.svg';
 import engageVulnerability from 'public/about/values/engage-vulnerability.svg';
+import companyOnSites from 'public/about/team-features/company-On-sites.png';
+import diverseAndInclusive from 'public/about/team-features/diverse-and-inclusive.png';
+import quarterlyGetTogethers from 'public/about/team-features/quarterly-get-togethers.png';
+import upboundersIn10Countries from 'public/about/team-features/upbounders-in-10-countries.png';
 // import bassamProfilePic1x from 'public/about/people/founders/bassam.png';
 // import bassamProfilePic2x from 'public/about/people/founders/bassam@2x.png';
 import bassamProfilePic3x from 'public/about/people/founders/bassam@3x.png';
@@ -70,23 +75,23 @@ import purpleOval from 'public/about/purple-oval.svg';
 
 const teamFeatures = [
   {
-    img: '',
+    img: companyOnSites,
     title: 'Company "On"sites',
     body: `Everyone comes together for our annual company “on”site  where we celebrate our wins and have some fun!`,
   },
   {
-    img: '',
+    img: quarterlyGetTogethers,
     title: 'Quarterly Get Togethers',
     body: `Teams come together in person to plan, exchange ideas and strengthen relationships with each other.`,
   },
   {
-    img: '',
+    img: upboundersIn10Countries,
     title: 'Upbounders in 10 Countries',
     body: `A global footprint gives us the ability to bring in the
     best talent from across the globe and work with the best and brightest.`,
   },
   {
-    img: '',
+    img: diverseAndInclusive,
     title: 'Diverse and inclusive',
     body: `We are stronger because we are all unique and bring different
     perspectives and ideas. Be your authentic self at Upbound.`,
@@ -320,11 +325,11 @@ const About: React.FC = () => {
                 maxWidth={{ _: '400px', xl: '260px' }}
                 position="relative"
               >
-                <Box
-                  sx={{ width: 260, height: 180, bgcolor: '#ccc' }}
-                  position={{ _: 'relative', xl: 'absolute' }}
-                  top={{ _: '0', xl: '-180px' }}
-                ></Box>
+                <Box position={{ _: 'relative', xl: 'absolute' }} top={{ _: '0', xl: '-180px' }}>
+                  <Box sx={{ width: 260, height: 180, position: 'relative' }}>
+                    <Image src={feature.img} alt="feature image" />
+                  </Box>
+                </Box>
                 <Header
                   variant="h5"
                   bold={true}
