@@ -43,9 +43,9 @@ const PageProvider = ({
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      window.scrollTo(0, 0);
+      document.body.scrollTo(0, 0);
     }
-  }, [isOverflowVisible]);
+  }, []);
 
   useEffect(() => {
     document.body.classList.toggle(
