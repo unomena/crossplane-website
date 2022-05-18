@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache, Global } from '@emotion/react';
 import theme, { globalStyle } from 'src/theme';
 import createEmotionCache from 'src/createEmotionCache';
-import 'styles/styles.css';
+import 'public/fonts/styles.css';
 
 import TagManager from 'react-gtm-module';
 
