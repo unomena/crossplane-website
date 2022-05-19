@@ -54,8 +54,12 @@ const lineHeights = {
 
 const Pill = styled('div')`
   ${fontAvenirBold}
-  background-color: ${COLORS.softBlue};
-  color: ${COLORS.robinSEgg};
+  // background-color: ${COLORS.softBlue};
+  // color: ${COLORS.robinSEgg};
+  background: linear-gradient(45deg, ${COLORS.cornflower}, ${COLORS.turquoise});
+  webkit-background-clip: text;
+  webkit-text-fill-color: transparent;
+  color: white;
   border-radius: 2000px;
   padding: 7px 19px 5px;
   font-size: 14px;

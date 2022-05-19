@@ -1687,7 +1687,7 @@ const Home = ({}: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
 
   return (
-    <PageProvider isDark>
+    <PageProvider>
       <Section sx={headerSection}>
         <HeaderSection />
       </Section>

@@ -10,10 +10,13 @@ import { Header } from 'src/elements/Header';
 import ovalLeft from 'public/about/join-oval-left.svg';
 import ovalRight from 'public/about/join-oval-right.svg';
 
-type Type = 'light' | 'dark';
+type Type = 'light' | 'dark' | 'bigstone';
 
 const getBackground = (type: Type) => {
   switch (type) {
+    case 'bigstone': {
+      return COLORS.bigStone;
+    }
     case 'dark': {
       return COLORS.darkSlateBlue;
     }
@@ -69,11 +72,11 @@ const JoinUs: React.FC<{
       <Header variant="h4" bold={true} color="white" sx={{ mb: '23px' }}>
         {title}
       </Header>
-      <Header variant="h6" color="white" sx={{ opacity: '0.6', mb: '17px' }}>
+      <Header variant="h6" color="white" sx={{ mb: '17px' }}>
         {subtitle}
       </Header>
       <AnchorButton
-        btnType="aquaMarineFill"
+        btnType="whiteFill"
         href={href}
         sx={{
           p: { _: '12px 18px', lg: '15px 40px' },

@@ -310,10 +310,9 @@ const LinkBar = ({ href, title, body, sx }: LinkBarProps) => {
 type PopoverItemProps = {
   title: string;
   content: React.ReactNode;
-  isDark?: boolean;
 };
 
-const PopoverItem = ({ title, content, isDark }: PopoverItemProps) => {
+const PopoverItem = ({ title, content }: PopoverItemProps) => {
   const [open, setOpen] = useState(false);
   const anchorEl = useRef(null);
 
@@ -330,7 +329,7 @@ const PopoverItem = ({ title, content, isDark }: PopoverItemProps) => {
       <Typography
         ref={anchorEl}
         component="span"
-        sx={{ ...navItem, opacity: open || !isDark ? 1 : 0.5 }}
+        sx={{ ...navItem, opacity: open ? 1 : 0.5 }}
         aria-owns={open ? `mouse-over-popover-${title}` : undefined}
         aria-haspopup="true"
         onMouseEnter={popoverEnter}
@@ -482,13 +481,12 @@ type LinkItemProps = {
   href: string;
   title: string;
   icon?: React.ReactNode;
-  isDark?: boolean;
 };
 
-const LinkItem = ({ href, title, icon, isDark }: LinkItemProps) => {
+const LinkItem = ({ href, title, icon }: LinkItemProps) => {
   return (
     <Link href={href} muiProps={{ underline: 'none' }}>
-      <Typography component="span" sx={{ ...navItem, opacity: isDark ? 0.5 : 1 }}>
+      <Typography component="span" sx={{ ...navItem, opacity: 0.5 }}>
         {icon && <Box component="span">{icon}</Box>}
         {title}
       </Typography>
@@ -543,11 +541,10 @@ const mobileLinks = [
 ];
 
 type PageHeaderMobileProps = {
-  isDark?: boolean;
   setOverflowVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps) => {
+const PageHeaderMobile = ({ setOverflowVisible }: PageHeaderMobileProps) => {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
 
@@ -574,7 +571,7 @@ const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps)
     <Box
       sx={{
         ...root,
-        bgcolor: open ? COLORS.firefly : isDark ? 'transparent' : COLORS.cornflower,
+        bgcolor: open ? COLORS.firefly : 'transparent',
         height: open ? '100%' : 'unset',
         zIndex: 1000,
       }}
@@ -651,15 +648,14 @@ const PageHeaderMobile = ({ isDark, setOverflowVisible }: PageHeaderMobileProps)
 };
 
 type Props = {
-  isDark?: boolean;
   setOverflowVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const PageHeader = ({ isDark, setOverflowVisible }: Props) => {
+const PageHeader = ({ setOverflowVisible }: Props) => {
   return (
     <>
       <Hidden lgDown>
-        <Box sx={{ ...root, bgcolor: isDark ? 'transparent' : COLORS.cornflower }}>
+        <Box sx={{ ...root, bgcolor: 'transparent' }}>
           {/* <Box sx={announceContainer}>
         <Typography variant="inherit">
           🎉 Announcing the NEW Upbound Marketplace — giving customers access to best-in-class
@@ -679,24 +675,14 @@ const PageHeader = ({ isDark, setOverflowVisible }: Props) => {
               </Link>
             </Box>
             <Box sx={centerItems}>
-              <PopoverItem title="Products" content={<ProductsPopoverContent />} isDark={isDark} />
-              <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" isDark={isDark} />
-              <PopoverItem title="Learn" content={<LearnPopoverContent />} isDark={isDark} />
-              <LinkItem href={routes.aboutRoute} title="About" isDark={isDark} />
+              <PopoverItem title="Products" content={<ProductsPopoverContent />} />
+              <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" />
+              <PopoverItem title="Learn" content={<LearnPopoverContent />} />
+              <LinkItem href={routes.aboutRoute} title="About" />
             </Box>
             <Box sx={rightItems}>
-              <LinkItem
-                href={routes.partnersRoute}
-                title="Partners"
-                icon={<PartnersIcon />}
-                isDark={isDark}
-              />
-              <LinkItem
-                href={routes.cloudLoginUrl}
-                title="Sign In"
-                icon={<SignInIcon />}
-                isDark={isDark}
-              />
+              <LinkItem href={routes.partnersRoute} title="Partners" icon={<PartnersIcon />} />
+              <LinkItem href={routes.cloudLoginUrl} title="Sign In" icon={<SignInIcon />} />
               <Button
                 styleType="linkWaterContained"
                 sizeType="small"
@@ -709,7 +695,7 @@ const PageHeader = ({ isDark, setOverflowVisible }: Props) => {
         </Box>
       </Hidden>
       <Hidden lgUp>
-        <PageHeaderMobile isDark={isDark} setOverflowVisible={setOverflowVisible} />
+        <PageHeaderMobile setOverflowVisible={setOverflowVisible} />
       </Hidden>
     </>
   );

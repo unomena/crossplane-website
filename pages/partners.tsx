@@ -110,7 +110,7 @@ const FillerLogoTile = styled(Box)`
 const LogoTile = styled(FillerLogoTile)`
   border-radius: 8px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.03);
-  border: solid 1px ${COLORS.veryLightBlue};
+  border: solid 1px ${COLORS.white};
   background-color: ${COLORS.white};
   margin-top: 5px;
   margin-bottom: 5px;
@@ -156,7 +156,7 @@ const Logo: React.FC<
 };
 
 const Hero = styled(Box)`
-  background-color: ${COLORS.cornflower};
+  background-color: ${COLORS.firefly};
 
   ${MQ.lg} {
     background-image: url(${heroOval.src});
@@ -182,14 +182,14 @@ const PartnerFeature = styled(Box)`
 `;
 
 const JoinUsOvalSection = styled(Box)`
-  background-color: ${COLORS.cornflower};
+  background-color: ${COLORS.firefly};
 
-  ${MQ.md} {
-    background-color: ${COLORS.white};
-    background-image: url(${oval.src});
-    background-position: top center;
-    background-repeat: no-repeat;
-  }
+  // ${MQ.md} {
+  //   background-color: ${COLORS.white};
+  //   background-image: url(${oval.src});
+  //   background-position: top center;
+  //   background-repeat: no-repeat;
+  // }
 `;
 
 const displayTitle = 'Partner Program';
@@ -230,12 +230,11 @@ const Partners: React.FC = () => {
             </Box>
           </Hidden>
         </Box>
-        <Wave type="white" mt={{ _: '0', lg: '-150px' }} />
+        <Wave type="elephant" mt={{ _: '0', lg: '-150px' }} />
       </Hero>
-      <Box textAlign="center">
+      <Box textAlign="center" bgcolor={COLORS.elephant}>
         <Box
           display="flex"
-          mt={{ _: '10px', md: '50px' }}
           mb="40px"
           justifyContent="center"
           flexDirection={{ _: 'column', md: 'row' }}
@@ -244,10 +243,10 @@ const Partners: React.FC = () => {
             <Box mb="35px">
               <Img src={iconCloud} alt="cloud" width={64} />
             </Box>
-            <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '10px' }}>
+            <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
               Cloud Providers
             </Header>
-            <Paragraph color="fillBlackGray">
+            <Paragraph color="white">
               We partner with cloud infrastructure vendors to deliver enterprise-grade reference
               architectures and integrations for Crossplane.
             </Paragraph>
@@ -256,10 +255,10 @@ const Partners: React.FC = () => {
             <Box mb="35px">
               <Img src={iconTechnology} alt="cloud" width={64} />
             </Box>
-            <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '10px' }}>
+            <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
               Technology Partners
             </Header>
-            <Paragraph color="fillBlackGray">
+            <Paragraph color="white">
               We partner with leading cloud technology providers to deliver enterprise Crossplane
               solutions ready for deployment.
             </Paragraph>
@@ -268,29 +267,25 @@ const Partners: React.FC = () => {
             <Box mb="35px">
               <Img src={iconConsultancy} alt="cloud" width={64} />
             </Box>
-            <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '10px' }}>
+            <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
               Consultancy & SI Partners
             </Header>
-            <Paragraph color="fillBlackGray">
+            <Paragraph color="white">
               We partner with a network of resellers and Crossplane solution consultants to
               architect and deliver production-ready infrastructure APIs.
             </Paragraph>
           </PartnerFeature>
         </Box>
         <AnchorButton
-          btnType="blackOutline"
+          btnType="whiteOutline"
           href={routes.partnerRegistrationUrl}
           sx={{ mb: { _: '50px', md: '30px' } }}
         >
           Become An Upbound Partner
         </AnchorButton>
-        <Wave type="light" />
+        <Wave type="firefly" />
       </Box>
-      <Box
-        sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
-        }}
-      >
+      <Box bgcolor={COLORS.firefly}>
         <Box
           textAlign="center"
           maxWidth="1100px"
@@ -299,10 +294,10 @@ const Partners: React.FC = () => {
           px="30px"
           pt={{ _: '20px', md: '0' }}
         >
-          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '20px' }}>
+          <Header variant="h3" bold={true} color="white" sx={{ mb: '20px' }}>
             Our Partner Community
           </Header>
-          <Header variant="h6" color="fillBlackGray">
+          <Header variant="h6" color="white">
             Our community includes a trusted ecosystem of companies offering a range of services,
             integrations and customized solutions for Upbound Cloud and Crossplane.
           </Header>
@@ -325,7 +320,7 @@ const Partners: React.FC = () => {
           <Box px="30px">
             <Box mb={{ _: 0, md: '-220px' }}>
               <JoinUs
-                type="light"
+                type="bigstone"
                 title="Ready to Join Our Partner Community?"
                 subtitle={`Ready to enable your customers to move faster with an automated, self-service approach to
                 provisioning infrastructure and applications? Contact our team today to get started.`}

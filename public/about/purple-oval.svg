@@ -6,6 +6,6 @@
         <mask id="b" fill="#fff">
             <use xlink:href="#a"/>
         </mask>
-        <circle fill="#000" opacity=".031" mask="url(#b)" cx="497" cy="526" r="480"/>
+        <circle fill="#000" opacity=".1" mask="url(#b)" cx="497" cy="526" r="480"/>
     </g>
 </svg>

@@ -478,7 +478,7 @@ const Products = ({}: Props) => {
     }
   }, [isVisible]);
   return (
-    <PageProvider displayTitle="Products" isDark>
+    <PageProvider displayTitle="Products">
       <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
         <Box
           sx={{
