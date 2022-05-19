@@ -102,7 +102,7 @@ const values = [
   {
     icon: beAccountable,
     title: 'Be Accountable',
-    body: `We expect everyone at Upbound to hold ourselves and each other accountable
+    body: `We expect everyone at Upbound to hold themselves and each other accountable
     to focusing and driving results that tie directly back into company goals.`,
   },
   {
