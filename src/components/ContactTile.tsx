@@ -44,8 +44,8 @@ const ContactTileCard = styled(Card)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-color: #1B3549;
-  background-color: #1B3549;
+  border-color: #1b3549;
+  background-color: #1b3549;
 
   &:last-of-type {
     margin-bottom: 0;
