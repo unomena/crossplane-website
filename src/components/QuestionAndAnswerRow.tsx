@@ -20,6 +20,7 @@ const QuestionAndAnswerContainer = styled(Card)`
   width: 100%;
   max-width: 960px;
   padding: 20px 15px;
+  background-color: ${COLORS.bigStone};
 
   ${MQ.lg} {
     padding: 32px;
@@ -35,8 +36,8 @@ const QuestionContainer = styled(Box)<{ isExpanded: boolean }>`
   font-size: 18px;
   line-height: 24px;
   ${fontAvenirRoman};
-  color: ${COLORS.fillBlackBlack};
-  ${({ isExpanded }) => isExpanded && `color: ${COLORS.cornflower};`}
+  color: ${COLORS.white};
+  // ${({ isExpanded }) => isExpanded && `color: ${COLORS.cornflower};`}
 `;
 
 const AnswerContainer = styled(Box)<{ isExpanded: boolean }>`

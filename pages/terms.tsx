@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled, SxProps } from '@mui/system';
-import { COLORS, fontAvenirRoman } from 'src/theme';
+import { fontAvenirRoman } from 'src/theme';
 import { Box } from '@mui/material';
 
 import PageProvider from 'src-new/components/PageProvider';
@@ -49,9 +49,9 @@ const TermsOfUse = () => {
         mb="50px"
         ml={['50px', '50px', '50px', '145px']}
         mr={['50px', '50px', '50px', '145px']}
-        color={COLORS.slate}
+        color="white"
       >
-        <Header variant="h3" bold={true} sx={{ mb: '50px' }}>
+        <Header variant="h3" bold={true} sx={{ mb: '50px', color: 'white' }}>
           Legal Terms of Service
         </Header>
         <Header variant="h4" bold={true} sx={{ mb: '30px' }}>

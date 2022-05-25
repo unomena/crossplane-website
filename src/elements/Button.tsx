@@ -14,6 +14,7 @@ import { AnchorProps } from './Anchor';
 export type BtnTypes =
   | 'aquaGreenFill'
   | 'aquaMarineFill'
+  | 'whiteFill'
   | 'cornflowerFill'
   | 'blackOutline'
   | 'whiteOutline';
@@ -92,6 +93,18 @@ const StyledAnchor = styled('a', { shouldForwardProp })<{ otherStyles?: any }>(
 //   }
 // `;
 
+const whiteFill = {
+  backgroundColor: COLORS.white,
+  borderColor: COLORS.white,
+  color: COLORS.bigStone,
+  fill: COLORS.white,
+
+  // '&:hover:not(:disabled)': {
+  //   backgroundColor: COLORS.whiteDark,
+  //   borderColor: COLORS.whiteDark,
+  // },
+};
+
 const aquaGreenFill = {
   backgroundColor: COLORS.aquaGreen,
   borderColor: COLORS.aquaGreen,
@@ -167,6 +180,7 @@ const whiteOutline = {
 };
 
 const btnTypes = {
+  whiteFill,
   aquaGreenFill,
   aquaMarineFill,
   whiteOutline,

@@ -19,7 +19,7 @@ import * as routes from 'src/routes';
 
 import { useCarousel } from 'src/utils/hooks';
 
-import arrowRightCornflower from 'public/pricing/arrow-right-cornflower.svg';
+import arrowRightBigStone from 'public/pricing/arrow-right-bigstone.svg';
 import arrowRightWhite from 'public/pricing/arrow-right-white.svg';
 import greenCheck from 'public/pricing/green-check.svg';
 import greenListStyle from 'public/pricing/green-list-style.svg';
@@ -27,7 +27,7 @@ import leftDisabled from 'public/pricing/left-disabled.svg';
 import rightEnabled from 'public/pricing/right-enabled.svg';
 
 const AnswerParagraph = styled(Paragraph)`
-  color: ${COLORS.fillBlackGray};
+  color: ${COLORS.white};
   margin-bottom: 20px;
 
   &:last-of-type {
@@ -215,8 +215,8 @@ const features: Array<{
 const PlanTile = styled(Box)`
   border-radius: 0 0 8px 8px;
   box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.03);
-  border: solid 1px ${COLORS.veryLightBlue};
-  background-color: ${COLORS.white};
+  border: solid 1px ${COLORS.bigStone};
+  background-color: ${COLORS.bigStone};
   overflow: hidden;
   height: 100%;
   margin-bottom: 30px;
@@ -230,7 +230,7 @@ const PlanTileList = styled('ul')`
     background: url(${greenListStyle.src}) no-repeat left center;
     padding-left: 35px;
     ${fontAvenirRoman}
-    color: ${COLORS.fillBlackBlack};
+    color: ${COLORS.white};
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 24px;
@@ -238,10 +238,10 @@ const PlanTileList = styled('ul')`
 `;
 
 const PlanTileButton = styled(AnchorButton)<{ dark?: boolean }>`
-  background: url(${arrowRightCornflower.src}) no-repeat right 18px center;
+  background: url(${arrowRightWhite.src}) no-repeat right 18px center;
   text-align: left;
-  color: ${COLORS.cornflower};
-  border-color: ${COLORS.cornflower};
+  color: ${COLORS.white};
+  border-color: ${COLORS.white};
   ${fontAvenirBold}
   font-size: 16px;
   padding: 13px 24px;
@@ -250,34 +250,34 @@ const PlanTileButton = styled(AnchorButton)<{ dark?: boolean }>`
   margin-top: 10px;
 
   &:visited {
-    color: ${COLORS.cornflower};
+    color: ${COLORS.white};
   }
 
-  &:active,
-  &:hover,
-  &:focus {
-    background-color: ${COLORS.cornflower};
-    color: ${COLORS.white};
-    background-image: url(${arrowRightWhite.src});
-  }
+  // &:active,
+  // &:hover,
+  // &:focus {
+  //   background-color: ${COLORS.white};
+  //   color: ${COLORS.white};
+  //   background-image: url(${arrowRightWhite.src});
+  // }
 
   ${({ dark }) =>
     dark
       ? `
         color: ${COLORS.white};
-        background-image: url(${arrowRightWhite.src});
-        background-color: ${COLORS.cornflower};
+        background-image: url(${arrowRightBigStone.src});
+        background-color: ${COLORS.white};
 
         &:visited {
-          color: ${COLORS.white};
+          color: ${COLORS.bigStone};
         }
 
-        &:active,
-        &:hover,
-        &:focus {
-          background-color: ${COLORS.iris};
-          border-color: ${COLORS.iris};
-        }
+        // &:active,
+        // &:hover,
+        // &:focus {
+        //   background-color: ${COLORS.iris};
+        //   border-color: ${COLORS.iris};
+        // }
   `
       : ''}
 `;
@@ -310,11 +310,11 @@ const Plan: React.FC<{
             <Header variant="h3" color={color} sx={{ mb: '15px', minHeight: 100 }}>
               {title}
             </Header>
-            <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
+            <Header variant="h5" bold={true} color="white" sx={{ mb: '15px' }}>
               {subTitle}
             </Header>
-            <Paragraph color="fillBlackGray">{description}</Paragraph>
-            <Box borderTop={`solid 1px ${COLORS.veryLightBlue}`} height="1px" mt="25px" mb="30px" />
+            <Paragraph color="white">{description}</Paragraph>
+            <Box borderTop={`solid 1px ${COLORS.white}`} height="1px" mt="25px" mb="30px" />
             <PlanTileList>{children}</PlanTileList>
           </Box>
           <PlanTileButton href={buttonHref} dark={darken}>
@@ -328,14 +328,14 @@ const Plan: React.FC<{
 
 const FeatureRow = styled(Box)`
   display: flex;
-  border-bottom: solid 1px ${COLORS.veryLightBlue};
+  border-bottom: solid 1px ${COLORS.white};
   text-align: center;
   padding: 20px 40px;
   ${fontAvenirRoman}
   font-size: 16px;
   line-height: 33px;
-  color: ${COLORS.fillBlackBlack};
-  background-color: ${COLORS.white};
+  color: ${COLORS.white};
+  background-color: ${COLORS.bigStone};
   align-items: center;
   justify-content: center;
 
@@ -366,18 +366,18 @@ const FeatureHeader = styled(FeatureRow)`
   margin-bottom: 25px;
   box-shadow: 0 10px 20px 0 rgba(51, 49, 49, 0.02);
   border-radius: 8px;
-  color: ${COLORS.fillBlackGray};
+  color: '${COLORS.white}';
   position: sticky;
   top: 0;
   z-index: 1;
 
   &,
   &:first-of-type {
-    border: solid 1px ${COLORS.veryLightBlue};
+    border: solid 1px ${COLORS.white};
   }
 
   & > div:first-of-type {
-    color: ${COLORS.fillBlackBlack};
+    color: ${COLORS.white};
     ${fontAvenirBold}
     font-size: 20px;
     padding-left: 0;
@@ -399,11 +399,12 @@ const FeatureOutput: React.FC<{ value: string | boolean }> = ({ value }) => {
 const MobileCarouselHeader = styled(Box)`
   margin-top: 50px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.03);
-  border: solid 1px ${COLORS.veryLightBlue};
-  background-color: ${COLORS.white};
+  border: solid 1px ${COLORS.white};
+  background-color: ${COLORS.bigStone};
   margin-bottom: 25px;
   position: sticky;
   top: 64px;
+  z-index: 1200;
 
   & > div > p {
     flex: 1;
@@ -417,13 +418,13 @@ const MobileSectionHeader = styled(Header)`
   margin: 50px 30px 25px 30px;
   border-radius: 8px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.03);
-  border: solid 1px ${COLORS.veryLightBlue};
-  background-color: ${COLORS.white};
+  border: solid 1px ${COLORS.white};
+  background-color: ${COLORS.bigStone};
 `;
 
 const MobileFeatureRow = styled(Box)`
   display: flex;
-  border-bottom: solid 1px ${COLORS.veryLightBlue};
+  border-bottom: solid 1px ${COLORS.white};
   padding: 20px 30px;
   align-items: center;
 
@@ -436,7 +437,7 @@ const MobileFeatureColumn = styled(Box)`
   ${fontAvenirRoman}
   font-size: 16px;
   line-height: 33px;
-  color: ${COLORS.fillBlackBlack};
+  color: ${COLORS.white};
 `;
 
 const MobileFeatureArrowImage = styled(Img)<{ transform: string; cursor: string }>`
@@ -475,236 +476,230 @@ const Pricing: React.FC = () => {
 
   return (
     <PageProvider displayTitle={displayTitle} metaDescription={metaDescription}>
-      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.cornflower} textAlign="center">
-        <Box px="30px" maxWidth="1100px" mx="auto">
-          <Header
-            pill="Plans & Pricing"
-            variant="h1"
-            bold={true}
-            color="white"
-            sx={{
-              mt: '25px',
-              mb: { _: '20px', md: '24px' },
-            }}
-          >
-            Choose a Plan That’s Right For You
-          </Header>
-          <Header
-            variant="h6"
-            color="white"
-            sx={{
-              mb: { _: '180px', md: '200px' },
-              maxWidth: '890px',
-              mx: 'auto',
-            }}
-          >
-            All types of businesses need access to development resources, so we give you the option
-            to decide how much you need to use.
-          </Header>
+      <Box bgcolor={COLORS.elephant}>
+        <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.firefly} textAlign="center">
+          <Box px="30px" maxWidth="1100px" mx="auto">
+            <Header
+              pill="Plans & Pricing"
+              variant="h1"
+              bold={true}
+              color="white"
+              sx={{
+                mt: '25px',
+                mb: { _: '20px', md: '24px' },
+              }}
+            >
+              Choose a Plan That’s Right For You
+            </Header>
+            <Header
+              variant="h6"
+              color="white"
+              sx={{
+                mb: { _: '180px', md: '200px' },
+                maxWidth: '890px',
+                mx: 'auto',
+              }}
+            >
+              All types of businesses need access to development resources, so we give you the
+              option to decide how much you need to use.
+            </Header>
+          </Box>
+          <Wave type="elephant" />
         </Box>
-        <Wave type="white" />
-      </Box>
-      <Box mt="-280px">
-        <Box
-          display="flex"
-          maxWidth="1200px"
-          mx="auto"
-          px="15px"
-          flexDirection={{ _: 'column', lg: 'row' }}
-        >
-          <Plan
-            color="fillBlackBlack"
-            title="Free"
-            subTitle="Free Forever"
-            description="Great for individuals and the open source Crossplane community"
+        <Box mt="-280px">
+          <Box
+            display="flex"
+            maxWidth="1200px"
+            mx="auto"
+            px="15px"
+            flexDirection={{ _: 'column', lg: 'row' }}
           >
-            <li>Personal Account</li>
-            <li>Public Registry Listings</li>
-            <li>1 Private Registry Listing</li>
-            <li>1 Control Plane</li>
-            <li>Upbound CLI Access</li>
-          </Plan>
-          <Plan
-            color="aquaMarine"
-            title="Enterprise"
-            subTitle="14 Day Free Trial"
-            description="Unlimited functionality for teams who need enterprise grade features"
-          >
-            <li>All Free Tier Features…</li>
-            <li>Organizations</li>
-            <li>Teams and Users</li>
-            <li>Robot Accounts for CI/CD</li>
-            <li>Unlimited Private Registry Listings</li>
-            <li>Unlimited Control Planes</li>
-            <li>12/5 Customer Support</li>
-            {/* <li>Implementation Services</li> */}
-          </Plan>
-          <Plan
-            color="brightCyan"
-            title="Business Critical"
-            subTitle="Contact Us"
-            description="Our trusted plan used by some of the world's biggest organizations"
-            buttonText="Contact Sales"
-            buttonHref={routes.contactSalesUrl}
-            darken={true}
-          >
-            <li>All Enterprise Tier Features…</li>
-            {/* <li>Fully Self Hosted Deployment</li>
+            <Plan
+              color="white"
+              title="Free"
+              subTitle="Free Forever"
+              description="Great for individuals and the open source Crossplane community"
+            >
+              <li>Personal Account</li>
+              <li>Public Registry Listings</li>
+              <li>1 Private Registry Listing</li>
+              <li>1 Control Plane</li>
+              <li>Upbound CLI Access</li>
+            </Plan>
+            <Plan
+              color="aquaMarine"
+              title="Enterprise"
+              subTitle="14 Day Free Trial"
+              description="Unlimited functionality for teams who need enterprise grade features"
+            >
+              <li>All Free Tier Features…</li>
+              <li>Organizations</li>
+              <li>Teams and Users</li>
+              <li>Robot Accounts for CI/CD</li>
+              <li>Unlimited Private Registry Listings</li>
+              <li>Unlimited Control Planes</li>
+              <li>12/5 Customer Support</li>
+              {/* <li>Implementation Services</li> */}
+            </Plan>
+            <Plan
+              color="brightCyan"
+              title="Business Critical"
+              subTitle="Contact Us"
+              description="Our trusted plan used by some of the world's biggest organizations"
+              buttonText="Contact Sales"
+              buttonHref={routes.contactSalesUrl}
+              darken={true}
+            >
+              <li>All Enterprise Tier Features…</li>
+              {/* <li>Fully Self Hosted Deployment</li>
             <li>Private Self Hosted Registry</li> */}
-            <li>Trainings, onboardings, and workshops</li>
-            <li>Private Slack channel</li>
-            <li>24/7 Customer Support</li>
-          </Plan>
+              <li>Trainings, onboardings, and workshops</li>
+              <li>Private Slack channel</li>
+              <li>24/7 Customer Support</li>
+            </Plan>
+          </Box>
         </Box>
-      </Box>
-      <Box>
-        <Box px="30px" textAlign="center">
-          <Header
-            variant="h3"
-            bold={true}
-            color="fillBlackBlack"
-            sx={{
-              mt: { _: '60px', md: '145px' },
-              mb: '15px',
-            }}
-          >
-            Compare Features
-          </Header>
-          <Header
-            variant="h6"
-            color="fillBlackGray"
-            sx={{ maxWidth: '670px', mx: 'auto', mb: '25px' }}
-          >
-            Get the full breakdown of the features that each one of our plans offers.
-          </Header>
+        <Box>
+          <Box px="30px" textAlign="center">
+            <Header
+              variant="h3"
+              bold={true}
+              color="white"
+              sx={{
+                mt: { _: '60px', md: '145px' },
+                mb: '15px',
+              }}
+            >
+              Compare Features
+            </Header>
+            <Header variant="h6" color="white" sx={{ maxWidth: '670px', mx: 'auto', mb: '25px' }}>
+              Get the full breakdown of the features that each one of our plans offers.
+            </Header>
+          </Box>
+          <Hidden lgUp>
+            <Box>
+              <MobileCarouselHeader p="25px 40px">
+                <Header variant="h5" bold={true} color="white" sx={{ textAlign: 'center' }}>
+                  {features[currentHeading].header}
+                </Header>
+                <Box display="flex">
+                  <MobileFeatureArrow
+                    left={true}
+                    enabled={buttons.leftEnabled}
+                    onClick={buttons.onLeft}
+                  />
+                  <Paragraph sx={{ textAlign: 'center' }} color="white">
+                    {plans[column]}
+                  </Paragraph>
+                  <MobileFeatureArrow
+                    left={false}
+                    enabled={buttons.rightEnabled}
+                    onClick={buttons.onRight}
+                  />
+                </Box>
+              </MobileCarouselHeader>
+              {features.map((section, index) => (
+                <Box key={index}>
+                  {index !== 0 && (
+                    <MobileSectionHeader
+                      variant="h5"
+                      bold={true}
+                      color="white"
+                      ref={buttons.refs[index - 1]}
+                    >
+                      {section.header}
+                    </MobileSectionHeader>
+                  )}
+                  {section.data.map((r, i) => (
+                    <MobileFeatureRow key={i}>
+                      <MobileFeatureColumn flex="1">{r[0]}</MobileFeatureColumn>
+                      <MobileFeatureColumn flex="0 0 120px" textAlign="center">
+                        <FeatureOutput value={r[((column + 1) % 4) + 1]} />
+                      </MobileFeatureColumn>
+                    </MobileFeatureRow>
+                  ))}
+                </Box>
+              ))}
+            </Box>
+          </Hidden>
+          <Hidden lgDown>
+            <Box maxWidth="1200px" mx="auto" width="100%">
+              {features.map((section, index) => (
+                <Box key={index} position="relative">
+                  <FeatureHeader>
+                    <Box>{section.header}</Box>
+                    <Box>Crossplane</Box>
+                    <Box>Free</Box>
+                    <Box>Enterprise</Box>
+                    <Box>Business Critical</Box>
+                  </FeatureHeader>
+                  {section.data.map((r, i) => (
+                    <FeatureRow key={i}>
+                      <FeatureOutput value={r[0]} />
+                      <FeatureOutput value={r[1]} />
+                      <FeatureOutput value={r[2]} />
+                      <FeatureOutput value={r[3]} />
+                      <FeatureOutput value={r[4]} />
+                    </FeatureRow>
+                  ))}
+                </Box>
+              ))}
+            </Box>
+          </Hidden>
         </Box>
-        <Hidden lgUp>
-          <Box>
-            <MobileCarouselHeader p="25px 40px">
-              <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ textAlign: 'center' }}>
-                {features[currentHeading].header}
+        <Box mx="30px">
+          <Box
+            maxWidth="1000px"
+            mx="auto"
+            textAlign="center"
+            mt="50px"
+            mb={{ _: '15px', lg: '90px' }}
+          >
+            <Header variant="h6" color="white" sx={{ mb: '30px' }}>
+              Request a demo and our customer success team would be happy to show a preview of any
+              one of our available plans.
+            </Header>
+            <AnchorButton btnType="whiteOutline" href={routes.contactSalesUrl}>
+              Contact Us & Request a Demo
+            </AnchorButton>
+          </Box>
+        </Box>
+        {/* <Wave type="elephant" /> */}
+        <Box bgcolor={COLORS.elephant}>
+          <Box display="flex" flexDirection="column" alignItems="center" px="30px">
+            <Box textAlign="center">
+              <Header variant="h3" bold={true} color="white" sx={{ mb: '25px' }}>
+                Frequently Asked Questions
               </Header>
-              <Box display="flex">
-                <MobileFeatureArrow
-                  left={true}
-                  enabled={buttons.leftEnabled}
-                  onClick={buttons.onLeft}
-                />
-                <Paragraph sx={{ textAlign: 'center' }}>{plans[column]}</Paragraph>
-                <MobileFeatureArrow
-                  left={false}
-                  enabled={buttons.rightEnabled}
-                  onClick={buttons.onRight}
-                />
-              </Box>
-            </MobileCarouselHeader>
-            {features.map((section, index) => (
-              <Box key={index}>
-                {index !== 0 && (
-                  <MobileSectionHeader
-                    variant="h5"
-                    bold={true}
-                    color="fillBlackBlack"
-                    ref={buttons.refs[index - 1]}
-                  >
-                    {section.header}
-                  </MobileSectionHeader>
-                )}
-                {section.data.map((r, i) => (
-                  <MobileFeatureRow key={i}>
-                    <MobileFeatureColumn flex="1">{r[0]}</MobileFeatureColumn>
-                    <MobileFeatureColumn flex="0 0 120px" textAlign="center">
-                      <FeatureOutput value={r[((column + 1) % 4) + 1]} />
-                    </MobileFeatureColumn>
-                  </MobileFeatureRow>
-                ))}
-              </Box>
+              <Header variant="h6" color="white" sx={{ mb: '50px' }}>
+                Frequently asked questions about about our pricing plans.
+              </Header>
+            </Box>
+            {questions.map(({ question, answer }, i) => (
+              <QuestionAndAnswerRow key={i} index={i} question={question} answer={answer} />
             ))}
           </Box>
-        </Hidden>
-        <Hidden lgDown>
-          <Box maxWidth="1200px" mx="auto" width="100%">
-            {features.map((section, index) => (
-              <Box key={index} position="relative">
-                <FeatureHeader>
-                  <Box>{section.header}</Box>
-                  <Box>Crossplane</Box>
-                  <Box>Free</Box>
-                  <Box>Enterprise</Box>
-                  <Box>Business Critical</Box>
-                </FeatureHeader>
-                {section.data.map((r, i) => (
-                  <FeatureRow key={i}>
-                    <FeatureOutput value={r[0]} />
-                    <FeatureOutput value={r[1]} />
-                    <FeatureOutput value={r[2]} />
-                    <FeatureOutput value={r[3]} />
-                    <FeatureOutput value={r[4]} />
-                  </FeatureRow>
-                ))}
-              </Box>
-            ))}
-          </Box>
-        </Hidden>
-      </Box>
-      <Box mx="30px">
+        </Box>
+        <Wave type="firefly" />
         <Box
-          maxWidth="1000px"
-          mx="auto"
-          textAlign="center"
-          mt="50px"
-          mb={{ _: '15px', lg: '90px' }}
+          bgcolor={COLORS.firefly}
+          sx={{
+            mb: 40,
+          }}
         >
-          <Header variant="h6" color="fillBlackBlack" sx={{ mb: '30px' }}>
-            Request a demo and our customer success team would be happy to show a preview of any one
-            of our available plans.
-          </Header>
-          <AnchorButton btnType="blackOutline" href={routes.contactSalesUrl}>
-            Contact Us & Request a Demo
-          </AnchorButton>
-        </Box>
-      </Box>
-      <Wave type="light" />
-      <Box
-        sx={{ backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})` }}
-      >
-        <Box display="flex" flexDirection="column" alignItems="center" px="30px">
-          <Box textAlign="center">
-            <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '25px' }}>
-              Frequently Asked Questions
+          <Box px="30px" textAlign="center">
+            <Header variant="h3" bold={true} color="white" sx={{ mb: '15px' }}>
+              We Would Love To Hear From You
             </Header>
-            <Header variant="h6" color="fillBlackGray" sx={{ mb: '50px' }}>
-              Frequently asked questions about about our pricing plans.
+            <Header variant="h6" color="white" sx={{ maxWidth: '670px', mx: 'auto', mb: '64px' }}>
+              If you cannot find an answer to your question in our FAQ, you can always contact us.
+              We will answer to you shortly!
             </Header>
+            <ContactTileRowContainer>
+              <ContactTile type="slack">Contact the Upbound team on Slack.</ContactTile>
+              <ContactTile type="email">Get in touch with a sales representative.</ContactTile>
+            </ContactTileRowContainer>
           </Box>
-          {questions.map(({ question, answer }, i) => (
-            <QuestionAndAnswerRow key={i} index={i} question={question} answer={answer} />
-          ))}
-        </Box>
-      </Box>
-      <Wave type="light" />
-      <Box
-        sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
-          mb: 40,
-        }}
-      >
-        <Box px="30px" textAlign="center">
-          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
-            We Would Love To Hear From You
-          </Header>
-          <Header
-            variant="h6"
-            color="fillBlackGray"
-            sx={{ maxWidth: '670px', mx: 'auto', mb: '64px' }}
-          >
-            If you cannot find an answer to your question in our FAQ, you can always contact us. We
-            will answer to you shortly!
-          </Header>
-          <ContactTileRowContainer>
-            <ContactTile type="slack">Contact the Upbound team on Slack.</ContactTile>
-            <ContactTile type="email">Get in touch with a sales representative.</ContactTile>
-          </ContactTileRowContainer>
         </Box>
       </Box>
     </PageProvider>

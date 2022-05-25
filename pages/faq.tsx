@@ -17,7 +17,7 @@ import { Span } from 'src/elements/Span';
 import * as routes from 'src/routes';
 
 const AnswerParagraph = styled(Paragraph)`
-  color: ${COLORS.fillBlackGray};
+  color: ${COLORS.white};
   margin-bottom: 20px;
 
   &:last-of-type {
@@ -26,7 +26,7 @@ const AnswerParagraph = styled(Paragraph)`
 `;
 
 const AnswerList = styled('ul')`
-  color: ${COLORS.slate};
+  color: ${COLORS.white};
   margin-top: 0;
 
   & > li {
@@ -365,81 +365,81 @@ const metaDescription =
 const Faq: React.FC = () => {
   return (
     <PageProvider displayTitle={displayTitle} metaDescription={metaDescription}>
-      <Box bgcolor={COLORS.cornflower} textAlign="center">
-        <Box mx="30px">
-          <Header variant="h1" bold={true} color="white" sx={{ pt: '145px', mb: '22px' }}>
-            Frequently Asked Questions
-          </Header>
-          <Header variant="h6" color="white">
-            Find answers to some of the most common questions we answer
-          </Header>
+      <Box bgcolor={COLORS.elephant}>
+        <Box bgcolor={COLORS.firefly} textAlign="center">
+          <Box mx="30px">
+            <Header variant="h1" bold={true} color="white" sx={{ pt: '145px', mb: '22px' }}>
+              Frequently Asked Questions
+            </Header>
+            <Header variant="h6" color="white">
+              Find answers to some of the most common questions we answer
+            </Header>
+          </Box>
+          <Wave type="elephant" />
         </Box>
-        <Wave type="light" />
-      </Box>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        pt="2px"
-        px="30px"
-        sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
-        }}
-      >
-        <SectionHeader>
-          <Header variant="h4" bold={true} color="fillBlackBlack" sx={{ mb: '14px' }}>
-            General FAQ’s
-          </Header>
-          <Header variant="h6" color="fillBlackGray">
-            General questions about Upbound products and services.
-          </Header>
-        </SectionHeader>
-        {generalFaqs.map((q, i) => (
-          <QuestionAndAnswerRow
-            answer={q.answer}
-            index={i}
-            question={q.question}
-            key={`question${i}`}
-          />
-        ))}
-        <SectionHeader>
-          <Header variant="h4" bold={true} color="fillBlackBlack" sx={{ mb: '14px' }}>
-            Crossplane FAQ’s
-          </Header>
-          <Header variant="h6" color="fillBlackGray">
-            Questions about Open Source Crossplane and the community.
-          </Header>
-        </SectionHeader>
-        {crossplaneFaqs.map((q, i) => (
-          <QuestionAndAnswerRow
-            answer={q.answer}
-            index={i}
-            question={q.question}
-            key={`question${i}`}
-          />
-        ))}
-      </Box>
-      <Wave type="light" />
-      <Box
-        textAlign="center"
-        sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
-          mb: 40,
-        }}
-      >
-        <Box px="30px" textAlign="center">
-          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
-            Still Have Questions?
-          </Header>
-          <Header variant="h6" color="fillBlackGray" sx={{ maxWidth: '670px', mx: 'auto', mb: 3 }}>
-            If you cannot find the answer to your question in our FAQ, you can always contact us
-            directly. We will answer to you shortly!
-          </Header>
-          <ContactTileRowContainer>
-            <ContactTile type="slack">Join us on Slack to get answers faster.</ContactTile>
-            <ContactTile type="email">Contact our support team directly.</ContactTile>
-          </ContactTileRowContainer>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          pt="2px"
+          px="30px"
+          bgcolor={COLORS.elephant}
+        >
+          <SectionHeader>
+            <Header variant="h4" bold={true} color="white" sx={{ mb: '14px' }}>
+              General FAQ’s
+            </Header>
+            <Header variant="h6" color="white">
+              General questions about Upbound products and services.
+            </Header>
+          </SectionHeader>
+          {generalFaqs.map((q, i) => (
+            <QuestionAndAnswerRow
+              answer={q.answer}
+              index={i}
+              question={q.question}
+              key={`question${i}`}
+            />
+          ))}
+          <SectionHeader>
+            <Header variant="h4" bold={true} color="white" sx={{ mb: '14px' }}>
+              Crossplane FAQ’s
+            </Header>
+            <Header variant="h6" color="white">
+              Questions about Open Source Crossplane and the community.
+            </Header>
+          </SectionHeader>
+          {crossplaneFaqs.map((q, i) => (
+            <QuestionAndAnswerRow
+              answer={q.answer}
+              index={i}
+              question={q.question}
+              key={`question${i}`}
+            />
+          ))}
+        </Box>
+        <Wave type="firefly" />
+        <Box
+          bgcolor={COLORS.firefly}
+          textAlign="center"
+          sx={{
+            mb: 40,
+          }}
+        >
+          <Box px="30px" textAlign="center">
+            <Header variant="h3" bold={true} color="white" sx={{ mb: '15px' }}>
+              Still Have Questions?
+            </Header>
+            <Header variant="h6" color="white" sx={{ maxWidth: '670px', mx: 'auto', mb: 3 }}>
+              If you cannot find the answer to your question in our FAQ, you can always contact us
+              directly. We will answer to you shortly!
+            </Header>
+            <ContactTileRowContainer>
+              <ContactTile type="slack">Join us on Slack to get answers faster.</ContactTile>
+              <ContactTile type="email">Contact our support team directly.</ContactTile>
+            </ContactTileRowContainer>
+          </Box>
         </Box>
       </Box>
     </PageProvider>

@@ -44,6 +44,8 @@ const ContactTileCard = styled(Card)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-color: #1b3549;
+  background-color: #1b3549;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -87,21 +89,21 @@ const ContactTileTitle: React.FC<{ type: TileType }> = ({ type }) => {
   switch (type) {
     case 'slack': {
       return (
-        <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mt: '11px' }}>
+        <Header variant="h5" bold={true} color="white" sx={{ mt: '11px' }}>
           slack.crossplane.io
         </Header>
       );
     }
     case 'email': {
       return (
-        <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mt: '11px' }}>
+        <Header variant="h5" bold={true} color="white" sx={{ mt: '11px' }}>
           {routes.infoEmail}
         </Header>
       );
     }
     case 'demo': {
       return (
-        <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mt: '11px' }}>
+        <Header variant="h5" bold={true} color="white" sx={{ mt: '11px' }}>
           Schedule a Demo
         </Header>
       );
@@ -142,7 +144,7 @@ const ContactTile: React.FC<{
       <ContactTileCard>
         <ContactTileImg type={type} />
         <ContactTileTitle type={type} />
-        <Paragraph color="fillBlackGray" sx={{ mt: '7px' }}>
+        <Paragraph color="white" sx={{ mt: '7px' }}>
           {children}
         </Paragraph>
       </ContactTileCard>

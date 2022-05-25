@@ -77,13 +77,13 @@ const FourOhFour: React.FC = () => {
   return (
     <PageProvider displayTitle="Upbound - Page Not Found">
       <Box textAlign="center" mx="auto" px="30px" pt="180px" maxWidth="900px">
-        <LargeHeader variant="h1" bold={true} color="fillBlackBlack" sx={{ mb: '30px' }}>
+        <LargeHeader variant="h1" bold={true} color="white" sx={{ mb: '30px' }}>
           404
         </LargeHeader>
-        <Header variant="h1" bold={true} color="fillBlackBlack" sx={{ mb: '30px' }}>
+        <Header variant="h1" bold={true} color="white" sx={{ mb: '30px' }}>
           Sorry, we can’t find the page you’re looking for…
         </Header>
-        <Header variant="h6" color="fillBlackBlack" sx={{ mb: '25px' }}>
+        <Header variant="h6" color="white" sx={{ mb: '25px' }}>
           Feel free to go <Link href="/">back to the homepage</Link> or check out these helpful
           links.
         </Header>
@@ -99,16 +99,16 @@ const FourOhFour: React.FC = () => {
         </ContactTileRowContainer>
       </Box>
       <Box mt="-190px">
-        <Wave type="light" />
+        <Wave type="elephant" />
       </Box>
       <Box
+        bgcolor={COLORS.elephant}
         sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
           pb: 32,
         }}
       >
         <Box textAlign="center" mx="auto" px="30px" pt="50px" mb="100px" maxWidth="900px">
-          <Header variant="h6" color="fillBlackGray">
+          <Header variant="h6" color="white">
             You can also visit the Upbound{' '}
             <Link href={routes.faqRoute}>Frequently Asked Questions</Link> page for answers to some
             of the most common questions our team is asked.
@@ -121,10 +121,10 @@ const FourOhFour: React.FC = () => {
           justifyContent="center"
           px="30px"
         >
-          <Header variant="h4" bold={true} color="fillBlackBlack" sx={{ mb: '14px' }}>
+          <Header variant="h4" bold={true} color="white" sx={{ mb: '14px' }}>
             Related Resources
           </Header>
-          <Header variant="h6" color="fillBlackGray" sx={{ mb: '50px' }}>
+          <Header variant="h6" color="white" sx={{ mb: '50px' }}>
             Still need more information? We’ve curated some related resources that may help you
             learn more.
           </Header>

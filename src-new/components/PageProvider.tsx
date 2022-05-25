@@ -23,7 +23,6 @@ type Props = {
   displayTitle?: string;
   metaTitle?: string;
   metaDescription?: string;
-  isDark?: boolean;
   hideTryForFreeCard?: boolean;
   removeFooterPadding?: boolean;
 };
@@ -35,7 +34,6 @@ const PageProvider = ({
   displayTitle = defaultTitle,
   metaTitle = displayTitle,
   metaDescription = defaultDescription,
-  isDark,
   hideTryForFreeCard,
   removeFooterPadding,
 }: Props) => {
@@ -69,8 +67,8 @@ const PageProvider = ({
         metaTitle={metaTitle}
         metaDescription={metaDescription}
       />
-      <PageHeader isDark={isDark} setOverflowVisible={setOverflowVisible} />
-      <Box sx={{ bgcolor: isDark ? COLORS.firefly : '#fff' }}>
+      <PageHeader setOverflowVisible={setOverflowVisible} />
+      <Box sx={{ bgcolor: COLORS.firefly }}>
         {children}
         <PageFooter
           isFooterVisible={isFooterVisible}

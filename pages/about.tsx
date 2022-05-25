@@ -281,7 +281,7 @@ const About: React.FC = () => {
       metaDescription={metaDescription}
       isOverflowVisible={!showMap}
     >
-      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.cornflower} textAlign="center">
+      <Box pt={{ _: '126px', md: '130px' }} bgcolor={COLORS.firefly} textAlign="center">
         <Box maxWidth="930px" mx="auto" px="30px">
           <Header
             pill="About Us"
@@ -301,9 +301,9 @@ const About: React.FC = () => {
             by delivering software faster.
           </Header>
         </Box>
-        <Wave type="light" />
+        <Wave type="dark" />
       </Box>
-      <Box sx={{ bgcolor: COLORS.paleGrey }}>
+      <Box sx={{ bgcolor: COLORS.elephant }}>
         <Box textAlign="center" px="30px">
           <Box
             display="flex"
@@ -333,7 +333,7 @@ const About: React.FC = () => {
                 <Header
                   variant="h5"
                   bold={true}
-                  color="fillBlackBlack"
+                  color="white"
                   sx={{
                     mt: '35px',
                     mb: '11px',
@@ -343,14 +343,14 @@ const About: React.FC = () => {
                 >
                   {feature.title}
                 </Header>
-                <Paragraph color="fillBlackGray" sx={{ minHeight: 84, maxHeight: 112 }}>
+                <Paragraph color="white" sx={{ minHeight: 84, maxHeight: 112 }}>
                   {feature.body}
                 </Paragraph>
               </Box>
             ))}
           </Box>
           <AnchorButton
-            btnType="blackOutline"
+            btnType="whiteOutline"
             href={routes.upboundGreenhouseUrl}
             tabIndex={0}
             sx={{
@@ -361,14 +361,14 @@ const About: React.FC = () => {
             View All Open Positions
           </AnchorButton>
         </Box>
-        <Wave type="white" />
+        <Wave type="firefly" />
       </Box>
       <Box sx={{ textAlign: 'center' }}>
         <Box mx="30px">
-          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '20px' }}>
+          <Header variant="h3" bold={true} color="white" sx={{ mb: '20px' }}>
             Upbound's Values
           </Header>
-          <Header variant="h6" color="fillBlackGray" sx={{ mb: '16px', maxWidth: 800, mx: 'auto' }}>
+          <Header variant="h6" color="white" sx={{ mb: '16px', maxWidth: 800, mx: 'auto' }}>
             Upbound operates like a healthy open source project. As part of that cultural DNA we are
             continuously iterating, improving, and innovating collaboratively and with transparency.
           </Header>
@@ -395,15 +395,10 @@ const About: React.FC = () => {
               minHeight="274px"
             >
               <Img src={value.icon} alt="value icon" width={64} height={64} />
-              <Header
-                variant="h5"
-                bold={true}
-                color="fillBlackBlack"
-                sx={{ mt: '35px', mb: '11px' }}
-              >
+              <Header variant="h5" bold={true} color="white" sx={{ mt: '35px', mb: '11px' }}>
                 {value.title}
               </Header>
-              <Paragraph color="fillBlackGray">{value.body}</Paragraph>
+              <Paragraph color="white">{value.body}</Paragraph>
             </Box>
           ))}
           <Box
@@ -415,15 +410,15 @@ const About: React.FC = () => {
             mt="48px"
             maxWidth="300px"
             minHeight="274px"
-            border="solid 1px rgba(90, 113, 132, 0.5);" // TODO: Unnamed color
+            border="solid 1px white;" // TODO: Unnamed color
             borderRadius="8px"
             padding="35px"
           >
-            <Header variant="h6" color="fillBlackGray" sx={{ mb: '20px' }}>
+            <Header variant="h6" color="white" sx={{ mb: '20px' }}>
               At Upbound, our values are highly important to us
             </Header>
             <Button
-              btnType="blackOutline"
+              btnType="whiteOutline"
               onClick={() => {
                 window.open(routes.upboundValuesDoc, '_blank');
               }}
@@ -432,9 +427,9 @@ const About: React.FC = () => {
             </Button>
           </Box>
         </Box>
-        <Wave type="cornflower" />
+        <Wave type="elephant" />
       </Box>
-      <Box sx={{ bgcolor: COLORS.cornflower, textAlign: 'center' }}>
+      <Box sx={{ bgcolor: COLORS.elephant, textAlign: 'center' }}>
         <Box mx="30px">
           <Header variant="h3" bold={true} color="white" sx={{ mb: '20px' }}>
             Caring For Our Team
@@ -460,8 +455,8 @@ const About: React.FC = () => {
               sx={{
                 borderRadius: '16px',
                 padding: '40px 20px',
-                bgcolor: COLORS.white,
-                border: `solid 1px ${COLORS.veryLightBlue}`,
+                bgcolor: COLORS.bigStone,
+                border: `solid 1px ${COLORS.bigStone}`,
                 boxShadow: '0 50px 50px 0 rgba(0, 0, 0, 0.05)',
                 textAlign: 'left',
                 maxWidth: '350px',
@@ -470,26 +465,26 @@ const About: React.FC = () => {
                 mb: '40px',
               }}
             >
-              <Header variant="h5" bold={true} color="fillBlackBlack" sx={{ mb: '10px' }}>
+              <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
                 {feature.title}
               </Header>
-              <Paragraph color="fillBlackGray">{feature.body}</Paragraph>
+              <Paragraph color="white">{feature.body}</Paragraph>
             </Box>
           ))}
         </Box>
-        <Wave type="light" />
+        <Wave type="firefly" />
       </Box>
       <Box
         sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          bgcolor: COLORS.firefly,
           textAlign: 'center',
         }}
       >
         <Box mx="30px">
-          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '20px' }}>
+          <Header variant="h3" bold={true} color="white" sx={{ mb: '20px' }}>
             Our Leadership & Founding Team
           </Header>
-          <Header variant="h6" color="fillBlackGray" sx={{ mb: '80px' }}>
+          <Header variant="h6" color="white" sx={{ mb: '80px' }}>
             Meet the Upbound leadership team and founding members.
           </Header>
         </Box>
@@ -519,7 +514,7 @@ const About: React.FC = () => {
                   <Header
                     variant="h5"
                     bold={true}
-                    color="fillBlackBlack"
+                    color="white"
                     sx={{
                       lineHeight: '32px',
                       mb: '1px',
@@ -529,7 +524,7 @@ const About: React.FC = () => {
                   </Header>
                   <Header
                     variant="h5"
-                    color="fillBlackGray"
+                    color="white"
                     sx={{
                       lineHeight: '36px',
                       pb: '22.5px',
@@ -546,15 +541,15 @@ const About: React.FC = () => {
               flexDirection="column"
               justifyContent="center"
               alignItems="center"
-              border="solid 1px rgba(90, 113, 132, 0.5);" // TODO: Unnamed color
+              border="solid 1px white;" // TODO: Unnamed color
               borderRadius="8px"
               padding="35px"
             >
-              <Header variant="h6" color="fillBlackGray" sx={{ mb: '20px' }}>
+              <Header variant="h6" color="white" sx={{ mb: '20px' }}>
                 We’re a growing distributed team of digital vagabonds from all walks of life.
               </Header>
               {/* TODO: bring up map */}
-              <Button btnType="blackOutline" onClick={() => setShowMap(true)}>
+              <Button btnType="whiteOutline" onClick={() => setShowMap(true)}>
                 Meet All Upbounders
               </Button>
             </FounderCardContainer>
@@ -564,18 +559,18 @@ const About: React.FC = () => {
       </Box>
       <Box mt={{ xs: '113px', sm: '80px' }} px={{ md: '0', lg: '30px', xl: '0' }}>
         <JoinUs
-          type="dark"
+          type="bigstone"
           title="Join Our Fast Growing Team"
           subtitle={`Come build the next generation of the cloud with us.  We’re looking for problem solvers,
           builders, and innovators who love open source and pushing technological boundaries!`}
           href={routes.upboundGreenhouseUrl}
           button="View All Open Positions"
         />
-        <Box bgcolor={COLORS.cornflower} height="75px" mt="-75px" zIndex={-1} />
+        <Box bgcolor={COLORS.elephant} height="75px" mt="-75px" zIndex={-1} />
       </Box>
       <Box
         sx={{
-          backgroundColor: COLORS.cornflower,
+          backgroundColor: COLORS.elephant,
           backgroundImage: `url(${purpleOval.src})`,
           backgroundPosition: 'right bottom',
           backgroundRepeat: 'no-repeat',
@@ -672,23 +667,19 @@ const About: React.FC = () => {
             </Hidden>
           </Box>
         </Box>
-        <Wave type="light" />
+        <Wave type="firefly" />
       </Box>
       <Box
         sx={{
-          backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
+          backgroundColor: COLORS.firefly,
           mb: 40,
         }}
       >
         <Box px="30px" textAlign="center">
-          <Header variant="h3" bold={true} color="fillBlackBlack" sx={{ mb: '15px' }}>
+          <Header variant="h3" bold={true} color="white" sx={{ mb: '15px' }}>
             We Would Love To Hear From You
           </Header>
-          <Header
-            variant="h6"
-            color="fillBlackGray"
-            sx={{ maxWidth: '670px', mx: 'auto', mb: '64px' }}
-          >
+          <Header variant="h6" color="white" sx={{ maxWidth: '670px', mx: 'auto', mb: '64px' }}>
             If you cannot find an answer to your question in our FAQ, you can always contact us. We
             will answer to you shortly!
           </Header>
