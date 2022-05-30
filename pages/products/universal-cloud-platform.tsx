@@ -224,7 +224,7 @@ const FeatureBlock = ({
               sx={{
                 transform: isActive ? '' : `translate(50vw)`,
                 opacity: isActive ? 1 : 0,
-                transition: 'transform 1.5s, opacity 1.5s',
+                transition: 'transform .8s, opacity .8s',
               }}
             >
               <Image src={imgBig} alt="feature-img-big" />
@@ -236,7 +236,7 @@ const FeatureBlock = ({
                 right: imgSmallOffset.right,
                 transform: isActive ? '' : `translate(100vw)`,
                 opacity: isActive ? 1 : 0,
-                transition: 'transform 2s, opacity 2s',
+                transition: 'transform 1s, opacity 1s',
               }}
             >
               <Image src={imgSmall} alt="feature-img-small" />
@@ -314,7 +314,7 @@ const FeaturesSection = () => {
           disableBodyScroll(featureSectionRef.current);
           setTimeout(() => {
             setCanScroll(true);
-          }, 1000);
+          }, 250);
           // setActiveIndex(0);
         }
       }
@@ -354,7 +354,7 @@ const FeaturesSection = () => {
           document.getElementById('featureSectionID')?.scrollTo(0, 0);
         }
       }
-    }, 2000);
+    }, 500);
   };
 
   return (
