@@ -253,18 +253,18 @@ const PlanTileButton = styled(AnchorButton)<{ dark?: boolean }>`
     color: ${COLORS.white};
   }
 
-  // &:active,
-  // &:hover,
-  // &:focus {
-  //   background-color: ${COLORS.white};
-  //   color: ${COLORS.white};
-  //   background-image: url(${arrowRightWhite.src});
-  // }
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: ${COLORS.bigStone};
+    color: ${COLORS.white};
+    background-image: url(${arrowRightWhite.src});
+  }
 
   ${({ dark }) =>
     dark
       ? `
-        color: ${COLORS.white};
+        color: ${COLORS.bigStone};
         background-image: url(${arrowRightBigStone.src});
         background-color: ${COLORS.white};
 
@@ -272,12 +272,13 @@ const PlanTileButton = styled(AnchorButton)<{ dark?: boolean }>`
           color: ${COLORS.bigStone};
         }
 
-        // &:active,
-        // &:hover,
-        // &:focus {
-        //   background-color: ${COLORS.iris};
-        //   border-color: ${COLORS.iris};
-        // }
+        &:active,
+        &:hover,
+        &:focus {
+          background-color: ${COLORS.white};
+          border-color: ${COLORS.white};
+          background-image: url(${arrowRightBigStone.src});
+        }
   `
       : ''}
 `;
