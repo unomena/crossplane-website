@@ -14,7 +14,6 @@ import { AnchorButton } from 'src/elements/Button';
 import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
-import Link from 'src-new/elements/Link';
 
 import * as routes from 'src/routes';
 
