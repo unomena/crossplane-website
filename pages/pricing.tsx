@@ -14,6 +14,7 @@ import { AnchorButton } from 'src/elements/Button';
 import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
+import Link from 'src-new/elements/Link';
 
 import * as routes from 'src/routes';
 
@@ -37,7 +38,7 @@ const AnswerParagraph = styled(Paragraph)`
 
 const questions = [
   {
-    question: 'How do I pay for the Buisness or Enterprise plan?',
+    question: 'How do I pay for the Enterprise or Business Critical plan?',
     answer: (
       <AnswerParagraph>
         You can pay with a credit card or via net banking (if you’re in United States). We will
@@ -61,7 +62,8 @@ const questions = [
     answer: (
       <AnswerParagraph>
         If you or your team need additional time to use one of Upbound's hosted control planes,
-        please contact us (link to contact page) and one of our team members will help you.
+        please <Anchor href={routes.contactSalesUrl}>contact us</Anchor> and one of our team members
+        will help you.
       </AnswerParagraph>
     ),
   },
@@ -71,8 +73,8 @@ const questions = [
     answer: (
       <AnswerParagraph>
         Upbound's free tier is designed for individuals and community members to get started
-        building and debugging control planes. Start your free 14 day trial of our Business tier
-        simply by creating an Organization during sign up or via the Upbound console.
+        building and debugging control planes. Start your free 14 day trial of our Business Critical
+        tier simply by creating an Organization during sign up or via the Upbound console.
       </AnswerParagraph>
     ),
   },
@@ -83,14 +85,14 @@ const questions = [
       <AnswerParagraph>
         Upbound is available as both a SaaS (Upbound Cloud) and single tenant (Upbound Enterprise)
         offering. Features and functionality between the two deployment options are identical today.
-        Upbound Cloud is available to Business tier customers and Upbound Enterprise is available to
-        Enterprise tier customers.
+        Upbound Cloud is available to Business Critical tier customers and Upbound Enterprise is
+        available to Enterprise tier customers.
       </AnswerParagraph>
     ),
   },
 
   {
-    question: 'Can I evaluate Business or Enterprise plans for free?',
+    question: 'Can I evaluate Enterprise or Business Critical plans for free?',
     answer: (
       <AnswerParagraph>
         Yes. Our goal is to make our customers successful, and would love to work with you and your
@@ -116,7 +118,7 @@ const questions = [
   },
 ];
 
-const plans = ['Free Plan', 'Business Plan', 'Enterprise Plan', 'Community Crossplane'];
+const plans = ['Free Plan', 'Business Critical Plan', 'Enterprise Plan', 'Community Crossplane'];
 
 const features: Array<{
   header: string;
