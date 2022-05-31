@@ -335,26 +335,29 @@ const FeaturesSection = () => {
   let t: NodeJS.Timeout;
   const handleSectionScroll = () => {
     if (canScrollRef.current && document.getElementById('featureSectionID')?.scrollTop !== 0) {
-      setActiveIndex(activeIndexRef.current + 1);
-      setCanScroll(false);
+      if (activeIndexRef.current >= features.length - 2) {
+        if (featureSectionRef.current) {
+          enableBodyScroll(featureSectionRef.current);
+        }
+        setActiveIndex(activeIndexRef.current + 1);
+        document.body.removeEventListener('scroll', handleScroll);
+        setFinalScrolled(true);
+      } else {
+        setActiveIndex(activeIndexRef.current + 1);
+        setCanScroll(false);
+      }
     }
     if (t) {
       clearTimeout(t);
     }
-    t = setTimeout(() => {
-      if (document.getElementById('featureSectionID')?.scrollTop !== 0) {
-        if (activeIndexRef.current >= features.length - 1) {
-          if (featureSectionRef.current) {
-            enableBodyScroll(featureSectionRef.current);
-          }
-          document.body.removeEventListener('scroll', handleScroll);
-          setFinalScrolled(true);
-        } else {
+    if (activeIndexRef.current < features.length - 1) {
+      t = setTimeout(() => {
+        if (document.getElementById('featureSectionID')?.scrollTop !== 0) {
           setCanScroll(true);
           document.getElementById('featureSectionID')?.scrollTo(0, 0);
         }
-      }
-    }, 500);
+      }, 500);
+    }
   };
 
   return (
