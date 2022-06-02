@@ -1467,19 +1467,14 @@ const MediaCard_2 = () => {
 };
 
 const MediaCard_3 = () => {
-  const matchesXL = useMediaQuery(MQ.xl);
-
   return (
     <MediaCard
-      img={laptopArticleImg}
-      profileImg={matchesXL ? grantGuminaProfile : null}
-      person="Grant Gumina"
-      type="Blog"
-      title="Announcing the Upbound VSCode Plugin"
-      body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
-      date="15 Feb, 2022"
+      type="video"
+      person="Viktor Farcic"
+      title="VIDEO: How to Manage Multi-Cloud Resources"
+      date="25 May, 2022"
       pillText="New!"
-      href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
+      videoId="VTTwzVSwWVo"
     />
   );
 };
