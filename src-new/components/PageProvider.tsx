@@ -15,6 +15,7 @@ const defaultTitle = 'Upbound - The Universal Cloud Platform';
 const defaultDescription =
   'The Upbound universal cloud platform empowers you to manage infrastructure, eliminate configuration drift, and ' +
   'empower developers with self-service infrastructure.';
+const defaultImg = 'public/og-images/home-page-og.jpg';
 
 type Props = {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ type Props = {
   displayTitle?: string;
   metaTitle?: string;
   metaDescription?: string;
+  metaImg?: string;
   hideTryForFreeCard?: boolean;
   removeFooterPadding?: boolean;
 };
@@ -34,6 +36,7 @@ const PageProvider = ({
   displayTitle = defaultTitle,
   metaTitle = displayTitle,
   metaDescription = defaultDescription,
+  metaImg = defaultImg,
   hideTryForFreeCard,
   removeFooterPadding,
 }: Props) => {
@@ -66,6 +69,7 @@ const PageProvider = ({
         displayTitle={displayTitle}
         metaTitle={metaTitle}
         metaDescription={metaDescription}
+        metaImg={metaImg}
       />
       <PageHeader setOverflowVisible={setOverflowVisible} />
       <Box sx={{ bgcolor: COLORS.firefly }}>
