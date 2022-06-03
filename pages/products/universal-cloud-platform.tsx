@@ -464,10 +464,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
   );
 };
 
-const displayTitle = 'A Universal Cloud Platform';
-const metaDescription =
-  "Upbound's Universal Cloud Platform standardizes infrastructure and application management using the same " +
-  'API-centric, declarative configuration and automation approach pioneered by Kubernetes.';
+const displayTitle = 'Products - The Universal Cloud Platform';
 const metaImg = 'public/og-images/product-page-og.jpg';
 
 type Props = {};
@@ -484,7 +481,7 @@ const Products = ({}: Props) => {
     }
   }, [isVisible]);
   return (
-    <PageProvider displayTitle={displayTitle} metaDescription={metaDescription} metaImg={metaImg}>
+    <PageProvider displayTitle={displayTitle} metaImg={metaImg}>
       <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
         <Box
           sx={{
