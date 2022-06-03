@@ -7,7 +7,6 @@ const no_auth_urls = [
   'www.dev-deba7a0e.u6d.dev',
   'staging-eikeagoo.upbound.services',
   'www.staging-eikeagoo.upbound.services',
-  'marketing-site-git-up-67-upboundio.vercel.app',
 ];
 
 export function middleware(req: NextRequest) {
