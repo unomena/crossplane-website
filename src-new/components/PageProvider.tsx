@@ -15,7 +15,7 @@ const defaultTitle = 'Upbound - The Universal Cloud Platform';
 const defaultDescription =
   'The Upbound universal cloud platform empowers you to manage infrastructure, eliminate configuration drift, and ' +
   'empower developers with self-service infrastructure.';
-const defaultImg = 'public/og-images/home-page-og.jpg';
+const defaultImg = '../../public/og-images/home-page-og.jpg';
 
 type Props = {
   children: React.ReactNode;

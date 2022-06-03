@@ -465,7 +465,7 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 };
 
 const displayTitle = 'Products - The Universal Cloud Platform';
-const metaImg = 'public/og-images/product-page-og.jpg';
+const metaImg = '../../public/og-images/product-page-og.jpg';
 
 type Props = {};
 
