@@ -25,11 +25,11 @@ const PageHead: React.FC<{
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@upbound_io" />
-        <meta name="twitter:image:src" content="https://upbound.io/twitter-card.png?1" />
+        <meta name="twitter:image" content={`https://www.upbound.io${metaImg}`} />
 
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={metaImg} />
+        <meta property="og:image" content={`https://www.upbound.io${metaImg}`} />
 
         <meta
           name="google-site-verification"
