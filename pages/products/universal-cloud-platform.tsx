@@ -383,7 +383,7 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
     }
     document.body.removeEventListener('scroll', handleScroll);
     if (diagramSectionRef.current) {
-      diagramSectionRef.current.scrollIntoView();
+      document.body.scrollTo({ top: diagramSectionRef.current.offsetTop, behavior: 'smooth' });
     }
   };
 
@@ -395,7 +395,7 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
     }
     document.body.removeEventListener('scroll', handleScroll);
     if (platformSectionRef.current) {
-      platformSectionRef.current.scrollIntoView();
+      document.body.scrollTo({ top: platformSectionRef.current.offsetTop, behavior: 'smooth' });
     }
   };
 
@@ -455,26 +455,28 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
                   />
                 ))}
               </Box>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  width: '32px',
-                  right: '24px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  color: 'white',
-                  fontSize: '32px',
-                }}
-              >
-                <Box onClick={handleUpClick} sx={{ cursor: 'pointer' }}>
-                  <ArrowCircleUpIcon fontSize="inherit" color="inherit" sx={{ mb: 1 }} />
+              {!finalScrolled && (
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    width: '32px',
+                    right: '24px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    color: 'white',
+                    fontSize: '32px',
+                  }}
+                >
+                  <Box onClick={handleUpClick} sx={{ cursor: 'pointer' }}>
+                    <ArrowCircleUpIcon fontSize="inherit" color="inherit" sx={{ mb: 1 }} />
+                  </Box>
+                  <Box onClick={handleDownClick} sx={{ cursor: 'pointer' }}>
+                    <ArrowCircleDownIcon fontSize="inherit" color="inherit" sx={{ mt: 1 }} />
+                  </Box>
                 </Box>
-                <Box onClick={handleDownClick} sx={{ cursor: 'pointer' }}>
-                  <ArrowCircleDownIcon fontSize="inherit" color="inherit" sx={{ mt: 1 }} />
-                </Box>
-              </Box>
+              )}
             </Container>
           </Box>
         </div>
