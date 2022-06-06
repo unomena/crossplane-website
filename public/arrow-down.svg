@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="32px" viewBox="0 0 38 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group 26 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-102.6%" y="-78.0%" width="300.4%" height="254.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.42745098   0 0 0 0 0.392156863   0 0 0 0 0.960784314  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <polygon id="path-2" points="0 0 18.066667 0 18.066667 24.6363641 0 24.6363641"></polygon>
+    </defs>
+    <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.603376116">
+        <g id="Group-26-Copy-2" transform="translate(19.500000, 15.500000) rotate(270.000000) translate(-19.500000, -15.500000) translate(10.000000, 3.000000)">
+            <g id="Group-5-Copy-8" filter="url(#filter-1)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <g id="Clip-4"></g>
+                <path d="M16.5478147,1.66666988 L16.566667,22.7146305 C16.566667,22.8012716 16.563023,22.8895679 16.5479343,22.9692924 L1.62324748,12.7809304 C1.4789028,12.6824061 1.49993909,12.4601631 1.50000009,12.3030763 C1.50006086,12.1465707 1.47871212,11.9246645 1.6230325,11.8264601 L16.5478147,1.66666988 Z" id="Fill-3" stroke="#C8C3FF" stroke-width="3" fill="#0B1C28" mask="url(#mask-3)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

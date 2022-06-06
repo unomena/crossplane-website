@@ -54,8 +54,10 @@ import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
 import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import OGImgProducts from 'public/og-images/product-page-og.jpg';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
-import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import arrowUpIcon from 'public/arrow-up.svg';
+import arrowDownIcon from 'public/arrow-down.svg';
+import arrowUpHoverIcon from 'public/arrow-up-hover.svg';
+import arrowDownHoverIcon from 'public/arrow-down-hover.svg';
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
@@ -459,21 +461,63 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
                 <Box
                   sx={{
                     position: 'absolute',
-                    width: '32px',
+                    width: '60px',
                     right: '24px',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     display: 'flex',
                     flexDirection: 'column',
-                    color: 'white',
-                    fontSize: '32px',
+                    alignItems: 'center',
                   }}
                 >
-                  <Box onClick={handleUpClick} sx={{ cursor: 'pointer' }}>
-                    <ArrowCircleUpIcon fontSize="inherit" color="inherit" sx={{ mb: 1 }} />
+                  <Box
+                    onClick={handleUpClick}
+                    sx={{
+                      cursor: 'pointer',
+                      position: 'relative',
+                      width: '38px',
+                      height: '32px',
+                      '&:hover': {
+                        content: `url(${arrowUpHoverIcon.src})`,
+                        width: '38px',
+                        height: '32px',
+                      },
+                    }}
+                  >
+                    <Image src={arrowUpIcon} alt="arrow up" />
+                    {/* <ArrowUpIcon fontSize="inherit" color="inherit" sx={{ mb: 1 }} /> */}
                   </Box>
-                  <Box onClick={handleDownClick} sx={{ cursor: 'pointer' }}>
-                    <ArrowCircleDownIcon fontSize="inherit" color="inherit" sx={{ mt: 1 }} />
+                  <Typography
+                    variant="body_small"
+                    sx={{ fontSize: '10px', fontWeight: '700', opacity: '.25' }}
+                  >
+                    Quick View
+                  </Typography>
+                  <Typography variant="body_small" sx={{ fontSize: '14px' }}>
+                    Features
+                  </Typography>
+                  <Typography
+                    variant="body_small"
+                    sx={{ fontSize: '10px', fontWeight: '700', opacity: '.25' }}
+                  >
+                    Case Studies
+                  </Typography>
+                  <Box
+                    onClick={handleDownClick}
+                    sx={{
+                      cursor: 'pointer',
+                      position: 'relative',
+                      width: '38px',
+                      height: '32px',
+                      '&:hover': {
+                        content: `url(${arrowDownHoverIcon.src})`,
+                        width: '38px',
+                        height: '32px',
+                      },
+                    }}
+                  >
+                    <Image src={arrowDownIcon} alt="arrow down" />
+                    {/* <ArrowDownIcon fontSize="inherit" color="inherit" sx={{ mt: 1 }} /> */}
                   </Box>
                 </Box>
               )}
