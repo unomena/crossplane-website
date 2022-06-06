@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -176,6 +176,15 @@ const MediaCard = ({
 }: Props) => {
   const [isVideoVisible, setVideoVisible] = useState(false);
 
+  const imgSrc = useMemo(() => {
+    if (img) {
+      return img;
+    } else if (type === 'video' && videoId) {
+      return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    }
+    return img;
+  }, [img]);
+
   const RenderCard = () => (
     <>
       <Box
@@ -192,12 +201,12 @@ const MediaCard = ({
             <Typography variant="inherit">{pillText}</Typography>
           </Box>
         )}
-        {img && (
+        {imgSrc && (
           <Box
             sx={{ position: 'relative', width: imgWidth || '100%', height: imgHeight || '100%' }}
           >
             <Image
-              src={img}
+              src={imgSrc}
               alt="card-img"
               layout="fill"
               objectFit="cover"

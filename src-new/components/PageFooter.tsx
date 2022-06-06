@@ -3,6 +3,8 @@
 
 import React from 'react';
 
+import Image from 'next/image';
+
 import { jsx } from '@emotion/react';
 import { Box, Hidden, Typography } from '@mui/material';
 import { SxProps } from '@mui/system';
@@ -20,6 +22,7 @@ import linkedinLogo from 'public/linkedin.svg';
 import logo from 'public/logo-white.svg';
 import twitterLogo from 'public/twitter.svg';
 import youtubeLogo from 'public/youtube.svg';
+import unomenaLogo from 'public/unomena-logo.svg';
 
 const footerMarginContainer: SxProps = {
   position: 'relative',
@@ -138,6 +141,16 @@ const largeFooterSocialsContainer: SxProps = {
       marginRight: 0,
     },
   },
+};
+
+const unomenaLink: SxProps = {
+  color: COLORS.fillBlackGray,
+  fontSize: '13px',
+  lineHeight: '28px',
+  fontWeight: '600',
+  marginTop: '20px',
+  display: 'flex',
+  alignItems: 'center',
 };
 
 const largeFooterCNCFContainer: SxProps = {
@@ -449,6 +462,17 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
                     <Img src={youtubeLogo} alt="YouTube" height="13px" width="19px" />
                   </Anchor>
                 </Box>
+                <Box sx={unomenaLink}>
+                  Site by{' '}
+                  <a
+                    href="http://www.unomena.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ display: 'flex', marginLeft: '4px' }}
+                  >
+                    <Image src={unomenaLogo} alt="unomena" height={32} width={80} />
+                  </a>
+                </Box>
               </Box>
             </Box>
             <Box sx={mobileFooterCNCFBorderContainer}>
@@ -494,6 +518,17 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
                   <Anchor sx={largeFooterSocialAnchor} href={routes.youtubeUrl}>
                     <Img src={youtubeLogo} alt="YouTube" width={19} />
                   </Anchor>
+                </Box>
+                <Box sx={unomenaLink}>
+                  Site by{' '}
+                  <a
+                    href="http://www.unomena.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ display: 'flex', marginLeft: '4px' }}
+                  >
+                    <Image src={unomenaLogo} alt="unomena" height={32} width={80} />
+                  </a>
                 </Box>
               </Box>
               <Box sx={largeFooterLinkColumnContainer}>
