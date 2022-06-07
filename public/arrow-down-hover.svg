@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="38px" height="32px" viewBox="0 0 38 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
-    <title>Group 26 Copy 2</title>
+    <title>Group 26 Copy 4</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <filter x="-102.6%" y="-78.0%" width="300.4%" height="254.5%" filterUnits="objectBoundingBox" id="filter-1">
+        <path d="M18.066667,1.92187601 L18.066667,22.7146305 C18.066667,24.1417696 16.9647044,25.0698098 16.0283162,24.4307598 L0.777613029,14.0198421 C-0.259826195,13.3117252 -0.259026319,11.2927924 0.778946155,10.5864931 L16.029916,0.204656218 C16.9660376,-0.432576276 18.066667,0.495463973 18.066667,1.92187601" id="path-1"></path>
+        <filter x="-91.3%" y="-67.0%" width="282.7%" height="234.0%" filterUnits="objectBoundingBox" id="filter-2">
             <feMorphology radius="2" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
             <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 0.42745098   0 0 0 0 0.392156863   0 0 0 0 0.960784314  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.42745098   0 0 0 0 0.392156863   0 0 0 0 0.960784314  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
-        <polygon id="path-2" points="0 0 18.066667 0 18.066667 24.6363641 0 24.6363641"></polygon>
     </defs>
     <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-26-Copy-2" transform="translate(18.500000, 15.500000) scale(1, -1) rotate(90.000000) translate(-18.500000, -15.500000) translate(9.000000, 3.000000)">
-            <g id="Group-5-Copy-8" filter="url(#filter-1)" opacity="0.603376116">
-                <mask id="mask-3" fill="white">
-                    <use xlink:href="#path-2"></use>
-                </mask>
-                <g id="Clip-4"></g>
-                <path d="M16.5478147,1.66666988 L16.566667,22.7146305 C16.566667,22.8012716 16.563023,22.8895679 16.5479343,22.9692924 L1.62324748,12.7809304 C1.4789028,12.6824061 1.49993909,12.4601631 1.50000009,12.3030763 C1.50006086,12.1465707 1.47871212,11.9246645 1.6230325,11.8264601 L16.5478147,1.66666988 Z" id="Fill-3" stroke="#C8C3FF" stroke-width="3" fill="#0B1C28" mask="url(#mask-3)"></path>
+        <g id="Group-26-Copy-4" transform="translate(18.500000, 15.500000) scale(1, -1) rotate(90.000000) translate(-18.500000, -15.500000) translate(9.000000, 3.000000)">
+            <g id="Fill-3" opacity="0.604887463">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <path stroke="#C8C3FF" stroke-width="2" d="M1.34167039,11.4131378 L16.5926304,1.03130759 C16.9632467,1.22971749 17.066667,1.557638 17.066667,1.92187601 L17.066667,22.7146305 C17.066667,23.0789229 16.9631896,23.406906 16.7545273,23.582583 L1.34136933,13.1939009 C1.07223367,13.0101991 0.999871254,12.6347842 1.00000013,12.3028822 C1.00012885,11.9713658 1.07246072,11.5963243 1.34167039,11.4131378 Z" stroke-linejoin="square" fill="#0B1C28" fill-rule="evenodd"></path>
             </g>
-            <path d="M14.6153846,17.5639527 C14.6153846,18.2590905 14.0523609,18.7111248 13.5739338,18.3998532 L5.78191979,13.3288529 C5.25186286,12.9839399 5.25227154,12.0005482 5.78260092,11.6565205 L13.5747511,6.59968495 C14.053042,6.28929864 14.6153846,6.741333 14.6153846,7.43611671 L14.6153846,17.5639527 Z" id="Fill-3" fill="#C8C3FF"></path>
+            <path d="M14.6153846,17.448568 C14.6153846,18.1437059 14.0523609,18.5957402 13.5739338,18.2844686 L5.78191979,13.2134683 C5.25186286,12.8685552 5.25227154,11.8851636 5.78260092,11.5411359 L13.5747511,6.48430033 C14.053042,6.17391403 14.6153846,6.62594839 14.6153846,7.3207321 L14.6153846,17.448568 Z" id="Fill-3" fill="#C8C3FF"></path>
         </g>
     </g>
 </svg>

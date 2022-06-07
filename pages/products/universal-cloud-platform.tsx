@@ -119,6 +119,14 @@ const platformCarousel: SxProps = {
   },
 };
 
+const featuresSection: SxProps = {
+  '@media screen and (max-width: 1399px)': {
+    '.MuiContainer-root': {
+      pr: '170px',
+    },
+  },
+};
+
 interface StaticRequire {
   default: StaticImageData;
 }
@@ -485,7 +493,6 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
                     }}
                   >
                     <Image src={arrowUpIcon} alt="arrow up" />
-                    {/* <ArrowUpIcon fontSize="inherit" color="inherit" sx={{ mb: 1 }} /> */}
                   </Box>
                   <Typography
                     variant="body_small"
@@ -517,7 +524,6 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
                     }}
                   >
                     <Image src={arrowDownIcon} alt="arrow down" />
-                    {/* <ArrowDownIcon fontSize="inherit" color="inherit" sx={{ mt: 1 }} /> */}
                   </Box>
                 </Box>
               )}
@@ -731,15 +737,15 @@ const Products = ({}: Props) => {
           </Hidden>
         </Section>
       </Box>
-      <Hidden mdDown>
-        <Section bgcolor hasContainer={false}>
+      <Hidden xlDown>
+        <Section bgcolor hasContainer={false} sx={featuresSection}>
           <FeaturesSection
             diagramSectionRef={diagramSectionRef}
             platformSectionRef={platformSectionRef}
           />
         </Section>
       </Hidden>
-      <Hidden mdUp>
+      <Hidden xlUp>
         <Section bgcolor sx={platformCarousel}>
           <Box sx={{ mb: 7.5 }}>
             <Typography variant="h3_new" sx={{ ...fontAvenirBold, mb: 3 }}>
