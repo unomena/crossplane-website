@@ -68,21 +68,12 @@ const caseStudiesSection: SxProps = {
   },
 };
 
-// const headerButtons: SxProps = {
-//   mt: 7.5,
-//   mb: 7.5,
-//   [MQ.md]: {
-//     display: 'flex',
-//     alignItems: 'center',
-//   },
-// };
-
 const headerButtons: SxProps = {
   mt: { _: 5, sm: 7.5 },
   mb: { _: 6, sm: 10 },
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: { _: 'center', md: 'left' },
   flexDirection: { _: 'column', sm: 'row' },
 };
 
@@ -493,31 +484,31 @@ const Products = ({}: Props) => {
   return (
     <PageProvider displayTitle={displayTitle} metaImg={metaImg}>
       <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
-        <Box
-          sx={{
-            [MQ.md]: {
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'row',
-            },
-          }}
-          ref={productsHeader}
-        >
+        <Box ref={productsHeader}>
           <Box
             sx={{
               [MQ.md]: {
                 flex: 1,
-                width: '50%',
-                minWidth: '50%',
-                maxWidth: '50%',
+                width: '100%',
+                minWidth: '60%',
+                maxWidth: '60%',
                 pr: '28px',
                 pl: '0px',
                 display: 'flex',
                 flexDirection: 'column',
               },
+              '@media screen and (min-width: 884px)': {
+                minWidth: '50%',
+                maxWidth: '50%',
+              },
             }}
           >
-            <Box sx={{ [MQ.md]: { maxWidth: '501px' }, textAlign: { _: 'center', md: 'left' } }}>
+            <Box
+              sx={{
+                [MQ.md]: { width: '100%', maxWidth: '501px' },
+                textAlign: { _: 'center', md: 'left' },
+              }}
+            >
               <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
                 Upbound
               </Typography>
@@ -575,9 +566,12 @@ const Products = ({}: Props) => {
               maxWidth: '500px',
               zIndex: '1',
               [MQ.md]: {
-                maxWidth: '50%',
+                maxWidth: '40%',
                 top: '4%',
                 zIndex: '1',
+              },
+              '@media screen and (min-width: 884px)': {
+                maxWidth: '50%',
               },
             }}
           >
