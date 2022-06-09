@@ -6,9 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 
 import { COLORS, fontAvenirBold, fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
-import { Box, SxProps, Typography, Container, Hidden, useMediaQuery } from '@mui/material';
-
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Box, SxProps, Typography, Hidden, useMediaQuery } from '@mui/material';
 
 import * as routes from 'src/routes';
 
@@ -54,10 +52,6 @@ import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
 import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import OGImgProducts from 'public/og-images/product-page-og.jpg';
-import arrowUpIcon from 'public/arrow-up.svg';
-import arrowDownIcon from 'public/arrow-down.svg';
-import arrowUpHoverIcon from 'public/arrow-up-hover.svg';
-import arrowDownHoverIcon from 'public/arrow-down-hover.svg';
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
@@ -119,14 +113,6 @@ const platformCarousel: SxProps = {
   },
 };
 
-const featuresSection: SxProps = {
-  '@media screen and (max-width: 1399px)': {
-    '.MuiContainer-root': {
-      pr: '170px',
-    },
-  },
-};
-
 interface StaticRequire {
   default: StaticImageData;
 }
@@ -141,8 +127,6 @@ type FeatureBlockProps = {
   imgSmallOffset: { top: number; right: number };
   setActiveIndex: (val: number) => void;
   isActive: Boolean;
-  isOpen: Boolean;
-  finalScrolled: Boolean;
 };
 
 const FeatureBlock = ({
@@ -154,25 +138,10 @@ const FeatureBlock = ({
   imgSmallOffset,
   setActiveIndex,
   isActive,
-  isOpen,
-  finalScrolled,
 }: FeatureBlockProps) => {
-  // const hiddenBarRef = useRef(undefined);
-  // const isVisible = useOnScreen(hiddenBarRef);
-  // const [show, setShow] = useState(false);
-
-  // useEffect(() => {
-  //   if (isVisible) {
-  //     setShow(true);
-  //   }
-  // }, [isVisible]);
-
   return (
     <Hidden mdDown>
-      <Box
-        onClick={finalScrolled ? () => setActiveIndex(index) : undefined}
-        sx={{ cursor: finalScrolled ? 'pointer' : 'default' }}
-      >
+      <Box onClick={() => setActiveIndex(index)} sx={{ cursor: 'pointer' }}>
         <Box
           sx={{
             display: 'flex',
@@ -222,7 +191,7 @@ const FeatureBlock = ({
                 <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                   {title}
                 </Typography>
-                {(isOpen || finalScrolled) && <Typography variant="body_small">{body}</Typography>}
+                {isActive && <Typography variant="body_small">{body}</Typography>}
               </Box>
             </Box>
           </Box>
@@ -302,28 +271,7 @@ const features = [
   },
 ];
 
-type FeaturesSectionProps = {
-  diagramSectionRef: React.RefObject<HTMLDivElement>;
-  platformSectionRef: React.RefObject<HTMLDivElement>;
-};
-
-const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSectionProps) => {
-  const featureSectionRef = useRef<HTMLElement>(null);
-
-  const [finalScrolled, _setFinalScrolled] = useState(false);
-  const finalScrolledRef = useRef(finalScrolled);
-  const setFinalScrolled = (val: boolean) => {
-    finalScrolledRef.current = val;
-    _setFinalScrolled(val);
-  };
-
-  const [canScroll, _setCanScroll] = useState(false);
-  const canScrollRef = useRef(canScroll);
-  const setCanScroll = (val: boolean) => {
-    canScrollRef.current = val;
-    _setCanScroll(val);
-  };
-
+const FeaturesSection = () => {
   const [activeIndex, _setActiveIndex] = useState(0);
   const activeIndexRef = useRef(activeIndex);
   const setActiveIndex = (val: number) => {
@@ -331,206 +279,33 @@ const FeaturesSection = ({ diagramSectionRef, platformSectionRef }: FeaturesSect
     _setActiveIndex(val);
   };
 
-  const handleScroll = () => {
-    if (featureSectionRef.current) {
-      if (document.body.scrollTop >= featureSectionRef.current.offsetTop) {
-        if (!finalScrolledRef.current) {
-          document.body.scrollTo(0, featureSectionRef.current.offsetTop);
-          disableBodyScroll(featureSectionRef.current);
-          setTimeout(() => {
-            setCanScroll(true);
-          }, 250);
-          // setActiveIndex(0);
-        }
-      }
-    }
-  };
-
-  useEffect(() => {
-    document.body.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      if (featureSectionRef.current) {
-        enableBodyScroll(featureSectionRef.current);
-      }
-      document.body.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  let t: NodeJS.Timeout;
-  const handleSectionScroll = () => {
-    if (canScrollRef.current && document.getElementById('featureSectionID')?.scrollTop !== 0) {
-      if (activeIndexRef.current >= features.length - 2) {
-        if (featureSectionRef.current) {
-          enableBodyScroll(featureSectionRef.current);
-        }
-        setActiveIndex(activeIndexRef.current + 1);
-        document.body.removeEventListener('scroll', handleScroll);
-        setFinalScrolled(true);
-      } else {
-        setActiveIndex(activeIndexRef.current + 1);
-        setCanScroll(false);
-      }
-    }
-    if (t) {
-      clearTimeout(t);
-    }
-    if (activeIndexRef.current < features.length - 1) {
-      t = setTimeout(() => {
-        if (document.getElementById('featureSectionID')?.scrollTop !== 0) {
-          setCanScroll(true);
-          document.getElementById('featureSectionID')?.scrollTo(0, 0);
-        }
-      }, 500);
-    }
-  };
-
-  const handleUpClick = () => {
-    setFinalScrolled(true);
-    setActiveIndex(features.length - 1);
-    if (featureSectionRef.current) {
-      enableBodyScroll(featureSectionRef.current);
-    }
-    document.body.removeEventListener('scroll', handleScroll);
-    if (diagramSectionRef.current) {
-      document.body.scrollTo({ top: diagramSectionRef.current.offsetTop, behavior: 'smooth' });
-    }
-  };
-
-  const handleDownClick = () => {
-    setFinalScrolled(true);
-    setActiveIndex(features.length - 1);
-    if (featureSectionRef.current) {
-      enableBodyScroll(featureSectionRef.current);
-    }
-    document.body.removeEventListener('scroll', handleScroll);
-    if (platformSectionRef.current) {
-      document.body.scrollTo({ top: platformSectionRef.current.offsetTop, behavior: 'smooth' });
-    }
-  };
-
   return (
-    <Box
-      ref={featureSectionRef}
-      sx={{
-        '& > div:not(:last-of-type)': { pb: 2 },
-        pt: !finalScrolled ? '' : 10,
-        pb: !finalScrolled ? '' : 10,
-        position: 'relative',
-      }}
-    >
-      <div
-        id="featureSectionID"
-        style={{
-          overflowY: canScrollRef.current ? 'scroll' : 'hidden',
-          overflowX: 'hidden',
-          maxHeight: !finalScrolled ? '100vh' : '',
-        }}
-        onScroll={handleSectionScroll}
-      >
-        <div style={{ minHeight: !finalScrolled ? '200vh' : 'unset' }}>
-          <Box
-            sx={{
-              position: !finalScrolled ? 'sticky' : 'relative',
-              top: !finalScrolled ? '50%' : '',
-              transform: !finalScrolled ? 'translateY(-50%)' : '',
-            }}
-          >
-            <Container maxWidth="xl">
-              <Box sx={{ mb: 3 }}>
-                <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
-                  The last platform you’ll ever need to build
-                </Typography>
-                <Typography variant="body_big">
-                  Never re-platform again. No matter what tools and vendors you add to your
-                  infrastructure, Upbound can manage them. Enterprise-ready, flexible and easy to
-                  use, Upbound transforms the way you manage your infrastructure. It’s the cloud on
-                  your terms.
-                </Typography>
-              </Box>
-              <Box sx={{ position: 'relative' }}>
-                {features.map((feature, index) => (
-                  <FeatureBlock
-                    key={feature.title}
-                    index={index}
-                    title={feature.title}
-                    body={feature.body}
-                    imgBig={feature.imgBig}
-                    imgSmall={feature.imgSmall}
-                    imgSmallOffset={feature.imgSmallOffset}
-                    setActiveIndex={setActiveIndex}
-                    isActive={activeIndex === index}
-                    isOpen={activeIndex >= index}
-                    finalScrolled={finalScrolled}
-                  />
-                ))}
-              </Box>
-              {!finalScrolled && (
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    width: '60px',
-                    right: '24px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Box
-                    onClick={handleUpClick}
-                    sx={{
-                      cursor: 'pointer',
-                      position: 'relative',
-                      width: '38px',
-                      height: '32px',
-                      '&:hover': {
-                        content: `url(${arrowUpHoverIcon.src})`,
-                        width: '38px',
-                        height: '32px',
-                      },
-                    }}
-                  >
-                    <Image src={arrowUpIcon} alt="arrow up" />
-                  </Box>
-                  <Typography
-                    variant="body_small"
-                    sx={{ fontSize: '10px', fontWeight: '700', opacity: '.25' }}
-                  >
-                    Quick View
-                  </Typography>
-                  <Typography variant="body_small" sx={{ fontSize: '14px' }}>
-                    Features
-                  </Typography>
-                  <Typography
-                    variant="body_small"
-                    sx={{ fontSize: '10px', fontWeight: '700', opacity: '.25' }}
-                  >
-                    Case Studies
-                  </Typography>
-                  <Box
-                    onClick={handleDownClick}
-                    sx={{
-                      cursor: 'pointer',
-                      position: 'relative',
-                      width: '38px',
-                      height: '32px',
-                      '&:hover': {
-                        content: `url(${arrowDownHoverIcon.src})`,
-                        width: '38px',
-                        height: '32px',
-                      },
-                    }}
-                  >
-                    <Image src={arrowDownIcon} alt="arrow down" />
-                  </Box>
-                </Box>
-              )}
-            </Container>
-          </Box>
-        </div>
-      </div>
+    <Box>
+      <Box sx={{ mb: 3 }}>
+        <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
+          The last platform you’ll ever need to build
+        </Typography>
+        <Typography variant="body_big">
+          Never re-platform again. No matter what tools and vendors you add to your infrastructure,
+          Upbound can manage them. Enterprise-ready, flexible and easy to use, Upbound transforms
+          the way you manage your infrastructure. It’s the cloud on your terms.
+        </Typography>
+      </Box>
+      <Box sx={{ position: 'relative' }}>
+        {features.map((feature, index) => (
+          <FeatureBlock
+            key={feature.title}
+            index={index}
+            title={feature.title}
+            body={feature.body}
+            imgBig={feature.imgBig}
+            imgSmall={feature.imgSmall}
+            imgSmallOffset={feature.imgSmallOffset}
+            setActiveIndex={setActiveIndex}
+            isActive={activeIndex === index}
+          />
+        ))}
+      </Box>
     </Box>
   );
 };
@@ -591,8 +366,6 @@ const Products = ({}: Props) => {
   const isVisible = useOnScreen(productsHeaderRef);
   const [show, setShow] = useState(false);
   const matchesMD = useMediaQuery(MQ.md);
-  const diagramSectionRef = useRef<HTMLDivElement>(null);
-  const platformSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isVisible) {
@@ -708,7 +481,7 @@ const Products = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Box ref={diagramSectionRef}>
+      <Box>
         <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
           <Box sx={productsSectionHeader}>
             <Typography variant="h2_new" sx={{ mb: 7.5 }}>
@@ -738,11 +511,14 @@ const Products = ({}: Props) => {
         </Section>
       </Box>
       <Hidden xlDown>
-        <Section bgcolor hasContainer={false} sx={featuresSection}>
-          <FeaturesSection
-            diagramSectionRef={diagramSectionRef}
-            platformSectionRef={platformSectionRef}
-          />
+        <Section
+          bgcolor
+          sx={{
+            pb: { _: 30, md: 33.125 },
+            pt: { _: 10, md: 23.5 },
+          }}
+        >
+          <FeaturesSection />
         </Section>
       </Hidden>
       <Hidden xlUp>
@@ -870,7 +646,7 @@ const Products = ({}: Props) => {
           </Carousel>
         </Section>
       </Hidden>
-      <Box ref={platformSectionRef}>
+      <Box>
         <Section
           sx={{
             pb: { _: 30, md: 33.125 },
