@@ -6,9 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 
 import { COLORS, fontAvenirBold, fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
-import { Box, SxProps, Typography, Container, Hidden, useMediaQuery } from '@mui/material';
-
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Box, SxProps, Typography, Hidden, useMediaQuery } from '@mui/material';
 
 import * as routes from 'src/routes';
 
@@ -121,37 +119,29 @@ interface StaticRequire {
 declare type StaticImport = StaticRequire | StaticImageData;
 
 type FeatureBlockProps = {
+  index: number;
   title: string;
   body: string;
   imgBig: string | StaticImport;
   imgSmall: string | StaticImport;
   imgSmallOffset: { top: number; right: number };
+  setActiveIndex: (val: number) => void;
   isActive: Boolean;
-  finalScrolled: Boolean;
 };
 
 const FeatureBlock = ({
+  index,
   title,
   body,
   imgBig,
   imgSmall,
   imgSmallOffset,
+  setActiveIndex,
   isActive,
-  finalScrolled,
 }: FeatureBlockProps) => {
-  // const hiddenBarRef = useRef(undefined);
-  // const isVisible = useOnScreen(hiddenBarRef);
-  // const [show, setShow] = useState(false);
-
-  // useEffect(() => {
-  //   if (isVisible) {
-  //     setShow(true);
-  //   }
-  // }, [isVisible]);
-
   return (
     <Hidden mdDown>
-      <Box>
+      <Box onClick={() => setActiveIndex(index)} sx={{ cursor: 'pointer' }}>
         <Box
           sx={{
             display: 'flex',
@@ -191,7 +181,7 @@ const FeatureBlock = ({
                   mr: '20px',
                 }}
               >
-                {isActive || finalScrolled ? (
+                {isActive ? (
                   <Image src={circleBullet} layout="fill" objectFit="contain" alt="circle bullet" />
                 ) : (
                   <Image src={arrowBullet} layout="fill" objectFit="contain" alt="arrow bullet" />
@@ -201,9 +191,7 @@ const FeatureBlock = ({
                 <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                   {title}
                 </Typography>
-                {(isActive || finalScrolled) && (
-                  <Typography variant="body_small">{body}</Typography>
-                )}
+                {isActive && <Typography variant="body_small">{body}</Typography>}
               </Box>
             </Box>
           </Box>
@@ -225,7 +213,7 @@ const FeatureBlock = ({
               sx={{
                 transform: isActive ? '' : `translate(50vw)`,
                 opacity: isActive ? 1 : 0,
-                transition: 'transform 1.5s, opacity 1.5s',
+                transition: 'transform .8s, opacity .8s',
               }}
             >
               <Image src={imgBig} alt="feature-img-big" />
@@ -237,7 +225,7 @@ const FeatureBlock = ({
                 right: imgSmallOffset.right,
                 transform: isActive ? '' : `translate(100vw)`,
                 opacity: isActive ? 1 : 0,
-                transition: 'transform 2s, opacity 2s',
+                transition: 'transform 1s, opacity 1s',
               }}
             >
               <Image src={imgSmall} alt="feature-img-small" />
@@ -284,22 +272,6 @@ const features = [
 ];
 
 const FeaturesSection = () => {
-  const featureSectionRef = useRef<HTMLElement>(null);
-
-  const [finalScrolled, _setFinalScrolled] = useState(false);
-  const finalScrolledRef = useRef(finalScrolled);
-  const setFinalScrolled = (val: boolean) => {
-    finalScrolledRef.current = val;
-    _setFinalScrolled(val);
-  };
-
-  const [canScroll, _setCanScroll] = useState(false);
-  const canScrollRef = useRef(canScroll);
-  const setCanScroll = (val: boolean) => {
-    canScrollRef.current = val;
-    _setCanScroll(val);
-  };
-
   const [activeIndex, _setActiveIndex] = useState(0);
   const activeIndexRef = useRef(activeIndex);
   const setActiveIndex = (val: number) => {
@@ -307,114 +279,33 @@ const FeaturesSection = () => {
     _setActiveIndex(val);
   };
 
-  const handleScroll = () => {
-    if (featureSectionRef.current) {
-      if (document.body.scrollTop >= featureSectionRef.current.offsetTop) {
-        if (!finalScrolledRef.current) {
-          document.body.scrollTo(0, featureSectionRef.current.offsetTop);
-          disableBodyScroll(featureSectionRef.current);
-          setTimeout(() => {
-            setCanScroll(true);
-          }, 1000);
-          // setActiveIndex(0);
-        }
-      }
-    }
-  };
-
-  useEffect(() => {
-    document.body.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      if (featureSectionRef.current) {
-        enableBodyScroll(featureSectionRef.current);
-      }
-      document.body.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  let t: NodeJS.Timeout;
-  const handleSectionScroll = () => {
-    if (canScrollRef.current && document.getElementById('featureSectionID')?.scrollTop !== 0) {
-      setActiveIndex(activeIndexRef.current + 1);
-      setCanScroll(false);
-    }
-    if (t) {
-      clearTimeout(t);
-    }
-    t = setTimeout(() => {
-      if (document.getElementById('featureSectionID')?.scrollTop !== 0) {
-        if (activeIndexRef.current >= features.length - 1) {
-          if (featureSectionRef.current) {
-            enableBodyScroll(featureSectionRef.current);
-          }
-          document.body.removeEventListener('scroll', handleScroll);
-          setFinalScrolled(true);
-        } else {
-          setCanScroll(true);
-          document.getElementById('featureSectionID')?.scrollTo(0, 0);
-        }
-      }
-    }, 2000);
-  };
-
   return (
-    <Box
-      ref={featureSectionRef}
-      sx={{
-        '& > div:not(:last-of-type)': { pb: 2 },
-        pt: !finalScrolled ? '' : 10,
-        pb: !finalScrolled ? '' : 10,
-        position: 'relative',
-      }}
-    >
-      <div
-        id="featureSectionID"
-        style={{
-          overflowY: canScrollRef.current ? 'scroll' : 'hidden',
-          overflowX: 'hidden',
-          maxHeight: !finalScrolled ? '100vh' : '',
-        }}
-        onScroll={handleSectionScroll}
-      >
-        <div style={{ minHeight: !finalScrolled ? '200vh' : 'unset' }}>
-          <Box
-            sx={{
-              position: !finalScrolled ? 'sticky' : 'relative',
-              top: !finalScrolled ? '50%' : '',
-              transform: !finalScrolled ? 'translateY(-50%)' : '',
-            }}
-          >
-            <Container maxWidth="xl">
-              <Box sx={{ mb: 3 }}>
-                <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
-                  The last platform you’ll ever need to build
-                </Typography>
-                <Typography variant="body_big">
-                  Never re-platform again. No matter what tools and vendors you add to your
-                  infrastructure, Upbound can manage them. Enterprise-ready, flexible and easy to
-                  use, Upbound transforms the way you manage your infrastructure. It’s the cloud on
-                  your terms.
-                </Typography>
-              </Box>
-              <Box sx={{ position: 'relative' }}>
-                {features.map((feature, index) => (
-                  <FeatureBlock
-                    key={feature.title}
-                    title={feature.title}
-                    body={feature.body}
-                    imgBig={feature.imgBig}
-                    imgSmall={feature.imgSmall}
-                    imgSmallOffset={feature.imgSmallOffset}
-                    isActive={activeIndex === index}
-                    finalScrolled={finalScrolled}
-                  />
-                ))}
-              </Box>
-            </Container>
-          </Box>
-        </div>
-      </div>
+    <Box>
+      <Box sx={{ mb: 3 }}>
+        <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
+          The last platform you’ll ever need to build
+        </Typography>
+        <Typography variant="body_big">
+          Never re-platform again. No matter what tools and vendors you add to your infrastructure,
+          Upbound can manage them. Enterprise-ready, flexible and easy to use, Upbound transforms
+          the way you manage your infrastructure. It’s the cloud on your terms.
+        </Typography>
+      </Box>
+      <Box sx={{ position: 'relative' }}>
+        {features.map((feature, index) => (
+          <FeatureBlock
+            key={feature.title}
+            index={index}
+            title={feature.title}
+            body={feature.body}
+            imgBig={feature.imgBig}
+            imgSmall={feature.imgSmall}
+            imgSmallOffset={feature.imgSmallOffset}
+            setActiveIndex={setActiveIndex}
+            isActive={activeIndex === index}
+          />
+        ))}
+      </Box>
     </Box>
   );
 };
@@ -471,8 +362,8 @@ const metaImg = OGImgProducts.src;
 type Props = {};
 
 const Products = ({}: Props) => {
-  const productsHeader = useRef(undefined);
-  const isVisible = useOnScreen(productsHeader);
+  const productsHeaderRef = useRef(undefined);
+  const isVisible = useOnScreen(productsHeaderRef);
   const [show, setShow] = useState(false);
   const matchesMD = useMediaQuery(MQ.md);
 
@@ -481,6 +372,7 @@ const Products = ({}: Props) => {
       setShow(true);
     }
   }, [isVisible]);
+
   return (
     <PageProvider displayTitle={displayTitle} metaImg={metaImg}>
       <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
@@ -492,7 +384,7 @@ const Products = ({}: Props) => {
               flexDirection: 'row',
             },
           }}
-          ref={productsHeader}
+          ref={productsHeaderRef}
         >
           <Box
             sx={{
@@ -589,39 +481,47 @@ const Products = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
-        <Box sx={productsSectionHeader}>
-          <Typography variant="h2_new" sx={{ mb: 7.5 }}>
-            A platform for building internal cloud platforms
-          </Typography>
-        </Box>
-        <Hidden mdDown>
-          <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
-            <Image
-              src={productDiagram}
-              alt="Internal cloud platform"
-              layout="fill"
-              objectFit="contain"
-            />
+      <Box>
+        <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
+          <Box sx={productsSectionHeader}>
+            <Typography variant="h2_new" sx={{ mb: 7.5 }}>
+              A platform for building internal cloud platforms
+            </Typography>
           </Box>
-        </Hidden>
-        <Hidden mdUp>
-          <Box sx={{ position: 'relative', width: '100%', height: '270px' }}>
-            <Image
-              src={productDiagramMobile}
-              alt="Internal cloud platform"
-              layout="fill"
-              objectFit="contain"
-            />
-          </Box>
-        </Hidden>
-      </Section>
-      <Hidden mdDown>
-        <Section bgcolor hasContainer={false}>
+          <Hidden mdDown>
+            <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
+              <Image
+                src={productDiagram}
+                alt="Internal cloud platform"
+                layout="fill"
+                objectFit="contain"
+              />
+            </Box>
+          </Hidden>
+          <Hidden mdUp>
+            <Box sx={{ position: 'relative', width: '100%', height: '270px' }}>
+              <Image
+                src={productDiagramMobile}
+                alt="Internal cloud platform"
+                layout="fill"
+                objectFit="contain"
+              />
+            </Box>
+          </Hidden>
+        </Section>
+      </Box>
+      <Hidden xlDown>
+        <Section
+          bgcolor
+          sx={{
+            pb: { _: 30, md: 33.125 },
+            pt: { _: 10, md: 23.5 },
+          }}
+        >
           <FeaturesSection />
         </Section>
       </Hidden>
-      <Hidden mdUp>
+      <Hidden xlUp>
         <Section bgcolor sx={platformCarousel}>
           <Box sx={{ mb: 7.5 }}>
             <Typography variant="h3_new" sx={{ ...fontAvenirBold, mb: 3 }}>
@@ -746,110 +646,112 @@ const Products = ({}: Props) => {
           </Carousel>
         </Section>
       </Hidden>
-      <Section
-        sx={{
-          pb: { _: 30, md: 33.125 },
-          pt: { _: 10, md: 23.5 },
-          overflow: 'hidden',
-          ...caseStudiesSection,
-        }}
-      >
-        <Box sx={productsSectionHeader}>
-          <Typography variant="h2_new" sx={{ mb: 3.75 }}>
-            Any platform. Any business
-          </Typography>
-          <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
-            Upbound can manage any infrastructure environment — cloud or on-prem. Customers compose
-            their own custom API interface into their custom platform running on Upbound
-          </Typography>
-        </Box>
-        <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
-          <CornerCard iconSize="small">
-            <Box display="flex" flexDirection="column">
-              <Box flex={1}>
-                <Typography
-                  variant="h4_new"
-                  sx={{
-                    mb: 3,
-                    lineHeight: '34px',
-                  }}
-                >
-                  Internal Developer Platform
-                </Typography>
-                <Typography variant="body_small">
-                  Upbound makes building Internal Developer Platforms straightforward. Platform
-                  teams compose their custom cloud API, and Upbound dynamically renders a
-                  self-service console for it.
-                </Typography>
-              </Box>
+      <Box>
+        <Section
+          sx={{
+            pb: { _: 30, md: 33.125 },
+            pt: { _: 10, md: 23.5 },
+            overflow: 'hidden',
+            ...caseStudiesSection,
+          }}
+        >
+          <Box sx={productsSectionHeader}>
+            <Typography variant="h2_new" sx={{ mb: 3.75 }}>
+              Any platform. Any business
+            </Typography>
+            <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
+              Upbound can manage any infrastructure environment — cloud or on-prem. Customers
+              compose their own custom API interface into their custom platform running on Upbound
+            </Typography>
+          </Box>
+          <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
+            <CornerCard iconSize="small">
+              <Box display="flex" flexDirection="column">
+                <Box flex={1}>
+                  <Typography
+                    variant="h4_new"
+                    sx={{
+                      mb: 3,
+                      lineHeight: '34px',
+                    }}
+                  >
+                    Internal Developer Platform
+                  </Typography>
+                  <Typography variant="body_small">
+                    Upbound makes building Internal Developer Platforms straightforward. Platform
+                    teams compose their custom cloud API, and Upbound dynamically renders a
+                    self-service console for it.
+                  </Typography>
+                </Box>
 
-              <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={caseStudyIconOne} alt="icon" layout="fill" objectFit="contain" />
+                <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+                  <Image src={caseStudyIconOne} alt="icon" layout="fill" objectFit="contain" />
+                </Box>
               </Box>
-            </Box>
-          </CornerCard>
-          <CornerCard iconSize="small">
-            <Box display="flex" flexDirection="column">
-              <Box flex={1}>
-                <Typography
-                  variant="h4_new"
-                  sx={{
-                    mb: 3,
-                    lineHeight: '34px',
-                  }}
-                >
-                  Infrastructure-as-Code Modernization
-                </Typography>
-                <Typography variant="body_small">
-                  Upbound’s control planes continuously reconcile infrastructure resources they
-                  manage, eliminating configuration drift entirely. Using control planes, teams can
-                  unify both their application and infrastructure deployment workflows.
-                </Typography>
-              </Box>
+            </CornerCard>
+            <CornerCard iconSize="small">
+              <Box display="flex" flexDirection="column">
+                <Box flex={1}>
+                  <Typography
+                    variant="h4_new"
+                    sx={{
+                      mb: 3,
+                      lineHeight: '34px',
+                    }}
+                  >
+                    Infrastructure-as-Code Modernization
+                  </Typography>
+                  <Typography variant="body_small">
+                    Upbound’s control planes continuously reconcile infrastructure resources they
+                    manage, eliminating configuration drift entirely. Using control planes, teams
+                    can unify both their application and infrastructure deployment workflows.
+                  </Typography>
+                </Box>
 
-              <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={caseStudyIconTwo} alt="icon" layout="fill" objectFit="contain" />
+                <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+                  <Image src={caseStudyIconTwo} alt="icon" layout="fill" objectFit="contain" />
+                </Box>
               </Box>
-            </Box>
-          </CornerCard>
-          <CornerCard iconSize="small">
-            <Box display="flex" flexDirection="column">
-              <Box flex={1}>
-                <Typography
-                  variant="h4_new"
-                  sx={{
-                    mb: 3,
-                    lineHeight: '34px',
-                  }}
-                >
-                  Global Application Deployment
-                </Typography>
-                <Typography variant="body_small">
-                  Deploy workloads across zones, regions, and vendors by building applications
-                  against your Internal Cloud Platforms running in Upbound. Infrastructure
-                  environment where the application is deployed simply becomes a configuration
-                  detail chosen during deployment.
-                </Typography>
-              </Box>
+            </CornerCard>
+            <CornerCard iconSize="small">
+              <Box display="flex" flexDirection="column">
+                <Box flex={1}>
+                  <Typography
+                    variant="h4_new"
+                    sx={{
+                      mb: 3,
+                      lineHeight: '34px',
+                    }}
+                  >
+                    Global Application Deployment
+                  </Typography>
+                  <Typography variant="body_small">
+                    Deploy workloads across zones, regions, and vendors by building applications
+                    against your Internal Cloud Platforms running in Upbound. Infrastructure
+                    environment where the application is deployed simply becomes a configuration
+                    detail chosen during deployment.
+                  </Typography>
+                </Box>
 
-              <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                <Image src={caseStudyIconThree} alt="icon" layout="fill" objectFit="contain" />
+                <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+                  <Image src={caseStudyIconThree} alt="icon" layout="fill" objectFit="contain" />
+                </Box>
               </Box>
-            </Box>
-          </CornerCard>
-        </Box>
-        <Box sx={productsSectionHeader}>
-          <Typography variant="h4_new" sx={{ mb: 7.5 }}>
-            Trusted by the industry’s best
-          </Typography>
-        </Box>
+            </CornerCard>
+          </Box>
+          <Box sx={productsSectionHeader}>
+            <Typography variant="h4_new" sx={{ mb: 7.5 }}>
+              Trusted by the industry’s best
+            </Typography>
+          </Box>
 
-        <Slider>
-          {quotes.map((quote) => (
-            <QuoteCard key={quote.title} quote={quote} />
-          ))}
-        </Slider>
-      </Section>
+          <Slider>
+            {quotes.map((quote) => (
+              <QuoteCard key={quote.title} quote={quote} />
+            ))}
+          </Slider>
+        </Section>
+      </Box>
     </PageProvider>
   );
 };
