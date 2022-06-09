@@ -68,13 +68,22 @@ const caseStudiesSection: SxProps = {
   },
 };
 
+// const headerButtons: SxProps = {
+//   mt: 7.5,
+//   mb: 7.5,
+//   [MQ.md]: {
+//     display: 'flex',
+//     alignItems: 'center',
+//   },
+// };
+
 const headerButtons: SxProps = {
-  mt: 7.5,
-  mb: 7.5,
-  [MQ.md]: {
-    display: 'flex',
-    alignItems: 'center',
-  },
+  mt: { _: 5, sm: 7.5 },
+  mb: { _: 6, sm: 10 },
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: { _: 'column', sm: 'row' },
 };
 
 const gridLayout: SxProps = {
@@ -521,9 +530,9 @@ const Products = ({}: Props) => {
                   styleType="gradientContained"
                   sizeType={matchesMD ? 'normal' : 'large'}
                   sx={{
-                    width: { _: 225, md: 156 },
-                    mr: { _: 0, xs: 3 },
-                    mb: { _: '20px', xs: 0 },
+                    width: { _: 225, sm: 208 },
+                    mr: { _: 0, sm: '10px' },
+                    mb: { _: '20px', sm: 0 },
                   }}
                   href={routes.cloudRegisterUrl}
                 >
@@ -534,8 +543,15 @@ const Products = ({}: Props) => {
                     styleType="whiteOutlined"
                     sizeType="large"
                     sx={{
-                      width: { _: 225, md: 156 },
-                      '& > .MuiButton-iconSizeMedium': { ml: '16px' },
+                      width: { _: 225, sm: 208 },
+                      ml: { _: 0, sm: '10px' },
+                      '& > .MuiButton-iconSizeMedium': {
+                        ml: '16px',
+                        '& > svg': {
+                          height: { _: 12, md: 13 },
+                          width: { _: 7, md: 8 },
+                        },
+                      },
                     }}
                     endIcon={<ArrowRight />}
                     href={routes.contactSalesUrl}
