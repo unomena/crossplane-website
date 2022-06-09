@@ -2,22 +2,13 @@ import React from 'react';
 
 import Head from 'next/head';
 import Script from 'next/script';
-// import Script from 'next/script';
-
-const defaultTitle = 'Upbound - The Universal Cloud Platform';
-const defaultDescription =
-  'The Upbound universal cloud platform empowers you to manage infrastructure, eliminate configuration drift, and ' +
-  'empower developers with self-service infrastructure.';
 
 const PageHead: React.FC<{
   displayTitle?: string;
   metaTitle?: string;
   metaDescription?: string;
-}> = ({
-  displayTitle = defaultTitle,
-  metaTitle = displayTitle,
-  metaDescription = defaultDescription,
-}) => {
+  metaImg?: string;
+}> = ({ displayTitle, metaTitle, metaDescription, metaImg }) => {
   return (
     <>
       <Head>
@@ -34,10 +25,11 @@ const PageHead: React.FC<{
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@upbound_io" />
-        <meta name="twitter:image:src" content="https://upbound.io/twitter-card.png?1" />
+        <meta name="twitter:image" content={`https://www.upbound.io${metaImg}`} />
 
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={`https://www.upbound.io${metaImg}`} />
 
         <meta
           name="google-site-verification"

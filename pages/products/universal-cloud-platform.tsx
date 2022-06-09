@@ -53,6 +53,7 @@ import caseStudyIconOne from 'public/new-images/icons/case-study-icon-one.svg';
 import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
 import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 import ArrowRight from 'src-new/svg/ArrowRight';
+import OGImgProducts from 'public/og-images/product-page-og.jpg';
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
@@ -464,6 +465,9 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
   );
 };
 
+const displayTitle = 'Products - The Universal Cloud Platform';
+const metaImg = OGImgProducts.src;
+
 type Props = {};
 
 const Products = ({}: Props) => {
@@ -478,7 +482,7 @@ const Products = ({}: Props) => {
     }
   }, [isVisible]);
   return (
-    <PageProvider displayTitle="Products">
+    <PageProvider displayTitle={displayTitle} metaImg={metaImg}>
       <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
         <Box
           sx={{
