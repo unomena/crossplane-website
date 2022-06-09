@@ -37,7 +37,7 @@ const AnswerParagraph = styled(Paragraph)`
 
 const questions = [
   {
-    question: 'How do I pay for the Enterprise or Business Critical plan?',
+    question: 'How do I pay for the Enterprise plan?',
     answer: (
       <AnswerParagraph>
         You can pay with a credit card or via net banking (if you’re in United States). We will
@@ -72,8 +72,8 @@ const questions = [
     answer: (
       <AnswerParagraph>
         Upbound's free tier is designed for individuals and community members to get started
-        building and debugging control planes. Start your free 14 day trial of our Business Critical
-        tier simply by creating an Organization during sign up or via the Upbound console.
+        building and debugging control planes. Start your free 14 day trial of our Enterprise tier
+        simply by creating an Organization during sign up or via the Upbound console.
       </AnswerParagraph>
     ),
   },
@@ -84,14 +84,12 @@ const questions = [
       <AnswerParagraph>
         Upbound is available as both a SaaS (Upbound Cloud) and single tenant (Upbound Enterprise)
         offering. Features and functionality between the two deployment options are identical today.
-        Upbound Cloud is available to Business Critical tier customers and Upbound Enterprise is
-        available to Enterprise tier customers.
       </AnswerParagraph>
     ),
   },
 
   {
-    question: 'Can I evaluate Enterprise or Business Critical plans for free?',
+    question: 'Can I evaluate the Enterprise plan for free?',
     answer: (
       <AnswerParagraph>
         Yes. Our goal is to make our customers successful, and would love to work with you and your
