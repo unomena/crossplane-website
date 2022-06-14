@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+import { GetStaticProps } from 'next';
+import Image from 'next/image';
 
 import { Carousel } from 'react-responsive-carousel';
-
-import Image from 'next/image';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { COLORS, fontAvenirBold, fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Hidden, useMediaQuery } from '@mui/material';
 
 import * as routes from 'src/routes';
 
+import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import useOnScreen from 'src-new/utils/useOnScreen';
 
 import quotes from 'src-new/constants/quotes';
@@ -359,9 +361,28 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 const displayTitle = 'Products - The Universal Cloud Platform';
 const metaImg = OGImgProducts.src;
 
-type Props = {};
+type HeaderSectionProps = {
+  value: {
+    title: string;
+    subtitle: string;
+    buttons: {
+      value: {
+        text: string;
+        class_type: string;
+        link: [
+          {
+            type: string;
+            value: string;
+          }
+        ];
+      };
+      id: string;
+    }[];
+    bottom_image: 1;
+  };
+};
 
-const Products = ({}: Props) => {
+const HeaderSection = ({ value: data }: HeaderSectionProps) => {
   const productsHeaderRef = useRef(undefined);
   const isVisible = useOnScreen(productsHeaderRef);
   const [show, setShow] = useState(false);
@@ -374,53 +395,52 @@ const Products = ({}: Props) => {
   }, [isVisible]);
 
   return (
-    <PageProvider displayTitle={displayTitle} metaImg={metaImg}>
-      <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
-        <Box
-          sx={{
-            [MQ.md]: {
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'row',
-            },
-          }}
-          ref={productsHeaderRef}
-        >
-          <Box
-            sx={{
-              [MQ.md]: {
-                flex: 1,
-                width: '50%',
-                minWidth: '50%',
-                maxWidth: '50%',
-                pr: '28px',
-                pl: '0px',
-                display: 'flex',
-                flexDirection: 'column',
-              },
-            }}
-          >
-            <Box sx={{ [MQ.md]: { maxWidth: '501px' }, textAlign: { _: 'center', md: 'left' } }}>
-              <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
-                Upbound
-              </Typography>
-              <Typography variant="body_big">
-                The easiest way to build, deploy, and manage your internal cloud platforms using
-                control planes.
-              </Typography>
-              <Box sx={headerButtons}>
-                <Button
-                  styleType="gradientContained"
-                  sizeType={matchesMD ? 'normal' : 'large'}
-                  sx={{
-                    width: { _: 225, md: 156 },
-                    mr: { _: 0, xs: 3 },
-                    mb: { _: '20px', xs: 0 },
-                  }}
-                  href={routes.cloudRegisterUrl}
-                >
-                  Try for free
-                </Button>
+    <Box
+      sx={{
+        [MQ.md]: {
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'row',
+        },
+      }}
+      ref={productsHeaderRef}
+    >
+      <Box
+        sx={{
+          [MQ.md]: {
+            flex: 1,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: '28px',
+            pl: '0px',
+            display: 'flex',
+            flexDirection: 'column',
+          },
+        }}
+      >
+        <Box sx={{ [MQ.md]: { maxWidth: '501px' }, textAlign: { _: 'center', md: 'left' } }}>
+          <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
+            {data.title}
+          </Typography>
+          <Typography variant="body_big">{data.subtitle}</Typography>
+          <Box sx={headerButtons}>
+            {data.buttons[0] && (
+              <Button
+                styleType="gradientContained"
+                sizeType={matchesMD ? 'normal' : 'large'}
+                sx={{
+                  width: { _: 225, md: 156 },
+                  mr: { _: 0, xs: 3 },
+                  mb: { _: '20px', xs: 0 },
+                }}
+                href={data.buttons[0].value.link[0].value}
+              >
+                {data.buttons[0].value.text}
+              </Button>
+            )}
+            {data.buttons[1] && (
+              <>
                 <Hidden mdUp>
                   <Button
                     styleType="whiteOutlined"
@@ -430,56 +450,75 @@ const Products = ({}: Props) => {
                       '& > .MuiButton-iconSizeMedium': { ml: '16px' },
                     }}
                     endIcon={<ArrowRight />}
-                    href={routes.contactSalesUrl}
+                    href={data.buttons[1].value.link[0].value}
                   >
-                    Contact Us
+                    {data.buttons[1].value.text}
                   </Button>
                 </Hidden>
                 <Hidden mdDown>
-                  <Link href={routes.contactSalesUrl} muiProps={{ color: '#fff' }} hasArrow>
-                    Contact Us
+                  <Link
+                    href={data.buttons[1].value.link[0].value}
+                    muiProps={{ color: '#fff' }}
+                    hasArrow
+                  >
+                    {data.buttons[1].value.text}
                   </Link>
                 </Hidden>
-              </Box>
-            </Box>
+              </>
+            )}
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          position: 'absolute',
+          right: '0',
+          ml: '30px',
+          maxWidth: '500px',
+          zIndex: '1',
+          [MQ.md]: {
+            maxWidth: '50%',
+            top: '4%',
+            zIndex: '1',
+          },
+        }}
+      >
+        <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              transform: show ? '' : 'translate(50vw)',
+              transition: 'transform 1.5s',
+            }}
+          >
+            <Image src={heroMain} alt="feature-img-big" />
           </Box>
           <Box
             sx={{
               position: 'absolute',
+              top: '29%',
               right: '0',
-              ml: '30px',
-              maxWidth: '500px',
-              zIndex: '1',
-              [MQ.md]: {
-                maxWidth: '50%',
-                top: '4%',
-                zIndex: '1',
-              },
+              transform: show ? '' : 'translate(100vw)',
+              transition: 'transform 2s',
             }}
           >
-            <Box sx={{ position: 'relative' }}>
-              <Box
-                sx={{
-                  transform: show ? '' : 'translate(50vw)',
-                  transition: 'transform 1.5s',
-                }}
-              >
-                <Image src={heroMain} alt="feature-img-big" />
-              </Box>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: '29%',
-                  right: '0',
-                  transform: show ? '' : 'translate(100vw)',
-                  transition: 'transform 2s',
-                }}
-              >
-                <Image src={heroFlyover} alt="feature-img-small" />
-              </Box>
-            </Box>
+            <Image src={heroFlyover} alt="feature-img-small" />
           </Box>
         </Box>
+      </Box>
+    </Box>
+  );
+};
+
+type Props = {
+  header: HeaderSectionProps[];
+  isPreview?: boolean;
+};
+
+const Products = ({ header, isPreview }: Props) => {
+  return (
+    <PageProvider displayTitle={displayTitle} metaImg={metaImg} isPreview={isPreview}>
+      <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
+        <HeaderSection value={header[0].value} />
       </Section>
       <Box>
         <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
@@ -757,3 +796,16 @@ const Products = ({}: Props) => {
 };
 
 export default Products;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const returnValue = await handleGetStaticProps(context, '/products/universal-cloud-platform');
+  if (returnValue) {
+    return {
+      props: returnValue,
+    };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
+};

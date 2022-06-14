@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
 
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
 import {
@@ -30,6 +31,7 @@ import validator from 'validator';
 
 import * as routes from 'src/routes';
 
+import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import getRandomInt from 'src-new/utils/getRandomInt';
 import useOnScreen from 'src-new/utils/useOnScreen';
 
@@ -72,7 +74,7 @@ import EfficiencyEaseSmall from 'public/new-images/home-page/features/Efficiency
 import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
 import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
-import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
+// import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
 import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
 import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
@@ -544,58 +546,81 @@ const headerLogos = [
   },
 ];
 
-const HeaderSection = () => {
+type HeaderSectionProps = {
+  value: {
+    title: string;
+    subtitle: string;
+    buttons: {
+      value: {
+        text: string;
+        class_type: string;
+        link: [
+          {
+            type: string;
+            value: string;
+          }
+        ];
+      };
+      id: string;
+    }[];
+    bottom_image: 1;
+  };
+};
+
+const HeaderSection = ({ value: data }: HeaderSectionProps) => {
   const logosSectionRef = useRef(undefined);
   const isVisible = useOnScreen(logosSectionRef);
 
   return (
     <>
       <Typography variant="h1_new" sx={h1}>
-        The cloud on your terms
+        {data.title}
       </Typography>
-      <Typography variant="body_big">
-        Upbound is the easiest way to build your internal cloud platform
-      </Typography>
+      <Typography variant="body_big">{data.subtitle}</Typography>
       <Box sx={headerButtons}>
-        <Button
-          styleType="gradientContained"
-          sizeType="large"
-          sx={{
-            width: { _: 225, sm: 208 },
-            mr: { _: 0, sm: '10px' },
-            mb: { _: '20px', sm: 0 },
-            '& > .MuiButton-iconSizeMedium': {
-              mr: '10px',
-              '& > svg': {
-                height: { _: 20, md: 25 },
-                width: { _: 20, md: 25 },
+        {data.buttons[0] && (
+          <Button
+            styleType="gradientContained"
+            sizeType="large"
+            sx={{
+              width: { _: 225, sm: 208 },
+              mr: { _: 0, sm: '10px' },
+              mb: { _: '20px', sm: 0 },
+              '& > .MuiButton-iconSizeMedium': {
+                mr: '10px',
+                '& > svg': {
+                  height: { _: 20, md: 25 },
+                  width: { _: 20, md: 25 },
+                },
               },
-            },
-          }}
-          startIcon={<RocketShipIcon />}
-          href={routes.cloudRegisterUrl}
-        >
-          Get Started
-        </Button>
-        <Button
-          styleType="whiteOutlined"
-          sizeType="large"
-          sx={{
-            width: { _: 225, sm: 208 },
-            ml: { _: 0, sm: '10px' },
-            '& > .MuiButton-iconSizeMedium': {
-              ml: '16px',
-              '& > svg': {
-                height: { _: 12, md: 13 },
-                width: { _: 7, md: 8 },
+            }}
+            startIcon={<RocketShipIcon />}
+            href={data.buttons[0].value.link[0].value}
+          >
+            {data.buttons[0].value.text}
+          </Button>
+        )}
+        {data.buttons[1] && (
+          <Button
+            styleType="whiteOutlined"
+            sizeType="large"
+            sx={{
+              width: { _: 225, sm: 208 },
+              ml: { _: 0, sm: '10px' },
+              '& > .MuiButton-iconSizeMedium': {
+                ml: '16px',
+                '& > svg': {
+                  height: { _: 12, md: 13 },
+                  width: { _: 7, md: 8 },
+                },
               },
-            },
-          }}
-          endIcon={<ArrowRight />}
-          href={routes.contactSalesUrl}
-        >
-          Contact Us
-        </Button>
+            }}
+            endIcon={<ArrowRight />}
+            href={data.buttons[1].value.link[0].value}
+          >
+            {data.buttons[1].value.text}
+          </Button>
+        )}
       </Box>
       <Box ref={logosSectionRef}>
         <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
@@ -1676,15 +1701,18 @@ const VisitBlogCard = () => {
   );
 };
 
-type Props = {};
+type Props = {
+  header: HeaderSectionProps[];
+  isPreview?: boolean;
+};
 
-const Home = ({}: Props) => {
+const Home = ({ header, isPreview }: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
 
   return (
-    <PageProvider>
+    <PageProvider isPreview={isPreview}>
       <Section sx={headerSection}>
-        <HeaderSection />
+        <HeaderSection value={header[0].value} />
       </Section>
       <Section
         bgcolor
@@ -1812,3 +1840,16 @@ const Home = ({}: Props) => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const returnValue = await handleGetStaticProps(context, '/');
+  if (returnValue) {
+    return {
+      props: returnValue,
+    };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
+};
