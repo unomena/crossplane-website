@@ -5,15 +5,20 @@ import axiosInstance from 'src-new/utils/axiosInstance';
 interface CustomPreviewData {
   previewData: {
     preview_url: string;
+    relative_url: string;
   };
 }
 
 const handleGetStaticProps = async (context: GetStaticPropsContext, path: string) => {
   let api = `/api/v2/pages/find/?html_path=${path}`;
+  let isPreview = false;
 
   if (context?.preview && context?.previewData) {
     const { previewData } = context as CustomPreviewData;
-    api = previewData.preview_url;
+    if (previewData.relative_url === path) {
+      api = previewData.preview_url;
+      isPreview = true;
+    }
   }
 
   let res = null;
@@ -23,7 +28,7 @@ const handleGetStaticProps = async (context: GetStaticPropsContext, path: string
 
     const props = {
       ...res?.data,
-      isPreview: context.preview || false,
+      isPreview,
     };
 
     return props;

@@ -15,7 +15,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).send('No token provided');
   }
 
-  const pageRes = await axiosInstance.get(`/api/v2/pages/?type=${req.query.content_type}`);
+  const pageRes = await axiosInstance.get(
+    `/api/v2/pages/?type=${req.query.content_type}&fields=relative_url`
+  );
 
   if (!pageRes?.data?.items[0]) {
     return res.status(500).send('Wagtail page does not exist');
@@ -25,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const preview_url = `http://localhost:8000/api/v2/page_preview/${pageData.id}/?content_type=${req.query.content_type}&token=${req.query.token}`;
 
-  res.setPreviewData({ preview_url });
+  res.setPreviewData({ preview_url, relative_url: pageData.relative_url });
 
   res.redirect(pageData.relative_url);
 }
