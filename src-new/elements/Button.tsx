@@ -64,12 +64,23 @@ const linkWaterContained: SxProps = {
   },
 };
 
+const disabled: SxProps = {
+  backgroundColor: 'rgba(0, 0, 0, 0.12)',
+  color: 'rgba(0, 0, 0, 0.26)',
+
+  // '&:hover': {
+  //   backgroundColor: COLORS.linkWater,
+  //   ...hoverScale,
+  // },
+};
+
 const typeStyles = {
   whiteContained,
   whiteOutlined,
   cornflowerContained,
   gradientContained,
   linkWaterContained,
+  disabled,
 };
 
 const small: SxProps = {
@@ -118,7 +129,8 @@ type Props = {
     | 'whiteOutlined'
     | 'cornflowerContained'
     | 'gradientContained'
-    | 'linkWaterContained';
+    | 'linkWaterContained'
+    | 'disabled';
   sizeType?: 'small' | 'normal' | 'large';
 } & ButtonProps;
 
