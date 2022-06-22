@@ -33,6 +33,12 @@ const nextConfig = {
         destination: 'https://marketplace.upbound.io',
         permanent: true,
       },
+      {
+        source: '/brand',
+        destination:
+          'https://www.lingoapp.com/88697/k/Upbound-Brand-RQg9x0?kit_token=Pz_534vvKdLpdCj-KO0G6EIP5C-Ki0mRkCJtGZnK1x4',
+        permanent: true,
+      },
     ];
   },
   images: {
