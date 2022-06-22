@@ -1,26 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import Image from 'next/image';
 
-import { COLORS, gradient_1, MQ } from 'src/theme';
-import { Box, SxProps, Typography, List, ListItem, TextField, MenuItem } from '@mui/material';
+import { COLORS, MQ } from 'src/theme';
+import { Box, SxProps, Typography, List, ListItem } from '@mui/material';
+
+import { useFormik, FormikProps, FormikHelpers } from 'formik';
+import * as yup from 'yup';
 
 import * as routes from 'src/routes';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
+import CTextField from 'src-new/elements/CTextField';
 
 import ArrowRight from 'src-new/svg/ArrowRight';
 import placeHolder from 'public/new-images/place-holder-img.png';
 import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
-
-const formStyles: SxProps = {
-  margin: 0,
-  padding: 2,
-  backgroundColor: '#fff',
-};
 
 const listStyles: SxProps = {
   pl: '16px',
@@ -46,205 +43,97 @@ const iconListStyles: SxProps = {
   },
 };
 
-type InitType = {
-  [key: string]: any;
+const formStyles: SxProps = {
+  margin: 0,
+  padding: 3,
+  backgroundColor: COLORS.bigStone,
+  borderRadius: 3,
+
+  '& .MuiTypography-root': {
+    color: COLORS.linkWater,
+  },
 };
 
-type FormProps = {
-  title?: string;
-};
+interface FormValues {
+  first_name: string;
+  last_name: string;
+  email: string;
+}
 
-type FormValidationItemType = {
-  regex: RegExp;
-  errorMsg: string;
-};
+const HeaderForm = () => {
+  const schema = yup.object({
+    first_name: yup.string().required('Please enter your name'),
+    last_name: yup.string().required('Please enter your surname'),
+    email: yup.string().email('Please enter valid email').required('Please enter your email'),
+  });
 
-type FormValidationType = {
-  [key: string]: {
-    value: string;
-    label: string;
-    required?: boolean;
-    valid: boolean;
-    validation: Array<FormValidationItemType>;
-    select?: Array<string>;
+  const handleSubmit = async (values: FormValues, { setFieldError }: FormikHelpers<FormValues>) => {
+    console.log(values);
+    // try {
+    //   let postData = {
+    //     first_name: values.first_name,
+    //     last_name: values.last_name,
+    //     email: values.email,
+    //   };
+    //   postData = trimPostData(postData);
+    //   await axiosInstance.patch('/api/v1/authentication/profile/update/', getFormData(postData));
+    //   await getUser();
+    //   setStep(2);
+    // } catch (error) {
+    //   handleFormError('step1 user register submit', error, setFieldError);
+    // }
   };
-};
 
-const NO_ERROR = ' '; // empty char in order to display helper text field permanently
-const FIELD_REQUIRED = { regex: /\S/g, errorMsg: 'Mandatory Field' };
-const TITLE =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
-const ALERT = 'Your input Data:\n\n';
-
-const initValue: FormValidationType = {
-  title: {
-    value: '',
-    label: 'Title',
-    valid: true,
-    required: false,
-    validation: [],
-    select: ['Ms.', 'Mrs.', 'Mr.'],
-  },
-  firstName: {
-    value: '',
-    label: 'First Name',
-    valid: true,
-    required: true,
-    validation: [{ regex: /[0-9a-zA-Z]{3,}/g, errorMsg: 'Less than 3 or invalid characters.' }],
-  },
-  lastName: {
-    value: '',
-    label: 'Last Name',
-    valid: true,
-    required: false,
-    validation: [{ regex: /[0-9a-zA-Z]{3,}/g, errorMsg: 'Less than 3 or invalid characters.' }],
-  },
-  age: {
-    value: '',
-    label: 'Your age',
-    valid: true,
-    required: true,
-    validation: [{ regex: /^[0-9]{1,3}$/g, errorMsg: 'You need to input a valid number.' }],
-  },
-  email: {
-    value: '',
-    label: 'Email',
-    valid: true,
-    required: false,
-    validation: [{ regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/g, errorMsg: 'Invalid email address.' }],
-  },
-};
-
-const useFormValidation = (props: FormValidationType) => {
-  const { initValue, initValid, initHelperText } = getInitValues();
-  const [value, setValue] = React.useState(initValue);
-  const [isValid, setIsValid] = React.useState(initValid);
-  const [helperText, setHelperText] = React.useState(initHelperText);
-
-  function getInitValues() {
-    let initValue: InitType = {};
-    let initValid: InitType = {};
-    let initHelperText: InitType = {};
-    for (const [key, value] of Object.entries(props)) {
-      initValue[key] = value.value;
-      initValid[key] = value.valid;
-      initHelperText[key] = NO_ERROR;
-    }
-    return { initValue, initValid, initHelperText };
-  }
-
-  let obj: InitType = {};
-
-  for (const [key, val] of Object.entries(props)) {
-    obj[key] = {
-      value: value[key],
-      isValid: isValid[key],
-      required: val.required,
-      bind: {
-        value: value![key],
-        onChange: (event: React.ChangeEvent<HTMLInputElement>) => {
-          setValue((prev) => {
-            return { ...prev, [key]: event.target.value };
-          });
-          const required = event.target.required;
-          let validationArr = required ? [FIELD_REQUIRED] : [];
-          validationArr = validationArr.concat(val.validation);
-          let errArr = validationArr.map((v) => {
-            return event.target.value.search(v.regex);
-          });
-          let validationState = errArr.filter((i) => i < 0).length === 0 ? true : false;
-          let index = errArr.findIndex((e) => e === -1);
-          let errorMsg = validationState ? NO_ERROR : validationArr[index].errorMsg;
-          setHelperText((prev) => {
-            return { ...prev, [key]: errorMsg };
-          });
-          setIsValid((prev) => {
-            return { ...prev, [key]: validationState };
-          });
-        },
-        helperText: isValid[key] ? NO_ERROR : helperText![key],
-        error: !isValid[key],
-      },
-    };
-  }
-  obj.resetValue = () => {
-    const { initValue, initValid, initHelperText } = getInitValues();
-    setValue(initValue);
-    setIsValid(initValid);
-    setHelperText(initHelperText);
-  };
-  return obj;
-};
-
-const Form = (props: FormProps) => {
-  const { title } = props;
-  const obj = useFormValidation(initValue);
-  let valid =
-    Object.keys(initValue)
-      .map((item) => {
-        let isValid = obj[item].isValid;
-        let isNotRequired = obj[item].required ? false : true;
-        let isRequiredAndNotEmpty = isNotRequired ? true : obj[item].value.length > 0;
-        return isValid && isRequiredAndNotEmpty;
-      })
-      .filter((x) => x).length === Object.keys(initValue).length;
-
-  function sumbmit() {
-    let str = ALERT;
-    str += Object.keys(obj)
-      .map((item) => obj[item].value)
-      .join('\n');
-    alert(str);
-  }
-  // function reset() {
-  //   obj.resetValue();
-  // }
+  const formik = useFormik({
+    initialValues: {
+      first_name: '',
+      last_name: '',
+      email: '',
+    },
+    validationSchema: schema,
+    onSubmit: handleSubmit,
+  });
 
   return (
     <Box sx={formStyles}>
-      {title && (
-        <Box>
-          <Typography variant="body_normal" sx={{ color: COLORS.firefly, mb: 3 }}>
-            {title}
-          </Typography>
+      <Typography variant="body_normal" sx={{ mb: 2 }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      </Typography>
+      <form onSubmit={formik.handleSubmit}>
+        <CTextField
+          name="first_name"
+          label="Name"
+          value={formik.values.first_name}
+          onChange={formik.handleChange}
+          error={formik.touched.first_name && Boolean(formik.errors.first_name)}
+          helperText={formik.touched.first_name && formik.errors.first_name}
+        />
+        <CTextField
+          name="last_name"
+          label="Surname"
+          value={formik.values.last_name}
+          onChange={formik.handleChange}
+          error={formik.touched.last_name && Boolean(formik.errors.last_name)}
+          helperText={formik.touched.last_name && formik.errors.last_name}
+        />
+        <CTextField
+          name="email"
+          label="Email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+        />
+        <Box mt={3} textAlign="center">
+          <Button
+            styleType={formik.isValid && !formik.isSubmitting ? 'cornflowerContained' : 'disabled'}
+            disabled={formik.isSubmitting}
+            type="submit"
+          >
+            Download Whitepaper
+          </Button>
         </Box>
-      )}
-      <Box>
-        {Object.keys(initValue).map((item, index) => {
-          const itemObj = initValue[item];
-          return (
-            <TextField
-              variant="standard"
-              size="medium"
-              key={index}
-              fullWidth
-              id={item}
-              {...obj[item]?.bind}
-              label={itemObj.label}
-              autoComplete="off"
-              select={itemObj.select && itemObj.select.length > 0}
-            >
-              {itemObj.select &&
-                itemObj.select.map((sel, selIndex) => {
-                  return (
-                    <MenuItem key={selIndex} value={sel}>
-                      {sel}
-                    </MenuItem>
-                  );
-                })}
-            </TextField>
-          );
-        })}
-      </Box>
-      <Box display="flex" justifyContent="space-around" sx={{ my: 2 }}>
-        <Button
-          styleType={valid ? 'gradientContained' : 'disabled'}
-          disabled={!valid}
-          onClick={sumbmit}
-        >
-          Download Whitepaper
-        </Button>
-      </Box>
+      </form>
     </Box>
   );
 };
@@ -284,14 +173,14 @@ const iconListContent = [
   },
 ];
 
-type IconListProps = {
+type IconListItemProps = {
   iconListItem: {
     text: string;
     icon: string | StaticImport;
   };
 };
 
-const IconList = ({ iconListItem }: IconListProps) => {
+const IconListItem = ({ iconListItem }: IconListItemProps) => {
   const { text, icon } = iconListItem;
 
   return (
@@ -347,7 +236,7 @@ const LandingPage = ({}: Props) => {
               },
             }}
           >
-            <Typography variant="h1_new" sx={{ mb: 3 }}>
+            <Typography variant="h2_new" sx={{ mb: 3 }}>
               Header lorem ipsum dolor sit amet
             </Typography>
             <Typography variant="body_big" sx={{ mb: 5 }}>
@@ -370,7 +259,7 @@ const LandingPage = ({}: Props) => {
             }}
           >
             <Box sx={{ pl: { _: 0, lg: '100px' } }}>
-              <Form title={TITLE} />
+              <HeaderForm />
             </Box>
           </Box>
         </Box>
@@ -388,7 +277,7 @@ const LandingPage = ({}: Props) => {
               },
             }}
           >
-            <Typography variant="h2_new" sx={{ mb: 3 }}>
+            <Typography variant="h3_new" sx={{ mb: 3 }}>
               Header 2 lorem ipsum dolor sit amet
             </Typography>
             <Typography variant="body_normal" sx={{ mb: 3 }}>
@@ -426,7 +315,7 @@ const LandingPage = ({}: Props) => {
                 },
               }}
             >
-              <Typography variant="h2_new" sx={{ mb: 3 }}>
+              <Typography variant="h3_new" sx={{ mb: 3 }}>
                 Header 2 lorem ipsum dolor sit amet
               </Typography>
               <Typography variant="body_normal" sx={{ mb: 5 }}>
@@ -465,7 +354,7 @@ const LandingPage = ({}: Props) => {
               <Box sx={{ pl: { _: 0, lg: '100px' } }}>
                 <List sx={iconListStyles}>
                   {iconListContent.map((iconListItem) => (
-                    <IconList key={iconListItem.text} iconListItem={iconListItem} />
+                    <IconListItem key={iconListItem.text} iconListItem={iconListItem} />
                   ))}
                 </List>
               </Box>

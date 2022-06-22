@@ -68,10 +68,9 @@ const disabled: SxProps = {
   backgroundColor: 'rgba(0, 0, 0, 0.12)',
   color: 'rgba(0, 0, 0, 0.26)',
 
-  // '&:hover': {
-  //   backgroundColor: COLORS.linkWater,
-  //   ...hoverScale,
-  // },
+  '&:hover': {
+    backgroundColor: 'rgba(0, 0, 0, 0.12)',
+  },
 };
 
 const typeStyles = {
