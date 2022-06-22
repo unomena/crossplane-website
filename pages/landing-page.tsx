@@ -20,7 +20,8 @@ import placeHolder from 'public/new-images/place-holder-img.png';
 import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 
 const listStyles: SxProps = {
-  pl: '16px',
+  pl: 2,
+  py: 0,
   listStyle: 'disc',
 
   '& li': {
@@ -32,25 +33,42 @@ const listStyles: SxProps = {
   },
 };
 
-const iconListStyles: SxProps = {
-  pl: '16px',
+const listItemStyles: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+};
 
+const iconListStyles: SxProps = {
+  mt: 5,
+  p: 0,
   '& li': {
-    pl: '0',
+    p: '0',
+    '&:not(:last-of-type)': {
+      mb: 3,
+    },
     '& img': {
       pr: '16px',
     },
   },
+
+  [MQ.lg]: {
+    mt: 0,
+  },
 };
 
 const formStyles: SxProps = {
-  margin: 0,
-  padding: 3,
+  m: 0,
+  mt: 5,
+  p: 3,
   backgroundColor: COLORS.bigStone,
   borderRadius: 3,
 
   '& .MuiTypography-root': {
     color: COLORS.linkWater,
+  },
+
+  [MQ.lg]: {
+    mt: 0,
   },
 };
 
@@ -96,8 +114,8 @@ const HeaderForm = () => {
 
   return (
     <Box sx={formStyles}>
-      <Typography variant="body_normal" sx={{ mb: 2 }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      <Typography variant="body_normal" sx={{ mb: 1 }}>
+        Submit your contact info below to download
       </Typography>
       <form onSubmit={formik.handleSubmit}>
         <CTextField
@@ -141,15 +159,19 @@ const HeaderForm = () => {
 const list = [
   {
     id: 1,
-    text: 'Lorem ipsum dolor sit amet, consectrtur adipiscing elit.',
+    text: 'Enable a faster time to deployment',
   },
   {
     id: 2,
-    text: 'Lorem ipsum dolor sit amet, consectrtur adipiscing elit, sed do.',
+    text: 'Lower Capex AND Opex',
   },
   {
     id: 3,
-    text: 'Lorem ipsum dolor sit amet, consectrtur adipiscing elit, sed do eiusmod.',
+    text: 'Reduce risk but also innovate faster',
+  },
+  {
+    id: 4,
+    text: 'And so much more- including happier software engineers!',
   },
 ];
 
@@ -161,15 +183,15 @@ declare type StaticImport = StaticRequire | StaticImageData;
 const iconListContent = [
   {
     icon: DeployWithConfidenceIcon,
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus libero nunc, egestas a congue eget.',
+    text: 'Upbound is committed to open source.',
   },
   {
     icon: DeployWithConfidenceIcon,
-    text: 'Phasellus libero nunc, egestas a congue eget.',
+    text: 'Upbound is powered by Crossplane.',
   },
   {
     icon: DeployWithConfidenceIcon,
-    text: 'Lorem ipsum dolor sit amet, consectrtur adipiscing elit, sed do eiusmod.',
+    text: 'Upbound is the cloud on your terms.',
   },
 ];
 
@@ -185,7 +207,7 @@ const IconListItem = ({ iconListItem }: IconListItemProps) => {
 
   return (
     <ListItem>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+      <Box sx={listItemStyles}>
         <Box sx={{ mr: 2 }}>
           <Box
             sx={{
@@ -237,11 +259,11 @@ const LandingPage = ({}: Props) => {
             }}
           >
             <Typography variant="h2_new" sx={{ mb: 3 }}>
-              Header lorem ipsum dolor sit amet
+              Upbound: A platform for platform teams
             </Typography>
             <Typography variant="body_big" sx={{ mb: 5 }}>
-              Lorem ipsum dolor sit amet, consectrtur adipiscing elit, sed do eiusmod tempor
-              incididunt.
+              We give you the easiest way to build your internal cloud platform- read our whitepaper
+              to learn how.
             </Typography>
             <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
               <Image src={placeHolder} alt="placeholder" layout="fill" objectFit="contain" />
@@ -264,8 +286,46 @@ const LandingPage = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Box>
-        <Section bgcolor angleTopBottom="topBtmRight" sx={{ py: 20 }}>
+      <Section sx={{ py: 10 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            position: 'relative',
+            [MQ.lg]: {
+              flex: 1,
+              width: '50%',
+            },
+          }}
+        >
+          <Typography variant="h3_new" sx={{ mb: 3 }}>
+            Every company is a cloud company today.
+          </Typography>
+          <Typography variant="body_normal" sx={{ mb: 3 }}>
+            Even if you’re not selling software, digital experiences running in the cloud are
+            business-critical components for you and your business. So how do you manage it all?
+          </Typography>
+          <Typography variant="body_normal" sx={{ mb: 0 }}>
+            Enter Upbound who can help you future proof your platform as well as:
+          </Typography>
+          <List sx={listStyles}>
+            {list.map((listItem) => (
+              <ListItem key={listItem.id}>
+                <Typography variant="body_small">{listItem.text}</Typography>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Section>
+      <Section bgcolor angleTop="topRight" sx={{ py: 20, pb: { _: 15, lg: 20 } }}>
+        <Box
+          sx={{
+            [MQ.lg]: {
+              display: 'flex',
+              flexDirection: 'row',
+            },
+          }}
+        >
           <Box
             sx={{
               display: 'flex',
@@ -278,90 +338,51 @@ const LandingPage = ({}: Props) => {
             }}
           >
             <Typography variant="h3_new" sx={{ mb: 3 }}>
-              Header 2 lorem ipsum dolor sit amet
+              Ready to jump to the next level?
             </Typography>
-            <Typography variant="body_normal" sx={{ mb: 3 }}>
-              Lorem ipsum dolor sit amet, consectrtur adipiscing elit, sed do eiusmod tempor
-              incididunt.
+            <Typography variant="body_normal" sx={{ mb: 5 }}>
+              Click below to fill out our contact form and an Upbound and Crossplane expert will
+              reach out to schedule a meeting with you shortly.
             </Typography>
-            <List sx={listStyles}>
-              {list.map((listItem) => (
-                <ListItem key={listItem.id}>
-                  <Typography variant="body_small">{listItem.text}</Typography>
-                </ListItem>
-              ))}
-            </List>
+            <Button
+              styleType="cornflowerContained"
+              sx={{
+                width: { _: 225, sm: 208 },
+                '& > .MuiButton-iconSizeMedium': {
+                  ml: '16px',
+                  '& > svg': {
+                    height: { _: 12, md: 13 },
+                    width: { _: 7, md: 8 },
+                  },
+                },
+              }}
+              endIcon={<ArrowRight />}
+              href={routes.contactSalesUrl}
+            >
+              Contact Us
+            </Button>
           </Box>
-        </Section>
-      </Box>
-      <Box>
-        <Section angleTop="topRight" sx={{ py: 20 }}>
           <Box
             sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative',
               [MQ.lg]: {
-                display: 'flex',
-                flexDirection: 'row',
+                flex: 1,
+                width: '50%',
               },
             }}
           >
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  flex: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <Typography variant="h3_new" sx={{ mb: 3 }}>
-                Header 2 lorem ipsum dolor sit amet
-              </Typography>
-              <Typography variant="body_normal" sx={{ mb: 5 }}>
-                Lorem ipsum dolor sit amet, consectrtur adipiscing elit, sed do eiusmod tempor
-                incididunt.
-              </Typography>
-              <Button
-                styleType="cornflowerContained"
-                sx={{
-                  width: { _: 225, sm: 208 },
-                  '& > .MuiButton-iconSizeMedium': {
-                    ml: '16px',
-                    '& > svg': {
-                      height: { _: 12, md: 13 },
-                      width: { _: 7, md: 8 },
-                    },
-                  },
-                }}
-                endIcon={<ArrowRight />}
-                href=""
-              >
-                CTA
-              </Button>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  flex: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <Box sx={{ pl: { _: 0, lg: '100px' } }}>
-                <List sx={iconListStyles}>
-                  {iconListContent.map((iconListItem) => (
-                    <IconListItem key={iconListItem.text} iconListItem={iconListItem} />
-                  ))}
-                </List>
-              </Box>
+            <Box sx={{ pl: { _: 0, lg: '100px' } }}>
+              <List sx={iconListStyles}>
+                {iconListContent.map((iconListItem) => (
+                  <IconListItem key={iconListItem.text} iconListItem={iconListItem} />
+                ))}
+              </List>
             </Box>
           </Box>
-        </Section>
-      </Box>
+        </Box>
+      </Section>
     </PageProvider>
   );
 };
