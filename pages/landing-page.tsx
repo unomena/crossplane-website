@@ -75,6 +75,8 @@ const formStyles: SxProps = {
 interface FormValues {
   first_name: string;
   last_name: string;
+  job_title: string;
+  company: string;
   email: string;
 }
 
@@ -106,6 +108,8 @@ const HeaderForm = () => {
     initialValues: {
       first_name: '',
       last_name: '',
+      job_title: '',
+      company: '',
       email: '',
     },
     validationSchema: schema,
@@ -135,8 +139,24 @@ const HeaderForm = () => {
           helperText={formik.touched.last_name && formik.errors.last_name}
         />
         <CTextField
+          name="job_title"
+          label="Job Title"
+          value={formik.values.job_title}
+          onChange={formik.handleChange}
+          error={formik.touched.job_title && Boolean(formik.errors.job_title)}
+          helperText={formik.touched.job_title && formik.errors.job_title}
+        />
+        <CTextField
+          name="company"
+          label="Company"
+          value={formik.values.company}
+          onChange={formik.handleChange}
+          error={formik.touched.company && Boolean(formik.errors.company)}
+          helperText={formik.touched.company && formik.errors.company}
+        />
+        <CTextField
           name="email"
-          label="Email"
+          label="Business Email"
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
