@@ -139,57 +139,59 @@ const HeaderForm = () => {
 
   return (
     <Box sx={formStyles}>
-      <Typography variant="body_normal" sx={{ mb: 1 }}>
-        Submit your contact info below to download
-      </Typography>
       {!setSubmitted ? (
-        <form onSubmit={formik.handleSubmit}>
-          <CTextField
-            name="first_name"
-            label="Name"
-            value={formik.values.first_name}
-            onChange={formik.handleChange}
-            error={formik.touched.first_name && Boolean(formik.errors.first_name)}
-            helperText={formik.touched.first_name && formik.errors.first_name}
-          />
-          <CTextField
-            name="last_name"
-            label="Surname"
-            value={formik.values.last_name}
-            onChange={formik.handleChange}
-            error={formik.touched.last_name && Boolean(formik.errors.last_name)}
-            helperText={formik.touched.last_name && formik.errors.last_name}
-          />
-          <CTextField
-            name="job_title"
-            label="Job Title"
-            value={formik.values.job_title}
-            onChange={formik.handleChange}
-            error={formik.touched.job_title && Boolean(formik.errors.job_title)}
-            helperText={formik.touched.job_title && formik.errors.job_title}
-          />
-          <CTextField
-            name="company"
-            label="Company"
-            value={formik.values.company}
-            onChange={formik.handleChange}
-            error={formik.touched.company && Boolean(formik.errors.company)}
-            helperText={formik.touched.company && formik.errors.company}
-          />
-          <CTextField
-            name="email"
-            label="Business Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-          <Box mt={3} textAlign="center">
-            <Button styleType="cornflowerContained" type="submit">
-              Download Whitepaper
-            </Button>
-          </Box>
-        </form>
+        <>
+          <Typography variant="body_normal" sx={{ mb: 1 }}>
+            Submit your contact info below to download
+          </Typography>
+          <form onSubmit={formik.handleSubmit}>
+            <CTextField
+              name="first_name"
+              label="Name"
+              value={formik.values.first_name}
+              onChange={formik.handleChange}
+              error={formik.touched.first_name && Boolean(formik.errors.first_name)}
+              helperText={formik.touched.first_name && formik.errors.first_name}
+            />
+            <CTextField
+              name="last_name"
+              label="Surname"
+              value={formik.values.last_name}
+              onChange={formik.handleChange}
+              error={formik.touched.last_name && Boolean(formik.errors.last_name)}
+              helperText={formik.touched.last_name && formik.errors.last_name}
+            />
+            <CTextField
+              name="job_title"
+              label="Job Title"
+              value={formik.values.job_title}
+              onChange={formik.handleChange}
+              error={formik.touched.job_title && Boolean(formik.errors.job_title)}
+              helperText={formik.touched.job_title && formik.errors.job_title}
+            />
+            <CTextField
+              name="company"
+              label="Company"
+              value={formik.values.company}
+              onChange={formik.handleChange}
+              error={formik.touched.company && Boolean(formik.errors.company)}
+              helperText={formik.touched.company && formik.errors.company}
+            />
+            <CTextField
+              name="email"
+              label="Business Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+            <Box mt={3} textAlign="center">
+              <Button styleType="cornflowerContained" type="submit">
+                Download Whitepaper
+              </Button>
+            </Box>
+          </form>
+        </>
       ) : (
         <Typography variant="body_big">Thank you for submitting!</Typography>
       )}
