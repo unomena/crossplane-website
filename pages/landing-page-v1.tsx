@@ -133,11 +133,17 @@ const HeaderForm = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
-            <Box ml={2}>
-              <Button styleType="cornflowerContained" onClick={onClick} sx={{ minWidth: '180px' }}>
-                Download Now
-              </Button>
-            </Box>
+            {!showResults ? (
+              <Box ml={2}>
+                <Button
+                  styleType="cornflowerContained"
+                  onClick={onClick}
+                  sx={{ minWidth: '180px' }}
+                >
+                  Download Now
+                </Button>
+              </Box>
+            ) : null}
           </Box>
           {showResults ? (
             <>
