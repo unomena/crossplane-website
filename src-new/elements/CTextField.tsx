@@ -6,10 +6,13 @@ import { COLORS } from 'src/theme';
 const textField: SxProps = {
   '& .MuiOutlinedInput-root': {
     borderRadius: 3,
+    color: COLORS.linkWater,
+    caretColor: COLORS.linkWater,
   },
   '& input': {
     fontWeight: 400,
-    WebkitBoxShadow: `0 0 0 30px ${COLORS.bigStone} inset !important`,
+    WebkitBoxShadow: `0 0 0 30px ${COLORS.elephant} inset !important`,
+    WebkitTextFillColor: COLORS.linkWater,
   },
   '& textarea': {
     fontWeight: 400,
@@ -17,7 +20,7 @@ const textField: SxProps = {
   '& .MuiFormLabel-root': {
     fontWeight: 400,
     color: COLORS.linkWater,
-    background: COLORS.bigStone,
+    background: COLORS.elephant,
     marginLeft: -0.5,
     paddingLeft: 1,
     paddingRight: 1,

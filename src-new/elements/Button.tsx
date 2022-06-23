@@ -65,11 +65,11 @@ const linkWaterContained: SxProps = {
 };
 
 const disabled: SxProps = {
-  backgroundColor: 'rgba(0, 0, 0, 0.12)',
+  backgroundColor: '#cccccc',
   color: 'rgba(0, 0, 0, 0.26)',
 
   '&:hover': {
-    backgroundColor: 'rgba(0, 0, 0, 0.12)',
+    backgroundColor: '#cccccc',
   },
 };
 

@@ -1,23 +1,41 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography, List, ListItem } from '@mui/material';
 
-import { useFormik, FormikProps, FormikHelpers } from 'formik';
+import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 
+import { AxiosError } from 'axios';
+
 import * as routes from 'src/routes';
+
+import axiosInstance from 'src-new/utils/axiosInstance';
+import handleFormError from 'src-new/utils/handleFormError';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
 
+import headerBg from 'public/new-images/home-page/header-bg.jpg';
+import placeHolder from 'public/new-images/Whitepaper-mockup.png';
 import ArrowRight from 'src-new/svg/ArrowRight';
-import placeHolder from 'public/new-images/place-holder-img.png';
 import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
+
+const headerSection: SxProps = {
+  pt: { _: 13, md: 20 },
+  pb: 10,
+  backgroundImage: `url(${headerBg.src})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'top center',
+
+  '@media screen and (min-width: 1980px)': {
+    backgroundSize: 'contain',
+  },
+};
 
 const listStyles: SxProps = {
   pl: 2,
@@ -60,7 +78,7 @@ const formStyles: SxProps = {
   m: 0,
   mt: 5,
   p: 3,
-  backgroundColor: COLORS.bigStone,
+  backgroundColor: COLORS.elephant,
   borderRadius: 3,
 
   '& .MuiTypography-root': {
@@ -81,27 +99,30 @@ interface FormValues {
 }
 
 const HeaderForm = () => {
+  const [setSubmitted, setFormSubmitted] = useState(false);
+
   const schema = yup.object({
     first_name: yup.string().required('Please enter your name'),
     last_name: yup.string().required('Please enter your surname'),
+    job_title: yup.string().required('Please enter your job title'),
+    company: yup.string().required('Please enter your company name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),
   });
 
   const handleSubmit = async (values: FormValues, { setFieldError }: FormikHelpers<FormValues>) => {
-    console.log(values);
-    // try {
-    //   let postData = {
-    //     first_name: values.first_name,
-    //     last_name: values.last_name,
-    //     email: values.email,
-    //   };
-    //   postData = trimPostData(postData);
-    //   await axiosInstance.patch('/api/v1/authentication/profile/update/', getFormData(postData));
-    //   await getUser();
-    //   setStep(2);
-    // } catch (error) {
-    //   handleFormError('step1 user register submit', error, setFieldError);
-    // }
+    try {
+      const res = await axiosInstance.post('/api/resource-request', values);
+      console.log(res.data);
+
+      setFormSubmitted(true);
+
+      if (res.data.resource) {
+        window.open(res.data.resource, '_blank');
+      }
+    } catch (err) {
+      const error = err as AxiosError;
+      handleFormError('WhitePaper Submit', error, setFieldError);
+    }
   };
 
   const formik = useFormik({
@@ -121,57 +142,57 @@ const HeaderForm = () => {
       <Typography variant="body_normal" sx={{ mb: 1 }}>
         Submit your contact info below to download
       </Typography>
-      <form onSubmit={formik.handleSubmit}>
-        <CTextField
-          name="first_name"
-          label="Name"
-          value={formik.values.first_name}
-          onChange={formik.handleChange}
-          error={formik.touched.first_name && Boolean(formik.errors.first_name)}
-          helperText={formik.touched.first_name && formik.errors.first_name}
-        />
-        <CTextField
-          name="last_name"
-          label="Surname"
-          value={formik.values.last_name}
-          onChange={formik.handleChange}
-          error={formik.touched.last_name && Boolean(formik.errors.last_name)}
-          helperText={formik.touched.last_name && formik.errors.last_name}
-        />
-        <CTextField
-          name="job_title"
-          label="Job Title"
-          value={formik.values.job_title}
-          onChange={formik.handleChange}
-          error={formik.touched.job_title && Boolean(formik.errors.job_title)}
-          helperText={formik.touched.job_title && formik.errors.job_title}
-        />
-        <CTextField
-          name="company"
-          label="Company"
-          value={formik.values.company}
-          onChange={formik.handleChange}
-          error={formik.touched.company && Boolean(formik.errors.company)}
-          helperText={formik.touched.company && formik.errors.company}
-        />
-        <CTextField
-          name="email"
-          label="Business Email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.touched.email && formik.errors.email}
-        />
-        <Box mt={3} textAlign="center">
-          <Button
-            styleType={formik.isValid && !formik.isSubmitting ? 'cornflowerContained' : 'disabled'}
-            disabled={formik.isSubmitting}
-            type="submit"
-          >
-            Download Whitepaper
-          </Button>
-        </Box>
-      </form>
+      {!setSubmitted ? (
+        <form onSubmit={formik.handleSubmit}>
+          <CTextField
+            name="first_name"
+            label="Name"
+            value={formik.values.first_name}
+            onChange={formik.handleChange}
+            error={formik.touched.first_name && Boolean(formik.errors.first_name)}
+            helperText={formik.touched.first_name && formik.errors.first_name}
+          />
+          <CTextField
+            name="last_name"
+            label="Surname"
+            value={formik.values.last_name}
+            onChange={formik.handleChange}
+            error={formik.touched.last_name && Boolean(formik.errors.last_name)}
+            helperText={formik.touched.last_name && formik.errors.last_name}
+          />
+          <CTextField
+            name="job_title"
+            label="Job Title"
+            value={formik.values.job_title}
+            onChange={formik.handleChange}
+            error={formik.touched.job_title && Boolean(formik.errors.job_title)}
+            helperText={formik.touched.job_title && formik.errors.job_title}
+          />
+          <CTextField
+            name="company"
+            label="Company"
+            value={formik.values.company}
+            onChange={formik.handleChange}
+            error={formik.touched.company && Boolean(formik.errors.company)}
+            helperText={formik.touched.company && formik.errors.company}
+          />
+          <CTextField
+            name="email"
+            label="Business Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
+          <Box mt={3} textAlign="center">
+            <Button styleType="cornflowerContained" type="submit">
+              Download Whitepaper
+            </Button>
+          </Box>
+        </form>
+      ) : (
+        <Typography variant="body_big">Thank you for submitting!</Typography>
+      )}
     </Box>
   );
 };
@@ -257,7 +278,7 @@ type Props = {};
 const LandingPage = ({}: Props) => {
   return (
     <PageProvider hideTryForFreeCard removeFooterPadding>
-      <Section sx={{ pt: 20, pb: 10 }}>
+      <Section sx={headerSection}>
         <Box
           sx={{
             [MQ.lg]: {
@@ -305,13 +326,12 @@ const LandingPage = ({}: Props) => {
             </Box>
           </Box>
         </Box>
-      </Section>
-      <Section sx={{ py: 10 }}>
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             position: 'relative',
+            pt: 10,
             [MQ.lg]: {
               flex: 1,
               width: '50%',
