@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -10,6 +10,8 @@ import * as yup from 'yup';
 
 import { AxiosError } from 'axios';
 
+import countries from 'country-region-data/data.json';
+
 import * as routes from 'src/routes';
 
 import axiosInstance from 'src-new/utils/axiosInstance';
@@ -19,6 +21,8 @@ import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
+import CSelect from 'src-new/elements/CSelect';
+import CCheckBox from 'src-new/elements/CCheckBox';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import placeHolder from 'public/new-images/Whitepaper-mockup.png';
@@ -92,9 +96,13 @@ interface FormValues {
   job_title: string;
   company: string;
   email: string;
+  country: string;
+  state: string;
+  legal_consent: boolean;
 }
 
 const HeaderForm = () => {
+  const [loading, setLoading] = useState(false);
   const [setSubmitted, setFormSubmitted] = useState(false);
 
   const schema = yup.object({
@@ -103,14 +111,18 @@ const HeaderForm = () => {
     job_title: yup.string().required('Please enter your job title'),
     company: yup.string().required('Please enter your company name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),
+    country: yup.string().required('Please select a country'),
+    state: yup.string(),
+    legal_consent: yup.boolean(),
   });
 
   const handleSubmit = async (values: FormValues, { setFieldError }: FormikHelpers<FormValues>) => {
     try {
+      setLoading(true);
       const res = await axiosInstance.post('/api/resource-request', values);
-      console.log(res.data);
 
       setFormSubmitted(true);
+      setLoading(false);
 
       if (res.data.resource) {
         window.open(res.data.resource, '_blank');
@@ -118,6 +130,7 @@ const HeaderForm = () => {
     } catch (err) {
       const error = err as AxiosError;
       handleFormError('WhitePaper Submit', error, setFieldError);
+      setLoading(false);
     }
   };
 
@@ -128,10 +141,25 @@ const HeaderForm = () => {
       job_title: '',
       company: '',
       email: '',
+      country: '',
+      state: '',
+      legal_consent: false,
     },
     validationSchema: schema,
     onSubmit: handleSubmit,
   });
+
+  const countryOptions = useMemo(() => {
+    return countries.map((c) => ({ value: c.countryName, label: c.countryName }));
+  }, [countries]);
+
+  const regionOptions = useMemo(() => {
+    const country = countries.find((c) => c.countryName === formik.values.country);
+    if (!country) {
+      return [];
+    }
+    return country.regions.map((r) => ({ value: r.name, label: r.name }));
+  }, [formik.values.country, countries]);
 
   return (
     <Box sx={formStyles}>
@@ -181,8 +209,42 @@ const HeaderForm = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
+            <CSelect
+              name="country"
+              label="Country"
+              options={[{ value: '', label: 'Select Country' }, ...countryOptions]}
+              value={formik.values.country}
+              onChange={formik.handleChange}
+              error={formik.touched.country && Boolean(formik.errors.country)}
+              helperText={formik.touched.country && formik.errors.country}
+            />
+            <CSelect
+              name="state"
+              label="State/Region"
+              options={[{ value: '', label: 'Select State/Region' }, ...regionOptions]}
+              disabled={!formik.values.country}
+              value={formik.values.state}
+              onChange={formik.handleChange}
+              error={formik.touched.state && Boolean(formik.errors.state)}
+              helperText={formik.touched.state && formik.errors.state}
+            />
+            <CCheckBox
+              checked={formik.values.legal_consent}
+              onChange={formik.handleChange}
+              name="legal_consent"
+              label="Yes, send me occasional emails from Upbound"
+            />
+            <Typography sx={{ fontSize: 12 }}>
+              By clicking the button below you understand that Upbound will process your personal
+              information in accordance with our Privacy Policy.
+            </Typography>
             <Box mt={3} textAlign="center">
-              <Button styleType="cornflowerContained" type="submit">
+              <Button
+                styleType={loading ? 'disabled' : 'cornflowerContained'}
+                type="submit"
+                disabled={loading}
+                loading={loading}
+              >
                 Download Whitepaper
               </Button>
             </Box>
@@ -304,7 +366,13 @@ const LandingPage = ({}: Props) => {
               platform easy.
             </Typography>
             <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
-              <Image src={placeHolder} alt="placeholder" layout="fill" objectFit="contain" />
+              <Image
+                src={placeHolder}
+                alt="placeholder"
+                layout="fill"
+                objectFit="contain"
+                priority
+              />
             </Box>
             <Hidden lgDown>
               <Box sx={{ mt: 10 }}>
