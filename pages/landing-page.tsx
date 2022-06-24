@@ -1,9 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography, List, ListItem, Hidden } from '@mui/material';
+
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
@@ -102,8 +104,11 @@ interface FormValues {
 }
 
 const HeaderForm = () => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const [loading, setLoading] = useState(false);
-  const [setSubmitted, setFormSubmitted] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [recaptchaError, setRecaptchaError] = useState(null);
 
   const schema = yup.object({
     first_name: yup.string().required('Please enter your name'),
@@ -116,16 +121,38 @@ const HeaderForm = () => {
     legal_consent: yup.boolean(),
   });
 
+  const handleReCaptchaVerify = useCallback(async () => {
+    if (!executeRecaptcha) {
+      console.log('Execute recaptcha not yet available');
+      return;
+    }
+    const token = await executeRecaptcha('resource_request');
+    return token;
+  }, [executeRecaptcha]);
+
   const handleSubmit = async (values: FormValues, { setFieldError }: FormikHelpers<FormValues>) => {
     try {
       setLoading(true);
-      const res = await axiosInstance.post('/api/resource-request', values);
 
-      setFormSubmitted(true);
-      setLoading(false);
+      const token = await handleReCaptchaVerify();
 
-      if (res.data.resource) {
-        window.open(res.data.resource, '_blank');
+      const postData = {
+        recaptcha_token: token,
+        ...values,
+      };
+
+      const res = await axiosInstance.post('/api/resource-request', postData);
+
+      if (!res.data.recaptcha_error) {
+        setFormSubmitted(true);
+        setLoading(false);
+
+        if (res.data.resource) {
+          window.open(res.data.resource, '_blank');
+        }
+      } else {
+        setRecaptchaError(res.data.recaptcha_error);
+        setLoading(false);
       }
     } catch (err) {
       const error = err as AxiosError;
@@ -163,7 +190,7 @@ const HeaderForm = () => {
 
   return (
     <Box sx={formStyles}>
-      {!setSubmitted ? (
+      {!formSubmitted && !recaptchaError ? (
         <>
           <Typography variant="body_normal" sx={{ mb: 1 }}>
             Submit your contact info below to download
@@ -251,7 +278,10 @@ const HeaderForm = () => {
           </form>
         </>
       ) : (
-        <Typography variant="body_big">Thank you for submitting!</Typography>
+        <>
+          {formSubmitted && <Typography variant="body_big">Thank you for submitting!</Typography>}
+          {recaptchaError && <Typography variant="body_big">{recaptchaError}</Typography>}
+        </>
       )}
     </Box>
   );
