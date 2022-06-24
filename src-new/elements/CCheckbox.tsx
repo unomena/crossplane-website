@@ -7,12 +7,12 @@ const checkBox: SxProps = {
   color: COLORS.linkWater,
 };
 
-type CCheckBoxProps = {
+type CCheckboxProps = {
   label: string;
 } & CheckboxProps;
 
-const CCheckBox = ({ label, ...props }: CCheckBoxProps) => {
+const CCheckbox = ({ label, ...props }: CCheckboxProps) => {
   return <FormControlLabel control={<Checkbox sx={checkBox} {...props} />} label={label} />;
 };
 
-export default CCheckBox;
+export default CCheckbox;

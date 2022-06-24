@@ -24,7 +24,7 @@ import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
-import CCheckBox from 'src-new/elements/CCheckBox';
+import CCheckbox from 'src-new/elements/CCheckbox';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import placeHolder from 'public/new-images/Whitepaper-mockup.png';
@@ -255,7 +255,7 @@ const HeaderForm = () => {
               error={formik.touched.state && Boolean(formik.errors.state)}
               helperText={formik.touched.state && formik.errors.state}
             />
-            <CCheckBox
+            <CCheckbox
               checked={formik.values.legal_consent}
               onChange={formik.handleChange}
               name="legal_consent"
