@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button as MuiButton, ButtonProps, SxProps } from '@mui/material';
+import { Box, Button as MuiButton, ButtonProps, CircularProgress, SxProps } from '@mui/material';
 import { COLORS, fontAvenirBold, fontAvenirRoman, MQ } from 'src/theme';
 
 const scale = 1.05;
@@ -64,12 +64,22 @@ const linkWaterContained: SxProps = {
   },
 };
 
+const disabled: SxProps = {
+  backgroundColor: '#cccccc',
+  color: 'rgba(0, 0, 0, 0.26)',
+
+  '&:hover': {
+    backgroundColor: '#cccccc',
+  },
+};
+
 const typeStyles = {
   whiteContained,
   whiteOutlined,
   cornflowerContained,
   gradientContained,
   linkWaterContained,
+  disabled,
 };
 
 const small: SxProps = {
@@ -112,20 +122,27 @@ const sizeStyles = {
   large,
 };
 
+const loadingContainer: SxProps = {
+  position: 'absolute',
+};
+
 type Props = {
   styleType?:
     | 'whiteContained'
     | 'whiteOutlined'
     | 'cornflowerContained'
     | 'gradientContained'
-    | 'linkWaterContained';
+    | 'linkWaterContained'
+    | 'disabled';
   sizeType?: 'small' | 'normal' | 'large';
+  loading?: boolean;
 } & ButtonProps;
 
 const Button = ({
   children,
   styleType = 'whiteContained',
   sizeType = 'normal',
+  loading,
   ...props
 }: Props) => {
   return (
@@ -139,6 +156,11 @@ const Button = ({
       }}
     >
       {children}
+      {loading && (
+        <Box sx={loadingContainer}>
+          <CircularProgress size={24} />
+        </Box>
+      )}
     </MuiButton>
   );
 };

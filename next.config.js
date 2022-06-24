@@ -44,6 +44,9 @@ const nextConfig = {
   images: {
     domains: ['i.ytimg.com'],
   },
+  env: {
+    apiHost: process.env.API_HOST,
+  },
 };
 
 module.exports = nextConfig;

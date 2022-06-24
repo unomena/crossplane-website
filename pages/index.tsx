@@ -72,7 +72,7 @@ import EfficiencyEaseSmall from 'public/new-images/home-page/features/Efficiency
 import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
 import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
-import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
+// import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
 import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
 import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
