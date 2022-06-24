@@ -473,6 +473,10 @@ export const globalStyle = css`
       }
     }
   }
+
+  .grecaptcha-badge {
+    visibility: hidden;
+  }
 `;
 
 export default theme;
