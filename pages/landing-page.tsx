@@ -292,7 +292,6 @@ const LandingPage = ({}: Props) => {
               position: 'relative',
               width: '100%',
               [MQ.lg]: {
-                flex: 1,
                 width: '50%',
               },
             }}
