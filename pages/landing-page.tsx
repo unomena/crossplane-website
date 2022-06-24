@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, List, ListItem } from '@mui/material';
+import { Box, SxProps, Typography, List, ListItem, Hidden } from '@mui/material';
 
 import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
@@ -83,10 +83,6 @@ const formStyles: SxProps = {
 
   '& .MuiTypography-root': {
     color: COLORS.linkWater,
-  },
-
-  [MQ.lg]: {
-    mt: 0,
   },
 };
 
@@ -210,11 +206,11 @@ const list = [
   },
   {
     id: 3,
-    text: 'Reduce risk but also innovate faster',
+    text: 'Reduce risk while innovating faster',
   },
   {
     id: 4,
-    text: 'And so much more- including happier software engineers!',
+    text: 'And so much more — including happier software engineers!',
   },
 ];
 
@@ -305,12 +301,34 @@ const LandingPage = ({}: Props) => {
               Upbound: A platform for platform teams
             </Typography>
             <Typography variant="body_big" sx={{ mb: 5 }}>
-              We give you the easiest way to build your internal cloud platform- read our whitepaper
-              to learn how.
+              Download this whitepaper to learn how Upbound makes building your internal cloud
+              platform easy.
             </Typography>
             <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
               <Image src={placeHolder} alt="placeholder" layout="fill" objectFit="contain" />
             </Box>
+            <Hidden lgDown>
+              <Box sx={{ mt: 10 }}>
+                <Typography variant="h3_new" sx={{ mb: 3 }}>
+                  Every company is a cloud company
+                </Typography>
+                <Typography variant="body_normal" sx={{ mb: 3 }}>
+                  Even if you’re not selling software, digital experiences running in the cloud are
+                  business-critical components for you and your business. So how do you manage it
+                  all?
+                </Typography>
+                <Typography variant="body_normal" sx={{ mb: 0 }}>
+                  By future-proofing your platform with Upbound, you can:
+                </Typography>
+                <List sx={listStyles}>
+                  {list.map((listItem) => (
+                    <ListItem key={listItem.id}>
+                      <Typography variant="body_small">{listItem.text}</Typography>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Hidden>
           </Box>
           <Box
             sx={{
@@ -318,46 +336,57 @@ const LandingPage = ({}: Props) => {
               flexDirection: 'column',
               width: '100%',
               [MQ.lg]: {
-                flex: 1,
+                position: 'relative',
                 width: '50%',
+                minHeight: '100%',
               },
             }}
           >
-            <Box sx={{ pl: { _: 0, lg: '100px' } }}>
+            <Box
+              sx={{
+                pl: { _: 0, lg: '100px' },
+                [MQ.lg]: {
+                  position: 'sticky',
+                  top: '0',
+                },
+              }}
+            >
               <HeaderForm />
             </Box>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            position: 'relative',
-            pt: 10,
-            [MQ.lg]: {
-              flex: 1,
-              width: '50%',
-            },
-          }}
-        >
-          <Typography variant="h3_new" sx={{ mb: 3 }}>
-            Every company is a cloud company today.
-          </Typography>
-          <Typography variant="body_normal" sx={{ mb: 3 }}>
-            Even if you’re not selling software, digital experiences running in the cloud are
-            business-critical components for you and your business. So how do you manage it all?
-          </Typography>
-          <Typography variant="body_normal" sx={{ mb: 0 }}>
-            Enter Upbound who can help you future proof your platform as well as:
-          </Typography>
-          <List sx={listStyles}>
-            {list.map((listItem) => (
-              <ListItem key={listItem.id}>
-                <Typography variant="body_small">{listItem.text}</Typography>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
+        <Hidden lgUp>
+          <Box
+            // ref={stopFormFixedRef}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative',
+              pt: 10,
+              [MQ.lg]: {
+                width: '50%',
+              },
+            }}
+          >
+            <Typography variant="h3_new" sx={{ mb: 3 }}>
+              Every company is a cloud company
+            </Typography>
+            <Typography variant="body_normal" sx={{ mb: 3 }}>
+              Even if you’re not selling software, digital experiences running in the cloud are
+              business-critical components for you and your business. So how do you manage it all?
+            </Typography>
+            <Typography variant="body_normal" sx={{ mb: 0 }}>
+              By future-proofing your platform with Upbound, you can:
+            </Typography>
+            <List sx={listStyles}>
+              {list.map((listItem) => (
+                <ListItem key={listItem.id}>
+                  <Typography variant="body_small">{listItem.text}</Typography>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Hidden>
       </Section>
       <Section bgcolor angleTop="topRight" sx={{ py: 20, pb: { _: 15, lg: 20 } }}>
         <Box
