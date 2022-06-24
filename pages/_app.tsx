@@ -10,6 +10,8 @@ import 'public/fonts/styles.css';
 
 import TagManager from 'react-gtm-module';
 
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -33,7 +35,9 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <GoogleReCaptchaProvider reCaptchaKey="6Lf6b5ggAAAAAGRbjOPCgwbtSkyrBzr58J7X_8hZ">
+          <Component {...pageProps} />
+        </GoogleReCaptchaProvider>
       </ThemeProvider>
     </CacheProvider>
   );
