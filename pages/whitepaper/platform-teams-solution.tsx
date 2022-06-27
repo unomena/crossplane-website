@@ -25,6 +25,7 @@ import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import CCheckbox from 'src-new/elements/CCheckbox';
+import Link from 'src-new/elements/Link';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import placeHolder from 'public/new-images/Whitepaper-mockup.png';
@@ -263,7 +264,11 @@ const HeaderForm = () => {
             />
             <Typography sx={{ fontSize: 12 }}>
               By clicking the button below you understand that Upbound will process your personal
-              information in accordance with our Privacy Policy.
+              information in accordance with our{' '}
+              <Link href={routes.privacyRoute} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                Privacy Policy
+              </Link>
+              .
             </Typography>
             <Box mt={3} textAlign="center">
               <Button
