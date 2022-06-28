@@ -381,7 +381,7 @@ type Props = {};
 const LandingPageV1 = ({}: Props) => {
   return (
     <PageProvider>
-      <Section sx={headerSection} angleBottom="btmRight">
+      <Section sx={headerSection}>
         <Box
           sx={{
             [MQ.lg]: {
