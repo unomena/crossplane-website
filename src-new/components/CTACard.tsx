@@ -39,28 +39,44 @@ const root: SxProps = {
   // backgroundImage: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)',
 };
 
-type Props = {};
+const defaultTitle = 'Try Upbound for free';
+const defaultParagraph =
+  'Start your control-plane transformation for free by creating a free Upbound account.';
+const defaultBtnText = 'Get started now';
+const defaultBtnLink = routes.cloudRegisterUrl;
 
-const TryForFreeCard = ({}: Props) => {
+type Props = {
+  title?: string;
+  paragraph?: string;
+  btnText?: string;
+  btnLink?: string;
+};
+
+const CTACard = ({
+  title = defaultTitle,
+  paragraph = defaultParagraph,
+  btnText = defaultBtnText,
+  btnLink = defaultBtnLink,
+}: Props) => {
   return (
     <Box sx={wrapper}>
       <Box sx={root}>
         <Typography variant="h2_new" color="#fff" sx={{ mb: 2.5 }}>
-          Try Upbound for free
+          {title}
         </Typography>
         <Typography
           variant="body_normal"
           color="#fff"
           sx={{ maxWidth: { _: 300, md: 640 }, mb: 5 }}
         >
-          Start your control-plane transformation for free by creating a free Upbound account.
+          {paragraph}
         </Typography>
-        <Button styleType="whiteContained" href={routes.cloudRegisterUrl}>
-          Get started now
+        <Button styleType="whiteContained" href={btnLink}>
+          {btnText}
         </Button>
       </Box>
     </Box>
   );
 };
 
-export default TryForFreeCard;
+export default CTACard;

@@ -81,7 +81,7 @@ const paragraphSpacingLg: SxProps = {
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <PageProvider displayTitle="Upbound - Privacy Policy" hideTryForFreeCard removeFooterPadding>
+    <PageProvider displayTitle="Upbound - Privacy Policy" hideCTACard removeFooterPadding>
       <Box
         pt="130px"
         mb="50px"

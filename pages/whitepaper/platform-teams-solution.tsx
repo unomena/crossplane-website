@@ -372,7 +372,7 @@ type Props = {};
 
 const LandingPage = ({}: Props) => {
   return (
-    <PageProvider hideTryForFreeCard removeFooterPadding>
+    <PageProvider hideCTACard removeFooterPadding>
       <Section sx={headerSection}>
         <Box
           sx={{

@@ -314,27 +314,27 @@ declare type StaticImport = StaticRequire | StaticImageData;
 const cornerCardContent = [
   {
     icon: caseStudyIconOne,
-    icon_alt: 'placeholder text',
-    title: 'Lorem ipsum dolor sit amet',
+    icon_alt: 'icon one',
+    title: 'Enable a faster time to deployment',
     paragraph:
       // eslint-disable-next-line max-len
-      'Nunc facilisis molestie tincidunt. Integer accumsan urna vel pellentesque aliquam. Suspendisse consectetur feugiat ex sed egestas. ',
+      'Applications and new features are shipped faster so businesses can innovate quicker.',
   },
   {
     icon: caseStudyIconTwo,
-    icon_alt: 'placeholder text',
-    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    icon_alt: 'icon two',
+    title: 'Lower Capex AND Opex',
     paragraph:
       // eslint-disable-next-line max-len
-      'Nunc facilisis molestie tincidunt. Integer accumsan urna vel pellentesque aliquam. Suspendisse consectetur feugiat ex sed egestas. ',
+      'Cloud computing bills are reduced and Reduced labor costs since SRE doesn’t need to scale as much.',
   },
   {
     icon: caseStudyIconThree,
-    icon_alt: 'placeholder text',
-    title: 'Lorem ipsum dolor.',
+    icon_alt: 'icon three',
+    title: 'Reduce risk but also innovate faster',
     paragraph:
       // eslint-disable-next-line max-len
-      'Nunc facilisis molestie tincidunt. Integer accumsan urna vel pellentesque aliquam. Suspendisse consectetur feugiat ex sed egestas. ',
+      'Big fixes and governance controlled all in one place and software engineers can focus on building rather than infrastructure provisioning, configuration, and management.',
   },
 ];
 
@@ -380,7 +380,13 @@ type Props = {};
 
 const LandingPageV1 = ({}: Props) => {
   return (
-    <PageProvider>
+    <PageProvider
+      ctaTitle="Ready to jump to the next level?"
+      // eslint-disable-next-line max-len
+      ctaParagraph="Click below to fill out our contact form and an Upbound and Crossplane expert will reach out to schedule a meeting with you shortly."
+      ctaBtnText="Contact Us"
+      ctaBtnLink={routes.contactSalesUrl}
+    >
       <Section sx={headerSection}>
         <Box
           sx={{
@@ -431,11 +437,12 @@ const LandingPageV1 = ({}: Props) => {
       <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 20, md: 30 } }}>
         <Box textAlign="center">
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Every company is a cloud company today.
           </Typography>
           <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
-            Nunc facilisis molestie tincidunt. Integer accumsan urna vel pellentesque aliquam.
-            Suspendisse consectetur feugiat ex sed egestas.
+            Even if you’re not selling software, digital experiences running in the cloud are
+            business-critical components for you and your business. So how do you manage it all?
+            Enter Upbound who can help you future proof your platform.
           </Typography>
         </Box>
         <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
