@@ -253,7 +253,7 @@ const theme = createTheme({
       [MQ.md]: {
         fontSize: '95px',
         lineHeight: '104px',
-        letterSpacing: '-3.2',
+        letterSpacing: '-3.2px',
       },
     },
     h2_new: {
@@ -472,6 +472,10 @@ export const globalStyle = css`
         }
       }
     }
+  }
+
+  .grecaptcha-badge {
+    visibility: hidden;
   }
 `;
 

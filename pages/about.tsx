@@ -155,9 +155,8 @@ const caringFeatures = [
     when you’re not worried about your health.`,
   },
   {
-    title: 'Flexible Hours',
-    body: `Mid day workout? No problem. Take the kids to the park,
-    absolutely! Work hours that make sense for you.`,
+    title: '401k plan',
+    body: `US-based teammates are offered the option to enroll in our 401(k) plan.`,
   },
   {
     title: 'Work From Anywhere',
@@ -165,9 +164,9 @@ const caringFeatures = [
     how you want.  You have flexibility to work anywhere.`,
   },
   {
-    title: 'Flexible PTO',
-    body: `We care too deeply about you to let you burn out.
-    Take the time off that you need to recharge or disconnect.`,
+    title: 'Flexible Hours and PTO',
+    // eslint-disable-next-line max-len
+    body: `We care too deeply about you to let you burn out. Work hours that make sense for you and take the time off that you need to recharge or disconnect.`,
   },
   {
     title: 'Home Office Stipend',
