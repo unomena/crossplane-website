@@ -42,7 +42,7 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['i.ytimg.com'],
+    domains: ['i.ytimg.com', 'localhost', process.env.API_HOST?.replace('https://', '')],
   },
   env: {
     apiHost: process.env.API_HOST,

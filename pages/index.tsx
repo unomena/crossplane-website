@@ -34,6 +34,7 @@ import * as routes from 'src/routes';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import getRandomInt from 'src-new/utils/getRandomInt';
 import useOnScreen from 'src-new/utils/useOnScreen';
+import getImageValue from 'src-new/utils/getImageValue';
 
 import crossplaneLogos from 'src-new/constants/crossplaneLogos';
 import quotes from 'src-new/constants/quotes';
@@ -45,33 +46,30 @@ import Link from 'src-new/elements/Link';
 import MediaCard from 'src-new/elements/MediaCard';
 import CornerCard from 'src-new/elements/CornerCard';
 
-import RocketShipIcon from 'src-new/svg/RocketShipIcon';
-import ArrowRight from 'src-new/svg/ArrowRight';
 import FullArrowRight from 'src-new/svg/FullArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
-import mbpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
 import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
 import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
-import dbLogo from 'public/new-images/trusted-logos/db.svg';
-import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
 import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
-import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
-import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
-import EnterpriseReadyBigMobile from 'public/new-images/home-page/features/EnterpriseReadyBigMobile.svg';
-import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
-import EnterpriseReadySmallMobile from 'public/new-images/home-page/features/EnterpriseReadySmallMobile.svg';
-import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
-import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
-import DeployWithConfidenceBigMobile from 'public/new-images/home-page/features/DeployWithConfidenceBigMobile.svg';
-import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
-import DeployWithConfidenceSmallMobile from 'public/new-images/home-page/features/DeployWithConfidenceSmallMobile.svg';
-import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
-import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
-import EfficiencyEaseBigMobile from 'public/new-images/home-page/features/EfficiencyEaseBigMobile.svg';
-import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
-import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
+
+// import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
+// import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
+// import EnterpriseReadyBigMobile from 'public/new-images/home-page/features/EnterpriseReadyBigMobile.svg';
+// import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
+// import EnterpriseReadySmallMobile from 'public/new-images/home-page/features/EnterpriseReadySmallMobile.svg';
+// import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
+// import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
+// import DeployWithConfidenceBigMobile from 'public/new-images/home-page/features/DeployWithConfidenceBigMobile.svg';
+// import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
+// import DeployWithConfidenceSmallMobile from 'public/new-images/home-page/features/DeployWithConfidenceSmallMobile.svg';
+// import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
+// import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
+// import EfficiencyEaseBigMobile from 'public/new-images/home-page/features/EfficiencyEaseBigMobile.svg';
+// import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
+// import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
+
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
 import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
 // import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
@@ -125,6 +123,15 @@ const headerButtons: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: { _: 'column', sm: 'row' },
+
+  '& > button, a': {
+    width: { _: 225, sm: 208 },
+    mx: { _: 0, sm: '10px' },
+
+    ':not(:last-of-type)': {
+      mb: { _: '20px', sm: 0 },
+    },
+  },
 };
 
 const poweringTitle: SxProps = {
@@ -513,122 +520,35 @@ const visitCard: SxProps = {
   },
 };
 
-const headerLogos = [
-  {
-    id: 1,
-    src: mbpcLogo,
-    width: 90,
-    height: 21,
-  },
-  {
-    id: 2,
-    src: dfdsLogo,
-    width: 80,
-    height: 28,
-  },
-  {
-    id: 3,
-    src: grupoLogo,
-    width: 80,
-    height: 26,
-  },
-  {
-    id: 4,
-    src: dbLogo,
-    width: 47,
-    height: 34,
-  },
-  {
-    id: 5,
-    src: plotlyLogo,
-    width: 80,
-    height: 26,
-  },
-];
-
-type HeaderSectionProps = {
-  value: {
-    title: string;
-    subtitle: string;
-    buttons: {
-      value: {
-        text: string;
-        class_type: string;
-        link: [
-          {
-            type: string;
-            value: string;
-          }
-        ];
-      };
-      id: string;
-    }[];
-    bottom_image: 1;
-  };
-};
-
-const HeaderSection = ({ value: data }: HeaderSectionProps) => {
+const HeaderSection = (props: HomePageHeader) => {
   const logosSectionRef = useRef(undefined);
   const isVisible = useOnScreen(logosSectionRef);
 
   return (
     <>
       <Typography variant="h1_new" sx={h1}>
-        {data.title}
+        {props.title}
       </Typography>
-      <Typography variant="body_big">{data.subtitle}</Typography>
+      <Typography variant="body_big">{props.subtitle}</Typography>
       <Box sx={headerButtons}>
-        {data.buttons[0] && (
-          <Button
-            styleType="gradientContained"
-            sizeType="large"
-            sx={{
-              width: { _: 225, sm: 208 },
-              mr: { _: 0, sm: '10px' },
-              mb: { _: '20px', sm: 0 },
-              '& > .MuiButton-iconSizeMedium': {
-                mr: '10px',
-                '& > svg': {
-                  height: { _: 20, md: 25 },
-                  width: { _: 20, md: 25 },
-                },
-              },
-            }}
-            startIcon={<RocketShipIcon />}
-            href={data.buttons[0].value.link[0].value}
-          >
-            {data.buttons[0].value.text}
+        {props.buttons.map(({ id, value }) => (
+          <Button key={id} sizeType="large" cmsValue={value}>
+            {value.text}
           </Button>
-        )}
-        {data.buttons[1] && (
-          <Button
-            styleType="whiteOutlined"
-            sizeType="large"
-            sx={{
-              width: { _: 225, sm: 208 },
-              ml: { _: 0, sm: '10px' },
-              '& > .MuiButton-iconSizeMedium': {
-                ml: '16px',
-                '& > svg': {
-                  height: { _: 12, md: 13 },
-                  width: { _: 7, md: 8 },
-                },
-              },
-            }}
-            endIcon={<ArrowRight />}
-            href={data.buttons[1].value.link[0].value}
-          >
-            {data.buttons[1].value.text}
-          </Button>
-        )}
+        ))}
       </Box>
       <Box ref={logosSectionRef}>
-        <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
+        <Typography sx={poweringTitle}>{props.partner_images_header}</Typography>
         <Hidden smDown>
           <Box sx={logosContainer}>
-            {headerLogos.map((logo) => (
-              <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
-                <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+            {props.partner_images.map(({ id, value }) => (
+              <Box key={id} sx={{ ...logoSVG, width: value.width, height: value.height }}>
+                <Image
+                  src={getImageValue(value).url}
+                  alt={getImageValue(value).title}
+                  layout="fill"
+                  objectFit="contain"
+                />
               </Box>
             ))}
           </Box>
@@ -662,13 +582,18 @@ const HeaderSection = ({ value: data }: HeaderSectionProps) => {
               showThumbs={false}
               swipeable={false}
             >
-              {headerLogos.map((logo) => (
+              {props.partner_images.map(({ id, value }) => (
                 <Box
-                  key={logo.id}
+                  key={id}
                   sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  <Box sx={{ position: 'relative', width: logo.width, height: logo.height }}>
-                    <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+                  <Box sx={{ position: 'relative', width: value.width, height: value.height }}>
+                    <Image
+                      src={getImageValue(value).url}
+                      alt={getImageValue(value).title}
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               ))}
@@ -804,7 +729,7 @@ const cpLogosListTopMobile = [...Array(12)];
 
 const cpLogosListBottomMobile = [...Array(12)];
 
-const CrossplaneLogosSection = () => {
+const CrossplaneLogosSection = (props: HomePage) => {
   const cpSectionRef = useRef(undefined);
   const isVisible = useOnScreen(cpSectionRef);
 
@@ -908,16 +833,16 @@ const CrossplaneLogosSection = () => {
           ))}
         </Box>
         <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
-          <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
-          <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
-          <Typography variant="body_normal">
-            Adopted by hundreds of amazing
-            <br />
-            companies
+          <Typography sx={cpCenterBoxTitleNum}>{props.section_1_center_title_count}</Typography>
+          <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
+          <Typography variant="body_normal" sx={{ maxWidth: 320 }}>
+            {props.section_1_center_text}
           </Typography>
-          <Button styleType="cornflowerContained" sx={{ mt: 3.5 }} href={routes.crossplaneUrl}>
-            Learn more about Crossplane
-          </Button>
+          {props.section_1_button[0] && (
+            <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
+              {props.section_1_button[0].value.text}
+            </Button>
+          )}
         </Box>
         <Box sx={cpRightColumns}>
           {cpColumnsRightList.map((c, columnIndex) => (
@@ -983,42 +908,97 @@ const CrossplaneLogosSection = () => {
   );
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
+// interface StaticRequire {
+//   default: StaticImageData;
+// }
+// declare type StaticImport = StaticRequire | StaticImageData;
 
-type FeatureBlockProps = {
-  feature: {
-    smallTitle: string;
-    bigTitle: string;
-    body: string;
-    href: string;
-    icon: string | StaticImport;
-    imgBig: string | StaticImport;
-    imgBigMobile: string | StaticImport;
-    imgSmall: string | StaticImport;
-    imgSmallMobile: string | StaticImport;
-    imgSmallOffset: { top: number; right: number };
-    imgSmallOffsetMobile: { top: number; right: number };
-    reversed?: Boolean;
-  };
-};
+// type FeatureBlockProps = {
+//   feature: {
+//     smallTitle: string;
+//     bigTitle: string;
+//     body: string;
+//     href: string;
+//     icon: string | StaticImport;
+//     imgBig: string | StaticImport;
+//     imgBigMobile: string | StaticImport;
+//     imgSmall: string | StaticImport;
+//     imgSmallMobile: string | StaticImport;
+//     imgSmallOffset: { top: number; right: number };
+//     imgSmallOffsetMobile: { top: number; right: number };
+//     reversed?: Boolean;
+//   };
+// };
 
-const FeatureBlock = ({ feature }: FeatureBlockProps) => {
+// const features = [
+//   {
+//     smallTitle: 'Enterprise ready',
+//     bigTitle: 'Fully-managed control planes',
+//     body: `Control planes running in Upbound
+//     are designed to be high performance, scalable, multitenant,
+//     and secure for the most demanding platforms.`,
+//     href: routes.productsUCPRoute,
+//     icon: EnterpriseReadyIcon,
+//     imgBig: EnterpriseReadyBig,
+//     imgBigMobile: EnterpriseReadyBigMobile,
+//     imgSmall: EnterpriseReadySmall,
+//     imgSmallMobile: EnterpriseReadySmallMobile,
+//     imgSmallOffset: { top: 103, right: -68 },
+//     imgSmallOffsetMobile: { top: 53, right: -32 },
+//     reversed: false,
+//   },
+//   {
+//     smallTitle: 'Deploy with confidence',
+//     bigTitle: 'Best-in-class platform building blocks',
+//     body: `Upbound Marketplace is a one-stop-shop
+//     for all the components you need in your platform,
+//     powered by an Upbound control plane. Supported and
+//     Certified listings are available so you can run your
+//     platform in production with confidence.`,
+//     href: routes.productsUCPRoute,
+//     icon: DeployWithConfidenceIcon,
+//     imgBig: DeployWithConfidenceBig,
+//     imgBigMobile: DeployWithConfidenceBigMobile,
+//     imgSmall: DeployWithConfidenceSmall,
+//     imgSmallMobile: DeployWithConfidenceSmallMobile,
+//     imgSmallOffset: { top: 67, right: 0 },
+//     imgSmallOffsetMobile: { top: 34, right: -32 },
+//     reversed: true,
+//   },
+//   {
+//     smallTitle: 'Efficiency + ease',
+//     bigTitle: 'Self-Service Console',
+//     body: `The Upbound Console is dynamically rendered
+//     from your Upbound control plane and the Crossplane
+//     packages installed in it. Centralize control and empower
+//     your team to deploy without red tape.`,
+//     href: routes.productsUCPRoute,
+//     icon: EfficiencyEaseIcon,
+//     imgBig: EfficiencyEaseBig,
+//     imgBigMobile: EfficiencyEaseBigMobile,
+//     imgSmall: EfficiencyEaseSmall,
+//     imgSmallMobile: EfficiencyEaseSmallMobile,
+//     imgSmallOffset: { top: 54, right: -17 },
+//     imgSmallOffsetMobile: { top: 34, right: -32 },
+//     reversed: false,
+//   },
+// ];
+
+const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
   const {
-    smallTitle,
-    bigTitle,
-    body,
-    href,
-    icon,
-    imgBig,
-    imgBigMobile,
-    imgSmall,
-    imgSmallMobile,
-    imgSmallOffset,
-    imgSmallOffsetMobile,
+    header_svg,
+    header_text,
+    title,
+    text,
+    link_text,
+    link,
     reversed,
+    side_svg_big,
+    side_svg_big_mobile,
+    side_svg_small,
+    side_svg_small_mobile,
+    side_svg_small_offset,
+    side_svg_small_offset_mobile,
   } = feature;
 
   let smallTitleGradient = gradient_1;
@@ -1065,37 +1045,45 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <Box
-            sx={{
-              position: 'relative',
-              display: 'flex',
-              maxHeight: 16,
-              maxWidth: 16,
-              [MQ.md]: {
-                maxHeight: 'unset',
-                maxWidth: 'unset',
-              },
-            }}
-          >
-            <Image src={icon} alt="icon" />
-          </Box>
-          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
+          {header_svg && (
+            <Box
+              sx={{
+                position: 'relative',
+                display: 'flex',
+                height: 16,
+                width: 16,
+                [MQ.md]: {
+                  maxHeight: 'unset',
+                  maxWidth: 'unset',
+                },
+              }}
+            >
+              <Image
+                src={getImageValue(header_svg).url}
+                alt={getImageValue(header_svg).title}
+                layout="fill"
+                objectFit="contain"
+              />
+            </Box>
+          )}
+          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{header_text}</Typography>
         </Box>
         <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
-          {bigTitle}
+          {title}
         </Typography>
         <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
-          {body}
+          {text}
         </Typography>
         <Link
-          href={href}
+          href={link[0].value}
           muiProps={{
+            target: link[0].type === 'external_url' ? '_blank' : undefined,
             color: reversed ? COLORS.sun : COLORS.turquoise,
             sx: { mt: 5 },
           }}
           hasArrow
         >
-          Learn More
+          {link_text}
         </Link>
         <Box
           ref={hiddenBarRef}
@@ -1134,104 +1122,70 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
               },
             }}
           >
-            <Hidden lgDown>
-              <Image src={imgBig} alt="feature-img-big" />
-            </Hidden>
-            <Hidden lgUp>
-              <Image src={imgBigMobile} alt="feature-img-big-mobile" />
-            </Hidden>
+            {side_svg_big && (
+              <Hidden lgDown>
+                <Image
+                  src={getImageValue(side_svg_big.value).url}
+                  alt={getImageValue(side_svg_big.value).title}
+                />
+              </Hidden>
+            )}
+            {side_svg_big_mobile && (
+              <Hidden lgUp>
+                <Image
+                  src={getImageValue(side_svg_big_mobile.value).url}
+                  alt={getImageValue(side_svg_big_mobile.value).title}
+                />
+              </Hidden>
+            )}
           </Box>
-          <Hidden lgDown>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffset.top,
-                right: imgSmallOffset.right,
-                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                transition: 'transform 2s',
-              }}
-            >
-              <Image src={imgSmall} alt="feature-img-small" />
-            </Box>
-          </Hidden>
-          <Hidden lgUp>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffsetMobile.top,
-                right: imgSmallOffsetMobile.right,
-                transition: 'transform 2s',
-                transform: show ? '' : `translate(-100vw)`,
-
-                [MQ.lg]: {
+          {side_svg_small && side_svg_small_offset && (
+            <Hidden lgDown>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: side_svg_small_offset.top,
+                  right: side_svg_small_offset.right,
                   transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                },
-              }}
-            >
-              <Image src={imgSmallMobile} alt="feature-img-small-mobile" />
-            </Box>
-          </Hidden>
+                  transition: 'transform 2s',
+                }}
+              >
+                <Image
+                  src={getImageValue(side_svg_small.value).url}
+                  alt={getImageValue(side_svg_small.value).title}
+                />
+              </Box>
+            </Hidden>
+          )}
+          {side_svg_small_mobile && side_svg_small_offset_mobile && (
+            <Hidden lgUp>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: side_svg_small_offset_mobile.top,
+                  right: side_svg_small_offset_mobile.right,
+                  transition: 'transform 2s',
+                  transform: show ? '' : `translate(-100vw)`,
+
+                  [MQ.lg]: {
+                    transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                  },
+                }}
+              >
+                <Image
+                  src={getImageValue(side_svg_small_mobile.value).url}
+                  alt={getImageValue(side_svg_small_mobile.value).title}
+                />
+              </Box>
+            </Hidden>
+          )}
         </Box>
       </Box>
     </Box>
   );
 };
 
-const features = [
-  {
-    smallTitle: 'Enterprise ready',
-    bigTitle: 'Fully-managed control planes',
-    body: `Control planes running in Upbound
-    are designed to be high performance, scalable, multitenant,
-    and secure for the most demanding platforms.`,
-    href: routes.productsUCPRoute,
-    icon: EnterpriseReadyIcon,
-    imgBig: EnterpriseReadyBig,
-    imgBigMobile: EnterpriseReadyBigMobile,
-    imgSmall: EnterpriseReadySmall,
-    imgSmallMobile: EnterpriseReadySmallMobile,
-    imgSmallOffset: { top: 103, right: -68 },
-    imgSmallOffsetMobile: { top: 53, right: -32 },
-    reversed: false,
-  },
-  {
-    smallTitle: 'Deploy with confidence',
-    bigTitle: 'Best-in-class platform building blocks',
-    body: `Upbound Marketplace is a one-stop-shop
-    for all the components you need in your platform,
-    powered by an Upbound control plane. Supported and
-    Certified listings are available so you can run your
-    platform in production with confidence.`,
-    href: routes.productsUCPRoute,
-    icon: DeployWithConfidenceIcon,
-    imgBig: DeployWithConfidenceBig,
-    imgBigMobile: DeployWithConfidenceBigMobile,
-    imgSmall: DeployWithConfidenceSmall,
-    imgSmallMobile: DeployWithConfidenceSmallMobile,
-    imgSmallOffset: { top: 67, right: 0 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
-    reversed: true,
-  },
-  {
-    smallTitle: 'Efficiency + ease',
-    bigTitle: 'Self-Service Console',
-    body: `The Upbound Console is dynamically rendered
-    from your Upbound control plane and the Crossplane
-    packages installed in it. Centralize control and empower
-    your team to deploy without red tape.`,
-    href: routes.productsUCPRoute,
-    icon: EfficiencyEaseIcon,
-    imgBig: EfficiencyEaseBig,
-    imgBigMobile: EfficiencyEaseBigMobile,
-    imgSmall: EfficiencyEaseSmall,
-    imgSmallMobile: EfficiencyEaseSmallMobile,
-    imgSmallOffset: { top: 54, right: -17 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
-    reversed: false,
-  },
-];
-
-const FeaturesSection = () => {
+const FeaturesSection = (props: HomePage) => {
   return (
     <Box
       sx={{
@@ -1241,8 +1195,8 @@ const FeaturesSection = () => {
         '& > div': { pb: { _: 10, lg: 25 } },
       }}
     >
-      {features.map((feature) => (
-        <FeatureBlock key={feature.smallTitle} feature={feature} />
+      {props.roll_in_sections.map(({ id, value }) => (
+        <FeatureBlock key={id} feature={value} />
       ))}
     </Box>
   );
@@ -1702,47 +1656,45 @@ const VisitBlogCard = () => {
 };
 
 type Props = {
-  header: HeaderSectionProps[];
   isPreview?: boolean;
-};
+} & HomePage;
 
-const Home = ({ header, isPreview }: Props) => {
+const Home = (props: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
 
   return (
-    <PageProvider isPreview={isPreview}>
+    <PageProvider isPreview={props.isPreview}>
       <Section sx={headerSection}>
-        <HeaderSection value={header[0].value} />
+        <HeaderSection {...props.header[0].value} />
       </Section>
+
       <Section
         bgcolor
         angleTopBottom="topBtmRight"
         sx={{ pt: { _: 16, md: 23.5 }, pb: { _: 16, md: 23.5 }, textAlign: 'center' }}
       >
-        <Typography variant="h2_new" sx={{ mb: 2.5 }}>
-          Committed to open source.
-          <Hidden smDown>
-            <br />
-          </Hidden>
-          <Hidden smUp> </Hidden>
-          Powered by Crossplane.
-        </Typography>
+        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <Typography variant="h2_new" sx={{ mb: 2.5, maxWidth: { _: 400, md: 800 } }}>
+            {props.section_1_title}
+          </Typography>
+        </Box>
         <Hidden smDown>
           <Typography variant="body_normal" sx={{ mb: 8, mx: 'auto' }}>
-            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+            {props.section_1_sub_title}
           </Typography>
         </Hidden>
         <Hidden smUp>
           <Typography variant="body_big" sx={{ mb: 8, mx: 'auto', maxWidth: 480 }}>
-            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+            {props.section_1_sub_title}
           </Typography>
         </Hidden>
+        <CrossplaneLogosSection {...props} />
+      </Section>
 
-        <CrossplaneLogosSection />
-      </Section>
       <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative' }}>
-        <FeaturesSection />
+        <FeaturesSection {...props} />
       </Section>
+
       <Section
         bgcolor
         angleTop="topRight"
