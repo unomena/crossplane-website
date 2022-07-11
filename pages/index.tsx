@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
@@ -984,7 +984,9 @@ const CrossplaneLogosSection = (props: HomePage) => {
 //   },
 // ];
 
-const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
+const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
+  const reversed = index % 2 !== 0;
+
   const {
     header_svg,
     header_text,
@@ -992,13 +994,14 @@ const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
     text,
     link_text,
     link,
-    reversed,
     side_svg_big,
-    side_svg_big_mobile,
     side_svg_small,
+    side_svg_small_top_offset,
+    side_svg_small_right_offset,
+    side_svg_big_mobile,
     side_svg_small_mobile,
-    side_svg_small_offset,
-    side_svg_small_offset_mobile,
+    side_svg_small_top_offset_mobile,
+    side_svg_small_right_offset_mobile,
   } = feature;
 
   let smallTitleGradient = gradient_1;
@@ -1019,6 +1022,8 @@ const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
   return (
     <Box
       sx={{
+        // width: '100%',
+        // height: 400,
         display: 'flex',
         color: COLORS.linkWater,
         position: 'relative',
@@ -1113,6 +1118,7 @@ const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
         >
           <Box
             sx={{
+              position: 'relative',
               transition: 'transform 1.5s',
               transform: show ? '' : `translate(100vw)`,
 
@@ -1125,45 +1131,53 @@ const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
             {side_svg_big && (
               <Hidden lgDown>
                 <Image
-                  src={getImageValue(side_svg_big.value).url}
-                  alt={getImageValue(side_svg_big.value).title}
+                  src={side_svg_big.url}
+                  alt={side_svg_big.title}
+                  layout="fill"
+                  objectFit="contain"
                 />
               </Hidden>
             )}
             {side_svg_big_mobile && (
               <Hidden lgUp>
                 <Image
-                  src={getImageValue(side_svg_big_mobile.value).url}
-                  alt={getImageValue(side_svg_big_mobile.value).title}
+                  src={side_svg_big_mobile.url}
+                  alt={side_svg_big_mobile.title}
+                  layout="fill"
+                  objectFit="contain"
                 />
               </Hidden>
             )}
           </Box>
-          {side_svg_small && side_svg_small_offset && (
+          {side_svg_small && (
             <Hidden lgDown>
               <Box
                 sx={{
                   position: 'absolute',
-                  top: side_svg_small_offset.top,
-                  right: side_svg_small_offset.right,
+                  top: side_svg_small_top_offset,
+                  right: side_svg_small_right_offset,
                   transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
                   transition: 'transform 2s',
                 }}
               >
-                <Image
-                  src={getImageValue(side_svg_small.value).url}
-                  alt={getImageValue(side_svg_small.value).title}
-                />
+                <Box sx={{ position: 'relative' }}>
+                  <Image
+                    src={side_svg_small.url}
+                    alt={side_svg_small.title}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </Box>
               </Box>
             </Hidden>
           )}
-          {side_svg_small_mobile && side_svg_small_offset_mobile && (
+          {side_svg_small_mobile && (
             <Hidden lgUp>
               <Box
                 sx={{
                   position: 'absolute',
-                  top: side_svg_small_offset_mobile.top,
-                  right: side_svg_small_offset_mobile.right,
+                  top: side_svg_small_top_offset_mobile,
+                  right: side_svg_small_right_offset_mobile,
                   transition: 'transform 2s',
                   transform: show ? '' : `translate(-100vw)`,
 
@@ -1173,8 +1187,10 @@ const FeatureBlock = ({ feature }: { feature: HomePageFeature }) => {
                 }}
               >
                 <Image
-                  src={getImageValue(side_svg_small_mobile.value).url}
-                  alt={getImageValue(side_svg_small_mobile.value).title}
+                  src={side_svg_small_mobile.url}
+                  alt={side_svg_small_mobile.title}
+                  layout="fill"
+                  objectFit="contain"
                 />
               </Box>
             </Hidden>
@@ -1192,11 +1208,11 @@ const FeaturesSection = (props: HomePage) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        '& > div': { pb: { _: 10, lg: 25 } },
+        '& > div': { mb: { _: 10, lg: 25 } },
       }}
     >
-      {props.roll_in_sections.map(({ id, value }) => (
-        <FeatureBlock key={id} feature={value} />
+      {props.features_sections.map(({ id, value }, index) => (
+        <FeatureBlock key={id} feature={value} index={index} />
       ))}
     </Box>
   );
@@ -1213,7 +1229,8 @@ const quoteLessIcons = [
   },
 ];
 
-const QuoteSection = () => {
+const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
+  console.log(testimonials);
   const quoteSectionRef = useRef(undefined);
   const isVisible = useOnScreen(quoteSectionRef);
   const [activeQuote, _setActiveQuote] = useState(0);
@@ -1402,63 +1419,105 @@ const QuoteSection = () => {
   );
 };
 
-const MediaCard_1 = () => {
+const MediaCard_1 = (props: HomePage) => {
   const matchesXL = useMediaQuery(MQ.xl);
+
+  const data = useMemo(() => {
+    return {
+      img:
+        props.learn_more_tile_1_header_image &&
+        props.learn_more_tile_1_header_image[0] &&
+        getImageValue(props.learn_more_tile_1_header_image[0].value).url,
+      authorImg:
+        props.learn_more_tile_1_header_author_image &&
+        props.learn_more_tile_1_header_author_image[0] &&
+        getImageValue(props.learn_more_tile_1_header_author_image[0].value).url,
+      author: props.learn_more_tile_1_author_name,
+      type: props.learn_more_tile_1_resource_type,
+      title: props.learn_more_tile_1_resource_title,
+      body: matchesXL ? props.learn_more_tile_1_resource_snippet : '',
+      date: props.learn_more_tile_1_resource_date,
+      pillText: props.learn_more_tile_1_pill_text,
+      href:
+        props.learn_more_tile_1_link &&
+        props.learn_more_tile_1_link[0] &&
+        props.learn_more_tile_1_link[0].value,
+      videoId: props.learn_more_tile_1_video_id,
+    };
+  }, [props, matchesXL]);
 
   return (
     <MediaCard
-      img={mainArticleImg}
       imgHeight={matchesXL ? 260 : 180}
-      profileImg={grantGuminaProfile}
-      profileImgSize="big"
-      person="Grant Gumina"
-      type="webinar"
-      title="Control Planes: The Missing Ingredient for Cloud Native Developer Platforms"
+      authorImgSize="big"
       titleVariant="h4_new"
-      body={
-        matchesXL
-          ? `Who you get infrastructure from and how you build applications for it has changed.
-          Now more than ever, customers are utilizing best-in-class infrastructure from the vendors
-          of their choice. However, this presents challenges...`
-          : ''
-      }
-      href="https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar"
+      {...data}
     />
   );
 };
 
-const MediaCard_2 = () => {
+const MediaCard_2 = (props: HomePage) => {
   const matchesXL = useMediaQuery(MQ.xl);
+
+  const data = useMemo(() => {
+    return {
+      img:
+        props.learn_more_tile_2_header_image &&
+        props.learn_more_tile_2_header_image[0] &&
+        getImageValue(props.learn_more_tile_2_header_image[0].value).url,
+      author: props.learn_more_tile_2_author_name,
+      type: props.learn_more_tile_2_resource_type,
+      title: props.learn_more_tile_2_resource_title,
+      body: matchesXL ? props.learn_more_tile_2_resource_snippet : '',
+      date: props.learn_more_tile_2_resource_date,
+      pillText: props.learn_more_tile_2_pill_text,
+      href:
+        props.learn_more_tile_2_link &&
+        props.learn_more_tile_2_link[0] &&
+        props.learn_more_tile_2_link[0].value,
+      videoId: props.learn_more_tile_2_video_id,
+    };
+  }, [props, matchesXL]);
 
   return (
     <MediaCard
       layout={matchesXL ? 'horizontal' : 'vertical'}
-      img={matchesXL ? matthiasArticleImg : null}
       imgHeight={130}
       imgWidth={130}
-      person="Matthias Luebken"
-      type="Blog"
-      title="Announcing 100% Cloud Service Coverage for Crossplane"
-      pillText="Must read!"
-      href={`${routes.upboundBlogUrl}cloud-service-coverage/`}
+      {...data}
     />
   );
 };
 
-const MediaCard_3 = () => {
-  return (
-    <MediaCard
-      type="video"
-      person="Viktor Farcic"
-      title="VIDEO: How to Manage Multi-Cloud Resources"
-      date="25 May, 2022"
-      pillText="New!"
-      videoId="VTTwzVSwWVo"
-    />
-  );
+const MediaCard_3 = (props: HomePage) => {
+  const data = useMemo(() => {
+    return {
+      img:
+        props.learn_more_tile_3_header_image &&
+        props.learn_more_tile_3_header_image[0] &&
+        getImageValue(props.learn_more_tile_3_header_image[0].value).url,
+      authorImg:
+        props.learn_more_tile_3_header_author_image &&
+        props.learn_more_tile_3_header_author_image[0] &&
+        getImageValue(props.learn_more_tile_3_header_author_image[0].value).url,
+      author: props.learn_more_tile_3_author_name,
+      type: props.learn_more_tile_3_resource_type,
+      title: props.learn_more_tile_3_resource_title,
+      body: props.learn_more_tile_3_resource_snippet,
+      date: props.learn_more_tile_3_resource_date,
+      pillText: props.learn_more_tile_3_pill_text,
+      href:
+        props.learn_more_tile_3_link &&
+        props.learn_more_tile_3_link[0] &&
+        props.learn_more_tile_3_link[0].value,
+      videoId: props.learn_more_tile_3_video_id,
+    };
+  }, [props]);
+
+  return <MediaCard {...data} />;
 };
 
-const RegisterForm = () => {
+const RegisterForm = (props: HomePage) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -1596,7 +1655,7 @@ const RegisterForm = () => {
         </>
       ) : (
         <>
-          <Typography sx={registerFormTitle}>Register for our monthly newsletter</Typography>
+          <Typography sx={registerFormTitle}>{props.learn_more_tile_4_title}</Typography>
           <form onSubmit={submitEmail}>
             <Tooltip
               onClose={() => setEmailError('')}
@@ -1640,16 +1699,16 @@ const RegisterForm = () => {
   );
 };
 
-const VisitBlogCard = () => {
+const VisitBlogCard = (props: HomePage) => {
   return (
     <CornerCard
       icon={arrowCircle}
       iconSize="small"
       withPadding={false}
-      href={routes.upboundBlogUrl}
+      href={props.learn_more_tile_5_link[0].value}
     >
       <Box sx={visitCard}>
-        <Typography variant="h6_new">Visit the Upbound Blog</Typography>
+        <Typography variant="h6_new">{props.learn_more_tile_5_title}</Typography>
       </Box>
     </CornerCard>
   );
@@ -1705,27 +1764,27 @@ const Home = (props: Props) => {
           pb: { xl: 7.5 },
         }}
       >
-        <QuoteSection />
+        <QuoteSection testimonials={props.testimonials} />
       </Section>
       <Section sx={discoverSection}>
         <Hidden xlDown>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
-            <Typography variant="h2_new">Learn more about Upbound</Typography>
+            <Typography variant="h2_new">{props.learn_more_section_title}</Typography>
             <Box sx={{ display: 'flex', ml: 3.5 }}>
               <FullArrowRight width={32} height={32} />
             </Box>
           </Box>
           <Box sx={{ display: 'flex', height: 550 }}>
             <Box sx={{ height: '100%', width: 540 }}>
-              <MediaCard_1 />
+              <MediaCard_1 {...props} />
             </Box>
             <Box sx={{ flex: 1, ml: 2.5 }}>
               <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
-                <MediaCard_2 />
+                <MediaCard_2 {...props} />
               </Box>
               <Box sx={{ display: 'flex' }}>
                 <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
-                  <MediaCard_3 />
+                  <MediaCard_3 {...props} />
                 </Box>
                 <Box
                   sx={{
@@ -1736,9 +1795,9 @@ const Home = (props: Props) => {
                     flexDirection: 'column',
                   }}
                 >
-                  <RegisterForm />
+                  <RegisterForm {...props} />
                   <Box sx={{ flex: 1 }}>
-                    <VisitBlogCard />
+                    <VisitBlogCard {...props} />
                   </Box>
                 </Box>
               </Box>
@@ -1770,19 +1829,19 @@ const Home = (props: Props) => {
               </Box>
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_1 />
+              <MediaCard_1 {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_2 />
+              <MediaCard_2 {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_3 />
+              <MediaCard_3 {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <RegisterForm />
+              <RegisterForm {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400 }}>
-              <VisitBlogCard />
+              <VisitBlogCard {...props} />
             </Box>
           </Box>
         </Hidden>
@@ -1794,7 +1853,8 @@ const Home = (props: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const returnValue = await handleGetStaticProps(context, '/');
+  const returnValue = await handleGetStaticProps(context, '/', true);
+
   if (returnValue) {
     return {
       props: returnValue,

@@ -41,28 +41,16 @@ type Button = {
   value: ButtonValue;
 };
 
-type Testimonials = {
+type Testimonial = {
+  bg_image: string;
+  logo: string;
+  // logoSize: { width: number; height: number };
   title: string;
-  body: string;
-  full: string;
-  author_name: string;
+  text: string;
+  full_text: string;
+  author: string;
   author_job_title: string;
-  logo: Image;
-  logoSize: { width: number; height: number };
-  bgImage: Image;
-}[];
-
-type NewsTile = {
-  header_image: Image;
-  author_image?: Image;
-  author_name: string;
-  resource_type: string;
-  title: string;
-  snippet: string;
-  date: string;
-  pill_text: string;
-  link: Link;
-  youtube_video_id: string;
+  can_display: boolean;
 };
 
 type HomePageHeader = {
@@ -80,13 +68,14 @@ type HomePageFeature = {
   text: string;
   link_text: string;
   link: Link;
-  reversed: boolean;
-  side_svg_big: Image;
-  side_svg_big_mobile: Image;
-  side_svg_small: Image;
-  side_svg_small_mobile: Image;
-  side_svg_small_offset: { top: number; right: number };
-  side_svg_small_offset_mobile: { top: number; right: number };
+  side_svg_big: ImageContent;
+  side_svg_small: ImageContent;
+  side_svg_small_top_offset: number;
+  side_svg_small_right_offset: number;
+  side_svg_big_mobile: ImageContent;
+  side_svg_small_mobile: ImageContent;
+  side_svg_small_top_offset_mobile: number;
+  side_svg_small_right_offset_mobile: number;
 };
 
 type HomePage = {
@@ -99,24 +88,46 @@ type HomePage = {
   section_1_center_text: string;
   section_1_button: Button[];
 
-  roll_in_sections: {
+  features_sections: {
     id: string;
     value: HomePageFeature;
   }[];
 
-  testimonials_section: Testimonials;
-  tiles_section: {
-    tile_1: NewsTile;
-    tile_2: NewsTile;
-    tile_3: NewsTile;
-    tile_4: {
-      title: string;
-    };
-    tile_5: {
-      title: string;
-      link: Link;
-    };
-  };
+  testimonials: Testimonial[];
+
+  learn_more_section_title: string;
+  learn_more_tile_1_header_image: Image;
+  learn_more_tile_1_link: Link;
+  learn_more_tile_1_header_author_image: Image;
+  learn_more_tile_1_author_name: string;
+  learn_more_tile_1_resource_type: string;
+  learn_more_tile_1_video_id: string;
+  learn_more_tile_1_pill_text: string;
+  learn_more_tile_1_resource_title: string;
+  learn_more_tile_1_resource_snippet: string;
+  learn_more_tile_1_resource_date: string;
+  learn_more_tile_2_header_image: Image;
+  learn_more_tile_2_link: Link;
+  learn_more_tile_2_author_name: string;
+  learn_more_tile_2_resource_type: string;
+  learn_more_tile_2_video_id: string;
+  learn_more_tile_2_pill_text: string;
+  learn_more_tile_2_resource_title: string;
+  learn_more_tile_2_resource_snippet: string;
+  learn_more_tile_2_resource_date: string;
+  learn_more_tile_3_header_image: Image;
+  learn_more_tile_3_link: Link;
+  learn_more_tile_3_header_author_image: Image;
+  learn_more_tile_3_author_name: string;
+  learn_more_tile_3_resource_type: string;
+  learn_more_tile_3_video_id: string;
+  learn_more_tile_3_pill_text: string;
+  learn_more_tile_3_resource_title: string;
+  learn_more_tile_3_resource_snippet: string;
+  learn_more_tile_3_resource_date: string;
+  learn_more_tile_4_title: string;
+  learn_more_tile_5_title: string;
+  learn_more_tile_5_link: Link;
 };
 
 type Section3Card = {
@@ -155,6 +166,6 @@ type ProductPage = {
   };
   testimonials_section: {
     title: string;
-    testimonials: Testimonials;
+    testimonials: Testimonial[];
   };
 };

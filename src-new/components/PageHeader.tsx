@@ -443,8 +443,8 @@ const LearnPopoverContent = () => {
           rounded={false}
           img={laptopArticleImg}
           imgHeight={180}
-          profileImg={grantGuminaProfile}
-          person="Grant Gumina"
+          authorImg={grantGuminaProfile}
+          author="Grant Gumina"
           type="Blog"
           title="Announcing the Upbound VSCode Plugin"
           body="Today we’re excited to share the alpha version of Upbound’s VSCode plugin for Crossplane."
