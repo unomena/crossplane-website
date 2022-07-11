@@ -3,14 +3,20 @@ type ImageContent = {
   url: string;
 };
 
+type SVGImageContent = {
+  title: string;
+  url: string;
+  view_box: string;
+};
+
 type ImageValue = {
-  image: ImageContent;
-  svg_image: ImageContent;
+  image?: ImageContent;
+  svg_image?: SVGImageContent;
   width?: number;
   height?: number;
 };
 
-type Image = {
+type ImageType = {
   type: string;
   value: ImageValue;
   id: string;
@@ -18,6 +24,7 @@ type Image = {
 
 type Link = [
   {
+    id: string;
     type: string;
     value: string;
   }
@@ -42,9 +49,9 @@ type Button = {
 };
 
 type Testimonial = {
-  bg_image: string;
-  logo: string;
-  // logoSize: { width: number; height: number };
+  id: number;
+  bg_image: ImageContent[];
+  logo: SVGImageContent[];
   title: string;
   text: string;
   full_text: string;
@@ -58,7 +65,7 @@ type HomePageHeader = {
   subtitle: string;
   buttons: Button[]; // min 2
   partner_images_header: string;
-  partner_images: Image[];
+  partner_images: ImageType[];
 };
 
 type HomePageFeature = {
@@ -68,12 +75,12 @@ type HomePageFeature = {
   text: string;
   link_text: string;
   link: Link;
-  side_svg_big: ImageContent;
-  side_svg_small: ImageContent;
+  side_svg_big: SVGImageContent;
+  side_svg_small: SVGImageContent;
   side_svg_small_top_offset: number;
   side_svg_small_right_offset: number;
-  side_svg_big_mobile: ImageContent;
-  side_svg_small_mobile: ImageContent;
+  side_svg_big_mobile: SVGImageContent;
+  side_svg_small_mobile: SVGImageContent;
   side_svg_small_top_offset_mobile: number;
   side_svg_small_right_offset_mobile: number;
 };
@@ -94,11 +101,12 @@ type HomePage = {
   }[];
 
   testimonials: Testimonial[];
+  quoteless_testimonials: Testimonial[];
 
   learn_more_section_title: string;
-  learn_more_tile_1_header_image: Image;
+  learn_more_tile_1_header_image: ImageType[];
   learn_more_tile_1_link: Link;
-  learn_more_tile_1_header_author_image: Image;
+  learn_more_tile_1_header_author_image: ImageType[];
   learn_more_tile_1_author_name: string;
   learn_more_tile_1_resource_type: string;
   learn_more_tile_1_video_id: string;
@@ -106,7 +114,7 @@ type HomePage = {
   learn_more_tile_1_resource_title: string;
   learn_more_tile_1_resource_snippet: string;
   learn_more_tile_1_resource_date: string;
-  learn_more_tile_2_header_image: Image;
+  learn_more_tile_2_header_image: ImageType[];
   learn_more_tile_2_link: Link;
   learn_more_tile_2_author_name: string;
   learn_more_tile_2_resource_type: string;
@@ -115,9 +123,9 @@ type HomePage = {
   learn_more_tile_2_resource_title: string;
   learn_more_tile_2_resource_snippet: string;
   learn_more_tile_2_resource_date: string;
-  learn_more_tile_3_header_image: Image;
+  learn_more_tile_3_header_image: ImageType[];
   learn_more_tile_3_link: Link;
-  learn_more_tile_3_header_author_image: Image;
+  learn_more_tile_3_header_author_image: ImageType[];
   learn_more_tile_3_author_name: string;
   learn_more_tile_3_resource_type: string;
   learn_more_tile_3_video_id: string;
@@ -133,7 +141,7 @@ type HomePage = {
 type Section3Card = {
   title: string;
   text: string;
-  icon: Image;
+  icon: ImageType;
 };
 
 type ProductPage = {
@@ -151,10 +159,10 @@ type ProductPage = {
     features: {
       title: string;
       subtitle: string;
-      big_image: Image;
-      small_image: Image;
+      big_image: ImageType;
+      small_image: ImageType;
       small_image_offset: { top: number; right: number };
-      mobile_image: Image;
+      mobile_image: ImageType;
     }[];
   };
   section_3: {

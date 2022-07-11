@@ -26,16 +26,14 @@ const handleGetStaticProps = async (
   }
 
   let testimonials = null;
+  let quoteless_testimonials = null;
 
   if (hasTestimonials) {
     try {
-      const res = await axiosInstance.get('/api/testimonials');
+      const res = await axiosInstance.get<Testimonial[]>('/api/testimonials');
       if (res?.data && res.data.length !== 0) {
-        testimonials = res.data.map((item: Testimonial) => ({
-          ...item,
-          bg_image: JSON.parse(item.bg_image),
-          logo: JSON.parse(item.logo),
-        }));
+        testimonials = res.data.filter((q) => q.can_display);
+        quoteless_testimonials = res.data.filter((q) => !q.can_display);
       }
     } catch (error) {
       console.log(`get testimonials`, error);
@@ -54,6 +52,7 @@ const handleGetStaticProps = async (
       props = {
         ...props,
         testimonials,
+        quoteless_testimonials,
       };
     }
 

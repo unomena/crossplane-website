@@ -34,10 +34,9 @@ import * as routes from 'src/routes';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import getRandomInt from 'src-new/utils/getRandomInt';
 import useOnScreen from 'src-new/utils/useOnScreen';
-import getImageValue from 'src-new/utils/getImageValue';
+import getImageUrl from 'src-new/utils/getImageUrl';
 
 import crossplaneLogos from 'src-new/constants/crossplaneLogos';
-import quotes from 'src-new/constants/quotes';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -45,11 +44,12 @@ import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 import MediaCard from 'src-new/elements/MediaCard';
 import CornerCard from 'src-new/elements/CornerCard';
+import CMSImage from 'src-new/elements/CMSImage';
 
 import FullArrowRight from 'src-new/svg/FullArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
-import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
-import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
+// import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
+// import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
 import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
@@ -71,10 +71,10 @@ import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobi
 // import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
 
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
-import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
+// import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
 // import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
-import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
-import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
+// import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
+// import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
@@ -352,6 +352,8 @@ const quoteSectionContainerMobile: SxProps = {
 
 const quoteSectionLeftBg: SxProps = {
   backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -543,12 +545,7 @@ const HeaderSection = (props: HomePageHeader) => {
           <Box sx={logosContainer}>
             {props.partner_images.map(({ id, value }) => (
               <Box key={id} sx={{ ...logoSVG, width: value.width, height: value.height }}>
-                <Image
-                  src={getImageValue(value).url}
-                  alt={getImageValue(value).title}
-                  layout="fill"
-                  objectFit="contain"
-                />
+                <CMSImage value={value} />
               </Box>
             ))}
           </Box>
@@ -588,12 +585,7 @@ const HeaderSection = (props: HomePageHeader) => {
                   sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
                   <Box sx={{ position: 'relative', width: value.width, height: value.height }}>
-                    <Image
-                      src={getImageValue(value).url}
-                      alt={getImageValue(value).title}
-                      layout="fill"
-                      objectFit="contain"
-                    />
+                    <CMSImage value={value} />
                   </Box>
                 </Box>
               ))}
@@ -908,82 +900,6 @@ const CrossplaneLogosSection = (props: HomePage) => {
   );
 };
 
-// interface StaticRequire {
-//   default: StaticImageData;
-// }
-// declare type StaticImport = StaticRequire | StaticImageData;
-
-// type FeatureBlockProps = {
-//   feature: {
-//     smallTitle: string;
-//     bigTitle: string;
-//     body: string;
-//     href: string;
-//     icon: string | StaticImport;
-//     imgBig: string | StaticImport;
-//     imgBigMobile: string | StaticImport;
-//     imgSmall: string | StaticImport;
-//     imgSmallMobile: string | StaticImport;
-//     imgSmallOffset: { top: number; right: number };
-//     imgSmallOffsetMobile: { top: number; right: number };
-//     reversed?: Boolean;
-//   };
-// };
-
-// const features = [
-//   {
-//     smallTitle: 'Enterprise ready',
-//     bigTitle: 'Fully-managed control planes',
-//     body: `Control planes running in Upbound
-//     are designed to be high performance, scalable, multitenant,
-//     and secure for the most demanding platforms.`,
-//     href: routes.productsUCPRoute,
-//     icon: EnterpriseReadyIcon,
-//     imgBig: EnterpriseReadyBig,
-//     imgBigMobile: EnterpriseReadyBigMobile,
-//     imgSmall: EnterpriseReadySmall,
-//     imgSmallMobile: EnterpriseReadySmallMobile,
-//     imgSmallOffset: { top: 103, right: -68 },
-//     imgSmallOffsetMobile: { top: 53, right: -32 },
-//     reversed: false,
-//   },
-//   {
-//     smallTitle: 'Deploy with confidence',
-//     bigTitle: 'Best-in-class platform building blocks',
-//     body: `Upbound Marketplace is a one-stop-shop
-//     for all the components you need in your platform,
-//     powered by an Upbound control plane. Supported and
-//     Certified listings are available so you can run your
-//     platform in production with confidence.`,
-//     href: routes.productsUCPRoute,
-//     icon: DeployWithConfidenceIcon,
-//     imgBig: DeployWithConfidenceBig,
-//     imgBigMobile: DeployWithConfidenceBigMobile,
-//     imgSmall: DeployWithConfidenceSmall,
-//     imgSmallMobile: DeployWithConfidenceSmallMobile,
-//     imgSmallOffset: { top: 67, right: 0 },
-//     imgSmallOffsetMobile: { top: 34, right: -32 },
-//     reversed: true,
-//   },
-//   {
-//     smallTitle: 'Efficiency + ease',
-//     bigTitle: 'Self-Service Console',
-//     body: `The Upbound Console is dynamically rendered
-//     from your Upbound control plane and the Crossplane
-//     packages installed in it. Centralize control and empower
-//     your team to deploy without red tape.`,
-//     href: routes.productsUCPRoute,
-//     icon: EfficiencyEaseIcon,
-//     imgBig: EfficiencyEaseBig,
-//     imgBigMobile: EfficiencyEaseBigMobile,
-//     imgSmall: EfficiencyEaseSmall,
-//     imgSmallMobile: EfficiencyEaseSmallMobile,
-//     imgSmallOffset: { top: 54, right: -17 },
-//     imgSmallOffsetMobile: { top: 34, right: -32 },
-//     reversed: false,
-//   },
-// ];
-
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
 
@@ -1063,12 +979,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
                 },
               }}
             >
-              <Image
-                src={getImageValue(header_svg).url}
-                alt={getImageValue(header_svg).title}
-                layout="fill"
-                objectFit="contain"
-              />
+              <CMSImage value={header_svg} />
             </Box>
           )}
           <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{header_text}</Typography>
@@ -1130,22 +1041,12 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           >
             {side_svg_big && (
               <Hidden lgDown>
-                <Image
-                  src={side_svg_big.url}
-                  alt={side_svg_big.title}
-                  layout="fill"
-                  objectFit="contain"
-                />
+                <CMSImage value={{ svg_image: side_svg_big }} />
               </Hidden>
             )}
             {side_svg_big_mobile && (
               <Hidden lgUp>
-                <Image
-                  src={side_svg_big_mobile.url}
-                  alt={side_svg_big_mobile.title}
-                  layout="fill"
-                  objectFit="contain"
-                />
+                <CMSImage value={{ svg_image: side_svg_big_mobile }} />
               </Hidden>
             )}
           </Box>
@@ -1161,12 +1062,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
                 }}
               >
                 <Box sx={{ position: 'relative' }}>
-                  <Image
-                    src={side_svg_small.url}
-                    alt={side_svg_small.title}
-                    layout="fill"
-                    objectFit="contain"
-                  />
+                  <CMSImage value={{ svg_image: side_svg_small }} />
                 </Box>
               </Box>
             </Hidden>
@@ -1186,12 +1082,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
                   },
                 }}
               >
-                <Image
-                  src={side_svg_small_mobile.url}
-                  alt={side_svg_small_mobile.title}
-                  layout="fill"
-                  objectFit="contain"
-                />
+                <CMSImage value={{ svg_image: side_svg_small_mobile }} />
               </Box>
             </Hidden>
           )}
@@ -1218,19 +1109,12 @@ const FeaturesSection = (props: HomePage) => {
   );
 };
 
-const quoteLessIcons = [
-  {
-    id: 1,
-    logo: dfdsLogo,
-  },
-  {
-    id: 2,
-    logo: grupoLogo,
-  },
-];
+type QuoteSectionProps = {
+  testimonials: Testimonial[];
+  quoteless_testimonials: Testimonial[];
+};
 
-const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
-  console.log(testimonials);
+const QuoteSection = ({ testimonials, quoteless_testimonials }: QuoteSectionProps) => {
   const quoteSectionRef = useRef(undefined);
   const isVisible = useOnScreen(quoteSectionRef);
   const [activeQuote, _setActiveQuote] = useState(0);
@@ -1245,7 +1129,7 @@ const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
     let t: NodeJS.Timeout;
     if (isVisible) {
       t = setInterval(() => {
-        if (activeQuoteRef.current === quotes.length - 1) {
+        if (activeQuoteRef.current === testimonials.length - 1) {
           setActiveQuote(0);
         } else {
           setActiveQuote(activeQuoteRef.current + 1);
@@ -1263,26 +1147,31 @@ const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
         <Box sx={{ flex: 1 }}>
           <Box sx={quoteSectionLeftContainer}>
             <Box sx={quoteSectionLeftInner}>
-              {quotes.map((quote, index) => (
+              {testimonials.map((quote, index) => (
                 <Box
-                  key={quote.title}
+                  key={quote.id}
                   sx={{
                     ...quoteSectionLeftBg,
-                    backgroundImage: `url("${quote.bgImage}")`,
+                    backgroundImage: `url("${quote.bg_image[0].url}")`,
                     opacity: activeQuote === index ? 1 : 0,
                   }}
                 />
               ))}
-              {quotes.map((quote, index) => (
+              {testimonials.map((quote, index) => (
                 <Box
-                  key={quote.title}
+                  key={quote.id}
                   sx={{
                     ...quoteSectionLeftLogo,
                     opacity: activeQuote === index ? 1 : 0,
                   }}
                 >
                   <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                    <Image
+                      src={quote.logo[0].url}
+                      alt="quote-logo"
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               ))}
@@ -1295,9 +1184,9 @@ const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
           </Box>
         </Box>
         <Box sx={quoteSectionRightContainer}>
-          {quotes.map((quote, index) => (
+          {testimonials.map((quote, index) => (
             <Box
-              key={quote.title}
+              key={quote.id}
               sx={{
                 mb: activeQuote === index ? 7 : 0,
                 opacity: activeQuote === index ? 1 : 0,
@@ -1310,35 +1199,45 @@ const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
                 <Typography variant="h2_new" sx={{ mb: 3 }}>
                   {quote.title}
                 </Typography>
-                <Typography variant="body_normal">{quote.body}</Typography>
+                <Typography variant="body_normal">{quote.text}</Typography>
               </Box>
               <Typography variant="h6_new" sx={{ mb: '2px' }}>
-                {quote.person}
+                {quote.author}
               </Typography>
               <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
-                {quote.role}
+                {quote.author_job_title}
               </Typography>
             </Box>
           ))}
           <Box sx={quoteSectionQuoteLogos}>
-            {quotes.map((quote, index) => {
+            {testimonials.map((quote, index) => {
               let styles = quoteSectionQuoteLogoBox;
               if (index === activeQuote) {
                 styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
               }
               return (
-                <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                <Box key={quote.id} sx={styles} onClick={() => setActiveQuote(index)}>
                   <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                    <Image
+                      src={quote.logo[0].url}
+                      alt="quote-logo"
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               );
             })}
-            {quoteLessIcons.map((quote) => {
+            {quoteless_testimonials.map((quote) => {
               return (
                 <Box key={quote.id} sx={{ ...quoteSectionQuoteLogoBox, '&:hover': {} }}>
                   <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                    <Image
+                      src={quote.logo[0].url}
+                      alt="quote-logo"
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               );
@@ -1348,66 +1247,73 @@ const QuoteSection = ({ testimonials }: { testimonials: Testimonial[] }) => {
       </Hidden>
       <Hidden xlUp>
         <Box sx={quoteSectionContainerMobile}>
-          {quotes.map((quote, index) => (
-            <Box
-              key={quote.title}
-              sx={{
-                height: '100%',
-                pt: 7,
-                pb: 4,
-                px: 2,
-                zIndex: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                position: activeQuote === index ? 'relative' : 'absolute',
-                opacity: activeQuote === index ? 1 : 0,
-              }}
-            >
+          {testimonials.map((quote, index) => {
+            return (
               <Box
+                key={quote.id}
                 sx={{
-                  ...quoteSectionBgMobile,
-                  backgroundImage: `url("${quote.bgImage}")`,
-                  zIndex: -1,
-                }}
-              />
-              <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
-                <Box
-                  sx={{
-                    ...quoteSectionLogoMobile,
-                    opacity: activeQuote === index ? 1 : 0,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      width: quote.logoSize.width,
-                      height: quote.logoSize.height,
-                    }}
-                  >
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
-                  </Box>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  // minHeight: 275,
-                  mb: 2.5,
+                  height: '100%',
+                  pt: 7,
+                  pb: 4,
+                  px: 2,
+                  zIndex: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  position: activeQuote === index ? 'relative' : 'absolute',
+                  opacity: activeQuote === index ? 1 : 0,
                 }}
               >
-                <Typography variant="h2_new" sx={{ mb: 1.5 }}>
-                  {quote.title}
+                <Box
+                  sx={{
+                    ...quoteSectionBgMobile,
+                    backgroundImage: `url("${quote.bg_image[0].url}")`,
+                    zIndex: -1,
+                  }}
+                />
+                <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
+                  <Box
+                    sx={{
+                      ...quoteSectionLogoMobile,
+                      opacity: activeQuote === index ? 1 : 0,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        width: quote.logo[0].view_box.split(' ')[2],
+                        height: quote.logo[0].view_box.split(' ')[3],
+                      }}
+                    >
+                      <Image
+                        src={quote.logo[0].url}
+                        alt="quote-logo"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </Box>
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    // minHeight: 275,
+                    mb: 2.5,
+                  }}
+                >
+                  <Typography variant="h2_new" sx={{ mb: 1.5 }}>
+                    {quote.title}
+                  </Typography>
+                  <Typography variant="body_normal">{quote.text}</Typography>
+                </Box>
+                <Typography variant="h6_new" sx={{ mb: '2px' }}>
+                  {quote.author}
                 </Typography>
-                <Typography variant="body_normal">{quote.body}</Typography>
+                <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
+                  {quote.author_job_title}
+                </Typography>
               </Box>
-              <Typography variant="h6_new" sx={{ mb: '2px' }}>
-                {quote.person}
-              </Typography>
-              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
-                {quote.role}
-              </Typography>
-            </Box>
-          ))}
+            );
+          })}
           <Box sx={{ position: 'absolute', bottom: -24, right: 16 }}>
             <Box sx={{ position: 'relative' }}>
               <Image src={bigQuotes} alt="big-quotes" width={72} height={57} />
@@ -1424,14 +1330,8 @@ const MediaCard_1 = (props: HomePage) => {
 
   const data = useMemo(() => {
     return {
-      img:
-        props.learn_more_tile_1_header_image &&
-        props.learn_more_tile_1_header_image[0] &&
-        getImageValue(props.learn_more_tile_1_header_image[0].value).url,
-      authorImg:
-        props.learn_more_tile_1_header_author_image &&
-        props.learn_more_tile_1_header_author_image[0] &&
-        getImageValue(props.learn_more_tile_1_header_author_image[0].value).url,
+      img: getImageUrl(props.learn_more_tile_1_header_image[0]),
+      authorImg: getImageUrl(props.learn_more_tile_1_header_author_image[0]),
       author: props.learn_more_tile_1_author_name,
       type: props.learn_more_tile_1_resource_type,
       title: props.learn_more_tile_1_resource_title,
@@ -1461,10 +1361,7 @@ const MediaCard_2 = (props: HomePage) => {
 
   const data = useMemo(() => {
     return {
-      img:
-        props.learn_more_tile_2_header_image &&
-        props.learn_more_tile_2_header_image[0] &&
-        getImageValue(props.learn_more_tile_2_header_image[0].value).url,
+      img: getImageUrl(props.learn_more_tile_2_header_image[0]),
       author: props.learn_more_tile_2_author_name,
       type: props.learn_more_tile_2_resource_type,
       title: props.learn_more_tile_2_resource_title,
@@ -1492,14 +1389,8 @@ const MediaCard_2 = (props: HomePage) => {
 const MediaCard_3 = (props: HomePage) => {
   const data = useMemo(() => {
     return {
-      img:
-        props.learn_more_tile_3_header_image &&
-        props.learn_more_tile_3_header_image[0] &&
-        getImageValue(props.learn_more_tile_3_header_image[0].value).url,
-      authorImg:
-        props.learn_more_tile_3_header_author_image &&
-        props.learn_more_tile_3_header_author_image[0] &&
-        getImageValue(props.learn_more_tile_3_header_author_image[0].value).url,
+      img: getImageUrl(props.learn_more_tile_3_header_image[0]),
+      authorImg: getImageUrl(props.learn_more_tile_3_header_author_image[0]),
       author: props.learn_more_tile_3_author_name,
       type: props.learn_more_tile_3_resource_type,
       title: props.learn_more_tile_3_resource_title,
@@ -1764,8 +1655,12 @@ const Home = (props: Props) => {
           pb: { xl: 7.5 },
         }}
       >
-        <QuoteSection testimonials={props.testimonials} />
+        <QuoteSection
+          testimonials={props.testimonials}
+          quoteless_testimonials={props.quoteless_testimonials}
+        />
       </Section>
+
       <Section sx={discoverSection}>
         <Hidden xlDown>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
