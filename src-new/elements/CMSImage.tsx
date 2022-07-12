@@ -3,7 +3,12 @@ import React, { useMemo } from 'react';
 
 import Image, { ImageProps } from 'next/image';
 
-const CMSImage = ({ value }: { value: ImageValue }) => {
+type CMSImageProps = {
+  value: ImageValue;
+  priority?: boolean;
+};
+
+const CMSImage = ({ value, priority }: CMSImageProps) => {
   const imageData: ImageProps | undefined = useMemo(() => {
     if (value.image) {
       const image = { ...value, ...value.image };
@@ -47,7 +52,7 @@ const CMSImage = ({ value }: { value: ImageValue }) => {
     return null;
   }
 
-  return <Image {...imageData} />;
+  return <Image {...imageData} priority={priority} />;
 };
 
 export default CMSImage;

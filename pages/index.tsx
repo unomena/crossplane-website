@@ -48,33 +48,10 @@ import CMSImage from 'src-new/elements/CMSImage';
 
 import FullArrowRight from 'src-new/svg/FullArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
-// import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
-// import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
 import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
-
-// import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
-// import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
-// import EnterpriseReadyBigMobile from 'public/new-images/home-page/features/EnterpriseReadyBigMobile.svg';
-// import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
-// import EnterpriseReadySmallMobile from 'public/new-images/home-page/features/EnterpriseReadySmallMobile.svg';
-// import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
-// import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
-// import DeployWithConfidenceBigMobile from 'public/new-images/home-page/features/DeployWithConfidenceBigMobile.svg';
-// import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
-// import DeployWithConfidenceSmallMobile from 'public/new-images/home-page/features/DeployWithConfidenceSmallMobile.svg';
-// import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
-// import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
-// import EfficiencyEaseBigMobile from 'public/new-images/home-page/features/EfficiencyEaseBigMobile.svg';
-// import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
-// import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
-
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
-// import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
-// import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
-// import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
-// import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
@@ -938,8 +915,6 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
   return (
     <Box
       sx={{
-        // width: '100%',
-        // height: 400,
         display: 'flex',
         color: COLORS.linkWater,
         position: 'relative',
@@ -971,8 +946,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               sx={{
                 position: 'relative',
                 display: 'flex',
-                height: 16,
-                width: 16,
+                maxHeight: 16,
+                maxWidth: 16,
                 [MQ.md]: {
                   maxHeight: 'unset',
                   maxWidth: 'unset',
@@ -1278,19 +1253,8 @@ const QuoteSection = ({ testimonials, quoteless_testimonials }: QuoteSectionProp
                       opacity: activeQuote === index ? 1 : 0,
                     }}
                   >
-                    <Box
-                      sx={{
-                        position: 'relative',
-                        width: quote.logo[0].view_box.split(' ')[2],
-                        height: quote.logo[0].view_box.split(' ')[3],
-                      }}
-                    >
-                      <Image
-                        src={quote.logo[0].url}
-                        alt="quote-logo"
-                        layout="fill"
-                        objectFit="contain"
-                      />
+                    <Box sx={{ position: 'relative' }}>
+                      <CMSImage value={{ svg_image: quote.logo[0] }} />
                     </Box>
                   </Box>
                 </Box>
@@ -1645,21 +1609,23 @@ const Home = (props: Props) => {
         <FeaturesSection {...props} />
       </Section>
 
-      <Section
-        bgcolor
-        angleTop="topRight"
-        hasContainer={matchesXL}
-        sx={{
-          position: 'relative',
-          pt: { xl: 18 },
-          pb: { xl: 7.5 },
-        }}
-      >
-        <QuoteSection
-          testimonials={props.testimonials}
-          quoteless_testimonials={props.quoteless_testimonials}
-        />
-      </Section>
+      {props.testimonials && (
+        <Section
+          bgcolor
+          angleTop="topRight"
+          hasContainer={matchesXL}
+          sx={{
+            position: 'relative',
+            pt: { xl: 18 },
+            pb: { xl: 7.5 },
+          }}
+        >
+          <QuoteSection
+            testimonials={props.testimonials}
+            quoteless_testimonials={props.quoteless_testimonials}
+          />
+        </Section>
+      )}
 
       <Section sx={discoverSection}>
         <Hidden xlDown>

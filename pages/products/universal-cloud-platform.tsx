@@ -5,54 +5,23 @@ import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
 import { COLORS, fontAvenirBold, fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
-import { Box, SxProps, Typography, Hidden, useMediaQuery } from '@mui/material';
+import { Box, SxProps, Typography, Hidden } from '@mui/material';
 
 import { Carousel } from 'react-responsive-carousel';
-
-import * as routes from 'src/routes';
 
 import useOnScreen from 'src-new/utils/useOnScreen';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 
-import quotes from 'src-new/constants/quotes';
-
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
-import Link from 'src-new/elements/Link';
 import CornerCard from 'src-new/elements/CornerCard';
 import Slider from 'src-new/components/Slider';
 
-import heroMain from 'public/new-images/products-page/hero-main.svg';
-// import heroMainMobile from 'public/new-images/products-page/mobile/hero-main-mobile.svg';
-import heroFlyover from 'public/new-images/products-page/hero-flyover.svg';
-import platformOne from 'public/new-images/products-page/001-platform.svg';
-import platformMobileOne from 'public/new-images/products-page/mobile/001-platform-mobile.svg';
-import platformTwo from 'public/new-images/products-page/002-platform.svg';
-import platformMobileTwo from 'public/new-images/products-page/mobile/002-platform-mobile.svg';
-import platformThree from 'public/new-images/products-page/003-platform.svg';
-import platformMobileThree from 'public/new-images/products-page/mobile/003-platform-mobile.svg';
-// import platformFour from 'public/new-images/products-page/004-platform.svg';
-// import platformFive from 'public/new-images/products-page/005-platform.svg';
-import platformSix from 'public/new-images/products-page/006-platform.svg';
-import platformMobileSix from 'public/new-images/products-page/mobile/006-platform-mobile.svg';
-import platformFlyoverOne from 'public/new-images/products-page/001-platform-flyover.svg';
-import platformFlyoverTwo from 'public/new-images/products-page/002-platform-flyover.svg';
-import platformFlyoverThree from 'public/new-images/products-page/003-platform-flyover.svg';
-// import platformFlyoverFour from 'public/new-images/products-page/004-platform-flyover.svg';
-// import platformFlyoverFive from 'public/new-images/products-page/005-platform-flyover.svg';
-import platformFlyoverSix from 'public/new-images/products-page/006-platform-flyover.svg';
 import sectionBg from 'public/new-images/home-page/header-bg.jpg';
-import productDiagram from 'public/new-images/products-page/product-diagram.svg';
-import productDiagramMobile from 'public/new-images/products-page/mobile/product-diagram-mobile.svg';
 import arrowBullet from 'public/new-images/icons/arrow-bullet.svg';
 import circleBullet from 'public/new-images/icons/circle-bullet.svg';
-// import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 import quoteCircle from 'public/new-images/icons/quote-circle.svg';
-import caseStudyIconOne from 'public/new-images/icons/case-study-icon-one.svg';
-import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
-import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
-import ArrowRight from 'src-new/svg/ArrowRight';
 import OGImgProducts from 'public/og-images/product-page-og.jpg';
 import CMSImage from 'src-new/elements/CMSImage';
 import getImageUrl from 'src-new/utils/getImageUrl';
@@ -150,8 +119,6 @@ const gridLayout: SxProps = {
 };
 
 const platformCarousel: SxProps = {
-  pb: 16.25,
-  pt: 7.5,
   '.carousel.carousel-slider .control-dots': {
     bottom: '-70px',
   },
@@ -209,7 +176,7 @@ const HeaderSection = (props: ProductPage) => {
               transition: 'transform 1.5s',
             }}
           >
-            <CMSImage value={props.header_side_image_1[0].value} />
+            <CMSImage value={props.header_side_image_1[0].value} priority />
           </Box>
           <Box
             sx={{
@@ -228,32 +195,23 @@ const HeaderSection = (props: ProductPage) => {
   );
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
 type FeatureBlockProps = {
+  feature: ProductPageFeature;
   index: number;
-  title: string;
-  body: string;
-  imgBig: string | StaticImport;
-  imgSmall: string | StaticImport;
-  imgSmallOffset: { top: number; right: number };
   setActiveIndex: (val: number) => void;
   isActive: Boolean;
 };
 
-const FeatureBlock = ({
-  index,
-  title,
-  body,
-  imgBig,
-  imgSmall,
-  imgSmallOffset,
-  setActiveIndex,
-  isActive,
-}: FeatureBlockProps) => {
+const FeatureBlock = ({ feature, index, setActiveIndex, isActive }: FeatureBlockProps) => {
+  const {
+    title,
+    text,
+    side_svg_big,
+    side_svg_small,
+    side_svg_small_top_offset,
+    side_svg_small_right_offset,
+  } = feature;
+
   return (
     <Hidden mdDown>
       <Box onClick={() => setActiveIndex(index)} sx={{ cursor: 'pointer' }}>
@@ -306,7 +264,7 @@ const FeatureBlock = ({
                 <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
                   {title}
                 </Typography>
-                {isActive && <Typography variant="body_small">{body}</Typography>}
+                {isActive && <Typography variant="body_small">{text}</Typography>}
               </Box>
             </Box>
           </Box>
@@ -324,27 +282,31 @@ const FeatureBlock = ({
           }}
         >
           <Box sx={{ position: 'relative' }}>
-            <Box
-              sx={{
-                transform: isActive ? '' : `translate(50vw)`,
-                opacity: isActive ? 1 : 0,
-                transition: 'transform .8s, opacity .8s',
-              }}
-            >
-              <Image src={imgBig} alt="feature-img-big" />
-            </Box>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffset.top,
-                right: imgSmallOffset.right,
-                transform: isActive ? '' : `translate(100vw)`,
-                opacity: isActive ? 1 : 0,
-                transition: 'transform 1s, opacity 1s',
-              }}
-            >
-              <Image src={imgSmall} alt="feature-img-small" />
-            </Box>
+            {side_svg_big && (
+              <Box
+                sx={{
+                  transform: isActive ? '' : `translate(50vw)`,
+                  opacity: isActive ? 1 : 0,
+                  transition: 'transform .8s, opacity .8s',
+                }}
+              >
+                <CMSImage value={{ svg_image: side_svg_big }} />
+              </Box>
+            )}
+            {side_svg_small && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: side_svg_small_top_offset,
+                  right: side_svg_small_right_offset,
+                  transform: isActive ? '' : `translate(100vw)`,
+                  opacity: isActive ? 1 : 0,
+                  transition: 'transform 1s, opacity 1s',
+                }}
+              >
+                <CMSImage value={{ svg_image: side_svg_small }} />
+              </Box>
+            )}
           </Box>
         </Box>
       </Box>
@@ -352,41 +314,7 @@ const FeatureBlock = ({
   );
 };
 
-const features = [
-  {
-    title: 'Fully managed control planes',
-    body: `Control planes designed to be high performance, scalable, multitenant, and secure for the
-    most demanding scenarios.`,
-    imgBig: platformOne,
-    imgSmall: platformFlyoverOne,
-    imgSmallOffset: { top: 82, right: -75 },
-  },
-  {
-    title: 'Best-in-class platform building blocks',
-    body: `Upbound Marketplace is a one-stop-shop for all the components you need in your Upbound-powered platform.`,
-    imgBig: platformTwo,
-    imgSmall: platformFlyoverTwo,
-    imgSmallOffset: { top: 65, right: -85 },
-  },
-  {
-    title: 'Self-service console',
-    body: `The Upbound Console is dynamically rendered from your
-    Upbound control plane and the Crossplane packages installed in it.`,
-    imgBig: platformThree,
-    imgSmall: platformFlyoverThree,
-    imgSmallOffset: { top: 67, right: -105 },
-  },
-  {
-    title: 'Support for multi-tenancy',
-    body: `Designed for complex multi-tenant Kubernetes deployments, 
-    where isolation of cloud credentials, control plane resources, and users is critical.`,
-    imgBig: platformSix,
-    imgSmall: platformFlyoverSix,
-    imgSmallOffset: { top: 102, right: -105 },
-  },
-];
-
-const FeaturesSection = () => {
+const FeaturesSection = (props: ProductPage) => {
   const [activeIndex, _setActiveIndex] = useState(0);
   const activeIndexRef = useRef(activeIndex);
   const setActiveIndex = (val: number) => {
@@ -398,24 +326,16 @@ const FeaturesSection = () => {
     <Box>
       <Box sx={{ mb: 3 }}>
         <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
-          The last platform you’ll ever need to build
+          {props.section_2_title}
         </Typography>
-        <Typography variant="body_big">
-          Never re-platform again. No matter what tools and vendors you add to your infrastructure,
-          Upbound can manage them. Enterprise-ready, flexible and easy to use, Upbound transforms
-          the way you manage your infrastructure. It’s the cloud on your terms.
-        </Typography>
+        <Typography variant="body_big">{props.section_2_text}</Typography>
       </Box>
       <Box sx={{ position: 'relative' }}>
-        {features.map((feature, index) => (
+        {props.feature_items.map(({ id, value }, index) => (
           <FeatureBlock
-            key={feature.title}
+            key={id}
+            feature={value}
             index={index}
-            title={feature.title}
-            body={feature.body}
-            imgBig={feature.imgBig}
-            imgSmall={feature.imgSmall}
-            imgSmallOffset={feature.imgSmallOffset}
             setActiveIndex={setActiveIndex}
             isActive={activeIndex === index}
           />
@@ -425,27 +345,92 @@ const FeaturesSection = () => {
   );
 };
 
-type QuoteCardProps = {
-  quote: {
-    full: string;
-    person: string;
-    role: string;
-    logo: string | StaticImport;
-    logoSize: {
-      width: number;
-      height: number;
-    };
-  };
+const FeatureBlockMobile = ({ feature }: { feature: ProductPageFeature }) => {
+  const { title, text, side_svg_mobile } = feature;
+
+  return (
+    <Box>
+      <Box sx={{ position: 'relative', height: 'auto', width: '100%', mb: 3 }}>
+        {side_svg_mobile && <CMSImage value={{ svg_image: side_svg_mobile }} />}
+      </Box>
+      <Box>
+        <Typography variant="h4_new" sx={{ mb: 1, ...fontAvenirBold, fontSize: '22px !important' }}>
+          {title}
+        </Typography>
+
+        <Typography variant="body_small">{text}</Typography>
+      </Box>
+    </Box>
+  );
 };
 
-const QuoteCard = ({ quote }: QuoteCardProps) => {
-  const { full, person, role, logo, logoSize } = quote;
+const FeaturesSectionMobile = (props: ProductPage) => {
+  return (
+    <Box sx={platformCarousel}>
+      <Box sx={{ mb: 7.5 }}>
+        <Typography variant="h3_new" sx={{ ...fontAvenirBold, mb: 3 }}>
+          {props.section_2_title}
+        </Typography>
+        <Typography variant="body_big">{props.section_2_text}</Typography>
+      </Box>
+      <Carousel
+        showArrows={false}
+        showStatus={false}
+        autoPlay={true}
+        interval={7000}
+        infiniteLoop={true}
+        emulateTouch={true}
+        stopOnHover={false}
+        showThumbs={false}
+      >
+        {props.feature_items.map(({ id, value }) => (
+          <FeatureBlockMobile key={id} feature={value} />
+        ))}
+      </Carousel>
+    </Box>
+  );
+};
+
+type CaseStudyCardProps = {
+  title: string;
+  text: string;
+  icon: ImageType[];
+};
+
+const CaseStudyCard = ({ title, text, icon }: CaseStudyCardProps) => {
+  const iconUrl = useMemo(() => {
+    if (!icon) {
+      return null;
+    }
+    return getImageUrl(icon[0]);
+  }, [icon]);
+
+  return (
+    <CornerCard iconSize="small">
+      <Box display="flex" flexDirection="column">
+        <Box flex={1}>
+          <Typography variant="h4_new" sx={{ mb: 3, lineHeight: '34px' }}>
+            {title}
+          </Typography>
+          <Typography variant="body_small">{text}</Typography>
+        </Box>
+
+        <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
+          {iconUrl && <Image src={iconUrl} alt="icon" layout="fill" objectFit="contain" />}
+        </Box>
+      </Box>
+    </CornerCard>
+  );
+};
+
+const QuoteCard = ({ quote }: { quote: Testimonial }) => {
+  const { full_text, author, author_job_title, logo } = quote;
 
   return (
     <CornerCard cornerSize="cornerLG" icon={quoteCircle} iconSize="normal">
       <Box display="flex" flexDirection="column">
         <Box flex={1}>
-          <Typography variant="body_big">{full}</Typography>
+          <Typography variant="body_big">{full_text}</Typography>
         </Box>
         <Box
           sx={{
@@ -457,12 +442,12 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
           }}
         >
           <Box sx={{ position: 'relative', display: 'flex', mr: 3, mb: { _: 3, md: 0 } }}>
-            <Image src={logo} alt="company logo" width={logoSize.width} height={logoSize.height} />
+            <CMSImage value={{ svg_image: logo[0] }} />
           </Box>
           <Box>
-            <Typography variant="h6_new">{person}</Typography>
+            <Typography variant="h6_new">{author}</Typography>
             <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic, maxWidth: '200px' }}>
-              {role}
+              {author_job_title}
             </Typography>
           </Box>
         </Box>
@@ -532,247 +517,66 @@ const Products = (props: Props) => {
       </Section>
 
       <Hidden xlDown>
-        <Section
-          bgcolor
-          sx={{
-            pb: { _: 30, md: 33.125 },
-            pt: { _: 10, md: 23.5 },
-          }}
-        >
-          <FeaturesSection />
+        <Section bgcolor sx={{ pb: { _: 30, md: 33.125 }, pt: { _: 10, md: 23.5 } }}>
+          <FeaturesSection {...props} />
         </Section>
       </Hidden>
       <Hidden xlUp>
-        <Section bgcolor sx={platformCarousel}>
-          <Box sx={{ mb: 7.5 }}>
-            <Typography variant="h3_new" sx={{ ...fontAvenirBold, mb: 3 }}>
-              The last platform you’ll ever need to build
-            </Typography>
-            <Typography variant="body_big">
-              Never re-platform again. No matter what tools and vendors you add to your
-              infrastructure, Upbound can manage them. Enterprise-ready, flexible and easy to use,
-              Upbound transforms the way you manage your infrastructure. It’s the cloud on your
-              terms.
-            </Typography>
-          </Box>
-          <Carousel
-            showArrows={false}
-            showStatus={false}
-            autoPlay={true}
-            interval={7000}
-            infiniteLoop={true}
-            emulateTouch={true}
-            stopOnHover={false}
-            showThumbs={false}
-          >
-            <Box>
-              <Box>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    height: 'auto',
-                    width: '100%',
-                    mb: 3,
-                  }}
-                >
-                  <Image src={platformMobileOne} alt="feature-img-big" />
-                </Box>
-                <Box>
-                  <Typography
-                    variant="h4_new"
-                    sx={{ mb: 1, ...fontAvenirBold, fontSize: '22px !important' }}
-                  >
-                    Fully managed control planes
-                  </Typography>
-
-                  <Typography variant="body_small">
-                    Control planes designed to be high performance, scalable, multitenant, and
-                    secure for the most demanding scenarios.
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-            <Box>
-              <Box>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    height: 'auto',
-                    width: '100%',
-                    mb: 3,
-                  }}
-                >
-                  <Image src={platformMobileTwo} alt="feature-img-big" />
-                </Box>
-                <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
-                    Best-in-class platform building blocks
-                  </Typography>
-
-                  <Typography variant="body_small">
-                    Upbound Marketplace is a one-stop-shop for all the components you need in your
-                    Upbound-powered platform.
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-            <Box>
-              <Box>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    height: 'auto',
-                    width: '100%',
-                    mb: 3,
-                  }}
-                >
-                  <Image src={platformMobileThree} alt="feature-img-big" />
-                </Box>
-                <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
-                    Self-service console
-                  </Typography>
-
-                  <Typography variant="body_small">
-                    The Upbound Console is dynamically rendered from your Upbound control plane and
-                    the Crossplane packages installed in it.
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-            <Box>
-              <Box>
-                <Box
-                  sx={{
-                    position: 'relative',
-                    height: 'auto',
-                    width: '100%',
-                    mb: 3,
-                  }}
-                >
-                  <Image src={platformMobileSix} alt="feature-img-big" />
-                </Box>
-                <Box>
-                  <Typography variant="h4_new" sx={{ mb: 1, fontSize: '22px !important' }}>
-                    Support for multi-tenancy
-                  </Typography>
-
-                  <Typography variant="body_small">
-                    Designed for complex multi-tenant Kubernetes deployments, where isolation of
-                    cloud credentials, control plane resources, and users is critical.
-                  </Typography>
-                </Box>
-              </Box>
-            </Box>
-          </Carousel>
+        <Section bgcolor sx={{ pb: 16.25, pt: 7.5 }}>
+          <FeaturesSectionMobile {...props} />
         </Section>
       </Hidden>
-      <Box>
-        <Section
-          sx={{
-            pb: { _: 30, md: 33.125 },
-            pt: { _: 10, md: 23.5 },
-            overflow: 'hidden',
-            ...caseStudiesSection,
-          }}
-        >
-          <Box sx={productsSectionHeader}>
-            <Typography variant="h2_new" sx={{ mb: 3.75 }}>
-              Any platform. Any business
-            </Typography>
-            <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
-              Upbound can manage any infrastructure environment — cloud or on-prem. Customers
-              compose their own custom API interface into their custom platform running on Upbound
-            </Typography>
-          </Box>
-          <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
-            <CornerCard iconSize="small">
-              <Box display="flex" flexDirection="column">
-                <Box flex={1}>
-                  <Typography
-                    variant="h4_new"
-                    sx={{
-                      mb: 3,
-                      lineHeight: '34px',
-                    }}
-                  >
-                    Internal Developer Platform
-                  </Typography>
-                  <Typography variant="body_small">
-                    Upbound makes building Internal Developer Platforms straightforward. Platform
-                    teams compose their custom cloud API, and Upbound dynamically renders a
-                    self-service console for it.
-                  </Typography>
-                </Box>
 
-                <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                  <Image src={caseStudyIconOne} alt="icon" layout="fill" objectFit="contain" />
-                </Box>
-              </Box>
-            </CornerCard>
-            <CornerCard iconSize="small">
-              <Box display="flex" flexDirection="column">
-                <Box flex={1}>
-                  <Typography
-                    variant="h4_new"
-                    sx={{
-                      mb: 3,
-                      lineHeight: '34px',
-                    }}
-                  >
-                    Infrastructure-as-Code Modernization
-                  </Typography>
-                  <Typography variant="body_small">
-                    Upbound’s control planes continuously reconcile infrastructure resources they
-                    manage, eliminating configuration drift entirely. Using control planes, teams
-                    can unify both their application and infrastructure deployment workflows.
-                  </Typography>
-                </Box>
+      <Section
+        sx={{
+          pb: { _: 30, md: 33.125 },
+          pt: { _: 10, md: 23.5 },
+          overflow: 'hidden',
+          ...caseStudiesSection,
+        }}
+      >
+        <Box sx={productsSectionHeader}>
+          <Typography variant="h2_new" sx={{ mb: 3.75 }}>
+            {props.section_3_title}
+          </Typography>
+          <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
+            {props.section_3_text}
+          </Typography>
+        </Box>
+        <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
+          <CaseStudyCard
+            title={props.section_3_card_1_title}
+            text={props.section_3_card_1_text}
+            icon={props.section_3_card_1_icon}
+          />
+          <CaseStudyCard
+            title={props.section_3_card_2_title}
+            text={props.section_3_card_2_text}
+            icon={props.section_3_card_2_icon}
+          />
+          <CaseStudyCard
+            title={props.section_3_card_3_title}
+            text={props.section_3_card_3_text}
+            icon={props.section_3_card_3_icon}
+          />
+        </Box>
 
-                <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                  <Image src={caseStudyIconTwo} alt="icon" layout="fill" objectFit="contain" />
-                </Box>
-              </Box>
-            </CornerCard>
-            <CornerCard iconSize="small">
-              <Box display="flex" flexDirection="column">
-                <Box flex={1}>
-                  <Typography
-                    variant="h4_new"
-                    sx={{
-                      mb: 3,
-                      lineHeight: '34px',
-                    }}
-                  >
-                    Global Application Deployment
-                  </Typography>
-                  <Typography variant="body_small">
-                    Deploy workloads across zones, regions, and vendors by building applications
-                    against your Internal Cloud Platforms running in Upbound. Infrastructure
-                    environment where the application is deployed simply becomes a configuration
-                    detail chosen during deployment.
-                  </Typography>
-                </Box>
+        {props.testimonials && (
+          <>
+            <Box sx={productsSectionHeader}>
+              <Typography variant="h4_new" sx={{ mb: 7.5 }}>
+                {props.section_4_title}
+              </Typography>
+            </Box>
 
-                <Box sx={{ position: 'relative', width: '48px', height: '48px', mt: 3 }}>
-                  <Image src={caseStudyIconThree} alt="icon" layout="fill" objectFit="contain" />
-                </Box>
-              </Box>
-            </CornerCard>
-          </Box>
-          <Box sx={productsSectionHeader}>
-            <Typography variant="h4_new" sx={{ mb: 7.5 }}>
-              Trusted by the industry’s best
-            </Typography>
-          </Box>
-
-          <Slider>
-            {quotes.map((quote) => (
-              <QuoteCard key={quote.title} quote={quote} />
-            ))}
-          </Slider>
-        </Section>
-      </Box>
+            <Slider>
+              {props.testimonials.map((quote) => (
+                <QuoteCard key={quote.id} quote={quote} />
+              ))}
+            </Slider>
+          </>
+        )}
+      </Section>
     </PageProvider>
   );
 };

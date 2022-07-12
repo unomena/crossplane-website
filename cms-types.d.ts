@@ -63,7 +63,7 @@ type Testimonial = {
 type HomePageHeader = {
   title: string;
   subtitle: string;
-  buttons: Button[]; // min 2
+  buttons: Button[];
   partner_images_header: string;
   partner_images: ImageType[];
 };
@@ -151,7 +151,7 @@ type Section3Card = {
 
 type ProductPageFeature = {
   title: string;
-  sub_text: string;
+  text: string;
   side_svg_big: SVGImageContent;
   side_svg_small: SVGImageContent;
   side_svg_small_top_offset: number;
@@ -162,7 +162,7 @@ type ProductPageFeature = {
 type ProductPage = {
   header_title: string;
   header_text: string;
-  header_buttons: Button[]; // min 2
+  header_buttons: Button[];
   header_side_image_1: ImageType[];
   header_side_image_2: ImageType[];
 
@@ -172,7 +172,7 @@ type ProductPage = {
 
   section_2_title: string;
   section_2_text: string;
-  features_items: {
+  feature_items: {
     id: number;
     value: ProductPageFeature;
   }[];
