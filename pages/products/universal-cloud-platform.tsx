@@ -1,16 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-import { Carousel } from 'react-responsive-carousel';
-
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
 import { COLORS, fontAvenirBold, fontAvenirRomanItalic, gradient_1, MQ } from 'src/theme';
 import { Box, SxProps, Typography, Hidden, useMediaQuery } from '@mui/material';
 
+import { Carousel } from 'react-responsive-carousel';
+
 import * as routes from 'src/routes';
 
 import useOnScreen from 'src-new/utils/useOnScreen';
+import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 
 import quotes from 'src-new/constants/quotes';
 
@@ -52,10 +54,56 @@ import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
 import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import OGImgProducts from 'public/og-images/product-page-og.jpg';
+import CMSImage from 'src-new/elements/CMSImage';
+import getImageUrl from 'src-new/utils/getImageUrl';
+
+const headerSection: SxProps = {
+  pt: { _: 13, md: 40 },
+  pb: { _: 60, xs: 80, md: 20 },
+};
+
+const headerWrapper: SxProps = {
+  [MQ.md]: {
+    flex: 1,
+    width: '100%',
+    minWidth: '60%',
+    maxWidth: '60%',
+    pr: '28px',
+    pl: '0px',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  '@media screen and (min-width: 884px)': {
+    minWidth: '50%',
+    maxWidth: '50%',
+  },
+};
+
+const headerContainer: SxProps = {
+  [MQ.md]: { width: '100%', maxWidth: '501px' },
+  textAlign: { _: 'center', md: 'left' },
+};
+
+const headerImagesContainer: SxProps = {
+  position: 'absolute',
+  right: '0',
+  ml: '30px',
+  maxWidth: '500px',
+  zIndex: '1',
+  [MQ.md]: {
+    maxWidth: '40%',
+    top: '4%',
+    zIndex: '1',
+  },
+  '@media screen and (min-width: 884px)': {
+    maxWidth: '50%',
+  },
+};
 
 const productsSectionHeader: SxProps = {
   textAlign: 'center',
 };
+
 const caseStudiesSection: SxProps = {
   backgroundImage: `url(${sectionBg.src})`,
   backgroundRepeat: 'no-repeat',
@@ -73,6 +121,18 @@ const headerButtons: SxProps = {
   alignItems: 'center',
   justifyContent: { _: 'center', md: 'left' },
   flexDirection: { _: 'column', sm: 'row' },
+
+  '& > button, a': {
+    width: { _: 225, sm: 200 },
+    mx: { _: 0, sm: '10px' },
+
+    ':not(:last-of-type)': {
+      mb: { _: '20px', sm: 0 },
+    },
+    ':last-of-type': {
+      width: { _: 225, sm: 'unset' },
+    },
+  },
 };
 
 const gridLayout: SxProps = {
@@ -111,6 +171,61 @@ const platformCarousel: SxProps = {
   '.carousel.carousel-slider': {
     overflow: 'unset',
   },
+};
+
+const HeaderSection = (props: ProductPage) => {
+  const productsHeaderRef = useRef(undefined);
+  const isVisible = useOnScreen(productsHeaderRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
+
+  return (
+    <Box ref={productsHeaderRef}>
+      <Box sx={headerWrapper}>
+        <Box sx={headerContainer}>
+          <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
+            {props.header_title}
+          </Typography>
+          <Typography variant="body_big">{props.header_text}</Typography>
+          <Box sx={headerButtons}>
+            {props.header_buttons.map(({ id, value }) => (
+              <Button key={id} sizeType="large" cmsValue={value}>
+                {value.text}
+              </Button>
+            ))}
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={headerImagesContainer}>
+        <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              transform: show ? '' : 'translate(50vw)',
+              transition: 'transform 1.5s',
+            }}
+          >
+            <CMSImage value={props.header_side_image_1[0].value} />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '29%',
+              right: '0',
+              transform: show ? '' : 'translate(100vw)',
+              transition: 'transform 2s',
+            }}
+          >
+            <CMSImage value={props.header_side_image_2[0].value} />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
 };
 
 interface StaticRequire {
@@ -359,167 +474,63 @@ const QuoteCard = ({ quote }: QuoteCardProps) => {
 const displayTitle = 'Products - The Universal Cloud Platform';
 const metaImg = OGImgProducts.src;
 
-type Props = {};
+type Props = {
+  isPreview?: boolean;
+} & ProductPage;
 
-const Products = ({}: Props) => {
-  const productsHeaderRef = useRef(undefined);
-  const isVisible = useOnScreen(productsHeaderRef);
-  const [show, setShow] = useState(false);
-  const matchesMD = useMediaQuery(MQ.md);
-
-  useEffect(() => {
-    if (isVisible) {
-      setShow(true);
+const Products = (props: Props) => {
+  const section_1_image = useMemo(() => {
+    if (!props.section_1_image) {
+      return null;
     }
-  }, [isVisible]);
+    return getImageUrl(props.section_1_image[0]);
+  }, [props.section_1_image]);
+
+  const section_1_image_mobile = useMemo(() => {
+    if (!props.section_1_image_mobile) {
+      return null;
+    }
+    return getImageUrl(props.section_1_image_mobile[0]);
+  }, [props.section_1_image_mobile]);
 
   return (
-    <PageProvider displayTitle={displayTitle} metaImg={metaImg}>
-      <Section sx={{ pt: { _: 13, md: 40 }, pb: { _: 60, xs: 80, md: 20 } }}>
-        <Box ref={productsHeaderRef}>
-          <Box
-            sx={{
-              [MQ.md]: {
-                flex: 1,
-                width: '100%',
-                minWidth: '60%',
-                maxWidth: '60%',
-                pr: '28px',
-                pl: '0px',
-                display: 'flex',
-                flexDirection: 'column',
-              },
-              '@media screen and (min-width: 884px)': {
-                minWidth: '50%',
-                maxWidth: '50%',
-              },
-            }}
-          >
-            <Box
-              sx={{
-                [MQ.md]: { width: '100%', maxWidth: '501px' },
-                textAlign: { _: 'center', md: 'left' },
-              }}
-            >
-              <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
-                Upbound
-              </Typography>
-              <Typography variant="body_big">
-                The easiest way to build, deploy, and manage your internal cloud platforms using
-                control planes.
-              </Typography>
-              <Box sx={headerButtons}>
-                <Button
-                  styleType="gradientContained"
-                  sizeType={matchesMD ? 'normal' : 'large'}
-                  sx={{
-                    width: { _: 225, sm: 208 },
-                    mr: { _: 0, sm: '10px' },
-                    mb: { _: '20px', sm: 0 },
-                  }}
-                  href={routes.cloudRegisterUrl}
-                >
-                  Try for free
-                </Button>
-                <Hidden mdUp>
-                  <Button
-                    styleType="whiteOutlined"
-                    sizeType="large"
-                    sx={{
-                      width: { _: 225, sm: 208 },
-                      ml: { _: 0, sm: '10px' },
-                      '& > .MuiButton-iconSizeMedium': {
-                        ml: '16px',
-                        '& > svg': {
-                          height: { _: 12, md: 13 },
-                          width: { _: 7, md: 8 },
-                        },
-                      },
-                    }}
-                    endIcon={<ArrowRight />}
-                    href={routes.contactSalesUrl}
-                  >
-                    Contact Us
-                  </Button>
-                </Hidden>
-                <Hidden mdDown>
-                  <Link href={routes.contactSalesUrl} muiProps={{ color: '#fff' }} hasArrow>
-                    Contact Us
-                  </Link>
-                </Hidden>
-              </Box>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              right: '0',
-              ml: '30px',
-              maxWidth: '500px',
-              zIndex: '1',
-              [MQ.md]: {
-                maxWidth: '40%',
-                top: '4%',
-                zIndex: '1',
-              },
-              '@media screen and (min-width: 884px)': {
-                maxWidth: '50%',
-              },
-            }}
-          >
-            <Box sx={{ position: 'relative' }}>
-              <Box
-                sx={{
-                  transform: show ? '' : 'translate(50vw)',
-                  transition: 'transform 1.5s',
-                }}
-              >
-                <Image src={heroMain} alt="feature-img-big" />
-              </Box>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: '29%',
-                  right: '0',
-                  transform: show ? '' : 'translate(100vw)',
-                  transition: 'transform 2s',
-                }}
-              >
-                <Image src={heroFlyover} alt="feature-img-small" />
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+    <PageProvider displayTitle={displayTitle} metaImg={metaImg} isPreview={props.isPreview}>
+      <Section sx={headerSection}>
+        <HeaderSection {...props} />
       </Section>
-      <Box>
-        <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
-          <Box sx={productsSectionHeader}>
-            <Typography variant="h2_new" sx={{ mb: 7.5 }}>
-              A platform for building internal cloud platforms
-            </Typography>
+
+      <Section bgcolor angleTop="topRight" sx={{ pb: 0, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}>
+        <Box sx={productsSectionHeader}>
+          <Typography variant="h2_new" sx={{ mb: 7.5 }}>
+            {props.section_1_title}
+          </Typography>
+        </Box>
+        <Hidden mdDown>
+          <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
+            {section_1_image && (
+              <Image
+                src={section_1_image}
+                alt="Internal cloud platform"
+                layout="fill"
+                objectFit="contain"
+              />
+            )}
           </Box>
-          <Hidden mdDown>
-            <Box sx={{ position: 'relative', width: '100%', height: '540px' }}>
+        </Hidden>
+        <Hidden mdUp>
+          <Box sx={{ position: 'relative', width: '100%', height: '270px' }}>
+            {section_1_image_mobile && (
               <Image
-                src={productDiagram}
+                src={section_1_image_mobile}
                 alt="Internal cloud platform"
                 layout="fill"
                 objectFit="contain"
               />
-            </Box>
-          </Hidden>
-          <Hidden mdUp>
-            <Box sx={{ position: 'relative', width: '100%', height: '270px' }}>
-              <Image
-                src={productDiagramMobile}
-                alt="Internal cloud platform"
-                layout="fill"
-                objectFit="contain"
-              />
-            </Box>
-          </Hidden>
-        </Section>
-      </Box>
+            )}
+          </Box>
+        </Hidden>
+      </Section>
+
       <Hidden xlDown>
         <Section
           bgcolor
@@ -767,3 +778,21 @@ const Products = ({}: Props) => {
 };
 
 export default Products;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const returnValue = await handleGetStaticProps(
+    context,
+    '/products/universal-cloud-platform',
+    true
+  );
+
+  if (returnValue) {
+    return {
+      props: returnValue,
+    };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
+};

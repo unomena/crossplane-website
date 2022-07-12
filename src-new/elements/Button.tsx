@@ -39,6 +39,17 @@ const whiteOutlined: SxProps = {
   },
 };
 
+const whiteText: SxProps = {
+  backgroundColor: 'unset',
+  color: '#fff',
+  border: 'none',
+  px: '16px !important',
+
+  '&:hover': {
+    backgroundColor: 'unset',
+  },
+};
+
 const cornflowerContained: SxProps = {
   backgroundColor: COLORS.cornflower,
   color: '#fff',
@@ -80,6 +91,7 @@ const disabled: SxProps = {
 const typeStyles = {
   whiteContained,
   whiteOutlined,
+  whiteText,
   cornflowerContained,
   gradientContained,
   linkWaterContained,
@@ -158,6 +170,7 @@ type Props = {
   styleType?:
     | 'whiteContained'
     | 'whiteOutlined'
+    | 'whiteText'
     | 'cornflowerContained'
     | 'gradientContained'
     | 'linkWaterContained'
@@ -231,8 +244,8 @@ const Button = ({
       {...props}
       sx={{
         ...defaultStyles,
-        ...typeStyles[styleType],
         ...sizeStyles[sizeType],
+        ...typeStyles[styleType],
         ...iconLeftStyle,
         ...arrowRightStyle,
         ...props.sx,

@@ -104,6 +104,7 @@ type HomePage = {
   quoteless_testimonials: Testimonial[];
 
   learn_more_section_title: string;
+
   learn_more_tile_1_header_image: ImageType[];
   learn_more_tile_1_link: Link;
   learn_more_tile_1_header_author_image: ImageType[];
@@ -114,6 +115,7 @@ type HomePage = {
   learn_more_tile_1_resource_title: string;
   learn_more_tile_1_resource_snippet: string;
   learn_more_tile_1_resource_date: string;
+
   learn_more_tile_2_header_image: ImageType[];
   learn_more_tile_2_link: Link;
   learn_more_tile_2_author_name: string;
@@ -123,6 +125,7 @@ type HomePage = {
   learn_more_tile_2_resource_title: string;
   learn_more_tile_2_resource_snippet: string;
   learn_more_tile_2_resource_date: string;
+
   learn_more_tile_3_header_image: ImageType[];
   learn_more_tile_3_link: Link;
   learn_more_tile_3_header_author_image: ImageType[];
@@ -133,7 +136,9 @@ type HomePage = {
   learn_more_tile_3_resource_title: string;
   learn_more_tile_3_resource_snippet: string;
   learn_more_tile_3_resource_date: string;
+
   learn_more_tile_4_title: string;
+
   learn_more_tile_5_title: string;
   learn_more_tile_5_link: Link;
 };
@@ -144,36 +149,49 @@ type Section3Card = {
   icon: ImageType;
 };
 
+type ProductPageFeature = {
+  title: string;
+  sub_text: string;
+  side_svg_big: SVGImageContent;
+  side_svg_small: SVGImageContent;
+  side_svg_small_top_offset: number;
+  side_svg_small_right_offset: number;
+  side_svg_mobile: SVGImageContent;
+};
+
 type ProductPage = {
-  header: {
-    title: string;
-    subtitle: string;
-    buttons: Button[]; // min 2
-  };
-  section_1: {
-    title: string;
-  };
-  features_section: {
-    title: string;
-    subtitle: string;
-    features: {
-      title: string;
-      subtitle: string;
-      big_image: ImageType;
-      small_image: ImageType;
-      small_image_offset: { top: number; right: number };
-      mobile_image: ImageType;
-    }[];
-  };
-  section_3: {
-    title: string;
-    subtitle: string;
-    card_1: Section3Card;
-    card_2: Section3Card;
-    card_3: Section3Card;
-  };
-  testimonials_section: {
-    title: string;
-    testimonials: Testimonial[];
-  };
+  header_title: string;
+  header_text: string;
+  header_buttons: Button[]; // min 2
+  header_side_image_1: ImageType[];
+  header_side_image_2: ImageType[];
+
+  section_1_title: string;
+  section_1_image: ImageType[];
+  section_1_image_mobile: ImageType[];
+
+  section_2_title: string;
+  section_2_text: string;
+  features_items: {
+    id: number;
+    value: ProductPageFeature;
+  }[];
+
+  section_3_title: string;
+  section_3_text: string;
+
+  section_3_card_1_title: string;
+  section_3_card_1_text: string;
+  section_3_card_1_icon: ImageType[];
+
+  section_3_card_2_title: string;
+  section_3_card_2_text: string;
+  section_3_card_2_icon: ImageType[];
+
+  section_3_card_3_title: string;
+  section_3_card_3_text: string;
+  section_3_card_3_icon: ImageType[];
+
+  section_4_title: string;
+  testimonials: Testimonial[];
 };
