@@ -39,8 +39,9 @@ const PreviewIndicator = () => {
   const handleClearPreview = async () => {
     try {
       setLoading(true);
-      await axios.get('/api/clear-preview-mode-cookies');
-      router.reload();
+      const res = await axios.get('/api/clear-preview-mode-cookies');
+      console.log(res);
+      // router.reload();
     } catch (error) {
       setLoading(false);
       console.log('clear preview', error);
