@@ -25,7 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const pageData = pageRes.data.items[0];
 
-  const preview_url = `http://localhost:8000/api/v2/page_preview/${pageData.id}/?content_type=${req.query.content_type}&token=${req.query.token}`;
+  // eslint-disable-next-line max-len
+  const preview_url = `${process.env.apiHost}/api/v2/page_preview/${pageData.id}/?content_type=${req.query.content_type}&token=${req.query.token}`;
 
   res.setPreviewData({ preview_url, relative_url: pageData.relative_url });
 
