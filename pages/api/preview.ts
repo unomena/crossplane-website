@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // eslint-disable-next-line max-len
   const preview_url = `${process.env.apiHost}/api/v2/page_preview/${pageData.id}/?content_type=${req.query.content_type}&token=${req.query.token}`;
 
-  res.setPreviewData({ preview_url, relative_url: pageData.relative_url });
+  res.setPreviewData({ preview_url, relative_url: pageData.relative_url }, { maxAge: 30 });
 
   res.redirect(pageData.relative_url);
 }
