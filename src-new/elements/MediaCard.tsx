@@ -128,11 +128,6 @@ const dateText: SxProps = {
   mt: 'auto',
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
 type Props = {
   layout?: 'vertical' | 'horizontal';
   noBg?: boolean;

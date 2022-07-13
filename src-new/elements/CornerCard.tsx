@@ -141,11 +141,6 @@ const cornerSizes = {
   cornerLG,
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
 type Props = {
   children: React.ReactNode;
   styleType?: 'logoContained';
