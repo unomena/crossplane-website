@@ -30,7 +30,7 @@ import Link from 'src-new/elements/Link';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import placeHolder from 'public/new-images/Whitepaper-mockup.png';
 import ArrowRight from 'src-new/svg/ArrowRight';
-import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
+import CheckIcon from 'public/new-images/icons/check.svg';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
@@ -318,15 +318,15 @@ declare type StaticImport = StaticRequire | StaticImageData;
 
 const iconListContent = [
   {
-    icon: DeployWithConfidenceIcon,
+    icon: CheckIcon,
     text: 'Upbound is committed to open source.',
   },
   {
-    icon: DeployWithConfidenceIcon,
+    icon: CheckIcon,
     text: 'Upbound is powered by Crossplane.',
   },
   {
-    icon: DeployWithConfidenceIcon,
+    icon: CheckIcon,
     text: 'Upbound is the cloud on your terms.',
   },
 ];
@@ -349,10 +349,7 @@ const IconListItem = ({ iconListItem }: IconListItemProps) => {
             sx={{
               position: 'relative',
               display: 'flex',
-              width: 24,
-              [MQ.md]: {
-                width: 30,
-              },
+              width: 18,
             }}
           >
             <Image src={icon} alt="icon" />
@@ -495,6 +492,7 @@ const LandingPage = ({}: Props) => {
           sx={{
             [MQ.lg]: {
               display: 'flex',
+              alignItems: 'center',
               flexDirection: 'row',
             },
           }}

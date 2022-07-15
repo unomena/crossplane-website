@@ -1617,7 +1617,7 @@ const RegisterForm = () => {
         </>
       ) : (
         <>
-          <Typography sx={registerFormTitle}>Register for our montly newsletter</Typography>
+          <Typography sx={registerFormTitle}>Register for our monthly newsletter</Typography>
           <form onSubmit={submitEmail}>
             <Tooltip
               onClose={() => setEmailError('')}
