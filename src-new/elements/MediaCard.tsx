@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Box, SxProps, Typography } from '@mui/material';
+import { Box, SxProps, Typography, useMediaQuery } from '@mui/material';
 import { COLORS, fontAvenirBold, fontAvenirRoman, fontAvenirRomanItalic, MQ } from 'src/theme';
 
 import Link from 'src-new/elements/Link';
@@ -128,11 +128,6 @@ const dateText: SxProps = {
   mt: 'auto',
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
 type Props = {
   layout?: 'vertical' | 'horizontal';
   noBg?: boolean;
@@ -140,9 +135,9 @@ type Props = {
   img?: string | StaticImport | null;
   imgHeight?: number;
   imgWidth?: number;
-  profileImg?: string | StaticImport | null;
-  profileImgSize?: 'small' | 'big';
-  person?: string;
+  authorImg?: string | StaticImport | null;
+  authorImgSize?: 'small' | 'big';
+  author?: string;
   type?: string;
   title?: string;
   titleVariant?: 'h4_new' | 'h5_new';
@@ -161,9 +156,9 @@ const MediaCard = ({
   img,
   imgHeight,
   imgWidth,
-  profileImg,
-  profileImgSize = 'small',
-  person,
+  authorImg,
+  authorImgSize = 'small',
+  author,
   type,
   title,
   titleVariant = 'h5_new',
@@ -174,12 +169,21 @@ const MediaCard = ({
   href,
   videoId,
 }: Props) => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
   const [isVideoVisible, setVideoVisible] = useState(false);
+
+  const isVideo = useMemo(() => {
+    if (!type || !videoId) {
+      return false;
+    }
+    return type.toLowerCase() === 'video' && videoId;
+  }, [type, videoId]);
 
   const imgSrc = useMemo(() => {
     if (img) {
       return img;
-    } else if (type === 'video' && videoId) {
+    } else if (isVideo) {
       return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
     }
     return img;
@@ -192,7 +196,7 @@ const MediaCard = ({
           ...root[layout],
           bgcolor: noBg ? 'transparent' : COLORS.bigStone,
           borderRadius: rounded ? '10px' : '0px',
-          cursor: (type === 'video' && videoId) || href ? 'pointer' : 'default',
+          cursor: isVideo || href ? 'pointer' : 'default',
         }}
         onClick={() => setVideoVisible(true)}
       >
@@ -212,7 +216,7 @@ const MediaCard = ({
               objectFit="cover"
               objectPosition="center"
             />
-            {type === 'video' && videoId && (
+            {isVideo && matchesXL && (
               <Box sx={videoPlayIconContainer}>
                 <Box sx={{ position: 'relative', maxWidth: '50%' }}>
                   <Image src={VideoPlayIcon} alt="video-play" />
@@ -231,16 +235,16 @@ const MediaCard = ({
             flexDirection: 'column',
           }}
         >
-          {profileImg && (
-            <Box sx={profilePic[profileImgSize]}>
+          {authorImg && (
+            <Box sx={profilePic[authorImgSize]}>
               <Box sx={profilePicInner}>
-                <Image src={profileImg} alt="profile-img" layout="fill" objectFit="cover" />
+                <Image src={authorImg} alt="profile-img" layout="fill" objectFit="cover" />
               </Box>
             </Box>
           )}
-          {(person || type) && (
+          {(author || type) && (
             <Box sx={{ display: 'flex', alignItems: 'center', mb: '2px' }}>
-              {person && <Typography sx={smallTitleText}>{person}</Typography>}
+              {author && <Typography sx={smallTitleText}>{author}</Typography>}
               {type && (
                 <>
                   <Typography sx={divider}>|</Typography>
@@ -262,7 +266,7 @@ const MediaCard = ({
           {date && <Typography sx={dateText}>{date}</Typography>}
         </Box>
       </Box>
-      {type === 'video' && videoId && (
+      {isVideo && videoId && (
         <VideoModal open={isVideoVisible} setOpen={setVideoVisible} videoId={videoId} />
       )}
     </>

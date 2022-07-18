@@ -312,11 +312,6 @@ const list = [
   },
 ];
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
 const iconListContent = [
   {
     icon: CheckIcon,

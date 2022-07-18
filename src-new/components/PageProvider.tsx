@@ -10,6 +10,8 @@ import { COLORS } from 'src/theme';
 import PageHeader from 'src-new/components/PageHeader';
 import PageFooter from 'src-new/components/PageFooter';
 import PageHead from 'src/components/PageHead';
+import PreviewIndicator from 'src-new/components/PreviewIndicator';
+
 import OGImgHome from 'public/og-images/home-page-og.jpg';
 
 const defaultTitle = 'Upbound - The Universal Cloud Platform';
@@ -32,6 +34,7 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
+  isPreview?: boolean;
 };
 
 const PageProvider = ({
@@ -48,6 +51,7 @@ const PageProvider = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
+  isPreview,
 }: Props) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
 
@@ -93,6 +97,7 @@ const PageProvider = ({
           ctaBtnLink={ctaBtnLink}
         />
       </Box>
+      {isPreview && <PreviewIndicator />}
     </Box>
   );
 };

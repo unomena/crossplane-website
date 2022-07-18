@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const no_auth_urls = [
+const no_auth_urls: string[] = [
   'upbound.io',
   'www.upbound.io',
   'dev-deba7a0e.u6d.dev',
@@ -17,18 +17,14 @@ export function middleware(req: NextRequest) {
   const basicAuth = req.headers.get('authorization');
 
   if (basicAuth) {
-    const auth = basicAuth.split(' ')[1];
-    const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':');
-
+    const authValue = basicAuth.split(' ')[1];
+    const [user, pwd] = atob(authValue).split(':');
     if (user === 'cocoon' && pwd === 'Bt79') {
       return NextResponse.next();
     }
   }
 
-  return new Response('Auth required', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"',
-    },
-  });
+  const url = req.nextUrl;
+  url.pathname = '/api/basic-auth';
+  return NextResponse.rewrite(url);
 }

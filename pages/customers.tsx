@@ -50,11 +50,6 @@ const logoSVG: SxProps = {
   position: 'relative',
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
 type QuoteCardProps = {
   quote: {
     title: string;

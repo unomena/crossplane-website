@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+
+import Image from 'next/image';
 
 import { Box, Button as MuiButton, ButtonProps, CircularProgress, SxProps } from '@mui/material';
 import { COLORS, fontAvenirBold, fontAvenirRoman, MQ } from 'src/theme';
+
+import ArrowRight from 'src-new/svg/ArrowRight';
 
 const scale = 1.05;
 
@@ -32,6 +36,17 @@ const whiteOutlined: SxProps = {
   '&:hover': {
     backgroundColor: 'unset',
     ...hoverScale,
+  },
+};
+
+const whiteText: SxProps = {
+  backgroundColor: 'unset',
+  color: '#fff',
+  border: 'none',
+  px: '16px !important',
+
+  '&:hover': {
+    backgroundColor: 'unset',
   },
 };
 
@@ -76,6 +91,7 @@ const disabled: SxProps = {
 const typeStyles = {
   whiteContained,
   whiteOutlined,
+  whiteText,
   cornflowerContained,
   gradientContained,
   linkWaterContained,
@@ -126,34 +142,116 @@ const loadingContainer: SxProps = {
   position: 'absolute',
 };
 
+const iconLeftStyle: SxProps = {
+  '& > .MuiButton-startIcon': {
+    position: 'relative',
+    width: 24,
+    height: 24,
+    mr: '10px',
+
+    '& > svg': {
+      height: { _: 20, md: 25 },
+      width: { _: 20, md: 25 },
+    },
+  },
+};
+
+const arrowRightStyle: SxProps = {
+  '& > .MuiButton-endIcon': {
+    ml: '16px',
+    '& > svg': {
+      height: { _: 12, md: 13 },
+      width: { _: 7, md: 8 },
+    },
+  },
+};
+
 type Props = {
   styleType?:
     | 'whiteContained'
     | 'whiteOutlined'
+    | 'whiteText'
     | 'cornflowerContained'
     | 'gradientContained'
     | 'linkWaterContained'
     | 'disabled';
   sizeType?: 'small' | 'normal' | 'large';
   loading?: boolean;
+  hasArrowRight?: boolean;
+  cmsValue?: ButtonValue;
 } & ButtonProps;
 
 const Button = ({
   children,
-  styleType = 'whiteContained',
+  styleType: _styleType = 'whiteContained',
   sizeType = 'normal',
   loading,
+  hasArrowRight,
+  cmsValue,
   ...props
 }: Props) => {
+  const extraProps = useMemo(() => {
+    let obj = {};
+
+    if (cmsValue) {
+      if (cmsValue.link) {
+        obj = {
+          ...obj,
+          href: cmsValue.link[0].value,
+        };
+
+        if (cmsValue.link[0].type === 'external_url') {
+          obj = {
+            ...obj,
+            target: '_blank',
+          };
+        }
+      }
+      if (cmsValue.icon && cmsValue.icon.url) {
+        obj = {
+          ...obj,
+          startIcon: (
+            <Image
+              src={cmsValue.icon.url}
+              alt={cmsValue.icon.title}
+              layout="fill"
+              objectFit="contain"
+            />
+          ),
+        };
+      }
+      if (cmsValue.has_arrow) {
+        obj = {
+          ...obj,
+          endIcon: <ArrowRight />,
+        };
+      }
+    }
+
+    return obj;
+  }, [cmsValue]);
+
+  const styleType = useMemo(() => {
+    let type = _styleType;
+    if (cmsValue?.style_type) {
+      type = cmsValue.style_type;
+    }
+    return type;
+  }, [_styleType, cmsValue]);
+
   return (
     <MuiButton
       {...props}
       sx={{
         ...defaultStyles,
-        ...typeStyles[styleType],
         ...sizeStyles[sizeType],
+        ...typeStyles[styleType],
+        ...iconLeftStyle,
+        ...arrowRightStyle,
         ...props.sx,
       }}
+      endIcon={hasArrowRight ? <ArrowRight /> : null}
+      {...extraProps}
     >
       {children}
       {loading && (

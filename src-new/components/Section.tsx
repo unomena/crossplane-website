@@ -65,7 +65,6 @@ const Section = ({
   children,
 }: Props) => {
   let styles: SxProps = {
-    bgcolor: bgcolor ? COLORS.elephant : 'transparent',
     ...sx,
   };
   if (angleTop) {
@@ -78,7 +77,12 @@ const Section = ({
     styles = Object.assign(styles, { ...angleStyles[angleTopBottom] });
   }
   return (
-    <Box sx={styles}>
+    <Box
+      sx={{
+        bgcolor: bgcolor ? COLORS.elephant : 'transparent',
+        ...styles,
+      }}
+    >
       {hasContainer ? <Container maxWidth="xl">{children}</Container> : children}
     </Box>
   );
