@@ -138,7 +138,7 @@ const HeaderForm = () => {
       const token = await handleReCaptchaVerify();
 
       const postData = {
-        page_version: 'v2',
+        page_type: 'v2',
         recaptcha_token: token,
         ...values,
       };
