@@ -10,6 +10,8 @@ import { COLORS } from 'src/theme';
 import PageHeader from 'src-new/components/PageHeader';
 import PageFooter from 'src-new/components/PageFooter';
 import PageHead from 'src/components/PageHead';
+import PreviewIndicator from 'src-new/components/PreviewIndicator';
+
 import OGImgHome from 'public/og-images/home-page-og.jpg';
 
 const defaultTitle = 'Upbound - The Universal Cloud Platform';
@@ -28,6 +30,7 @@ type Props = {
   metaImg?: string;
   hideTryForFreeCard?: boolean;
   removeFooterPadding?: boolean;
+  isPreview?: boolean;
 };
 
 const PageProvider = ({
@@ -40,6 +43,7 @@ const PageProvider = ({
   metaImg = defaultImg,
   hideTryForFreeCard,
   removeFooterPadding,
+  isPreview,
 }: Props) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
 
@@ -81,6 +85,7 @@ const PageProvider = ({
           removeFooterPadding={removeFooterPadding}
         />
       </Box>
+      {isPreview && <PreviewIndicator />}
     </Box>
   );
 };

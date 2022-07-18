@@ -1,5 +1,6 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
 import {
@@ -30,11 +31,12 @@ import validator from 'validator';
 
 import * as routes from 'src/routes';
 
+import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import getRandomInt from 'src-new/utils/getRandomInt';
 import useOnScreen from 'src-new/utils/useOnScreen';
+import getImageUrl from 'src-new/utils/getImageUrl';
 
 import crossplaneLogos from 'src-new/constants/crossplaneLogos';
-import quotes from 'src-new/constants/quotes';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -42,39 +44,14 @@ import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 import MediaCard from 'src-new/elements/MediaCard';
 import CornerCard from 'src-new/elements/CornerCard';
+import CMSImage from 'src-new/elements/CMSImage';
 
-import RocketShipIcon from 'src-new/svg/RocketShipIcon';
-import ArrowRight from 'src-new/svg/ArrowRight';
 import FullArrowRight from 'src-new/svg/FullArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
-import mbpcLogo from 'public/new-images/trusted-logos/millennium-bpc.svg';
-import dfdsLogo from 'public/new-images/trusted-logos/dfds.svg';
-import grupoLogo from 'public/new-images/trusted-logos/grupo.svg';
-import dbLogo from 'public/new-images/trusted-logos/db.svg';
-import plotlyLogo from 'public/new-images/trusted-logos/plotly.svg';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
 import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
-import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
-import EnterpriseReadyBig from 'public/new-images/home-page/features/EnterpriseReadyBig.svg';
-import EnterpriseReadyBigMobile from 'public/new-images/home-page/features/EnterpriseReadyBigMobile.svg';
-import EnterpriseReadySmall from 'public/new-images/home-page/features/EnterpriseReadySmall.svg';
-import EnterpriseReadySmallMobile from 'public/new-images/home-page/features/EnterpriseReadySmallMobile.svg';
-import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
-import DeployWithConfidenceBig from 'public/new-images/home-page/features/DeployWithConfidenceBig.svg';
-import DeployWithConfidenceBigMobile from 'public/new-images/home-page/features/DeployWithConfidenceBigMobile.svg';
-import DeployWithConfidenceSmall from 'public/new-images/home-page/features/DeployWithConfidenceSmall.svg';
-import DeployWithConfidenceSmallMobile from 'public/new-images/home-page/features/DeployWithConfidenceSmallMobile.svg';
-import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
-import EfficiencyEaseBig from 'public/new-images/home-page/features/EfficiencyEaseBig.svg';
-import EfficiencyEaseBigMobile from 'public/new-images/home-page/features/EfficiencyEaseBigMobile.svg';
-import EfficiencyEaseSmall from 'public/new-images/home-page/features/EfficiencyEaseSmall.svg';
-import EfficiencyEaseSmallMobile from 'public/new-images/home-page/features/EfficiencyEaseSmallMobile.svg';
 import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
-import mainArticleImg from 'public/new-images/media-cards/main-article-img.png';
-// import laptopArticleImg from 'public/new-images/media-cards/laptop-article-img.png';
-import grantGuminaProfile from 'public/new-images/media-cards/grant-gumina-profile.jpeg';
-import matthiasArticleImg from 'public/new-images/media-cards/matthias-article-img.png';
 import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
 
 const headerSection: SxProps = {
@@ -123,6 +100,15 @@ const headerButtons: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   flexDirection: { _: 'column', sm: 'row' },
+
+  '& > button, a': {
+    width: { _: 225, sm: 208 },
+    mx: { _: 0, sm: '10px' },
+
+    ':not(:last-of-type)': {
+      mb: { _: '20px', sm: 0 },
+    },
+  },
 };
 
 const poweringTitle: SxProps = {
@@ -343,6 +329,8 @@ const quoteSectionContainerMobile: SxProps = {
 
 const quoteSectionLeftBg: SxProps = {
   backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -511,99 +499,30 @@ const visitCard: SxProps = {
   },
 };
 
-const headerLogos = [
-  {
-    id: 1,
-    src: mbpcLogo,
-    width: 90,
-    height: 21,
-  },
-  {
-    id: 2,
-    src: dfdsLogo,
-    width: 80,
-    height: 28,
-  },
-  {
-    id: 3,
-    src: grupoLogo,
-    width: 80,
-    height: 26,
-  },
-  {
-    id: 4,
-    src: dbLogo,
-    width: 47,
-    height: 34,
-  },
-  {
-    id: 5,
-    src: plotlyLogo,
-    width: 80,
-    height: 26,
-  },
-];
-
-const HeaderSection = () => {
+const HeaderSection = (props: HomePageHeader) => {
   const logosSectionRef = useRef(undefined);
   const isVisible = useOnScreen(logosSectionRef);
 
   return (
     <>
       <Typography variant="h1_new" sx={h1}>
-        The cloud on your terms
+        {props.title}
       </Typography>
-      <Typography variant="body_big">
-        Upbound is the easiest way to build your internal cloud platform
-      </Typography>
+      <Typography variant="body_big">{props.subtitle}</Typography>
       <Box sx={headerButtons}>
-        <Button
-          styleType="gradientContained"
-          sizeType="large"
-          sx={{
-            width: { _: 225, sm: 208 },
-            mr: { _: 0, sm: '10px' },
-            mb: { _: '20px', sm: 0 },
-            '& > .MuiButton-iconSizeMedium': {
-              mr: '10px',
-              '& > svg': {
-                height: { _: 20, md: 25 },
-                width: { _: 20, md: 25 },
-              },
-            },
-          }}
-          startIcon={<RocketShipIcon />}
-          href={routes.cloudRegisterUrl}
-        >
-          Get Started
-        </Button>
-        <Button
-          styleType="whiteOutlined"
-          sizeType="large"
-          sx={{
-            width: { _: 225, sm: 208 },
-            ml: { _: 0, sm: '10px' },
-            '& > .MuiButton-iconSizeMedium': {
-              ml: '16px',
-              '& > svg': {
-                height: { _: 12, md: 13 },
-                width: { _: 7, md: 8 },
-              },
-            },
-          }}
-          endIcon={<ArrowRight />}
-          href={routes.contactSalesUrl}
-        >
-          Contact Us
-        </Button>
+        {props.buttons.map(({ id, value }) => (
+          <Button key={id} sizeType="large" cmsValue={value}>
+            {value.text}
+          </Button>
+        ))}
       </Box>
       <Box ref={logosSectionRef}>
-        <Typography sx={poweringTitle}>POWERING INTERNAL CLOUD PLATFORMS AT</Typography>
+        <Typography sx={poweringTitle}>{props.partner_images_header}</Typography>
         <Hidden smDown>
           <Box sx={logosContainer}>
-            {headerLogos.map((logo) => (
-              <Box key={logo.id} sx={{ ...logoSVG, width: logo.width, height: logo.height }}>
-                <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+            {props.partner_images.map(({ id, value }) => (
+              <Box key={id} sx={{ ...logoSVG, width: value.width, height: value.height }}>
+                <CMSImage value={value} />
               </Box>
             ))}
           </Box>
@@ -637,13 +556,13 @@ const HeaderSection = () => {
               showThumbs={false}
               swipeable={false}
             >
-              {headerLogos.map((logo) => (
+              {props.partner_images.map(({ id, value }) => (
                 <Box
-                  key={logo.id}
+                  key={id}
                   sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  <Box sx={{ position: 'relative', width: logo.width, height: logo.height }}>
-                    <Image src={logo.src} alt="DFDS" layout="fill" objectFit="contain" />
+                  <Box sx={{ position: 'relative', width: value.width, height: value.height }}>
+                    <CMSImage value={value} />
                   </Box>
                 </Box>
               ))}
@@ -779,7 +698,7 @@ const cpLogosListTopMobile = [...Array(12)];
 
 const cpLogosListBottomMobile = [...Array(12)];
 
-const CrossplaneLogosSection = () => {
+const CrossplaneLogosSection = (props: HomePage) => {
   const cpSectionRef = useRef(undefined);
   const isVisible = useOnScreen(cpSectionRef);
 
@@ -883,16 +802,16 @@ const CrossplaneLogosSection = () => {
           ))}
         </Box>
         <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
-          <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
-          <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
-          <Typography variant="body_normal">
-            Adopted by hundreds of amazing
-            <br />
-            companies
+          <Typography sx={cpCenterBoxTitleNum}>{props.section_1_center_title_count}</Typography>
+          <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
+          <Typography variant="body_normal" sx={{ maxWidth: 320 }}>
+            {props.section_1_center_text}
           </Typography>
-          <Button styleType="cornflowerContained" sx={{ mt: 3.5 }} href={routes.crossplaneUrl}>
-            Learn more about Crossplane
-          </Button>
+          {props.section_1_button[0] && (
+            <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
+              {props.section_1_button[0].value.text}
+            </Button>
+          )}
         </Box>
         <Box sx={cpRightColumns}>
           {cpColumnsRightList.map((c, columnIndex) => (
@@ -958,42 +877,24 @@ const CrossplaneLogosSection = () => {
   );
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
+const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
+  const reversed = index % 2 !== 0;
 
-type FeatureBlockProps = {
-  feature: {
-    smallTitle: string;
-    bigTitle: string;
-    body: string;
-    href: string;
-    icon: string | StaticImport;
-    imgBig: string | StaticImport;
-    imgBigMobile: string | StaticImport;
-    imgSmall: string | StaticImport;
-    imgSmallMobile: string | StaticImport;
-    imgSmallOffset: { top: number; right: number };
-    imgSmallOffsetMobile: { top: number; right: number };
-    reversed?: Boolean;
-  };
-};
-
-const FeatureBlock = ({ feature }: FeatureBlockProps) => {
   const {
-    smallTitle,
-    bigTitle,
-    body,
-    href,
-    icon,
-    imgBig,
-    imgBigMobile,
-    imgSmall,
-    imgSmallMobile,
-    imgSmallOffset,
-    imgSmallOffsetMobile,
-    reversed,
+    header_svg,
+    header_text,
+    title,
+    text,
+    link_text,
+    link,
+    side_svg_big,
+    side_svg_small,
+    side_svg_small_top_offset,
+    side_svg_small_right_offset,
+    side_svg_big_mobile,
+    side_svg_small_mobile,
+    side_svg_small_top_offset_mobile,
+    side_svg_small_right_offset_mobile,
   } = feature;
 
   let smallTitleGradient = gradient_1;
@@ -1040,37 +941,40 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          <Box
-            sx={{
-              position: 'relative',
-              display: 'flex',
-              maxHeight: 16,
-              maxWidth: 16,
-              [MQ.md]: {
-                maxHeight: 'unset',
-                maxWidth: 'unset',
-              },
-            }}
-          >
-            <Image src={icon} alt="icon" />
-          </Box>
-          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
+          {header_svg && (
+            <Box
+              sx={{
+                position: 'relative',
+                display: 'flex',
+                maxHeight: 16,
+                maxWidth: 16,
+                [MQ.md]: {
+                  maxHeight: 'unset',
+                  maxWidth: 'unset',
+                },
+              }}
+            >
+              <CMSImage value={header_svg} />
+            </Box>
+          )}
+          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{header_text}</Typography>
         </Box>
         <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
-          {bigTitle}
+          {title}
         </Typography>
         <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
-          {body}
+          {text}
         </Typography>
         <Link
-          href={href}
+          href={link[0].value}
           muiProps={{
+            target: link[0].type === 'external_url' ? '_blank' : undefined,
             color: reversed ? COLORS.sun : COLORS.turquoise,
             sx: { mt: 5 },
           }}
           hasArrow
         >
-          Learn More
+          {link_text}
         </Link>
         <Box
           ref={hiddenBarRef}
@@ -1100,6 +1004,7 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
         >
           <Box
             sx={{
+              position: 'relative',
               transition: 'transform 1.5s',
               transform: show ? '' : `translate(100vw)`,
 
@@ -1109,132 +1014,82 @@ const FeatureBlock = ({ feature }: FeatureBlockProps) => {
               },
             }}
           >
-            <Hidden lgDown>
-              <Image src={imgBig} alt="feature-img-big" />
-            </Hidden>
-            <Hidden lgUp>
-              <Image src={imgBigMobile} alt="feature-img-big-mobile" />
-            </Hidden>
+            {side_svg_big && (
+              <Hidden lgDown>
+                <CMSImage value={{ svg_image: side_svg_big }} />
+              </Hidden>
+            )}
+            {side_svg_big_mobile && (
+              <Hidden lgUp>
+                <CMSImage value={{ svg_image: side_svg_big_mobile }} />
+              </Hidden>
+            )}
           </Box>
-          <Hidden lgDown>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffset.top,
-                right: imgSmallOffset.right,
-                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                transition: 'transform 2s',
-              }}
-            >
-              <Image src={imgSmall} alt="feature-img-small" />
-            </Box>
-          </Hidden>
-          <Hidden lgUp>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffsetMobile.top,
-                right: imgSmallOffsetMobile.right,
-                transition: 'transform 2s',
-                transform: show ? '' : `translate(-100vw)`,
-
-                [MQ.lg]: {
+          {side_svg_small && (
+            <Hidden lgDown>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: side_svg_small_top_offset,
+                  right: side_svg_small_right_offset,
                   transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                },
-              }}
-            >
-              <Image src={imgSmallMobile} alt="feature-img-small-mobile" />
-            </Box>
-          </Hidden>
+                  transition: 'transform 2s',
+                }}
+              >
+                <Box sx={{ position: 'relative' }}>
+                  <CMSImage value={{ svg_image: side_svg_small }} />
+                </Box>
+              </Box>
+            </Hidden>
+          )}
+          {side_svg_small_mobile && (
+            <Hidden lgUp>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: side_svg_small_top_offset_mobile,
+                  right: side_svg_small_right_offset_mobile,
+                  transition: 'transform 2s',
+                  transform: show ? '' : `translate(-100vw)`,
+
+                  [MQ.lg]: {
+                    transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                  },
+                }}
+              >
+                <CMSImage value={{ svg_image: side_svg_small_mobile }} />
+              </Box>
+            </Hidden>
+          )}
         </Box>
       </Box>
     </Box>
   );
 };
 
-const features = [
-  {
-    smallTitle: 'Enterprise ready',
-    bigTitle: 'Fully-managed control planes',
-    body: `Control planes running in Upbound
-    are designed to be high performance, scalable, multitenant,
-    and secure for the most demanding platforms.`,
-    href: routes.productsUCPRoute,
-    icon: EnterpriseReadyIcon,
-    imgBig: EnterpriseReadyBig,
-    imgBigMobile: EnterpriseReadyBigMobile,
-    imgSmall: EnterpriseReadySmall,
-    imgSmallMobile: EnterpriseReadySmallMobile,
-    imgSmallOffset: { top: 103, right: -68 },
-    imgSmallOffsetMobile: { top: 53, right: -32 },
-    reversed: false,
-  },
-  {
-    smallTitle: 'Deploy with confidence',
-    bigTitle: 'Best-in-class platform building blocks',
-    body: `Upbound Marketplace is a one-stop-shop
-    for all the components you need in your platform,
-    powered by an Upbound control plane. Supported and
-    Certified listings are available so you can run your
-    platform in production with confidence.`,
-    href: routes.productsUCPRoute,
-    icon: DeployWithConfidenceIcon,
-    imgBig: DeployWithConfidenceBig,
-    imgBigMobile: DeployWithConfidenceBigMobile,
-    imgSmall: DeployWithConfidenceSmall,
-    imgSmallMobile: DeployWithConfidenceSmallMobile,
-    imgSmallOffset: { top: 67, right: 0 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
-    reversed: true,
-  },
-  {
-    smallTitle: 'Efficiency + ease',
-    bigTitle: 'Self-Service Console',
-    body: `The Upbound Console is dynamically rendered
-    from your Upbound control plane and the Crossplane
-    packages installed in it. Centralize control and empower
-    your team to deploy without red tape.`,
-    href: routes.productsUCPRoute,
-    icon: EfficiencyEaseIcon,
-    imgBig: EfficiencyEaseBig,
-    imgBigMobile: EfficiencyEaseBigMobile,
-    imgSmall: EfficiencyEaseSmall,
-    imgSmallMobile: EfficiencyEaseSmallMobile,
-    imgSmallOffset: { top: 54, right: -17 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
-    reversed: false,
-  },
-];
-
-const FeaturesSection = () => {
+const FeaturesSection = (props: HomePage) => {
   return (
     <Box
       sx={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        '& > div': { pb: { _: 10, lg: 25 } },
+        '& > div': { mb: { _: 10, lg: 25 } },
       }}
     >
-      {features.map((feature) => (
-        <FeatureBlock key={feature.smallTitle} feature={feature} />
+      {props.features_sections.map(({ id, value }, index) => (
+        <FeatureBlock key={id} feature={value} index={index} />
       ))}
     </Box>
   );
 };
 
-const quoteLessIcons = [
-  {
-    id: 1,
-    logo: dfdsLogo,
-  },
-  {
-    id: 2,
-    logo: grupoLogo,
-  },
-];
+type QuoteSectionProps = {
+  testimonials: Testimonial[];
+  quoteless_testimonials: Testimonial[];
+};
 
-const QuoteSection = () => {
+const QuoteSection = ({ testimonials, quoteless_testimonials }: QuoteSectionProps) => {
   const quoteSectionRef = useRef(undefined);
   const isVisible = useOnScreen(quoteSectionRef);
   const [activeQuote, _setActiveQuote] = useState(0);
@@ -1249,7 +1104,7 @@ const QuoteSection = () => {
     let t: NodeJS.Timeout;
     if (isVisible) {
       t = setInterval(() => {
-        if (activeQuoteRef.current === quotes.length - 1) {
+        if (activeQuoteRef.current === testimonials.length - 1) {
           setActiveQuote(0);
         } else {
           setActiveQuote(activeQuoteRef.current + 1);
@@ -1267,26 +1122,31 @@ const QuoteSection = () => {
         <Box sx={{ flex: 1 }}>
           <Box sx={quoteSectionLeftContainer}>
             <Box sx={quoteSectionLeftInner}>
-              {quotes.map((quote, index) => (
+              {testimonials.map((quote, index) => (
                 <Box
-                  key={quote.title}
+                  key={quote.id}
                   sx={{
                     ...quoteSectionLeftBg,
-                    backgroundImage: `url("${quote.bgImage}")`,
+                    backgroundImage: `url("${quote.bg_image[0].url}")`,
                     opacity: activeQuote === index ? 1 : 0,
                   }}
                 />
               ))}
-              {quotes.map((quote, index) => (
+              {testimonials.map((quote, index) => (
                 <Box
-                  key={quote.title}
+                  key={quote.id}
                   sx={{
                     ...quoteSectionLeftLogo,
                     opacity: activeQuote === index ? 1 : 0,
                   }}
                 >
                   <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                    <Image
+                      src={quote.logo[0].url}
+                      alt="quote-logo"
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               ))}
@@ -1299,9 +1159,9 @@ const QuoteSection = () => {
           </Box>
         </Box>
         <Box sx={quoteSectionRightContainer}>
-          {quotes.map((quote, index) => (
+          {testimonials.map((quote, index) => (
             <Box
-              key={quote.title}
+              key={quote.id}
               sx={{
                 mb: activeQuote === index ? 7 : 0,
                 opacity: activeQuote === index ? 1 : 0,
@@ -1314,35 +1174,45 @@ const QuoteSection = () => {
                 <Typography variant="h2_new" sx={{ mb: 3 }}>
                   {quote.title}
                 </Typography>
-                <Typography variant="body_normal">{quote.body}</Typography>
+                <Typography variant="body_normal">{quote.text}</Typography>
               </Box>
               <Typography variant="h6_new" sx={{ mb: '2px' }}>
-                {quote.person}
+                {quote.author}
               </Typography>
               <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
-                {quote.role}
+                {quote.author_job_title}
               </Typography>
             </Box>
           ))}
           <Box sx={quoteSectionQuoteLogos}>
-            {quotes.map((quote, index) => {
+            {testimonials.map((quote, index) => {
               let styles = quoteSectionQuoteLogoBox;
               if (index === activeQuote) {
                 styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
               }
               return (
-                <Box key={quote.title} sx={styles} onClick={() => setActiveQuote(index)}>
+                <Box key={quote.id} sx={styles} onClick={() => setActiveQuote(index)}>
                   <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                    <Image
+                      src={quote.logo[0].url}
+                      alt="quote-logo"
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               );
             })}
-            {quoteLessIcons.map((quote) => {
+            {quoteless_testimonials.map((quote) => {
               return (
                 <Box key={quote.id} sx={{ ...quoteSectionQuoteLogoBox, '&:hover': {} }}>
                   <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
+                    <Image
+                      src={quote.logo[0].url}
+                      alt="quote-logo"
+                      layout="fill"
+                      objectFit="contain"
+                    />
                   </Box>
                 </Box>
               );
@@ -1352,66 +1222,62 @@ const QuoteSection = () => {
       </Hidden>
       <Hidden xlUp>
         <Box sx={quoteSectionContainerMobile}>
-          {quotes.map((quote, index) => (
-            <Box
-              key={quote.title}
-              sx={{
-                height: '100%',
-                pt: 7,
-                pb: 4,
-                px: 2,
-                zIndex: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                position: activeQuote === index ? 'relative' : 'absolute',
-                opacity: activeQuote === index ? 1 : 0,
-              }}
-            >
+          {testimonials.map((quote, index) => {
+            return (
               <Box
+                key={quote.id}
                 sx={{
-                  ...quoteSectionBgMobile,
-                  backgroundImage: `url("${quote.bgImage}")`,
-                  zIndex: -1,
-                }}
-              />
-              <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
-                <Box
-                  sx={{
-                    ...quoteSectionLogoMobile,
-                    opacity: activeQuote === index ? 1 : 0,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      width: quote.logoSize.width,
-                      height: quote.logoSize.height,
-                    }}
-                  >
-                    <Image src={quote.logo} alt="quote-logo" layout="fill" objectFit="contain" />
-                  </Box>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  // minHeight: 275,
-                  mb: 2.5,
+                  height: '100%',
+                  pt: 7,
+                  pb: 4,
+                  px: 2,
+                  zIndex: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  position: activeQuote === index ? 'relative' : 'absolute',
+                  opacity: activeQuote === index ? 1 : 0,
                 }}
               >
-                <Typography variant="h2_new" sx={{ mb: 1.5 }}>
-                  {quote.title}
+                <Box
+                  sx={{
+                    ...quoteSectionBgMobile,
+                    backgroundImage: `url("${quote.bg_image[0].url}")`,
+                    zIndex: -1,
+                  }}
+                />
+                <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
+                  <Box
+                    sx={{
+                      ...quoteSectionLogoMobile,
+                      opacity: activeQuote === index ? 1 : 0,
+                    }}
+                  >
+                    <Box sx={{ position: 'relative' }}>
+                      <CMSImage value={{ svg_image: quote.logo[0] }} />
+                    </Box>
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    // minHeight: 275,
+                    mb: 2.5,
+                  }}
+                >
+                  <Typography variant="h2_new" sx={{ mb: 1.5 }}>
+                    {quote.title}
+                  </Typography>
+                  <Typography variant="body_normal">{quote.text}</Typography>
+                </Box>
+                <Typography variant="h6_new" sx={{ mb: '2px' }}>
+                  {quote.author}
                 </Typography>
-                <Typography variant="body_normal">{quote.body}</Typography>
+                <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
+                  {quote.author_job_title}
+                </Typography>
               </Box>
-              <Typography variant="h6_new" sx={{ mb: '2px' }}>
-                {quote.person}
-              </Typography>
-              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
-                {quote.role}
-              </Typography>
-            </Box>
-          ))}
+            );
+          })}
           <Box sx={{ position: 'absolute', bottom: -24, right: 16 }}>
             <Box sx={{ position: 'relative' }}>
               <Image src={bigQuotes} alt="big-quotes" width={72} height={57} />
@@ -1423,63 +1289,90 @@ const QuoteSection = () => {
   );
 };
 
-const MediaCard_1 = () => {
+const MediaCard_1 = (props: HomePage) => {
   const matchesXL = useMediaQuery(MQ.xl);
+
+  const data = useMemo(() => {
+    return {
+      img: getImageUrl(props.learn_more_tile_1_header_image[0]),
+      authorImg: getImageUrl(props.learn_more_tile_1_header_author_image[0]),
+      author: props.learn_more_tile_1_author_name,
+      type: props.learn_more_tile_1_resource_type,
+      title: props.learn_more_tile_1_resource_title,
+      body: matchesXL ? props.learn_more_tile_1_resource_snippet : '',
+      date: props.learn_more_tile_1_resource_date,
+      pillText: props.learn_more_tile_1_pill_text,
+      href:
+        props.learn_more_tile_1_link &&
+        props.learn_more_tile_1_link[0] &&
+        props.learn_more_tile_1_link[0].value,
+      videoId: props.learn_more_tile_1_video_id,
+    };
+  }, [props, matchesXL]);
 
   return (
     <MediaCard
-      img={mainArticleImg}
       imgHeight={matchesXL ? 260 : 180}
-      profileImg={grantGuminaProfile}
-      profileImgSize="big"
-      person="Grant Gumina"
-      type="webinar"
-      title="Control Planes: The Missing Ingredient for Cloud Native Developer Platforms"
+      authorImgSize="big"
       titleVariant="h4_new"
-      body={
-        matchesXL
-          ? `Who you get infrastructure from and how you build applications for it has changed.
-          Now more than ever, customers are utilizing best-in-class infrastructure from the vendors
-          of their choice. However, this presents challenges...`
-          : ''
-      }
-      href="https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar"
+      {...data}
     />
   );
 };
 
-const MediaCard_2 = () => {
+const MediaCard_2 = (props: HomePage) => {
   const matchesXL = useMediaQuery(MQ.xl);
+
+  const data = useMemo(() => {
+    return {
+      img: getImageUrl(props.learn_more_tile_2_header_image[0]),
+      author: props.learn_more_tile_2_author_name,
+      type: props.learn_more_tile_2_resource_type,
+      title: props.learn_more_tile_2_resource_title,
+      body: matchesXL ? props.learn_more_tile_2_resource_snippet : '',
+      date: props.learn_more_tile_2_resource_date,
+      pillText: props.learn_more_tile_2_pill_text,
+      href:
+        props.learn_more_tile_2_link &&
+        props.learn_more_tile_2_link[0] &&
+        props.learn_more_tile_2_link[0].value,
+      videoId: props.learn_more_tile_2_video_id,
+    };
+  }, [props, matchesXL]);
 
   return (
     <MediaCard
       layout={matchesXL ? 'horizontal' : 'vertical'}
-      img={matchesXL ? matthiasArticleImg : null}
       imgHeight={130}
       imgWidth={130}
-      person="Matthias Luebken"
-      type="Blog"
-      title="Announcing 100% Cloud Service Coverage for Crossplane"
-      pillText="Must read!"
-      href={`${routes.upboundBlogUrl}cloud-service-coverage/`}
+      {...data}
     />
   );
 };
 
-const MediaCard_3 = () => {
-  return (
-    <MediaCard
-      type="video"
-      person="Viktor Farcic"
-      title="VIDEO: How to Manage Multi-Cloud Resources"
-      date="25 May, 2022"
-      pillText="New!"
-      videoId="VTTwzVSwWVo"
-    />
-  );
+const MediaCard_3 = (props: HomePage) => {
+  const data = useMemo(() => {
+    return {
+      img: getImageUrl(props.learn_more_tile_3_header_image[0]),
+      authorImg: getImageUrl(props.learn_more_tile_3_header_author_image[0]),
+      author: props.learn_more_tile_3_author_name,
+      type: props.learn_more_tile_3_resource_type,
+      title: props.learn_more_tile_3_resource_title,
+      body: props.learn_more_tile_3_resource_snippet,
+      date: props.learn_more_tile_3_resource_date,
+      pillText: props.learn_more_tile_3_pill_text,
+      href:
+        props.learn_more_tile_3_link &&
+        props.learn_more_tile_3_link[0] &&
+        props.learn_more_tile_3_link[0].value,
+      videoId: props.learn_more_tile_3_video_id,
+    };
+  }, [props]);
+
+  return <MediaCard {...data} />;
 };
 
-const RegisterForm = () => {
+const RegisterForm = (props: HomePage) => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -1617,7 +1510,7 @@ const RegisterForm = () => {
         </>
       ) : (
         <>
-          <Typography sx={registerFormTitle}>Register for our monthly newsletter</Typography>
+          <Typography sx={registerFormTitle}>{props.learn_more_tile_4_title}</Typography>
           <form onSubmit={submitEmail}>
             <Tooltip
               onClose={() => setEmailError('')}
@@ -1661,91 +1554,98 @@ const RegisterForm = () => {
   );
 };
 
-const VisitBlogCard = () => {
+const VisitBlogCard = (props: HomePage) => {
   return (
     <CornerCard
       icon={arrowCircle}
       iconSize="small"
       withPadding={false}
-      href={routes.upboundBlogUrl}
+      href={props.learn_more_tile_5_link[0].value}
     >
       <Box sx={visitCard}>
-        <Typography variant="h6_new">Visit the Upbound Blog</Typography>
+        <Typography variant="h6_new">{props.learn_more_tile_5_title}</Typography>
       </Box>
     </CornerCard>
   );
 };
 
-type Props = {};
+type Props = {
+  isPreview?: boolean;
+} & HomePage;
 
-const Home = ({}: Props) => {
+const Home = (props: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
 
   return (
-    <PageProvider>
+    <PageProvider isPreview={props.isPreview}>
       <Section sx={headerSection}>
-        <HeaderSection />
+        <HeaderSection {...props.header[0].value} />
       </Section>
+
       <Section
         bgcolor
         angleTopBottom="topBtmRight"
         sx={{ pt: { _: 16, md: 23.5 }, pb: { _: 16, md: 23.5 }, textAlign: 'center' }}
       >
-        <Typography variant="h2_new" sx={{ mb: 2.5 }}>
-          Committed to open source.
-          <Hidden smDown>
-            <br />
-          </Hidden>
-          <Hidden smUp> </Hidden>
-          Powered by Crossplane.
-        </Typography>
+        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <Typography variant="h2_new" sx={{ mb: 2.5, maxWidth: { _: 400, md: 800 } }}>
+            {props.section_1_title}
+          </Typography>
+        </Box>
         <Hidden smDown>
           <Typography variant="body_normal" sx={{ mb: 8, mx: 'auto' }}>
-            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+            {props.section_1_sub_title}
           </Typography>
         </Hidden>
         <Hidden smUp>
           <Typography variant="body_big" sx={{ mb: 8, mx: 'auto', maxWidth: 480 }}>
-            Created by Upbound, Crossplane is a framework for building cloud native control planes.
+            {props.section_1_sub_title}
           </Typography>
         </Hidden>
+        <CrossplaneLogosSection {...props} />
+      </Section>
 
-        <CrossplaneLogosSection />
-      </Section>
       <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative' }}>
-        <FeaturesSection />
+        <FeaturesSection {...props} />
       </Section>
-      <Section
-        bgcolor
-        angleTop="topRight"
-        hasContainer={matchesXL}
-        sx={{
-          position: 'relative',
-          pt: { xl: 18 },
-          pb: { xl: 7.5 },
-        }}
-      >
-        <QuoteSection />
-      </Section>
+
+      {props.testimonials && (
+        <Section
+          bgcolor
+          angleTop="topRight"
+          hasContainer={matchesXL}
+          sx={{
+            position: 'relative',
+            pt: { xl: 18 },
+            pb: { xl: 7.5 },
+          }}
+        >
+          <QuoteSection
+            testimonials={props.testimonials}
+            quoteless_testimonials={props.quoteless_testimonials}
+          />
+        </Section>
+      )}
+
       <Section sx={discoverSection}>
         <Hidden xlDown>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
-            <Typography variant="h2_new">Learn more about Upbound</Typography>
+            <Typography variant="h2_new">{props.learn_more_section_title}</Typography>
             <Box sx={{ display: 'flex', ml: 3.5 }}>
               <FullArrowRight width={32} height={32} />
             </Box>
           </Box>
           <Box sx={{ display: 'flex', height: 550 }}>
             <Box sx={{ height: '100%', width: 540 }}>
-              <MediaCard_1 />
+              <MediaCard_1 {...props} />
             </Box>
             <Box sx={{ flex: 1, ml: 2.5 }}>
               <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
-                <MediaCard_2 />
+                <MediaCard_2 {...props} />
               </Box>
               <Box sx={{ display: 'flex' }}>
                 <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
-                  <MediaCard_3 />
+                  <MediaCard_3 {...props} />
                 </Box>
                 <Box
                   sx={{
@@ -1756,9 +1656,9 @@ const Home = ({}: Props) => {
                     flexDirection: 'column',
                   }}
                 >
-                  <RegisterForm />
+                  <RegisterForm {...props} />
                   <Box sx={{ flex: 1 }}>
-                    <VisitBlogCard />
+                    <VisitBlogCard {...props} />
                   </Box>
                 </Box>
               </Box>
@@ -1790,19 +1690,19 @@ const Home = ({}: Props) => {
               </Box>
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_1 />
+              <MediaCard_1 {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_2 />
+              <MediaCard_2 {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_3 />
+              <MediaCard_3 {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <RegisterForm />
+              <RegisterForm {...props} />
             </Box>
             <Box sx={{ width: '100%', maxWidth: 400 }}>
-              <VisitBlogCard />
+              <VisitBlogCard {...props} />
             </Box>
           </Box>
         </Hidden>
@@ -1812,3 +1712,17 @@ const Home = ({}: Props) => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const returnValue = await handleGetStaticProps(context, '/', true);
+
+  if (returnValue) {
+    return {
+      props: returnValue,
+    };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
+};
