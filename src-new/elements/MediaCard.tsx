@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
-import { Box, SxProps, Typography } from '@mui/material';
+import { Box, SxProps, Typography, useMediaQuery } from '@mui/material';
 import { COLORS, fontAvenirBold, fontAvenirRoman, fontAvenirRomanItalic, MQ } from 'src/theme';
 
 import Link from 'src-new/elements/Link';
@@ -169,6 +169,8 @@ const MediaCard = ({
   href,
   videoId,
 }: Props) => {
+  const matchesXL = useMediaQuery(MQ.xl);
+
   const [isVideoVisible, setVideoVisible] = useState(false);
 
   const isVideo = useMemo(() => {
@@ -214,7 +216,7 @@ const MediaCard = ({
               objectFit="cover"
               objectPosition="center"
             />
-            {isVideo && (
+            {isVideo && matchesXL && (
               <Box sx={videoPlayIconContainer}>
                 <Box sx={{ position: 'relative', maxWidth: '50%' }}>
                   <Image src={VideoPlayIcon} alt="video-play" />
