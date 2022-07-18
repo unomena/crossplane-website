@@ -1325,7 +1325,7 @@ const MediaCard_2 = (props: HomePage) => {
 
   const data = useMemo(() => {
     return {
-      img: getImageUrl(props.learn_more_tile_2_header_image[0]),
+      img: matchesXL ? getImageUrl(props.learn_more_tile_2_header_image[0]) : null,
       author: props.learn_more_tile_2_author_name,
       type: props.learn_more_tile_2_resource_type,
       title: props.learn_more_tile_2_resource_title,
