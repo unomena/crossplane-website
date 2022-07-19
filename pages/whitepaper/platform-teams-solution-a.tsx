@@ -412,8 +412,8 @@ const LandingPageV1 = ({}: Props) => {
               Upbound: A platform for platform teams
             </Typography>
             <Typography variant="body_big" sx={{ mb: 5 }}>
-              We give you the easiest way to build your internal cloud platform- read our whitepaper
-              to learn how.
+              We give you the easiest way to build your internal cloud platform - read our
+              whitepaper to learn how.
             </Typography>
             <HeaderForm />
           </Box>
