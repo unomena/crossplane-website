@@ -467,7 +467,9 @@ const About: React.FC = () => {
               <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
                 {feature.title}
               </Header>
-              <Paragraph color="white" sx={{ whiteSpace: 'pre-wrap' }}>{feature.body}</Paragraph>
+              <Paragraph color="white" sx={{ whiteSpace: 'pre-wrap' }}>
+                {feature.body}
+              </Paragraph>
             </Box>
           ))}
         </Box>
