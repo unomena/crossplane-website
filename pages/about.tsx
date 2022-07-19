@@ -145,14 +145,13 @@ const values = [
 const caringFeatures = [
   {
     title: 'Ownership',
-    body: `Upbounders are giving meaningful equity.
-    Everyone here is an owner and benefits from the success of the company.`,
+    // eslint-disable-next-line max-len
+    body: `Upbounders are giving meaningful equity. Everyone here is an owner and benefits from the success of the company.`,
   },
   {
     title: 'Health Care Benefits',
-    body: `We cover 100% of the medical and dental premiums
-    and 99% vision for Upbounders. We believe you do your best
-    when you’re not worried about your health.`,
+    // eslint-disable-next-line max-len
+    body: `We cover 100% of the medical and dental premiums and 99% vision for *US-based Upbounders. We believe you do your best when you're not worried about your health.\n\n*Other locations vary.`,
   },
   {
     title: '401k plan',
@@ -160,8 +159,8 @@ const caringFeatures = [
   },
   {
     title: 'Work From Anywhere',
-    body: `Upbound is a remote first company. Work where you want,
-    how you want.  You have flexibility to work anywhere.`,
+    // eslint-disable-next-line max-len
+    body: `Upbound is a remote first company. Work where you want, how you want.  You have flexibility to work anywhere.`,
   },
   {
     title: 'Flexible Hours and PTO',
@@ -459,7 +458,8 @@ const About: React.FC = () => {
                 boxShadow: '0 50px 50px 0 rgba(0, 0, 0, 0.05)',
                 textAlign: 'left',
                 maxWidth: '350px',
-                minHeight: '228px',
+                // minHeight: '228px',
+                minHeight: '312px',
                 mx: '20px',
                 mb: '40px',
               }}
@@ -467,7 +467,9 @@ const About: React.FC = () => {
               <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
                 {feature.title}
               </Header>
-              <Paragraph color="white">{feature.body}</Paragraph>
+              <Paragraph color="white" sx={{ whiteSpace: 'pre-wrap' }}>
+                {feature.body}
+              </Paragraph>
             </Box>
           ))}
         </Box>
