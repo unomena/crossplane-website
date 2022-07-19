@@ -386,7 +386,7 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
                     Universal Crossplane
                   </Link>
                   <Link sx={mobileFooterColumnLink} href={routes.productsRegistryRoute}>
-                    Upbound Registry
+                    Marketplace
                   </Link>
                   <Anchor sx={mobileFooterColumnAnchor} href={routes.contactSalesUrl}>
                     Request Demo
@@ -540,7 +540,7 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
                   Universal Crossplane
                 </Link>
                 <Link sx={largeFooterLinkStyle} href={routes.productsRegistryRoute}>
-                  Upbound Registry
+                  Marketplace
                 </Link>
                 <Anchor sx={largeFooterLinkStyle} href={routes.contactSalesUrl}>
                   Request Demo
