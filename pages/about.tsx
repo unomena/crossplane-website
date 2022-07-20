@@ -151,7 +151,8 @@ const caringFeatures = [
   {
     title: 'Health Care Benefits',
     // eslint-disable-next-line max-len
-    body: `We cover 100% of the medical and dental premiums and 99% vision for *US-based Upbounders. We believe you do your best when you're not worried about your health.\n\n*Other locations vary.`,
+    body: `We cover 100% of the medical and dental premiums and 99% vision for *US-based Upbounders. We believe you do your best when you're not worried about your health.`,
+    sub_text: '*Other locations vary',
   },
   {
     title: '401k plan',
@@ -459,7 +460,7 @@ const About: React.FC = () => {
                 textAlign: 'left',
                 maxWidth: '350px',
                 // minHeight: '228px',
-                minHeight: '312px',
+                minHeight: '308px',
                 mx: '20px',
                 mb: '40px',
               }}
@@ -467,8 +468,9 @@ const About: React.FC = () => {
               <Header variant="h5" bold={true} color="white" sx={{ mb: '10px' }}>
                 {feature.title}
               </Header>
-              <Paragraph color="white" sx={{ whiteSpace: 'pre-wrap' }}>
-                {feature.body}
+              <Paragraph color="white">{feature.body}</Paragraph>
+              <Paragraph color="white" sx={{ mt: 3, fontSize: '13px' }}>
+                {feature.sub_text}
               </Paragraph>
             </Box>
           ))}
