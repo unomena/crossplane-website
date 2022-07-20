@@ -5,16 +5,18 @@ import { SxProps } from '@mui/system';
 import { COLORS, MQ } from 'src/theme';
 
 const topRight: SxProps = {
-  clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
-  [MQ.xl]: {
-    clipPath: 'polygon(0 7%, 100% 0, 100% 100%, 0% 100%)',
-  },
+  clipPath: 'polygon(0 45px, 100% 0, 100% 100%, 0% 100%)',
+  // clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
+  // [MQ.xl]: {
+  //   clipPath: 'polygon(0 7%, 100% 0, 100% 100%, 0% 100%)',
+  // },
 };
 const topLeft: SxProps = {
-  clipPath: 'polygon(0 0, 100% 7%, 100% 100%, 0% 100%)',
-  [MQ.xl]: {
-    clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
-  },
+  clipPath: 'polygon(0 0, 100% 45px, 100% 100%, 0% 100%)',
+  // clipPath: 'polygon(0 0, 100% 7%, 100% 100%, 0% 100%)',
+  // [MQ.xl]: {
+  //   clipPath: 'polygon(0 10%, 100% 0, 100% 100%, 0% 100%)',
+  // },
 };
 const btmRight: SxProps = {
   clipPath: 'polygon(0 0, 100% 0, 100% 97%, 0 100%)',

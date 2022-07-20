@@ -14,7 +14,7 @@ import * as routes from 'src/routes';
 
 import { Anchor, Link } from 'src/elements/Anchor';
 import { Img } from 'src/elements/Img';
-import TryForFreeCard from 'src-new/components/TryForFreeCard';
+import CTACard from 'src-new/components/CTACard';
 
 import cncfIcon from 'public/cncf-icon.png';
 import githubLogo from 'public/github.svg';
@@ -360,11 +360,23 @@ const mobileFooterCNCFSpan: SxProps = {
 
 type Props = {
   isFooterVisible?: boolean;
-  hideTryForFreeCard?: boolean;
+  hideCTACard?: boolean;
   removeFooterPadding?: boolean;
+  ctaTitle?: string;
+  ctaParagraph?: string;
+  ctaBtnText?: string;
+  ctaBtnLink?: string;
 };
 
-const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPadding }: Props) => {
+const PageFooter = ({
+  isFooterVisible = true,
+  hideCTACard,
+  removeFooterPadding,
+  ctaTitle,
+  ctaParagraph,
+  ctaBtnText,
+  ctaBtnLink,
+}: Props) => {
   if (isFooterVisible === false) {
     return null;
   }
@@ -374,7 +386,14 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
       <Box sx={footerBackgroundContainer}>
         <Hidden lgUp>
           <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}>
-            {!hideTryForFreeCard && <TryForFreeCard />}
+            {!hideCTACard && (
+              <CTACard
+                title={ctaTitle}
+                paragraph={ctaParagraph}
+                btnText={ctaBtnText}
+                btnLink={ctaBtnLink}
+              />
+            )}
             <Box sx={mobileFooterLinkColumnsContainer}>
               <Box sx={mobileFooterLinkColumnsWidthContainer}>
                 <Box sx={mobileFooterLinkColumnContainer}>
@@ -494,7 +513,14 @@ const PageFooter = ({ isFooterVisible = true, hideTryForFreeCard, removeFooterPa
         </Hidden>
         <Hidden lgDown>
           <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '268px' }}>
-            {!hideTryForFreeCard && <TryForFreeCard />}
+            {!hideCTACard && (
+              <CTACard
+                title={ctaTitle}
+                paragraph={ctaParagraph}
+                btnText={ctaBtnText}
+                btnLink={ctaBtnLink}
+              />
+            )}
             <Box sx={largeFooterLinkColumnsContainer}>
               <Box sx={largeFooterLogoAndSocialsContainer}>
                 <Link sx={largeFooterLogoLink} href={routes.homeRoute}>

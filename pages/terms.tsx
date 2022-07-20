@@ -43,7 +43,7 @@ const paragraphSpacingLg: SxProps = {
 
 const TermsOfUse = () => {
   return (
-    <PageProvider displayTitle="Upbound - Terms of Service" hideTryForFreeCard removeFooterPadding>
+    <PageProvider displayTitle="Upbound - Terms of Service" hideCTACard removeFooterPadding>
       <Box
         pt="130px"
         mb="50px"

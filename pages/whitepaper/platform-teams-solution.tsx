@@ -138,6 +138,7 @@ const HeaderForm = () => {
       const token = await handleReCaptchaVerify();
 
       const postData = {
+        page_version: 'v2',
         recaptcha_token: token,
         ...values,
       };
@@ -364,7 +365,7 @@ type Props = {};
 
 const LandingPage = ({}: Props) => {
   return (
-    <PageProvider hideTryForFreeCard removeFooterPadding>
+    <PageProvider hideCTACard removeFooterPadding>
       <Section sx={headerSection}>
         <Box
           sx={{

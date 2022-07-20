@@ -199,7 +199,7 @@ const metaDescription =
 
 const Partners: React.FC = () => {
   return (
-    <PageProvider displayTitle={displayTitle} metaDescription={metaDescription} hideTryForFreeCard>
+    <PageProvider displayTitle={displayTitle} metaDescription={metaDescription} hideCTACard>
       <Hero>
         <Box display="flex" maxWidth="1100px" mx="auto" px="30px">
           <Box

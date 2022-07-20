@@ -28,8 +28,12 @@ type Props = {
   metaTitle?: string;
   metaDescription?: string;
   metaImg?: string;
-  hideTryForFreeCard?: boolean;
+  hideCTACard?: boolean;
   removeFooterPadding?: boolean;
+  ctaTitle?: string;
+  ctaParagraph?: string;
+  ctaBtnText?: string;
+  ctaBtnLink?: string;
   isPreview?: boolean;
 };
 
@@ -41,8 +45,12 @@ const PageProvider = ({
   metaTitle = displayTitle,
   metaDescription = defaultDescription,
   metaImg = defaultImg,
-  hideTryForFreeCard,
+  hideCTACard,
   removeFooterPadding,
+  ctaTitle,
+  ctaParagraph,
+  ctaBtnText,
+  ctaBtnLink,
   isPreview,
 }: Props) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
@@ -81,8 +89,12 @@ const PageProvider = ({
         {children}
         <PageFooter
           isFooterVisible={isFooterVisible}
-          hideTryForFreeCard={hideTryForFreeCard}
+          hideCTACard={hideCTACard}
           removeFooterPadding={removeFooterPadding}
+          ctaTitle={ctaTitle}
+          ctaParagraph={ctaParagraph}
+          ctaBtnText={ctaBtnText}
+          ctaBtnLink={ctaBtnLink}
         />
       </Box>
       {isPreview && <PreviewIndicator />}
