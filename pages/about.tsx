@@ -469,9 +469,11 @@ const About: React.FC = () => {
                 {feature.title}
               </Header>
               <Paragraph color="white">{feature.body}</Paragraph>
-              <Paragraph color="white" sx={{ mt: 3, fontSize: '13px' }}>
-                {feature.sub_text}
-              </Paragraph>
+              {feature.sub_text && (
+                <Paragraph color="white" sx={{ mt: 3, fontSize: '13px' }}>
+                  {feature.sub_text}
+                </Paragraph>
+              )}
             </Box>
           ))}
         </Box>
