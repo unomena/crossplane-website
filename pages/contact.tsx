@@ -189,22 +189,49 @@ const ContactForm = () => {
               />
             </Box>
           </Box>
-          <CTextField
-            name="email"
-            label="Business Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-          <CTextField
-            name="company"
-            label="Company"
-            value={formik.values.company}
-            onChange={formik.handleChange}
-            error={formik.touched.company && Boolean(formik.errors.company)}
-            helperText={formik.touched.company && formik.errors.company}
-          />
+          <Box
+            sx={{
+              [MQ.sm]: {
+                display: 'flex',
+                alignItems: 'center',
+              },
+            }}
+          >
+            <Box
+              sx={{
+                [MQ.sm]: {
+                  mr: 1,
+                  width: '50%',
+                },
+              }}
+            >
+              <CTextField
+                name="email"
+                label="Business Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+              />
+            </Box>
+            <Box
+              sx={{
+                [MQ.sm]: {
+                  ml: 1,
+                  width: '50%',
+                },
+              }}
+            >
+              <CTextField
+                name="company"
+                label="Company"
+                value={formik.values.company}
+                onChange={formik.handleChange}
+                error={formik.touched.company && Boolean(formik.errors.company)}
+                helperText={formik.touched.company && formik.errors.company}
+              />
+            </Box>
+          </Box>
           <Box sx={{ mt: 3, mb: 2 }}>
             <Typography variant="body_big">We'd love a little context</Typography>
             <Typography variant="body_small">
