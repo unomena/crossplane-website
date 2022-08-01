@@ -548,7 +548,7 @@ const UXP = () => {
           <Box textAlign="center" mb={{ _: '0', md: '100px' }} mx="30px">
             <AnchorButton
               btnType="blackOutline"
-              href={routes.contactSalesUrl}
+              href={routes.contactRoute}
               mobile={true}
               sx={{ mb: '60px' }}
             >

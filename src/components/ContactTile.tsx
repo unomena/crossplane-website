@@ -122,7 +122,7 @@ const contactLocation = (type: TileType) => {
       return routes.infoEmailUrl;
     }
     case 'demo': {
-      return routes.contactSalesUrl;
+      return routes.contactRoute;
     }
     default:
       return '';

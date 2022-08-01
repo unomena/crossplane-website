@@ -44,6 +44,7 @@ export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';
 
 export const homeRoute = '/';
 export const aboutRoute = '/about';
+export const contactRoute = '/contact';
 export const faqRoute = '/faq';
 export const partnersRoute = '/partners';
 export const pricingRoute = '/pricing';

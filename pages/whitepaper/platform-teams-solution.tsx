@@ -524,7 +524,7 @@ const LandingPage = ({}: Props) => {
                 },
               }}
               endIcon={<ArrowRight />}
-              href={routes.contactSalesUrl}
+              href={routes.contactRoute}
             >
               Contact Us
             </Button>

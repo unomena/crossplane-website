@@ -610,7 +610,7 @@ const PageFooter: React.FC<{
                   <MobileFooterColumnLink href={routes.productsRegistryRoute}>
                     Upbound Registry
                   </MobileFooterColumnLink>
-                  <MobileFooterColumnAnchor href={routes.contactSalesUrl}>
+                  <MobileFooterColumnAnchor href={routes.contactRoute}>
                     Request Demo
                   </MobileFooterColumnAnchor>
                   <MobileFooterColumnLink href={routes.pricingRoute}>
@@ -640,7 +640,7 @@ const PageFooter: React.FC<{
                   <MobileFooterColumnAnchor href={routes.upboundBlogUrl}>
                     Blog
                   </MobileFooterColumnAnchor>
-                  <MobileFooterColumnAnchor href={routes.contactSalesUrl}>
+                  <MobileFooterColumnAnchor href={routes.contactRoute}>
                     Contact Us
                   </MobileFooterColumnAnchor>
                 </MobileFooterLinkColumnContainer>
@@ -781,7 +781,7 @@ const PageFooter: React.FC<{
                 <LargeFooterLink href={routes.productsRegistryRoute}>
                   Upbound Registry
                 </LargeFooterLink>
-                <LargeFooterAnchor href={routes.contactSalesUrl}>Request Demo</LargeFooterAnchor>
+                <LargeFooterAnchor href={routes.contactRoute}>Request Demo</LargeFooterAnchor>
                 <LargeFooterLink href={routes.pricingRoute}>Plans & Pricing</LargeFooterLink>
                 <LargeFooterLink href={routes.partnersRoute}>Partner Program</LargeFooterLink>
               </LargeFooterLinkColumnContainer>
@@ -799,7 +799,7 @@ const PageFooter: React.FC<{
                   <FooterCareersPill>Now Hiring</FooterCareersPill>
                 </LargeFooterAnchor>
                 <LargeFooterAnchor href={routes.upboundBlogUrl}>Blog</LargeFooterAnchor>
-                <LargeFooterAnchor href={routes.contactSalesUrl}>Contact Us</LargeFooterAnchor>
+                <LargeFooterAnchor href={routes.contactRoute}>Contact Us</LargeFooterAnchor>
               </LargeFooterLinkColumnContainer>
               <LargeFooterLinkColumnContainer>
                 <LargeFooterLinksTitle>More</LargeFooterLinksTitle>

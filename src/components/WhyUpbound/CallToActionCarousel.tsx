@@ -34,7 +34,7 @@ export const CallToActionCarousel: React.FC<{
     </AnchorButton>
     <Hidden smUp>
       <AnchorButton
-        href={routes.contactSalesUrl}
+        href={routes.contactRoute}
         btnType="whiteOutline"
         bold={true}
         hasShadow={true}
@@ -46,7 +46,7 @@ export const CallToActionCarousel: React.FC<{
     <Hidden mdDown>
       <Paragraph color="white">
         Get a free tour from a team specialist,{' '}
-        <Anchor href={routes.contactSalesUrl}>
+        <Anchor href={routes.contactRoute}>
           <Span bold={true} sx={{ mr: '5px' }}>
             Request a Demo
           </Span>

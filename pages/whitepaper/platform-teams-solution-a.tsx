@@ -386,7 +386,7 @@ const LandingPageV1 = ({}: Props) => {
       // eslint-disable-next-line max-len
       ctaParagraph="Click below to fill out our contact form and an Upbound and Crossplane expert will reach out to schedule a meeting with you shortly."
       ctaBtnText="Contact Us"
-      ctaBtnLink={routes.contactSalesUrl}
+      ctaBtnLink={routes.contactRoute}
     >
       <Section sx={headerSection}>
         <Box

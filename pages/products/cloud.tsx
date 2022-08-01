@@ -435,7 +435,7 @@ const CloudProduct = () => {
             </Paragraph>
             <AnchorButton
               btnType="blackOutline"
-              href={routes.contactSalesUrl}
+              href={routes.contactRoute}
               mobile={true}
               sx={{
                 mt: '30px',
@@ -670,7 +670,7 @@ const CloudProduct = () => {
           <AnchorButton
             mobile={true}
             btnType="blackOutline"
-            href={routes.contactSalesUrl}
+            href={routes.contactRoute}
             sx={{ mb: '60px' }}
           >
             <Hidden mdUp>Contact Team Specialist</Hidden>

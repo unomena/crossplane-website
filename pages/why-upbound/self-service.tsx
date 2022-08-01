@@ -310,7 +310,7 @@ const SelfService: React.FC = () => {
             </Header>
             <AnchorButton
               btnType="aquaMarineFill"
-              href={routes.contactSalesUrl}
+              href={routes.contactRoute}
               sx={{
                 fontSize: { _: '14px', lg: '20px' },
                 lineHeight: { _: '16px', lg: '25px' },

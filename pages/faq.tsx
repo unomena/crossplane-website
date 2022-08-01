@@ -220,8 +220,8 @@ const generalFaqs = [
       <AnswerParagraph>
         You can start a trial of Upbound Cloud by creating an account{' '}
         <Anchor href={routes.cloudRegisterUrl}>here</Anchor>, or you can{' '}
-        <Anchor href={routes.contactSalesUrl}>reach out to our team</Anchor> to get a demo and
-        discuss pricing.
+        <Anchor href={routes.contactRoute}>reach out to our team</Anchor> to get a demo and discuss
+        pricing.
       </AnswerParagraph>
     ),
   },
