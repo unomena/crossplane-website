@@ -47,17 +47,52 @@ const headerSection: SxProps = {
   },
 };
 
-const listStyles: SxProps = {
-  pl: 2,
-  py: 0,
-  listStyle: 'disc',
+const header_listStyles: SxProps = {
+  color: COLORS.linkWater,
+  mt: 10,
 
-  '& li': {
-    display: 'list-item',
-    pl: '8px',
-    '&::marker': {
-      color: COLORS.sun,
+  '& h3': {
+    margin: '0px 0px 24px',
+  },
+
+  '& h4': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    fontWeight: 'normal',
+    lineHeight: '28px',
+
+    [MQ.md]: {
+      fontSize: '20px',
+      lineHeight: '32px',
     },
+  },
+
+  '& p': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    letterSpacing: '0px',
+  },
+
+  '& ul': {
+    mt: 0,
+    pl: 2,
+    py: 0,
+    listStyle: 'disc',
+
+    '& li': {
+      display: 'list-item',
+      lineHeight: '28px',
+      p: 1,
+
+      '&::marker': {
+        color: COLORS.sun,
+      },
+    },
+  },
+
+  [MQ.lg]: {
+    mt: 0,
   },
 };
 
@@ -66,7 +101,7 @@ const listItemStyles: SxProps = {
   alignItems: 'center',
 };
 
-const iconListStyles: SxProps = {
+const section_1_listStyles: SxProps = {
   mt: 5,
   p: 0,
   '& li': {
@@ -87,7 +122,7 @@ const iconListStyles: SxProps = {
 
 const formStyles: SxProps = {
   m: 0,
-  mt: 5,
+  // mt: 5,
   p: 3,
   backgroundColor: COLORS.elephant,
   borderRadius: 3,
@@ -406,14 +441,7 @@ const Whitepaper = (props: Props) => {
             <Typography variant="body_big" sx={{ mb: 5 }}>
               {props.header_text}
             </Typography>
-            <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
-              {/* <Image
-                src={placeHolder}
-                alt="placeholder"
-                layout="fill"
-                objectFit="contain"
-                priority
-              /> */}
+            <Box sx={{ position: 'relative', width: '100%', height: '374px', mb: 5 }}>
               <CMSImage
                 value={props.header_image[0].value}
                 layout="fill"
@@ -421,66 +449,11 @@ const Whitepaper = (props: Props) => {
                 priority
               />
             </Box>
-            <Box
-              sx={{
-                mt: 5,
-                color: COLORS.linkWater,
-                '& h4': {
-                  fontSize: 20,
-                  fontWeight: '400',
-                },
-                ...listStyles, // rename to header_listStyles
-              }}
-            >
-              <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
-            </Box>
-            {/* <Typography variant="body_normal" sx={{ mt: 5, mb: 3 }}>
-              By Lee Sustar with Lauren Nelson, Charlie Dai, Duncan Dietz, Diane Lynch
-            </Typography>
-            <Typography variant="body_small" sx={{ mb: 3 }}>
-              In a post-digital-transformation world, businesses are pressured to keep up with the
-              speed of innovation — which is faster than ever.
-            </Typography>
-            <Typography variant="body_small" sx={{ mb: 3 }}>
-              This requires infrastructure teams to be fast, efficient, reliable and flexible, all
-              while managing a custom cloud platform that continues to grow in complexity.
-            </Typography>
-            <Typography variant="body_small" sx={{ mb: 3 }}>
-              Thanks to its well architected API designed around the principles of declarative
-              management and separation of concerns, as well as its active community, Kubernetes has
-              become platform teams’ go-to tool when attempting to build a custom cloud.
-            </Typography>
-            <Typography variant="body_small" sx={{ mb: 3 }}>
-              In the following Forrester report, “Kubernetes Best Practices”, principal analyst Lee
-              Sustar discusses how cloud leaders can successfully implement on-premise, public
-              cloud, or hybrid cloud solutions using Kubernetes.
-            </Typography>
-            <Typography variant="body_small">
-              Download the report to read more and learn why we believe that with the help of
-              Upbound, organizations can take the advantages of Kubernetes into a new paradigm of
-              ease and efficiency.
-            </Typography> */}
-            {/* <Hidden lgDown>
-              <Box sx={{ mt: 10 }}>
-                <Typography variant="h3_new" sx={{ mb: 3 }}>
-                  Ready to take Kubernetes to the next level?
-                </Typography>
-                <Typography variant="body_normal" sx={{ mb: 3 }}>
-                  Click below to fill out our contact form and an Upbound and Crossplane expert will
-                  reach out to schedule a meeting with you shortly.
-                </Typography>
-                <Typography variant="body_normal" sx={{ mb: 0 }}>
-                  By future-proofing your platform with Upbound, you can:
-                </Typography>
-                <List sx={listStyles}>
-                  {list.map((listItem) => (
-                    <ListItem key={listItem.id}>
-                      <Typography variant="body_small">{listItem.text}</Typography>
-                    </ListItem>
-                  ))}
-                </List>
+            <Hidden lgDown>
+              <Box sx={header_listStyles}>
+                <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
               </Box>
-            </Hidden> */}
+            </Hidden>
           </Box>
           <Box
             sx={{
@@ -507,38 +480,11 @@ const Whitepaper = (props: Props) => {
             </Box>
           </Box>
         </Box>
-        {/* <Hidden lgUp>
-          <Box
-            // ref={stopFormFixedRef}
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              pt: 10,
-              [MQ.lg]: {
-                width: '50%',
-              },
-            }}
-          >
-            <Typography variant="h3_new" sx={{ mb: 3 }}>
-              Ready to take Kubernetes to the next level?
-            </Typography>
-            <Typography variant="body_normal" sx={{ mb: 3 }}>
-              Click below to fill out our contact form and an Upbound and Crossplane expert will
-              reach out to schedule a meeting with you shortly.
-            </Typography>
-            <Typography variant="body_normal" sx={{ mb: 0 }}>
-              By future-proofing your platform with Upbound, you can:
-            </Typography>
-            <List sx={listStyles}>
-              {list.map((listItem) => (
-                <ListItem key={listItem.id}>
-                  <Typography variant="body_small">{listItem.text}</Typography>
-                </ListItem>
-              ))}
-            </List>
+        <Hidden lgUp>
+          <Box sx={header_listStyles}>
+            <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
           </Box>
-        </Hidden> */}
+        </Hidden>
       </Section>
       <Section bgcolor angleTop="topRight" sx={{ py: 20, pb: { _: 15, lg: 20 } }}>
         <Box
@@ -591,11 +537,11 @@ const Whitepaper = (props: Props) => {
               sx={{
                 pl: { _: 0, lg: '100px' },
                 color: COLORS.linkWater,
-                ...iconListStyles, // rename to section_1_listStyles
+                ...section_1_listStyles, // rename to section_1_listStyles
               }}
             >
               <div dangerouslySetInnerHTML={{ __html: props.section_1_richtext }}></div>
-              {/* <List sx={iconListStyles}>
+              {/* <List sx={section_1_listStyles}>
                 {iconListContent.map((iconListItem) => (
                   // <IconListItem key={iconListItem.id} iconListItem={iconListItem} />
                   <ListItem key={iconListItem.id}>
