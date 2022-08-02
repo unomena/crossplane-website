@@ -197,6 +197,7 @@ type ProductPage = {
 };
 
 type WhitepaperPage = {
+  id: number;
   header_title: string;
   header_text: string;
   header_image: ImageType[];

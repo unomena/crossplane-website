@@ -108,7 +108,7 @@ interface FormValues {
   legal_consent: boolean;
 }
 
-const HeaderForm = () => {
+const HeaderForm = (props: WhitepaperPage) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -144,6 +144,7 @@ const HeaderForm = () => {
       const postData = {
         page_version: 'v2',
         recaptcha_token: token,
+        page_id: props.id,
         ...values,
       };
 
@@ -502,7 +503,7 @@ const Whitepaper = (props: Props) => {
                 },
               }}
             >
-              <HeaderForm />
+              <HeaderForm {...props} />
             </Box>
           </Box>
         </Box>
