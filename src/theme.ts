@@ -401,32 +401,32 @@ export const globalStyle = css`
     }
   }
 
-  h2 {
-    font-family: 'Avenir-Black', 'Arial', sans-serif;
-    color: #d3e7f7;
-    font-size: 27px;
-    line-height: 32px;
-    letter-spacing: -0.25px;
+  // h2 {
+  //   font-family: 'Avenir-Black', 'Arial', sans-serif;
+  //   color: #d3e7f7;
+  //   font-size: 27px;
+  //   line-height: 32px;
+  //   letter-spacing: -0.25px;
 
-    @media screen and (min-width: 768px) {
-      font-size: 54px;
-      line-height: 62px;
-      letter-spacing: -0.55px;
-    }
-  }
-  h3 {
-    font-family: 'Avenir-Black', 'Arial', sans-serif;
-    color: #d3e7f7;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: -0.25px;
+  //   @media screen and (min-width: 768px) {
+  //     font-size: 54px;
+  //     line-height: 62px;
+  //     letter-spacing: -0.55px;
+  //   }
+  // }
+  // h3 {
+  //   font-family: 'Avenir-Black', 'Arial', sans-serif;
+  //   color: #d3e7f7;
+  //   font-size: 24px;
+  //   line-height: 28px;
+  //   letter-spacing: -0.25px;
 
-    @media screen and (min-width: 768px) {
-      font-size: 40px;
-      line-height: 48px;
-      letter-spacing: -0.4px;
-    }
-  }
+  //   @media screen and (min-width: 768px) {
+  //     font-size: 40px;
+  //     line-height: 48px;
+  //     letter-spacing: -0.4px;
+  //   }
+  // }
   // p {
   //   font-size: 14px;
   //   line-height: 22px;

@@ -1,10 +1,9 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
-import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, List, ListItem, Hidden } from '@mui/material';
+import { Box, SxProps, Typography, Hidden } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -31,8 +30,6 @@ import Link from 'src-new/elements/Link';
 import CMSImage from 'src-new/elements/CMSImage';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
-import placeHolder from 'public/new-images/Whitepaper-mockup.png';
-import ArrowRight from 'src-new/svg/ArrowRight';
 import CheckIcon from 'public/new-images/icons/check.svg';
 
 const headerSection: SxProps = {
@@ -51,10 +48,31 @@ const header_listStyles: SxProps = {
   color: COLORS.linkWater,
   mt: 10,
 
+  '& h2': {
+    fontFamily: 'Avenir-Black, Arial, sans-serif',
+    fontSize: '27px',
+    lineHeight: '32px',
+    letterSpacing: '-0.25px',
+
+    [MQ.md]: {
+      fontSize: '54px',
+      lineHeight: '62px',
+      letterSpacing: '-0.55px',
+    },
+  },
   '& h3': {
     margin: '0px 0px 24px',
-  },
+    fontFamily: 'Avenir-Black, Arial, sans-serif',
+    fontSize: '24px',
+    lineHeight: '28px',
+    letterSpacing: '-0.25px',
 
+    [MQ.md]: {
+      fontSize: '40px',
+      lineHeight: '48px',
+      letterSpacing: '-0.4px',
+    },
+  },
   '& h4': {
     margin: '0px 0px 24px',
     fontSize: '16px',
@@ -77,14 +95,15 @@ const header_listStyles: SxProps = {
   '& ul': {
     mt: 0,
     pl: 2,
-    py: 0,
     listStyle: 'disc',
 
     '& li': {
+      pl: 1,
       display: 'list-item',
       lineHeight: '28px',
-      p: 1,
-
+      '&:not(:last-of-type)': {
+        mb: 3,
+      },
       '&::marker': {
         color: COLORS.sun,
       },
@@ -96,22 +115,24 @@ const header_listStyles: SxProps = {
   },
 };
 
-const listItemStyles: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-};
-
 const section_1_listStyles: SxProps = {
   mt: 5,
-  p: 0,
-  '& li': {
-    p: '0',
-    '&:not(:last-of-type)': {
-      mb: 3,
+  '& ul': {
+    pl: 3,
+    listStyleImage: `url(${CheckIcon.src})`,
+    '& li': {
+      pl: 2,
+      lineHeight: '28px',
+      '&:not(:last-of-type)': {
+        mb: 3,
+      },
+      '& a': {
+        color: COLORS.cornflower,
+        textDecoration: 'none',
+      },
     },
-    '& a': {
-      color: COLORS.cornflower,
-      textDecoration: 'none',
+    [MQ.lg]: {
+      p: 0,
     },
   },
 
@@ -122,7 +143,6 @@ const section_1_listStyles: SxProps = {
 
 const formStyles: SxProps = {
   m: 0,
-  // mt: 5,
   p: 3,
   backgroundColor: COLORS.elephant,
   borderRadius: 3,
@@ -333,80 +353,8 @@ const HeaderForm = (props: WhitepaperPage) => {
   );
 };
 
-// const list = [
-//   {
-//     id: 1,
-//     text: 'Enable a faster time to deployment',
-//   },
-//   {
-//     id: 2,
-//     text: 'Lower Capex AND Opex',
-//   },
-//   {
-//     id: 3,
-//     text: 'Reduce risk while innovating faster',
-//   },
-//   {
-//     id: 4,
-//     text: 'And so much more — including happier software engineers!',
-//   },
-// ];
-
-const iconListContent = [
-  {
-    id: 1,
-    icon: CheckIcon,
-    text: 'Upbound is committed to open source.',
-  },
-  {
-    id: 2,
-    icon: CheckIcon,
-    text: (
-      <>
-        Upbound is powered by <a href="https://crossplane.io/">Crossplane</a>, a Kubernetes add-on.
-      </>
-    ),
-  },
-  {
-    id: 3,
-    icon: CheckIcon,
-    text: 'Upbound is the cloud on your terms.',
-  },
-];
-
-// type IconListItemProps = {
-//   iconListItem: {
-//     text: string;
-//     icon: string | StaticImport;
-//   };
-// };
-
-// const IconListItem = ({ iconListItem }: IconListItemProps) => {
-//   const { id, text, icon } = iconListItem;
-
-//   return (
-//     <ListItem>
-//       <Box sx={listItemStyles}>
-//         <Box sx={{ mr: 2 }}>
-//           <Box
-//             sx={{
-//               position: 'relative',
-//               display: 'flex',
-//               width: 18,
-//             }}
-//           >
-//             <Image src={icon} alt="icon" />
-//           </Box>
-//         </Box>
-
-//         <Typography variant="body_small">{text}</Typography>
-//       </Box>
-//     </ListItem>
-//   );
-// };
-
-// const displayTitle = 'Products - The Universal Cloud Platform';
-// const metaImg = OGImgProducts.src;
+// const displayTitle = '';
+// const metaImg = .src;
 
 type Props = {
   isPreview?: boolean;
@@ -535,34 +483,12 @@ const Whitepaper = (props: Props) => {
           >
             <Box
               sx={{
-                pl: { _: 0, lg: '100px' },
+                pl: { _: 0, lg: '120px' },
                 color: COLORS.linkWater,
-                ...section_1_listStyles, // rename to section_1_listStyles
+                ...section_1_listStyles,
               }}
             >
               <div dangerouslySetInnerHTML={{ __html: props.section_1_richtext }}></div>
-              {/* <List sx={section_1_listStyles}>
-                {iconListContent.map((iconListItem) => (
-                  // <IconListItem key={iconListItem.id} iconListItem={iconListItem} />
-                  <ListItem key={iconListItem.id}>
-                    <Box sx={listItemStyles}>
-                      <Box sx={{ mr: 2 }}>
-                        <Box
-                          sx={{
-                            position: 'relative',
-                            display: 'flex',
-                            width: 18,
-                          }}
-                        >
-                          <Image src={iconListItem.icon} alt="icon" />
-                        </Box>
-                      </Box>
-
-                      <Typography variant="body_small">{iconListItem.text}</Typography>
-                    </Box>
-                  </ListItem>
-                ))}
-              </List> */}
             </Box>
           </Box>
         </Box>
