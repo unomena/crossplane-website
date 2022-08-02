@@ -91,8 +91,8 @@ const HeaderForm = () => {
   const [recaptchaError, setRecaptchaError] = useState(null);
 
   const schema = yup.object({
-    first_name: yup.string().required('Please enter your name'),
-    last_name: yup.string().required('Please enter your surname'),
+    first_name: yup.string().required('Please enter your first name'),
+    last_name: yup.string().required('Please enter your last name'),
     job_title: yup.string().required('Please enter your job title'),
     company: yup.string().required('Please enter your company name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),

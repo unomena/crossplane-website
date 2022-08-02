@@ -82,8 +82,8 @@ const ContactForm = () => {
   const [recaptchaError, setRecaptchaError] = useState(null);
 
   const schema = yup.object({
-    first_name: yup.string().required('Please enter your name'),
-    last_name: yup.string().required('Please enter your surname'),
+    first_name: yup.string().required('Please enter your first name'),
+    last_name: yup.string().required('Please enter your last name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),
     company: yup.string().required('Please enter your company name'),
     become_a_partner: yup.boolean(),
