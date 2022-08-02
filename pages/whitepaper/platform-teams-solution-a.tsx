@@ -220,7 +220,7 @@ const HeaderForm = () => {
               <>
                 <CTextField
                   name="first_name"
-                  label="Name"
+                  label="First Name"
                   value={formik.values.first_name}
                   onChange={formik.handleChange}
                   error={formik.touched.first_name && Boolean(formik.errors.first_name)}
@@ -228,7 +228,7 @@ const HeaderForm = () => {
                 />
                 <CTextField
                   name="last_name"
-                  label="Surname"
+                  label="Last Name"
                   value={formik.values.last_name}
                   onChange={formik.handleChange}
                   error={formik.touched.last_name && Boolean(formik.errors.last_name)}

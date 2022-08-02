@@ -48,11 +48,12 @@ const headerSection: SxProps = {
 };
 
 const formStyles: SxProps = {
-  m: 0,
+  m: '0 auto',
   p: 3,
   pb: 4.25,
   backgroundColor: COLORS.elephant,
   borderRadius: 3,
+  maxWidth: '630px',
 
   '& .MuiTypography-root': {
     color: COLORS.linkWater,
@@ -146,92 +147,38 @@ const ContactForm = () => {
     <Box sx={formStyles}>
       {!formSubmitted && !recaptchaError ? (
         <form onSubmit={formik.handleSubmit}>
-          <Box
-            sx={{
-              [MQ.sm]: {
-                display: 'flex',
-                alignItems: 'center',
-              },
-            }}
-          >
-            <Box
-              sx={{
-                [MQ.sm]: {
-                  mr: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <CTextField
-                name="first_name"
-                label="Name"
-                value={formik.values.first_name}
-                onChange={formik.handleChange}
-                error={formik.touched.first_name && Boolean(formik.errors.first_name)}
-                helperText={formik.touched.first_name && formik.errors.first_name}
-              />
-            </Box>
-            <Box
-              sx={{
-                [MQ.sm]: {
-                  ml: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <CTextField
-                name="last_name"
-                label="Surname"
-                value={formik.values.last_name}
-                onChange={formik.handleChange}
-                error={formik.touched.last_name && Boolean(formik.errors.last_name)}
-                helperText={formik.touched.last_name && formik.errors.last_name}
-              />
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              [MQ.sm]: {
-                display: 'flex',
-                alignItems: 'center',
-              },
-            }}
-          >
-            <Box
-              sx={{
-                [MQ.sm]: {
-                  mr: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <CTextField
-                name="email"
-                label="Business Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-            </Box>
-            <Box
-              sx={{
-                [MQ.sm]: {
-                  ml: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <CTextField
-                name="company"
-                label="Company"
-                value={formik.values.company}
-                onChange={formik.handleChange}
-                error={formik.touched.company && Boolean(formik.errors.company)}
-                helperText={formik.touched.company && formik.errors.company}
-              />
-            </Box>
-          </Box>
+          <CTextField
+            name="first_name"
+            label="First Name"
+            value={formik.values.first_name}
+            onChange={formik.handleChange}
+            error={formik.touched.first_name && Boolean(formik.errors.first_name)}
+            helperText={formik.touched.first_name && formik.errors.first_name}
+          />
+          <CTextField
+            name="last_name"
+            label="Last Name"
+            value={formik.values.last_name}
+            onChange={formik.handleChange}
+            error={formik.touched.last_name && Boolean(formik.errors.last_name)}
+            helperText={formik.touched.last_name && formik.errors.last_name}
+          />
+          <CTextField
+            name="email"
+            label="Business Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
+          <CTextField
+            name="company"
+            label="Company"
+            value={formik.values.company}
+            onChange={formik.handleChange}
+            error={formik.touched.company && Boolean(formik.errors.company)}
+            helperText={formik.touched.company && formik.errors.company}
+          />
           <Box sx={{ mt: 3, mb: 2 }}>
             <Typography variant="body_big">We'd love a little context</Typography>
             <Typography variant="body_small">
