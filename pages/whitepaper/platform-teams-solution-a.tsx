@@ -119,10 +119,11 @@ const HeaderForm = () => {
       const postData = {
         page_version: 'v1',
         recaptcha_token: token,
+        page_id: null,
         ...values,
       };
 
-      const res = await axiosInstance.post('/api/resource-request', postData);
+      const res = await axiosInstance.post('/api/resource-request/', postData);
 
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
