@@ -113,8 +113,8 @@ const HeaderForm = () => {
   const [recaptchaError, setRecaptchaError] = useState(null);
 
   const schema = yup.object({
-    first_name: yup.string().required('Please enter your name'),
-    last_name: yup.string().required('Please enter your surname'),
+    first_name: yup.string().required('Please enter your first name'),
+    last_name: yup.string().required('Please enter your last name'),
     job_title: yup.string().required('Please enter your job title'),
     company: yup.string().required('Please enter your company name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),
@@ -201,7 +201,7 @@ const HeaderForm = () => {
           <form onSubmit={formik.handleSubmit}>
             <CTextField
               name="first_name"
-              label="Name"
+              label="First Name"
               value={formik.values.first_name}
               onChange={formik.handleChange}
               error={formik.touched.first_name && Boolean(formik.errors.first_name)}
@@ -209,7 +209,7 @@ const HeaderForm = () => {
             />
             <CTextField
               name="last_name"
-              label="Surname"
+              label="Last Name"
               value={formik.values.last_name}
               onChange={formik.handleChange}
               error={formik.touched.last_name && Boolean(formik.errors.last_name)}
