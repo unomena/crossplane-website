@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 
-// import Image from 'next/image';
+import Cookies from 'js-cookie';
 
-import { COLORS, MQ } from 'src/theme';
+import { COLORS } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -10,7 +10,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 
-import { AxiosError } from 'axios';
+import axios, { AxiosError } from 'axios';
 
 import * as routes from 'src/routes';
 
@@ -29,28 +29,16 @@ import Link from 'src-new/elements/Link';
 import twitterLogo from 'public/twitter.svg';
 import slackLogo from 'public/slack.svg';
 
-// import headerBg from 'public/new-images/home-page/header-bg.jpg';
-// import placeHolder from 'public/new-images/Whitepaper-mockup.png';
-// import ArrowRight from 'src-new/svg/ArrowRight';
-// import CheckIcon from 'public/new-images/icons/check.svg';
-
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
   pb: 10,
   textAlign: 'center',
-  // backgroundImage: `url(${headerBg.src})`,
-  // backgroundRepeat: 'no-repeat',
-  // backgroundPosition: 'top center',
-
-  // '@media screen and (min-width: 1980px)': {
-  //   backgroundSize: 'contain',
-  // },
 };
 
 const formStyles: SxProps = {
   m: '0 auto',
   p: 3,
-  pb: 4.25,
+  // pb: 4.25,
   backgroundColor: COLORS.elephant,
   borderRadius: 3,
   maxWidth: '630px',
@@ -68,9 +56,9 @@ interface FormValues {
   last_name: string;
   email: string;
   company: string;
-  become_a_partner: boolean;
-  partner_with_upbound: boolean;
-  vendor_support_for_crossplane: boolean;
+  become_customer: boolean;
+  become_partner: boolean;
+  crossplane_vendor_support: boolean;
   legal_consent: boolean;
 }
 
@@ -86,9 +74,9 @@ const ContactForm = () => {
     last_name: yup.string().required('Please enter your last name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),
     company: yup.string().required('Please enter your company name'),
-    become_a_partner: yup.boolean(),
-    partner_with_upbound: yup.boolean(),
-    vendor_support_for_crossplane: yup.boolean(),
+    become_customer: yup.boolean(),
+    become_partner: yup.boolean(),
+    crossplane_vendor_support: yup.boolean(),
     legal_consent: yup.boolean(),
   });
 
@@ -97,7 +85,7 @@ const ContactForm = () => {
       console.log('Execute recaptcha not yet available');
       return;
     }
-    const token = await executeRecaptcha('resource_request');
+    const token = await executeRecaptcha('contact_request');
     return token;
   }, [executeRecaptcha]);
 
@@ -105,10 +93,14 @@ const ContactForm = () => {
     try {
       setLoading(true);
 
+      const { data } = await axios.get('https://ipapi.co/json/');
+
       const token = await handleReCaptchaVerify();
 
       const postData = {
         recaptcha_token: token,
+        ip_address: data.ip,
+        hutk: Cookies.get('hubspotutk'),
         ...values,
       };
 
@@ -134,9 +126,9 @@ const ContactForm = () => {
       last_name: '',
       email: '',
       company: '',
-      become_a_partner: false,
-      partner_with_upbound: false,
-      vendor_support_for_crossplane: false,
+      become_customer: false,
+      become_partner: false,
+      crossplane_vendor_support: false,
       legal_consent: false,
     },
     validationSchema: schema,
@@ -186,21 +178,21 @@ const ContactForm = () => {
             </Typography>
           </Box>
           <CCheckbox
-            checked={formik.values.legal_consent}
+            checked={formik.values.become_customer}
             onChange={formik.handleChange}
-            name="become_a_partner"
+            name="become_customer"
             label="Interested in becoming an Upbound customer"
           />
           <CCheckbox
-            checked={formik.values.legal_consent}
+            checked={formik.values.become_partner}
             onChange={formik.handleChange}
-            name="partner_with_upbound"
+            name="become_partner"
             label="Interested in partnering with Upbound"
           />
           <CCheckbox
-            checked={formik.values.legal_consent}
+            checked={formik.values.crossplane_vendor_support}
             onChange={formik.handleChange}
-            name="vendor_support_for_crossplane"
+            name="crossplane_vendor_support"
             label="Interested in vendor support for Crossplane"
           />
           <Box sx={{ mt: 3, mb: 2 }}>
@@ -238,8 +230,16 @@ const ContactForm = () => {
         </form>
       ) : (
         <>
-          {formSubmitted && <Typography variant="body_big">Thank you for submitting!</Typography>}
-          {recaptchaError && <Typography variant="body_big">{recaptchaError}</Typography>}
+          {formSubmitted && (
+            <Typography variant="body_big" textAlign="center">
+              Thank you for submitting!
+            </Typography>
+          )}
+          {recaptchaError && (
+            <Typography variant="body_big" textAlign="center">
+              {recaptchaError}
+            </Typography>
+          )}
         </>
       )}
     </Box>
