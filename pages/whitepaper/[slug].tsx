@@ -32,6 +32,63 @@ import CMSImage from 'src-new/elements/CMSImage';
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import CheckIcon from 'public/new-images/icons/check.svg';
 
+const root: SxProps = {
+  '& h2:not(.MuiTypography-root)': {
+    fontFamily: 'Avenir-Black, Arial, sans-serif',
+    fontSize: '27px',
+    lineHeight: '32px',
+    letterSpacing: '-0.25px',
+
+    [MQ.md]: {
+      fontSize: '54px',
+      lineHeight: '62px',
+      letterSpacing: '-0.55px',
+    },
+  },
+  '& h3:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontFamily: 'Avenir-Black, Arial, sans-serif',
+    fontSize: '24px',
+    lineHeight: '28px',
+    letterSpacing: '-0.25px',
+
+    [MQ.md]: {
+      fontSize: '40px',
+      lineHeight: '48px',
+      letterSpacing: '-0.4px',
+    },
+  },
+  '& h4:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    fontWeight: 'normal',
+    lineHeight: '28px',
+
+    [MQ.md]: {
+      fontSize: '20px',
+      lineHeight: '32px',
+    },
+  },
+
+  '& p:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+
+    [MQ.md]: {
+      fontSize: '20px',
+      lineHeight: '32px',
+    },
+  },
+
+  '& small:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    letterSpacing: '0px',
+  },
+};
+
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
   pb: 10,
@@ -48,50 +105,6 @@ const header_listStyles: SxProps = {
   color: COLORS.linkWater,
   mt: 10,
 
-  '& h2': {
-    fontFamily: 'Avenir-Black, Arial, sans-serif',
-    fontSize: '27px',
-    lineHeight: '32px',
-    letterSpacing: '-0.25px',
-
-    [MQ.md]: {
-      fontSize: '54px',
-      lineHeight: '62px',
-      letterSpacing: '-0.55px',
-    },
-  },
-  '& h3': {
-    margin: '0px 0px 24px',
-    fontFamily: 'Avenir-Black, Arial, sans-serif',
-    fontSize: '24px',
-    lineHeight: '28px',
-    letterSpacing: '-0.25px',
-
-    [MQ.md]: {
-      fontSize: '40px',
-      lineHeight: '48px',
-      letterSpacing: '-0.4px',
-    },
-  },
-  '& h4': {
-    margin: '0px 0px 24px',
-    fontSize: '16px',
-    fontWeight: 'normal',
-    lineHeight: '28px',
-
-    [MQ.md]: {
-      fontSize: '20px',
-      lineHeight: '32px',
-    },
-  },
-
-  '& p': {
-    margin: '0px 0px 24px',
-    fontSize: '16px',
-    lineHeight: '28px',
-    letterSpacing: '0px',
-  },
-
   '& ul': {
     mt: 0,
     pl: 2,
@@ -102,7 +115,7 @@ const header_listStyles: SxProps = {
       display: 'list-item',
       lineHeight: '28px',
       '&:not(:last-of-type)': {
-        mb: 3,
+        mb: 2,
       },
       '&::marker': {
         color: COLORS.sun,
@@ -121,7 +134,7 @@ const section_1_listStyles: SxProps = {
     pl: 3,
     listStyleImage: `url(${CheckIcon.src})`,
     '& li': {
-      pl: 2,
+      pl: 1.75,
       lineHeight: '28px',
       '&:not(:last-of-type)': {
         mb: 3,
@@ -142,13 +155,17 @@ const section_1_listStyles: SxProps = {
 };
 
 const formStyles: SxProps = {
-  m: 0,
+  mt: 0,
   p: 3,
   backgroundColor: COLORS.elephant,
   borderRadius: 3,
 
   '& .MuiTypography-root': {
     color: COLORS.linkWater,
+  },
+
+  [MQ.lg]: {
+    mt: 5,
   },
 };
 
@@ -363,136 +380,138 @@ type Props = {
 const Whitepaper = (props: Props) => {
   return (
     <PageProvider hideCTACard removeFooterPadding isPreview={props.isPreview}>
-      <Section sx={headerSection}>
-        <Box
-          sx={{
-            [MQ.lg]: {
-              display: 'flex',
-              flexDirection: 'row',
-            },
-          }}
-        >
+      <Box sx={root}>
+        <Section sx={headerSection}>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              width: '100%',
               [MQ.lg]: {
-                width: '50%',
-              },
-            }}
-          >
-            <Typography variant="h2_new" sx={{ mb: 3 }}>
-              {props.header_title}
-            </Typography>
-            <Typography variant="body_big" sx={{ mb: 5 }}>
-              {props.header_text}
-            </Typography>
-            <Box sx={{ position: 'relative', width: '100%', height: '374px', mb: 5 }}>
-              <CMSImage
-                value={props.header_image[0].value}
-                layout="fill"
-                objectFit="contain"
-                priority
-              />
-            </Box>
-            <Hidden lgDown>
-              <Box sx={header_listStyles}>
-                <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
-              </Box>
-            </Hidden>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
-              [MQ.lg]: {
-                position: 'relative',
-                width: '50%',
-                minHeight: '100%',
+                display: 'flex',
+                flexDirection: 'row',
               },
             }}
           >
             <Box
               sx={{
-                pl: { _: 0, lg: '100px' },
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                width: '100%',
                 [MQ.lg]: {
-                  position: 'sticky',
-                  top: '0',
+                  width: '50%',
                 },
               }}
             >
-              <HeaderForm {...props} />
+              <Typography variant="h2_new" sx={{ mb: 3 }}>
+                {props.header_title}
+              </Typography>
+              <Typography variant="body_big" sx={{ mb: 5 }}>
+                {props.header_text}
+              </Typography>
+              <Box sx={{ position: 'relative', width: '100%', height: '374px', mb: 5 }}>
+                <CMSImage
+                  value={props.header_image[0].value}
+                  layout="fill"
+                  objectFit="contain"
+                  priority
+                />
+              </Box>
+              <Hidden lgDown>
+                <Box sx={header_listStyles}>
+                  <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
+                </Box>
+              </Hidden>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                [MQ.lg]: {
+                  position: 'relative',
+                  width: '50%',
+                  minHeight: '100%',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  pl: { _: 0, lg: '100px' },
+                  [MQ.lg]: {
+                    position: 'sticky',
+                    top: '0',
+                  },
+                }}
+              >
+                <HeaderForm {...props} />
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <Hidden lgUp>
-          <Box sx={header_listStyles}>
-            <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
-          </Box>
-        </Hidden>
-      </Section>
-      <Section bgcolor angleTop="topRight" sx={{ py: 20, pb: { _: 15, lg: 20 } }}>
-        <Box
-          sx={{
-            [MQ.lg]: {
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'row',
-            },
-          }}
-        >
+          <Hidden lgUp>
+            <Box sx={header_listStyles}>
+              <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
+            </Box>
+          </Hidden>
+        </Section>
+        <Section bgcolor angleTop="topRight" sx={{ py: 20, pb: { _: 15, lg: 20 } }}>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
               [MQ.lg]: {
-                flex: 1,
-                width: '50%',
-              },
-            }}
-          >
-            <Typography variant="h3_new" sx={{ mb: 3 }}>
-              {props.section_1_title}
-            </Typography>
-            <Typography variant="body_normal" sx={{ mb: 5 }}>
-              {props.section_1_text}
-            </Typography>
-            {props.section_1_button[0] && (
-              <Button
-                sx={{ width: { _: 225, sm: 208 } }}
-                cmsValue={props.section_1_button[0].value}
-              >
-                {props.section_1_button[0].value.text}
-              </Button>
-            )}
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              [MQ.lg]: {
-                flex: 1,
-                width: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                flexDirection: 'row',
               },
             }}
           >
             <Box
               sx={{
-                pl: { _: 0, lg: '120px' },
-                color: COLORS.linkWater,
-                ...section_1_listStyles,
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                [MQ.lg]: {
+                  flex: 1,
+                  width: '50%',
+                },
               }}
             >
-              <div dangerouslySetInnerHTML={{ __html: props.section_1_richtext }}></div>
+              <Typography variant="h3_new" sx={{ mb: 3 }}>
+                {props.section_1_title}
+              </Typography>
+              <Typography variant="body_normal" sx={{ mb: 5 }}>
+                {props.section_1_text}
+              </Typography>
+              {props.section_1_button[0] && (
+                <Button
+                  sx={{ width: { _: 225, sm: 208 } }}
+                  cmsValue={props.section_1_button[0].value}
+                >
+                  {props.section_1_button[0].value.text}
+                </Button>
+              )}
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                [MQ.lg]: {
+                  flex: 1,
+                  width: '50%',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  pl: { _: 0, lg: '120px' },
+                  color: COLORS.linkWater,
+                  ...section_1_listStyles,
+                }}
+              >
+                <div dangerouslySetInnerHTML={{ __html: props.section_1_richtext }}></div>
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Section>
+        </Section>
+      </Box>
     </PageProvider>
   );
 };
