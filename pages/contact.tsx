@@ -1,7 +1,5 @@
 import React, { useCallback, useState } from 'react';
 
-import Cookies from 'js-cookie';
-
 import { COLORS } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
@@ -11,6 +9,8 @@ import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 
 import axios, { AxiosError } from 'axios';
+
+import Cookies from 'js-cookie';
 
 import * as routes from 'src/routes';
 
