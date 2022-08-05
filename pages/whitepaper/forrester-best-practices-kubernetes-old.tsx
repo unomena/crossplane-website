@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, List, ListItem, Hidden } from '@mui/material';
+import { Box, SxProps, Typography, List, ListItem } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -44,19 +44,19 @@ const headerSection: SxProps = {
   },
 };
 
-const listStyles: SxProps = {
-  pl: 2,
-  py: 0,
-  listStyle: 'disc',
+// const listStyles: SxProps = {
+//   pl: 2,
+//   py: 0,
+//   listStyle: 'disc',
 
-  '& li': {
-    display: 'list-item',
-    pl: '8px',
-    '&::marker': {
-      color: COLORS.sun,
-    },
-  },
-};
+//   '& li': {
+//     display: 'list-item',
+//     pl: '8px',
+//     '&::marker': {
+//       color: COLORS.sun,
+//     },
+//   },
+// };
 
 const listItemStyles: SxProps = {
   display: 'flex',

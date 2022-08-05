@@ -519,12 +519,17 @@ const Whitepaper = (props: Props) => {
 export default Whitepaper;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await axiosInstance.get(`/api/v2/pages/?type=app.ResourceDetailPage`);
-  const whitepapers = res.data.items;
+  let paths: { params: { slug: string } }[] = [];
+  try {
+    const res = await axiosInstance.get(`/api/v2/pages/?type=app.ResourceDetailPage`);
+    const whitepapers = res.data.items;
 
-  const paths = whitepapers.map((whitepaper: { meta: { slug: string } }) => ({
-    params: { slug: whitepaper.meta.slug },
-  }));
+    paths = whitepapers.map((whitepaper: { meta: { slug: string } }) => ({
+      params: { slug: whitepaper.meta.slug },
+    }));
+  } catch (error) {
+    console.log('get ResourceDetailPage paths', error);
+  }
 
   return { paths, fallback: 'blocking' };
 };
