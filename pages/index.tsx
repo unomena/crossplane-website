@@ -609,7 +609,7 @@ const CPLogoBox = memo(({ sizeStyles, shouldUpdate }: CPLogoBoxProps) => {
           newImage = getRandomLogo();
         } while (newImage.src === imageOne.src || newImage.src === imageTwo.src);
         setImageOne(newImage);
-      }, 4000);
+      }, 3000);
     } else {
       t = setTimeout(() => {
         let newImage = null;
@@ -617,7 +617,7 @@ const CPLogoBox = memo(({ sizeStyles, shouldUpdate }: CPLogoBoxProps) => {
           newImage = getRandomLogo();
         } while (newImage.src === imageTwo.src || newImage.src === imageOne.src);
         setImageTwo(newImage);
-      }, 4000);
+      }, 3000);
     }
     return () => {
       clearTimeout(t);
@@ -724,7 +724,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
           }
         } while (row === logoToUpdateRefLeft.current);
         setLogoToUpdateLeft(row);
-      }, getRandomInt(22, 32) * 100);
+      }, getRandomInt(12, 22) * 100);
     }
     return () => {
       clearTimeout(t);
@@ -751,7 +751,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
           }
         } while (row === logoToUpdateRefRight.current);
         setLogoToUpdateRight(row);
-      }, getRandomInt(22, 32) * 100);
+      }, getRandomInt(12, 22) * 100);
     }
     return () => {
       clearTimeout(t);
