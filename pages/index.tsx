@@ -582,8 +582,8 @@ const HeaderSection = (props: HomePageHeader) => {
   );
 };
 
-const getRandomLogo = (availableLogos: any[]) => {
-  return availableLogos[getRandomInt(0, availableLogos.length - 1)];
+const getRandomItem = (availableItems: any[]) => {
+  return availableItems[getRandomInt(0, availableItems.length - 1)];
 };
 
 type CPLogoBoxProps = {
@@ -613,7 +613,7 @@ const CPLogoBox = memo(
     useEffect(() => {
       let t: NodeJS.Timeout;
       if (logoOne) {
-        const newLogo = getRandomLogo(availableLogos);
+        const newLogo = getRandomItem(availableLogos);
         updateLogos(newLogo, index);
         if (show) {
           setLogoTwo(newLogo);
@@ -718,11 +718,39 @@ const cpLogosListTopMobile = [...Array(12)];
 
 const cpLogosListBottomMobile = [...Array(12)];
 
+const getInitAvailableRowsLeft = (matchesLG: boolean) => {
+  return [...Array(matchesLG ? 24 : 12).keys()];
+};
+
+const getInitAvailableRowsRight = (matchesLG: boolean) => {
+  return [...Array(matchesLG ? 24 : 12).keys()].map((v) => (matchesLG ? v + 24 : v + 12));
+};
+
 const CrossplaneLogosSection = (props: HomePage) => {
   const cpSectionRef = useRef(undefined);
   const isVisible = useOnScreen(cpSectionRef);
 
   const matchesLG = useMediaQuery(MQ.lg);
+
+  const availableRowsLeftRef = useRef(getInitAvailableRowsLeft(matchesLG));
+  const setAvailableRowsLeft = (val: any) => {
+    availableRowsLeftRef.current = val;
+  };
+
+  useEffect(() => {
+    setAvailableRowsLeft(getInitAvailableRowsLeft(matchesLG));
+  }, [matchesLG]);
+
+  const updateRowsLeft = useCallback(
+    (newRow: any) => {
+      let newAvailableRowsLeft = availableRowsLeftRef.current.filter((v: any) => v !== newRow);
+      if (newAvailableRowsLeft.length === 0) {
+        newAvailableRowsLeft = getInitAvailableRowsLeft(matchesLG);
+      }
+      setAvailableRowsLeft(newAvailableRowsLeft);
+    },
+    [availableRowsLeftRef.current]
+  );
 
   const [logoToUpdateLeft, _setLogoToUpdateLeft] = useState<number | null>(null);
   const logoToUpdateRefLeft = useRef(logoToUpdateLeft);
@@ -735,21 +763,35 @@ const CrossplaneLogosSection = (props: HomePage) => {
     let t: NodeJS.Timeout;
     if (isVisible) {
       t = setTimeout(() => {
-        let row = null;
-        do {
-          if (matchesLG) {
-            row = getRandomInt(0, 23);
-          } else {
-            row = getRandomInt(0, 11);
-          }
-        } while (row === logoToUpdateRefLeft.current);
+        const row = getRandomItem(availableRowsLeftRef.current);
         setLogoToUpdateLeft(row);
+        updateRowsLeft(row);
       }, getRandomInt(12, 22) * 100);
     }
     return () => {
       clearTimeout(t);
     };
   }, [logoToUpdateLeft, isVisible]);
+
+  const availableRowsRightRef = useRef(getInitAvailableRowsRight(matchesLG));
+  const setAvailableRowsRight = (val: any) => {
+    availableRowsRightRef.current = val;
+  };
+
+  useEffect(() => {
+    setAvailableRowsRight(getInitAvailableRowsRight(matchesLG));
+  }, [matchesLG]);
+
+  const updateRowsRight = useCallback(
+    (newRow: any) => {
+      let newAvailableRowsRight = availableRowsRightRef.current.filter((v: any) => v !== newRow);
+      if (newAvailableRowsRight.length === 0) {
+        newAvailableRowsRight = getInitAvailableRowsRight(matchesLG);
+      }
+      setAvailableRowsRight(newAvailableRowsRight);
+    },
+    [availableRowsRightRef.current]
+  );
 
   const [logoToUpdateRight, _setLogoToUpdateRight] = useState<number | null>(null);
   const logoToUpdateRefRight = useRef(logoToUpdateRight);
@@ -762,15 +804,9 @@ const CrossplaneLogosSection = (props: HomePage) => {
     let t: NodeJS.Timeout;
     if (isVisible) {
       t = setTimeout(() => {
-        let row = null;
-        do {
-          if (matchesLG) {
-            row = getRandomInt(24, 47);
-          } else {
-            row = getRandomInt(12, 23);
-          }
-        } while (row === logoToUpdateRefRight.current);
+        const row = getRandomItem(availableRowsRightRef.current);
         setLogoToUpdateRight(row);
+        updateRowsRight(row);
       }, getRandomInt(12, 22) * 100);
     }
     return () => {
@@ -790,18 +826,14 @@ const CrossplaneLogosSection = (props: HomePage) => {
 
   const delayMulti = 0.25;
 
-  const [availableLogos, _setAvailableLogos] = useState<any>(crossplaneLogos);
-  const availableLogosRef = useRef(availableLogos);
+  const availableLogosRef = useRef(crossplaneLogos);
   const setAvailableLogos = (val: any) => {
     availableLogosRef.current = val;
-    _setAvailableLogos(val);
   };
 
-  const [activeLogos, _setActiveLogos] = useState<any>([]);
-  const activeLogosRef = useRef(activeLogos);
+  const activeLogosRef = useRef<any[]>([]);
   const setActiveLogos = (val: any) => {
     activeLogosRef.current = val;
-    _setActiveLogos(val);
   };
 
   const updateLogos = useCallback(
