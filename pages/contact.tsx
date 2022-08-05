@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { COLORS } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
@@ -9,8 +9,6 @@ import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 
 import axios, { AxiosError } from 'axios';
-
-import Cookies from 'js-cookie';
 
 import * as routes from 'src/routes';
 
@@ -94,13 +92,17 @@ const ContactForm = () => {
       setLoading(true);
 
       const { data } = await axios.get('https://ipapi.co/json/');
+      const hutk = document.cookie.replace(
+        /(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/,
+        '$1'
+      );
 
       const token = await handleReCaptchaVerify();
 
       const postData = {
         recaptcha_token: token,
         ip_address: data.ip,
-        hutk: Cookies.get('hubspotutk'),
+        hutk,
         ...values,
       };
 
