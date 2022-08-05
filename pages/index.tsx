@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
@@ -582,76 +582,96 @@ const HeaderSection = (props: HomePageHeader) => {
   );
 };
 
-const getRandomLogo = () => crossplaneLogos[getRandomInt(0, crossplaneLogos.length - 1)];
-
-type CPLogoBoxProps = {
-  sizeStyles: SxProps;
-  shouldUpdate?: Boolean;
+const getRandomLogo = (availableLogos: any[]) => {
+  return availableLogos[getRandomInt(0, availableLogos.length - 1)];
 };
 
-const CPLogoBox = memo(({ sizeStyles, shouldUpdate }: CPLogoBoxProps) => {
-  const [show, setShow] = useState(false);
-  const [imageOne, setImageOne] = useState(getRandomLogo());
-  const [imageTwo, setImageTwo] = useState(getRandomLogo());
+type CPLogoBoxProps = {
+  index: number;
+  sizeStyles: SxProps;
+  shouldUpdate?: Boolean;
+  availableLogos: any[];
+  updateLogos: (newLogo: any, index: number) => void;
+};
 
-  useEffect(() => {
-    if (shouldUpdate) {
-      setShow(!show);
-    }
-  }, [shouldUpdate]);
+const CPLogoBox = memo(
+  ({ index, sizeStyles, shouldUpdate, availableLogos, updateLogos }: CPLogoBoxProps) => {
+    const [show, setShow] = useState(false);
+    const [showStyles, setShowStyles] = useState(false);
+    const [shouldPulse, setShouldPulse] = useState(false);
+    const [logoOne, setLogoOne] = useState(null);
+    const [logoTwo, setLogoTwo] = useState(null);
 
-  useEffect(() => {
-    let t: NodeJS.Timeout;
-    if (show) {
-      t = setTimeout(() => {
-        let newImage = null;
-        do {
-          newImage = getRandomLogo();
-        } while (newImage.src === imageOne.src || newImage.src === imageTwo.src);
-        setImageOne(newImage);
-      }, 3000);
-    } else {
-      t = setTimeout(() => {
-        let newImage = null;
-        do {
-          newImage = getRandomLogo();
-        } while (newImage.src === imageTwo.src || newImage.src === imageOne.src);
-        setImageTwo(newImage);
-      }, 3000);
-    }
-    return () => {
-      clearTimeout(t);
-    };
-  }, [show]);
+    useEffect(() => {
+      if (shouldUpdate) {
+        setShow((v) => !v);
+      } else {
+        setShouldPulse(false);
+      }
+    }, [shouldUpdate]);
 
-  return (
-    <Box
-      sx={{
-        ...cpLogoBox,
-        ...sizeStyles,
-        // bgcolor: shouldUpdate ? 'red' : COLORS.bigStone,
-        animation: shouldUpdate ? `${pulsate} 2s ease-in-out` : null,
-      }}
-    >
+    useEffect(() => {
+      let t: NodeJS.Timeout;
+      if (logoOne) {
+        const newLogo = getRandomLogo(availableLogos);
+        updateLogos(newLogo, index);
+        if (show) {
+          setLogoTwo(newLogo);
+        } else {
+          setLogoOne(newLogo);
+        }
+
+        t = setTimeout(() => {
+          setShowStyles((v) => !v);
+          setShouldPulse(true);
+        }, 3000);
+      } else {
+        const newLogo = availableLogos[index];
+        setLogoOne(newLogo);
+        updateLogos(newLogo, index);
+      }
+      return () => {
+        clearTimeout(t);
+      };
+    }, [show]);
+
+    return (
       <Box
         sx={{
-          ...cpLogoBoxImageContainer,
-          '& > span:first-of-type': {
-            opacity: show ? '0 !important' : '1 !important',
-            transitionDelay: show ? '0s' : '1s',
-          },
-          '& > span:last-of-type': {
-            opacity: show ? '1 !important' : '0 !important',
-            transitionDelay: show ? '1s' : '0s',
-          },
+          ...cpLogoBox,
+          ...sizeStyles,
+          // bgcolor: shouldPulse ? 'red' : COLORS.bigStone,
+          animation: shouldPulse ? `${pulsate} 2s ease-in-out` : null,
         }}
       >
-        <Image src={imageOne} alt="company logo" layout="fill" objectFit="contain" />
-        <Image src={imageTwo} alt="company logo" layout="fill" objectFit="contain" />
+        <Box
+          sx={{
+            ...cpLogoBoxImageContainer,
+            '& > span:first-of-type': {
+              opacity: showStyles ? '0 !important' : '1 !important',
+              transitionDelay: showStyles ? '0s' : '1s',
+            },
+            '& > span:last-of-type': {
+              opacity: showStyles ? '1 !important' : '0 !important',
+              transitionDelay: showStyles ? '1s' : '0s',
+            },
+          }}
+        >
+          {logoOne ? (
+            <Image src={logoOne} alt="company logo" layout="fill" objectFit="contain" />
+          ) : (
+            <span></span>
+          )}
+          {logoTwo ? (
+            <Image src={logoTwo} alt="company logo" layout="fill" objectFit="contain" />
+          ) : (
+            <span></span>
+          )}
+        </Box>
       </Box>
-    </Box>
-  );
-});
+    );
+  }
+);
 CPLogoBox.displayName = 'CPLogoBox';
 
 const cpColumnsLeftList = [
@@ -770,6 +790,52 @@ const CrossplaneLogosSection = (props: HomePage) => {
 
   const delayMulti = 0.25;
 
+  const [availableLogos, _setAvailableLogos] = useState<any>(crossplaneLogos);
+  const availableLogosRef = useRef(availableLogos);
+  const setAvailableLogos = (val: any) => {
+    availableLogosRef.current = val;
+    _setAvailableLogos(val);
+  };
+
+  const [activeLogos, _setActiveLogos] = useState<any>([]);
+  const activeLogosRef = useRef(activeLogos);
+  const setActiveLogos = (val: any) => {
+    activeLogosRef.current = val;
+    _setActiveLogos(val);
+  };
+
+  const updateLogos = useCallback(
+    (newLogo: any, index: number) => {
+      const newActiveLogos = [...activeLogosRef.current];
+      newActiveLogos[index] = newLogo;
+      setActiveLogos(newActiveLogos);
+
+      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v.src !== newLogo.src);
+      if (newAvailableLogos.length === 0) {
+        newAvailableLogos = crossplaneLogos.filter(
+          (cpLogo) => !newActiveLogos.some((v) => v.src === cpLogo.src)
+        );
+      }
+      setAvailableLogos(newAvailableLogos);
+    },
+    [availableLogosRef.current, activeLogosRef.current]
+  );
+
+  // useEffect(() => {
+  //   const logos = activeLogosRef.current.map((v: any) => v.src);
+  //   const set = new Set(logos);
+
+  //   const duplicates = logos.filter((item: any) => {
+  //     if (set.has(item)) {
+  //       set.delete(item);
+  //     } else {
+  //       return item;
+  //     }
+  //   });
+
+  //   console.log(duplicates);
+  // }, [activeLogosRef.current]);
+
   return (
     <Box
       ref={cpSectionRef}
@@ -793,8 +859,11 @@ const CrossplaneLogosSection = (props: HomePage) => {
                 return (
                   <CPLogoBox
                     key={logoIndex}
+                    index={realIndex}
                     sizeStyles={c.sizeStyles}
                     shouldUpdate={logoToUpdateLeft === realIndex}
+                    availableLogos={availableLogosRef.current}
+                    updateLogos={updateLogos}
                   />
                 );
               })}
@@ -829,8 +898,11 @@ const CrossplaneLogosSection = (props: HomePage) => {
                 return (
                   <CPLogoBox
                     key={logoIndex}
+                    index={realIndex}
                     sizeStyles={c.sizeStyles}
                     shouldUpdate={logoToUpdateRight === realIndex}
+                    availableLogos={availableLogosRef.current}
+                    updateLogos={updateLogos}
                   />
                 );
               })}
@@ -845,8 +917,11 @@ const CrossplaneLogosSection = (props: HomePage) => {
             {cpLogosListTopMobile.map((logo, index) => (
               <CPLogoBox
                 key={index}
+                index={index}
                 sizeStyles={cpLogoBoxMobile}
                 shouldUpdate={logoToUpdateLeft === index}
+                availableLogos={availableLogosRef.current}
+                updateLogos={updateLogos}
               />
             ))}
           </Box>
@@ -862,8 +937,11 @@ const CrossplaneLogosSection = (props: HomePage) => {
             {cpLogosListBottomMobile.map((logo, index) => (
               <CPLogoBox
                 key={index}
+                index={index + 12}
                 sizeStyles={cpLogoBoxMobile}
                 shouldUpdate={logoToUpdateRight === index + 12}
+                availableLogos={availableLogosRef.current}
+                updateLogos={updateLogos}
               />
             ))}
           </Box>
