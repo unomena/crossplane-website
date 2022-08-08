@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { COLORS } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
@@ -6,6 +6,7 @@ import { Box, SxProps, Typography } from '@mui/material';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { useFormik, FormikHelpers } from 'formik';
+import { FocusError } from 'focus-formik-error';
 import * as yup from 'yup';
 
 import axios, { AxiosError } from 'axios';
@@ -43,9 +44,6 @@ const formStyles: SxProps = {
 
   '& .MuiTypography-root': {
     color: COLORS.linkWater,
-  },
-  '& .MuiFormControlLabel-root': {
-    display: 'block',
   },
 };
 
@@ -111,6 +109,7 @@ const ContactForm = () => {
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
         setLoading(false);
+        window.scrollTo(0, 0);
       } else {
         setRecaptchaError(res.data.recaptcha_error);
         setLoading(false);
@@ -141,6 +140,7 @@ const ContactForm = () => {
     <Box sx={formStyles}>
       {!formSubmitted && !recaptchaError ? (
         <form onSubmit={formik.handleSubmit}>
+          <FocusError formik={formik} />
           <CTextField
             name="first_name"
             label="First Name"
