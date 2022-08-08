@@ -109,11 +109,11 @@ const ContactForm = () => {
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
         setLoading(false);
-        window.scrollTo(0, 0);
       } else {
         setRecaptchaError(res.data.recaptcha_error);
         setLoading(false);
       }
+      document.body.scrollTo(0, 0);
     } catch (err) {
       const error = err as AxiosError;
       handleFormError('Submit', error, setFieldError);
