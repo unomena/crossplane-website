@@ -215,7 +215,7 @@ const Partners: React.FC = () => {
               Enable your customers to take the next step on their cloud native journey with an
               automated, self-service approach to provisioning infrastructure and applications.
             </Header>
-            <AnchorButton btnType="whiteOutline" href={routes.contactSalesUrl}>
+            <AnchorButton btnType="whiteOutline" href={routes.contactRoute}>
               Contact Our Partner Team
             </AnchorButton>
           </Box>
@@ -324,7 +324,7 @@ const Partners: React.FC = () => {
                 title="Ready to Join Our Partner Community?"
                 subtitle={`Ready to enable your customers to move faster with an automated, self-service approach to
                 provisioning infrastructure and applications? Contact our team today to get started.`}
-                href={routes.contactSalesUrl}
+                href={routes.contactRoute}
                 button="Contact Our Partner Team"
               />
             </Box>

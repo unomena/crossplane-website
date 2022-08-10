@@ -391,7 +391,7 @@ const RegistryProduct = () => {
           <AnchorButton
             mobile={true}
             btnType="blackOutline"
-            href={routes.contactSalesUrl}
+            href={routes.contactRoute}
             sx={{ mb: '60px' }}
           >
             <Hidden mdUp>Contact Team Specialist</Hidden>

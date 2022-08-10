@@ -527,7 +527,7 @@ const PageHeader: React.FC<{
                 </If>
               </Column>
             </MobileHeaderMenuPaddingContainer>
-            <MobileHeaderMenuSalesAnchor href={routes.contactSalesUrl}>
+            <MobileHeaderMenuSalesAnchor href={routes.contactRoute}>
               Contact Sales for a Free Demo
             </MobileHeaderMenuSalesAnchor>
           </MobileHeaderMenuContainer>
@@ -732,7 +732,7 @@ const PageHeader: React.FC<{
                   </LargeHeaderPopoverSectionDescription>
                   <Box>
                     <LargeHeaderPopoverSectionButton
-                      href={routes.contactSalesUrl}
+                      href={routes.contactRoute}
                       btnType="blackOutline"
                     >
                       Schedule Demo

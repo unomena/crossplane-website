@@ -61,7 +61,7 @@ const questions = [
     answer: (
       <AnswerParagraph>
         If you or your team need additional time to use one of Upbound's hosted control planes,
-        please <Anchor href={routes.contactSalesUrl}>contact us</Anchor> and one of our team members
+        please <Anchor href={routes.contactRoute}>contact us</Anchor> and one of our team members
         will help you.
       </AnswerParagraph>
     ),
@@ -94,7 +94,7 @@ const questions = [
       <AnswerParagraph>
         Yes. Our goal is to make our customers successful, and would love to work with you and your
         team to evaluate Upbound for a period of time free of charge.{' '}
-        <Anchor href={routes.contactSalesUrl}>
+        <Anchor href={routes.contactRoute}>
           Please reach out and tell us a little more about your use case.
         </Anchor>
       </AnswerParagraph>
@@ -547,7 +547,7 @@ const Pricing: React.FC = () => {
               subTitle="Contact Us"
               description="Our trusted plan used by some of the world's biggest organizations"
               buttonText="Contact Sales"
-              buttonHref={routes.contactSalesUrl}
+              buttonHref={routes.contactRoute}
               darken={true}
             >
               <li>All Enterprise Tier Features…</li>
@@ -659,7 +659,7 @@ const Pricing: React.FC = () => {
               Request a demo and our customer success team would be happy to show a preview of any
               one of our available plans.
             </Header>
-            <AnchorButton btnType="whiteOutline" href={routes.contactSalesUrl}>
+            <AnchorButton btnType="whiteOutline" href={routes.contactRoute}>
               Contact Us & Request a Demo
             </AnchorButton>
           </Box>

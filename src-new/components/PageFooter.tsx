@@ -407,7 +407,7 @@ const PageFooter = ({
                   <Link sx={mobileFooterColumnLink} href={routes.productsRegistryRoute}>
                     Marketplace
                   </Link>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.contactSalesUrl}>
+                  <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
                     Request Demo
                   </Anchor>
                   <Link sx={mobileFooterColumnLink} href={routes.pricingRoute}>
@@ -441,7 +441,7 @@ const PageFooter = ({
                   <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundBlogUrl}>
                     Blog
                   </Anchor>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.contactSalesUrl}>
+                  <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
                     Contact Us
                   </Anchor>
                 </Box>
@@ -568,7 +568,7 @@ const PageFooter = ({
                 <Link sx={largeFooterLinkStyle} href={routes.productsRegistryRoute}>
                   Marketplace
                 </Link>
-                <Anchor sx={largeFooterLinkStyle} href={routes.contactSalesUrl}>
+                <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
                   Request Demo
                 </Anchor>
                 <Link sx={largeFooterLinkStyle} href={routes.pricingRoute}>
@@ -602,7 +602,7 @@ const PageFooter = ({
                 <Anchor sx={largeFooterLinkStyle} href={routes.upboundBlogUrl}>
                   Blog
                 </Anchor>
-                <Anchor sx={largeFooterLinkStyle} href={routes.contactSalesUrl}>
+                <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
                   Contact Us
                 </Anchor>
               </Box>
