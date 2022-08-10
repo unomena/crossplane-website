@@ -123,7 +123,7 @@ const HeaderForm = () => {
         ...values,
       };
 
-      const res = await axiosInstance.post('/api/resource-request/', postData);
+      const res = await axiosInstance.post('/api/resource-request', postData);
 
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
