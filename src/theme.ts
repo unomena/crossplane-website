@@ -324,8 +324,8 @@ const theme = createTheme({
     body_normal: {
       ...fontAvenirRoman,
       color: COLORS.linkWater,
-      fontSize: '14px',
-      lineHeight: '22px',
+      fontSize: '16px',
+      lineHeight: '28px',
 
       [MQ.md]: {
         fontSize: '20px',
@@ -400,6 +400,41 @@ export const globalStyle = css`
       overflow: hidden;
     }
   }
+
+  // h2 {
+  //   font-family: 'Avenir-Black', 'Arial', sans-serif;
+  //   color: #d3e7f7;
+  //   font-size: 27px;
+  //   line-height: 32px;
+  //   letter-spacing: -0.25px;
+
+  //   @media screen and (min-width: 768px) {
+  //     font-size: 54px;
+  //     line-height: 62px;
+  //     letter-spacing: -0.55px;
+  //   }
+  // }
+  // h3 {
+  //   font-family: 'Avenir-Black', 'Arial', sans-serif;
+  //   color: #d3e7f7;
+  //   font-size: 24px;
+  //   line-height: 28px;
+  //   letter-spacing: -0.25px;
+
+  //   @media screen and (min-width: 768px) {
+  //     font-size: 40px;
+  //     line-height: 48px;
+  //     letter-spacing: -0.4px;
+  //   }
+  // }
+  // p {
+  //   font-size: 14px;
+  //   line-height: 22px;
+  //   @media screen and (min-width: 768px) {
+  //     font-size: 20px;
+  //     line-height: 32px;
+  //   }
+  // }
 
   html > body > div#hs-eu-cookie-confirmation.hs-cookie-notification-position-bottom {
     box-shadow: none;

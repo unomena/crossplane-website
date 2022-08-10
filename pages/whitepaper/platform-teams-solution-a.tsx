@@ -119,6 +119,7 @@ const HeaderForm = () => {
       const postData = {
         page_version: 'v1',
         recaptcha_token: token,
+        page_id: null,
         ...values,
       };
 

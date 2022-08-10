@@ -195,3 +195,16 @@ type ProductPage = {
   section_4_title: string;
   testimonials: Testimonial[];
 };
+
+type WhitepaperPage = {
+  id: number;
+  header_title: string;
+  header_text: string;
+  header_image: ImageType[];
+  header_image_mobile: ImageType[];
+  header_richtext: string;
+  section_1_title: string;
+  section_1_text: string;
+  section_1_button: Button[];
+  section_1_richtext: string;
+};
