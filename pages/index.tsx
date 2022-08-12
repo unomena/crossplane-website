@@ -1577,7 +1577,7 @@ const Home = (props: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
 
   return (
-    <PageProvider isPreview={props.isPreview}>
+    <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview}>
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
       </Section>
