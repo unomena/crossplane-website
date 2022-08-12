@@ -479,7 +479,12 @@ const Products = (props: Props) => {
   }, [props.section_1_image_mobile]);
 
   return (
-    <PageProvider displayTitle={displayTitle} metaImg={metaImg} isPreview={props.isPreview}>
+    <PageProvider
+      displayTitle={displayTitle}
+      metaImg={metaImg}
+      cms_head_props={props.cms_head_props}
+      isPreview={props.isPreview}
+    >
       <Section sx={headerSection}>
         <HeaderSection {...props} />
       </Section>

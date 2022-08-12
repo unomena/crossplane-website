@@ -379,7 +379,12 @@ type Props = {
 
 const Whitepaper = (props: Props) => {
   return (
-    <PageProvider hideCTACard removeFooterPadding isPreview={props.isPreview}>
+    <PageProvider
+      hideCTACard
+      removeFooterPadding
+      cms_head_props={props.cms_head_props}
+      isPreview={props.isPreview}
+    >
       <Box sx={root}>
         <Section sx={headerSection}>
           <Box
