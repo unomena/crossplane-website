@@ -27,7 +27,6 @@ const PageProvider: React.FC<{
   isFooterVisible?: boolean;
   isOverflowVisible?: boolean;
   displayTitle?: string;
-  metaTitle?: string;
   metaDescription?: string;
 }> = ({
   children,
@@ -35,7 +34,6 @@ const PageProvider: React.FC<{
   isFooterVisible = true,
   isOverflowVisible: isOverflowVisibleProp = true,
   displayTitle = defaultTitle,
-  metaTitle = displayTitle,
   metaDescription = defaultDescription,
 }) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
