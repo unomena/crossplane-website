@@ -5,31 +5,66 @@ import Script from 'next/script';
 
 const PageHead: React.FC<{
   displayTitle?: string;
-  metaTitle?: string;
   metaDescription?: string;
   metaImg?: string;
-}> = ({ displayTitle, metaTitle, metaDescription, metaImg }) => {
+  cms_head_props?: CMSHeadProps;
+}> = ({ displayTitle, metaDescription, metaImg, cms_head_props }) => {
   return (
     <>
       <Head>
-        <title>{displayTitle}</title>
+        <title>{cms_head_props?.seo_title || cms_head_props?.title || displayTitle}</title>
+        <meta name="description" content={cms_head_props?.search_description || metaDescription} />
+        {cms_head_props?.seo_keywords && (
+          <meta name="keywords" content={cms_head_props?.seo_keywords} />
+        )}
+
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta property="og:title" content={metaTitle} />
-        <meta property="twitter:title" content={metaTitle} />
+        <meta property="og:title" content={cms_head_props?.og_twitter_title || displayTitle} />
+        <meta name="twitter:title" content={cms_head_props?.og_twitter_title || displayTitle} />
 
-        <meta name="description" property="og:description" content={metaDescription} />
-        <meta property="twitter:description" content={metaDescription} />
+        <meta
+          property="og:description"
+          content={cms_head_props?.og_twitter_description || metaDescription}
+        />
+        <meta
+          name="twitter:description"
+          content={cms_head_props?.og_twitter_description || metaDescription}
+        />
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@upbound_io" />
-        <meta name="twitter:image" content={`https://www.upbound.io${metaImg}`} />
+        {cms_head_props?.og_twitter_url && (
+          <meta property="og:url" content={cms_head_props?.og_twitter_url} />
+        )}
+        {cms_head_props?.og_twitter_url && (
+          <meta name="twitter:url" content={cms_head_props?.og_twitter_url} />
+        )}
 
+        <meta
+          property="og:image"
+          content={
+            cms_head_props?.og_twitter_image?.meta?.download_url ||
+            `https://www.upbound.io${metaImg}`
+          }
+        />
+        <meta
+          name="twitter:image"
+          content={
+            cms_head_props?.og_twitter_image?.meta?.download_url ||
+            `https://www.upbound.io${metaImg}`
+          }
+        />
+
+        <meta name="twitter:card" content={cms_head_props?.twitter_card || 'summary'} />
+        <meta name="twitter:site" content={cms_head_props?.twitter_site || '@upbound_io'} />
+        {cms_head_props?.twitter_creator && (
+          <meta name="twitter:creator" content={cms_head_props?.twitter_creator} />
+        )}
+
+        <meta property="og:site_name" content="Upbound.io" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`https://www.upbound.io${metaImg}`} />
 
         <meta
           name="google-site-verification"

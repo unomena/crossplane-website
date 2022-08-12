@@ -56,11 +56,7 @@ const PageProvider: React.FC<{
 
   return (
     <PageContainer id="page-container">
-      <PageHead
-        displayTitle={displayTitle}
-        metaTitle={metaTitle}
-        metaDescription={metaDescription}
-      />
+      <PageHead displayTitle={displayTitle} metaDescription={metaDescription} />
       <PageHeader isHeaderVisible={isHeaderVisible} setOverflowVisible={setOverflowVisible} />
       <Box sx={{ overflow: 'hidden' }}>
         {children}

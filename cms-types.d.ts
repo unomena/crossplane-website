@@ -1,3 +1,17 @@
+type CMSHeadProps = {
+  title: string;
+  seo_title: string;
+  search_description: string;
+  seo_keywords: string;
+  og_twitter_title: string;
+  og_twitter_url: string;
+  og_twitter_description: string;
+  og_twitter_image: { meta: { download_url: string } };
+  twitter_card: string;
+  twitter_site: string;
+  twitter_creator: string;
+};
+
 type ImageContent = {
   title: string;
   url: string;
@@ -86,6 +100,8 @@ type HomePageFeature = {
 };
 
 type HomePage = {
+  cms_head_props: CMSHeadProps;
+
   header: { value: HomePageHeader }[];
 
   section_1_title: string;
@@ -160,6 +176,8 @@ type ProductPageFeature = {
 };
 
 type ProductPage = {
+  cms_head_props: CMSHeadProps;
+
   header_title: string;
   header_text: string;
   header_buttons: Button[];
@@ -197,6 +215,8 @@ type ProductPage = {
 };
 
 type WhitepaperPage = {
+  cms_head_props: CMSHeadProps;
+
   id: number;
   header_title: string;
   header_text: string;

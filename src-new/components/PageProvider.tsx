@@ -25,7 +25,6 @@ type Props = {
   isFooterVisible?: boolean;
   isOverflowVisible?: boolean;
   displayTitle?: string;
-  metaTitle?: string;
   metaDescription?: string;
   metaImg?: string;
   hideCTACard?: boolean;
@@ -34,6 +33,7 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
+  cms_head_props?: CMSHeadProps;
   isPreview?: boolean;
 };
 
@@ -42,7 +42,6 @@ const PageProvider = ({
   isFooterVisible = true,
   isOverflowVisible: isOverflowVisibleProp = true,
   displayTitle = defaultTitle,
-  metaTitle = displayTitle,
   metaDescription = defaultDescription,
   metaImg = defaultImg,
   hideCTACard,
@@ -51,6 +50,7 @@ const PageProvider = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
+  cms_head_props,
   isPreview,
 }: Props) => {
   const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
@@ -80,9 +80,9 @@ const PageProvider = ({
     >
       <PageHead
         displayTitle={displayTitle}
-        metaTitle={metaTitle}
         metaDescription={metaDescription}
         metaImg={metaImg}
+        cms_head_props={cms_head_props}
       />
       <PageHeader setOverflowVisible={setOverflowVisible} />
       <Box sx={{ bgcolor: COLORS.firefly }}>

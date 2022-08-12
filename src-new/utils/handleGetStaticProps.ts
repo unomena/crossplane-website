@@ -2,6 +2,20 @@ import { GetStaticPropsContext } from 'next';
 
 import axiosInstance from 'src-new/utils/axiosInstance';
 
+const cms_head_items = [
+  'title',
+  'seo_title',
+  'search_description',
+  'seo_keywords',
+  'og_twitter_title',
+  'og_twitter_url',
+  'og_twitter_description',
+  'og_twitter_image',
+  'twitter_card',
+  'twitter_site',
+  'twitter_creator',
+];
+
 interface CustomPreviewData {
   previewData: {
     preview_url: string;
@@ -42,9 +56,18 @@ const handleGetStaticProps = async (
 
   try {
     const res = await axiosInstance.get(api);
+    const cms_head_props = {};
+    cms_head_items.forEach((item) => {
+      if (res?.data.meta[item]) {
+        cms_head_props[item] = res?.data.meta[item];
+      } else {
+        cms_head_props[item] = res?.data[item];
+      }
+    });
 
     let props = {
       ...res?.data,
+      cms_head_props,
       isPreview,
     };
 
