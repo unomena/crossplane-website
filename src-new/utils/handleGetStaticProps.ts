@@ -59,9 +59,9 @@ const handleGetStaticProps = async (
     const cms_head_props = {};
     cms_head_items.forEach((item) => {
       if (res?.data.meta[item]) {
-        cms_head_props[item] = res?.data.meta[item];
+        cms_head_props[item] = res?.data.meta[item] || null;
       } else {
-        cms_head_props[item] = res?.data[item];
+        cms_head_props[item] = res?.data[item] || null;
       }
     });
 
