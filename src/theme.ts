@@ -441,24 +441,6 @@ export const globalStyle = css`
     border-top-width: 0;
     z-index: 2147483647 !important;
 
-    @media screen and (max-width: 768px) {
-      &
-        div#hs-eu-cookie-confirmation
-        div#hs-eu-cookie-confirmation-inner
-        div#hs-en-cookie-confirmation-buttons-area {
-        margin-right: 0;
-      }
-      & div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p {
-        margin: 0 0 12px;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
-        padding: 15px 20px !important;
-      }
-    }
-
     &,
     & > div#hs-eu-cookie-confirmation-inner {
       background-color: ${COLORS.slate};
@@ -502,7 +484,7 @@ export const globalStyle = css`
           background-color: ${COLORS.aquaMarine} !important;
           color: ${COLORS.white} !important;
           fill: ${COLORS.white} !important;
-          
+
           &:hover {
             border-color: transparent !important;
             background-color: ${COLORS.aquarius} !important;
@@ -524,6 +506,23 @@ export const globalStyle = css`
           }
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    div#hs-eu-cookie-confirmation
+      div#hs-eu-cookie-confirmation-inner
+      div#hs-en-cookie-confirmation-buttons-area {
+      margin-right: 0;
+    }
+    div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p {
+      margin: 0 0 12px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
+      padding: 15px 20px !important;
     }
   }
 
