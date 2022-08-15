@@ -444,6 +444,10 @@ export const globalStyle = css`
     &,
     & > div#hs-eu-cookie-confirmation-inner {
       background-color: ${COLORS.slate};
+
+      @media screen and (max-width: 480px) {
+        padding: 15px 20px !important;
+      }
     }
 
     & > div#hs-eu-cookie-confirmation-inner {
@@ -513,16 +517,10 @@ export const globalStyle = css`
     div#hs-eu-cookie-confirmation
       div#hs-eu-cookie-confirmation-inner
       div#hs-en-cookie-confirmation-buttons-area {
-      margin-right: 0;
+      margin-right: 0 !important;
     }
     div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p {
-      margin: 0 0 12px;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner {
-      padding: 15px 20px !important;
+      margin: 0 0 12px !important;
     }
   }
 
