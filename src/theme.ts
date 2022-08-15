@@ -446,7 +446,7 @@ export const globalStyle = css`
       background-color: ${COLORS.slate};
 
       @media screen and (max-width: 480px) {
-        padding: 15px 20px !important;
+        padding: 15px 0 !important;
       }
     }
 
@@ -520,7 +520,7 @@ export const globalStyle = css`
       margin-right: 0 !important;
     }
     div#hs-eu-cookie-confirmation div#hs-eu-cookie-confirmation-inner p {
-      margin: 0 0 12px !important;
+      margin: 0 24px 12px !important;
     }
   }
 
