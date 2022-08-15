@@ -169,6 +169,23 @@ const formStyles: SxProps = {
   },
 };
 
+// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
+const responsiveImg: SxProps = {
+  width: '100%',
+  mb: 5,
+
+  '& > span': {
+    position: 'unset !important',
+  },
+
+  '& img': {
+    objectFit: 'contain',
+    width: '100% !important',
+    position: 'relative !important',
+    height: 'unset !important',
+  },
+};
+
 interface FormValues {
   first_name: string;
   last_name: string;
@@ -409,16 +426,11 @@ const Whitepaper = (props: Props) => {
               <Typography variant="h2_new" sx={{ mb: 3 }}>
                 {props.header_title}
               </Typography>
-              <Typography variant="body_big" sx={{ mb: 5 }}>
+              <Typography variant="body_big" sx={{ mb: 4 }}>
                 {props.header_text}
               </Typography>
-              <Box sx={{ position: 'relative', width: '100%', height: '374px', mb: 5 }}>
-                <CMSImage
-                  value={props.header_image[0].value}
-                  layout="fill"
-                  objectFit="contain"
-                  priority
-                />
+              <Box sx={responsiveImg}>
+                <CMSImage value={props.header_image[0].value} layout="fill" priority />
               </Box>
               <Hidden lgDown>
                 <Box sx={header_listStyles}>
