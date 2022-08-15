@@ -410,9 +410,9 @@ const PageFooter = ({
                   <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
                     Request Demo
                   </Anchor>
-                  <Link sx={mobileFooterColumnLink} href={routes.pricingRoute}>
+                  {/* <Link sx={mobileFooterColumnLink} href={routes.pricingRoute}>
                     Plans & Pricing
-                  </Link>
+                  </Link> */}
                   <Link sx={mobileFooterColumnLink} href={routes.partnersRoute}>
                     Partner Program
                   </Link>
@@ -571,9 +571,9 @@ const PageFooter = ({
                 <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
                   Request Demo
                 </Anchor>
-                <Link sx={largeFooterLinkStyle} href={routes.pricingRoute}>
+                {/* <Link sx={largeFooterLinkStyle} href={routes.pricingRoute}>
                   Plans & Pricing
-                </Link>
+                </Link> */}
                 <Link sx={largeFooterLinkStyle} href={routes.partnersRoute}>
                   Partner Program
                 </Link>
