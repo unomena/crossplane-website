@@ -375,18 +375,20 @@ const ProductsPopoverContent = () => {
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
           Future-proof cloud infrastructure, reduce costs, & increase efficiency
         </Typography>
-        <Box sx={{ mt: 'auto' }}>
+        {/* THIS IS TEMPORARILY COMMENTED OUT UNTIL PRICING PAGE REPUBLISHED
+        <Box sx={{ mt: 'auto' }}> */}
+        <Box>
           <LinkBar
             href={routes.productsUCPRoute}
             title="Upbound Product Page"
             body="The single control center for your infrastructure"
             sx={{ mb: 1.5 }}
           />
-          <LinkBar
+          {/* <LinkBar
             href={routes.pricingRoute}
             title="Plans & Pricing"
             body="Choose the tier that’s right for you"
-          />
+          /> */}
         </Box>
       </Box>
       <Box sx={popoverDivider} />
@@ -396,7 +398,13 @@ const ProductsPopoverContent = () => {
           Have one of our Upbound specialists show you the power of the Universal Cloud Platform and
           how it can be used to transform how you manage infrastructure.
         </Typography>
-        <Button styleType="linkWaterContained" sizeType="small" href={routes.contactRoute}>
+        <Button
+          styleType="linkWaterContained"
+          sizeType="small"
+          href={routes.contactRoute}
+          // THIS SX IS TEMPORARILY UNTIL PRICING PAGE REPUBLISHED
+          sx={{ mt: 3 }}
+        >
           Schedule Demo
         </Button>
       </Box>
@@ -502,10 +510,10 @@ const mobileLinks = [
         title: 'Upbound Product Page',
         href: routes.productsUCPRoute,
       },
-      {
-        title: 'Plans & Pricing',
-        href: routes.pricingRoute,
-      },
+      // {
+      //   title: 'Plans & Pricing',
+      //   href: routes.pricingRoute,
+      // },
     ],
   },
 
