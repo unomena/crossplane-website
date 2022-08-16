@@ -9,7 +9,7 @@ import { useFormik, FormikHelpers } from 'formik';
 import { FocusError } from 'focus-formik-error';
 import * as yup from 'yup';
 
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 
 import * as routes from 'src/routes';
 
@@ -17,6 +17,7 @@ import { Img } from 'src/elements/Img';
 
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleFormError from 'src-new/utils/handleFormError';
+import getSessionData from 'src-new/utils/getSessionData';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -89,18 +90,13 @@ const ContactForm = () => {
     try {
       setLoading(true);
 
-      const { data } = await axios.get('https://ipapi.co/json/');
-      const hutk = document.cookie.replace(
-        /(?:(?:^|.*;\s*)hubspotutk\s*\=\s*([^;]*).*$)|^.*$/,
-        '$1'
-      );
+      const data = await getSessionData();
 
       const token = await handleReCaptchaVerify();
 
       const postData = {
         recaptcha_token: token,
-        ip_address: data.ip,
-        hutk,
+        ...data,
         ...values,
       };
 
