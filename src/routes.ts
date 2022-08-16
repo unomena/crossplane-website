@@ -38,7 +38,7 @@ export const cloudLoginUrl = cloudUrl + '/login';
 export const cloudRegisterUrl = cloudUrl + '/register';
 export const cloudDocsUrl = cloudUrl + '/docs';
 export const cloudCliDocsUrl = cloudDocsUrl + '/cli';
-export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';
+export const cloudUxpDocsUrl = cloudDocsUrl + '/universal-crossplane';
 
 // Routes
 

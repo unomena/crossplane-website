@@ -366,6 +366,9 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
+  ctaBtnTwo?: boolean;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
 };
 
 const PageFooter = ({
@@ -376,6 +379,9 @@ const PageFooter = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
+  ctaBtnTwo = false,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
 }: Props) => {
   if (isFooterVisible === false) {
     return null;
@@ -392,6 +398,9 @@ const PageFooter = ({
                 paragraph={ctaParagraph}
                 btnText={ctaBtnText}
                 btnLink={ctaBtnLink}
+                btnTwo={ctaBtnTwo}
+                btnTwoText={ctaBtnTwoText}
+                btnTwoLink={ctaBtnTwoLink}
               />
             )}
             <Box sx={mobileFooterLinkColumnsContainer}>
@@ -519,6 +528,9 @@ const PageFooter = ({
                 paragraph={ctaParagraph}
                 btnText={ctaBtnText}
                 btnLink={ctaBtnLink}
+                btnTwo={ctaBtnTwo}
+                btnTwoText={ctaBtnTwoText}
+                btnTwoLink={ctaBtnTwoLink}
               />
             )}
             <Box sx={largeFooterLinkColumnsContainer}>

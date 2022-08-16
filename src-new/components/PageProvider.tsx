@@ -33,6 +33,9 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
+  ctaBtnTwo?: boolean;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
   cms_head_props?: CMSHeadProps;
   isPreview?: boolean;
 };
@@ -50,6 +53,9 @@ const PageProvider = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
+  ctaBtnTwo = false,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
   cms_head_props,
   isPreview,
 }: Props) => {
@@ -95,6 +101,9 @@ const PageProvider = ({
           ctaParagraph={ctaParagraph}
           ctaBtnText={ctaBtnText}
           ctaBtnLink={ctaBtnLink}
+          ctaBtnTwo={ctaBtnTwo}
+          ctaBtnTwoText={ctaBtnTwoText}
+          ctaBtnTwoLink={ctaBtnTwoLink}
         />
       </Box>
       {isPreview && <PreviewIndicator />}

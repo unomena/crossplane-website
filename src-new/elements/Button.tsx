@@ -6,6 +6,7 @@ import { Box, Button as MuiButton, ButtonProps, CircularProgress, SxProps } from
 import { COLORS, fontAvenirBold, fontAvenirRoman, MQ } from 'src/theme';
 
 import ArrowRight from 'src-new/svg/ArrowRight';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 const scale = 1.05;
 
@@ -177,6 +178,7 @@ type Props = {
     | 'disabled';
   sizeType?: 'small' | 'normal' | 'large';
   loading?: boolean;
+  hasRocketIcon?: boolean;
   hasArrowRight?: boolean;
   cmsValue?: ButtonValue;
 } & ButtonProps;
@@ -186,6 +188,7 @@ const Button = ({
   styleType: _styleType = 'whiteContained',
   sizeType = 'normal',
   loading,
+  hasRocketIcon,
   hasArrowRight,
   cmsValue,
   ...props
@@ -250,6 +253,7 @@ const Button = ({
         ...arrowRightStyle,
         ...props.sx,
       }}
+      startIcon={hasRocketIcon ? <RocketLaunchIcon /> : null}
       endIcon={hasArrowRight ? <ArrowRight /> : null}
       {...extraProps}
     >

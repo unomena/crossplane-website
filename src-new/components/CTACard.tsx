@@ -39,6 +39,21 @@ const root: SxProps = {
   // backgroundImage: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)',
 };
 
+const btnContainer: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: { _: 'center', md: 'left' },
+  flexDirection: { _: 'column', sm: 'row' },
+
+  '& > button, a': {
+    mx: { _: 0, sm: '10px' },
+
+    ':not(:last-of-type)': {
+      mb: { _: '20px', sm: 0 },
+    },
+  },
+};
+
 const defaultTitle = 'Try Upbound for free';
 const defaultParagraph =
   'Start your control-plane transformation for free by creating a free Upbound account.';
@@ -50,6 +65,9 @@ type Props = {
   paragraph?: string;
   btnText?: string;
   btnLink?: string;
+  btnTwo?: boolean;
+  btnTwoText?: string;
+  btnTwoLink?: string;
 };
 
 const CTACard = ({
@@ -57,6 +75,9 @@ const CTACard = ({
   paragraph = defaultParagraph,
   btnText = defaultBtnText,
   btnLink = defaultBtnLink,
+  btnTwo = false,
+  btnTwoText = defaultBtnText,
+  btnTwoLink = undefined,
 }: Props) => {
   return (
     <Box sx={wrapper}>
@@ -71,9 +92,20 @@ const CTACard = ({
         >
           {paragraph}
         </Typography>
-        <Button styleType="whiteContained" href={btnLink}>
-          {btnText}
-        </Button>
+        {!btnTwo ? (
+          <Button styleType="whiteContained" href={btnLink}>
+            {btnText}
+          </Button>
+        ) : (
+          <Box sx={btnContainer}>
+            <Button styleType="whiteContained" href={btnLink}>
+              {btnText}
+            </Button>
+            <Button styleType="whiteOutlined" href={btnTwoLink}>
+              {btnTwoText}
+            </Button>
+          </Box>
+        )}
       </Box>
     </Box>
   );
