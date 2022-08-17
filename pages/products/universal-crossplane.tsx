@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { styled } from '@mui/system';
-import { COLORS, fontAvenirBold, MQ } from 'src/theme';
-import { Box, SxProps, Hidden } from '@mui/material';
+import { COLORS, fontAvenirRoman, fontAvenirBold, MQ, gradient_1, gradient_2 } from 'src/theme';
+import { Box, SxProps, Hidden, Typography } from '@mui/material';
 
-import VideoModal from 'src/elements/VideoModal';
+import Image from 'next/image';
+
+// import VideoModal from 'src/elements/VideoModal';
 
 import PageProvider from 'src-new/components/PageProvider';
 import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
 import { Wave } from 'src/components/Wave';
 
-import { Anchor, Link } from 'src/elements/Anchor';
+import { Anchor } from 'src/elements/Anchor';
 import { AnchorButton } from 'src/elements/Button';
 import Button from 'src-new/elements/Button';
+import Link from 'src-new/elements/Link';
 import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
@@ -20,6 +23,8 @@ import { Span } from 'src/elements/Span';
 import CTACard from 'src-new/components/CTACard';
 
 import * as routes from 'src/routes';
+
+import useOnScreen from 'src-new/utils/useOnScreen';
 
 // import ArrowRight from 'src/svg/ArrowRight';
 // import PlayCircle from 'src/svg/PlayCircle';
@@ -49,68 +54,9 @@ import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
 import manageImage from 'public/uxp/manage.svg';
 import manageMobileImage from 'public/uxp/manage-mobile.svg';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-
-type FeatureData = {
-  icon: StaticImageData;
-  title: string;
-  body: React.ReactNode;
-};
-
-const features: FeatureData[] = [
-  {
-    icon: iconForksImage,
-    title: 'No Longterm Forks',
-    body: (
-      <span>
-        We are still good open source citizens despite inventing Crossplane. UXP is a downstream
-        distribution we can support, releasing patches and fixes to you without waiting on a
-        community-driven release process. All bug fixes get merged upstream over time.
-      </span>
-    ),
-  },
-  {
-    icon: iconTestedImage,
-    title: 'Tested By Upbound',
-    body: (
-      <span>
-        Universal Crossplane releases follow open source Crossplane releases by one to two weeks
-        which allows the Upbound team to observe, test, and address any issues experienced by
-        upstream Crossplane users.
-      </span>
-    ),
-  },
-  {
-    icon: iconBugImage,
-    title: 'Priority Bug Fixes',
-    body: (
-      <span>
-        Universal Crossplane allows you to get patches fast without waiting on open source
-        Crossplane release cycles. UXP is maintained entirely by our team at Upbound. When bugs are
-        reported, we prioritize and address them ASAP.
-      </span>
-    ),
-  },
-  {
-    icon: iconProductivityImage,
-    title: 'Enhanced Productivity',
-    body: (
-      <span>
-        Developing Providers and Configurations for the first time can be tricky, but UXP makes it
-        easier by integrating with the Upbound CLI.
-      </span>
-    ),
-  },
-  {
-    icon: iconSupportImage,
-    title: '24/7 Customer Support',
-    body: (
-      <span>
-        Universal Crossplane customers enjoy the peace of mind that they will receive 24/7 support
-        for all of their deployments.
-      </span>
-    ),
-  },
-];
+import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
+import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
+import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
 
 const BackgroundOval = styled('img')<{ left?: string; right?: string }>`
   position: absolute;
@@ -200,6 +146,82 @@ const ctaBox: SxProps = {
   },
 };
 
+const smallTitleStyle: SxProps = {
+  ...fontAvenirRoman,
+  ml: 1.5,
+  fontSize: '13px',
+  lineHeight: '16px',
+  letterSpacing: '-0.13px',
+
+  [MQ.md]: {
+    fontSize: '20px',
+    lineHeight: '56px',
+    letterSpacing: '-0.2px',
+  },
+};
+
+type FeatureData = {
+  icon: StaticImageData;
+  title: string;
+  body: React.ReactNode;
+};
+
+const features: FeatureData[] = [
+  {
+    icon: iconForksImage,
+    title: 'No Longterm Forks',
+    body: (
+      <span>
+        We are still good open source citizens despite inventing Crossplane. UXP is a downstream
+        distribution we can support, releasing patches and fixes to you without waiting on a
+        community-driven release process. All bug fixes get merged upstream over time.
+      </span>
+    ),
+  },
+  {
+    icon: iconTestedImage,
+    title: 'Tested By Upbound',
+    body: (
+      <span>
+        Universal Crossplane releases follow open source Crossplane releases by one to two weeks
+        which allows the Upbound team to observe, test, and address any issues experienced by
+        upstream Crossplane users.
+      </span>
+    ),
+  },
+  {
+    icon: iconBugImage,
+    title: 'Priority Bug Fixes',
+    body: (
+      <span>
+        Universal Crossplane allows you to get patches fast without waiting on open source
+        Crossplane release cycles. UXP is maintained entirely by our team at Upbound. When bugs are
+        reported, we prioritize and address them ASAP.
+      </span>
+    ),
+  },
+  {
+    icon: iconProductivityImage,
+    title: 'Enhanced Productivity',
+    body: (
+      <span>
+        Developing Providers and Configurations for the first time can be tricky, but UXP makes it
+        easier by integrating with the Upbound CLI.
+      </span>
+    ),
+  },
+  {
+    icon: iconSupportImage,
+    title: '24/7 Customer Support',
+    body: (
+      <span>
+        Universal Crossplane customers enjoy the peace of mind that they will receive 24/7 support
+        for all of their deployments.
+      </span>
+    ),
+  },
+];
+
 const Feature = ({ feature: { icon, title, body } }: { feature: FeatureData }) => (
   <FeatureTile my="30px" sx={{ textAlign: 'center' }}>
     <Img src={icon} alt="Fork" width={64} sx={{ mx: 'auto' }} />
@@ -209,6 +231,273 @@ const Feature = ({ feature: { icon, title, body } }: { feature: FeatureData }) =
     <Paragraph color="white">{body}</Paragraph>
   </FeatureTile>
 );
+
+interface StaticRequire {
+  default: StaticImageData;
+}
+declare type StaticImport = StaticRequire | StaticImageData;
+
+type StepBlockProps = {
+  step: {
+    smallTitle: string;
+    bigTitle: string;
+    body: string;
+    href: string;
+    icon: string | StaticImport;
+    img: string | StaticImport;
+    imgMobile: string | StaticImport;
+    imgSmallOffset: { top: number; right: number };
+    imgSmallOffsetMobile: { top: number; right: number };
+    reversed?: Boolean;
+  };
+};
+
+const StepBlock = ({ step }: StepBlockProps) => {
+  const {
+    smallTitle,
+    bigTitle,
+    body,
+    href,
+    icon,
+    img,
+    imgMobile,
+    imgSmallOffset,
+    imgSmallOffsetMobile,
+    reversed,
+  } = step;
+
+  let smallTitleGradient = gradient_1;
+  if (reversed) {
+    smallTitleGradient = gradient_2;
+  }
+
+  const hiddenBarRef = useRef(undefined);
+  const isVisible = useOnScreen(hiddenBarRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        color: COLORS.linkWater,
+        position: 'relative',
+        flexDirection: 'column',
+        [MQ.lg]: {
+          alignItems: 'center',
+          flexDirection: reversed ? 'row-reverse' : 'row',
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          [MQ.lg]: {
+            flex: 1,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: reversed ? '0px' : '28px',
+            pl: reversed ? '28px' : '0px',
+          },
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              maxHeight: 16,
+              maxWidth: 16,
+              [MQ.md]: {
+                maxHeight: 'unset',
+                maxWidth: 'unset',
+              },
+            }}
+          >
+            <Image src={icon} alt="icon" />
+          </Box>
+          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
+        </Box>
+        <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
+          {bigTitle}
+        </Typography>
+        <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
+          {body}
+        </Typography>
+        <Link
+          href={href}
+          muiProps={{
+            color: reversed ? COLORS.sun : COLORS.turquoise,
+            sx: { mt: 5 },
+          }}
+          hasArrow
+        >
+          Learn More
+        </Link>
+        <Box
+          ref={hiddenBarRef}
+          sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
+        />
+      </Box>
+      <Box
+        sx={{
+          mt: '40px',
+          [MQ.lg]: {
+            flex: 1,
+            mt: 0,
+            width: '50%',
+            minWidth: '50%',
+            maxWidth: '50%',
+            pr: reversed ? '28px' : '0px',
+            pl: reversed ? '0px' : '28px',
+          },
+        }}
+      >
+        <Box
+          sx={{
+            position: 'relative',
+            width: { _: 'fit-content', lg: 'unset' },
+            ml: { _: '-14px', lg: 0 },
+          }}
+        >
+          <Box
+            sx={{
+              transition: 'transform 1.5s',
+              transform: show ? '' : `translate(100vw)`,
+
+              [MQ.lg]: {
+                transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
+                ml: reversed ? '-68px' : 0,
+              },
+            }}
+          >
+            <Hidden lgDown>
+              <Image src={img} alt="feature-img-big" />
+            </Hidden>
+            <Hidden lgUp>
+              <Image src={imgMobile} alt="feature-img-big-mobile" />
+            </Hidden>
+          </Box>
+          <Hidden lgDown>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imgSmallOffset.top,
+                right: imgSmallOffset.right,
+                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                transition: 'transform 2s',
+              }}
+            >
+              <Image src={img} alt="feature-img-small" />
+            </Box>
+          </Hidden>
+          <Hidden lgUp>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imgSmallOffsetMobile.top,
+                right: imgSmallOffsetMobile.right,
+                transition: 'transform 2s',
+                transform: show ? '' : `translate(-100vw)`,
+
+                [MQ.lg]: {
+                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                },
+              }}
+            >
+              <Image src={imgMobile} alt="feature-img-small-mobile" />
+            </Box>
+          </Hidden>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+const steps = [
+  {
+    smallTitle: 'Step 1',
+    bigTitle: 'Install The Upbound CLI',
+    body: `Installing the Upbound CLI requires a single line of code to get started. The
+    Upbound CLI can be installed from many different package managers.`,
+    href: routes.cloudCliDocsUrl,
+    icon: EnterpriseReadyIcon,
+    img: installCLIImage,
+    imgMobile: installCLIMobileImage,
+    imgSmallOffset: { top: 103, right: -68 },
+    imgSmallOffsetMobile: { top: 53, right: -32 },
+    reversed: false,
+  },
+  {
+    smallTitle: 'Step 2',
+    bigTitle: 'Install UXP to Your Kubernetes Cluster',
+    body: `UXP requires you to have Kubeconfig
+    configured with your cluster information before installation. You can run the
+    install command to then install UXP on your cluster.`,
+    href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
+    icon: DeployWithConfidenceIcon,
+    img: installUXPImage,
+    imgMobile: installUXPMobileImage,
+    imgSmallOffset: { top: 67, right: 0 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
+    reversed: true,
+  },
+  {
+    smallTitle: 'Step 3',
+    bigTitle: 'Connect UXP to Upbound Cloud',
+    body: `Before you can connect UXP to{' '}
+    <Link href={routes.productsUbcRoute}>Upbound Cloud</Link>, you will need to create a
+    free Upbound account. Along with your free account you will get your real-time
+    dashboard for UXP.{' '}
+    <Anchor href={routes.cloudRegisterUrl}>Create Your Free Account</Anchor>`,
+    href: routes.cloudRegisterUrl,
+    icon: EfficiencyEaseIcon,
+    img: connectUXPImage,
+    imgMobile: connectUXPMobileImage,
+    imgSmallOffset: { top: 54, right: -17 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
+    reversed: false,
+  },
+  {
+    smallTitle: 'Step 4',
+    bigTitle: 'Manage Your UXP Instance On Upbound',
+    body: `                You can now log in to your free Upbound account and see your newly connected UXP
+    cluster in your list of control planes.{' '}
+    <Anchor href={routes.cloudLoginUrl}>Log In to Your Account</Anchor>`,
+    href: routes.cloudRegisterUrl,
+    icon: EfficiencyEaseIcon,
+    img: manageImage,
+    imgMobile: manageMobileImage,
+    imgSmallOffset: { top: 54, right: -17 },
+    imgSmallOffsetMobile: { top: 34, right: -32 },
+    reversed: true,
+  },
+];
+
+const StepsSection = () => {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > div': { pb: { _: 10, lg: 25 } },
+      }}
+    >
+      {steps.map((step) => (
+        <StepBlock key={step.smallTitle} step={step} />
+      ))}
+    </Box>
+  );
+};
 
 const displayTitle = 'Universal Crossplane';
 const metaDescription =
@@ -301,6 +590,15 @@ const UXP = () => {
           </Box>
           <Wave type="elephant" />
         </Hero>
+        <Box px="30px" sx={{ bgcolor: COLORS.elephant, position: 'relative' }}>
+          <StepsSection />
+          {/* <StepsSection {...props} /> */}
+          <Box textAlign="center" mt={10} mb={2}>
+            <Button styleType="cornflowerContained" href={routes.contactRoute}>
+              Request a Demo
+            </Button>
+          </Box>
+        </Box>
         <Box px="30px" sx={{ bgcolor: COLORS.elephant }}>
           <Box
             display="flex"
