@@ -6,8 +6,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { jsx } from '@emotion/react';
-import { Box, Hidden, Typography } from '@mui/material';
-import { SxProps } from '@mui/system';
+import { Box, Hidden, Typography, SxProps } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
 import * as routes from 'src/routes';
@@ -369,6 +368,7 @@ type Props = {
   ctaBtnTwo?: boolean;
   ctaBtnTwoText?: string;
   ctaBtnTwoLink?: string;
+  ctaCustomSx?: SxProps;
 };
 
 const PageFooter = ({
@@ -382,6 +382,7 @@ const PageFooter = ({
   ctaBtnTwo = false,
   ctaBtnTwoText,
   ctaBtnTwoLink,
+  ctaCustomSx,
 }: Props) => {
   if (isFooterVisible === false) {
     return null;
@@ -401,6 +402,7 @@ const PageFooter = ({
                 btnTwo={ctaBtnTwo}
                 btnTwoText={ctaBtnTwoText}
                 btnTwoLink={ctaBtnTwoLink}
+                customSx={ctaCustomSx}
               />
             )}
             <Box sx={mobileFooterLinkColumnsContainer}>
@@ -531,6 +533,7 @@ const PageFooter = ({
                 btnTwo={ctaBtnTwo}
                 btnTwoText={ctaBtnTwoText}
                 btnTwoLink={ctaBtnTwoLink}
+                customSx={ctaCustomSx}
               />
             )}
             <Box sx={largeFooterLinkColumnsContainer}>

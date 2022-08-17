@@ -68,6 +68,7 @@ type Props = {
   btnTwo?: boolean;
   btnTwoText?: string;
   btnTwoLink?: string;
+  customSx?: SxProps;
 };
 
 const CTACard = ({
@@ -77,10 +78,11 @@ const CTACard = ({
   btnLink = defaultBtnLink,
   btnTwo = false,
   btnTwoText = defaultBtnText,
-  btnTwoLink = undefined,
+  btnTwoLink = defaultBtnLink,
+  customSx,
 }: Props) => {
   return (
-    <Box sx={wrapper}>
+    <Box sx={{ ...wrapper, ...customSx }}>
       <Box sx={root}>
         <Typography variant="h2_new" color="#fff" sx={{ mb: 2.5 }}>
           {title}

@@ -17,12 +17,13 @@ import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
 import { Span } from 'src/elements/Span';
+import CTACard from 'src-new/components/CTACard';
 
 import * as routes from 'src/routes';
 
 // import ArrowRight from 'src/svg/ArrowRight';
-import PlayCircle from 'src/svg/PlayCircle';
-import backgroundRing from 'public/background-ring.svg';
+// import PlayCircle from 'src/svg/PlayCircle';
+// import backgroundRing from 'public/background-ring.svg';
 import filledOval from 'public/filled-oval.svg';
 import heroOval from 'public/hero-oval.svg';
 import connectUXPImage from 'public/uxp/connect-uxp.svg';
@@ -47,6 +48,7 @@ import installUXPImage from 'public/uxp/install-uxp.svg';
 import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
 import manageImage from 'public/uxp/manage.svg';
 import manageMobileImage from 'public/uxp/manage-mobile.svg';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 type FeatureData = {
   icon: StaticImageData;
@@ -186,6 +188,18 @@ const headerButtons: SxProps = {
   },
 };
 
+const ctaBox: SxProps = {
+  '& > div': {
+    pt: 2,
+  },
+
+  [MQ.lg]: {
+    '& h2': {
+      fontSize: '42px',
+    },
+  },
+};
+
 const Feature = ({ feature: { icon, title, body } }: { feature: FeatureData }) => (
   <FeatureTile my="30px" sx={{ textAlign: 'center' }}>
     <Img src={icon} alt="Fork" width={64} sx={{ mx: 'auto' }} />
@@ -203,8 +217,6 @@ const metaDescription =
   'Crossplane experts with 24/7 support.';
 
 const UXP = () => {
-  // const [isVideoVisible, setVideoVisible] = useState(false);
-
   return (
     <PageProvider
       displayTitle={displayTitle}
@@ -218,6 +230,7 @@ const UXP = () => {
       ctaBtnTwo={true}
       ctaBtnTwoText="Join Our Slack Channel"
       ctaBtnTwoLink={routes.crossplaneSlackUrl}
+      ctaCustomSx={ctaBox}
     >
       <Box sx={{ bgcolor: COLORS.elephant }}>
         <Hero>
@@ -246,7 +259,11 @@ const UXP = () => {
                 everything you need to scale Crossplane.
               </Header>
               <Box sx={headerButtons}>
-                <Button styleType="gradientContained" hasRocketIcon href={routes.contactRoute}>
+                <Button
+                  styleType="gradientContained"
+                  startIcon={<RocketLaunchIcon />}
+                  href={routes.contactRoute}
+                >
                   Get a Demo
                 </Button>
                 <Button styleType="whiteOutlined" href="/whitepapers/scaling-crossplane">
@@ -494,60 +511,7 @@ const UXP = () => {
               <FeatureTile />
             </Box>
           </Box>
-          {/* <Box display="flex" justifyContent="center" px="30px">
-            <Box
-              flex="1"
-              maxWidth="1140px"
-              height="1px"
-              borderTop={`1px solid ${COLORS.veryLightBlue}`}
-            ></Box>
-          </Box> */}
-          {/* <Box
-            sx={{
-              backgroundImage: { _: 'none', md: `url(${backgroundRing.src})` },
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'top center',
-              mt: '50px',
-              bgcolor: COLORS.firefly,
-              pb: 30,
-            }}
-          >
-            <Box textAlign="center" maxWidth="750px" mx="auto" px="30px">
-              <Header variant="h3" bold={true} color="white" sx={{ mt: '65px', pt: '50px' }}>
-                Ready to Supercharge Your Open Source Crossplane?
-              </Header>
-              <Header variant="h6" color="white" sx={{ mt: '25px' }}>
-                As the contributor and key maintainer of open source Crossplane, Upbound is your
-                trusted partner in all things Crossplane.
-              </Header>
-            </Box>
-            <ContactTileRowContainer pt="50px" pb="60px" px="15px">
-              <ContactTile type="demo">
-                Have one of our team specialists show what UXP can do for you.
-              </ContactTile>
-              <ContactTile type="slack">
-                Contact us with any questions you have on the Crossplane Slack channel.
-              </ContactTile>
-            </ContactTileRowContainer>
-            <Box textAlign="center" mb={{ _: '0', md: '100px' }} mx="30px">
-              <AnchorButton
-                btnType="whiteOutline"
-                href={routes.contactRoute}
-                mobile={true}
-                sx={{ mb: '60px' }}
-              >
-                <Hidden mdUp>Contact Team Specialist</Hidden>
-                <Hidden mdDown>Contact An Upbound Team Specialist</Hidden>
-              </AnchorButton>
-              <Paragraph color="white" sx={{ maxWidth: '800px', mx: 'auto', opacity: 0.8 }}>
-                You can also visit the Upbound{' '}
-                <Link href={routes.faqRoute}>Frequently Asked Questions</Link> for answers to some
-                of the most common questions our team answers.
-              </Paragraph>
-            </Box>
-          </Box> */}
         </Box>
-        {/* <VideoModal open={isVideoVisible} setOpen={setVideoVisible} videoId="EDsHFpMRKjE" /> */}
       </Box>
     </PageProvider>
   );
