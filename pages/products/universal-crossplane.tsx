@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { COLORS, fontAvenirRoman, MQ, gradient_1, gradient_2 } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
+// import { COLORS, fontAvenirRoman, MQ, gradient_1, gradient_2 } from 'src/theme';
 import { Box, SxProps, Hidden, Typography } from '@mui/material';
 
 import Image from 'next/image';
@@ -35,9 +36,9 @@ import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
 import manageImage from 'public/uxp/manage.svg';
 import manageMobileImage from 'public/uxp/manage-mobile.svg';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
-import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
-import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
+// import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
+// import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
+// import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
 
 const hero: SxProps = {
   backgroundColor: COLORS.firefly,
@@ -92,19 +93,19 @@ const ctaBox: SxProps = {
   },
 };
 
-const smallTitleStyle: SxProps = {
-  ...fontAvenirRoman,
-  ml: 1.5,
-  fontSize: '13px',
-  lineHeight: '16px',
-  letterSpacing: '-0.13px',
+// const smallTitleStyle: SxProps = {
+//   ...fontAvenirRoman,
+//   ml: 1.5,
+//   fontSize: '13px',
+//   lineHeight: '16px',
+//   letterSpacing: '-0.13px',
 
-  [MQ.md]: {
-    fontSize: '20px',
-    lineHeight: '56px',
-    letterSpacing: '-0.2px',
-  },
-};
+//   [MQ.md]: {
+//     fontSize: '20px',
+//     lineHeight: '56px',
+//     letterSpacing: '-0.2px',
+//   },
+// };
 
 type FeatureData = {
   icon: StaticImageData;
@@ -186,12 +187,13 @@ declare type StaticImport = StaticRequire | StaticImageData;
 
 type StepBlockProps = {
   step: {
-    smallTitle: string;
+    // smallTitle: string;
     bigTitle: string;
-    body: string | JSX.Element;
-    linkText: string;
-    href: string;
-    icon: string | StaticImport;
+    body: string;
+    // body: string | JSX.Element;
+    // linkText: string;
+    // href: string;
+    // icon: string | StaticImport;
     img: string | StaticImport;
     imgMobile: string | StaticImport;
     reversed?: Boolean;
@@ -199,12 +201,13 @@ type StepBlockProps = {
 };
 
 const StepBlock = ({ step }: StepBlockProps) => {
-  const { smallTitle, bigTitle, body, linkText, href, icon, img, imgMobile, reversed } = step;
+  // const { smallTitle, bigTitle, body, linkText, href, icon, img, imgMobile, reversed } = step;
+  const { bigTitle, body, img, imgMobile, reversed } = step;
 
-  let smallTitleGradient = gradient_1;
-  if (reversed) {
-    smallTitleGradient = gradient_2;
-  }
+  // let smallTitleGradient = gradient_1;
+  // if (reversed) {
+  //   smallTitleGradient = gradient_2;
+  // }
 
   const hiddenBarRef = useRef(undefined);
   const isVisible = useOnScreen(hiddenBarRef);
@@ -244,7 +247,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
           },
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+        {/* <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
           <Box
             sx={{
               position: 'relative',
@@ -260,7 +263,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
             <Image src={icon} alt="icon" />
           </Box>
           <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{smallTitle}</Typography>
-        </Box>
+        </Box> */}
         <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
           {bigTitle}
         </Typography>
@@ -276,7 +279,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
         >
           {body}
         </Typography>
-        <Link
+        {/* <Link
           href={href}
           muiProps={{
             color: reversed ? COLORS.sun : COLORS.turquoise,
@@ -285,7 +288,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
           hasArrow
         >
           {linkText}
-        </Link>
+        </Link> */}
         <Box
           ref={hiddenBarRef}
           sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
@@ -338,55 +341,61 @@ const StepBlock = ({ step }: StepBlockProps) => {
 
 const steps = [
   {
-    smallTitle: 'Step 1',
-    bigTitle: 'Install The Upbound CLI',
-    body: `Installing the Upbound CLI requires a single line of code to get started. The
-    Upbound CLI can be installed from many different package managers.`,
-    linkText: 'Learn More',
-    href: routes.cloudCliDocsUrl,
-    icon: EnterpriseReadyIcon,
+    // smallTitle: 'Step 1',
+    bigTitle: 'Production-ready Crossplane',
+    body: `Upbound lets you easily upgrade your platform to our downstream distribution of Crossplane, UXP,
+     as well as our Official Providers so you can build your platform on a solid foundation.`,
+    // linkText: 'Learn More',
+    // href: routes.cloudCliDocsUrl,
+    // icon: EnterpriseReadyIcon,
     img: installCLIImage,
     imgMobile: installCLIMobileImage,
     reversed: false,
   },
   {
-    smallTitle: 'Step 2',
-    bigTitle: 'Install UXP to Your Kubernetes Cluster',
-    body: `UXP requires you to have Kubeconfig
-      configured with your cluster information before installation. You can run the
-      install command to then install UXP on your cluster.`,
-    linkText: 'Learn More About Kubeconfig',
-    href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
-    icon: DeployWithConfidenceIcon,
+    // smallTitle: 'Step 2',
+    bigTitle: 'All the flexibility of open source without the risk',
+    body: `Universal Crossplane (UXP) runs anywhere — both on-premise and on any cloud solution. 
+    Install into any cluster to expose Custom Resource Definitions (CRDs) and a standard API 
+    across your entire infrastructure and service providers.`,
+    // linkText: 'Learn More About Kubeconfig',
+    // href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
+    // icon: DeployWithConfidenceIcon,
     img: installUXPImage,
     imgMobile: installUXPMobileImage,
     reversed: true,
   },
   {
-    smallTitle: 'Step 3',
-    bigTitle: 'Connect UXP to Upbound Cloud',
-    body: (
-      <>
-        Before you can connect UXP to <a href={routes.productsUbcRoute}>Upbound Cloud</a>, you will
-        need to create a free Upbound account. Along with your free account you will get your
-        real-time dashboard for UXP.
-      </>
-    ),
-    linkText: 'Create Your Free Account',
-    href: routes.cloudRegisterUrl,
-    icon: EfficiencyEaseIcon,
+    // smallTitle: 'Step 3',
+    bigTitle: 'Complete Resource Coverage + Stable APIs',
+    body: `Upbound Official Providers have 100% resource coverage of each cloud provider API, 
+    and resource parity with Terraform. All resource APIs are v1beta1 or higher, giving your 
+    platform teams a stable foundation to build your internal cloud platform.
+    `,
+    // body: (
+    //   <>
+    //     Before you can connect UXP to <a href={routes.productsUbcRoute}>Upbound Cloud</a>, you will
+    //     need to create a free Upbound account. Along with your free account you will get your
+    //     real-time dashboard for UXP.
+    //   </>
+    // ),
+    // linkText: 'Create Your Free Account',
+    // href: routes.cloudRegisterUrl,
+    // icon: EfficiencyEaseIcon,
     img: connectUXPImage,
     imgMobile: connectUXPMobileImage,
     reversed: false,
   },
   {
-    smallTitle: 'Step 4',
-    bigTitle: 'Manage Your UXP Instance On Upbound',
-    body: `You can now log in to your free Upbound account and see your newly connected UXP
-    cluster in your list of control planes.`,
-    linkText: 'Log In to Your Account',
-    href: routes.cloudLoginUrl,
-    icon: EfficiencyEaseIcon,
+    // smallTitle: 'Step 4',
+    bigTitle: 'Trusted Crossplane experts at your side',
+    body: `Upbound invented, contributed and maintains the Crossplane project. 
+    So when you partner with Upbound, you partner with the project's leading experts. 
+    Get 24/7 support as we help you implement enterprise-grade reference architectures 
+    and integrations for Crossplane.`,
+    // linkText: 'Log In to Your Account',
+    // href: routes.cloudLoginUrl,
+    // icon: EfficiencyEaseIcon,
     img: manageImage,
     imgMobile: manageMobileImage,
     reversed: true,
@@ -404,7 +413,7 @@ const StepsSection = () => {
       }}
     >
       {steps.map((step) => (
-        <StepBlock key={step.smallTitle} step={step} />
+        <StepBlock key={step.bigTitle} step={step} />
       ))}
     </Box>
   );
