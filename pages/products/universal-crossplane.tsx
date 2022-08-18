@@ -1,46 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { styled } from '@mui/system';
-import { COLORS, fontAvenirRoman, fontAvenirBold, MQ, gradient_1, gradient_2 } from 'src/theme';
+import { COLORS, fontAvenirRoman, MQ, gradient_1, gradient_2 } from 'src/theme';
 import { Box, SxProps, Hidden, Typography } from '@mui/material';
 
 import Image from 'next/image';
 
-// import VideoModal from 'src/elements/VideoModal';
-
 import PageProvider from 'src-new/components/PageProvider';
-import { ContactTile, ContactTileRowContainer } from 'src/components/ContactTile';
 import { Wave } from 'src/components/Wave';
 
-import { Anchor } from 'src/elements/Anchor';
-import { AnchorButton } from 'src/elements/Button';
 import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
-import { Span } from 'src/elements/Span';
-import CTACard from 'src-new/components/CTACard';
 
 import * as routes from 'src/routes';
 
 import useOnScreen from 'src-new/utils/useOnScreen';
 
-// import ArrowRight from 'src/svg/ArrowRight';
-// import PlayCircle from 'src/svg/PlayCircle';
-// import backgroundRing from 'public/background-ring.svg';
-import filledOval from 'public/filled-oval.svg';
 import heroOval from 'public/hero-oval.svg';
 import connectUXPImage from 'public/uxp/connect-uxp.svg';
 import connectUXPMobileImage from 'public/uxp/connect-uxp-mobile.svg';
-import dottedLineLeftImage from 'public/uxp/dotted-line-left.svg';
-import dottedLineRightImage from 'public/uxp/dotted-line-right.svg';
-import dottedLineVerticalImage from 'public/uxp/dotted-line-vertical.svg';
-// import hero1xImage from 'public/uxp/hero.png';
-// import hero2xImage from 'public/uxp/hero@2x.png';
 import hero3xImage from 'public/uxp/hero@3x.png';
-// import heroMobile1xImage from 'public/uxp/hero-mobile.png';
-// import heroMobile2xImage from 'public/uxp/hero-mobile@2x.png';
 import heroMobile3xImage from 'public/uxp/hero-mobile@3x.png';
 import iconBugImage from 'public/uxp/icon-bug.svg';
 import iconForksImage from 'public/uxp/icon-forks.svg';
@@ -58,64 +39,29 @@ import EnterpriseReadyIcon from 'public/new-images/home-page/features/Enterprise
 import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
 
-const BackgroundOval = styled('img')<{ left?: string; right?: string }>`
-  position: absolute;
-  top: 0;
-  ${({ left }) => left && `left: ${left};`}
-  ${({ right }) => right && `right: ${right};`}
-  z-index: -1;
-`;
+const hero: SxProps = {
+  backgroundColor: COLORS.firefly,
 
-const DottedLineMobile = styled('img')`
-  display: block;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 30px;
-`;
+  [MQ.lg]: {
+    backgroundImage: `url(${heroOval.src})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'top 55px right',
+  },
+};
 
-const DottedLine = styled('img')`
-  display: block;
-  margin: 0 auto;
-  margin-top: 40px;
-  margin-bottom: 50px;
-`;
+const featureTile: SxProps = {
+  ml: '50px',
+  mr: '50px',
+  flex: '0 1 280px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
 
-const Hero = styled(Box)`
-  background-color: ${COLORS.firefly};
-
-  ${MQ.lg} {
-    background-image: url(${heroOval.src});
-    background-repeat: no-repeat;
-    background-position: top 55px right;
-  }
-`;
-
-const OrangeBadge = styled(Box)`
-  display: inline-block;
-  background-color: ${COLORS.fillActionWarning};
-  ${fontAvenirBold}
-  font-size: 12px;
-  color: ${COLORS.white};
-  letter-spacing: 0;
-  text-align: center;
-  line-height: 18px;
-  padding: 6px 11px;
-  border-radius: 8px;
-  text-transform: uppercase;
-`;
-
-const FeatureTile = styled(Box)`
-  margin-left: 50px;
-  margin-right: 50px;
-  flex: 0 1 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  ${MQ.md} {
-    align-items: flex-start;
-  }
-`;
+  [MQ.md]: {
+    alignItems: 'flex-start',
+  },
+};
 
 const headerButtons: SxProps = {
   mt: { _: 5, sm: 7.5 },
@@ -223,15 +169,16 @@ const features: FeatureData[] = [
 ];
 
 const Feature = ({ feature: { icon, title, body } }: { feature: FeatureData }) => (
-  <FeatureTile my="30px" sx={{ textAlign: 'center' }}>
+  <Box my="30px" sx={featureTile}>
     <Img src={icon} alt="Fork" width={64} sx={{ mx: 'auto' }} />
     <Header variant="h5" bold={true} color="white" sx={{ m: '20px auto' }}>
       {title}
     </Header>
     <Paragraph color="white">{body}</Paragraph>
-  </FeatureTile>
+  </Box>
 );
 
+// NOTE: <IMAGE> USED FOR CMS PURPOSES
 interface StaticRequire {
   default: StaticImageData;
 }
@@ -241,30 +188,18 @@ type StepBlockProps = {
   step: {
     smallTitle: string;
     bigTitle: string;
-    body: string;
+    body: string | JSX.Element;
+    linkText: string;
     href: string;
     icon: string | StaticImport;
     img: string | StaticImport;
     imgMobile: string | StaticImport;
-    imgSmallOffset: { top: number; right: number };
-    imgSmallOffsetMobile: { top: number; right: number };
     reversed?: Boolean;
   };
 };
 
 const StepBlock = ({ step }: StepBlockProps) => {
-  const {
-    smallTitle,
-    bigTitle,
-    body,
-    href,
-    icon,
-    img,
-    imgMobile,
-    imgSmallOffset,
-    imgSmallOffsetMobile,
-    reversed,
-  } = step;
+  const { smallTitle, bigTitle, body, linkText, href, icon, img, imgMobile, reversed } = step;
 
   let smallTitleGradient = gradient_1;
   if (reversed) {
@@ -329,7 +264,16 @@ const StepBlock = ({ step }: StepBlockProps) => {
         <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
           {bigTitle}
         </Typography>
-        <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
+        <Typography
+          variant="body_normal"
+          sx={{
+            maxWidth: 496,
+            '& a': {
+              color: COLORS.cornflower,
+              textDecoration: 'none',
+            },
+          }}
+        >
           {body}
         </Typography>
         <Link
@@ -340,7 +284,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
           }}
           hasArrow
         >
-          Learn More
+          {linkText}
         </Link>
         <Box
           ref={hiddenBarRef}
@@ -386,36 +330,6 @@ const StepBlock = ({ step }: StepBlockProps) => {
               <Image src={imgMobile} alt="feature-img-big-mobile" />
             </Hidden>
           </Box>
-          <Hidden lgDown>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffset.top,
-                right: imgSmallOffset.right,
-                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                transition: 'transform 2s',
-              }}
-            >
-              <Image src={img} alt="feature-img-small" />
-            </Box>
-          </Hidden>
-          <Hidden lgUp>
-            <Box
-              sx={{
-                position: 'absolute',
-                top: imgSmallOffsetMobile.top,
-                right: imgSmallOffsetMobile.right,
-                transition: 'transform 2s',
-                transform: show ? '' : `translate(-100vw)`,
-
-                [MQ.lg]: {
-                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                },
-              }}
-            >
-              <Image src={imgMobile} alt="feature-img-small-mobile" />
-            </Box>
-          </Hidden>
         </Box>
       </Box>
     </Box>
@@ -428,56 +342,53 @@ const steps = [
     bigTitle: 'Install The Upbound CLI',
     body: `Installing the Upbound CLI requires a single line of code to get started. The
     Upbound CLI can be installed from many different package managers.`,
+    linkText: 'Learn More',
     href: routes.cloudCliDocsUrl,
     icon: EnterpriseReadyIcon,
     img: installCLIImage,
     imgMobile: installCLIMobileImage,
-    imgSmallOffset: { top: 103, right: -68 },
-    imgSmallOffsetMobile: { top: 53, right: -32 },
     reversed: false,
   },
   {
     smallTitle: 'Step 2',
     bigTitle: 'Install UXP to Your Kubernetes Cluster',
     body: `UXP requires you to have Kubeconfig
-    configured with your cluster information before installation. You can run the
-    install command to then install UXP on your cluster.`,
+      configured with your cluster information before installation. You can run the
+      install command to then install UXP on your cluster.`,
+    linkText: 'Learn More About Kubeconfig',
     href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
     icon: DeployWithConfidenceIcon,
     img: installUXPImage,
     imgMobile: installUXPMobileImage,
-    imgSmallOffset: { top: 67, right: 0 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
     reversed: true,
   },
   {
     smallTitle: 'Step 3',
     bigTitle: 'Connect UXP to Upbound Cloud',
-    body: `Before you can connect UXP to{' '}
-    <Link href={routes.productsUbcRoute}>Upbound Cloud</Link>, you will need to create a
-    free Upbound account. Along with your free account you will get your real-time
-    dashboard for UXP.{' '}
-    <Anchor href={routes.cloudRegisterUrl}>Create Your Free Account</Anchor>`,
+    body: (
+      <>
+        Before you can connect UXP to <a href={routes.productsUbcRoute}>Upbound Cloud</a>, you will
+        need to create a free Upbound account. Along with your free account you will get your
+        real-time dashboard for UXP.
+      </>
+    ),
+    linkText: 'Create Your Free Account',
     href: routes.cloudRegisterUrl,
     icon: EfficiencyEaseIcon,
     img: connectUXPImage,
     imgMobile: connectUXPMobileImage,
-    imgSmallOffset: { top: 54, right: -17 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
     reversed: false,
   },
   {
     smallTitle: 'Step 4',
     bigTitle: 'Manage Your UXP Instance On Upbound',
-    body: `                You can now log in to your free Upbound account and see your newly connected UXP
-    cluster in your list of control planes.{' '}
-    <Anchor href={routes.cloudLoginUrl}>Log In to Your Account</Anchor>`,
-    href: routes.cloudRegisterUrl,
+    body: `You can now log in to your free Upbound account and see your newly connected UXP
+    cluster in your list of control planes.`,
+    linkText: 'Log In to Your Account',
+    href: routes.cloudLoginUrl,
     icon: EfficiencyEaseIcon,
     img: manageImage,
     imgMobile: manageMobileImage,
-    imgSmallOffset: { top: 54, right: -17 },
-    imgSmallOffsetMobile: { top: 34, right: -32 },
     reversed: true,
   },
 ];
@@ -510,7 +421,6 @@ const UXP = () => {
     <PageProvider
       displayTitle={displayTitle}
       metaDescription={metaDescription}
-      // isOverflowVisible={isVideoVisible === false}
       ctaTitle="Ready to Supercharge Your Open Source Crossplane?"
       // eslint-disable-next-line max-len
       ctaParagraph="As the contributor and key maintainer of open source Crossplane, Upbound is your trusted partner in all things Crossplane."
@@ -522,7 +432,7 @@ const UXP = () => {
       ctaCustomSx={ctaBox}
     >
       <Box sx={{ bgcolor: COLORS.elephant }}>
-        <Hero>
+        <Box sx={hero}>
           <Box
             display="flex"
             maxWidth="1100px"
@@ -569,200 +479,18 @@ const UXP = () => {
               zIndex={20}
             >
               <Hidden lgUp>
-                <Img
-                  src={heroMobile3xImage}
-                  priority
-                  // srcSet={`${heroMobile1xImage} 1x, ${heroMobile2xImage} 2x, ${heroMobile3xImage} 3x`}
-                  alt="console screenshot"
-                  width="100%"
-                />
+                <Img src={heroMobile3xImage} priority alt="console screenshot" width="100%" />
               </Hidden>
               <Hidden lgDown>
-                <Img
-                  src={hero3xImage}
-                  priority
-                  // srcSet={`${hero1xImage} 1x, ${hero2xImage} 2x, ${hero3xImage} 3x`}
-                  alt="console screenshot"
-                  width="100%"
-                />
+                <Img src={hero3xImage} priority alt="console screenshot" width="100%" />
               </Hidden>
             </Box>
           </Box>
           <Wave type="elephant" />
-        </Hero>
+        </Box>
         <Box px="30px" sx={{ bgcolor: COLORS.elephant, position: 'relative' }}>
           <StepsSection />
-          {/* <StepsSection {...props} /> */}
-          <Box textAlign="center" mt={10} mb={2}>
-            <Button styleType="cornflowerContained" href={routes.contactRoute}>
-              Request a Demo
-            </Button>
-          </Box>
-        </Box>
-        <Box px="30px" sx={{ bgcolor: COLORS.elephant }}>
-          <Box
-            display="flex"
-            maxWidth="1100px"
-            mx="auto"
-            alignItems="center"
-            flexDirection={{ _: 'column-reverse', md: 'row' }}
-            mt={{ _: '0', md: '125px' }}
-          >
-            <Box flex="1" mr={{ _: '0', md: '100px' }} width="100%" mt="25px" position="relative">
-              <Hidden mdUp>
-                <Img src={installCLIMobileImage} alt="Install The Upbound CLI" width="100%" />
-              </Hidden>
-              <Hidden mdDown>
-                <BackgroundOval
-                  src={filledOval.src}
-                  alt="background oval"
-                  left="-60px"
-                  width="444px"
-                  sx={{ mt: '-150px' }}
-                />
-                <Img src={installCLIImage} alt="Install The Upbound CLI" width="100%" />
-              </Hidden>
-            </Box>
-            <Box flex="1" textAlign={{ _: 'center', md: 'left' }}>
-              <OrangeBadge mb="15px">Step 1</OrangeBadge>
-              <Header variant="h3" bold={true} color="white">
-                Install The Upbound CLI
-              </Header>
-              <Paragraph color="white" sx={{ mt: '20px' }}>
-                Installing the Upbound CLI requires a single line of code to get started. The
-                Upbound CLI can be installed from many different package managers.{' '}
-                <Anchor href={routes.cloudCliDocsUrl}>Learn More</Anchor>
-              </Paragraph>
-            </Box>
-          </Box>
-          <Hidden mdUp>
-            <DottedLineMobile src={dottedLineVerticalImage.src} alt="Dotted line" />
-          </Hidden>
-          <Hidden mdDown>
-            <DottedLine src={dottedLineLeftImage.src} alt="Dotted line" />
-          </Hidden>
-          <Box
-            display="flex"
-            maxWidth="1100px"
-            mx="auto"
-            alignItems="center"
-            flexDirection={{ _: 'column', md: 'row' }}
-          >
-            <Box flex="1" mr={{ _: '0', md: '100px' }} textAlign={{ _: 'center', md: 'left' }}>
-              <OrangeBadge mb="15px">Step 2</OrangeBadge>
-              <Header variant="h3" bold={true} color="white">
-                Install UXP to Your Kubernetes Cluster
-              </Header>
-              <Paragraph color="white" sx={{ mt: '20px' }}>
-                UXP requires you to have{' '}
-                <Anchor href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">
-                  Kubeconfig
-                </Anchor>{' '}
-                configured with your cluster information before installation. You can run the
-                install command to then install UXP on your cluster.
-              </Paragraph>
-            </Box>
-            <Box flex="1" width="100%" mt="25px" position="relative">
-              <Hidden mdUp>
-                <Img src={installUXPMobileImage} alt="Install The Upbound CLI" width="100%" />
-              </Hidden>
-              <Hidden mdDown>
-                <BackgroundOval
-                  src={filledOval.src}
-                  alt="background oval"
-                  width="506px"
-                  sx={{ mt: '-150px', ml: '50px' }}
-                />
-                <Img src={installUXPImage} alt="Install The Upbound CLI" width="100%" />
-              </Hidden>
-            </Box>
-          </Box>
-          <Hidden mdUp>
-            <DottedLineMobile src={dottedLineVerticalImage.src} alt="Dotted line" />
-          </Hidden>
-          <Hidden mdDown>
-            <DottedLine src={dottedLineRightImage.src} alt="Dotted line" />
-          </Hidden>
-          <Box
-            display="flex"
-            maxWidth="1100px"
-            mx="auto"
-            alignItems="center"
-            flexDirection={{ _: 'column-reverse', md: 'row' }}
-          >
-            <Box flex="1" mr={{ _: '0', md: '100px' }} width="100%" mt="25px" position="relative">
-              <Hidden mdUp>
-                <Img src={connectUXPMobileImage} alt="Install The Upbound CLI" width="100%" />
-              </Hidden>
-              <Hidden mdDown>
-                <BackgroundOval
-                  src={filledOval.src}
-                  alt="background oval"
-                  left="-60px"
-                  width="444px"
-                  sx={{ mt: '-110px' }}
-                />
-                <Img src={connectUXPImage} alt="Install The Upbound CLI" width="100%" />
-              </Hidden>
-            </Box>
-            <Box flex="1" textAlign={{ _: 'center', md: 'left' }}>
-              <OrangeBadge mb="15px">Step 3</OrangeBadge>
-              <Header variant="h3" bold={true} color="white">
-                Connect UXP to Upbound Cloud
-              </Header>
-              <Paragraph color="white" sx={{ mt: '20px' }}>
-                Before you can connect UXP to{' '}
-                <Link href={routes.productsUbcRoute}>Upbound Cloud</Link>, you will need to create a
-                free Upbound account. Along with your free account you will get your real-time
-                dashboard for UXP.{' '}
-                <Anchor href={routes.cloudRegisterUrl}>Create Your Free Account</Anchor>
-              </Paragraph>
-            </Box>
-          </Box>
-          <Hidden mdUp>
-            <DottedLineMobile src={dottedLineVerticalImage.src} alt="Dotted line" />
-          </Hidden>
-          <Hidden mdDown>
-            <DottedLine src={dottedLineLeftImage.src} alt="Dotted line" />
-          </Hidden>
-          <Box
-            display="flex"
-            maxWidth="1100px"
-            mx="auto"
-            alignItems="center"
-            flexDirection={{ _: 'column', md: 'row' }}
-          >
-            <Box flex="1" mr={{ _: '0', md: '100px' }} textAlign={{ _: 'center', md: 'left' }}>
-              <OrangeBadge mb="15px">Step 4</OrangeBadge>
-              <Header variant="h3" bold={true} color="white">
-                Manage Your UXP Instance On Upbound
-              </Header>
-              <Paragraph color="white" sx={{ mt: '20px' }}>
-                You can now log in to your free Upbound account and see your newly connected UXP
-                cluster in your list of control planes.{' '}
-                <Anchor href={routes.cloudLoginUrl}>Log In to Your Account</Anchor>
-              </Paragraph>
-            </Box>
-            <Box flex="1" width="100%" mt="20px" position="relative">
-              <Hidden mdUp>
-                <Img
-                  src={manageMobileImage}
-                  alt="Manage Your UXP Instance On Upbound"
-                  width="100%"
-                />
-              </Hidden>
-              <Hidden mdDown>
-                <BackgroundOval
-                  src={filledOval.src}
-                  alt="background oval"
-                  width="444px"
-                  sx={{ mt: '-30px', right: '-30px' }}
-                />
-                <Img src={manageImage} alt="Manage Your UXP Instance On Upbound" width="100%" />
-              </Hidden>
-            </Box>
-          </Box>
-          <Box textAlign="center" mt={10} mb={2}>
+          <Box textAlign="center" mb={2}>
             <Button styleType="cornflowerContained" href={routes.contactRoute}>
               Request a Demo
             </Button>
@@ -771,7 +499,6 @@ const UXP = () => {
         <Wave type="firefly" />
         <Box
           sx={{
-            // backgroundImage: `linear-gradient(to bottom, ${COLORS.paleGrey}, ${COLORS.white})`,
             bgcolor: COLORS.firefly,
             pt: { _: '10px', md: '0' },
           }}
@@ -795,18 +522,10 @@ const UXP = () => {
             mb={40}
             textAlign={{ _: 'center', md: 'left' }}
           >
-            <Box
-              display="flex"
-              m="-30px -50px"
-              flexDirection="row"
-              flexWrap="wrap"
-              justifyContent="center"
-            >
+            <Box display="flex" m="-30px -50px" flexDirection="row" flexWrap="wrap">
               {features.map((feature, i) => (
                 <Feature key={i} feature={feature} />
               ))}
-              <FeatureTile />
-              <FeatureTile />
             </Box>
           </Box>
         </Box>
