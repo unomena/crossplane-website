@@ -10,7 +10,6 @@ import PageProvider from 'src-new/components/PageProvider';
 import { Wave } from 'src/components/Wave';
 
 import Button from 'src-new/elements/Button';
-import Link from 'src-new/elements/Link';
 import { Header } from 'src/elements/Header';
 import { Img } from 'src/elements/Img';
 import { Paragraph } from 'src/elements/Paragraph';
@@ -35,7 +34,7 @@ import installUXPImage from 'public/uxp/install-uxp.svg';
 import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
 import manageImage from 'public/uxp/manage.svg';
 import manageMobileImage from 'public/uxp/manage-mobile.svg';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import AddIcon from '@mui/icons-material/Add';
 // import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
 // import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 // import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
@@ -65,12 +64,15 @@ const featureTile: SxProps = {
 };
 
 const headerButtons: SxProps = {
-  mt: { _: 5, sm: 7.5 },
   mb: { _: 6, sm: 10 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: { _: 'center', md: 'left' },
   flexDirection: { _: 'column', sm: 'row' },
+
+  '& .MuiButton-startIcon': {
+    mr: '5px',
+  },
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
@@ -82,12 +84,16 @@ const headerButtons: SxProps = {
 };
 
 const ctaBox: SxProps = {
-  '& > div': {
-    pt: 2,
+  [MQ.xl]: {
+    '& > div': {
+      pt: 3,
+      pb: 10,
+    },
   },
 
-  [MQ.lg]: {
-    '& h2': {
+  '& h2': {
+    whiteSpace: 'pre-wrap',
+    [MQ.xl]: {
       fontSize: '42px',
     },
   },
@@ -430,7 +436,7 @@ const UXP = () => {
     <PageProvider
       displayTitle={displayTitle}
       metaDescription={metaDescription}
-      ctaTitle="Ready to Supercharge Your Open Source Crossplane?"
+      ctaTitle={'Ready to Supercharge Your \n Open Source Crossplane?'}
       // eslint-disable-next-line max-len
       ctaParagraph="As the contributor and key maintainer of open source Crossplane, Upbound is your trusted partner in all things Crossplane."
       ctaBtnText="Schedule a Demo"
@@ -469,7 +475,7 @@ const UXP = () => {
               <Box sx={headerButtons}>
                 <Button
                   styleType="gradientContained"
-                  startIcon={<RocketLaunchIcon />}
+                  startIcon={<AddIcon />}
                   href={routes.contactRoute}
                 >
                   Get a Demo
@@ -531,7 +537,18 @@ const UXP = () => {
             mb={40}
             textAlign={{ _: 'center', md: 'left' }}
           >
-            <Box display="flex" m="-30px -50px" flexDirection="row" flexWrap="wrap">
+            <Box
+              sx={{
+                display: 'flex',
+                m: '-30px -50px',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                '@media screen and (min-width: 1100px)': {
+                  justifyContent: 'left',
+                },
+              }}
+            >
               {features.map((feature, i) => (
                 <Feature key={i} feature={feature} />
               ))}
