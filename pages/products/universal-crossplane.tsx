@@ -71,7 +71,7 @@ const headerButtons: SxProps = {
   flexDirection: { _: 'column', sm: 'row' },
 
   '& .MuiButton-startIcon': {
-    mr: '5px',
+    mr: '5px !important',
   },
 
   '& > button, a': {
