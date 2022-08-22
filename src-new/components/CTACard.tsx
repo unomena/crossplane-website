@@ -19,6 +19,7 @@ const wrapper: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   backgroundImage: { _: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)', xl: 'unset' },
+  px: 2,
 };
 
 const root: SxProps = {
