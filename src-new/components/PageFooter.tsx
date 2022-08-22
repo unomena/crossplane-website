@@ -349,13 +349,14 @@ const mobileFooterCNCFColumn: SxProps = {
 
 const mobileFooterCNCFSpan: SxProps = {
   color: COLORS.fillBlackGray,
-  fontSize: '14px',
+  fontSize: '15px',
   lineHeight: '28px',
+  fontWeight: '600',
 
-  [MQ.sm]: {
-    fontSize: '16px',
-    lineHeight: '30px',
-  },
+  // [MQ.sm]: {
+  //   fontSize: '16px',
+  //   lineHeight: '30px',
+  // },
 };
 
 type Props = {
@@ -510,7 +511,9 @@ const PageFooter = ({
               </Box>
             </Box>
             <Box sx={mobileFooterCNCFBorderContainer}>
-              <Typography sx={{ fontSize: '14px', color: COLORS.fillBlackGray }}>
+              <Typography
+                sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
+              >
                 *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran, Andrew
                 Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is a trademark
                 and service mark of Gartner, Inc., and/or its affiliates, and is used herein with
@@ -642,13 +645,15 @@ const PageFooter = ({
                     sx={{ width: '233px', height: '37px', marginBottom: '24px' }}
                   />
                 </Anchor>
-                <Typography sx={mobileFooterCopyrightParagraph}>
+                <Typography sx={mobileFooterCNCFSpan}>
                   Upbound is an active contributor to Crossplane and the Cloud Native Computing
                   Foundation
                 </Typography>
               </Box>
               <Box sx={{ pl: 5, borderLeft: `2px solid ${COLORS.fillBlackGray}` }}>
-                <Typography sx={{ fontSize: '14px', color: COLORS.fillBlackGray }}>
+                <Typography
+                  sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
+                >
                   *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran, Andrew
                   Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is a
                   trademark and service mark of Gartner, Inc., and/or its affiliates, and is used
