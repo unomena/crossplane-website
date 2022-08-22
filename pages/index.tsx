@@ -1820,27 +1820,38 @@ const Home = (props: Props) => {
         </Hidden>
         <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            mt: '20px',
             backgroundColor: COLORS.bigStone,
             borderRadius: '10px',
-            p: '23px 33px',
+            width: '100%',
+            maxWidth: 400,
+            p: '30px',
+            mt: 1.5,
+            mx: 'auto',
+
+            [MQ.xl]: {
+              display: 'flex',
+              alignItems: 'center',
+              maxWidth: '100%',
+              mt: '20px',
+            },
           }}
         >
           <Box
             sx={{
-              // p: '23px 23px 23px 33px',
-              mr: '23px',
+              mb: '30px',
+              [MQ.xl]: {
+                mr: '23px',
+                mb: '0',
+              },
             }}
           >
             <Img src={gartnerLogo} alt="Gartner logo" width={140} />
           </Box>
           <Box>
-            <Typography variant="h4_new" sx={{ mb: 2, fontSize: '23px' }}>
+            <Typography variant="h4_new" sx={{ mb: 2, fontSize: '28px !important' }}>
               Upbound named a Gartner "Cool Vendor™ in Cloud Computing"
             </Typography>
-            <Typography variant="body_normal">
+            <Typography variant="body_normal" sx={{ fontSize: '18px !important' }}>
               Exciting news... Upbound has just been named a "Cool Vendor" by Gartner*! What do we
               think it takes to be named a Gartner Cool Vendor? Innovation, Impact and Intrigue.
               Check out the full report.
