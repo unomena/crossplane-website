@@ -472,7 +472,7 @@ const PageFooter = ({
               </Box>
               <Box sx={mobileFooterLogoAndSocialsContainer}>
                 <Link sx={mobileFooterLogoLink} href={routes.homeRoute}>
-                  <Img src={logo} alt="logo" width={120} />
+                  <Img src={logo} alt="logo" width={190} />
                 </Link>
                 <Typography sx={mobileFooterCopyrightParagraph}>
                   Copyright © 2022.
@@ -512,7 +512,7 @@ const PageFooter = ({
                   <Img
                     src={cncfIcon}
                     alt="cncfIcon"
-                    sx={{ width: '233px', height: '37px', marginBottom: '32px' }}
+                    sx={{ maxWidth: '233px', marginBottom: '32px' }}
                   />
                 </Anchor>
                 <Typography sx={mobileFooterCNCFSpan}>

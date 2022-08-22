@@ -1818,7 +1818,12 @@ const Home = (props: Props) => {
             </Box>
           </Box>
         </Hidden>
-        <Link href="https://www.gartner.com/en">
+        <a
+          href="https://www.gartner.com/en"
+          target="_blank"
+          rel="noreferrer"
+          style={{ textDecoration: 'none' }}
+        >
           <Box
             sx={{
               backgroundColor: COLORS.bigStone,
@@ -1859,7 +1864,7 @@ const Home = (props: Props) => {
               </Typography>
             </Box>
           </Box>
-        </Link>
+        </a>
       </Section>
     </PageProvider>
   );
