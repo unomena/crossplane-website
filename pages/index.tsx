@@ -1818,46 +1818,48 @@ const Home = (props: Props) => {
             </Box>
           </Box>
         </Hidden>
-        <Box
-          sx={{
-            backgroundColor: COLORS.bigStone,
-            borderRadius: '10px',
-            width: '100%',
-            maxWidth: 400,
-            p: '30px',
-            mt: 1.5,
-            mx: 'auto',
-
-            [MQ.xl]: {
-              display: 'flex',
-              alignItems: 'center',
-              maxWidth: '100%',
-              mt: '20px',
-            },
-          }}
-        >
+        <Link href="https://www.gartner.com/en">
           <Box
             sx={{
-              mb: '30px',
+              backgroundColor: COLORS.bigStone,
+              borderRadius: '10px',
+              width: '100%',
+              maxWidth: 400,
+              p: '30px',
+              mt: 1.5,
+              mx: 'auto',
+
               [MQ.xl]: {
-                mr: '23px',
-                mb: '0',
+                display: 'flex',
+                alignItems: 'center',
+                maxWidth: '100%',
+                mt: '20px',
               },
             }}
           >
-            <Img src={gartnerLogo} alt="Gartner logo" width={140} />
+            <Box
+              sx={{
+                mb: '30px',
+                [MQ.xl]: {
+                  mr: '23px',
+                  mb: '0',
+                },
+              }}
+            >
+              <Img src={gartnerLogo} alt="Gartner logo" width={140} />
+            </Box>
+            <Box>
+              <Typography variant="h4_new" sx={{ mb: 2, fontSize: '28px !important' }}>
+                Upbound named a Gartner "Cool Vendor™ in Cloud Computing"
+              </Typography>
+              <Typography variant="body_normal" sx={{ fontSize: '18px !important' }}>
+                Exciting news... Upbound has just been named a "Cool Vendor" by Gartner*! What do we
+                think it takes to be named a Gartner Cool Vendor? Innovation, Impact and Intrigue.
+                Check out the full report.
+              </Typography>
+            </Box>
           </Box>
-          <Box>
-            <Typography variant="h4_new" sx={{ mb: 2, fontSize: '28px !important' }}>
-              Upbound named a Gartner "Cool Vendor™ in Cloud Computing"
-            </Typography>
-            <Typography variant="body_normal" sx={{ fontSize: '18px !important' }}>
-              Exciting news... Upbound has just been named a "Cool Vendor" by Gartner*! What do we
-              think it takes to be named a Gartner Cool Vendor? Innovation, Impact and Intrigue.
-              Check out the full report.
-            </Typography>
-          </Box>
-        </Box>
+        </Link>
       </Section>
     </PageProvider>
   );
