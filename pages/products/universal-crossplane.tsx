@@ -52,20 +52,6 @@ const hero: SxProps = {
   },
 };
 
-const featureTile: SxProps = {
-  // ml: '50px',
-  // mr: '50px',
-  // flex: '0 1 280px',
-  // display: 'flex',
-  // flexDirection: 'column',
-  // alignItems: 'center',
-  textAlign: 'center',
-
-  // [MQ.md]: {
-  //   alignItems: 'flex-start',
-  // },
-};
-
 const headerButtons: SxProps = {
   mb: { _: 6, sm: 10 },
   display: 'flex',
@@ -79,6 +65,7 @@ const headerButtons: SxProps = {
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
+    width: '100%',
 
     ':not(:last-of-type)': {
       mb: { _: '20px', sm: 0 },
@@ -179,7 +166,7 @@ const features: FeatureData[] = [
 ];
 
 const Feature = ({ feature: { icon, title, body } }: { feature: FeatureData }) => (
-  <Box sx={featureTile}>
+  <Box sx={{ textAlign: 'center' }}>
     <Img src={icon} alt="Fork" width={64} sx={{ mx: 'auto' }} />
     <Header variant="h5" bold={true} color="white" sx={{ m: '20px auto' }}>
       {title}
