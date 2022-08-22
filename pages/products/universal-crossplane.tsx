@@ -41,6 +41,8 @@ import AddIcon from '@mui/icons-material/Add';
 
 const hero: SxProps = {
   backgroundColor: COLORS.firefly,
+  pt: 20,
+  // pb: { _: 60, xs: 80, md: 20 },
 
   [MQ.lg]: {
     backgroundImage: `url(${heroOval.src})`,
@@ -459,13 +461,12 @@ const UXP = () => {
             <Box
               flex={6}
               mr={{ _: '0', lg: '110px' }}
-              mt={{ _: '20px', lg: '150px' }}
               textAlign={{ _: 'center', lg: 'left' }}
               display={{ _: 'flex', lg: 'block' }}
               flexDirection="column"
               alignItems="center"
             >
-              <Header variant="h2" bold={true} color="white" sx={{ mt: '25px' }}>
+              <Header variant="h2" bold={true} color="white">
                 The Easiest Way to Run + Scale Crossplane in Production
               </Header>
               <Header variant="h6" color="white" sx={{ mt: '20px', mb: '40px' }}>
@@ -485,14 +486,7 @@ const UXP = () => {
                 </Button>
               </Box>
             </Box>
-            <Box
-              flex={7}
-              mt={{ _: '0', lg: '65px' }}
-              mb={{ _: '-125px', lg: '0' }}
-              width="100%"
-              position="relative"
-              zIndex={20}
-            >
+            <Box flex={7} width="100%" position="relative">
               <Hidden lgUp>
                 <Img src={heroMobile3xImage} priority alt="console screenshot" width="100%" />
               </Hidden>

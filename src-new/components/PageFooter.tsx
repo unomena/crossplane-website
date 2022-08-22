@@ -52,7 +52,8 @@ const footerCareersPill: SxProps = {
 const largeFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '268px 140px 78px 140px',
+  // padding: '268px 140px 78px 140px',
+  padding: '0 140px 78px 140px',
   margin: '0 auto',
   maxWidth: '1440px',
 };
@@ -167,11 +168,13 @@ const largeFooterCNCFSpan: SxProps = {
 const mobileFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '60px 24px 60px 24px',
+  // padding: '60px 24px 60px 24px',
+  padding: '0 24px 60px 24px',
   margin: '0 auto',
 
   [MQ.lg]: {
-    padding: '50px 140px 78px 140px',
+    // padding: '50px 140px 78px 140px',
+    padding: '0 140px 78px 140px',
     margin: '0 auto',
     maxWidth: '1440px',
   },
@@ -392,7 +395,14 @@ const PageFooter = ({
     <Box sx={footerMarginContainer}>
       <Box sx={footerBackgroundContainer}>
         <Hidden lgUp>
-          <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}>
+          <Box
+            sx={{
+              ...mobileFooterWidthContainer,
+              // pt: removeFooterPadding ? '20px' : !ctaBtnTwo ? '200px' : '290px',
+              pt: removeFooterPadding ? '20px' : ctaBtnTwo ? { _: '290px', sm: '210px' } : '200px',
+            }}
+          >
+            {/* <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}> */}
             {!hideCTACard && (
               <CTACard
                 title={ctaTitle}
@@ -523,6 +533,7 @@ const PageFooter = ({
           </Box>
         </Hidden>
         <Hidden lgDown>
+          {/* <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '0' }}> */}
           <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '268px' }}>
             {!hideCTACard && (
               <CTACard
