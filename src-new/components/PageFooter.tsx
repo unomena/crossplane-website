@@ -533,7 +533,6 @@ const PageFooter = ({
           </Box>
         </Hidden>
         <Hidden lgDown>
-          {/* <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '0' }}> */}
           <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '268px' }}>
             {!hideCTACard && (
               <CTACard
