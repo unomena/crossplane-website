@@ -35,6 +35,7 @@ import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
 import manageImage from 'public/uxp/manage.svg';
 import manageMobileImage from 'public/uxp/manage-mobile.svg';
 import AddIcon from '@mui/icons-material/Add';
+import Section from 'src-new/components/Section';
 // import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
 // import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 // import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
@@ -51,20 +52,6 @@ const hero: SxProps = {
   },
 };
 
-const featureTile: SxProps = {
-  ml: '50px',
-  mr: '50px',
-  flex: '0 1 280px',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  textAlign: 'center',
-
-  [MQ.md]: {
-    alignItems: 'flex-start',
-  },
-};
-
 const headerButtons: SxProps = {
   mb: { _: 6, sm: 10 },
   display: 'flex',
@@ -78,6 +65,7 @@ const headerButtons: SxProps = {
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
+    width: '100%',
 
     ':not(:last-of-type)': {
       mb: { _: '20px', sm: 0 },
@@ -178,7 +166,7 @@ const features: FeatureData[] = [
 ];
 
 const Feature = ({ feature: { icon, title, body } }: { feature: FeatureData }) => (
-  <Box my="30px" sx={featureTile}>
+  <Box sx={{ textAlign: 'center' }}>
     <Img src={icon} alt="Fork" width={64} sx={{ mx: 'auto' }} />
     <Header variant="h5" bold={true} color="white" sx={{ m: '20px auto' }}>
       {title}
@@ -466,13 +454,14 @@ const UXP = () => {
               flexDirection="column"
               alignItems="center"
             >
-              <Header variant="h2" bold={true} color="white">
+              <Typography variant="h2_new">
                 The Easiest Way to Run + Scale Crossplane in Production
-              </Header>
-              <Header variant="h6" color="white" sx={{ mt: '20px', mb: '40px' }}>
-                With security, support and official providers, Universal Crossplane (UXP), gives you
-                everything you need to scale Crossplane.
-              </Header>
+              </Typography>
+              <Typography variant="body_normal" sx={{ mt: '20px', mb: '40px' }}>
+                Click below to fill out our contact form and an Upbound and Crossplane expert will
+                reach out to schedule a meeting with you shortly.
+              </Typography>
+
               <Box sx={headerButtons}>
                 <Button
                   styleType="gradientContained"
@@ -506,49 +495,42 @@ const UXP = () => {
           </Box>
         </Box>
         <Wave type="firefly" />
-        <Box
+        <Section
           sx={{
             bgcolor: COLORS.firefly,
-            pt: { _: '10px', md: '0' },
+            pb: 40,
           }}
         >
-          <Box maxWidth="1100px" mx="auto" px="30px" textAlign="center">
-            <Header variant="h2" bold={true} color="white" sx={{ mb: '20px' }}>
+          <Box textAlign="center" mb={10}>
+            <Typography variant="h2_new" sx={{ mb: 3.75 }}>
               What Makes UXP Different From Open Source Crossplane?
-            </Header>
-            <Header variant="h6" color="white">
+            </Typography>
+            <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
               Enterprise UXP provides you with a single pane of glass and real-time dashboards for
               all UXP instances along with unlimited private listings in the Registry. It also
               includes 24/7 support and optional professional services delivered by the world’s
               foremost Crossplane experts.
-            </Header>
+            </Typography>
           </Box>
           <Box
-            maxWidth="1100px"
-            mx="auto"
-            px="30px"
-            mt="80px"
-            mb={40}
-            textAlign={{ _: 'center', md: 'left' }}
+            sx={{
+              display: 'grid',
+              gridGap: '40px',
+              gridTemplateColumns: 'repeat(1,1fr)',
+
+              [MQ.md]: {
+                gridTemplateColumns: 'repeat(2,1fr)',
+              },
+              [MQ.lg]: {
+                gridTemplateColumns: 'repeat(3,1fr)',
+              },
+            }}
           >
-            <Box
-              sx={{
-                display: 'flex',
-                m: '-30px -50px',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                '@media screen and (min-width: 1100px)': {
-                  justifyContent: 'left',
-                },
-              }}
-            >
-              {features.map((feature, i) => (
-                <Feature key={i} feature={feature} />
-              ))}
-            </Box>
+            {features.map((feature, i) => (
+              <Feature key={i} feature={feature} />
+            ))}
           </Box>
-        </Box>
+        </Section>
       </Box>
     </PageProvider>
   );
