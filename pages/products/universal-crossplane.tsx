@@ -42,7 +42,7 @@ import Section from 'src-new/components/Section';
 
 const hero: SxProps = {
   backgroundColor: COLORS.firefly,
-  pt: 20,
+  pt: 16.25,
   // pb: { _: 60, xs: 80, md: 20 },
 
   [MQ.lg]: {
