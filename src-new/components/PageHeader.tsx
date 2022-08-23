@@ -127,7 +127,7 @@ const popoverDivider: SxProps = {
 };
 
 const popoverFreeDemoContainer: SxProps = {
-  width: 268,
+  width: 271,
   py: 3.5,
   pr: 3.5,
   pl: 2.5,
@@ -175,7 +175,7 @@ const popoverFreeDemoContainer: SxProps = {
 // };
 
 const popoverContentContainer: SxProps = {
-  width: 328,
+  width: 351,
   py: 3.5,
   pl: 3.5,
   pr: 2.5,
@@ -375,14 +375,19 @@ const ProductsPopoverContent = () => {
         <Typography variant="body_normal" sx={{ ...popoverContentBodySmall, mb: 3 }}>
           Future-proof cloud infrastructure, reduce costs, & increase efficiency
         </Typography>
-        {/* THIS IS TEMPORARILY COMMENTED OUT UNTIL PRICING PAGE REPUBLISHED
-        <Box sx={{ mt: 'auto' }}> */}
-        <Box>
+        {/* THIS IS TEMPORARILY COMMENTED OUT UNTIL PRICING PAGE REPUBLISHED */}
+        <Box sx={{ mt: 'auto' }}>
+          <LinkBar
+            href={routes.productsUxpRoute}
+            title="Universal Crossplane"
+            body="Run open-source Crossplane at scale"
+            sx={{ mb: 1.5 }}
+          />
           <LinkBar
             href={routes.productsUCPRoute}
-            title="Upbound Product Page"
+            title="The New Upbound Coming Soon"
             body="The single control center for your infrastructure"
-            sx={{ mb: 1.5 }}
+            // sx={{ mb: 1.5 }}
           />
           {/* <LinkBar
             href={routes.pricingRoute}
@@ -395,8 +400,8 @@ const ProductsPopoverContent = () => {
       <Box sx={popoverFreeDemoContainer}>
         <Typography sx={popoverContentHeader}>Schedule a Free Demo</Typography>
         <Typography variant="body_normal" sx={{ ...popoverContentBodyBig, mb: 'auto' }}>
-          Have one of our Upbound specialists show you the power of the Universal Cloud Platform and
-          how it can be used to transform how you manage infrastructure.
+          Have one of our Upbound specialists show you the power of the Upbound Universal Crossplane
+          and how it can be used to transform how you manage infrastructure.
         </Typography>
         <Button
           styleType="linkWaterContained"
@@ -507,7 +512,11 @@ const mobileLinks = [
     title: 'Products',
     children: [
       {
-        title: 'Upbound Product Page',
+        title: 'Upbound Universal Crossplane',
+        href: routes.productsUxpRoute,
+      },
+      {
+        title: 'The New Upbound Coming Soon',
         href: routes.productsUCPRoute,
       },
       // {
