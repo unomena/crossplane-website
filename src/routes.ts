@@ -38,7 +38,7 @@ export const cloudLoginUrl = cloudUrl + '/login';
 export const cloudRegisterUrl = cloudUrl + '/register';
 export const cloudDocsUrl = cloudUrl + '/docs';
 export const cloudCliDocsUrl = cloudDocsUrl + '/cli';
-export const cloudUxpDocsUrl = cloudDocsUrl + '/universal-crossplane';
+export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';
 
 // Routes
 
@@ -59,8 +59,9 @@ export const productsUCPRoute = '/products/universal-cloud-platform';
 export const productsUbcRoute = productsUCPRoute;
 // export const productsRegistryRoute = '/products/registry';
 export const productsRegistryRoute = 'https://marketplace.upbound.io/';
-// export const productsUxpRoute = '/products/uxp';
-export const productsUxpRoute = productsUCPRoute;
+// // export const productsUxpRoute = '/products/uxp';
+// export const productsUxpRoute = productsUCPRoute;
+export const productsUxpRoute = '/products/universal-crossplane';
 
 // "/why-upbound" Routes
 
