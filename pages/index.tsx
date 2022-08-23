@@ -1833,7 +1833,6 @@ const Home = (props: Props) => {
               p: '30px',
               mt: 1.5,
               mx: 'auto',
-
               [MQ.xl]: {
                 display: 'flex',
                 alignItems: 'center',
