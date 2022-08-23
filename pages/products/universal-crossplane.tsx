@@ -58,17 +58,25 @@ const headerButtons: SxProps = {
   alignItems: 'center',
   justifyContent: { _: 'center', md: 'left' },
   flexDirection: { _: 'column', sm: 'row' },
+  textAlign: 'center',
 
   '& .MuiButton-startIcon': {
     mr: '5px !important',
+    display: 'flex',
+    alignItems: 'center',
   },
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
     width: '100%',
+    minWidth: '187px',
 
     ':not(:last-of-type)': {
+      ml: 0,
       mb: { _: '20px', sm: 0 },
+    },
+    ':last-of-type': {
+      mr: 0,
     },
   },
 };
@@ -448,7 +456,7 @@ const UXP = () => {
           >
             <Box
               flex={6}
-              mr={{ _: '0', lg: '110px' }}
+              mr={{ _: '0', lg: '85px' }}
               textAlign={{ _: 'center', lg: 'left' }}
               display={{ _: 'flex', lg: 'block' }}
               flexDirection="column"
