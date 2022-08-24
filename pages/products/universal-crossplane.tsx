@@ -85,12 +85,13 @@ const ctaBox: SxProps = {
   [MQ.xl]: {
     '& > div': {
       pt: 3,
-      pb: 10,
     },
   },
 
   '& h2': {
-    whiteSpace: 'pre-wrap',
+    [MQ.xs]: {
+      whiteSpace: 'pre-wrap',
+    },
     [MQ.xl]: {
       fontSize: '42px',
     },
