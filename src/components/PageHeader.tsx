@@ -504,7 +504,7 @@ const PageHeader: React.FC<{
                 <If is={isAuthenticated()}>
                   <MobileHeaderMenuAnchorButton
                     sx={{ mt: '10px' }}
-                    href={routes.cloudLoginUrl}
+                    href={routes.accountsLoginUrl}
                     btnType="blackOutline"
                   >
                     Console
@@ -512,14 +512,14 @@ const PageHeader: React.FC<{
                 </If>
                 <If is={!isAuthenticated()}>
                   <MobileHeaderMenuAnchorButton
-                    href={routes.cloudRegisterUrl}
+                    href={routes.accountsRegisterUrl}
                     btnType="cornflowerFill"
                   >
                     Try for Free
                   </MobileHeaderMenuAnchorButton>
                   <MobileHeaderMenuAnchorButton
                     sx={{ mt: '10px' }}
-                    href={routes.cloudLoginUrl}
+                    href={routes.accountsLoginUrl}
                     btnType="blackOutline"
                   >
                     Sign In
@@ -752,7 +752,7 @@ const PageHeader: React.FC<{
             </LargeHeaderLink>
             <If is={isAuthenticated()}>
               <AnchorButton
-                href={routes.cloudLoginUrl}
+                href={routes.accountsLoginUrl}
                 btnType="whiteOutline"
                 sx={{
                   p: '10px 18px',
@@ -767,7 +767,7 @@ const PageHeader: React.FC<{
             </If>
             <If is={!isAuthenticated()}>
               <AnchorButton
-                href={routes.cloudLoginUrl}
+                href={routes.accountsLoginUrl}
                 btnType="whiteOutline"
                 sx={{
                   p: '10px 18px',
@@ -780,7 +780,7 @@ const PageHeader: React.FC<{
                 Sign In
               </AnchorButton>
               <AnchorButton
-                href={routes.cloudRegisterUrl}
+                href={routes.accountsRegisterUrl}
                 btnType="aquaMarineFill"
                 hasShadow={true}
                 sx={{

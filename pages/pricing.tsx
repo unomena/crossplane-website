@@ -297,7 +297,7 @@ const Plan: React.FC<{
   subTitle,
   description,
   buttonText = 'Get Started',
-  buttonHref = routes.cloudRegisterUrl,
+  buttonHref = routes.accountsRegisterUrl,
   children,
   darken,
 }) => {

@@ -43,7 +43,7 @@ const defaultTitle = 'Try Upbound for free';
 const defaultParagraph =
   'Start your control-plane transformation for free by creating a free Upbound account.';
 const defaultBtnText = 'Get started now';
-const defaultBtnLink = routes.cloudRegisterUrl;
+const defaultBtnLink = routes.accountsRegisterUrl;
 
 type Props = {
   title?: string;

@@ -28,14 +28,21 @@ function port() {
 }
 
 const domain = () => 'cloud';
-
 const cloudUrl = protocol() + '//' + domain() + '.' + hostname() + port();
+
+const accountsDomain = () => 'accounts';
+const accountsUrl = protocol() + '//' + accountsDomain() + '.' + hostname() + port();
+
+// Accounts Routes
+
+export const accountsLoginUrl = accountsUrl + '/login';
+export const accountsRegisterUrl = accountsUrl + '/register';
 
 // Cloud Routes
 
 export const cloudRegistryUrl = cloudUrl + '/browse';
-export const cloudLoginUrl = cloudUrl + '/login';
-export const cloudRegisterUrl = cloudUrl + '/register';
+// export const cloudLoginUrl = cloudUrl + '/login';
+// export const cloudRegisterUrl = cloudUrl + '/register';
 export const cloudDocsUrl = cloudUrl + '/docs';
 export const cloudCliDocsUrl = cloudDocsUrl + '/cli';
 export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';
