@@ -104,7 +104,8 @@ const headerButtons: SxProps = {
   flexDirection: { _: 'column', sm: 'row' },
 
   '& > button, a': {
-    width: { _: 225, sm: 208 },
+    width: { _: 225, sm: 'unset' },
+    minWidth: 208,
     mx: { _: 0, sm: '10px' },
 
     ':not(:last-of-type)': {
