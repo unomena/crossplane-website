@@ -68,14 +68,14 @@ const headerButtons: SxProps = {
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
-    width: '100%',
-    minWidth: '187px',
+    width: { _: 225, sm: 'unset' },
+    minWidth: 208,
 
-    ':not(:last-of-type)': {
+    ':first-of-type': {
       ml: 0,
       mb: { _: '20px', sm: 0 },
     },
-    ':last-of-type': {
+    '& ~ a': {
       mr: 0,
     },
   },
