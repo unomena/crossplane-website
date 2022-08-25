@@ -155,7 +155,7 @@ const unomenaLink: SxProps = {
 
 const largeFooterCNCFContainer: SxProps = {
   display: 'flex',
-  flexDirection: 'column',
+  // flexDirection: 'column',
   alignItems: 'center',
 };
 
@@ -349,13 +349,14 @@ const mobileFooterCNCFColumn: SxProps = {
 
 const mobileFooterCNCFSpan: SxProps = {
   color: COLORS.fillBlackGray,
-  fontSize: '14px',
+  fontSize: '15px',
   lineHeight: '28px',
+  fontWeight: '600',
 
-  [MQ.sm]: {
-    fontSize: '16px',
-    lineHeight: '30px',
-  },
+  // [MQ.sm]: {
+  //   fontSize: '16px',
+  //   lineHeight: '30px',
+  // },
 };
 
 type Props = {
@@ -460,7 +461,7 @@ const PageFooter = ({
               </Box>
               <Box sx={mobileFooterLogoAndSocialsContainer}>
                 <Link sx={mobileFooterLogoLink} href={routes.homeRoute}>
-                  <Img src={logo} alt="logo" width={120} />
+                  <Img src={logo} alt="logo" width={190} />
                 </Link>
                 <Typography sx={mobileFooterCopyrightParagraph}>
                   Copyright © 2022.
@@ -500,7 +501,7 @@ const PageFooter = ({
                   <Img
                     src={cncfIcon}
                     alt="cncfIcon"
-                    sx={{ width: '233px', height: '37px', marginBottom: '32px' }}
+                    sx={{ maxWidth: '233px', marginBottom: '32px' }}
                   />
                 </Anchor>
                 <Typography sx={mobileFooterCNCFSpan}>
@@ -508,6 +509,22 @@ const PageFooter = ({
                   Foundation
                 </Typography>
               </Box>
+            </Box>
+            <Box sx={mobileFooterCNCFBorderContainer}>
+              <Typography
+                sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
+              >
+                *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran, Andrew
+                Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is a trademark
+                and service mark of Gartner, Inc., and/or its affiliates, and is used herein with
+                permission. All rights reserved. Gartner does not endorse any vendor, product or
+                service depicted in its research publications, and does not advise technology users
+                to select only those vendors with the highest ratings or other designation. Gartner
+                research publications consist of the opinions of Gartner’s Research & Advisory
+                organization and should not be construed as statements of fact. Gartner disclaims
+                all warranties, expressed or implied, with respect to this research, including any
+                warranties of merchantability or fitness for a particular purpose.
+              </Typography>
             </Box>
           </Box>
         </Hidden>
@@ -524,7 +541,7 @@ const PageFooter = ({
             <Box sx={largeFooterLinkColumnsContainer}>
               <Box sx={largeFooterLogoAndSocialsContainer}>
                 <Link sx={largeFooterLogoLink} href={routes.homeRoute}>
-                  <Img src={logo} alt="logo" width={120} />
+                  <Img src={logo} alt="logo" width={190} />
                 </Link>
                 <Typography sx={largeFooterCopyrightParagraph}>
                   Copyright © 2022.
@@ -620,17 +637,36 @@ const PageFooter = ({
               </Box>
             </Box>
             <Box sx={largeFooterCNCFContainer}>
-              <Anchor href={routes.cncfUrl}>
-                <Img
-                  src={cncfIcon}
-                  alt="cncfIcon"
-                  sx={{ width: '233px', height: '37px', marginBottom: '32px' }}
-                />
-              </Anchor>
-              <Typography sx={largeFooterCNCFSpan}>
-                Upbound is an active contributor to Crossplane and the Cloud Native Computing
-                Foundation
-              </Typography>
+              <Box mr={5}>
+                <Anchor href={routes.cncfUrl}>
+                  <Img
+                    src={cncfIcon}
+                    alt="cncfIcon"
+                    sx={{ width: '233px', height: '37px', marginBottom: '24px' }}
+                  />
+                </Anchor>
+                <Typography sx={mobileFooterCNCFSpan}>
+                  Upbound is an active contributor to Crossplane and the Cloud Native Computing
+                  Foundation
+                </Typography>
+              </Box>
+              <Box sx={{ pl: 5, borderLeft: `2px solid ${COLORS.fillBlackGray}` }}>
+                <Typography
+                  sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
+                >
+                  *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran, Andrew
+                  Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is a
+                  trademark and service mark of Gartner, Inc., and/or its affiliates, and is used
+                  herein with permission. All rights reserved. Gartner does not endorse any vendor,
+                  product or service depicted in its research publications, and does not advise
+                  technology users to select only those vendors with the highest ratings or other
+                  designation. Gartner research publications consist of the opinions of Gartner’s
+                  Research & Advisory organization and should not be construed as statements of
+                  fact. Gartner disclaims all warranties, expressed or implied, with respect to this
+                  research, including any warranties of merchantability or fitness for a particular
+                  purpose.
+                </Typography>
+              </Box>
             </Box>
           </Box>
         </Hidden>
