@@ -18,6 +18,7 @@ import * as routes from 'src/routes';
 
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleFormError from 'src-new/utils/handleFormError';
+import getSessionData from 'src-new/utils/getSessionData';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -114,12 +115,15 @@ const HeaderForm = () => {
     try {
       setLoading(true);
 
+      const data = await getSessionData();
+
       const token = await handleReCaptchaVerify();
 
       const postData = {
         page_version: 'v1',
         recaptcha_token: token,
         page_id: null,
+        ...data,
         ...values,
       };
 
