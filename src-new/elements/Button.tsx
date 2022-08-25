@@ -16,6 +16,7 @@ const hoverScale: SxProps = {
 const defaultStyles: SxProps = {
   textTransform: 'none',
   transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+  textAlign: 'center',
 };
 
 const whiteContained: SxProps = {
