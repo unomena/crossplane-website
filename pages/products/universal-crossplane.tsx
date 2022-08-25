@@ -479,7 +479,10 @@ const UXP = () => {
                 >
                   Get a Demo
                 </Button>
-                <Button styleType="whiteOutlined" href="/whitepapers/scaling-crossplane">
+                <Button
+                  styleType="whiteOutlined"
+                  href="/whitepaper/forrester-best-practices-kubernetes"
+                >
                   How to scale XP
                 </Button>
               </Box>
