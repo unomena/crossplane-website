@@ -532,7 +532,7 @@ const Products = (props: Props) => {
         'Get on the list so you`ll be the first to know about our \n Universal Cloud Platform.'
       }
       ctaBtnText="Get on the List"
-      // ctaBtnLink={routes.contactRoute}
+      ctaBtnLink="/upbound-preview"
       ctaCustomSx={ctaBox}
     >
       <Section sx={headerSection}>
@@ -584,7 +584,7 @@ const Products = (props: Props) => {
           <Typography variant="body_normal" sx={{ mb: 3 }}>
             Sign up to be the first to know.
           </Typography>
-          <Button styleType="whiteContained" href="">
+          <Button styleType="whiteContained" href="/upbound-preview">
             Get on the List
           </Button>
         </Box>
