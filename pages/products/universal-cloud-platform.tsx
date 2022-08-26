@@ -529,7 +529,7 @@ const Products = (props: Props) => {
       isPreview={props.isPreview}
       ctaTitle="Be the first to know"
       ctaParagraph={
-        'Get on the list so you`ll be the first to know about our \n Universal Cloud Platform.'
+        "Get on the list so you'll be the first to know about our \n Universal Cloud Platform."
       }
       ctaBtnText="Get on the List"
       ctaBtnLink="/upbound-preview"
