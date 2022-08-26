@@ -297,7 +297,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   let paths: { params: { slug: string } }[] = [];
   try {
     const res = await axiosInstance.get(`/api/v2/pages/?type=app.ContactPage`);
-    // const res = await axiosInstance.get(`/api/v2/pages/?type=${ContactPage}&fields=relative_url`);
     const contactPages = res.data.items;
 
     paths = contactPages.map((contactpage: { meta: { slug: string } }) => ({
