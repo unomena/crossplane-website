@@ -228,3 +228,10 @@ type WhitepaperPage = {
   section_1_button: Button[];
   section_1_richtext: string;
 };
+
+type ContactPage = {
+  cms_head_props: CMSHeadProps;
+
+  header_title: string;
+  header_text: string;
+};
