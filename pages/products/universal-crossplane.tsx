@@ -466,8 +466,8 @@ const UXP = () => {
                 The Easiest Way to Run + Scale Crossplane in Production
               </Typography>
               <Typography variant="body_normal" sx={{ mt: '20px', mb: '40px' }}>
-                Click below to fill out our contact form and an Upbound and Crossplane expert will
-                reach out to schedule a meeting with you shortly.
+                With security, support and official providers, Universal Crossplane (UXP), gives you
+                everything you need to scale Crossplane.
               </Typography>
 
               <Box sx={headerButtons}>
