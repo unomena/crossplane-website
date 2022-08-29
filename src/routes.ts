@@ -30,10 +30,9 @@ function port() {
 const domain = () => 'cloud';
 const cloudUrl = protocol() + '//' + domain() + '.' + hostname() + port();
 
-const accountsDomain = () => 'accounts';
-const accountsUrl = protocol() + '//' + accountsDomain() + '.' + hostname() + port();
-
 // Accounts Routes
+
+const accountsUrl = 'https://accounts.upbound.io';
 
 export const accountsLoginUrl = accountsUrl + '/login';
 export const accountsRegisterUrl = accountsUrl + '/register';
