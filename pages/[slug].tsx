@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import { COLORS } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -36,6 +36,34 @@ const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
   pb: 10,
   textAlign: 'center',
+
+  '& h6:not(.MuiTypography-root)': {
+    fontFamily: `'Avenir-Roman', 'Arial', sans-serif`,
+    color: COLORS.linkWater,
+    fontSize: '18px',
+    lineHeight: '28px',
+
+    [MQ.md]: {
+      fontSize: '24px',
+      lineHeight: '40px',
+    },
+  },
+  '& p:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+
+    [MQ.md]: {
+      fontSize: '20px',
+      lineHeight: '32px',
+    },
+  },
+  '& small:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    letterSpacing: '0px',
+  },
 };
 
 const formStyles: SxProps = {
@@ -264,7 +292,7 @@ const Contact = (props: Props) => {
           <Typography variant="h2_new" sx={{ mb: 3 }}>
             {props.header_title}
           </Typography>
-          <Typography variant="body_big">{props.header_richtext}</Typography>
+          <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
         </Box>
       </Section>
       <Section>
