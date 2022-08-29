@@ -264,7 +264,7 @@ const Contact = (props: Props) => {
           <Typography variant="h2_new" sx={{ mb: 3 }}>
             {props.header_title}
           </Typography>
-          <Typography variant="body_big">{props.header_text}</Typography>
+          <Typography variant="body_big">{props.header_richtext}</Typography>
         </Box>
       </Section>
       <Section>
