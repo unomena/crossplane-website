@@ -335,13 +335,13 @@ const Contact = (props: Props) => {
 export default Contact;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  let paths: { params: { slug: string } }[] = [];
+  let paths: { params: { contact_slug: string } }[] = [];
   try {
     const res = await axiosInstance.get(`/api/v2/pages/?type=app.ContactPage`);
     const contactPages = res.data.items;
 
     paths = contactPages.map((contactpage: { meta: { slug: string } }) => ({
-      params: { slug: contactpage.meta.slug },
+      params: { contact_slug: contactpage.meta.slug },
     }));
   } catch (error) {
     console.log('get ContactPage paths', error);
@@ -351,7 +351,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const returnValue = await handleGetStaticProps(context, `/${context?.params?.slug}`);
+  const returnValue = await handleGetStaticProps(context, `/${context?.params?.contact_slug}`);
 
   if (returnValue) {
     return {
