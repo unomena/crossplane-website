@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography } from '@mui/material';
+import { Box, SxProps, Typography, useMediaQuery } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -36,16 +36,21 @@ const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
   pb: 10,
   textAlign: 'center',
+  color: COLORS.linkWater,
 
-  '& h6:not(.MuiTypography-root)': {
+  '& h5:not(.MuiTypography-root)': {
     fontFamily: `'Avenir-Roman', 'Arial', sans-serif`,
     color: COLORS.linkWater,
     fontSize: '18px',
     lineHeight: '28px',
+    fontWeight: 'normal',
 
     [MQ.md]: {
       fontSize: '24px',
       lineHeight: '40px',
+    },
+    '&:last-of-type': {
+      marginBottom: '0',
     },
   },
   '& p:not(.MuiTypography-root)': {
@@ -57,12 +62,18 @@ const headerSection: SxProps = {
       fontSize: '20px',
       lineHeight: '32px',
     },
+    '&:last-of-type': {
+      marginBottom: '0',
+    },
   },
   '& small:not(.MuiTypography-root)': {
     margin: '0px 0px 24px',
     fontSize: '16px',
     lineHeight: '28px',
     letterSpacing: '0px',
+    '&:last-of-type': {
+      marginBottom: '0',
+    },
   },
 };
 
@@ -280,6 +291,8 @@ type Props = {
 } & ContactPage;
 
 const Contact = (props: Props) => {
+  const matchesLG = useMediaQuery(MQ.lg);
+
   return (
     <PageProvider
       hideCTACard
@@ -287,7 +300,7 @@ const Contact = (props: Props) => {
       cms_head_props={props.cms_head_props}
       isPreview={props.isPreview}
     >
-      <Section sx={headerSection}>
+      <Section hasContainer={matchesLG} sx={headerSection}>
         <Box>
           <Typography variant="h2_new" sx={{ mb: 3 }}>
             {props.header_title}
