@@ -19,26 +19,33 @@ import * as routes from 'src/routes';
 import useOnScreen from 'src-new/utils/useOnScreen';
 
 import heroOval from 'public/hero-oval.svg';
-import connectUXPImage from 'public/uxp/connect-uxp.svg';
-import connectUXPMobileImage from 'public/uxp/connect-uxp-mobile.svg';
-import hero3xImage from 'public/uxp/hero@3x.png';
-import heroMobile3xImage from 'public/uxp/hero-mobile@3x.png';
 import iconBugImage from 'public/uxp/uxp-priority-bug-fixes-icon.svg';
 import iconForksImage from 'public/uxp/uxp-no-longterm-forks-icon.svg';
 import iconProductivityImage from 'public/uxp/uxp-enhanced-productivity-icon.svg';
 import iconSupportImage from 'public/uxp/uxp-247-customer-support-icon.svg';
 import iconTestedImage from 'public/uxp/uxp-tested-by-upbound-icon.svg';
-import installCLIImage from 'public/uxp/install-cli.svg';
-import installCLIMobileImage from 'public/uxp/install-cli-mobile.svg';
-import installUXPImage from 'public/uxp/install-uxp.svg';
-import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
-import manageImage from 'public/uxp/manage.svg';
-import manageMobileImage from 'public/uxp/manage-mobile.svg';
 import AddIcon from '@mui/icons-material/Add';
 import Section from 'src-new/components/Section';
 // import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
 // import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 // import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
+import uxpHero from 'public/new-images/products-page/UXP-images/UXP-Page-Image-hero.svg';
+import uxpImgOneMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-main.svg';
+import uxpImgOneSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-additional.svg';
+import uxpImgOneMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-mobile-main.svg';
+import uxpImgOneMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-mobile-additional.svg';
+import uxpImgTwoMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-main.svg';
+import uxpImgTwoSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-additional.svg';
+import uxpImgTwoMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-mobile-main.svg';
+import uxpImgTwoMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-mobile-additional.svg';
+import uxpImgThreeMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-main.svg';
+import uxpImgThreeSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-additional.svg';
+import uxpImgThreeMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-mobile-main.svg';
+import uxpImgThreeMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-mobile-additional.svg';
+import uxpImgFourMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-main.svg';
+import uxpImgFourSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-additional.svg';
+import uxpImgFourMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-mobile-main.svg';
+import uxpImgFourMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-mobile-additional.svg';
 
 const hero: SxProps = {
   backgroundColor: COLORS.firefly,
@@ -199,15 +206,33 @@ type StepBlockProps = {
     // linkText: string;
     // href: string;
     // icon: string | StaticImport;
-    img: string | StaticImport;
-    imgMobile: string | StaticImport;
+    imgSmall: string | StaticImport;
+    imgSmallMobile: string | StaticImport;
+    imgBig: string | StaticImport;
+    imgBigMobile: string | StaticImport;
+    offsetTop: string;
+    offsetRight: string;
+    offsetMobileTop: string;
+    offsetMobileRight: string;
     reversed?: Boolean;
   };
 };
 
 const StepBlock = ({ step }: StepBlockProps) => {
   // const { smallTitle, bigTitle, body, linkText, href, icon, img, imgMobile, reversed } = step;
-  const { bigTitle, body, img, imgMobile, reversed } = step;
+  const {
+    bigTitle,
+    body,
+    imgBig,
+    imgBigMobile,
+    imgSmall,
+    imgSmallMobile,
+    offsetTop,
+    offsetRight,
+    offsetMobileTop,
+    offsetMobileRight,
+    reversed,
+  } = step;
 
   // let smallTitleGradient = gradient_1;
   // if (reversed) {
@@ -322,6 +347,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
         >
           <Box
             sx={{
+              position: 'relative',
               transition: 'transform 1.5s',
               transform: show ? '' : `translate(100vw)`,
 
@@ -332,12 +358,44 @@ const StepBlock = ({ step }: StepBlockProps) => {
             }}
           >
             <Hidden lgDown>
-              <Image src={img} alt="feature-img-big" />
+              <Image src={imgBig} alt="feature-img-big" />
             </Hidden>
             <Hidden lgUp>
-              <Image src={imgMobile} alt="feature-img-big-mobile" />
+              <Image src={imgBigMobile} alt="feature-img-big-mobile" />
             </Hidden>
           </Box>
+          <Hidden lgDown>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: offsetTop,
+                right: offsetRight,
+                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                transition: 'transform 2s',
+              }}
+            >
+              <Box sx={{ position: 'relative' }}>
+                <Image src={imgSmall} alt="feature-img-small" />
+              </Box>
+            </Box>
+          </Hidden>
+          <Hidden lgUp>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: offsetMobileTop,
+                right: offsetMobileRight,
+                transition: 'transform 2s',
+                transform: show ? '' : `translate(-100vw)`,
+
+                [MQ.lg]: {
+                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                },
+              }}
+            >
+              <Image src={imgSmallMobile} alt="feature-img-small-mobile" />
+            </Box>
+          </Hidden>
         </Box>
       </Box>
     </Box>
@@ -353,8 +411,14 @@ const steps = [
     // linkText: 'Learn More',
     // href: routes.cloudCliDocsUrl,
     // icon: EnterpriseReadyIcon,
-    img: installCLIImage,
-    imgMobile: installCLIMobileImage,
+    imgBig: uxpImgOneMain,
+    imgBigMobile: uxpImgOneMobileMain,
+    imgSmall: uxpImgOneSmall,
+    imgSmallMobile: uxpImgOneMobileSmall,
+    offsetTop: '-14px',
+    offsetRight: '-60px',
+    offsetMobileTop: '-14px',
+    offsetMobileRight: '-60px',
     reversed: false,
   },
   {
@@ -366,8 +430,14 @@ const steps = [
     // linkText: 'Learn More About Kubeconfig',
     // href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
     // icon: DeployWithConfidenceIcon,
-    img: installUXPImage,
-    imgMobile: installUXPMobileImage,
+    imgBig: uxpImgTwoMain,
+    imgBigMobile: uxpImgTwoMobileMain,
+    imgSmall: uxpImgTwoSmall,
+    imgSmallMobile: uxpImgTwoMobileSmall,
+    offsetTop: '2px',
+    offsetRight: '-19px',
+    offsetMobileTop: '2px',
+    offsetMobileRight: '-19px',
     reversed: true,
   },
   {
@@ -387,8 +457,14 @@ const steps = [
     // linkText: 'Create Your Free Account',
     // href: routes.cloudRegisterUrl,
     // icon: EfficiencyEaseIcon,
-    img: connectUXPImage,
-    imgMobile: connectUXPMobileImage,
+    imgBig: uxpImgThreeMain,
+    imgBigMobile: uxpImgThreeMobileMain,
+    imgSmall: uxpImgThreeSmall,
+    imgSmallMobile: uxpImgThreeMobileSmall,
+    offsetTop: '66px',
+    offsetRight: '-22px',
+    offsetMobileTop: '34px',
+    offsetMobileRight: '-32px',
     reversed: false,
   },
   {
@@ -401,8 +477,14 @@ const steps = [
     // linkText: 'Log In to Your Account',
     // href: routes.cloudLoginUrl,
     // icon: EfficiencyEaseIcon,
-    img: manageImage,
-    imgMobile: manageMobileImage,
+    imgBig: uxpImgFourMain,
+    imgBigMobile: uxpImgFourMobileMain,
+    imgSmall: uxpImgFourSmall,
+    imgSmallMobile: uxpImgFourMobileSmall,
+    offsetTop: '-10px',
+    offsetRight: '31px',
+    offsetMobileTop: '-2px',
+    offsetMobileRight: '7px',
     reversed: true,
   },
 ];
@@ -488,12 +570,7 @@ const UXP = () => {
               </Box>
             </Box>
             <Box flex={7} width="100%" position="relative">
-              <Hidden lgUp>
-                <Img src={heroMobile3xImage} priority alt="console screenshot" width="100%" />
-              </Hidden>
-              <Hidden lgDown>
-                <Img src={hero3xImage} priority alt="console screenshot" width="100%" />
-              </Hidden>
+              <Img src={uxpHero} priority alt="hero image" width="100%" />
             </Box>
           </Box>
           <Wave type="elephant" />
