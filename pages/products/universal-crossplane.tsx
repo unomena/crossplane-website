@@ -7,7 +7,6 @@ import { Box, SxProps, Hidden, Typography } from '@mui/material';
 import Image from 'next/image';
 
 import PageProvider from 'src-new/components/PageProvider';
-import { Wave } from 'src/components/Wave';
 
 import Button from 'src-new/elements/Button';
 import { Header } from 'src/elements/Header';
@@ -18,7 +17,6 @@ import * as routes from 'src/routes';
 
 import useOnScreen from 'src-new/utils/useOnScreen';
 
-import heroOval from 'public/hero-oval.svg';
 import iconBugImage from 'public/uxp/uxp-priority-bug-fixes-icon.svg';
 import iconForksImage from 'public/uxp/uxp-no-longterm-forks-icon.svg';
 import iconProductivityImage from 'public/uxp/uxp-enhanced-productivity-icon.svg';
@@ -47,17 +45,61 @@ import uxpImgFourSmall from 'public/new-images/products-page/UXP-images/UXP-Page
 import uxpImgFourMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-mobile-main.svg';
 import uxpImgFourMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-mobile-additional.svg';
 
-const hero: SxProps = {
+const headerSection: SxProps = {
   backgroundColor: COLORS.firefly,
-  pt: 16.25,
-  // pb: { _: 60, xs: 80, md: 20 },
+  pt: { _: 13, md: 40 },
+  pb: { _: 60, xs: 80, md: 10 },
+};
 
-  [MQ.lg]: {
-    backgroundImage: `url(${heroOval.src})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top 55px right',
+const headerWrapper: SxProps = {
+  [MQ.md]: {
+    flex: 1,
+    width: '100%',
+    minWidth: '60%',
+    maxWidth: '60%',
+    pr: '28px',
+    pl: '0px',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  '@media screen and (min-width: 884px)': {
+    minWidth: '50%',
+    maxWidth: '50%',
   },
 };
+
+const headerContainer: SxProps = {
+  [MQ.md]: { width: '100%', maxWidth: '501px' },
+  textAlign: { _: 'center', md: 'left' },
+};
+
+const headerImagesContainer: SxProps = {
+  position: 'absolute',
+  right: '0',
+  ml: '30px',
+  maxWidth: '500px',
+  zIndex: '1',
+  [MQ.md]: {
+    maxWidth: '40%',
+    top: '4%',
+    zIndex: '1',
+  },
+  '@media screen and (min-width: 884px)': {
+    maxWidth: '50%',
+  },
+};
+
+// const hero: SxProps = {
+//   backgroundColor: COLORS.firefly,
+//   pt: 16.25,
+//   // pb: { _: 60, xs: 80, md: 20 },
+
+//   [MQ.lg]: {
+//     backgroundImage: `url(${heroOval.src})`,
+//     backgroundRepeat: 'no-repeat',
+//     backgroundPosition: 'top 55px right',
+//   },
+// };
 
 const headerButtons: SxProps = {
   mb: { _: 6, sm: 10 },
@@ -495,12 +537,78 @@ const StepsSection = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        '& > div': { pb: { _: 10, lg: 25 } },
+        '& > div': { pb: { _: 5, lg: 15 } },
       }}
     >
       {steps.map((step) => (
         <StepBlock key={step.bigTitle} step={step} />
       ))}
+    </Box>
+  );
+};
+
+const HeaderSection = () => {
+  const productsHeaderRef = useRef(undefined);
+  const isVisible = useOnScreen(productsHeaderRef);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setShow(true);
+    }
+  }, [isVisible]);
+
+  return (
+    <Box ref={productsHeaderRef}>
+      <Box sx={headerWrapper}>
+        <Box sx={headerContainer}>
+          <Typography variant="h2_new">
+            The easiest way to run + scale crossplane in production
+          </Typography>
+          <Typography variant="body_normal" sx={{ mt: '20px', mb: '40px' }}>
+            With security, support and official providers, Universal Crossplane (UXP), gives you
+            everything you need to scale Crossplane.
+          </Typography>
+          <Box sx={headerButtons}>
+            <Button
+              styleType="gradientContained"
+              startIcon={<AddIcon />}
+              href={routes.contactRoute}
+            >
+              Get a Demo
+            </Button>
+            <Button
+              styleType="whiteOutlined"
+              href="/whitepaper/forrester-best-practices-kubernetes"
+            >
+              How to scale XP
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+      <Box sx={headerImagesContainer}>
+        <Box sx={{ position: 'relative' }}>
+          <Box
+            sx={{
+              transform: show ? '' : 'translate(50vw)',
+              transition: 'transform 1.5s',
+            }}
+          >
+            <Image src={uxpHero} alt="feature-img-big" />
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '29%',
+              right: '0',
+              transform: show ? '' : 'translate(100vw)',
+              transition: 'transform 2s',
+            }}
+          >
+            <Image src={uxpHero} alt="feature-img-small" />
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 };
@@ -526,68 +634,26 @@ const UXP = () => {
       ctaBtnTwoLink={routes.crossplaneSlackUrl}
       ctaCustomSx={ctaBox}
     >
-      <Box sx={{ bgcolor: COLORS.elephant }}>
-        <Box sx={hero}>
-          <Box
-            display="flex"
-            maxWidth="1100px"
-            mx="auto"
-            px="30px"
-            alignItems="center"
-            flexDirection={{ _: 'column', lg: 'row' }}
-          >
-            <Box
-              flex={6}
-              mr={{ _: '0', lg: '85px' }}
-              textAlign={{ _: 'center', lg: 'left' }}
-              display={{ _: 'flex', lg: 'block' }}
-              flexDirection="column"
-              alignItems="center"
-            >
-              <Typography variant="h2_new">
-                The easiest way to run + scale crossplane in production
-              </Typography>
-              <Typography variant="body_normal" sx={{ mt: '20px', mb: '40px' }}>
-                With security, support and official providers, Universal Crossplane (UXP), gives you
-                everything you need to scale Crossplane.
-              </Typography>
+      <Section sx={headerSection}>
+        <HeaderSection />
+      </Section>
 
-              <Box sx={headerButtons}>
-                <Button
-                  styleType="gradientContained"
-                  startIcon={<AddIcon />}
-                  href={routes.contactRoute}
-                >
-                  Get a Demo
-                </Button>
-                <Button
-                  styleType="whiteOutlined"
-                  href="/whitepaper/forrester-best-practices-kubernetes"
-                >
-                  How to scale XP
-                </Button>
-              </Box>
-            </Box>
-            <Box flex={7} width="100%" position="relative">
-              <Img src={uxpHero} priority alt="hero image" width="100%" />
-            </Box>
-          </Box>
-          <Wave type="elephant" />
+      <Section
+        bgcolor
+        angleTop="topRight"
+        sx={{ pb: { _: 10, md: 16 }, pt: { _: 16, md: 23.5 }, zIndex: '-2' }}
+      >
+        <StepsSection />
+        <Box textAlign="center">
+          <Button styleType="cornflowerContained" href={routes.contactRoute}>
+            Request a Demo
+          </Button>
         </Box>
-        <Box px="30px" sx={{ bgcolor: COLORS.elephant, position: 'relative' }}>
-          <StepsSection />
-          <Box textAlign="center" mb={2}>
-            <Button styleType="cornflowerContained" href={routes.contactRoute}>
-              Request a Demo
-            </Button>
-          </Box>
-        </Box>
-        <Wave type="firefly" />
+      </Section>
+      <Box sx={{ bgcolor: COLORS.elephant }}>
         <Section
-          sx={{
-            bgcolor: COLORS.firefly,
-            pb: 40,
-          }}
+          angleTop="topRight"
+          sx={{ pb: 40, pt: { _: 16, md: 23.5 }, zIndex: '-2', bgcolor: COLORS.firefly }}
         >
           <Box textAlign="center" mb={10}>
             <Typography variant="h2_new" sx={{ mb: 3.75 }}>
