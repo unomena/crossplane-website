@@ -226,7 +226,7 @@ const UXP = () => {
               color="white"
             >
               <AnchorButton
-                href={routes.cloudRegisterUrl}
+                href={routes.accountsRegisterUrl}
                 btnType="aquaMarineFill"
                 bold={true}
                 hasShadow={true}
@@ -393,7 +393,7 @@ const UXP = () => {
               <Link href={routes.productsUbcRoute}>Upbound Cloud</Link>, you will need to create a
               free Upbound account. Along with your free account you will get your real-time
               dashboard for UXP.{' '}
-              <Anchor href={routes.cloudRegisterUrl}>Create Your Free Account</Anchor>
+              <Anchor href={routes.accountsRegisterUrl}>Create Your Free Account</Anchor>
             </Paragraph>
           </Box>
         </Box>
@@ -418,7 +418,7 @@ const UXP = () => {
             <Paragraph color="slate" sx={{ mt: '20px' }}>
               You can now log in to your free Upbound account and see your newly connected UXP
               cluster in your list of control planes.{' '}
-              <Anchor href={routes.cloudLoginUrl}>Log In to Your Account</Anchor>
+              <Anchor href={routes.accountsLoginUrl}>Log In to Your Account</Anchor>
             </Paragraph>
           </Box>
           <Box flex="1" width="100%" mt="20px" position="relative">

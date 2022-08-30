@@ -28,14 +28,20 @@ function port() {
 }
 
 const domain = () => 'cloud';
-
 const cloudUrl = protocol() + '//' + domain() + '.' + hostname() + port();
+
+// Accounts Routes
+
+const accountsUrl = 'https://accounts.upbound.io';
+
+export const accountsLoginUrl = accountsUrl + '/login';
+export const accountsRegisterUrl = accountsUrl + '/register';
 
 // Cloud Routes
 
 export const cloudRegistryUrl = cloudUrl + '/browse';
-export const cloudLoginUrl = cloudUrl + '/login';
-export const cloudRegisterUrl = cloudUrl + '/register';
+// export const cloudLoginUrl = cloudUrl + '/login';
+// export const cloudRegisterUrl = cloudUrl + '/register';
 export const cloudDocsUrl = cloudUrl + '/docs';
 export const cloudCliDocsUrl = cloudDocsUrl + '/cli';
 export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';

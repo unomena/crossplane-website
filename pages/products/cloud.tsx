@@ -256,7 +256,7 @@ const CloudProduct = () => {
               color="white"
             >
               <AnchorButton
-                href={routes.cloudRegisterUrl}
+                href={routes.accountsRegisterUrl}
                 btnType="aquaMarineFill"
                 bold={true}
                 hasShadow={true}

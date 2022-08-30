@@ -637,13 +637,13 @@ const PageHeaderMobile = ({ setOverflowVisible }: PageHeaderMobileProps) => {
             </Box>
           ))}
           <Box sx={menuButtonsContainer}>
-            <Button styleType="linkWaterContained" sizeType="small" href={routes.cloudRegisterUrl}>
+            <Button styleType="linkWaterContained" sizeType="small" href={routes.accountsRegisterUrl}>
               Try For Free
             </Button>
             <Button
               styleType="whiteOutlined"
               sizeType="small"
-              href={routes.cloudLoginUrl}
+              href={routes.accountsLoginUrl}
               sx={{ mt: 2 }}
             >
               Sign in
@@ -690,11 +690,11 @@ const PageHeader = ({ setOverflowVisible }: Props) => {
             </Box>
             <Box sx={rightItems}>
               <LinkItem href={routes.partnersRoute} title="Partners" icon={<PartnersIcon />} />
-              <LinkItem href={routes.cloudLoginUrl} title="Sign In" icon={<SignInIcon />} />
+              <LinkItem href={routes.accountsLoginUrl} title="Sign In" icon={<SignInIcon />} />
               <Button
                 styleType="linkWaterContained"
                 sizeType="small"
-                href={routes.cloudRegisterUrl}
+                href={routes.accountsRegisterUrl}
               >
                 Try For Free
               </Button>

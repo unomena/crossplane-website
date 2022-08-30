@@ -181,7 +181,7 @@ const generalFaqs = [
     answer: (
       <AnswerParagraph>
         Start a free 14 day trial today by signing up directly from{' '}
-        <Anchor href={routes.cloudRegisterUrl}>Upbound.io</Anchor>, or contact us for a longer
+        <Anchor href={routes.accountsRegisterUrl}>Upbound.io</Anchor>, or contact us for a longer
         evaluation.
       </AnswerParagraph>
     ),
@@ -191,7 +191,7 @@ const generalFaqs = [
     answer: (
       <AnswerParagraph>
         Not today, but our enterprise Crossplane distribution is free to use by itself. You can get
-        it <Anchor href={routes.cloudRegisterUrl}>here</Anchor>.
+        it <Anchor href={routes.accountsRegisterUrl}>here</Anchor>.
       </AnswerParagraph>
     ),
   },
@@ -219,7 +219,7 @@ const generalFaqs = [
     answer: (
       <AnswerParagraph>
         You can start a trial of Upbound Cloud by creating an account{' '}
-        <Anchor href={routes.cloudRegisterUrl}>here</Anchor>, or you can{' '}
+        <Anchor href={routes.accountsRegisterUrl}>here</Anchor>, or you can{' '}
         <Anchor href={routes.contactRoute}>reach out to our team</Anchor> to get a demo and discuss
         pricing.
       </AnswerParagraph>
