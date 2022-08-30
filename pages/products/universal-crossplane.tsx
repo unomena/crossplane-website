@@ -28,8 +28,6 @@ import iconForksImage from 'public/uxp/uxp-no-longterm-forks-icon.svg';
 import iconProductivityImage from 'public/uxp/uxp-enhanced-productivity-icon.svg';
 import iconSupportImage from 'public/uxp/uxp-247-customer-support-icon.svg';
 import iconTestedImage from 'public/uxp/uxp-tested-by-upbound-icon.svg';
-import installCLIImage from 'public/uxp/install-cli.svg';
-import installCLIMobileImage from 'public/uxp/install-cli-mobile.svg';
 import installUXPImage from 'public/uxp/install-uxp.svg';
 import installUXPMobileImage from 'public/uxp/install-uxp-mobile.svg';
 import manageImage from 'public/uxp/manage.svg';
@@ -39,6 +37,22 @@ import Section from 'src-new/components/Section';
 // import EnterpriseReadyIcon from 'public/new-images/home-page/features/EnterpriseReadyIcon.svg';
 // import DeployWithConfidenceIcon from 'public/new-images/home-page/features/DeployWithConfidenceIcon.svg';
 // import EfficiencyEaseIcon from 'public/new-images/home-page/features/EfficiencyEaseIcon.svg';
+import uxpImgOneMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-main.svg';
+import uxpImgOneSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-additional.svg';
+import uxpImgOneMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-mobile-main.svg';
+import uxpImgOneMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-1-mobile-additional.svg';
+import uxpImgTwoMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-main.svg';
+import uxpImgTwoSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-additional.svg';
+import uxpImgTwoMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-mobile-main.svg';
+import uxpImgTwoMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-2-mobile-additional.svg';
+import uxpImgThreeMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-main.svg';
+import uxpImgThreeSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-additional.svg';
+import uxpImgThreeMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-mobile-main.svg';
+import uxpImgThreeMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-3-mobile-additional.svg';
+import uxpImgFourMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-main.svg';
+import uxpImgFourSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-additional.svg';
+import uxpImgFourMobileMain from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-mobile-main.svg';
+import uxpImgFourMobileSmall from 'public/new-images/products-page/UXP-images/UXP-Page-Image-4-mobile-additional.svg';
 
 const hero: SxProps = {
   backgroundColor: COLORS.firefly,
@@ -198,15 +212,17 @@ type StepBlockProps = {
     // linkText: string;
     // href: string;
     // icon: string | StaticImport;
-    img: string | StaticImport;
-    imgMobile: string | StaticImport;
+    imgSmall: string | StaticImport;
+    imgSmallMobile: string | StaticImport;
+    imgBig: string | StaticImport;
+    imgBigMobile: string | StaticImport;
     reversed?: Boolean;
   };
 };
 
 const StepBlock = ({ step }: StepBlockProps) => {
   // const { smallTitle, bigTitle, body, linkText, href, icon, img, imgMobile, reversed } = step;
-  const { bigTitle, body, img, imgMobile, reversed } = step;
+  const { bigTitle, body, imgBig, imgBigMobile, imgSmall, imgSmallMobile, reversed } = step;
 
   // let smallTitleGradient = gradient_1;
   // if (reversed) {
@@ -321,6 +337,7 @@ const StepBlock = ({ step }: StepBlockProps) => {
         >
           <Box
             sx={{
+              position: 'relative',
               transition: 'transform 1.5s',
               transform: show ? '' : `translate(100vw)`,
 
@@ -331,12 +348,44 @@ const StepBlock = ({ step }: StepBlockProps) => {
             }}
           >
             <Hidden lgDown>
-              <Image src={img} alt="feature-img-big" />
+              <Image src={imgBig} alt="feature-img-big" />
             </Hidden>
             <Hidden lgUp>
-              <Image src={imgMobile} alt="feature-img-big-mobile" />
+              <Image src={imgBigMobile} alt="feature-img-big-mobile" />
             </Hidden>
           </Box>
+          <Hidden lgDown>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                transition: 'transform 2s',
+              }}
+            >
+              <Box sx={{ position: 'relative' }}>
+                <Image src={imgSmall} alt="feature-img-small" />
+              </Box>
+            </Box>
+          </Hidden>
+          <Hidden lgUp>
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                transition: 'transform 2s',
+                transform: show ? '' : `translate(-100vw)`,
+
+                [MQ.lg]: {
+                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
+                },
+              }}
+            >
+              <Image src={imgSmallMobile} alt="feature-img-small-mobile" />
+            </Box>
+          </Hidden>
         </Box>
       </Box>
     </Box>
@@ -344,31 +393,35 @@ const StepBlock = ({ step }: StepBlockProps) => {
 };
 
 const steps = [
-  {
-    // smallTitle: 'Step 1',
-    bigTitle: 'Production-ready Crossplane',
-    body: `Upbound lets you easily upgrade your platform to our downstream distribution of Crossplane, UXP,
-     as well as our Official Providers so you can build your platform on a solid foundation.`,
-    // linkText: 'Learn More',
-    // href: routes.cloudCliDocsUrl,
-    // icon: EnterpriseReadyIcon,
-    img: installCLIImage,
-    imgMobile: installCLIMobileImage,
-    reversed: false,
-  },
-  {
-    // smallTitle: 'Step 2',
-    bigTitle: 'All the flexibility of open source without the risk',
-    body: `Universal Crossplane (UXP) runs anywhere — both on-premise and on any cloud solution. 
-    Install into any cluster to expose Custom Resource Definitions (CRDs) and a standard API 
-    across your entire infrastructure and service providers.`,
-    // linkText: 'Learn More About Kubeconfig',
-    // href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
-    // icon: DeployWithConfidenceIcon,
-    img: installUXPImage,
-    imgMobile: installUXPMobileImage,
-    reversed: true,
-  },
+  // {
+  //   // smallTitle: 'Step 1',
+  //   bigTitle: 'Production-ready Crossplane',
+  //   body: `Upbound lets you easily upgrade your platform to our downstream distribution of Crossplane, UXP,
+  //    as well as our Official Providers so you can build your platform on a solid foundation.`,
+  //   // linkText: 'Learn More',
+  //   // href: routes.cloudCliDocsUrl,
+  //   // icon: EnterpriseReadyIcon,
+  //   imgBig: uxpImgOneMain,
+  //   imgBigMobile: uxpImgOneMobileMain,
+  //   imgSmall: uxpImgOneSmall,
+  //   imgSmallMobile: uxpImgOneMobileSmall,
+  //   reversed: false,
+  // },
+  // {
+  //   // smallTitle: 'Step 2',
+  //   bigTitle: 'All the flexibility of open source without the risk',
+  //   body: `Universal Crossplane (UXP) runs anywhere — both on-premise and on any cloud solution. 
+  //   Install into any cluster to expose Custom Resource Definitions (CRDs) and a standard API 
+  //   across your entire infrastructure and service providers.`,
+  //   // linkText: 'Learn More About Kubeconfig',
+  //   // href: 'https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/',
+  //   // icon: DeployWithConfidenceIcon,
+  //   imgBig: uxpImgTwoMain,
+  //   imgBigMobile: uxpImgTwoMobileMain,
+  //   imgSmall: uxpImgTwoSmall,
+  //   imgSmallMobile: uxpImgTwoMobileSmall,
+  //   reversed: true,
+  // },
   {
     // smallTitle: 'Step 3',
     bigTitle: 'Complete Resource Coverage + Stable APIs',
@@ -386,24 +439,28 @@ const steps = [
     // linkText: 'Create Your Free Account',
     // href: routes.cloudRegisterUrl,
     // icon: EfficiencyEaseIcon,
-    img: connectUXPImage,
-    imgMobile: connectUXPMobileImage,
+    imgBig: uxpImgThreeMain,
+    imgBigMobile: uxpImgThreeMobileMain,
+    imgSmall: uxpImgThreeSmall,
+    imgSmallMobile: uxpImgThreeMobileSmall,
     reversed: false,
   },
-  {
-    // smallTitle: 'Step 4',
-    bigTitle: 'Trusted Crossplane experts at your side',
-    body: `Upbound invented, contributed and maintains the Crossplane project. 
-    So when you partner with Upbound, you partner with the project's leading experts. 
-    Get 24/7 support as we help you implement enterprise-grade reference architectures 
-    and integrations for Crossplane.`,
-    // linkText: 'Log In to Your Account',
-    // href: routes.cloudLoginUrl,
-    // icon: EfficiencyEaseIcon,
-    img: manageImage,
-    imgMobile: manageMobileImage,
-    reversed: true,
-  },
+  // {
+  //   // smallTitle: 'Step 4',
+  //   bigTitle: 'Trusted Crossplane experts at your side',
+  //   body: `Upbound invented, contributed and maintains the Crossplane project. 
+  //   So when you partner with Upbound, you partner with the project's leading experts. 
+  //   Get 24/7 support as we help you implement enterprise-grade reference architectures 
+  //   and integrations for Crossplane.`,
+  //   // linkText: 'Log In to Your Account',
+  //   // href: routes.cloudLoginUrl,
+  //   // icon: EfficiencyEaseIcon,
+  //   imgBig: uxpImgFourMain,
+  //   imgBigMobile: uxpImgFourMobileMain,
+  //   imgSmall: uxpImgFourSmall,
+  //   imgSmallMobile: uxpImgFourMobileSmall,
+  //   reversed: true,
+  // },
 ];
 
 const StepsSection = () => {
