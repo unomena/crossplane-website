@@ -499,7 +499,7 @@ const QuoteCard = ({ quote }: { quote: Testimonial }) => {
   );
 };
 
-const displayTitle = 'Products - The Universal Cloud Platform';
+const displayTitle = 'Products - The universal cloud platform';
 const metaImg = OGImgProducts.src;
 
 type Props = {
@@ -529,7 +529,7 @@ const Products = (props: Props) => {
       isPreview={props.isPreview}
       ctaTitle="Be the first to know"
       ctaParagraph={
-        "Get on the list so you'll be the first to know about our \n Universal Cloud Platform."
+        "Get on the list so you'll be the first to know about our \n universal cloud platform."
       }
       ctaBtnText="Get on the List"
       ctaBtnLink="/upbound-preview"
@@ -579,7 +579,7 @@ const Products = (props: Props) => {
       >
         <Box sx={banner}>
           <Typography variant="h3_new" sx={{ mb: 1.5 }}>
-            Our Universal Cloud Platform is coming soon!
+            Our universal cloud platform is coming soon!
           </Typography>
           <Typography variant="body_normal" sx={{ mb: 3 }}>
             Sign up to be the first to know.
