@@ -232,6 +232,7 @@ type WhitepaperPage = {
 type ContactPage = {
   cms_head_props: CMSHeadProps;
 
+  id: number;
   header_title: string;
   header_richtext: string;
 };

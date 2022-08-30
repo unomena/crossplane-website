@@ -101,7 +101,7 @@ interface FormValues {
   legal_consent: boolean;
 }
 
-const ContactForm = () => {
+const ContactForm = (props: ContactPage) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -138,6 +138,7 @@ const ContactForm = () => {
 
       const postData = {
         recaptcha_token: token,
+        page_id: props.id,
         ...data,
         ...values,
       };
@@ -154,7 +155,7 @@ const ContactForm = () => {
       document.body.scrollTo(0, 0);
     } catch (err) {
       const error = err as AxiosError;
-      handleFormError('Submit', error, setFieldError);
+      handleFormError('Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
   };
