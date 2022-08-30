@@ -310,7 +310,7 @@ const Contact = (props: Props) => {
         </Box>
       </Section>
       <Section>
-        <ContactForm />
+        <ContactForm {...props} />
       </Section>
       <Section>
         <Box
