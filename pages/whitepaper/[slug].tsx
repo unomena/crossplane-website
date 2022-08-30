@@ -19,6 +19,7 @@ import * as routes from 'src/routes';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleFormError from 'src-new/utils/handleFormError';
+import getSessionData from 'src-new/utils/getSessionData';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -228,12 +229,15 @@ const HeaderForm = (props: WhitepaperPage) => {
     try {
       setLoading(true);
 
+      const data = await getSessionData();
+
       const token = await handleReCaptchaVerify();
 
       const postData = {
         page_version: 'v2',
         recaptcha_token: token,
         page_id: props.id,
+        ...data,
         ...values,
       };
 
@@ -252,6 +256,9 @@ const HeaderForm = (props: WhitepaperPage) => {
       }
     } catch (err) {
       const error = err as AxiosError;
+      if(error.response.data['recaptcha_error']){
+        setRecaptchaError(error.response.data['recaptcha_error']);
+      }
       handleFormError('WhitePaper Submit', error, setFieldError);
       setLoading(false);
     }
