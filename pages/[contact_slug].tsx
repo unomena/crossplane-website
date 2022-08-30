@@ -152,12 +152,12 @@ const ContactForm = (props: ContactPage) => {
         setRecaptchaError(res.data.recaptcha_error);
         setLoading(false);
       }
-      document.body.scrollTo(0, 0);
     } catch (err) {
       const error = err as AxiosError;
       handleFormError('Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
+    document.body.scrollTo(0, 0);
   };
 
   const formik = useFormik({
