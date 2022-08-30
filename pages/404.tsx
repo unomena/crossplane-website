@@ -169,7 +169,7 @@ const FourOhFour: React.FC = () => {
             </RelatedResourceAnchor>
           </RelatedResourceContainer>
           <RelatedResourceContainer>
-            <RelatedResourceAnchor href={routes.cloudRegisterUrl}>
+            <RelatedResourceAnchor href={routes.accountsRegisterUrl}>
               <Header variant="h5" color="fillBlackBlack" sx={{ mr: '25px' }}>
                 Try Upbound for Free
               </Header>

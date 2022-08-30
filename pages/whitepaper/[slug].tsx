@@ -256,10 +256,7 @@ const HeaderForm = (props: WhitepaperPage) => {
       }
     } catch (err) {
       const error = err as AxiosError;
-      if(error.response.data['recaptcha_error']){
-        setRecaptchaError(error.response.data['recaptcha_error']);
-      }
-      handleFormError('WhitePaper Submit', error, setFieldError);
+      handleFormError('WhitePaper Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
   };
