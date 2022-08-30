@@ -3,10 +3,14 @@ import { AxiosError } from 'axios';
 const handleFormError = (
   errorLabel: string,
   error: AxiosError,
-  setFieldError: (field: string, message: string | undefined) => void
+  setFieldError: (field: string, message: string | undefined) => void,
+  setRecaptchaError?: React.Dispatch<React.SetStateAction<null>>
 ) => {
   console.log(errorLabel, error);
   if (error instanceof AxiosError && error.response) {
+    if (error.response.data.recaptcha_error && setRecaptchaError) {
+      setRecaptchaError(error.response.data.recaptcha_error);
+    }
     if (error.response.status === 400) {
       Object.keys(error.response.data).forEach((key) => {
         if (error.response && error.response.data[key]) {

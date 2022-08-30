@@ -112,10 +112,7 @@ const ContactForm = () => {
       document.body.scrollTo(0, 0);
     } catch (err) {
       const error = err as AxiosError;
-      if(error.response.data['recaptcha_error']){
-        setRecaptchaError(error.response.data['recaptcha_error']);
-      }
-      handleFormError('Submit', error, setFieldError);
+      handleFormError('Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
   };

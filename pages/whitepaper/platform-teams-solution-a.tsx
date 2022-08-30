@@ -142,7 +142,7 @@ const HeaderForm = () => {
       }
     } catch (err) {
       const error = err as AxiosError;
-      handleFormError('WhitePaper Submit', error, setFieldError);
+      handleFormError('WhitePaper Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
   };

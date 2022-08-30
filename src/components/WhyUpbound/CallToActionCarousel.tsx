@@ -20,7 +20,7 @@ export const CallToActionCarousel: React.FC<{
   <Box mb={{ _: '0', md: '35px' }}>
     <Carousel currentPage={currentPage} />
     <AnchorButton
-      href={routes.cloudRegisterUrl}
+      href={routes.accountsRegisterUrl}
       btnType="aquaMarineFill"
       bold={true}
       hasShadow={true}
