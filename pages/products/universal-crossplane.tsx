@@ -442,7 +442,7 @@ const steps = [
   },
   {
     // smallTitle: 'Step 3',
-    bigTitle: 'Complete Resource Coverage + Stable APIs',
+    bigTitle: 'Complete resource coverage + stable APIs',
     body: `Upbound Official Providers have 100% resource coverage of each cloud provider API, 
     and resource parity with Terraform. All resource APIs are v1beta1 or higher, giving your 
     platform teams a stable foundation to build your internal cloud platform.
@@ -546,7 +546,7 @@ const UXP = () => {
               alignItems="center"
             >
               <Typography variant="h2_new">
-                The Easiest Way to Run + Scale Crossplane in Production
+                The easiest way to run + scale crossplane in production
               </Typography>
               <Typography variant="body_normal" sx={{ mt: '20px', mb: '40px' }}>
                 With security, support and official providers, Universal Crossplane (UXP), gives you
