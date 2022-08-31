@@ -6,8 +6,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { jsx } from '@emotion/react';
-import { Box, Hidden, Typography } from '@mui/material';
-import { SxProps } from '@mui/system';
+import { Box, Hidden, Typography, SxProps } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
 import * as routes from 'src/routes';
@@ -53,7 +52,8 @@ const footerCareersPill: SxProps = {
 const largeFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '268px 140px 78px 140px',
+  // padding: '268px 140px 78px 140px',
+  padding: '0 140px 78px 140px',
   margin: '0 auto',
   maxWidth: '1440px',
 };
@@ -168,11 +168,13 @@ const largeFooterCNCFSpan: SxProps = {
 const mobileFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '60px 24px 60px 24px',
+  // padding: '60px 24px 60px 24px',
+  padding: '0 24px 60px 24px',
   margin: '0 auto',
 
   [MQ.lg]: {
-    padding: '50px 140px 78px 140px',
+    // padding: '50px 140px 78px 140px',
+    padding: '0 140px 78px 140px',
     margin: '0 auto',
     maxWidth: '1440px',
   },
@@ -367,6 +369,10 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
+  ctaBtnTwo?: boolean;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
+  ctaCustomSx?: SxProps;
 };
 
 const PageFooter = ({
@@ -377,6 +383,10 @@ const PageFooter = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
+  ctaBtnTwo = false,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
+  ctaCustomSx,
 }: Props) => {
   if (isFooterVisible === false) {
     return null;
@@ -386,13 +396,24 @@ const PageFooter = ({
     <Box sx={footerMarginContainer}>
       <Box sx={footerBackgroundContainer}>
         <Hidden lgUp>
-          <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}>
+          <Box
+            sx={{
+              ...mobileFooterWidthContainer,
+              // pt: removeFooterPadding ? '20px' : !ctaBtnTwo ? '200px' : '290px',
+              pt: removeFooterPadding ? '20px' : ctaBtnTwo ? { _: '290px', sm: '210px' } : '200px',
+            }}
+          >
+            {/* <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}> */}
             {!hideCTACard && (
               <CTACard
                 title={ctaTitle}
                 paragraph={ctaParagraph}
                 btnText={ctaBtnText}
                 btnLink={ctaBtnLink}
+                btnTwo={ctaBtnTwo}
+                btnTwoText={ctaBtnTwoText}
+                btnTwoLink={ctaBtnTwoLink}
+                customSx={ctaCustomSx}
               />
             )}
             <Box sx={mobileFooterLinkColumnsContainer}>
@@ -536,6 +557,10 @@ const PageFooter = ({
                 paragraph={ctaParagraph}
                 btnText={ctaBtnText}
                 btnLink={ctaBtnLink}
+                btnTwo={ctaBtnTwo}
+                btnTwoText={ctaBtnTwoText}
+                btnTwoLink={ctaBtnTwoLink}
+                customSx={ctaCustomSx}
               />
             )}
             <Box sx={largeFooterLinkColumnsContainer}>

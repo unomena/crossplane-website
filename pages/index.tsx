@@ -104,7 +104,8 @@ const headerButtons: SxProps = {
   flexDirection: { _: 'column', sm: 'row' },
 
   '& > button, a': {
-    width: { _: 225, sm: 208 },
+    width: { _: 225, sm: 'unset' },
+    minWidth: 208,
     mx: { _: 0, sm: '10px' },
 
     ':not(:last-of-type)': {
@@ -1689,7 +1690,17 @@ const Home = (props: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
 
   return (
-    <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview}>
+    <PageProvider
+      cms_head_props={props.cms_head_props}
+      isPreview={props.isPreview}
+      ctaTitle="A better cloud is coming"
+      ctaParagraph={
+        'Upbound Cloud completely transforms the way you build your internal cloud platform.'
+      }
+      ctaBtnText="Get on the List"
+      ctaBtnLink="/upbound-preview"
+      // ctaCustomSx={ctaBox}
+    >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
       </Section>

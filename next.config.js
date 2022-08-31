@@ -28,7 +28,7 @@ const nextConfig = {
       },
       {
         source: '/products/uxp',
-        destination: '/products/universal-cloud-platform',
+        destination: '/products/universal-crossplane',
         permanent: true,
       },
       {

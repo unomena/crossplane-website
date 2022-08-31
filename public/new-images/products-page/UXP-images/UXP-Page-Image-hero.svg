@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="557px" height="226px" viewBox="0 0 557 226" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Product" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UXP" transform="translate(-815.000000, -409.000000)">
+            <g id="Group-4" transform="translate(816.000000, 409.000000)">
+                <g id="UXP-Page-Header-Image">
+                    <g id="Group-2">
+                        <path d="M51.3206838,0.897550921 L503.679316,0.897550921 C531.845838,0.897550921 554.679316,23.7310287 554.679316,51.8975509 L554.679316,173.897551 C554.679316,202.064073 531.845838,224.897551 503.679316,224.897551 L51.3206838,224.897551 C23.1541616,224.897551 0.320683802,202.064073 0.320683802,173.897551 L0.320683802,51.8975509 C0.320683802,23.7310287 23.1541616,0.897550921 51.3206838,0.897550921 Z" id="Rectangle-Copy" stroke="#D2DCEA" stroke-width="1.15" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        <path d="M51.3094083,52.815485 L51.3094083,173.907655 C51.3094083,202.054896 28.4915613,224.872743 0.34432054,224.872743 C0.229546045,224.872743 0.114771876,224.872355 2.84217094e-14,224.87158 C2.84217094e-14,224.87158 2.84217094e-14,224.87158 2.84217094e-14,224.87158 L2.84217094e-14,1.21823472 C2.58339984,1.59922396 5.16679968,1.9802132 7.75019953,2.36120244 C32.7721554,6.05133813 51.3094083,27.5228897 51.3094083,52.815485 Z" id="Rectangle-Copy-2" fill="#F4F8FF" fill-rule="nonzero" transform="translate(25.654704, 113.218235) scale(-1, 1) translate(-25.654704, -113.218235) "></path>
+                        <rect id="Rectangle-Copy-3" fill="#505A72" fill-rule="nonzero" x="20.0775946" y="69" width="11.7119302" height="77.5218235" rx="5.85596508"></rect>
+                        <g id="(up)-up-uxp-install" transform="translate(73.098933, 47.495992)" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400">
+                            <text id="(up)-up" fill="#333F5B">
+                                <tspan x="0" y="18.4703126">(up) up</tspan>
+                            </text>
+                            <text id="uxp-install" fill="#6553C0">
+                                <tspan x="64" y="18.6133571">uxp install</tspan>
+                            </text>
+                            <text id="UXP-1.9.0-up.3-installed" fill="#333F5B">
+                                <tspan x="0" y="42.3837337">UXP 1.9.0-up.3 installed</tspan>
+                            </text>
+                            <text id="(up)-up-controlplane-pull-secret-create" fill="#333F5B">
+                                <tspan x="0" y="66.1541102">(up) up controlplane pull-secret create</tspan>
+                            </text>
+                            <text id="-f-my-upbound-creds.json" fill="#333F5B">
+                                <tspan x="0" y="89.9244868">-f my-upbound-creds.json</tspan>
+                            </text>
+                            <text id="(up)-kubectl-apply--f-upbound-official-provider.yaml" fill="#333F5B">
+                                <tspan x="0" y="113.694863">(up) kubectl apply -f upbound-official-provider.yaml</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

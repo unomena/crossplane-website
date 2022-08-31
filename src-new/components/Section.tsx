@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Container } from '@mui/material';
+import { Box, Breakpoint, Container } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { COLORS, MQ } from 'src/theme';
 
@@ -51,6 +51,7 @@ type Props = {
   angleBottom?: 'btmRight' | 'btmLeft';
   angleTopBottom?: 'topBtmRight';
   bgcolor?: Boolean;
+  maxWidth?: Breakpoint;
   sx?: SxProps;
   children: React.ReactNode;
 };
@@ -61,6 +62,7 @@ const Section = ({
   angleBottom,
   angleTopBottom,
   bgcolor,
+  maxWidth = 'xl',
   sx,
   children,
 }: Props) => {
@@ -83,7 +85,7 @@ const Section = ({
         ...styles,
       }}
     >
-      {hasContainer ? <Container maxWidth="xl">{children}</Container> : children}
+      {hasContainer ? <Container maxWidth={maxWidth}>{children}</Container> : children}
     </Box>
   );
 };
