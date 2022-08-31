@@ -47,8 +47,10 @@ import uxpImgFourMobileSmall from 'public/new-images/products-page/UXP-images/UX
 
 const headerSection: SxProps = {
   backgroundColor: COLORS.firefly,
-  pt: { _: 13, md: 40 },
-  pb: { _: 60, xs: 80, md: 10 },
+  pt: { _: 16, md: 23.5 },
+  pb: 10,
+  // pt: { _: 13, md: 40 },
+  // pb: { _: 60, xs: 80, md: 10 },
 };
 
 const headerWrapper: SxProps = {
@@ -74,30 +76,42 @@ const headerContainer: SxProps = {
 };
 
 const headerImagesContainer: SxProps = {
-  position: 'absolute',
-  right: '0',
+  position: 'relative',
   ml: '30px',
   maxWidth: '500px',
-  zIndex: '1',
+  margin: '0 auto',
   [MQ.md]: {
+    position: 'absolute',
     maxWidth: '40%',
-    top: '4%',
+    top: '5.5%',
+    right: '2%',
+    ml: '30px',
     zIndex: '1',
+  },
+  [MQ.xl]: {
+    right: '8%',
   },
   '@media screen and (min-width: 884px)': {
     maxWidth: '50%',
   },
 };
 
-// const hero: SxProps = {
-//   backgroundColor: COLORS.firefly,
-//   pt: 16.25,
-//   // pb: { _: 60, xs: 80, md: 20 },
-
-//   [MQ.lg]: {
-//     backgroundImage: `url(${heroOval.src})`,
-//     backgroundRepeat: 'no-repeat',
-//     backgroundPosition: 'top 55px right',
+// TEMPORARILY COMMENTED OUT UNTIL HEADER IMAGE UPDATE
+// const headerImagesContainer: SxProps = {
+//   position: 'absolute',
+//   right: '0',
+//   ml: '30px',
+//   maxWidth: '500px',
+//   zIndex: '1',
+//   [MQ.md]: {
+//     maxWidth: '40%',
+//     top: '5.5%',
+//     right: '8%',
+//     // top: '4%',
+//     zIndex: '1',
+//   },
+//   '@media screen and (min-width: 884px)': {
+//     maxWidth: '50%',
 //   },
 // };
 
@@ -596,7 +610,8 @@ const HeaderSection = () => {
           >
             <Image src={uxpHero} alt="feature-img-big" />
           </Box>
-          <Box
+          {/* TEMPORARILY COMMENTED OUT UNTIL HEADER IMAGE UPDATE
+           <Box
             sx={{
               position: 'absolute',
               top: '29%',
@@ -606,7 +621,7 @@ const HeaderSection = () => {
             }}
           >
             <Image src={uxpHero} alt="feature-img-small" />
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </Box>
