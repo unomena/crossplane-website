@@ -556,7 +556,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const returnValue = await handleGetStaticProps(context, `/whitepaper/${context?.params?.slug}`);
+  const returnValue = await handleGetStaticProps(
+    context,
+    `/learn/resources/whitepaper/${context?.params?.slug}`
+  );
 
   if (returnValue) {
     return {

@@ -48,6 +48,24 @@ const nextConfig = {
           '/products/universal-cloud-platform',
         permanent: true,
       },
+      {
+        source: '/whitepaper/platform-teams-solution',
+        destination:
+          '/learn/resources/whitepaper/platform-teams-solution',
+        permanent: true,
+      },
+      {
+        source: '/whitepaper/transforming-cloud-operations',
+        destination:
+          '/learn/resources/whitepaper/transforming-cloud-operations',
+        permanent: true,
+      },
+      {
+        source: '/whitepaper/forrester-best-practices-kubernetes',
+        destination:
+          '/learn/resources/whitepaper/forrester-best-practices-kubernetes',
+        permanent: true,
+      },
     ];
   },
   images: {
