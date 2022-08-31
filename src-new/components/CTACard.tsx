@@ -19,13 +19,15 @@ const wrapper: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   backgroundImage: { _: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)', xl: 'unset' },
+  px: 2,
 };
 
 const root: SxProps = {
   width: '100%',
   maxWidth: '1160px',
   minHeight: { md: 401 },
-  py: 8,
+  pt: 8,
+  pb: 10,
   backgroundImage: { xl: `url(${footerCTABackground.src})` },
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
@@ -39,6 +41,21 @@ const root: SxProps = {
   // backgroundImage: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)',
 };
 
+const btnContainer: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: { _: 'center', md: 'left' },
+  flexDirection: { _: 'column', sm: 'row' },
+
+  '& > button, a': {
+    mx: { _: 0, sm: '10px' },
+
+    ':not(:last-of-type)': {
+      mb: { _: '20px', sm: 0 },
+    },
+  },
+};
+
 const defaultTitle = 'Try Upbound for free';
 const defaultParagraph =
   'Start your control-plane transformation for free by creating a free Upbound account.';
@@ -50,6 +67,10 @@ type Props = {
   paragraph?: string;
   btnText?: string;
   btnLink?: string;
+  btnTwo?: boolean;
+  btnTwoText?: string;
+  btnTwoLink?: string;
+  customSx?: SxProps;
 };
 
 const CTACard = ({
@@ -57,9 +78,13 @@ const CTACard = ({
   paragraph = defaultParagraph,
   btnText = defaultBtnText,
   btnLink = defaultBtnLink,
+  btnTwo = false,
+  btnTwoText = defaultBtnText,
+  btnTwoLink = defaultBtnLink,
+  customSx,
 }: Props) => {
   return (
-    <Box sx={wrapper}>
+    <Box sx={{ ...wrapper, ...customSx }}>
       <Box sx={root}>
         <Typography variant="h2_new" color="#fff" sx={{ mb: 2.5 }}>
           {title}
@@ -71,9 +96,20 @@ const CTACard = ({
         >
           {paragraph}
         </Typography>
-        <Button styleType="whiteContained" href={btnLink}>
-          {btnText}
-        </Button>
+        {!btnTwo ? (
+          <Button styleType="whiteContained" href={btnLink}>
+            {btnText}
+          </Button>
+        ) : (
+          <Box sx={btnContainer}>
+            <Button styleType="whiteContained" href={btnLink}>
+              {btnText}
+            </Button>
+            <Button styleType="whiteOutlined" href={btnTwoLink}>
+              {btnTwoText}
+            </Button>
+          </Box>
+        )}
       </Box>
     </Box>
   );

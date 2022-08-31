@@ -25,6 +25,7 @@ import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import OGImgProducts from 'public/og-images/product-page-og.jpg';
 import CMSImage from 'src-new/elements/CMSImage';
 import getImageUrl from 'src-new/utils/getImageUrl';
+import { CenterFocusStrong } from '@mui/icons-material';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 40 },
@@ -92,14 +93,16 @@ const headerButtons: SxProps = {
   flexDirection: { _: 'column', sm: 'row' },
 
   '& > button, a': {
-    width: { _: 225, sm: 200 },
     mx: { _: 0, sm: '10px' },
+    width: { _: 225, sm: 'unset' },
+    minWidth: 208,
 
-    ':not(:last-of-type)': {
+    ':first-of-type': {
+      ml: 0,
       mb: { _: '20px', sm: 0 },
     },
-    ':last-of-type': {
-      width: { _: 225, sm: 'unset' },
+    '& ~ a': {
+      mr: 0,
     },
   },
 };
@@ -140,6 +143,43 @@ const platformCarousel: SxProps = {
   },
 };
 
+const pillStyle: SxProps = {
+  background: `linear-gradient(45deg, #6D64F5, #3DE2CB)`,
+  borderRadius: '2000px',
+  padding: '7px 19px 5px',
+  display: 'inline-block',
+  mb: 3,
+
+  '& > p': {
+    fontFamily: 'Avenir-Black, Arial, sans-serif',
+    fontSize: '14px',
+    lineHeight: '20px',
+    fontWeight: '700',
+    webkitBackgroundClip: 'text',
+    webkitTextFillColor: 'transparent',
+    color: 'white',
+  },
+};
+
+const banner: SxProps = {
+  textAlign: 'center',
+  background: `linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)`,
+  borderRadius: '20px',
+  p: '40px 20px',
+
+  '& .MuiTypography-root': {
+    color: 'white',
+  },
+};
+
+const ctaBox: SxProps = {
+  '& p': {
+    [MQ.md]: {
+      whiteSpace: 'pre-wrap',
+    },
+  },
+};
+
 const HeaderSection = (props: ProductPage) => {
   const productsHeaderRef = useRef(undefined);
   const isVisible = useOnScreen(productsHeaderRef);
@@ -155,6 +195,9 @@ const HeaderSection = (props: ProductPage) => {
     <Box ref={productsHeaderRef}>
       <Box sx={headerWrapper}>
         <Box sx={headerContainer}>
+          <Box sx={pillStyle}>
+            <Typography variant="body_small">Coming soon!</Typography>
+          </Box>
           <Typography variant="h1_new" sx={{ mb: 3, ...gradient_1 }}>
             {props.header_title}
           </Typography>
@@ -456,7 +499,7 @@ const QuoteCard = ({ quote }: { quote: Testimonial }) => {
   );
 };
 
-const displayTitle = 'Products - The Universal Cloud Platform';
+const displayTitle = 'Products - The universal cloud platform';
 const metaImg = OGImgProducts.src;
 
 type Props = {
@@ -484,6 +527,13 @@ const Products = (props: Props) => {
       metaImg={metaImg}
       cms_head_props={props.cms_head_props}
       isPreview={props.isPreview}
+      ctaTitle="Be the first to know"
+      ctaParagraph={
+        "Get on the list so you'll be the first to know about our \n universal cloud platform."
+      }
+      ctaBtnText="Get on the List"
+      ctaBtnLink="/upbound-preview"
+      ctaCustomSx={ctaBox}
     >
       <Section sx={headerSection}>
         <HeaderSection {...props} />
@@ -521,8 +571,28 @@ const Products = (props: Props) => {
         </Hidden>
       </Section>
 
+      <Section
+        bgcolor
+        sx={{
+          pt: { _: 6, md: 0, xl: 10 },
+        }}
+      >
+        <Box sx={banner}>
+          <Typography variant="h3_new" sx={{ mb: 1.5 }}>
+            Our universal cloud platform is coming soon!
+          </Typography>
+          <Typography variant="body_normal" sx={{ mb: 3 }}>
+            Sign up to be the first to know.
+          </Typography>
+          <Button styleType="whiteContained" href="/upbound-preview">
+            Get on the List
+          </Button>
+        </Box>
+      </Section>
+
       <Hidden xlDown>
-        <Section bgcolor sx={{ pb: { _: 30, md: 33.125 }, pt: { _: 10, md: 23.5 } }}>
+        {/* <Section bgcolor sx={{ pb: { _: 30, md: 33.125 }, pt: { _: 10, md: 23.5 } }}> */}
+        <Section bgcolor sx={{ pb: { _: 30, md: 33.125 }, pt: { _: 0, sm: 15 } }}>
           <FeaturesSection {...props} />
         </Section>
       </Hidden>

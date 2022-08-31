@@ -4,7 +4,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { jsx } from '@emotion/react';
-import { Box } from '@mui/material';
+import { Box, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
 import PageHeader from 'src-new/components/PageHeader';
@@ -33,6 +33,10 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
+  ctaBtnTwo?: boolean;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
+  ctaCustomSx?: SxProps;
   cms_head_props?: CMSHeadProps;
   isPreview?: boolean;
 };
@@ -50,6 +54,10 @@ const PageProvider = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
+  ctaBtnTwo = false,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
+  ctaCustomSx,
   cms_head_props,
   isPreview,
 }: Props) => {
@@ -95,6 +103,10 @@ const PageProvider = ({
           ctaParagraph={ctaParagraph}
           ctaBtnText={ctaBtnText}
           ctaBtnLink={ctaBtnLink}
+          ctaBtnTwo={ctaBtnTwo}
+          ctaBtnTwoText={ctaBtnTwoText}
+          ctaBtnTwoLink={ctaBtnTwoLink}
+          ctaCustomSx={ctaCustomSx}
         />
       </Box>
       {isPreview && <PreviewIndicator />}
