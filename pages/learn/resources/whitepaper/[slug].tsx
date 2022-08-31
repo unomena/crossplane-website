@@ -434,7 +434,9 @@ const Whitepaper = (props: Props) => {
                 {props.header_text}
               </Typography>
               <Box sx={responsiveImg}>
-                <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                {props.header_image && props.header_image[0] && (
+                  <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                )}
               </Box>
               <Hidden lgDown>
                 <Box sx={header_listStyles}>
@@ -500,7 +502,7 @@ const Whitepaper = (props: Props) => {
               <Typography variant="body_normal" sx={{ mb: 5 }}>
                 {props.section_1_text}
               </Typography>
-              {props.section_1_button[0] && (
+              {props.section_1_button && props.section_1_button[0] && (
                 <Button
                   sx={{ width: { _: 225, sm: 208 } }}
                   cmsValue={props.section_1_button[0].value}
