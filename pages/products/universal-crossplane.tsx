@@ -578,7 +578,7 @@ const HeaderSection = () => {
       <Box sx={headerWrapper}>
         <Box sx={headerContainer}>
           <Typography variant="h2_new">
-            The easiest way to run + scale crossplane in production
+            The easiest way to run + scale Crossplane in production
           </Typography>
           <Typography variant="body_normal" sx={{ mt: '20px', mb: '40px' }}>
             With security, support and official providers, Universal Crossplane (UXP), gives you
