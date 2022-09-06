@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Box, Typography, SxProps } from '@mui/material';
+import { MQ } from 'src/theme';
 
 import * as routes from 'src/routes';
 
@@ -10,16 +11,19 @@ import footerCTABackground from 'public/new-images/footer-bg.svg';
 
 const wrapper: SxProps = {
   width: '100%',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  transform: 'translateY(-50%)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   backgroundImage: { _: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)', xl: 'unset' },
   px: 2,
+  [MQ.lg]: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    transform: 'translateY(-50%)',
+  },
+  zIndex: 1,
 };
 
 const root: SxProps = {
@@ -37,8 +41,6 @@ const root: SxProps = {
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
-  // clipPath: 'polygon(0 0, 100% 0, 95% 85%, 5% 100%)',
-  // backgroundImage: 'linear-gradient(286deg, #3DE2CB 0%, #6D64F5 47%)',
 };
 
 const btnContainer: SxProps = {
@@ -89,14 +91,14 @@ const CTACard = ({
         <Typography
           variant="h2_new"
           color="#fff"
-          sx={{ mb: 2.5, whiteSpace: { _: '', xs: 'pre-wrap' } }}
+          sx={{ mb: 2.5, whiteSpace: { _: '', md: 'pre-wrap' } }}
         >
           {title}
         </Typography>
         <Typography
           variant="body_normal"
           color="#fff"
-          sx={{ maxWidth: { _: 300, md: 700 }, mb: 5, whiteSpace: { _: '', xs: 'pre-wrap' } }}
+          sx={{ maxWidth: { _: 300, md: 700 }, mb: 5, whiteSpace: { _: '', md: 'pre-wrap' } }}
         >
           {paragraph}
         </Typography>

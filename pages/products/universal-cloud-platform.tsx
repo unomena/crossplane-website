@@ -25,7 +25,6 @@ import quoteCircle from 'public/new-images/icons/quote-circle.svg';
 import OGImgProducts from 'public/og-images/product-page-og.jpg';
 import CMSImage from 'src-new/elements/CMSImage';
 import getImageUrl from 'src-new/utils/getImageUrl';
-import { CenterFocusStrong } from '@mui/icons-material';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 40 },
@@ -595,8 +594,8 @@ const Products = (props: Props) => {
 
       <Section
         sx={{
-          pb: { _: 30, md: 33.125 },
-          pt: { _: 10, md: 23.5 },
+          pb: { _: 10, lg: 32 },
+          pt: { _: 10, lg: 23.5 },
           overflow: 'hidden',
           ...caseStudiesSection,
         }}

@@ -424,7 +424,7 @@ const Faq: React.FC = () => {
           bgcolor={COLORS.firefly}
           textAlign="center"
           sx={{
-            mb: 40,
+            pb: { _: 10, lg: 40 },
           }}
         >
           <Box px="30px" textAlign="center">

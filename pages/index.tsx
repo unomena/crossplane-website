@@ -72,7 +72,7 @@ const headerSection: SxProps = {
 
 const discoverSection: SxProps = {
   pt: { _: 10, md: 15 },
-  pb: 32,
+  pb: { _: 10, lg: 32 },
   backgroundImage: `url(${headerBg.src})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'top center',

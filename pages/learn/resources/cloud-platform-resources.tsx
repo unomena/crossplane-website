@@ -179,7 +179,7 @@ const LandingPageV1 = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: { _: 10, md: 20 }, pb: 40 }}>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 15, lg: 40 }}}>
         <Box sx={gridLayout}>
           {contentCardData.map((contentCard) => (
             <ContentCardItem key={contentCard.title} contentCard={contentCard} />

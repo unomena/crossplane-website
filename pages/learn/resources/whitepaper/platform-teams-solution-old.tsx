@@ -365,7 +365,7 @@ type Props = {};
 
 const LandingPage = ({}: Props) => {
   return (
-    <PageProvider hideCTACard removeFooterPadding>
+    <PageProvider hideCTACard>
       <Section sx={headerSection}>
         <Box
           sx={{

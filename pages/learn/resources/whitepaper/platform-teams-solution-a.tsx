@@ -440,7 +440,7 @@ const LandingPageV1 = ({}: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 20, md: 30 } }}>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 10, lg: 32 } }}>
         <Box textAlign="center">
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
             Every company is a cloud company today.

@@ -318,7 +318,7 @@ const Partners: React.FC = () => {
         </Box>
         <JoinUsOvalSection pt={{ _: 0, md: '490px' }} mt={{ _: '80px', md: '-370px' }}>
           <Box px="30px">
-            <Box mb={{ _: 0, md: '-220px' }}>
+            {/* <Box mb={{ _: 0, md: '-220px' }}> */}
               <JoinUs
                 type="bigstone"
                 title="Ready to Join Our Partner Community?"
@@ -327,7 +327,7 @@ const Partners: React.FC = () => {
                 href={routes.contactRoute}
                 button="Contact Our Partner Team"
               />
-            </Box>
+            {/* </Box> */}
           </Box>
         </JoinUsOvalSection>
       </Box>
