@@ -248,7 +248,7 @@ type Props = {};
 
 const ContactPage = ({}: Props) => {
   return (
-    <PageProvider hideCTACard removeFooterPadding>
+    <PageProvider hideCTACard>
       <Section sx={headerSection}>
         <Box>
           <Typography variant="h2_new" sx={{ mb: 3 }}>

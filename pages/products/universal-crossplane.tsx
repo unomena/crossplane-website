@@ -669,7 +669,12 @@ const UXP = () => {
       <Box sx={{ bgcolor: COLORS.elephant }}>
         <Section
           angleTop="topRight"
-          sx={{ pb: 40, pt: { _: 16, md: 23.5 }, zIndex: '-2', bgcolor: COLORS.firefly }}
+          sx={{
+            pb: { _: 10, lg: 40 },
+            pt: { _: 16, md: 23.5 },
+            zIndex: '-2',
+            bgcolor: COLORS.firefly,
+          }}
         >
           <Box textAlign="center" mb={10}>
             <Typography variant="h2_new" sx={{ mb: 3.75 }}>

@@ -295,12 +295,7 @@ const Contact = (props: Props) => {
   const matchesLG = useMediaQuery(MQ.lg);
 
   return (
-    <PageProvider
-      hideCTACard
-      removeFooterPadding
-      cms_head_props={props.cms_head_props}
-      isPreview={props.isPreview}
-    >
+    <PageProvider hideCTACard cms_head_props={props.cms_head_props} isPreview={props.isPreview}>
       <Section hasContainer={matchesLG} sx={headerSection}>
         <Box>
           <Typography variant="h2_new" sx={{ mb: 3 }}>
