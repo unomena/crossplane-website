@@ -386,11 +386,6 @@ const PageFooter = ({
               <Box
                 sx={{
                   ...mobileFooterWidthContainer,
-                  // pt: removeFooterPadding
-                  //   ? '20px'
-                  //   : ctaBtnTwo
-                  //   ? { _: '290px', sm: '210px' }
-                  //   : '200px',
                 }}
               >
                 <Box sx={mobileFooterLinkColumnsContainer}>
