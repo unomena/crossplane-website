@@ -159,11 +159,11 @@ const largeFooterCNCFContainer: SxProps = {
   alignItems: 'center',
 };
 
-const largeFooterCNCFSpan: SxProps = {
-  color: COLORS.fillBlackGray,
-  fontSize: '16px',
-  textAlign: 'center',
-};
+// const largeFooterCNCFSpan: SxProps = {
+//   color: COLORS.fillBlackGray,
+//   fontSize: '16px',
+//   textAlign: 'center',
+// };
 
 const mobileFooterWidthContainer: SxProps = {
   display: 'flex',

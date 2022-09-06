@@ -86,13 +86,17 @@ const CTACard = ({
   return (
     <Box sx={{ ...wrapper, ...customSx }}>
       <Box sx={root}>
-        <Typography variant="h2_new" color="#fff" sx={{ mb: 2.5 }}>
+        <Typography
+          variant="h2_new"
+          color="#fff"
+          sx={{ mb: 2.5, whiteSpace: { _: '', xs: 'pre-wrap' } }}
+        >
           {title}
         </Typography>
         <Typography
           variant="body_normal"
           color="#fff"
-          sx={{ maxWidth: { _: 300, md: 640 }, mb: 5 }}
+          sx={{ maxWidth: { _: 300, md: 700 }, mb: 5, whiteSpace: { _: '', xs: 'pre-wrap' } }}
         >
           {paragraph}
         </Typography>

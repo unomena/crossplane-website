@@ -502,6 +502,14 @@ const visitCard: SxProps = {
   },
 };
 
+const ctaBox: SxProps = {
+  [MQ.md]: {
+    '& p': {
+      maxWidth: 600,
+    },
+  },
+};
+
 const HeaderSection = (props: HomePageHeader) => {
   const logosSectionRef = useRef(undefined);
   const isVisible = useOnScreen(logosSectionRef);
@@ -1699,7 +1707,7 @@ const Home = (props: Props) => {
       }
       ctaBtnText="Get on the List"
       ctaBtnLink="/upbound-preview"
-      // ctaCustomSx={ctaBox}
+      ctaCustomSx={ctaBox}
     >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />

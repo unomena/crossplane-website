@@ -172,14 +172,6 @@ const banner: SxProps = {
   },
 };
 
-const ctaBox: SxProps = {
-  '& p': {
-    [MQ.md]: {
-      whiteSpace: 'pre-wrap',
-    },
-  },
-};
-
 const HeaderSection = (props: ProductPage) => {
   const productsHeaderRef = useRef(undefined);
   const isVisible = useOnScreen(productsHeaderRef);
@@ -533,7 +525,6 @@ const Products = (props: Props) => {
       }
       ctaBtnText="Get on the List"
       ctaBtnLink="/upbound-preview"
-      ctaCustomSx={ctaBox}
     >
       <Section sx={headerSection}>
         <HeaderSection {...props} />
