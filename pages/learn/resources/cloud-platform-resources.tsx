@@ -5,22 +5,13 @@ import Image from 'next/image';
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
-// import { useFormik, FormikHelpers } from 'formik';
-// import * as yup from 'yup';
-
 import * as routes from 'src/routes';
-
-// import axiosInstance from 'src-new/utils/axiosInstance';
-// import handleFormError from 'src-new/utils/handleFormError';
-import getSessionData from 'src-new/utils/getSessionData';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
-import CornerCard from 'src-new/elements/CornerCard';
-import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 
-import placeHolder from 'public/new-images/Whitepaper-mockup.png';
+import placeHolder from 'public/new-images/placeholder.png';
 
 const headerSection: SxProps = {
   pt: 20,
@@ -34,11 +25,40 @@ const headerSection: SxProps = {
 
 const gridLayout: SxProps = {
   display: 'grid',
-  gap: 2,
+  gap: 5,
   gridTemplateColumns: 'repeat(1, 1fr)',
 
   [MQ.md]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
+  },
+};
+
+// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
+const responsiveImg: SxProps = {
+  position: 'relative',
+  width: '100%',
+  mb: 3,
+  mx: 'auto',
+  [MQ.md]: {
+    height: '250px !important',
+  },
+
+  '& > span': {
+    position: 'unset !important',
+    [MQ.md]: {
+      position: 'absolute !important',
+    },
+  },
+
+  '& img': {
+    objectFit: 'contain',
+    width: '100% !important',
+    position: 'relative !important',
+    height: 'unset !important',
+    [MQ.md]: {
+      objectFit: 'cover',
+      position: 'absolute !important',
+    },
   },
 };
 
@@ -49,6 +69,7 @@ declare type StaticImport = StaticRequire | StaticImageData;
 
 const contentCardData = [
   {
+    href: 'https://www.upbound.io/',
     img: placeHolder,
     img_alt: 'img one',
     tag: 'Content Type',
@@ -57,6 +78,7 @@ const contentCardData = [
       'Title: Lorem ipsum',
   },
   {
+    href: 'https://www.upbound.io/',
     img: placeHolder,
     img_alt: 'img two',
     tag: 'Content Type',
@@ -65,6 +87,7 @@ const contentCardData = [
       'Title: Lorem ipsum',
   },
   {
+    href: 'https://www.upbound.io/',
     img: placeHolder,
     img_alt: 'img three',
     tag: 'Content Type',
@@ -73,6 +96,7 @@ const contentCardData = [
       'Title: Lorem ipsum',
   },
   {
+    href: 'https://www.upbound.io/',
     img: placeHolder,
     img_alt: 'img three',
     tag: 'Content Type',
@@ -81,6 +105,7 @@ const contentCardData = [
       'Title: Lorem ipsum',
   },
   {
+    href: 'https://www.upbound.io/',
     img: placeHolder,
     img_alt: 'img three',
     tag: 'Content Type',
@@ -92,6 +117,7 @@ const contentCardData = [
 
 type ContentCardProps = {
   contentCard: {
+    href: string;
     img: string | StaticImport;
     img_alt: string;
     tag: string;
@@ -100,21 +126,28 @@ type ContentCardProps = {
 };
 
 const ContentCardItem = ({ contentCard }: ContentCardProps) => {
-  const { img, img_alt, tag, title } = contentCard;
+  const { href, img, img_alt, tag, title } = contentCard;
 
   return (
-    <Box sx={{ mb: 3 }}>
-      <Box display="flex" flexDirection="column">
-        <Box sx={{ position: 'relative', width: '100%', height: '250px', mb: 3, mx: 'auto' }}>
-          <Image src={img} alt={img_alt} layout="fill" objectFit="contain" />
+    <Box>
+      <Link href={href}>
+        <Box display="flex" flexDirection="column">
+          <Box sx={responsiveImg}>
+            <Image src={img} alt={img_alt} layout="fill" priority />
+          </Box>
+          <Box flex={1}>
+            <Typography
+              variant="body_small"
+              sx={{ fontWeight: 600, color: COLORS.turquoise, mb: 1 }}
+            >
+              {tag}
+            </Typography>
+            <Typography variant="body_normal" sx={{ mb: 0 }}>
+              {title}
+            </Typography>
+          </Box>
         </Box>
-        <Box flex={1}>
-          <Typography variant="body_small" sx={{ fontWeight: 600, color: COLORS.turquoise, mb: 1 }}>
-            {tag}
-          </Typography>
-          <Typography variant="body_normal">{title}</Typography>
-        </Box>
-      </Box>
+      </Link>
     </Box>
   );
 };
