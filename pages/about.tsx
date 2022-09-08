@@ -677,7 +677,7 @@ const About: React.FC = () => {
       <Box
         sx={{
           backgroundColor: COLORS.firefly,
-          mb: 40,
+          pb: { _: 10, lg: 40 },
         }}
       >
         <Box px="30px" textAlign="center">

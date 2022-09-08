@@ -318,16 +318,14 @@ const Partners: React.FC = () => {
         </Box>
         <JoinUsOvalSection pt={{ _: 0, md: '490px' }} mt={{ _: '80px', md: '-370px' }}>
           <Box px="30px">
-            <Box mb={{ _: 0, md: '-220px' }}>
-              <JoinUs
-                type="bigstone"
-                title="Ready to Join Our Partner Community?"
-                subtitle={`Ready to enable your customers to move faster with an automated, self-service approach to
+            <JoinUs
+              type="bigstone"
+              title="Ready to Join Our Partner Community?"
+              subtitle={`Ready to enable your customers to move faster with an automated, self-service approach to
                 provisioning infrastructure and applications? Contact our team today to get started.`}
-                href={routes.contactRoute}
-                button="Contact Our Partner Team"
-              />
-            </Box>
+              href={routes.contactRoute}
+              button="Contact Our Partner Team"
+            />
           </Box>
         </JoinUsOvalSection>
       </Box>

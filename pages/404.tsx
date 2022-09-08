@@ -104,7 +104,7 @@ const FourOhFour: React.FC = () => {
       <Box
         bgcolor={COLORS.elephant}
         sx={{
-          pb: 32,
+          pb: { _: 10, lg: 32 },
         }}
       >
         <Box textAlign="center" mx="auto" px="30px" pt="50px" mb="100px" maxWidth="900px">

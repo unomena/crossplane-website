@@ -131,7 +131,7 @@ const Customers = ({}: Props) => {
           </Grid>
         </Grid>
       </Section>
-      <Section bgcolor angleTop="topLeft" sx={{ pt: 23.5, pb: 34.125 }}>
+      <Section bgcolor angleTop="topLeft" sx={{ pt: 23.5, pb: { _: 10, lg: 32 } }}>
         <Box sx={customerSectionHeader}>
           <Typography variant="h2_new" sx={{ mb: 7.5 }}>
             Trusted by the industry's best

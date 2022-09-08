@@ -25,11 +25,6 @@ import unomenaLogo from 'public/unomena-logo.svg';
 
 const footerMarginContainer: SxProps = {
   position: 'relative',
-  // marginTop: '25px',
-
-  // [MQ.md]: {
-  //   marginTop: '100px',
-  // },
 };
 
 const footerBackgroundContainer: SxProps = {
@@ -52,18 +47,17 @@ const footerCareersPill: SxProps = {
 const largeFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  // padding: '268px 140px 78px 140px',
   padding: '0 140px 78px 140px',
   margin: '0 auto',
   maxWidth: '1440px',
+  // [MQ.xl]: {
+  //   pt: '268px',
+  // },
 };
 
 const largeFooterLinkColumnsContainer: SxProps = {
   display: 'flex',
-  // borderTop: `1px solid ${COLORS.darkBlue1A3245}`,
-  // marginTop: '100px',
   marginBottom: '70px',
-  // paddingTop: '90px',
   width: '100%',
 };
 
@@ -159,39 +153,18 @@ const largeFooterCNCFContainer: SxProps = {
   alignItems: 'center',
 };
 
-const largeFooterCNCFSpan: SxProps = {
-  color: COLORS.fillBlackGray,
-  fontSize: '16px',
-  textAlign: 'center',
-};
-
 const mobileFooterWidthContainer: SxProps = {
   display: 'flex',
   flexDirection: 'column',
-  // padding: '60px 24px 60px 24px',
-  padding: '0 24px 60px 24px',
+  padding: '24px 24px 60px 24px',
   margin: '0 auto',
-
-  [MQ.lg]: {
-    // padding: '50px 140px 78px 140px',
-    padding: '0 140px 78px 140px',
-    margin: '0 auto',
-    maxWidth: '1440px',
-  },
 };
 
 const mobileFooterLinkColumnsContainer: SxProps = {
   display: 'flex',
-  // borderTop: `1px solid ${COLORS.darkBlue1A3245}`,
   width: '100%',
   flexWrap: 'wrap',
-  // marginTop: '60px',
   padding: '30px 20px 0 20px',
-
-  [MQ.lg]: {
-    marginTop: '100px',
-    padding: '90px 0 0 0',
-  },
 };
 
 const mobileFooterLogoAndSocialsContainer: SxProps = {
@@ -203,7 +176,7 @@ const mobileFooterLogoAndSocialsContainer: SxProps = {
 
   [MQ.md]: {
     margin: '60px 0 0 0',
-    maxwidth: 'unset',
+    maxWidth: 'unset',
   },
 };
 
@@ -364,7 +337,7 @@ const mobileFooterCNCFSpan: SxProps = {
 type Props = {
   isFooterVisible?: boolean;
   hideCTACard?: boolean;
-  removeFooterPadding?: boolean;
+  // removeFooterPadding?: boolean;
   ctaTitle?: string;
   ctaParagraph?: string;
   ctaBtnText?: string;
@@ -378,7 +351,7 @@ type Props = {
 const PageFooter = ({
   isFooterVisible = true,
   hideCTACard,
-  removeFooterPadding,
+  // removeFooterPadding,
   ctaTitle,
   ctaParagraph,
   ctaBtnText,
@@ -393,310 +366,302 @@ const PageFooter = ({
   }
 
   return (
-    <Box sx={footerMarginContainer}>
-      <Box sx={footerBackgroundContainer}>
-        <Hidden lgUp>
-          <Box
-            sx={{
-              ...mobileFooterWidthContainer,
-              // pt: removeFooterPadding ? '20px' : !ctaBtnTwo ? '200px' : '290px',
-              pt: removeFooterPadding ? '20px' : ctaBtnTwo ? { _: '290px', sm: '210px' } : '200px',
-            }}
-          >
-            {/* <Box sx={{ ...mobileFooterWidthContainer, pt: removeFooterPadding ? '20px' : '200px' }}> */}
-            {!hideCTACard && (
-              <CTACard
-                title={ctaTitle}
-                paragraph={ctaParagraph}
-                btnText={ctaBtnText}
-                btnLink={ctaBtnLink}
-                btnTwo={ctaBtnTwo}
-                btnTwoText={ctaBtnTwoText}
-                btnTwoLink={ctaBtnTwoLink}
-                customSx={ctaCustomSx}
-              />
-            )}
-            <Box sx={mobileFooterLinkColumnsContainer}>
-              <Box sx={mobileFooterLinkColumnsWidthContainer}>
-                <Box sx={mobileFooterLinkColumnContainer}>
-                  <Typography sx={mobileFooterColumnSpan}>Product</Typography>
-                  <Link sx={mobileFooterColumnLink} href={routes.productsUbcRoute}>
-                    Upbound Cloud
-                  </Link>
-                  <Link sx={mobileFooterColumnLink} href={routes.productsUxpRoute}>
-                    Universal Crossplane
-                  </Link>
-                  <Link sx={mobileFooterColumnLink} href={routes.productsRegistryRoute}>
-                    Marketplace
-                  </Link>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
-                    Request Demo
-                  </Anchor>
-                  {/* <Link sx={mobileFooterColumnLink} href={routes.pricingRoute}>
+    <>
+      <Box position="relative">
+        {!hideCTACard && (
+          <CTACard
+            title={ctaTitle}
+            paragraph={ctaParagraph}
+            btnText={ctaBtnText}
+            btnLink={ctaBtnLink}
+            btnTwo={ctaBtnTwo}
+            btnTwoText={ctaBtnTwoText}
+            btnTwoLink={ctaBtnTwoLink}
+            customSx={ctaCustomSx}
+          />
+        )}
+        <Box sx={footerMarginContainer}>
+          <Box sx={footerBackgroundContainer}>
+            <Hidden lgUp>
+              <Box
+                sx={{
+                  ...mobileFooterWidthContainer,
+                }}
+              >
+                <Box sx={mobileFooterLinkColumnsContainer}>
+                  <Box sx={mobileFooterLinkColumnsWidthContainer}>
+                    <Box sx={mobileFooterLinkColumnContainer}>
+                      <Typography sx={mobileFooterColumnSpan}>Product</Typography>
+                      <Link sx={mobileFooterColumnLink} href={routes.productsUbcRoute}>
+                        Upbound Cloud
+                      </Link>
+                      <Link sx={mobileFooterColumnLink} href={routes.productsUxpRoute}>
+                        Universal Crossplane
+                      </Link>
+                      <Link sx={mobileFooterColumnLink} href={routes.productsRegistryRoute}>
+                        Marketplace
+                      </Link>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
+                        Request Demo
+                      </Anchor>
+                      {/* <Link sx={mobileFooterColumnLink} href={routes.pricingRoute}>
                     Plans & Pricing
                   </Link> */}
-                  <Link sx={mobileFooterColumnLink} href={routes.partnersRoute}>
-                    Partner Program
-                  </Link>
+                      <Link sx={mobileFooterColumnLink} href={routes.partnersRoute}>
+                        Partner Program
+                      </Link>
+                    </Box>
+                    <Box sx={mobileFooterLinkColumnContainer}>
+                      <Typography sx={mobileFooterColumnSpan}>Learn</Typography>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.cloudDocsUrl}>
+                        Documentation
+                      </Anchor>
+                      <Link sx={mobileFooterColumnLink} href={routes.faqRoute}>
+                        FAQs
+                      </Link>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundStatusUrl}>
+                        System Status
+                      </Anchor>
+                    </Box>
+                    <Box sx={mobileFooterLinkColumnContainer}>
+                      <Typography sx={mobileFooterColumnSpan}>Company</Typography>
+                      <Link sx={mobileFooterColumnLink} href={routes.aboutRoute}>
+                        About Us
+                      </Link>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundGreenhouseUrl}>
+                        Careers
+                        <Box sx={footerCareersPill}>Now Hiring</Box>
+                      </Anchor>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundBlogUrl}>
+                        Blog
+                      </Anchor>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
+                        Contact Us
+                      </Anchor>
+                    </Box>
+                    <Box sx={mobileFooterLinkColumnContainer}>
+                      <Typography sx={mobileFooterColumnSpan}>More</Typography>
+                      <Link sx={mobileFooterColumnLink} href={routes.tncRoute}>
+                        Terms & Conditions
+                      </Link>
+                      <Link sx={mobileFooterColumnLink} href={routes.privacyRoute}>
+                        Privacy Policy
+                      </Link>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.sitemapRoute}>
+                        Sitemap
+                      </Anchor>
+                    </Box>
+                  </Box>
+                  <Box sx={mobileFooterLogoAndSocialsContainer}>
+                    <Link sx={mobileFooterLogoLink} href={routes.homeRoute}>
+                      <Img src={logo} alt="logo" width={190} />
+                    </Link>
+                    <Typography sx={mobileFooterCopyrightParagraph}>
+                      Copyright © 2022.
+                      <br />
+                      Crafted with love from our globally distributed team.
+                    </Typography>
+                    <Box sx={mobileFooterSocialsContainer}>
+                      <Anchor sx={mobileFooterSocialAnchor} href={routes.twitterUrl}>
+                        <Img src={twitterLogo} alt="Twitter" height="15px" width="18px" />
+                      </Anchor>
+                      <Anchor sx={mobileFooterSocialAnchor} href={routes.githubUrl}>
+                        <Img src={githubLogo} alt="GitHub" height="18px" width="18px" />
+                      </Anchor>
+                      <Anchor sx={mobileFooterSocialAnchor} href={routes.linkedinUrl}>
+                        <Img src={linkedinLogo} alt="LinkedIn" height="16px" width="16px" />
+                      </Anchor>
+                      <Anchor sx={mobileFooterSocialAnchor} href={routes.youtubeUrl}>
+                        <Img src={youtubeLogo} alt="YouTube" height="13px" width="19px" />
+                      </Anchor>
+                    </Box>
+                    <Box sx={unomenaLink}>
+                      Site by{' '}
+                      <a
+                        href="http://www.unomena.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ display: 'flex', marginLeft: '4px' }}
+                      >
+                        <Image src={unomenaLogo} alt="unomena" height={32} width={80} />
+                      </a>
+                    </Box>
+                  </Box>
                 </Box>
-                <Box sx={mobileFooterLinkColumnContainer}>
-                  <Typography sx={mobileFooterColumnSpan}>Learn</Typography>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.cloudDocsUrl}>
-                    Documentation
-                  </Anchor>
-                  <Link sx={mobileFooterColumnLink} href={routes.faqRoute}>
-                    FAQs
-                  </Link>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundStatusUrl}>
-                    System Status
-                  </Anchor>
+                <Box sx={mobileFooterCNCFBorderContainer}>
+                  <Box sx={mobileFooterCNCFColumn}>
+                    <Anchor href={routes.cncfUrl}>
+                      <Img
+                        src={cncfIcon}
+                        alt="cncfIcon"
+                        sx={{ maxWidth: '233px', marginBottom: '32px' }}
+                      />
+                    </Anchor>
+                    <Typography sx={mobileFooterCNCFSpan}>
+                      Upbound is an active contributor to Crossplane and the Cloud Native Computing
+                      Foundation
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box sx={mobileFooterLinkColumnContainer}>
-                  <Typography sx={mobileFooterColumnSpan}>Company</Typography>
-                  <Link sx={mobileFooterColumnLink} href={routes.aboutRoute}>
-                    About Us
-                  </Link>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundGreenhouseUrl}>
-                    Careers
-                    <Box sx={footerCareersPill}>Now Hiring</Box>
-                  </Anchor>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundBlogUrl}>
-                    Blog
-                  </Anchor>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.contactRoute}>
-                    Contact Us
-                  </Anchor>
-                </Box>
-                <Box sx={mobileFooterLinkColumnContainer}>
-                  <Typography sx={mobileFooterColumnSpan}>More</Typography>
-                  <Link sx={mobileFooterColumnLink} href={routes.tncRoute}>
-                    Terms & Conditions
-                  </Link>
-                  <Link sx={mobileFooterColumnLink} href={routes.privacyRoute}>
-                    Privacy Policy
-                  </Link>
-                  <Anchor sx={mobileFooterColumnAnchor} href={routes.sitemapRoute}>
-                    Sitemap
-                  </Anchor>
-                </Box>
-              </Box>
-              <Box sx={mobileFooterLogoAndSocialsContainer}>
-                <Link sx={mobileFooterLogoLink} href={routes.homeRoute}>
-                  <Img src={logo} alt="logo" width={190} />
-                </Link>
-                <Typography sx={mobileFooterCopyrightParagraph}>
-                  Copyright © 2022.
-                  <br />
-                  Crafted with love from our globally distributed team.
-                </Typography>
-                <Box sx={mobileFooterSocialsContainer}>
-                  <Anchor sx={mobileFooterSocialAnchor} href={routes.twitterUrl}>
-                    <Img src={twitterLogo} alt="Twitter" height="15px" width="18px" />
-                  </Anchor>
-                  <Anchor sx={mobileFooterSocialAnchor} href={routes.githubUrl}>
-                    <Img src={githubLogo} alt="GitHub" height="18px" width="18px" />
-                  </Anchor>
-                  <Anchor sx={mobileFooterSocialAnchor} href={routes.linkedinUrl}>
-                    <Img src={linkedinLogo} alt="LinkedIn" height="16px" width="16px" />
-                  </Anchor>
-                  <Anchor sx={mobileFooterSocialAnchor} href={routes.youtubeUrl}>
-                    <Img src={youtubeLogo} alt="YouTube" height="13px" width="19px" />
-                  </Anchor>
-                </Box>
-                <Box sx={unomenaLink}>
-                  Site by{' '}
-                  <a
-                    href="http://www.unomena.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ display: 'flex', marginLeft: '4px' }}
-                  >
-                    <Image src={unomenaLogo} alt="unomena" height={32} width={80} />
-                  </a>
-                </Box>
-              </Box>
-            </Box>
-            <Box sx={mobileFooterCNCFBorderContainer}>
-              <Box sx={mobileFooterCNCFColumn}>
-                <Anchor href={routes.cncfUrl}>
-                  <Img
-                    src={cncfIcon}
-                    alt="cncfIcon"
-                    sx={{ maxWidth: '233px', marginBottom: '32px' }}
-                  />
-                </Anchor>
-                <Typography sx={mobileFooterCNCFSpan}>
-                  Upbound is an active contributor to Crossplane and the Cloud Native Computing
-                  Foundation
-                </Typography>
-              </Box>
-            </Box>
-            <Box sx={mobileFooterCNCFBorderContainer}>
-              <Typography
-                sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
-              >
-                *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran, Andrew
-                Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is a trademark
-                and service mark of Gartner, Inc., and/or its affiliates, and is used herein with
-                permission. All rights reserved. Gartner does not endorse any vendor, product or
-                service depicted in its research publications, and does not advise technology users
-                to select only those vendors with the highest ratings or other designation. Gartner
-                research publications consist of the opinions of Gartner’s Research & Advisory
-                organization and should not be construed as statements of fact. Gartner disclaims
-                all warranties, expressed or implied, with respect to this research, including any
-                warranties of merchantability or fitness for a particular purpose.
-              </Typography>
-            </Box>
-          </Box>
-        </Hidden>
-        <Hidden lgDown>
-          <Box sx={{ ...largeFooterWidthContainer, pt: removeFooterPadding ? '78px' : '268px' }}>
-            {!hideCTACard && (
-              <CTACard
-                title={ctaTitle}
-                paragraph={ctaParagraph}
-                btnText={ctaBtnText}
-                btnLink={ctaBtnLink}
-                btnTwo={ctaBtnTwo}
-                btnTwoText={ctaBtnTwoText}
-                btnTwoLink={ctaBtnTwoLink}
-                customSx={ctaCustomSx}
-              />
-            )}
-            <Box sx={largeFooterLinkColumnsContainer}>
-              <Box sx={largeFooterLogoAndSocialsContainer}>
-                <Link sx={largeFooterLogoLink} href={routes.homeRoute}>
-                  <Img src={logo} alt="logo" width={190} />
-                </Link>
-                <Typography sx={largeFooterCopyrightParagraph}>
-                  Copyright © 2022.
-                  <br />
-                  Crafted with love from our globally distributed team.
-                </Typography>
-                <Box sx={largeFooterSocialsContainer}>
-                  <Anchor sx={largeFooterSocialAnchor} href={routes.twitterUrl}>
-                    <Img src={twitterLogo} alt="Twitter" width={18} />
-                  </Anchor>
-                  <Anchor sx={largeFooterSocialAnchor} href={routes.githubUrl}>
-                    <Img src={githubLogo} alt="GitHub" width={18} />
-                  </Anchor>
-                  <Anchor sx={largeFooterSocialAnchor} href={routes.linkedinUrl}>
-                    <Img src={linkedinLogo} alt="LinkedIn" width={16} />
-                  </Anchor>
-                  <Anchor sx={largeFooterSocialAnchor} href={routes.youtubeUrl}>
-                    <Img src={youtubeLogo} alt="YouTube" width={19} />
-                  </Anchor>
-                </Box>
-                <Box sx={unomenaLink}>
-                  Site by{' '}
-                  <a
-                    href="http://www.unomena.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ display: 'flex', marginLeft: '4px' }}
-                  >
-                    <Image src={unomenaLogo} alt="unomena" height={32} width={80} />
-                  </a>
+                <Box sx={mobileFooterCNCFBorderContainer}>
+                  <Box sx={mobileFooterCNCFColumn}>
+                    <Typography
+                      sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
+                    >
+                      *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran,
+                      Andrew Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is
+                      a trademark and service mark of Gartner, Inc., and/or its affiliates, and is
+                      used herein with permission. All rights reserved. Gartner does not endorse any
+                      vendor, product or service depicted in its research publications, and does not
+                      advise technology users to select only those vendors with the highest ratings
+                      or other designation. Gartner research publications consist of the opinions of
+                      Gartner’s Research & Advisory organization and should not be construed as
+                      statements of fact. Gartner disclaims all warranties, expressed or implied,
+                      with respect to this research, including any warranties of merchantability or
+                      fitness for a particular purpose.
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
-              <Box sx={largeFooterLinkColumnContainer}>
-                <Typography sx={largeFooterLinksTitle}>Product</Typography>
-                <Link sx={largeFooterLinkStyle} href={routes.productsUbcRoute}>
-                  Upbound Cloud
-                </Link>
-                <Link sx={largeFooterLinkStyle} href={routes.productsUxpRoute}>
-                  Universal Crossplane
-                </Link>
-                <Link sx={largeFooterLinkStyle} href={routes.productsRegistryRoute}>
-                  Marketplace
-                </Link>
-                <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
-                  Request Demo
-                </Anchor>
-                {/* <Link sx={largeFooterLinkStyle} href={routes.pricingRoute}>
+            </Hidden>
+            <Hidden lgDown>
+              <Box sx={{ ...largeFooterWidthContainer, pt: hideCTACard ? '78px' : '268px' }}>
+                <Box sx={largeFooterLinkColumnsContainer}>
+                  <Box sx={largeFooterLogoAndSocialsContainer}>
+                    <Link sx={largeFooterLogoLink} href={routes.homeRoute}>
+                      <Img src={logo} alt="logo" width={190} />
+                    </Link>
+                    <Typography sx={largeFooterCopyrightParagraph}>
+                      Copyright © 2022.
+                      <br />
+                      Crafted with love from our globally distributed team.
+                    </Typography>
+                    <Box sx={largeFooterSocialsContainer}>
+                      <Anchor sx={largeFooterSocialAnchor} href={routes.twitterUrl}>
+                        <Img src={twitterLogo} alt="Twitter" width={18} />
+                      </Anchor>
+                      <Anchor sx={largeFooterSocialAnchor} href={routes.githubUrl}>
+                        <Img src={githubLogo} alt="GitHub" width={18} />
+                      </Anchor>
+                      <Anchor sx={largeFooterSocialAnchor} href={routes.linkedinUrl}>
+                        <Img src={linkedinLogo} alt="LinkedIn" width={16} />
+                      </Anchor>
+                      <Anchor sx={largeFooterSocialAnchor} href={routes.youtubeUrl}>
+                        <Img src={youtubeLogo} alt="YouTube" width={19} />
+                      </Anchor>
+                    </Box>
+                    <Box sx={unomenaLink}>
+                      Site by{' '}
+                      <a
+                        href="http://www.unomena.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ display: 'flex', marginLeft: '4px' }}
+                      >
+                        <Image src={unomenaLogo} alt="unomena" height={32} width={80} />
+                      </a>
+                    </Box>
+                  </Box>
+                  <Box sx={largeFooterLinkColumnContainer}>
+                    <Typography sx={largeFooterLinksTitle}>Product</Typography>
+                    <Link sx={largeFooterLinkStyle} href={routes.productsUbcRoute}>
+                      Upbound Cloud
+                    </Link>
+                    <Link sx={largeFooterLinkStyle} href={routes.productsUxpRoute}>
+                      Universal Crossplane
+                    </Link>
+                    <Link sx={largeFooterLinkStyle} href={routes.productsRegistryRoute}>
+                      Marketplace
+                    </Link>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
+                      Request Demo
+                    </Anchor>
+                    {/* <Link sx={largeFooterLinkStyle} href={routes.pricingRoute}>
                   Plans & Pricing
                 </Link> */}
-                <Link sx={largeFooterLinkStyle} href={routes.partnersRoute}>
-                  Partner Program
-                </Link>
+                    <Link sx={largeFooterLinkStyle} href={routes.partnersRoute}>
+                      Partner Program
+                    </Link>
+                  </Box>
+                  <Box sx={largeFooterLinkColumnContainer}>
+                    <Typography sx={largeFooterLinksTitle}>Learn</Typography>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.cloudDocsUrl}>
+                      Documentation
+                    </Anchor>
+                    <Link sx={largeFooterLinkStyle} href={routes.faqRoute}>
+                      FAQs
+                    </Link>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.upboundStatusUrl}>
+                      System Status
+                    </Anchor>
+                  </Box>
+                  <Box sx={largeFooterLinkColumnContainer}>
+                    <Typography sx={largeFooterLinksTitle}>Company</Typography>
+                    <Link sx={largeFooterLinkStyle} href={routes.aboutRoute}>
+                      About Us
+                    </Link>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.upboundGreenhouseUrl}>
+                      Careers
+                      <Box sx={footerCareersPill}>Now Hiring</Box>
+                    </Anchor>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.upboundBlogUrl}>
+                      Blog
+                    </Anchor>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
+                      Contact Us
+                    </Anchor>
+                  </Box>
+                  <Box sx={largeFooterLinkColumnContainer}>
+                    <Typography sx={largeFooterLinksTitle}>More</Typography>
+                    <Link sx={largeFooterLinkStyle} href={routes.tncRoute}>
+                      Terms & Conditions
+                    </Link>
+                    <Link sx={largeFooterLinkStyle} href={routes.privacyRoute}>
+                      Privacy Policy
+                    </Link>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.sitemapRoute}>
+                      Sitemap
+                    </Anchor>
+                  </Box>
+                </Box>
+                <Box sx={largeFooterCNCFContainer}>
+                  <Box mr={5}>
+                    <Anchor href={routes.cncfUrl}>
+                      <Img
+                        src={cncfIcon}
+                        alt="cncfIcon"
+                        sx={{ width: '233px', height: '37px', marginBottom: '24px' }}
+                      />
+                    </Anchor>
+                    <Typography sx={mobileFooterCNCFSpan}>
+                      Upbound is an active contributor to Crossplane and the Cloud Native Computing
+                      Foundation
+                    </Typography>
+                  </Box>
+                  <Box sx={{ pl: 5, borderLeft: `2px solid ${COLORS.fillBlackGray}` }}>
+                    <Typography
+                      sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
+                    >
+                      *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran,
+                      Andrew Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is
+                      a trademark and service mark of Gartner, Inc., and/or its affiliates, and is
+                      used herein with permission. All rights reserved. Gartner does not endorse any
+                      vendor, product or service depicted in its research publications, and does not
+                      advise technology users to select only those vendors with the highest ratings
+                      or other designation. Gartner research publications consist of the opinions of
+                      Gartner’s Research & Advisory organization and should not be construed as
+                      statements of fact. Gartner disclaims all warranties, expressed or implied,
+                      with respect to this research, including any warranties of merchantability or
+                      fitness for a particular purpose.
+                    </Typography>
+                  </Box>
+                </Box>
               </Box>
-              <Box sx={largeFooterLinkColumnContainer}>
-                <Typography sx={largeFooterLinksTitle}>Learn</Typography>
-                <Anchor sx={largeFooterLinkStyle} href={routes.cloudDocsUrl}>
-                  Documentation
-                </Anchor>
-                <Link sx={largeFooterLinkStyle} href={routes.faqRoute}>
-                  FAQs
-                </Link>
-                <Anchor sx={largeFooterLinkStyle} href={routes.upboundStatusUrl}>
-                  System Status
-                </Anchor>
-              </Box>
-              <Box sx={largeFooterLinkColumnContainer}>
-                <Typography sx={largeFooterLinksTitle}>Company</Typography>
-                <Link sx={largeFooterLinkStyle} href={routes.aboutRoute}>
-                  About Us
-                </Link>
-                <Anchor sx={largeFooterLinkStyle} href={routes.upboundGreenhouseUrl}>
-                  Careers
-                  <Box sx={footerCareersPill}>Now Hiring</Box>
-                </Anchor>
-                <Anchor sx={largeFooterLinkStyle} href={routes.upboundBlogUrl}>
-                  Blog
-                </Anchor>
-                <Anchor sx={largeFooterLinkStyle} href={routes.contactRoute}>
-                  Contact Us
-                </Anchor>
-              </Box>
-              <Box sx={largeFooterLinkColumnContainer}>
-                <Typography sx={largeFooterLinksTitle}>More</Typography>
-                <Link sx={largeFooterLinkStyle} href={routes.tncRoute}>
-                  Terms & Conditions
-                </Link>
-                <Link sx={largeFooterLinkStyle} href={routes.privacyRoute}>
-                  Privacy Policy
-                </Link>
-                <Anchor sx={largeFooterLinkStyle} href={routes.sitemapRoute}>
-                  Sitemap
-                </Anchor>
-              </Box>
-            </Box>
-            <Box sx={largeFooterCNCFContainer}>
-              <Box mr={5}>
-                <Anchor href={routes.cncfUrl}>
-                  <Img
-                    src={cncfIcon}
-                    alt="cncfIcon"
-                    sx={{ width: '233px', height: '37px', marginBottom: '24px' }}
-                  />
-                </Anchor>
-                <Typography sx={mobileFooterCNCFSpan}>
-                  Upbound is an active contributor to Crossplane and the Cloud Native Computing
-                  Foundation
-                </Typography>
-              </Box>
-              <Box sx={{ pl: 5, borderLeft: `2px solid ${COLORS.fillBlackGray}` }}>
-                <Typography
-                  sx={{ fontSize: '13px', lineHeight: '21px', color: COLORS.fillBlackGray }}
-                >
-                  *Gartner, “Cool Vendors in Cloud Computing”, Sid Nag, Arun Chandrasekaran, Andrew
-                  Lerner, Manjunath Bhat, 26 April 2022. The GARTNER COOL VENDOR badge is a
-                  trademark and service mark of Gartner, Inc., and/or its affiliates, and is used
-                  herein with permission. All rights reserved. Gartner does not endorse any vendor,
-                  product or service depicted in its research publications, and does not advise
-                  technology users to select only those vendors with the highest ratings or other
-                  designation. Gartner research publications consist of the opinions of Gartner’s
-                  Research & Advisory organization and should not be construed as statements of
-                  fact. Gartner disclaims all warranties, expressed or implied, with respect to this
-                  research, including any warranties of merchantability or fitness for a particular
-                  purpose.
-                </Typography>
-              </Box>
-            </Box>
+            </Hidden>
           </Box>
-        </Hidden>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

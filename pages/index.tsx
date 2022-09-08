@@ -72,7 +72,7 @@ const headerSection: SxProps = {
 
 const discoverSection: SxProps = {
   pt: { _: 10, md: 15 },
-  pb: 32,
+  pb: { _: 10, lg: 32 },
   backgroundImage: `url(${headerBg.src})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'top center',
@@ -499,6 +499,14 @@ const visitCard: SxProps = {
     pr: 0,
     maxWidth: 150,
     minHeight: 'unset',
+  },
+};
+
+const ctaBox: SxProps = {
+  [MQ.md]: {
+    '& p': {
+      maxWidth: 600,
+    },
   },
 };
 
@@ -1699,7 +1707,7 @@ const Home = (props: Props) => {
       }
       ctaBtnText="Get on the List"
       ctaBtnLink="/upbound-preview"
-      // ctaCustomSx={ctaBox}
+      ctaCustomSx={ctaBox}
     >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
