@@ -214,10 +214,11 @@ type ProductPage = {
   testimonials: Testimonial[];
 };
 
-type WhitepaperPage = {
+type WhitepaperPageB = {
   cms_head_props: CMSHeadProps;
 
   id: number;
+
   header_title: string;
   header_text: string;
   header_image: ImageType[];
@@ -236,3 +237,29 @@ type ContactPage = {
   header_title: string;
   header_richtext: string;
 };
+
+type ResourceListingPage = {
+  cms_head_props: CMSHeadProps;
+
+  header_title: string;
+  header_text: string;
+  contact_section_title: string;
+  contact_section_text: string;
+  contact_section_button: Button[];
+
+  resource_list: ResourceList;
+};
+
+type ResourceListItem = {
+  id: number;
+
+  resource_type: string;
+  listing_image: ImageType[];
+  listing_title: string;
+  relative_url: string;
+
+  header_title: string;
+  header_image_mobile: ImageType[];
+};
+
+type ResourceList = ResourceListItem[];

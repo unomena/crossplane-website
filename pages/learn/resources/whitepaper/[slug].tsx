@@ -198,7 +198,7 @@ interface FormValues {
   legal_consent: boolean;
 }
 
-const HeaderForm = (props: WhitepaperPage) => {
+const HeaderForm = (props: WhitepaperPageB) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -396,7 +396,7 @@ const HeaderForm = (props: WhitepaperPage) => {
 
 type Props = {
   isPreview?: boolean;
-} & WhitepaperPage;
+} & WhitepaperPageB;
 
 const Whitepaper = (props: Props) => {
   return (
