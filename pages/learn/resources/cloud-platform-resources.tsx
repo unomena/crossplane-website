@@ -183,8 +183,12 @@ const ResourceListing = (props: Props) => {
       isPreview={props.isPreview}
       ctaTitle={props.contact_section_title}
       ctaParagraph={props.contact_section_text}
-      ctaBtnText="Contact Us"
-      ctaBtnLink={routes.contactRoute}
+      ctaBtnText={props.contact_section_button[0].value.text}
+      ctaBtnLink={
+        props.contact_section_button[0] && props.contact_section_button[0].value.link
+          ? props.contact_section_button[0].value.link[0].value
+          : undefined
+      }
     >
       <Section sx={headerSection}>
         <Box>

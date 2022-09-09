@@ -243,6 +243,7 @@ type ResourceListingPage = {
 
   header_title: string;
   header_text: string;
+
   contact_section_title: string;
   contact_section_text: string;
   contact_section_button: Button[];
