@@ -214,7 +214,7 @@ type ProductPage = {
   testimonials: Testimonial[];
 };
 
-type WhitepaperPageB = {
+type WhitepaperBPage = {
   cms_head_props: CMSHeadProps;
 
   id: number;
