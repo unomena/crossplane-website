@@ -5,8 +5,6 @@ import { GetStaticProps } from 'next';
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
-import * as routes from 'src/routes';
-
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 
@@ -63,72 +61,6 @@ const responsiveImg: SxProps = {
     },
   },
 };
-
-// interface StaticRequire {
-//   default: StaticImageData;
-// }
-// declare type StaticImport = StaticRequire | StaticImageData;
-
-// const contentCardData = [
-//   {
-//     href: 'https://www.upbound.io/',
-//     img: placeHolder,
-//     img_alt: 'img one',
-//     tag: 'Content Type',
-//     title:
-//       // eslint-disable-next-line max-len
-//       'Title: Lorem ipsum',
-//   },
-//   {
-//     href: 'https://www.upbound.io/',
-//     img: placeHolder,
-//     img_alt: 'img two',
-//     tag: 'Content Type',
-//     title:
-//       // eslint-disable-next-line max-len
-//       'Title: Lorem ipsum',
-//   },
-//   {
-//     href: 'https://www.upbound.io/',
-//     img: placeHolder,
-//     img_alt: 'img three',
-//     tag: 'Content Type',
-//     title:
-//       // eslint-disable-next-line max-len
-//       'Title: Lorem ipsum',
-//   },
-//   {
-//     href: 'https://www.upbound.io/',
-//     img: placeHolder,
-//     img_alt: 'img three',
-//     tag: 'Content Type',
-//     title:
-//       // eslint-disable-next-line max-len
-//       'Title: Lorem ipsum',
-//   },
-//   {
-//     href: 'https://www.upbound.io/',
-//     img: placeHolder,
-//     img_alt: 'img three',
-//     tag: 'Content Type',
-//     title:
-//       // eslint-disable-next-line max-len
-//       'Title: Lorem ipsum',
-//   },
-// ];
-
-// type ContentCardProps = {
-//   contentCard: {
-//     href: string;
-//     img: string | StaticImport;
-//     img_alt: string;
-//     tag: string;
-//     title: string;
-//   };
-// };
-
-// const ContentCardItem = ({ contentCard }: ContentCardProps) => {
-// const { href, img, img_alt, tag, title } = contentCard;
 
 const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => {
   const { resource_type, listing_image, listing_title, relative_url } = contentCard;
