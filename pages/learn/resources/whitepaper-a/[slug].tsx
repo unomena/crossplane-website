@@ -75,6 +75,22 @@ const formStyles: SxProps = {
   },
 };
 
+// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
+const responsiveImg: SxProps = {
+  width: '100%',
+
+  '& > span': {
+    position: 'unset !important',
+  },
+
+  '& img': {
+    objectFit: 'contain',
+    width: '100% !important',
+    position: 'relative !important',
+    height: 'unset !important',
+  },
+};
+
 interface FormValues {
   first_name: string;
   last_name: string;
@@ -410,6 +426,7 @@ const WhitepaperA = (props: Props) => {
           sx={{
             [MQ.lg]: {
               display: 'flex',
+              alignItems: 'center',
               flexDirection: 'row',
             },
           }}
@@ -445,11 +462,15 @@ const WhitepaperA = (props: Props) => {
           >
             <Box sx={{ pl: { _: 0, lg: '100px' } }}>
               {/* <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
-                <Image src={placeHolder} alt="placeholder" layout="fill" objectFit="contain" />
+                {props.header_image && props.header_image[0] && (
+                  <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                )}
               </Box> */}
-              {props.header_image && props.header_image[0] && (
-                <CMSImage value={props.header_image[0].value} layout="fill" priority />
-              )}
+              <Box sx={responsiveImg}>
+                {props.header_image && props.header_image[0] && (
+                  <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                )}
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -478,7 +499,7 @@ export default WhitepaperA;
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: { params: { slug: string } }[] = [];
   try {
-    const res = await axiosInstance.get(`/api/v2/pages/?type=app.ResourceDetailPage`);
+    const res = await axiosInstance.get(`/api/v2/pages/?type=app.ResourceDetailPageV1`);
     const whitepapers = res.data.items;
 
     paths = whitepapers.map((whitepaper: { meta: { slug: string } }) => ({
