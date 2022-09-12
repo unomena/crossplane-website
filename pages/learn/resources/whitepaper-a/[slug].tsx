@@ -2,8 +2,6 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import Image from 'next/image';
-
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
@@ -34,10 +32,6 @@ import Link from 'src-new/elements/Link';
 import CMSImage from 'src-new/elements/CMSImage';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
-import placeHolder from 'public/new-images/Whitepaper-mockup.png';
-import caseStudyIconOne from 'public/new-images/icons/case-study-icon-one.svg';
-import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
-import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
@@ -142,7 +136,7 @@ const HeaderForm = (props: WhitepaperAPage) => {
       const postData = {
         page_version: 'v1',
         recaptcha_token: token,
-        page_id: null,
+        page_id: props.id,
         ...data,
         ...values,
       };
@@ -332,55 +326,16 @@ const HeaderForm = (props: WhitepaperAPage) => {
   );
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
-const cornerCardContent = [
-  {
-    icon: caseStudyIconOne,
-    icon_alt: 'icon one',
-    title: 'Enable a faster time to deployment',
-    paragraph:
-      // eslint-disable-next-line max-len
-      'Applications and new features are shipped faster so businesses can innovate quicker.',
-  },
-  {
-    icon: caseStudyIconTwo,
-    icon_alt: 'icon two',
-    title: 'Lower Capex AND Opex',
-    paragraph:
-      // eslint-disable-next-line max-len
-      'Cloud computing bills are reduced and Reduced labor costs since SRE doesn’t need to scale as much.',
-  },
-  {
-    icon: caseStudyIconThree,
-    icon_alt: 'icon three',
-    title: 'Reduce risk but also innovate faster',
-    paragraph:
-      // eslint-disable-next-line max-len
-      'Big fixes and governance controlled all in one place and software engineers can focus on building rather than infrastructure provisioning, configuration, and management.',
-  },
-];
-
-type CornerCardItemProps = {
-  cornerCardItem: {
-    icon: string | StaticImport;
-    icon_alt: string;
-    title: string;
-    paragraph: string;
-  };
-};
-
-const CornerCardItem = ({ cornerCardItem }: CornerCardItemProps) => {
-  const { icon, icon_alt, title, paragraph } = cornerCardItem;
+const CornerCardItem = ({ cornerCardItem }: { cornerCardItem: WhitepaperACard }) => {
+  const { image, title, text } = cornerCardItem;
 
   return (
     <CornerCard iconSize="small">
       <Box display="flex" flexDirection="column">
         <Box sx={{ position: 'relative', width: '48px', height: '48px', mb: 3 }}>
-          <Image src={icon} alt={icon_alt} layout="fill" objectFit="contain" />
+          {image && image[0] && (
+            <CMSImage value={image[0].value} layout="fill" objectFit="contain" />
+          )}
         </Box>
         <Box flex={1}>
           <Typography
@@ -392,10 +347,20 @@ const CornerCardItem = ({ cornerCardItem }: CornerCardItemProps) => {
           >
             {title}
           </Typography>
-          <Typography variant="body_small">{paragraph}</Typography>
+          <Typography variant="body_small">{text}</Typography>
         </Box>
       </Box>
     </CornerCard>
+  );
+};
+
+const CardSection = ({ section_1_card_items }: { section_1_card_items: WhitepaperACards }) => {
+  return (
+    <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
+      {section_1_card_items.map((item) => (
+        <CornerCardItem key={item.id} cornerCardItem={item} />
+      ))}
+    </Box>
   );
 };
 
@@ -409,8 +374,9 @@ type Props = {
 const WhitepaperA = (props: Props) => {
   return (
     <PageProvider
+      cms_head_props={props.cms_head_props}
+      isPreview={props.isPreview}
       ctaTitle={props.contact_title}
-      // eslint-disable-next-line max-len
       ctaParagraph={props.contact_text}
       ctaBtnText={props.contact_button[0].value.text}
       ctaBtnLink={
@@ -418,8 +384,6 @@ const WhitepaperA = (props: Props) => {
           ? props.contact_button[0].value.link[0].value
           : undefined
       }
-      cms_head_props={props.cms_head_props}
-      isPreview={props.isPreview}
     >
       <Section sx={headerSection}>
         <Box
@@ -461,11 +425,6 @@ const WhitepaperA = (props: Props) => {
             }}
           >
             <Box sx={{ pl: { _: 0, lg: '100px' } }}>
-              {/* <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
-                {props.header_image && props.header_image[0] && (
-                  <CMSImage value={props.header_image[0].value} layout="fill" priority />
-                )}
-              </Box> */}
               <Box sx={responsiveImg}>
                 {props.header_image && props.header_image[0] && (
                   <CMSImage value={props.header_image[0].value} layout="fill" priority />
@@ -475,7 +434,7 @@ const WhitepaperA = (props: Props) => {
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 20, md: 30 } }}>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 10, lg: 30 } }}>
         <Box textAlign="center">
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
             {props.section_1_title}
@@ -484,11 +443,7 @@ const WhitepaperA = (props: Props) => {
             {props.section_1_text}
           </Typography>
         </Box>
-        <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
-          {cornerCardContent.map((cornerCardItem) => (
-            <CornerCardItem key={cornerCardItem.title} cornerCardItem={cornerCardItem} />
-          ))}
-        </Box>
+        <CardSection section_1_card_items={props.section_1_card_items} />
       </Section>
     </PageProvider>
   );
