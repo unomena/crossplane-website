@@ -198,7 +198,7 @@ interface FormValues {
   legal_consent: boolean;
 }
 
-const HeaderForm = (props: WhitepaperPage) => {
+const HeaderForm = (props: WhitepaperBPage) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -396,9 +396,9 @@ const HeaderForm = (props: WhitepaperPage) => {
 
 type Props = {
   isPreview?: boolean;
-} & WhitepaperPage;
+} & WhitepaperBPage;
 
-const Whitepaper = (props: Props) => {
+const WhitepaperB = (props: Props) => {
   return (
     <PageProvider hideCTACard cms_head_props={props.cms_head_props} isPreview={props.isPreview}>
       <Box sx={root}>
@@ -534,7 +534,7 @@ const Whitepaper = (props: Props) => {
   );
 };
 
-export default Whitepaper;
+export default WhitepaperB;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: { params: { slug: string } }[] = [];
@@ -555,7 +555,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const returnValue = await handleGetStaticProps(
     context,
-    `/learn/resources/whitepaper/${context?.params?.slug}`
+    `/learn/resources/whitepaper-b/${context?.params?.slug}`
   );
 
   if (returnValue) {
