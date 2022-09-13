@@ -691,7 +691,7 @@ const PageHeader: React.FC<{
                       <LargeHeaderPopoverSectionRowLink href={routes.productsUxpRoute}>
                         Learn More
                       </LargeHeaderPopoverSectionRowLink>
-                      <LargeHeaderPopoverSectionRowAnchor href={routes.cloudUxpDocsUrl}>
+                      <LargeHeaderPopoverSectionRowAnchor href={routes.upboundUxpDocsUrl}>
                         UXP Documentation
                       </LargeHeaderPopoverSectionRowAnchor>
                     </Box>

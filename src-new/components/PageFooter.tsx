@@ -413,7 +413,7 @@ const PageFooter = ({
                     </Box>
                     <Box sx={mobileFooterLinkColumnContainer}>
                       <Typography sx={mobileFooterColumnSpan}>Learn</Typography>
-                      <Anchor sx={mobileFooterColumnAnchor} href={routes.cloudDocsUrl}>
+                      <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundDocsUrl}>
                         Documentation
                       </Anchor>
                       <Link sx={mobileFooterColumnLink} href={routes.faqRoute}>
@@ -585,7 +585,7 @@ const PageFooter = ({
                   </Box>
                   <Box sx={largeFooterLinkColumnContainer}>
                     <Typography sx={largeFooterLinksTitle}>Learn</Typography>
-                    <Anchor sx={largeFooterLinkStyle} href={routes.cloudDocsUrl}>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.upboundDocsUrl}>
                       Documentation
                     </Anchor>
                     <Link sx={largeFooterLinkStyle} href={routes.faqRoute}>
