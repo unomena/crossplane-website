@@ -1701,6 +1701,7 @@ const Home = (props: Props) => {
     <PageProvider
       cms_head_props={props.cms_head_props}
       isPreview={props.isPreview}
+      gartnerFooter
       ctaTitle="A better cloud is coming"
       ctaParagraph={
         'Upbound Cloud completely transforms the way you build your internal cloud platform.'

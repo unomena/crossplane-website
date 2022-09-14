@@ -28,7 +28,7 @@ type Props = {
   metaDescription?: string;
   metaImg?: string;
   hideCTACard?: boolean;
-  // removeFooterPadding?: boolean;
+  gartnerFooter?: boolean;
   ctaTitle?: string;
   ctaParagraph?: string;
   ctaBtnText?: string;
@@ -49,7 +49,7 @@ const PageProvider = ({
   metaDescription = defaultDescription,
   metaImg = defaultImg,
   hideCTACard,
-  // removeFooterPadding,
+  gartnerFooter,
   ctaTitle,
   ctaParagraph,
   ctaBtnText,
@@ -98,7 +98,7 @@ const PageProvider = ({
         <PageFooter
           isFooterVisible={isFooterVisible}
           hideCTACard={hideCTACard}
-          // removeFooterPadding={removeFooterPadding}
+          gartnerFooter={gartnerFooter}
           ctaTitle={ctaTitle}
           ctaParagraph={ctaParagraph}
           ctaBtnText={ctaBtnText}

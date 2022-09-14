@@ -462,7 +462,7 @@ const steps = [
     body: `Upbound lets you easily upgrade your platform to our downstream distribution of Crossplane, UXP,
      as well as our Official Providers so you can build your platform on a solid foundation.`,
     // linkText: 'Learn More',
-    // href: routes.cloudCliDocsUrl,
+    // href: routes.upboundCliDocsUrl,
     // icon: EnterpriseReadyIcon,
     imgBig: uxpImgOneMain,
     imgBigMobile: uxpImgOneMobileMain,

@@ -42,9 +42,17 @@ export const accountsRegisterUrl = accountsUrl + '/register';
 export const cloudRegistryUrl = cloudUrl + '/browse';
 // export const cloudLoginUrl = cloudUrl + '/login';
 // export const cloudRegisterUrl = cloudUrl + '/register';
-export const cloudDocsUrl = cloudUrl + '/docs';
-export const cloudCliDocsUrl = cloudDocsUrl + '/cli';
-export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';
+// export const cloudDocsUrl = cloudUrl + '/docs';
+// export const cloudCliDocsUrl = cloudDocsUrl + '/cli';
+// export const cloudUxpDocsUrl = cloudDocsUrl + '/uxp';
+
+// Doc Routes
+
+const docsUrl = 'https://docs.upbound.io/';
+
+export const upboundDocsUrl = docsUrl;
+export const upboundCliDocsUrl = docsUrl + '/cli';
+export const upboundUxpDocsUrl = docsUrl + '/uxp';
 
 // Routes
 

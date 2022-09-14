@@ -427,7 +427,7 @@ const LearnPopoverContent = () => {
         </Typography>
         <Box sx={{ mt: 'auto' }}>
           <LinkBar
-            href={routes.cloudDocsUrl}
+            href={routes.upboundDocsUrl}
             title="Docs"
             body="Learn how to use Upbound"
             sx={{ mb: 1.5 }}
@@ -531,7 +531,7 @@ const mobileLinks = [
     children: [
       {
         title: 'Docs',
-        href: routes.cloudDocsUrl,
+        href: routes.upboundDocsUrl,
       },
       {
         title: 'Upbound Blog',
@@ -646,7 +646,11 @@ const PageHeaderMobile = ({ setOverflowVisible }: PageHeaderMobileProps) => {
             </Box>
           ))}
           <Box sx={menuButtonsContainer}>
-            <Button styleType="linkWaterContained" sizeType="small" href={routes.accountsRegisterUrl}>
+            <Button
+              styleType="linkWaterContained"
+              sizeType="small"
+              href={routes.accountsRegisterUrl}
+            >
               Try For Free
             </Button>
             <Button
