@@ -214,6 +214,34 @@ type ProductPage = {
   testimonials: Testimonial[];
 };
 
+type WhitepaperAPage = {
+  cms_head_props: CMSHeadProps;
+
+  id: number;
+  header_title: string;
+  header_text: string;
+  header_image: ImageType[];
+  header_image_mobile: ImageType[];
+  header_richtext: string;
+  section_1_title: string;
+  section_1_text: string;
+
+  section_1_card_items: WhitepaperACard[];
+
+  contact_title: string;
+  contact_text: string;
+  contact_button: Button[];
+};
+
+type WhitepaperACard = {
+  id: number;
+  image: SVGImageContent;
+  title: string;
+  text: string;
+};
+
+type WhitepaperACards = WhitepaperACard[];
+
 type WhitepaperBPage = {
   cms_head_props: CMSHeadProps;
 

@@ -51,19 +51,49 @@ const nextConfig = {
       {
         source: '/whitepaper/platform-teams-solution',
         destination:
-          '/learn/resources/whitepaper/platform-teams-solution',
+          '/learn/resources/whitepaper-b/platform-teams-solution',
         permanent: true,
       },
       {
         source: '/whitepaper/transforming-cloud-operations',
         destination:
-          '/learn/resources/whitepaper/transforming-cloud-operations',
+          '/learn/resources/whitepaper-b/transforming-cloud-operations',
         permanent: true,
       },
       {
         source: '/whitepaper/forrester-best-practices-kubernetes',
         destination:
-          '/learn/resources/whitepaper/forrester-best-practices-kubernetes',
+          '/learn/resources/whitepaper-b/forrester-best-practices-kubernetes',
+        permanent: true,
+      },
+      {
+        source: '/learn/resources/whitepaper/platform-teams-solution',
+        destination:
+          '/learn/resources/whitepaper-b/platform-teams-solution',
+        permanent: true,
+      },
+      {
+        source: '/learn/resources/whitepaper/transforming-cloud-operations',
+        destination:
+          '/learn/resources/whitepaper-b/transforming-cloud-operations',
+        permanent: true,
+      },
+      {
+        source: '/learn/resources/whitepaper/forrester-best-practices-kubernetes',
+        destination:
+          '/learn/resources/whitepaper-b/forrester-best-practices-kubernetes',
+        permanent: true,
+      },
+      {
+        source: '/whitepaper/platform-teams-solution-a',
+        destination:
+          '/learn/resources/whitepaper-a/platform-teams-solution-a',
+        permanent: true,
+      },
+      {
+        source: '/learn/resources/whitepaper/platform-teams-solution-a',
+        destination:
+          '/learn/resources/whitepaper-a/platform-teams-solution-a',
         permanent: true,
       },
     ];

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
-import Image from 'next/image';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
@@ -16,6 +16,7 @@ import countries from 'country-region-data/data.json';
 
 import * as routes from 'src/routes';
 
+import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleFormError from 'src-new/utils/handleFormError';
 import getSessionData from 'src-new/utils/getSessionData';
@@ -28,12 +29,9 @@ import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
+import CMSImage from 'src-new/elements/CMSImage';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
-import placeHolder from 'public/new-images/Whitepaper-mockup.png';
-import caseStudyIconOne from 'public/new-images/icons/case-study-icon-one.svg';
-import caseStudyIconTwo from 'public/new-images/icons/case-study-icon-two.svg';
-import caseStudyIconThree from 'public/new-images/icons/case-study-icon-three.svg';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
@@ -71,6 +69,22 @@ const formStyles: SxProps = {
   },
 };
 
+// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
+const responsiveImg: SxProps = {
+  width: '100%',
+
+  '& > span': {
+    position: 'unset !important',
+  },
+
+  '& img': {
+    objectFit: 'contain',
+    width: '100% !important',
+    position: 'relative !important',
+    height: 'unset !important',
+  },
+};
+
 interface FormValues {
   first_name: string;
   last_name: string;
@@ -82,7 +96,7 @@ interface FormValues {
   legal_consent: boolean;
 }
 
-const HeaderForm = () => {
+const HeaderForm = (props: WhitepaperAPage) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [showMore, setShowMore] = useState(false);
@@ -122,7 +136,7 @@ const HeaderForm = () => {
       const postData = {
         page_version: 'v1',
         recaptcha_token: token,
-        page_id: null,
+        page_id: props.id,
         ...data,
         ...values,
       };
@@ -312,55 +326,16 @@ const HeaderForm = () => {
   );
 };
 
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
-const cornerCardContent = [
-  {
-    icon: caseStudyIconOne,
-    icon_alt: 'icon one',
-    title: 'Enable a faster time to deployment',
-    paragraph:
-      // eslint-disable-next-line max-len
-      'Applications and new features are shipped faster so businesses can innovate quicker.',
-  },
-  {
-    icon: caseStudyIconTwo,
-    icon_alt: 'icon two',
-    title: 'Lower Capex AND Opex',
-    paragraph:
-      // eslint-disable-next-line max-len
-      'Cloud computing bills are reduced and Reduced labor costs since SRE doesn’t need to scale as much.',
-  },
-  {
-    icon: caseStudyIconThree,
-    icon_alt: 'icon three',
-    title: 'Reduce risk but also innovate faster',
-    paragraph:
-      // eslint-disable-next-line max-len
-      'Big fixes and governance controlled all in one place and software engineers can focus on building rather than infrastructure provisioning, configuration, and management.',
-  },
-];
-
-type CornerCardItemProps = {
-  cornerCardItem: {
-    icon: string | StaticImport;
-    icon_alt: string;
-    title: string;
-    paragraph: string;
-  };
-};
-
-const CornerCardItem = ({ cornerCardItem }: CornerCardItemProps) => {
-  const { icon, icon_alt, title, paragraph } = cornerCardItem;
+const CornerCardItem = ({ cornerCardItem }: { cornerCardItem: WhitepaperACard }) => {
+  const { image, title, text } = cornerCardItem;
 
   return (
     <CornerCard iconSize="small">
       <Box display="flex" flexDirection="column">
         <Box sx={{ position: 'relative', width: '48px', height: '48px', mb: 3 }}>
-          <Image src={icon} alt={icon_alt} layout="fill" objectFit="contain" />
+          {image && image[0] && (
+            <CMSImage value={image[0].value} layout="fill" objectFit="contain" />
+          )}
         </Box>
         <Box flex={1}>
           <Typography
@@ -372,32 +347,50 @@ const CornerCardItem = ({ cornerCardItem }: CornerCardItemProps) => {
           >
             {title}
           </Typography>
-          <Typography variant="body_small">{paragraph}</Typography>
+          <Typography variant="body_small">{text}</Typography>
         </Box>
       </Box>
     </CornerCard>
   );
 };
 
+const CardSection = ({ section_1_card_items }: { section_1_card_items: WhitepaperACards }) => {
+  return (
+    <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
+      {section_1_card_items.map((item) => (
+        <CornerCardItem key={item.id} cornerCardItem={item} />
+      ))}
+    </Box>
+  );
+};
+
 // const displayTitle = 'Products - The Universal Cloud Platform';
 // const metaImg = OGImgProducts.src;
 
-type Props = {};
+type Props = {
+  isPreview?: boolean;
+} & WhitepaperAPage;
 
-const LandingPageV1 = ({}: Props) => {
+const WhitepaperA = (props: Props) => {
   return (
     <PageProvider
-      ctaTitle="Ready to jump to the next level?"
-      // eslint-disable-next-line max-len
-      ctaParagraph="Click below to fill out our contact form and an Upbound and Crossplane expert will reach out to schedule a meeting with you shortly."
-      ctaBtnText="Contact Us"
-      ctaBtnLink={routes.contactRoute}
+      cms_head_props={props.cms_head_props}
+      isPreview={props.isPreview}
+      ctaTitle={props.contact_title}
+      ctaParagraph={props.contact_text}
+      ctaBtnText={props.contact_button[0].value.text}
+      ctaBtnLink={
+        props.contact_button[0] && props.contact_button[0].value.link
+          ? props.contact_button[0].value.link[0].value
+          : undefined
+      }
     >
       <Section sx={headerSection}>
         <Box
           sx={{
             [MQ.lg]: {
               display: 'flex',
+              alignItems: 'center',
               flexDirection: 'row',
             },
           }}
@@ -414,13 +407,12 @@ const LandingPageV1 = ({}: Props) => {
             }}
           >
             <Typography variant="h2_new" sx={{ mb: 3 }}>
-              Upbound: A platform for platform teams
+              {props.header_title}
             </Typography>
             <Typography variant="body_big" sx={{ mb: 5 }}>
-              We give you the easiest way to build your internal cloud platform - read our
-              whitepaper to learn how.
+              {props.header_text}
             </Typography>
-            <HeaderForm />
+            <HeaderForm {...props} />
           </Box>
           <Box
             sx={{
@@ -433,32 +425,61 @@ const LandingPageV1 = ({}: Props) => {
             }}
           >
             <Box sx={{ pl: { _: 0, lg: '100px' } }}>
-              <Box sx={{ position: 'relative', width: '100%', height: '374px' }}>
-                <Image src={placeHolder} alt="placeholder" layout="fill" objectFit="contain" />
+              <Box sx={responsiveImg}>
+                {props.header_image && props.header_image[0] && (
+                  <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                )}
               </Box>
             </Box>
           </Box>
         </Box>
       </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 10, lg: 32 } }}>
+      <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 10, lg: 30 } }}>
         <Box textAlign="center">
           <Typography variant="h2_new" sx={{ mb: 3.75 }}>
-            Every company is a cloud company today.
+            {props.section_1_title}
           </Typography>
           <Typography variant="body_normal" sx={{ maxWidth: '886px', mx: 'auto' }}>
-            Even if you’re not selling software, digital experiences running in the cloud are
-            business-critical components for you and your business. So how do you manage it all?
-            Enter Upbound who can help you future proof your platform.
+            {props.section_1_text}
           </Typography>
         </Box>
-        <Box sx={{ my: { _: 7.5, md: 10 }, ...gridLayout }}>
-          {cornerCardContent.map((cornerCardItem) => (
-            <CornerCardItem key={cornerCardItem.title} cornerCardItem={cornerCardItem} />
-          ))}
-        </Box>
+        <CardSection section_1_card_items={props.section_1_card_items} />
       </Section>
     </PageProvider>
   );
 };
 
-export default LandingPageV1;
+export default WhitepaperA;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  let paths: { params: { slug: string } }[] = [];
+  try {
+    const res = await axiosInstance.get(`/api/v2/pages/?type=app.ResourceDetailPageV1`);
+    const whitepapers = res.data.items;
+
+    paths = whitepapers.map((whitepaper: { meta: { slug: string } }) => ({
+      params: { slug: whitepaper.meta.slug },
+    }));
+  } catch (error) {
+    console.log('get ResourceDetailPage paths', error);
+  }
+
+  return { paths, fallback: 'blocking' };
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const returnValue = await handleGetStaticProps(
+    context,
+    `/learn/resources/whitepaper-a/${context?.params?.slug}`
+  );
+
+  if (returnValue) {
+    return {
+      props: returnValue,
+    };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
+};
