@@ -146,6 +146,7 @@ type Props = {
   date?: string;
   pillText?: string;
   href?: string;
+  linkType?: string;
   videoId?: string;
 };
 
@@ -167,6 +168,7 @@ const MediaCard = ({
   date,
   pillText,
   href,
+  linkType,
   videoId,
 }: Props) => {
   const matchesXL = useMediaQuery(MQ.xl);
@@ -274,7 +276,7 @@ const MediaCard = ({
 
   if (href) {
     return (
-      <Link href={href}>
+      <Link href={href} muiProps={{ target: linkType === 'external_url' ? '_blank' : '_self' }}>
         <RenderCard />
       </Link>
     );

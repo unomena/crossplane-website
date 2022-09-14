@@ -350,12 +350,12 @@ type Props = {
 const PageFooter = ({
   isFooterVisible = true,
   hideCTACard,
-  gartnerFooter = false,
+  gartnerFooter,
   ctaTitle,
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
-  ctaBtnTwo = false,
+  ctaBtnTwo,
   ctaBtnTwoText,
   ctaBtnTwoLink,
   ctaCustomSx,
@@ -412,7 +412,11 @@ const PageFooter = ({
                     </Box>
                     <Box sx={mobileFooterLinkColumnContainer}>
                       <Typography sx={mobileFooterColumnSpan}>Learn</Typography>
-                      <Anchor sx={mobileFooterColumnAnchor} href={routes.upboundDocsUrl}>
+                      <Anchor
+                        sx={mobileFooterColumnAnchor}
+                        href={routes.upboundDocsUrl}
+                        target="_blank"
+                      >
                         Documentation
                       </Anchor>
                       <Link sx={mobileFooterColumnLink} href={routes.faqRoute}>
@@ -587,7 +591,7 @@ const PageFooter = ({
                   </Box>
                   <Box sx={largeFooterLinkColumnContainer}>
                     <Typography sx={largeFooterLinksTitle}>Learn</Typography>
-                    <Anchor sx={largeFooterLinkStyle} href={routes.upboundDocsUrl}>
+                    <Anchor sx={largeFooterLinkStyle} href={routes.upboundDocsUrl} target="_blank">
                       Documentation
                     </Anchor>
                     <Link sx={largeFooterLinkStyle} href={routes.faqRoute}>
