@@ -646,7 +646,11 @@ const PageHeaderMobile = ({ setOverflowVisible }: PageHeaderMobileProps) => {
             </Box>
           ))}
           <Box sx={menuButtonsContainer}>
-            <Button styleType="linkWaterContained" sizeType="small" href={routes.accountsRegisterUrl}>
+            <Button
+              styleType="linkWaterContained"
+              sizeType="small"
+              href={routes.accountsRegisterUrl}
+            >
               Try For Free
             </Button>
             <Button
