@@ -153,7 +153,7 @@ const FourOhFour: React.FC = () => {
             </RelatedResourceLink>
           </RelatedResourceContainer>
           <RelatedResourceContainer>
-            <RelatedResourceAnchor href={routes.cloudDocsUrl}>
+            <RelatedResourceAnchor href={routes.upboundDocsUrl}>
               <Header variant="h5" color="fillBlackBlack" sx={{ mr: '25px' }}>
                 Documentation
               </Header>
