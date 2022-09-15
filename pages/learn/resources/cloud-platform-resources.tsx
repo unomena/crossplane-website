@@ -97,9 +97,8 @@ const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => 
 const ListingSection = ({ resource_items }: { resource_items: ResourceList }) => {
   return (
     <Box sx={gridLayout}>
-      {resource_items.map((item) => (
-        <ContentCardItem key={item.id} contentCard={item} />
-      ))}
+      {resource_items &&
+        resource_items.map((item) => <ContentCardItem key={item.id} contentCard={item} />)}
     </Box>
   );
 };
