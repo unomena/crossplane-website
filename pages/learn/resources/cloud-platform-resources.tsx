@@ -27,7 +27,7 @@ const gridLayout: SxProps = {
   gap: 5,
   gridTemplateColumns: 'repeat(1, 1fr)',
 
-  [MQ.md]: {
+  [MQ.sm]: {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
   [MQ.lg]: {
@@ -39,8 +39,9 @@ const gridLayout: SxProps = {
 const responsiveImg: SxProps = {
   position: 'relative',
   width: '100%',
+  maxWidth: '347px',
   mb: 3,
-  mx: 'auto',
+  mr: 'auto',
   [MQ.md]: {
     height: '250px !important',
   },
@@ -87,7 +88,9 @@ const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => 
             >
               {resource_type}
             </Typography>
-            <Typography variant="body_normal" sx={{ mb: 0 }}>
+            <Typography
+              sx={{ color: COLORS.linkWater, fontSize: '20px', lineHeight: '32px', mb: 0 }}
+            >
               {listing_title}
             </Typography>
           </Box>
