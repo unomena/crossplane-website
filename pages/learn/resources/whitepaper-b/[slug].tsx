@@ -397,7 +397,7 @@ const HeaderForm = (props: WhitepaperBPage) => {
                 </Link>
               </Typography>
               <Typography variant="body_normal" mb={3}>
-                Like our content? There’s more! Check out our blog for more info.
+                Like our content? There’s more! Check our blog for more info.
               </Typography>
               <Button
                 styleType="cornflowerContained"
