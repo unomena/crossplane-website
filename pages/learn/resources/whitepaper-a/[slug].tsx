@@ -103,6 +103,7 @@ const HeaderForm = (props: WhitepaperAPage) => {
   const onClick = () => setShowMore(true);
   const [loading, setLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [resourceLink, setResourceLink] = useState('');
   const [recaptchaError, setRecaptchaError] = useState(null);
 
   const schema = yup.object({
@@ -148,6 +149,7 @@ const HeaderForm = (props: WhitepaperAPage) => {
         setLoading(false);
 
         if (res.data.resource) {
+          setResourceLink(res.data.resource);
           window.open(res.data.resource, '_blank');
         }
       } else {
@@ -159,6 +161,7 @@ const HeaderForm = (props: WhitepaperAPage) => {
       handleFormError('WhitePaper Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
+    document.body.scrollTo(0, 0);
   };
 
   const formik = useFormik({
@@ -318,7 +321,29 @@ const HeaderForm = (props: WhitepaperAPage) => {
         </>
       ) : (
         <>
-          {formSubmitted && <Typography variant="body_big">Thank you for submitting!</Typography>}
+          {formSubmitted && (
+            <>
+              <Typography sx={{ fontSize: '28px', fontWeight: 700, mb: 2 }}>Thank you!</Typography>
+              <Typography variant="body_normal" mb={2}>
+                Thanks for downloading our latest whitepaper. Issues downloading? Re-download{' '}
+                <Link href={resourceLink} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                  {' '}
+                  here.{' '}
+                </Link>
+              </Typography>
+              <Typography variant="body_normal" mb={3}>
+                Like our content? There’s more! Check our blog for more info.
+              </Typography>
+              <Button
+                styleType="cornflowerContained"
+                href={routes.upboundBlogUrl}
+                target="_blank"
+                sx={{ mb: 1 }}
+              >
+                Read blog
+              </Button>
+            </>
+          )}
           {recaptchaError && <Typography variant="body_big">{recaptchaError}</Typography>}
         </>
       )}
@@ -334,7 +359,7 @@ const CornerCardItem = ({ cornerCardItem }: { cornerCardItem: WhitepaperACard })
       <Box display="flex" flexDirection="column">
         <Box sx={{ position: 'relative', width: '48px', height: '48px', mb: 3 }}>
           {image && image[0] && (
-            <CMSImage value={image[0].value} layout="fill" objectFit="contain" />
+            <CMSImage value={image[0].value} layout="intrinsic" objectFit="contain" />
           )}
         </Box>
         <Box flex={1}>
