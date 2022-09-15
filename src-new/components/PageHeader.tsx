@@ -32,6 +32,7 @@ import MediaCard from 'src-new/elements/MediaCard';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { MUIStyledCommonProps } from '@mui/system';
 
 const root: SxProps = {
   position: 'absolute',
@@ -289,11 +290,12 @@ type LinkBarProps = {
   title: string;
   body: string;
   sx?: SxProps;
+  targetBlank?: boolean;
 };
 
-const LinkBar = ({ href, title, body, sx }: LinkBarProps) => {
+const LinkBar = ({ href, title, body, sx, targetBlank }: LinkBarProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} muiProps={{ target: targetBlank ? '_blank' : '_self' }}>
       <Box sx={{ ...linkBar, ...sx }}>
         <Box>
           <Typography sx={linkBarTitle}>{title}</Typography>
@@ -431,17 +433,20 @@ const LearnPopoverContent = () => {
             title="Docs"
             body="Learn how to use Upbound"
             sx={{ mb: 1.5 }}
+            targetBlank={true}
           />
           <LinkBar
             href={routes.upboundBlogUrl}
             title="Upbound Blog"
             body="Discover cutting-edge thought leadership"
             sx={{ mb: 1.5 }}
+            targetBlank={true}
           />
           <LinkBar
             href={routes.crossplaneSlackUrl}
             title="Crossplane Slack"
             body="Join a passionate community for the support you need"
+            targetBlank={true}
           />
         </Box>
       </Box>
@@ -465,6 +470,7 @@ const LearnPopoverContent = () => {
           date="15 Feb, 2022"
           pillText="New!"
           href={`${routes.upboundBlogUrl}crossplane-vscode-plugin-announcement/`}
+          linkType="external_url"
         />
         {/* <Box sx={{ position: 'relative', height: 206 }}>
           <Box sx={popoverBlogPill}>
@@ -494,11 +500,12 @@ type LinkItemProps = {
   href: string;
   title: string;
   icon?: React.ReactNode;
+  targetBlank?: boolean;
 };
 
-const LinkItem = ({ href, title, icon }: LinkItemProps) => {
+const LinkItem = ({ href, title, icon, targetBlank }: LinkItemProps) => {
   return (
-    <Link href={href} muiProps={{ underline: 'none' }}>
+    <Link href={href} muiProps={{ underline: 'none', target: targetBlank ? '_blank' : '_self' }}>
       <Typography component="span" sx={{ ...navItem, opacity: 0.5 }}>
         {icon && <Box component="span">{icon}</Box>}
         {title}
@@ -507,7 +514,18 @@ const LinkItem = ({ href, title, icon }: LinkItemProps) => {
   );
 };
 
-const mobileLinks = [
+type mobileLinkProps = {
+  title: string;
+  href?: string;
+  targetBlank?: boolean;
+  children?: {
+    title: string;
+    href: string;
+    targetBlank?: boolean;
+  }[];
+};
+
+const mobileLinks: mobileLinkProps[] = [
   {
     title: 'Products',
     children: [
@@ -525,27 +543,30 @@ const mobileLinks = [
       // },
     ],
   },
-
   {
     title: 'Learn',
     children: [
       {
         title: 'Docs',
         href: routes.upboundDocsUrl,
+        targetBlank: true,
       },
       {
         title: 'Upbound Blog',
         href: routes.upboundBlogUrl,
+        targetBlank: true,
       },
       {
         title: 'Crossplane Slack',
         href: routes.crossplaneSlackUrl,
+        targetBlank: true,
       },
     ],
   },
   {
     title: 'Marketplace',
     href: routes.upboundMarketplaceUrl,
+    targetBlank: true,
   },
   {
     title: 'About',
@@ -629,20 +650,26 @@ const PageHeaderMobile = ({ setOverflowVisible }: PageHeaderMobileProps) => {
                   <AccordionDetails>
                     {item.children.map((child) => (
                       <Box key={child.title} sx={accordionLinkChild}>
-                        <Link href={child.href}>
+                        <Link
+                          href={child.href}
+                          muiProps={{ target: child.targetBlank ? '_blank' : '_self' }}
+                        >
                           <Typography sx={accordionLinkChildText}>{child.title}</Typography>
                         </Link>
                       </Box>
                     ))}
                   </AccordionDetails>
                 </Accordion>
-              ) : (
+              ) : item.href ? (
                 <Box sx={accordionLinkItem}>
-                  <Link href={item.href}>
+                  <Link
+                    href={item.href}
+                    muiProps={{ target: item.targetBlank ? '_blank' : '_self' }}
+                  >
                     <Typography sx={{ ...fontAvenirRoman }}>{item.title}</Typography>
                   </Link>
                 </Box>
-              )}
+              ) : null}
             </Box>
           ))}
           <Box sx={menuButtonsContainer}>
@@ -697,7 +724,7 @@ const PageHeader = ({ setOverflowVisible }: Props) => {
             </Box>
             <Box sx={centerItems}>
               <PopoverItem title="Products" content={<ProductsPopoverContent />} />
-              <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" />
+              <LinkItem href={routes.upboundMarketplaceUrl} title="Marketplace" targetBlank />
               <PopoverItem title="Learn" content={<LearnPopoverContent />} />
               <LinkItem href={routes.aboutRoute} title="About" />
             </Box>

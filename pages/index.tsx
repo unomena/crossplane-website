@@ -1427,10 +1427,14 @@ const MediaCard_1 = (props: HomePage) => {
         props.learn_more_tile_1_link &&
         props.learn_more_tile_1_link[0] &&
         props.learn_more_tile_1_link[0].value,
+      linkType:
+        props.learn_more_tile_1_link &&
+        props.learn_more_tile_1_link[0] &&
+        props.learn_more_tile_1_link[0].type,
       videoId: props.learn_more_tile_1_video_id,
     };
   }, [props, matchesXL]);
-
+  console.log(props.learn_more_tile_1_link);
   return (
     <MediaCard
       imgHeight={matchesXL ? 260 : 180}
@@ -1457,6 +1461,10 @@ const MediaCard_2 = (props: HomePage) => {
         props.learn_more_tile_2_link &&
         props.learn_more_tile_2_link[0] &&
         props.learn_more_tile_2_link[0].value,
+      linkType:
+        props.learn_more_tile_2_link &&
+        props.learn_more_tile_2_link[0] &&
+        props.learn_more_tile_2_link[0].type,
       videoId: props.learn_more_tile_2_video_id,
     };
   }, [props, matchesXL]);
@@ -1486,6 +1494,10 @@ const MediaCard_3 = (props: HomePage) => {
         props.learn_more_tile_3_link &&
         props.learn_more_tile_3_link[0] &&
         props.learn_more_tile_3_link[0].value,
+      linkType:
+        props.learn_more_tile_3_link &&
+        props.learn_more_tile_3_link[0] &&
+        props.learn_more_tile_3_link[0].type,
       videoId: props.learn_more_tile_3_video_id,
     };
   }, [props]);
