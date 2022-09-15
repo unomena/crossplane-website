@@ -574,7 +574,7 @@ const Products = (props: Props) => {
           <Typography variant="body_normal" sx={{ mb: 3 }}>
             {props.section_1_bubble_text}
           </Typography>
-          {props.section_1_bubble_button[0] && (
+          {props.section_1_bubble_button && props.section_1_bubble_button[0] && (
             <Button cmsValue={props.section_1_bubble_button[0].value}>
               {props.section_1_bubble_button[0].value.text}
             </Button>
