@@ -153,37 +153,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     true
   );
 
-  // let resource_list;
-
-  // try {
-  //   const { data } = await axiosInstance.get(
-  //     // eslint-disable-next-line max-len
-  //     'api/v2/pages/?type=app.ResourceDetailPage&fields=resource_type,listing_image,listing_title,header_title,header_image_mobile,relative_url'
-  //   );
-  //   resource_list = data.items.map((item: ResourceListItem) => {
-  //     return {
-  //       ...item,
-  //       listing_title: item.listing_title || item.header_title,
-  //       listing_image:
-  //         item.listing_image && item.listing_image[0]
-  //           ? item.listing_image
-  //           : item.header_image_mobile,
-  //     };
-  //   });
-  // } catch (error) {
-  //   console.log('get ResourceDetailPage list', error);
-  // }
-
-  // if (returnValue && resource_list) {
-  //   return {
-  //     props: { ...returnValue, resource_list },
-  //   };
-  // } else {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
-
   if (returnValue) {
     return {
       props: returnValue,
