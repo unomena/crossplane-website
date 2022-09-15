@@ -323,15 +323,15 @@ const HeaderForm = (props: WhitepaperAPage) => {
         <>
           {formSubmitted && (
             <>
-              <Typography variant="body_big" mb={3}>
-                Thank you!
-              </Typography>
-              <Typography variant="body_normal" mb={5}>
+              <Typography sx={{ fontSize: '28px', fontWeight: 700, mb: 3 }}>Thank you!</Typography>
+              <Typography variant="body_normal" mb={2}>
                 Thanks for downloading our latest whitepaper. Issues downloading? Re-download{' '}
                 <Link href={resourceLink} muiProps={{ target: '_blank', fontWeight: 700 }}>
                   {' '}
                   here.{' '}
                 </Link>
+              </Typography>
+              <Typography variant="body_normal" mb={5}>
                 Like our content? There’s more! Check out our blog for more info.
               </Typography>
               <Button styleType="cornflowerContained" href={routes.upboundBlogUrl} target="_blank">
