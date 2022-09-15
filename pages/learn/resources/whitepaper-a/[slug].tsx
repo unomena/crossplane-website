@@ -403,9 +403,11 @@ const WhitepaperA = (props: Props) => {
       isPreview={props.isPreview}
       ctaTitle={props.contact_title}
       ctaParagraph={props.contact_text}
-      ctaBtnText={props.contact_button[0].value.text}
+      ctaBtnText={
+        props.contact_button && props.contact_button[0] && props.contact_button[0].value?.text
+      }
       ctaBtnLink={
-        props.contact_button[0] && props.contact_button[0].value.link
+        props.contact_button && props.contact_button[0] && props.contact_button[0].value?.link
           ? props.contact_button[0].value.link[0].value
           : undefined
       }
