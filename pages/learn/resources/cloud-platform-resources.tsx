@@ -28,6 +28,9 @@ const gridLayout: SxProps = {
   gridTemplateColumns: 'repeat(1, 1fr)',
 
   [MQ.md]: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+  },
+  [MQ.lg]: {
     gridTemplateColumns: 'repeat(3, 1fr)',
   },
 };
@@ -129,7 +132,7 @@ const ResourceListing = (props: Props) => {
           <Typography variant="h1_new" sx={{ mb: 3 }}>
             {props.header_title}
           </Typography>
-          <Box maxWidth={600} mx="auto">
+          <Box maxWidth={800} mx="auto">
             <Typography variant="body_big" sx={{ mb: 5 }}>
               {props.header_text}
             </Typography>
