@@ -203,6 +203,7 @@ const HeaderForm = (props: WhitepaperBPage) => {
 
   const [loading, setLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [resourceLink, setResourceLink] = useState('');
   const [recaptchaError, setRecaptchaError] = useState(null);
 
   const schema = yup.object({
@@ -248,6 +249,7 @@ const HeaderForm = (props: WhitepaperBPage) => {
         setLoading(false);
 
         if (res.data.resource) {
+          setResourceLink(res.data.resource);
           window.open(res.data.resource, '_blank');
         }
       } else {
@@ -259,6 +261,7 @@ const HeaderForm = (props: WhitepaperBPage) => {
       handleFormError('WhitePaper Submit', error, setFieldError, setRecaptchaError);
       setLoading(false);
     }
+    document.body.scrollTo(0, 0);
   };
 
   const formik = useFormik({
@@ -383,7 +386,24 @@ const HeaderForm = (props: WhitepaperBPage) => {
         </>
       ) : (
         <>
-          {formSubmitted && <Typography variant="body_big">Thank you for submitting!</Typography>}
+          {formSubmitted && (
+            <>
+              <Typography variant="body_big" mb={3}>
+                Thank you!
+              </Typography>
+              <Typography variant="body_normal" mb={5}>
+                Thanks for downloading our latest whitepaper. Issues downloading? Re-download{' '}
+                <Link href={resourceLink} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                  {' '}
+                  here.{' '}
+                </Link>
+                Like our content? There’s more! Check out our blog for more info.
+              </Typography>
+              <Button styleType="cornflowerContained" href={routes.upboundBlogUrl} target="_blank">
+                Read blog
+              </Button>
+            </>
+          )}
           {recaptchaError && <Typography variant="body_big">{recaptchaError}</Typography>}
         </>
       )}

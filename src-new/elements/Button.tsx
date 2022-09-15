@@ -177,6 +177,7 @@ type Props = {
     | 'linkWaterContained'
     | 'disabled';
   sizeType?: 'small' | 'normal' | 'large';
+  target?: string;
   loading?: boolean;
   hasRocketIcon?: boolean;
   hasArrowRight?: boolean;
@@ -187,6 +188,7 @@ const Button = ({
   children,
   styleType: _styleType = 'whiteContained',
   sizeType = 'normal',
+  target,
   loading,
   hasArrowRight,
   cmsValue,
@@ -230,8 +232,15 @@ const Button = ({
       }
     }
 
+    if (target) {
+      obj = {
+        ...obj,
+        target,
+      };
+    }
+
     return obj;
-  }, [cmsValue]);
+  }, [cmsValue, target]);
 
   const styleType = useMemo(() => {
     let type = _styleType;
