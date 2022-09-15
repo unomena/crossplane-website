@@ -5,7 +5,6 @@ import { GetStaticProps } from 'next';
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
-import axiosInstance from 'src-new/utils/axiosInstance';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 
 import PageProvider from 'src-new/components/PageProvider';
@@ -63,11 +62,15 @@ const responsiveImg: SxProps = {
 };
 
 const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => {
-  const { resource_type, listing_image, listing_title, relative_url } = contentCard;
+  const { resource_type, listing_image, listing_title, resource_document, resource_link } =
+    contentCard;
 
   return (
     <Box>
-      <Link href={relative_url}>
+      <Link
+        href={resource_document ? resource_document.meta?.download_url : resource_link}
+        muiProps={{ target: '_blank' }}
+      >
         <Box display="flex" flexDirection="column">
           <Box sx={responsiveImg}>
             {listing_image && listing_image[0] && (
@@ -91,10 +94,10 @@ const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => 
   );
 };
 
-const ListingSection = ({ resource_list }: { resource_list: ResourceList }) => {
+const ListingSection = ({ resource_items }: { resource_items: ResourceList }) => {
   return (
     <Box sx={gridLayout}>
-      {resource_list.map((item) => (
+      {resource_items.map((item) => (
         <ContentCardItem key={item.id} contentCard={item} />
       ))}
     </Box>
@@ -135,7 +138,7 @@ const ResourceListing = (props: Props) => {
         </Box>
       </Section>
       <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 15, lg: 40 } }}>
-        <ListingSection resource_list={props.resource_list} />
+        <ListingSection resource_items={props.resource_items} />
       </Section>
     </PageProvider>
   );
@@ -150,30 +153,40 @@ export const getStaticProps: GetStaticProps = async (context) => {
     true
   );
 
-  let resource_list;
+  // let resource_list;
 
-  try {
-    const { data } = await axiosInstance.get(
-      // eslint-disable-next-line max-len
-      'api/v2/pages/?type=app.ResourceDetailPage&fields=resource_type,listing_image,listing_title,header_title,header_image_mobile,relative_url'
-    );
-    resource_list = data.items.map((item: ResourceListItem) => {
-      return {
-        ...item,
-        listing_title: item.listing_title || item.header_title,
-        listing_image:
-          item.listing_image && item.listing_image[0]
-            ? item.listing_image
-            : item.header_image_mobile,
-      };
-    });
-  } catch (error) {
-    console.log('get ResourceDetailPage list', error);
-  }
+  // try {
+  //   const { data } = await axiosInstance.get(
+  //     // eslint-disable-next-line max-len
+  //     'api/v2/pages/?type=app.ResourceDetailPage&fields=resource_type,listing_image,listing_title,header_title,header_image_mobile,relative_url'
+  //   );
+  //   resource_list = data.items.map((item: ResourceListItem) => {
+  //     return {
+  //       ...item,
+  //       listing_title: item.listing_title || item.header_title,
+  //       listing_image:
+  //         item.listing_image && item.listing_image[0]
+  //           ? item.listing_image
+  //           : item.header_image_mobile,
+  //     };
+  //   });
+  // } catch (error) {
+  //   console.log('get ResourceDetailPage list', error);
+  // }
 
-  if (returnValue && resource_list) {
+  // if (returnValue && resource_list) {
+  //   return {
+  //     props: { ...returnValue, resource_list },
+  //   };
+  // } else {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
+
+  if (returnValue) {
     return {
-      props: { ...returnValue, resource_list },
+      props: returnValue,
     };
   } else {
     return {

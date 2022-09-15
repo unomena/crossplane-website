@@ -276,7 +276,7 @@ type ResourceListingPage = {
   contact_section_text: string;
   contact_section_button: Button[];
 
-  resource_list: ResourceList;
+  resource_items: ResourceList;
 };
 
 type ResourceListItem = {
@@ -285,10 +285,12 @@ type ResourceListItem = {
   resource_type: string;
   listing_image: ImageType[];
   listing_title: string;
-  relative_url: string;
-
-  header_title: string;
-  header_image_mobile: ImageType[];
+  resource_document: {
+    meta: {
+      download_url: string;
+    };
+  };
+  resource_link: string;
 };
 
 type ResourceList = ResourceListItem[];
