@@ -188,6 +188,10 @@ type ProductPage = {
   section_1_image: ImageType[];
   section_1_image_mobile: ImageType[];
 
+  section_1_bubble_title: string;
+  section_1_bubble_text: string;
+  section_1_bubble_button: Button[];
+
   section_2_title: string;
   section_2_text: string;
   feature_items: {

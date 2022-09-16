@@ -569,14 +569,16 @@ const Products = (props: Props) => {
       >
         <Box sx={banner}>
           <Typography variant="h3_new" sx={{ mb: 1.5 }}>
-            Our universal cloud platform is coming soon!
+            {props.section_1_bubble_title}
           </Typography>
           <Typography variant="body_normal" sx={{ mb: 3 }}>
-            Sign up to be the first to know.
+            {props.section_1_bubble_text}
           </Typography>
-          <Button styleType="whiteContained" href="/upbound-preview">
-            Get on the List
-          </Button>
+          {props.section_1_bubble_button && props.section_1_bubble_button[0] && (
+            <Button cmsValue={props.section_1_bubble_button[0].value}>
+              {props.section_1_bubble_button[0].value.text}
+            </Button>
+          )}
         </Box>
       </Section>
 
