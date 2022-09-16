@@ -161,7 +161,7 @@ const formStyles: SxProps = {
   backgroundColor: COLORS.elephant,
   borderRadius: 3,
 
-  '& .MuiTypography-root': {
+  '& .MuiTypography-root:not(.MuiLink-root)': {
     color: COLORS.linkWater,
   },
 
@@ -391,10 +391,13 @@ const HeaderForm = (props: WhitepaperBPage) => {
               <Typography sx={{ fontSize: '28px', fontWeight: 700, mb: 2 }}>Thank you!</Typography>
               <Typography variant="body_normal" mb={2}>
                 Thanks for downloading our latest whitepaper. Issues downloading? Re-download{' '}
-                <Link href={resourceLink} muiProps={{ target: '_blank', fontWeight: 700 }}>
-                  {' '}
-                  here.{' '}
+                <Link
+                  href={resourceLink}
+                  muiProps={{ target: '_blank', fontWeight: 700, color: COLORS.cornflower }}
+                >
+                  here
                 </Link>
+                .
               </Typography>
               <Typography variant="body_normal" mb={3}>
                 Like our content? There’s more! Check our blog for more info.
