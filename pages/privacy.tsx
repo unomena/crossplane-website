@@ -254,7 +254,10 @@ const PrivacyPolicy: React.FC = () => {
                 Analytics. We use analytics providers such as Google Analytics. Google Analytics
                 uses cookies to collect non-identifying information. Google provides some additional
                 privacy options regarding its Analytics cookies at{' '}
-                <Anchor href="http://www.google.com/policies/privacy/partners/">
+                <Anchor
+                  href="http://www.google.com/policies/privacy/partners/"
+                  sx={{ overflowWrap: 'anywhere' }}
+                >
                   http://www.google.com/policies/privacy/partners/
                 </Anchor>
                 .
