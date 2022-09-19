@@ -812,7 +812,7 @@ const TermsOfUse = () => {
               notice thereof and shall use reasonable efforts to remedy effects of such force
               majeure.
             </Paragraph>
-            <Paragraph sx={paragraphSpacingLg}>
+            <Paragraph sx={{ overflowWrap: 'anywhere', ...paragraphSpacingLg }}>
               15.2 You are granted a limited, non-exclusive right to create a hypertext link to the
               Website found at https://www.upbound.io/; provided such link does not portray Upbound
               and/or its affiliates or any of their respective products and services in a false,
