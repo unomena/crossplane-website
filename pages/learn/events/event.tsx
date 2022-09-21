@@ -401,28 +401,28 @@ const sessionItems = [
   {
     session_name: 'Crossplane Intro And Deep Dive - The Cloud Native Control Plane Framework',
     speaker: 'Jared Watts, Matthias Luebken & Nic Cope, Upbound, Bob Haddleton, Nokia',
-    location: 'Friday October 28, 2022 11:00am - 11:35am EDT',
+    date_time: 'Friday October 28, 2022 11:00am - 11:35am EDT',
     room: 'Room 320',
     link: 'https://kccncna2022.sched.com/event/182Ow',
   },
   {
     session_name: 'Like Peas And Carrots: Argo CD And Crossplane For Infrastructure Management',
     speaker: 'Jesse Suen, Akuity & Viktor Farcic, Upbound',
-    location: 'Wednesday October 26, 2022 5:25pm - 6:00pm EDT',
+    date_time: 'Wednesday October 26, 2022 5:25pm - 6:00pm EDT',
     room: 'Room 260 (Portside Ballroom)',
     link: 'https://kccncna2022.sched.com/event/182Ow',
   },
   {
     session_name: 'Tutorial: Build Your Own Heroku With Cloud Native Stack',
     speaker: 'Muvaffak Onus, Upbound & Sidarta Aguiar de Oliveira, Grupo Boticário',
-    location: 'Thursday October 27, 2022 4:30pm - 6:00pm EDT',
+    date_time: 'Thursday October 27, 2022 4:30pm - 6:00pm EDT',
     room: 'Room 330 AB',
     link: 'https://kccncna2022.sched.com/event/182Ow',
   },
   {
     session_name: 'Content Addressable CRDs: Type Uniqueness Across Kubernetes Clusters',
     speaker: 'Daniel Mangum, Upbound',
-    location: 'Friday October 28, 2022 4:00pm - 4:35pm EDT',
+    date_time: 'Friday October 28, 2022 4:00pm - 4:35pm EDT',
     room: 'Room 430 AB',
     link: 'https://kccncna2022.sched.com/event/182Ow',
   },
@@ -432,14 +432,14 @@ type SessionItemProps = {
   sessionItem: {
     session_name: string;
     speaker: string;
-    location: string;
+    date_time: string;
     room: string;
     link: string;
   };
 };
 
 const SessionItem = ({ sessionItem }: SessionItemProps) => {
-  const { session_name, speaker, location, room, link } = sessionItem;
+  const { session_name, speaker, date_time, room, link } = sessionItem;
 
   return (
     <Box sx={sessionItemStyles}>
@@ -459,7 +459,7 @@ const SessionItem = ({ sessionItem }: SessionItemProps) => {
             </Typography>
           </Box>
           <Typography variant="body_small">{speaker}</Typography>
-          <Typography variant="body_small">{location}</Typography>
+          <Typography variant="body_small">{date_time}</Typography>
           <Typography variant="body_small">{room}</Typography>
           <Box
             sx={{
@@ -555,7 +555,7 @@ const Event = ({}: Props) => {
                   <Image src={placeHolder} alt="placeholder" layout="fill" objectFit="cover" />
                 </Box>
                 <Box>
-                  <Typography variant="body_normal">Location</Typography>
+                  <Typography variant="body_normal">date_time</Typography>
                 </Box>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
