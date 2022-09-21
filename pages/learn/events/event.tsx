@@ -278,7 +278,7 @@ const ScheduleForm = () => {
                 disabled={loading}
                 loading={loading}
               >
-                Request Event
+                Schedule a meeting
               </Button>
             </Box>
           </form>
