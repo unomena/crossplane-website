@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, Modal, Hidden } from '@mui/material';
+import { Box, SxProps, Typography, Modal } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -70,9 +70,6 @@ const gridLayout: SxProps = {
   borderBottom: `solid 1px ${COLORS.linkWater}`,
   pb: 3,
 
-  [MQ.md]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
-  },
   [MQ.lg]: {
     gridTemplateColumns: '1fr 1fr 1fr .5fr .25fr',
   },
@@ -125,7 +122,7 @@ const ScheduleForm = () => {
       console.log('Execute recaptcha not yet available');
       return;
     }
-    const token = await executeRecaptcha('resource_request');
+    const token = await executeRecaptcha('schedule_meeting');
     return token;
   }, [executeRecaptcha]);
 
@@ -143,7 +140,7 @@ const ScheduleForm = () => {
         ...values,
       };
 
-      const res = await axiosInstance.post('/api/contact-request', postData);
+      const res = await axiosInstance.post('/api/schedule-meeting', postData);
 
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
@@ -158,7 +155,7 @@ const ScheduleForm = () => {
       }
     } catch (err) {
       const error = err as AxiosError;
-      handleFormError('Request Submit', error, setFieldError);
+      handleFormError('Schedule Submit', error, setFieldError);
       setLoading(false);
     }
   };
@@ -313,7 +310,7 @@ const GiftForm = () => {
       console.log('Execute recaptcha not yet available');
       return;
     }
-    const token = await executeRecaptcha('resource_request');
+    const token = await executeRecaptcha('claim_gift');
     return token;
   }, [executeRecaptcha]);
 
@@ -334,7 +331,7 @@ const GiftForm = () => {
         ...values,
       };
 
-      const res = await axiosInstance.post('/api/gift-request', postData);
+      const res = await axiosInstance.post('/api/claim-gift', postData);
 
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
@@ -345,7 +342,7 @@ const GiftForm = () => {
       }
     } catch (err) {
       const error = err as AxiosError;
-      handleFormError('Request Submit', error, setFieldError);
+      handleFormError('Claim Submit', error, setFieldError);
       setLoading(false);
     }
   };

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group 23</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 30 0 30 30 0 30"></polygon>
+    </defs>
+    <g id="*Images" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-23">
+            <g id="Group-5-Copy">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-4"></g>
+                <path d="M30,15.0010681 C30,23.2856227 23.2818285,30 15,30 C6.71603532,30 0,23.2856227 0,15.0010681 C0,6.71651357 6.71603532,0 15,0 C23.2818285,0 30,6.71651357 30,15.0010681" id="Fill-3" fill="#4D408D" mask="url(#mask-2)"></path>
+            </g>
+            <g id="Group-25" transform="translate(8.000000, 6.000000)" stroke="#FFFFFF">
+                <path d="M6.72553711,15.1802246 C2.87382812,12.0373585 0.947973633,9.0919414 0.947973633,6.34397344 C0.947973633,2.22202148 3.66833496,0 6.72553711,0 C9.78273926,0 12.6225586,2.41575449 12.6225586,6.34397344 C12.6225586,8.96278607 10.6568848,11.9082031 6.72553711,15.1802246 Z" id="Path-4" stroke-linejoin="round"></path>
+                <path d="M3.74763184,12.3803955 C1.24921061,12.9606527 0,13.893929 0,15.1802246 C0,17.109668 4.21811523,17.9533936 6.72553711,17.9533936 C9.23295898,17.9533936 13.4336426,16.8579346 13.4336426,15.1802246 C13.4336426,14.0617513 12.2240234,13.1284749 9.80478516,12.3803955" id="Path-5"></path>
+                <circle id="Oval" cx="6.72553711" cy="6.3" r="2.3"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

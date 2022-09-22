@@ -169,6 +169,7 @@ const arrowRightStyle: SxProps = {
 
 type Props = {
   styleType?:
+    | string
     | 'whiteContained'
     | 'whiteOutlined'
     | 'whiteText'

@@ -298,3 +298,38 @@ type ResourceListItem = {
 };
 
 type ResourceList = ResourceListItem[];
+
+type EventPage = {
+  cms_head_props: CMSHeadProps;
+
+  id: number;
+  header_title: string;
+  header_richtext: string;
+  start_date: string;
+  end_date: string;
+  location: string;
+  booth_number: string;
+
+  section_1_title: string;
+  section_1_items: SpeakingSession[];
+
+  section_2_title: string;
+  section_2_richtext: string;
+  section_2_button_text: string;
+  section_2_button_style_type: string;
+
+  section_3_title: string;
+  section_3_richtext: string;
+  section_3_form_title: string;
+};
+
+type SpeakingSession = {
+  id: number;
+  session_name: string;
+  speaker: string;
+  date_time: string;
+  room: string;
+  link: string;
+};
+
+type SpeakingSessions = SpeakingSession[];
