@@ -10,6 +10,7 @@ type CMSHeadProps = {
   twitter_card: string;
   twitter_site: string;
   twitter_creator: string;
+  slug: string;
 };
 
 type ImageContent = {

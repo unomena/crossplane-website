@@ -14,6 +14,7 @@ const cms_head_items = [
   'twitter_card',
   'twitter_site',
   'twitter_creator',
+  'slug',
 ];
 
 interface CustomPreviewData {
