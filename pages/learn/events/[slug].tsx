@@ -654,13 +654,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   let paths: { params: { slug: string } }[] = [];
   try {
     const res = await axiosInstance.get(`/api/v2/pages/?type=app.EventDetailPage`);
-    const whitepapers = res.data.items;
+    const events = res.data.items;
 
-    paths = whitepapers.map((whitepaper: { meta: { slug: string } }) => ({
-      params: { slug: whitepaper.meta.slug },
+    paths = events.map((event: { meta: { slug: string } }) => ({
+      params: { slug: event.meta.slug },
     }));
   } catch (error) {
-    console.log('get ResourceDetailPage paths', error);
+    console.log('get EventDetailPage paths', error);
   }
 
   return { paths, fallback: 'blocking' };
