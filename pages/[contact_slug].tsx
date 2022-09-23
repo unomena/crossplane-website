@@ -129,7 +129,10 @@ const ContactForm = (props: ContactPage) => {
     become_customer: yup.boolean(),
     become_partner: yup.boolean(),
     crossplane_vendor_support: yup.boolean(),
-    private_preview_experience: yup.string().required('Please select a preview experience'),
+    private_preview_experience:
+      props.cms_head_props.slug === 'upbound-preview'
+        ? yup.string().required('Please select a preview experience')
+        : yup.string(),
     legal_consent: yup.boolean(),
   });
 
