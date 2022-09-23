@@ -35,6 +35,7 @@ import eventLocation from 'public/new-images/icons/event-location-icon.svg';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 import CloseIcon from '@mui/icons-material/Close';
+import { format } from 'date-fns';
 
 const root: SxProps = {
   '& p:not(.MuiTypography-root)': {
@@ -71,12 +72,12 @@ const headerSection: SxProps = {
 const detailStyles: SxProps = {
   position: 'relative',
   width: '100%',
-  minWidth: '60px',
-  maxWidth: '60px',
-  height: '60px',
+  minWidth: '30px',
+  maxWidth: '30px',
+  height: '30px',
   borderRadius: '100%',
   overflow: 'hidden',
-  mr: 3,
+  mr: 2,
 };
 
 const sessionItemStyles: SxProps = {
@@ -466,6 +467,32 @@ const Event = (props: Props) => {
 
   const handleOpen = () => setOpen(true);
 
+  const start_date = useMemo(() => {
+    if (!props.start_date) {
+      return null;
+    }
+    return format(new Date(props.start_date), 'MMM dd, yyyy');
+  }, [props.start_date]);
+
+  const end_date = useMemo(() => {
+    if (!props.end_date) {
+      return null;
+    }
+    return format(new Date(props.end_date), 'MMM dd, yyyy');
+  }, [props.end_date]);
+
+  const startDate = start_date;
+  const endDate = end_date;
+
+  console.log(startDate);
+
+  const section_3_title = useMemo(() => {
+    if (!props.section_3_title) {
+      return null;
+    }
+    return props.section_3_title;
+  }, [props.section_3_title]);
+
   return (
     <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview} hideCTACard>
       <Box sx={root}>
@@ -517,7 +544,7 @@ const Event = (props: Props) => {
                   </Box>
                   <Box>
                     <Typography variant="body_normal">
-                      {props.start_date} - {props.end_date}
+                      {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
                     </Typography>
                   </Box>
                 </Box>
@@ -602,47 +629,49 @@ const Event = (props: Props) => {
             </Box>
           </Box>
         </Section>
-        <Section bgcolor angleTop="topRight" sx={{ pt: 15, pb: 10 }}>
-          <Box
-            sx={{
-              [MQ.lg]: {
-                display: 'flex',
-                flexDirection: 'row',
-              },
-            }}
-          >
+        {section_3_title && (
+          <Section bgcolor angleTop="topRight" sx={{ pt: 15, pb: 10 }}>
             <Box
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                color: COLORS.linkWater,
                 [MQ.lg]: {
-                  width: '60%',
+                  display: 'flex',
+                  flexDirection: 'row',
                 },
               }}
             >
-              <Typography variant="h3_new" sx={{ mb: 3 }}>
-                {props.section_3_title}
-              </Typography>
-              <div dangerouslySetInnerHTML={{ __html: props.section_3_richtext }}></div>
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  width: '40%',
-                },
-              }}
-            >
-              <Box sx={{ pl: { _: 0, lg: '50px' } }}>
-                <GiftForm {...props} />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  color: COLORS.linkWater,
+                  [MQ.lg]: {
+                    width: '60%',
+                  },
+                }}
+              >
+                <Typography variant="h3_new" sx={{ mb: 3 }}>
+                  {props.section_3_title}
+                </Typography>
+                <div dangerouslySetInnerHTML={{ __html: props.section_3_richtext }}></div>
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  [MQ.lg]: {
+                    width: '40%',
+                  },
+                }}
+              >
+                <Box sx={{ pl: { _: 0, lg: '50px' } }}>
+                  <GiftForm {...props} />
+                </Box>
               </Box>
             </Box>
-          </Box>
-        </Section>
+          </Section>
+        )}
       </Box>
     </PageProvider>
   );
