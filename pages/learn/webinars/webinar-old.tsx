@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, List, ListItem, Hidden } from '@mui/material';
+import { Box, SxProps, Typography, List, ListItem } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 

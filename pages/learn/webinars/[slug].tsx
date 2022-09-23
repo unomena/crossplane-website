@@ -2,10 +2,8 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import Image from 'next/image';
-
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, List, ListItem } from '@mui/material';
+import { Box, SxProps, Typography } from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -21,6 +19,7 @@ import * as routes from 'src/routes';
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleFormError from 'src-new/utils/handleFormError';
+import getSessionData from 'src-new/utils/getSessionData';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -29,33 +28,68 @@ import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
+import CMSImage from 'src-new/elements/CMSImage';
 
-// import headerBg from 'public/new-images/home-page/header-bg.jpg';
-import placeHolder from 'public/new-images/placeholder.png';
-import ArrowRight from 'src-new/svg/ArrowRight';
+const root: SxProps = {
+  '& h3:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontFamily: 'Avenir-Black, Arial, sans-serif',
+    fontSize: '24px',
+    lineHeight: '28px',
+    letterSpacing: '-0.25px',
+    color: COLORS.linkWater,
+
+    [MQ.md]: {
+      fontSize: '40px',
+      lineHeight: '48px',
+      letterSpacing: '-0.4px',
+    },
+  },
+
+  '& p:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    color: COLORS.linkWater,
+
+    '& a': {
+      textDecoration: 'none',
+      color: COLORS.cornflower,
+      fontWeight: 600,
+    },
+
+    [MQ.md]: {
+      fontSize: '20px',
+      lineHeight: '32px',
+    },
+  },
+
+  '& small:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    letterSpacing: '0px',
+  },
+};
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
   pb: 10,
-  // backgroundImage: `url(${headerBg.src})`,
-  // backgroundRepeat: 'no-repeat',
-  // backgroundPosition: 'top center',
-
-  // '@media screen and (min-width: 1980px)': {
-  //   backgroundSize: 'contain',
-  // },
 };
 
 const listStyles: SxProps = {
-  pl: 2,
-  py: 0,
-  listStyle: 'disc',
+  '& ul': {
+    pl: 2,
+    py: 0,
+    listStyle: 'disc',
 
-  '& li': {
-    display: 'list-item',
-    pl: '8px',
-    '&::marker': {
-      color: COLORS.sun,
+    '& li': {
+      display: 'list-item',
+      pl: '8px',
+      color: COLORS.linkWater,
+      '&::marker': {
+        color: COLORS.sun,
+      },
     },
   },
 };
@@ -107,7 +141,7 @@ interface FormValues {
   legal_consent: boolean;
 }
 
-const HeaderForm = () => {
+const HeaderForm = (props: WebinarPage) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -130,7 +164,7 @@ const HeaderForm = () => {
       console.log('Execute recaptcha not yet available');
       return;
     }
-    const token = await executeRecaptcha('resource_request');
+    const token = await executeRecaptcha('webinar_request');
     return token;
   }, [executeRecaptcha]);
 
@@ -138,14 +172,18 @@ const HeaderForm = () => {
     try {
       setLoading(true);
 
+      const data = await getSessionData();
+
       const token = await handleReCaptchaVerify();
 
       const postData = {
         recaptcha_token: token,
+        page_id: props.id,
+        ...data,
         ...values,
       };
 
-      const res = await axiosInstance.post('/api/resource-request', postData);
+      const res = await axiosInstance.post('/api/webinar-request', postData);
 
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
@@ -197,7 +235,7 @@ const HeaderForm = () => {
       {!formSubmitted && !recaptchaError ? (
         <>
           <Typography variant="body_normal" sx={{ mb: 1 }}>
-            Lorem ipsum dolor sit amet
+            Submit form below to get in touch
           </Typography>
           <form onSubmit={formik.handleSubmit}>
             <CTextField
@@ -295,48 +333,8 @@ const HeaderForm = () => {
   );
 };
 
-const list = [
-  {
-    id: 1,
-    text: 'Lorem ipsum dolor sit amet',
-  },
-  {
-    id: 2,
-    text: 'Lorem ipsum dolor sit amet',
-  },
-  {
-    id: 3,
-    text: 'Lorem ipsum dolor sit amet',
-  },
-  {
-    id: 4,
-    text: 'Lorem ipsum dolor sit amet',
-  },
-];
-
-const speakerListItems = [
-  {
-    img: placeHolder,
-    title: 'Header lorem ipsum dolor sit amet',
-    text: 'Header lorem ipsum dolor sit amet',
-  },
-  {
-    img: placeHolder,
-    title: 'Header lorem ipsum dolor sit amet',
-    text: 'Header lorem ipsum dolor sit amet',
-  },
-];
-
-type SpeakerListItemProps = {
-  speakerListItem: {
-    img: string | StaticImport;
-    title: string;
-    text: string;
-  };
-};
-
-const SpeakerListItem = ({ speakerListItem }: SpeakerListItemProps) => {
-  const { img, title, text } = speakerListItem;
+const SpeakerListItem = ({ speakerListItem }: { speakerListItem: SpeakerCard }) => {
+  const { image, name, job_title } = speakerListItem;
 
   return (
     <Box sx={speakerItemStyles}>
@@ -352,49 +350,30 @@ const SpeakerListItem = ({ speakerListItem }: SpeakerListItemProps) => {
           mr: 4,
         }}
       >
-        <Image src={img} alt="placeholder" layout="fill" objectFit="cover" />
+        {image && image[0] && <CMSImage value={image[0].value} layout="fill" objectFit="cover" />}
       </Box>
       <Box>
         <Typography variant="body_small" sx={{ fontWeight: 600 }}>
-          {title}
+          {name}
         </Typography>
-        <Typography variant="body_small">{text}</Typography>
+        <Typography variant="body_small">{job_title}</Typography>
       </Box>
     </Box>
   );
 };
 
-const speakerCards = [
-  {
-    img: placeHolder,
-    name: 'Speaker Name',
-    title: 'Title',
-    company: 'Company',
-    // eslint-disable-next-line max-len
-    text: 'Speaker Bio lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non convallis diam. Nunc id luctus enim, in efficitur lacus. Praesent a ornare justo. Aenean ut risus rutrum, aliquet ante ac, dignissim tortor. Integer hendrerit malesuada urna quis laoreet. Nullam suscipit ipsum neque, a aliquet velit pellentesque id. Vestibulum maximus congue ultricies. Quisque at arcu in diam maximus viverra. Morbi nec porttitor felis, sed fringilla nunc. Aenean pellentesque, eros sed accumsan elementum, quam risus ultricies libero, sed luctus sapien ante ut nisl.',
-  },
-  {
-    img: placeHolder,
-    name: 'Speaker Name',
-    title: 'Title',
-    company: 'Company',
-    // eslint-disable-next-line max-len
-    text: 'Speaker Bio lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non convallis diam. Nunc id luctus enim, in efficitur lacus. Praesent a ornare justo. Aenean ut risus rutrum, aliquet ante ac, dignissim tortor. Integer hendrerit malesuada urna quis laoreet. Nullam suscipit ipsum neque, a aliquet velit pellentesque id. Vestibulum maximus congue ultricies. Quisque at arcu in diam maximus viverra. Morbi nec porttitor felis, sed fringilla nunc. Aenean pellentesque, eros sed accumsan elementum, quam risus ultricies libero, sed luctus sapien ante ut nisl.',
-  },
-];
-
-type SpeakerCardProps = {
-  speakerCard: {
-    img: string | StaticImport;
-    name: string;
-    title: string;
-    company: string;
-    text: string;
-  };
+const SpeakerListItemSection = ({ speaker_items }: { speaker_items: SpeakerCards }) => {
+  return (
+    <>
+      {speaker_items.map((item) => (
+        <SpeakerListItem key={item.id} speakerListItem={item} />
+      ))}
+    </>
+  );
 };
 
-const SpeakerCard = ({ speakerCard }: SpeakerCardProps) => {
-  const { img, name, title, company, text } = speakerCard;
+const SpeakerCard = ({ speakerCard }: { speakerCard: SpeakerCard }) => {
+  const { image, name, job_title, company, bio } = speakerCard;
 
   return (
     <Box sx={speakerCardStyles}>
@@ -414,7 +393,7 @@ const SpeakerCard = ({ speakerCard }: SpeakerCardProps) => {
           },
         }}
       >
-        <Image src={img} alt="placeholder" layout="fill" objectFit="cover" />
+        {image && image[0] && <CMSImage value={image[0].value} layout="fill" objectFit="cover" />}
       </Box>
       <Box>
         <Box sx={{ display: { _: 'block', sm: 'flex' } }}>
@@ -422,175 +401,150 @@ const SpeakerCard = ({ speakerCard }: SpeakerCardProps) => {
             <Typography variant="body_normal" component="span" sx={{ fontWeight: 600 }}>
               {name}
             </Typography>
-            , {title}, {company}
+            , {job_title}, {company}
           </Typography>
         </Box>
-        <Typography variant="body_small">{text}</Typography>
+        <Typography variant="body_small">{bio}</Typography>
       </Box>
     </Box>
   );
 };
 
-type Props = {};
-
-const Webinar = ({}: Props) => {
+const SpeakerCardSection = ({ speaker_items }: { speaker_items: SpeakerCards }) => {
   return (
-    <PageProvider hideCTACard>
-      <Section sx={headerSection}>
-        <Box
-          sx={{
-            [MQ.lg]: {
-              display: 'flex',
-              flexDirection: 'row',
-            },
-          }}
-        >
+    <>
+      {speaker_items.map((item) => (
+        <SpeakerCard key={item.id} speakerCard={item} />
+      ))}
+    </>
+  );
+};
+
+type Props = {
+  isPreview?: boolean;
+} & WebinarPage;
+
+const Webinar = (props: Props) => {
+  return (
+    <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview} hideCTACard>
+      <Box sx={root}>
+        <Section sx={headerSection}>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              width: '100%',
               [MQ.lg]: {
-                width: '50%',
-              },
-            }}
-          >
-            <Typography variant="h2_new" sx={{ mb: 3 }}>
-              Header lorem ipsum dolor sit amet
-            </Typography>
-            <Typography variant="body_big" sx={{ mb: 5 }}>
-              Information or event details specified here
-            </Typography>
-            {speakerListItems.map((speakerListItem) => (
-              <SpeakerListItem key={speakerListItem.title} speakerListItem={speakerListItem} />
-            ))}
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              width: '100%',
-              [MQ.lg]: {
-                position: 'relative',
-                width: '50%',
-                minHeight: '100%',
+                display: 'flex',
+                flexDirection: 'row',
               },
             }}
           >
             <Box
               sx={{
-                pl: { _: 0, lg: '100px' },
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                width: '100%',
+                [MQ.lg]: {
+                  width: '50%',
+                },
               }}
             >
-              <HeaderForm />
-            </Box>
-          </Box>
-        </Box>
-      </Section>
-      <Section sx={{ pb: 10 }}>
-        <Box
-          sx={{
-            [MQ.lg]: {
-              display: 'flex',
-              flexDirection: 'row',
-            },
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              [MQ.lg]: {
-                flex: 1,
-                width: '50%',
-              },
-            }}
-          >
-            <Typography variant="h3_new" sx={{ mb: 4 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </Typography>
-            <Typography variant="body_small" sx={{ mb: 3 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non convallis diam.
-              Nunc id luctus enim, in efficitur lacus. Praesent a ornare justo. Aenean ut risus
-              rutrum, aliquet ante ac, dignissim tortor.
-            </Typography>
-            <Typography variant="body_small" sx={{ mb: 3 }}>
-              Nunc id luctus enim, in efficitur lacus. Praesent a ornare justo. Aenean ut risus
-              rutrum, aliquet ante ac, dignissim tortor.
-            </Typography>
-            <Typography variant="body_small">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non convallis diam.
-              Praesent a ornare justo. Aenean ut risus rutrum, aliquet ante ac, dignissim tortor.
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              [MQ.lg]: {
-                flex: 1,
-                width: '50%',
-              },
-            }}
-          >
-            <Box sx={{ pl: { _: 0, lg: '100px' }, pt: { _: 4, lg: 0 } }}>
-              <Typography variant="body_normal" sx={{ mb: 1 }}>
-                Key Highlights:
+              <Typography variant="h2_new" sx={{ mb: 3 }}>
+                {props.header_title}
               </Typography>
-              <List sx={listStyles}>
-                {list.map((listItem) => (
-                  <ListItem key={listItem.id}>
-                    <Typography variant="body_small">{listItem.text}</Typography>
-                  </ListItem>
-                ))}
-              </List>
+              <Typography variant="body_big" sx={{ mb: 5 }}>
+                {props.header_text}
+              </Typography>
+              <SpeakerListItemSection speaker_items={props.speaker_items} />
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+                [MQ.lg]: {
+                  position: 'relative',
+                  width: '50%',
+                  minHeight: '100%',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  pl: { _: 0, lg: '100px' },
+                }}
+              >
+                <HeaderForm {...props} />
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Section>
-      <Section sx={{ pb: 10 }}>
-        <Box>
-          <Typography variant="h3_new" sx={{ mb: 5, textAlign: 'center' }}>
-            Speakers
-          </Typography>
-          {speakerCards.map((speakerCard) => (
-            <SpeakerCard key={speakerCard.title} speakerCard={speakerCard} />
-          ))}
-        </Box>
-      </Section>
-      <Section bgcolor angleTop="topRight" sx={{ pt: 15, pb: 10 }}>
-        <Box sx={{ textAlign: 'center' }}>
-          <Typography variant="h3_new" sx={{ mb: 3 }}>
-            Ready to jump to the next level?
-          </Typography>
-          <Box sx={{ maxWidth: '700px', mx: 'auto' }}>
-            <Typography variant="body_normal" sx={{ mb: 5 }}>
-              Click below to fill out our contact form and an Upbound and Crossplane expert will
-              reach out to schedule a meeting with you shortly.
-            </Typography>
-          </Box>
-          <Button
-            styleType="cornflowerContained"
+        </Section>
+        <Section sx={{ pb: 10 }}>
+          <Box
             sx={{
-              width: { _: 225, sm: 208 },
-              '& > .MuiButton-iconSizeMedium': {
-                ml: '16px',
-                '& > svg': {
-                  height: { _: 12, md: 13 },
-                  width: { _: 7, md: 8 },
-                },
+              [MQ.lg]: {
+                display: 'flex',
+                flexDirection: 'row',
               },
             }}
-            endIcon={<ArrowRight />}
-            href={routes.contactRoute}
           >
-            Contact Us
-          </Button>
-        </Box>
-      </Section>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                [MQ.lg]: {
+                  flex: 1,
+                  width: '50%',
+                },
+              }}
+            >
+              <div dangerouslySetInnerHTML={{ __html: props.section_1_left_richtext }}></div>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                [MQ.lg]: {
+                  flex: 1,
+                  width: '50%',
+                },
+              }}
+            >
+              <Box sx={{ pl: { _: 0, lg: '100px' }, pt: { _: 4, lg: 0 } }}>
+                <Box sx={listStyles}>
+                  <div dangerouslySetInnerHTML={{ __html: props.section_1_right_richtext }}></div>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Section>
+        <Section sx={{ pb: 10 }}>
+          <Box>
+            <Typography variant="h3_new" sx={{ mb: 5, textAlign: 'center' }}>
+              {props.section_2_title}
+            </Typography>
+            <SpeakerCardSection speaker_items={props.speaker_items} />
+          </Box>
+        </Section>
+        <Section bgcolor angleTop="topRight" sx={{ pt: 15, pb: 10 }}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography variant="h3_new" sx={{ mb: 3 }}>
+              {props.section_3_title}
+            </Typography>
+            <Box sx={{ maxWidth: '700px', mx: 'auto' }}>
+              <Typography variant="body_normal" sx={{ mb: 5 }}>
+                {props.section_3_text}
+              </Typography>
+            </Box>
+            {props.section_3_button && props.section_3_button[0] && (
+              <Button cmsValue={props.section_3_button[0].value}>
+                {props.section_3_button[0].value.text}
+              </Button>
+            )}
+          </Box>
+        </Section>
+      </Box>
     </PageProvider>
   );
 };
