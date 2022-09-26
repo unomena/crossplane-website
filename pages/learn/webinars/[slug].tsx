@@ -188,10 +188,6 @@ const HeaderForm = (props: WebinarPage) => {
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
         setLoading(false);
-
-        if (res.data.resource) {
-          window.open(res.data.resource, '_blank');
-        }
       } else {
         setRecaptchaError(res.data.recaptcha_error);
         setLoading(false);
