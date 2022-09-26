@@ -63,7 +63,7 @@ const headerSection: SxProps = {
       marginBottom: '0',
     },
   },
-  '& p:not(.MuiTypography-root)': {
+  '& p:not(.MuiTypography-root):not(.Mui-error)': {
     margin: '0px 0px 24px',
     fontSize: '16px',
     lineHeight: '28px',
