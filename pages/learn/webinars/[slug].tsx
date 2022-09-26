@@ -296,12 +296,27 @@ const HeaderForm = (props: WebinarPage) => {
               error={formik.touched.state && Boolean(formik.errors.state)}
               helperText={formik.touched.state && formik.errors.state}
             />
+            <Typography sx={{ fontSize: 12, my: 1.5 }}>
+              Subscribe to stay in the know about exciting product announcements, educational
+              material and Upbound promotions. You can always unsubscribe in the email footer. Read
+              our{' '}
+              <Link href={routes.privacyRoute} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                Privacy Policy{' '}
+              </Link>
+              to learn more.
+            </Typography>
+
             <CCheckbox
               checked={formik.values.legal_consent}
               onChange={formik.handleChange}
               name="legal_consent"
               label="Yes, send me occasional emails from Upbound"
             />
+            <Typography sx={{ fontSize: 12, mb: 2 }}>
+              You can unsubscribe from these communications at any time. For more information on how
+              to unsubscribe, our privacy practices, and how we are committed to protecting and
+              respecting your privacy, please review our Privacy Policy.
+            </Typography>
             <Typography sx={{ fontSize: 12 }}>
               By clicking the button below you understand that Upbound will process your personal
               information in accordance with our{' '}
