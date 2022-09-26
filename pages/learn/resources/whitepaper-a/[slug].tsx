@@ -8,6 +8,7 @@ import { Box, SxProps, Typography } from '@mui/material';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { useFormik, FormikHelpers } from 'formik';
+import { FocusError } from 'focus-formik-error';
 import * as yup from 'yup';
 
 import { AxiosError } from 'axios';
@@ -199,6 +200,7 @@ const HeaderForm = (props: WhitepaperAPage) => {
             Submit your contact info below to download
           </Typography>
           <form onSubmit={formik.handleSubmit}>
+            <FocusError formik={formik} />
             <Box
               sx={{
                 [MQ.sm]: {

@@ -336,3 +336,31 @@ type SpeakingSession = {
 };
 
 type SpeakingSessions = SpeakingSession[];
+
+type WebinarPage = {
+  cms_head_props: CMSHeadProps;
+
+  id: number;
+  header_title: string;
+  header_text: string;
+  section_1_left_richtext: string;
+  section_1_right_richtext: string;
+  section_2_title: string;
+
+  speaker_items: SpeakerCard[];
+
+  section_3_title: string;
+  section_3_text: string;
+  section_3_button: Button[];
+};
+
+type SpeakerCard = {
+  id: number;
+  image: ImageType[];
+  name: string;
+  job_title: string;
+  company: string;
+  bio: string;
+};
+
+type SpeakerCards = SpeakerCard[];
