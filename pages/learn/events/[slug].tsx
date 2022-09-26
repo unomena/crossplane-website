@@ -302,7 +302,11 @@ const ScheduleForm = (props: EventPage) => {
         </>
       ) : (
         <>
-          {formSubmitted && <Typography variant="body_big">Thank you for submitting!</Typography>}
+          {formSubmitted && (
+            <Typography variant="body_big" textAlign="center">
+              Thank you for submitting!
+            </Typography>
+          )}
           {recaptchaError && <Typography variant="body_big">{recaptchaError}</Typography>}
         </>
       )}
