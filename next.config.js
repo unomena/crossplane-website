@@ -32,6 +32,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/uxp',
+        destination: '/products/universal-crossplane',
+        permanent: true,
+      },
+      {
         source: '/products/registry',
         destination: 'https://marketplace.upbound.io',
         permanent: true,
