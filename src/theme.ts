@@ -211,7 +211,7 @@ const theme = createTheme({
       main: COLORS.cornflower,
     },
     secondary: {
-      main: '#19857b',
+      main: COLORS.linkWater,
     },
   },
   typography: {
