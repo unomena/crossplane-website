@@ -3,7 +3,17 @@ import React, { useCallback, useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { COLORS, MQ } from 'src/theme';
-import { Box, SxProps, Typography, useMediaQuery } from '@mui/material';
+import {
+  Box,
+  SxProps,
+  Typography,
+  useMediaQuery,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormHelperText,
+} from '@mui/material';
 
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
@@ -95,9 +105,11 @@ interface FormValues {
   last_name: string;
   email: string;
   company: string;
+  message: string;
   become_customer: boolean;
   become_partner: boolean;
   crossplane_vendor_support: boolean;
+  private_preview_experience: string;
   legal_consent: boolean;
 }
 
@@ -113,9 +125,14 @@ const ContactForm = (props: ContactPage) => {
     last_name: yup.string().required('Please enter your last name'),
     email: yup.string().email('Please enter valid email').required('Please enter your email'),
     company: yup.string().required('Please enter your company name'),
+    message: yup.string(),
     become_customer: yup.boolean(),
     become_partner: yup.boolean(),
     crossplane_vendor_support: yup.boolean(),
+    private_preview_experience:
+      props.cms_head_props.slug === 'upbound-preview'
+        ? yup.string().required('Please select a preview experience')
+        : yup.string(),
     legal_consent: yup.boolean(),
   });
 
@@ -143,7 +160,13 @@ const ContactForm = (props: ContactPage) => {
         ...values,
       };
 
-      const res = await axiosInstance.post('/api/contact-request', postData);
+      let api_uri = '/api/contact-request';
+
+      if (props.cms_head_props.slug === 'upbound-preview') {
+        api_uri = '/api/preview-contact-request';
+      }
+
+      const res = await axiosInstance.post(api_uri, postData);
 
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
@@ -166,9 +189,11 @@ const ContactForm = (props: ContactPage) => {
       last_name: '',
       email: '',
       company: '',
+      message: '',
       become_customer: false,
       become_partner: false,
       crossplane_vendor_support: false,
+      private_preview_experience: '',
       legal_consent: false,
     },
     validationSchema: schema,
@@ -212,30 +237,99 @@ const ContactForm = (props: ContactPage) => {
             error={formik.touched.company && Boolean(formik.errors.company)}
             helperText={formik.touched.company && formik.errors.company}
           />
-          <Box sx={{ mt: 3, mb: 2 }}>
-            <Typography variant="body_big">We'd love a little context</Typography>
-            <Typography variant="body_small">
-              What best describes your interest in Upbound?
-            </Typography>
-          </Box>
-          <CCheckbox
-            checked={formik.values.become_customer}
+          <CTextField
+            name="message"
+            label="Message"
+            multiline
+            minRows={4}
+            maxRows={4}
+            value={formik.values.message}
             onChange={formik.handleChange}
-            name="become_customer"
-            label="Interested in becoming an Upbound customer"
+            error={formik.touched.message && Boolean(formik.errors.message)}
+            helperText={formik.touched.message && formik.errors.message}
           />
-          <CCheckbox
-            checked={formik.values.become_partner}
-            onChange={formik.handleChange}
-            name="become_partner"
-            label="Interested in partnering with Upbound"
-          />
-          <CCheckbox
-            checked={formik.values.crossplane_vendor_support}
-            onChange={formik.handleChange}
-            name="crossplane_vendor_support"
-            label="Interested in vendor support for Crossplane"
-          />
+          {props.cms_head_props.slug === 'upbound-preview' && (
+            <>
+              <Box sx={{ mt: 3, mb: 2 }}>
+                <Typography variant="body_big">Select your private preview experience</Typography>
+              </Box>
+              <FormControl
+                name="private_preview_experience"
+                component="fieldset"
+                error={
+                  formik.touched.private_preview_experience &&
+                  Boolean(formik.errors.private_preview_experience)
+                }
+              >
+                <RadioGroup
+                  value={formik.values.private_preview_experience}
+                  onChange={formik.handleChange}
+                  name="private_preview_experience"
+                >
+                  <FormControlLabel
+                    value="I want to get access to the Upbound private preview (SaaS version)"
+                    label="I want to get access to the Upbound private preview (SaaS version)"
+                    control={
+                      <Radio
+                        sx={{
+                          color: COLORS.linkWater,
+                          '&.Mui-checked': {
+                            color: COLORS.linkWater,
+                          },
+                        }}
+                      />
+                    }
+                  />
+                  <FormControlLabel
+                    value="I want to get access to the Upbound private preview (self-hosted version)"
+                    label="I want to get access to the Upbound private preview (self-hosted version)"
+                    control={
+                      <Radio
+                        sx={{
+                          color: COLORS.linkWater,
+                          '&.Mui-checked': {
+                            color: COLORS.linkWater,
+                          },
+                        }}
+                      />
+                    }
+                  />
+                </RadioGroup>
+                <FormHelperText>
+                  {formik.touched.private_preview_experience &&
+                    formik.errors.private_preview_experience}
+                </FormHelperText>
+              </FormControl>
+            </>
+          )}
+          {props.cms_head_props.slug === 'contact' && (
+            <>
+              <Box sx={{ mt: 3, mb: 2 }}>
+                <Typography variant="body_big">We'd love a little context</Typography>
+                <Typography variant="body_small">
+                  What best describes your interest in Upbound?
+                </Typography>
+              </Box>
+              <CCheckbox
+                checked={formik.values.become_customer}
+                onChange={formik.handleChange}
+                name="become_customer"
+                label="Interested in becoming an Upbound customer"
+              />
+              <CCheckbox
+                checked={formik.values.become_partner}
+                onChange={formik.handleChange}
+                name="become_partner"
+                label="Interested in partnering with Upbound"
+              />
+              <CCheckbox
+                checked={formik.values.crossplane_vendor_support}
+                onChange={formik.handleChange}
+                name="crossplane_vendor_support"
+                label="Interested in vendor support for Crossplane"
+              />
+            </>
+          )}
           <Box sx={{ mt: 3, mb: 2 }}>
             <Typography variant="body_big">Stay in the loop</Typography>
             <Typography variant="body_small">
