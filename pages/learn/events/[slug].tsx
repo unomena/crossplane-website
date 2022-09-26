@@ -169,10 +169,6 @@ const ScheduleForm = (props: EventPage) => {
       if (!res.data.recaptcha_error) {
         setFormSubmitted(true);
         setLoading(false);
-
-        if (res.data.resource) {
-          window.open(res.data.resource, '_blank');
-        }
       } else {
         setRecaptchaError(res.data.recaptcha_error);
         setLoading(false);
@@ -467,31 +463,19 @@ const Event = (props: Props) => {
 
   const handleOpen = () => setOpen(true);
 
-  const start_date = useMemo(() => {
+  const startDate = useMemo(() => {
     if (!props.start_date) {
       return null;
     }
     return format(new Date(props.start_date), 'MMM dd, yyyy');
   }, [props.start_date]);
 
-  const end_date = useMemo(() => {
+  const endDate = useMemo(() => {
     if (!props.end_date) {
       return null;
     }
     return format(new Date(props.end_date), 'MMM dd, yyyy');
   }, [props.end_date]);
-
-  const startDate = start_date;
-  const endDate = end_date;
-
-  console.log(startDate);
-
-  const section_3_title = useMemo(() => {
-    if (!props.section_3_title) {
-      return null;
-    }
-    return props.section_3_title;
-  }, [props.section_3_title]);
 
   return (
     <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview} hideCTACard>
@@ -629,7 +613,7 @@ const Event = (props: Props) => {
             </Box>
           </Box>
         </Section>
-        {section_3_title && (
+        {props.section_3_title && (
           <Section bgcolor angleTop="topRight" sx={{ pt: 15, pb: 10 }}>
             <Box
               sx={{

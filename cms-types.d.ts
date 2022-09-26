@@ -44,14 +44,16 @@ type Link = [
   }
 ];
 
+type ButtonStyleType =
+  | 'whiteContained'
+  | 'whiteOutlined'
+  | 'cornflowerContained'
+  | 'gradientContained'
+  | 'linkWaterContained';
+
 type ButtonValue = {
   text: string;
-  style_type:
-    | 'whiteContained'
-    | 'whiteOutlined'
-    | 'cornflowerContained'
-    | 'gradientContained'
-    | 'linkWaterContained';
+  style_type: ButtonStyleType;
   icon?: ImageContent;
   has_arrow?: boolean;
   link?: Link;
@@ -316,7 +318,7 @@ type EventPage = {
   section_2_title: string;
   section_2_richtext: string;
   section_2_button_text: string;
-  section_2_button_style_type: string;
+  section_2_button_style_type: ButtonStyleType;
 
   section_3_title: string;
   section_3_richtext: string;
