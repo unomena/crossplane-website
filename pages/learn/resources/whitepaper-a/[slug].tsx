@@ -32,12 +32,12 @@ import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
 import CMSImage from 'src-new/elements/CMSImage';
 
-import headerBg from 'public/new-images/home-page/header-bg.jpg';
+import smallHeroBg from 'public/new-images/home-page/sml-hero-bg.jpg';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 20 },
   pb: 10,
-  backgroundImage: `url(${headerBg.src})`,
+  backgroundImage: `url(${smallHeroBg.src})`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'top center',
 
