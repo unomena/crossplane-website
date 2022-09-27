@@ -29,7 +29,6 @@ import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import Link from 'src-new/elements/Link';
 
-// import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import eventBooth from 'public/new-images/icons/event-booth-icon.svg';
 import eventDate from 'public/new-images/icons/event-date-icon.svg';
 import eventLocation from 'public/new-images/icons/event-location-icon.svg';

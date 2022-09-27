@@ -28,7 +28,6 @@ import CSelect from 'src-new/elements/CSelect';
 import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
 
-// import headerBg from 'public/new-images/home-page/header-bg.jpg';
 import placeHolder from 'public/new-images/placeholder.png';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
