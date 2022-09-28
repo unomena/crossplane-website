@@ -350,23 +350,23 @@ const FeatureBlock = ({ feature, index, setActiveIndex, isActive }: FeatureBlock
 
 const FeaturesSection = (props: ProductPage) => {
   const [activeIndex, _setActiveIndex] = useState(0);
-  // const activeIndexRef = useRef(activeIndex);
+  const activeIndexRef = useRef(0);
   const featureSectionRef = useRef(undefined);
   const isVisible = useOnScreen(featureSectionRef);
-  const setActiveIndex = (val: number) => {
-    activeIndexRef.current = val;
-    _setActiveIndex(val);
-  };
 
-  const delay = 2500;
-
-  const activeIndexRef = useRef(0);
+  const delay = 3500;
 
   function resetTimeout() {
     if (activeIndexRef.current) {
       clearTimeout(activeIndexRef.current);
     }
   }
+
+  const setActiveIndex = (val: number) => {
+    resetTimeout();
+    activeIndexRef.current = val;
+    _setActiveIndex(val);
+  };
 
   useEffect(() => {
     resetTimeout();
