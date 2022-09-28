@@ -337,6 +337,41 @@ type SpeakingSession = {
 
 type SpeakingSessions = SpeakingSession[];
 
+type EventV2Page = {
+  cms_head_props: CMSHeadProps;
+
+  id: number;
+  header_title: string;
+  header_richtext: string;
+  start_date: string;
+  end_date: string;
+  location: string;
+  booth_number: string;
+
+  section_1_title: string;
+  section_1_items: SpeakingSessionV2[];
+
+  section_2_title: string;
+  section_2_richtext: string;
+  section_2_button_text: string;
+  section_2_button_style_type: ButtonStyleType;
+
+  section_3_title: string;
+  section_3_richtext: string;
+  section_3_form_title: string;
+};
+
+type SpeakingSessionV2 = {
+  id: number;
+  session_name: string;
+  speaker: string;
+  date_time: string;
+  room: string;
+  link: string;
+};
+
+type SpeakingSessionsV2 = SpeakingSessionV2[];
+
 type WebinarPage = {
   cms_head_props: CMSHeadProps;
 
