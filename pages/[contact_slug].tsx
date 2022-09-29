@@ -38,6 +38,7 @@ import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
 import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
+import DangerousDiv from 'src-new/elements/DangerousDiv';
 
 import twitterLogo from 'public/twitter.svg';
 import slackLogo from 'public/slack.svg';
@@ -395,7 +396,7 @@ const Contact = (props: Props) => {
           <Typography variant="h2_new" sx={{ mb: 3 }}>
             {props.header_title}
           </Typography>
-          <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
+          <DangerousDiv content={props.header_richtext} />
         </Box>
       </Section>
       <Section>

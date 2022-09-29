@@ -124,7 +124,7 @@ interface FormValues {
   meeting_type: string;
 }
 
-const ScheduleForm = (props: EventPage) => {
+const ScheduleForm = (props: EventV2Page) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -321,7 +321,7 @@ interface GiftFormValues {
   email: string;
 }
 
-const GiftForm = (props: EventPage) => {
+const GiftForm = (props: EventV2Page) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
@@ -421,7 +421,7 @@ const GiftForm = (props: EventPage) => {
   );
 };
 
-const SessionItem = ({ sessionItem }: { sessionItem: SpeakingSession }) => {
+const SessionItem = ({ sessionItem }: { sessionItem: SpeakingSessionV2 }) => {
   const { session_name, speaker, date_time, room, link } = sessionItem;
 
   return (
@@ -451,7 +451,7 @@ const SessionItem = ({ sessionItem }: { sessionItem: SpeakingSession }) => {
   );
 };
 
-const SessionItemSection = ({ section_1_items }: { section_1_items: SpeakingSessions }) => {
+const SessionItemSection = ({ section_1_items }: { section_1_items: SpeakingSessionsV2 }) => {
   return (
     <>
       {section_1_items.map((item) => (
@@ -463,9 +463,9 @@ const SessionItemSection = ({ section_1_items }: { section_1_items: SpeakingSess
 
 type Props = {
   isPreview?: boolean;
-} & EventPage;
+} & EventV2Page;
 
-const Event = (props: Props) => {
+const EventV2 = (props: Props) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -668,26 +668,26 @@ const Event = (props: Props) => {
   );
 };
 
-export default Event;
+export default EventV2;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: { params: { slug: string } }[] = [];
   try {
-    const res = await axiosInstance.get(`/api/v2/pages/?type=app.EventDetailPage`);
+    const res = await axiosInstance.get(`/api/v2/pages/?type=app.EventV2DetailPage`);
     const events = res.data.items;
 
     paths = events.map((event: { meta: { slug: string } }) => ({
       params: { slug: event.meta.slug },
     }));
   } catch (error) {
-    console.log('get EventDetailPage paths', error);
+    console.log('get EventV2DetailPage paths', error);
   }
 
   return { paths, fallback: 'blocking' };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const returnValue = await handleGetStaticProps(context, `/learn/events/${context?.params?.slug}`);
+  const returnValue = await handleGetStaticProps(context, `/event/${context?.params?.slug}`);
 
   if (returnValue) {
     return {
