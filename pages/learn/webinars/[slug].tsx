@@ -29,6 +29,7 @@ import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
+import DangerousDiv from 'src-new/elements/DangerousDiv';
 import CMSImage from 'src-new/elements/CMSImage';
 
 const root: SxProps = {
@@ -512,7 +513,7 @@ const Webinar = (props: Props) => {
                 },
               }}
             >
-              <div dangerouslySetInnerHTML={{ __html: props.section_1_left_richtext }}></div>
+              <DangerousDiv content={props.section_1_left_richtext} />
             </Box>
             <Box
               sx={{
@@ -527,7 +528,7 @@ const Webinar = (props: Props) => {
             >
               <Box sx={{ pl: { _: 0, lg: '100px' }, pt: { _: 4, lg: 0 } }}>
                 <Box sx={listStyles}>
-                  <div dangerouslySetInnerHTML={{ __html: props.section_1_right_richtext }}></div>
+                  <DangerousDiv content={props.section_1_right_richtext} />
                 </Box>
               </Box>
             </Box>

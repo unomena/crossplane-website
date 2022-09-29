@@ -15,6 +15,8 @@ import * as yup from 'yup';
 
 import { AxiosError } from 'axios';
 
+import { format } from 'date-fns';
+
 import countries from 'country-region-data/data.json';
 
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
@@ -28,6 +30,7 @@ import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import Link from 'src-new/elements/Link';
+import DangerousDiv from 'src-new/elements/DangerousDiv';
 
 import eventBooth from 'public/new-images/icons/event-booth-icon.svg';
 import eventDate from 'public/new-images/icons/event-date-icon.svg';
@@ -35,7 +38,6 @@ import eventLocation from 'public/new-images/icons/event-location-icon.svg';
 import ArrowRight from 'src-new/svg/ArrowRight';
 import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
 import CloseIcon from '@mui/icons-material/Close';
-import { format } from 'date-fns';
 
 const root: SxProps = {
   '& p:not(.MuiTypography-root):not(.Mui-error)': {
@@ -508,7 +510,7 @@ const Event = (props: Props) => {
               <Typography variant="h2_new" sx={{ mb: 3 }}>
                 {props.header_title}
               </Typography>
-              <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
+              <DangerousDiv content={props.header_richtext} />
             </Box>
             <Box
               sx={{
@@ -585,7 +587,7 @@ const Event = (props: Props) => {
               <Typography variant="h3_new" sx={{ mb: 3 }}>
                 {props.section_2_title}
               </Typography>
-              <div dangerouslySetInnerHTML={{ __html: props.section_2_richtext }}></div>
+              <DangerousDiv content={props.section_2_richtext} />
               <Button
                 styleType={props.section_2_button_style_type}
                 endIcon={<ArrowRight />}
@@ -642,7 +644,7 @@ const Event = (props: Props) => {
                 <Typography variant="h3_new" sx={{ mb: 3 }}>
                   {props.section_3_title}
                 </Typography>
-                <div dangerouslySetInnerHTML={{ __html: props.section_3_richtext }}></div>
+                <DangerousDiv content={props.section_3_richtext} />
               </Box>
               <Box
                 sx={{
