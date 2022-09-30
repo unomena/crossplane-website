@@ -371,22 +371,31 @@ type EventV2Page = {
   id: number;
   header_title: string;
   header_richtext: string;
+  header_image: ImageType[];
   start_date: string;
   end_date: string;
   location: string;
   booth_number: string;
 
   section_1_title: string;
+  section_1_text: string;
   section_1_items: SpeakingSessionV2[];
 
   section_2_title: string;
   section_2_richtext: string;
+  section_2_image: ImageType[];
   section_2_button_text: string;
   section_2_button_style_type: ButtonStyleType;
 
   section_3_title: string;
   section_3_richtext: string;
-  section_3_form_title: string;
+  section_3_image: ImageType[];
+  section_3_button_text: string;
+  section_3_button_style_type: ButtonStyleType;
+
+  section_4_title: string;
+  section_4_richtext: string;
+  section_4_form_title: string;
 };
 
 type SpeakingSessionV2 = {
