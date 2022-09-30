@@ -19,6 +19,8 @@ import { format } from 'date-fns';
 
 import countries from 'country-region-data/data.json';
 
+import * as routes from 'src/routes';
+
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 import axiosInstance from 'src-new/utils/axiosInstance';
 import handleFormError from 'src-new/utils/handleFormError';
@@ -29,8 +31,10 @@ import Section from 'src-new/components/Section';
 import Button from 'src-new/elements/Button';
 import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
+import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
 import DangerousDiv from 'src-new/elements/DangerousDiv';
+import CMSImage from 'src-new/elements/CMSImage';
 
 import eventBooth from 'public/new-images/icons/event-booth-icon.svg';
 import eventDate from 'public/new-images/icons/event-date-icon.svg';
@@ -97,6 +101,27 @@ const gridLayout: SxProps = {
 
   [MQ.lg]: {
     gridTemplateColumns: '1fr 1fr 1fr .5fr .25fr',
+  },
+};
+
+// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
+const responsiveImg: SxProps = {
+  width: '100%',
+  maxWidth: '450px',
+
+  '& > span': {
+    position: 'unset !important',
+  },
+
+  '& img': {
+    objectFit: 'contain',
+    width: '100% !important',
+    position: 'relative !important',
+    height: 'unset !important',
+  },
+
+  [MQ.lg]: {
+    maxWidth: '100%',
   },
 };
 
@@ -291,6 +316,16 @@ const ScheduleForm = (props: EventV2Page) => {
               error={formik.touched.meeting_type && Boolean(formik.errors.meeting_type)}
               helperText={formik.touched.meeting_type && formik.errors.meeting_type}
             />
+            <Typography sx={{ fontSize: 12, mt: 1.5 }}>
+              Upbound needs the contact information you provide to us to contact you about our
+              products and services. You may unsubscribe from these communications at any time. For
+              information on how to unsubscribe, as well as our privacy practices and commitment to
+              protecting your privacy, please review our{' '}
+              <Link href={routes.privacyRoute} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                Privacy Policy
+              </Link>
+              .
+            </Typography>
             <Box mt={3} textAlign="center">
               <Button
                 styleType={loading ? 'disabled' : 'cornflowerContained'}
@@ -299,6 +334,180 @@ const ScheduleForm = (props: EventV2Page) => {
                 loading={loading}
               >
                 Schedule a meeting
+              </Button>
+            </Box>
+          </form>
+        </>
+      ) : (
+        <>
+          {formSubmitted && (
+            <Typography variant="body_big" textAlign="center">
+              Thank you for submitting!
+            </Typography>
+          )}
+          {recaptchaError && <Typography variant="body_big">{recaptchaError}</Typography>}
+        </>
+      )}
+    </Box>
+  );
+};
+
+interface RegisterFormValues {
+  email: string;
+  first_name: string;
+  last_name: string;
+  company: string;
+  legal_consent: boolean;
+}
+
+const RegisterForm = (props: EventV2Page) => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const [loading, setLoading] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [recaptchaError, setRecaptchaError] = useState(null);
+
+  const schema = yup.object({
+    email: yup.string().email('Please enter valid email').required('Please enter your email'),
+    first_name: yup.string().required('Please enter your first name'),
+    last_name: yup.string().required('Please enter your last name'),
+    company: yup.string().required('Please enter your company name'),
+    legal_consent: yup.boolean(),
+  });
+
+  const handleReCaptchaVerify = useCallback(async () => {
+    if (!executeRecaptcha) {
+      console.log('Execute recaptcha not yet available');
+      return;
+    }
+    const token = await executeRecaptcha('drink_request');
+    return token;
+  }, [executeRecaptcha]);
+
+  const handleSubmit = async (
+    values: RegisterFormValues,
+    { setFieldError }: FormikHelpers<RegisterFormValues>
+  ) => {
+    try {
+      setLoading(true);
+
+      const data = await getSessionData();
+
+      const token = await handleReCaptchaVerify();
+
+      const postData = {
+        recaptcha_token: token,
+        page_id: props.id,
+        ...data,
+        ...values,
+      };
+
+      const res = await axiosInstance.post('/api/drink-request', postData);
+
+      if (!res.data.recaptcha_error) {
+        setFormSubmitted(true);
+        setLoading(false);
+      } else {
+        setRecaptchaError(res.data.recaptcha_error);
+        setLoading(false);
+      }
+    } catch (err) {
+      const error = err as AxiosError;
+      handleFormError('Register', error, setFieldError);
+      setLoading(false);
+    }
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      first_name: '',
+      last_name: '',
+      company: '',
+      legal_consent: false,
+    },
+    validationSchema: schema,
+    onSubmit: handleSubmit,
+  });
+
+  return (
+    <Box sx={formStyles}>
+      {!formSubmitted && !recaptchaError ? (
+        <>
+          <Typography variant="body_normal" sx={{ mb: 1 }}>
+            Submit form below to register
+          </Typography>
+          <form onSubmit={formik.handleSubmit}>
+            <FocusError formik={formik} />
+            <CTextField
+              name="email"
+              label="Business Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+            <CTextField
+              name="first_name"
+              label="First Name"
+              value={formik.values.first_name}
+              onChange={formik.handleChange}
+              error={formik.touched.first_name && Boolean(formik.errors.first_name)}
+              helperText={formik.touched.first_name && formik.errors.first_name}
+            />
+            <CTextField
+              name="last_name"
+              label="Last Name"
+              value={formik.values.last_name}
+              onChange={formik.handleChange}
+              error={formik.touched.last_name && Boolean(formik.errors.last_name)}
+              helperText={formik.touched.last_name && formik.errors.last_name}
+            />
+            <CTextField
+              name="company"
+              label="Company"
+              value={formik.values.company}
+              onChange={formik.handleChange}
+              error={formik.touched.company && Boolean(formik.errors.company)}
+              helperText={formik.touched.company && formik.errors.company}
+            />
+            <Typography sx={{ fontSize: 12, my: 1.5 }}>
+              Subscribe to stay in the know about exciting product announcements, educational
+              material and Upbound promotions. You can always unsubscribe in the email footer. Read
+              our{' '}
+              <Link href={routes.privacyRoute} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                Privacy Policy{' '}
+              </Link>
+              to learn more.
+            </Typography>
+
+            <CCheckbox
+              checked={formik.values.legal_consent}
+              onChange={formik.handleChange}
+              name="legal_consent"
+              label="Yes, send me occasional emails from Upbound"
+            />
+            <Typography sx={{ fontSize: 12, mb: 2 }}>
+              You can unsubscribe from these communications at any time. For more information on how
+              to unsubscribe, our privacy practices, and how we are committed to protecting and
+              respecting your privacy, please review our Privacy Policy.
+            </Typography>
+            <Typography sx={{ fontSize: 12 }}>
+              By clicking the button below you understand that Upbound will process your personal
+              information in accordance with our{' '}
+              <Link href={routes.privacyRoute} muiProps={{ target: '_blank', fontWeight: 700 }}>
+                Privacy Policy
+              </Link>
+              .
+            </Typography>
+            <Box mt={3} textAlign="center">
+              <Button
+                styleType={loading ? 'disabled' : 'cornflowerContained'}
+                type="submit"
+                disabled={loading}
+                loading={loading}
+              >
+                Register now
               </Button>
             </Box>
           </form>
@@ -387,7 +596,7 @@ const GiftForm = (props: EventV2Page) => {
       {!formSubmitted && !recaptchaError ? (
         <>
           <Typography variant="body_normal" sx={{ mb: 1 }}>
-            {props.section_3_form_title}
+            {props.section_4_form_title}
           </Typography>
           <form onSubmit={formik.handleSubmit}>
             <CTextField
@@ -466,9 +675,11 @@ type Props = {
 } & EventV2Page;
 
 const EventV2 = (props: Props) => {
-  const [open, setOpen] = useState(false);
+  const [openSchedule, setOpenSchedule] = useState(false);
+  const [openRegister, setOpenRegister] = useState(false);
 
-  const handleOpen = () => setOpen(true);
+  const handleOpenSchedule = () => setOpenSchedule(true);
+  const handleOpenRegister = () => setOpenRegister(true);
 
   const startDate = useMemo(() => {
     if (!props.start_date) {
@@ -529,31 +740,43 @@ const EventV2 = (props: Props) => {
                   pl: { _: 0, lg: '100px' },
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Box sx={detailStyles}>
-                    <Image src={eventDate} alt="placeholder" layout="fill" objectFit="cover" />
+                <Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventDate} alt="date icon" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">
+                        {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Box>
-                    <Typography variant="body_normal">
-                      {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
-                    </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image
+                        src={eventLocation}
+                        alt="location icon"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">{props.location}</Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventBooth} alt="booth icon" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">{props.booth_number}</Typography>
+                    </Box>
                   </Box>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Box sx={detailStyles}>
-                    <Image src={eventLocation} alt="placeholder" layout="fill" objectFit="cover" />
-                  </Box>
-                  <Box>
-                    <Typography variant="body_normal">{props.location}</Typography>
-                  </Box>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Box sx={detailStyles}>
-                    <Image src={eventBooth} alt="placeholder" layout="fill" objectFit="cover" />
-                  </Box>
-                  <Box>
-                    <Typography variant="body_normal">{props.booth_number}</Typography>
-                  </Box>
+                <Box sx={responsiveImg}>
+                  {props.header_image && props.header_image[0] && (
+                    <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                  )}
                 </Box>
               </Box>
             </Box>
@@ -567,60 +790,167 @@ const EventV2 = (props: Props) => {
             <SessionItemSection section_1_items={props.section_1_items} />
           </Box>
         </Section>
-        <Section sx={{ pt: 15, pb: 10 }}>
-          <Box
-            sx={{
-              [MQ.lg]: {
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'row',
-              },
-            }}
-          >
+        {props.section_2_title && (
+          <Section sx={{ pt: 15, pb: 10 }}>
             <Box
               sx={{
-                [MQ.lg]: {
-                  width: '50%',
+                [MQ.md]: {
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'row',
                 },
               }}
             >
-              <Typography variant="h3_new" sx={{ mb: 3 }}>
-                {props.section_2_title}
-              </Typography>
-              <DangerousDiv content={props.section_2_richtext} />
-              <Button
-                styleType={props.section_2_button_style_type}
-                endIcon={<ArrowRight />}
-                onClick={handleOpen}
+              <Box
+                sx={{
+                  width: '50%',
+                  display: { _: 'block', md: 'none' },
+                  mb: 5,
+                }}
               >
-                {props.section_2_button_text}
-              </Button>
-              <Modal
-                open={open}
-                onClose={() => setOpen(false)}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                sx={{ overflow: 'scroll' }}
-              >
-                <>
-                  <Box
-                    sx={{
-                      color: COLORS.linkWater,
-                      position: 'fixed',
-                      top: '3rem',
-                      right: '3rem',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <CloseIcon onClick={() => setOpen(false)} fontSize="large" color="inherit" />
+                <Box>
+                  <Box sx={responsiveImg}>
+                    {props.section_2_image && props.section_2_image[0] && (
+                      <CMSImage value={props.section_2_image[0].value} layout="fill" priority />
+                    )}
                   </Box>
-                  <ScheduleForm {...props} />
-                </>
-              </Modal>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  width: '100%',
+                  [MQ.md]: {
+                    width: '50%',
+                  },
+                }}
+              >
+                <Typography variant="h3_new" sx={{ mb: 3 }}>
+                  {props.section_2_title}
+                </Typography>
+                <DangerousDiv content={props.section_2_richtext} />
+                <Button
+                  styleType={props.section_2_button_style_type}
+                  endIcon={<ArrowRight />}
+                  onClick={handleOpenSchedule}
+                >
+                  {props.section_2_button_text}
+                </Button>
+                <Modal
+                  open={openSchedule}
+                  onClose={() => setOpenSchedule(false)}
+                  aria-labelledby="schedule-meeting"
+                  aria-describedby="schedule-meeting-modal"
+                  sx={{ overflow: 'scroll' }}
+                >
+                  <>
+                    <Box
+                      sx={{
+                        color: COLORS.linkWater,
+                        position: 'fixed',
+                        top: '3rem',
+                        right: '3rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <CloseIcon
+                        onClick={() => setOpenSchedule(false)}
+                        fontSize="large"
+                        color="inherit"
+                      />
+                    </Box>
+                    <ScheduleForm {...props} />
+                  </>
+                </Modal>
+              </Box>
+              <Box
+                sx={{
+                  width: '50%',
+                  display: { _: 'none', md: 'block' },
+                }}
+              >
+                <Box sx={{ pl: '50px' }}>
+                  <Box sx={responsiveImg}>
+                    {props.section_2_image && props.section_2_image[0] && (
+                      <CMSImage value={props.section_2_image[0].value} layout="fill" priority />
+                    )}
+                  </Box>
+                </Box>
+              </Box>
             </Box>
-          </Box>
-        </Section>
+          </Section>
+        )}
         {props.section_3_title && (
+          <Section sx={{ pb: 10 }}>
+            <Box
+              sx={{
+                [MQ.md]: {
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  width: { _: '100%', md: '50%' },
+                  mb: { _: 5, md: 0 },
+                }}
+              >
+                <Box sx={{ pr: { _: 0, md: '50px' } }}>
+                  <Box sx={responsiveImg}>
+                    {props.section_3_image && props.section_3_image[0] && (
+                      <CMSImage value={props.section_3_image[0].value} layout="fill" priority />
+                    )}
+                  </Box>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  width: { _: '100%', md: '50%' },
+                }}
+              >
+                <Typography variant="h3_new" sx={{ mb: 3 }}>
+                  {props.section_3_title}
+                </Typography>
+                <DangerousDiv content={props.section_3_richtext} />
+                <Button
+                  styleType={props.section_3_button_style_type}
+                  endIcon={<ArrowRight />}
+                  onClick={handleOpenRegister}
+                >
+                  {props.section_3_button_text}
+                </Button>
+                <Modal
+                  open={openRegister}
+                  onClose={() => setOpenRegister(false)}
+                  aria-labelledby="register"
+                  aria-describedby="register-modal"
+                  sx={{ overflow: 'scroll' }}
+                >
+                  <>
+                    <Box
+                      sx={{
+                        color: COLORS.linkWater,
+                        position: 'fixed',
+                        top: '3rem',
+                        right: '3rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <CloseIcon
+                        onClick={() => setOpenRegister(false)}
+                        fontSize="large"
+                        color="inherit"
+                      />
+                    </Box>
+                    <RegisterForm {...props} />
+                  </>
+                </Modal>
+              </Box>
+            </Box>
+          </Section>
+        )}
+        {props.section_4_title && (
           <Section bgcolor angleTop="topRight" sx={{ pt: 15, pb: 10 }}>
             <Box
               sx={{
@@ -642,7 +972,7 @@ const EventV2 = (props: Props) => {
                 }}
               >
                 <Typography variant="h3_new" sx={{ mb: 3 }}>
-                  {props.section_3_title}
+                  {props.section_4_title}
                 </Typography>
                 <DangerousDiv content={props.section_3_richtext} />
               </Box>
