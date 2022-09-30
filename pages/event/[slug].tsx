@@ -850,6 +850,7 @@ const EventV2 = (props: Props) => {
                         top: '3rem',
                         right: '3rem',
                         cursor: 'pointer',
+                        zIndex: 1,
                       }}
                     >
                       <CloseIcon
@@ -935,6 +936,7 @@ const EventV2 = (props: Props) => {
                         top: '3rem',
                         right: '3rem',
                         cursor: 'pointer',
+                        zIndex: 1,
                       }}
                     >
                       <CloseIcon
