@@ -107,6 +107,7 @@ const gridLayout: SxProps = {
 // TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
 const responsiveImg: SxProps = {
   width: '100%',
+  maxWidth: '450px',
 
   '& > span': {
     position: 'unset !important',
@@ -117,6 +118,10 @@ const responsiveImg: SxProps = {
     width: '100% !important',
     position: 'relative !important',
     height: 'unset !important',
+  },
+
+  [MQ.lg]: {
+    maxWidth: '100%',
   },
 };
 
