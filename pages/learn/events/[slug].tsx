@@ -610,6 +610,7 @@ const Event = (props: Props) => {
                       top: '3rem',
                       right: '3rem',
                       cursor: 'pointer',
+                      zIndex: 1,
                     }}
                   >
                     <CloseIcon onClick={() => setOpen(false)} fontSize="large" color="inherit" />
