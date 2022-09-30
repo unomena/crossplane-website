@@ -798,6 +798,21 @@ const EventV2 = (props: Props) => {
             >
               <Box
                 sx={{
+                  width: '50%',
+                  display: { _: 'block', md: 'none' },
+                  mb: 5,
+                }}
+              >
+                <Box>
+                  <Box sx={responsiveImg}>
+                    {props.section_2_image && props.section_2_image[0] && (
+                      <CMSImage value={props.section_2_image[0].value} layout="fill" priority />
+                    )}
+                  </Box>
+                </Box>
+              </Box>
+              <Box
+                sx={{
                   width: '100%',
                   [MQ.md]: {
                     width: '50%',
@@ -844,15 +859,11 @@ const EventV2 = (props: Props) => {
               </Box>
               <Box
                 sx={{
-                  width: '100%',
-                  mt: 5,
-                  [MQ.md]: {
-                    width: '50%',
-                    mt: 0,
-                  },
+                  width: '50%',
+                  display: { _: 'none', md: 'block' },
                 }}
               >
-                <Box sx={{ pl: { _: 0, md: '50px' } }}>
+                <Box sx={{ pl: '50px' }}>
                   <Box sx={responsiveImg}>
                     {props.section_2_image && props.section_2_image[0] && (
                       <CMSImage value={props.section_2_image[0].value} layout="fill" priority />
@@ -876,12 +887,8 @@ const EventV2 = (props: Props) => {
             >
               <Box
                 sx={{
-                  width: '100%',
-                  mb: 5,
-                  [MQ.md]: {
-                    width: '50%',
-                    mb: 0,
-                  },
+                  width: { _: '100%', md: '50%' },
+                  mb: { _: 5, md: 0 },
                 }}
               >
                 <Box sx={{ pr: { _: 0, md: '50px' } }}>
@@ -894,10 +901,7 @@ const EventV2 = (props: Props) => {
               </Box>
               <Box
                 sx={{
-                  width: '100%',
-                  [MQ.md]: {
-                    width: '50%',
-                  },
+                  width: { _: '100%', md: '50%' },
                 }}
               >
                 <Typography variant="h3_new" sx={{ mb: 3 }}>
