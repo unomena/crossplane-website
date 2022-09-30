@@ -735,31 +735,43 @@ const EventV2 = (props: Props) => {
                   pl: { _: 0, lg: '100px' },
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Box sx={detailStyles}>
-                    <Image src={eventDate} alt="placeholder" layout="fill" objectFit="cover" />
+                <Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventDate} alt="placeholder" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">
+                        {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Box>
-                    <Typography variant="body_normal">
-                      {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
-                    </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image
+                        src={eventLocation}
+                        alt="placeholder"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">{props.location}</Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventBooth} alt="placeholder" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">{props.booth_number}</Typography>
+                    </Box>
                   </Box>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Box sx={detailStyles}>
-                    <Image src={eventLocation} alt="placeholder" layout="fill" objectFit="cover" />
-                  </Box>
-                  <Box>
-                    <Typography variant="body_normal">{props.location}</Typography>
-                  </Box>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Box sx={detailStyles}>
-                    <Image src={eventBooth} alt="placeholder" layout="fill" objectFit="cover" />
-                  </Box>
-                  <Box>
-                    <Typography variant="body_normal">{props.booth_number}</Typography>
-                  </Box>
+                <Box sx={responsiveImg}>
+                  {props.header_image && props.header_image[0] && (
+                    <CMSImage value={props.header_image[0].value} layout="fill" priority />
+                  )}
                 </Box>
               </Box>
             </Box>
