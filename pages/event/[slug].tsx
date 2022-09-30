@@ -743,7 +743,7 @@ const EventV2 = (props: Props) => {
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                     <Box sx={detailStyles}>
-                      <Image src={eventDate} alt="placeholder" layout="fill" objectFit="cover" />
+                      <Image src={eventDate} alt="date icon" layout="fill" objectFit="cover" />
                     </Box>
                     <Box>
                       <Typography variant="body_normal">
@@ -755,7 +755,7 @@ const EventV2 = (props: Props) => {
                     <Box sx={detailStyles}>
                       <Image
                         src={eventLocation}
-                        alt="placeholder"
+                        alt="location icon"
                         layout="fill"
                         objectFit="cover"
                       />
@@ -766,7 +766,7 @@ const EventV2 = (props: Props) => {
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                     <Box sx={detailStyles}>
-                      <Image src={eventBooth} alt="placeholder" layout="fill" objectFit="cover" />
+                      <Image src={eventBooth} alt="booth icon" layout="fill" objectFit="cover" />
                     </Box>
                     <Box>
                       <Typography variant="body_normal">{props.booth_number}</Typography>
