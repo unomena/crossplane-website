@@ -350,14 +350,43 @@ const FeatureBlock = ({ feature, index, setActiveIndex, isActive }: FeatureBlock
 
 const FeaturesSection = (props: ProductPage) => {
   const [activeIndex, _setActiveIndex] = useState(0);
-  const activeIndexRef = useRef(activeIndex);
+  const activeIndexRef = useRef(0);
+  const featureSectionRef = useRef(undefined);
+  const isVisible = useOnScreen(featureSectionRef);
+
+  const delay = 3500;
+
+  function resetTimeout() {
+    if (activeIndexRef.current) {
+      clearTimeout(activeIndexRef.current);
+    }
+  }
+
   const setActiveIndex = (val: number) => {
+    resetTimeout();
     activeIndexRef.current = val;
     _setActiveIndex(val);
   };
 
+  useEffect(() => {
+    resetTimeout();
+    if (isVisible) {
+      activeIndexRef.current = window.setTimeout(
+        () =>
+          _setActiveIndex((prevIndex) =>
+            prevIndex === props.feature_items.length - 1 ? 0 : prevIndex + 1
+          ),
+        delay
+      );
+    }
+
+    return () => {
+      resetTimeout();
+    };
+  }, [activeIndex, isVisible]);
+
   return (
-    <Box>
+    <Box ref={featureSectionRef}>
       <Box sx={{ mb: 3 }}>
         <Typography variant="h3_new" sx={{ fontSize: '40px', mb: 3 }}>
           {props.section_2_title}
@@ -583,7 +612,6 @@ const Products = (props: Props) => {
       </Section>
 
       <Hidden xlDown>
-        {/* <Section bgcolor sx={{ pb: { _: 30, md: 33.125 }, pt: { _: 10, md: 23.5 } }}> */}
         <Section bgcolor sx={{ pb: { _: 30, md: 33.125 }, pt: { _: 0, sm: 15 } }}>
           <FeaturesSection {...props} />
         </Section>
