@@ -29,6 +29,7 @@ import CTextField from 'src-new/elements/CTextField';
 import CSelect from 'src-new/elements/CSelect';
 import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
+import DangerousDiv from 'src-new/elements/DangerousDiv';
 import CMSImage from 'src-new/elements/CMSImage';
 
 import headerBg from 'public/new-images/home-page/header-bg.jpg';
@@ -465,7 +466,7 @@ const WhitepaperB = (props: Props) => {
               </Box>
               <Hidden lgDown>
                 <Box sx={header_listStyles}>
-                  <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
+                  <DangerousDiv content={props.header_richtext} />
                 </Box>
               </Hidden>
             </Box>
@@ -496,7 +497,7 @@ const WhitepaperB = (props: Props) => {
           </Box>
           <Hidden lgUp>
             <Box sx={header_listStyles}>
-              <div dangerouslySetInnerHTML={{ __html: props.header_richtext }}></div>
+              <DangerousDiv content={props.header_richtext} />
             </Box>
           </Hidden>
         </Section>
@@ -554,7 +555,7 @@ const WhitepaperB = (props: Props) => {
                   ...section_1_listStyles,
                 }}
               >
-                <div dangerouslySetInnerHTML={{ __html: props.section_1_richtext }}></div>
+                <DangerousDiv content={props.section_1_richtext} />
               </Box>
             </Box>
           </Box>
