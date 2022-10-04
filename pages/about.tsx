@@ -53,6 +53,7 @@ import lemProfilePic3x from 'public/about/people/founders/lem@3x.png';
 // import sumbryProfilePic1x from 'public/about/people/founders/sumbry.png';
 // import sumbryProfilePic2x from 'public/about/people/founders/sumbry@2x.png';
 import sumbryProfilePic3x from 'public/about/people/founders/sumbry@3x.png';
+import tomProfilePic2x from 'public/about/people/founders/tom-2x.png';
 import purpleOval from 'public/about/purple-oval.svg';
 
 const teamFeatures = [
@@ -177,11 +178,11 @@ const founders = [
     name: 'Lem Diaz',
     title: 'People Ops',
   },
-  // {
-  //   pictureUrl: ,
-  //   name: 'Tom Anthony',
-  //   title: 'Sales',
-  // },
+  {
+    pictureUrl: tomProfilePic2x,
+    name: 'Tom Anthony',
+    title: 'Sales',
+  },
   {
     pictureUrl: grantProfilePic3x,
     name: 'Grant Gumina',
