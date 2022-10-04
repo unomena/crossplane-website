@@ -306,10 +306,9 @@ const ScheduleForm = (props: EventV2Page) => {
               name="meeting_type"
               label="Schedule some time with us or let us know when to contact you!"
               options={[
-                { value: 'Book a demo', label: 'Book a demo' },
+                { value: 'Book a sales meeting', label: 'Book a onsite meeting' },
                 { value: 'Book a partner meeting', label: 'Book a partner meeting' },
-                { value: 'Book a sales meeting', label: 'Book a sales meeting' },
-                { value: 'Contact me after the event', label: 'Contact me after the event' },
+                { value: 'Book an online meeting', label: 'Contact me after the event' },
               ]}
               value={formik.values.meeting_type}
               onChange={formik.handleChange}
