@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { Carousel } from 'react-responsive-carousel';
@@ -43,6 +43,8 @@ type Props = {
 
 const Slider = ({ children, axis = 'horizontal' }: Props) => {
   const matches = useMediaQuery(MQ.md);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  console.log(matches);
   return (
     <Box sx={root}>
       <Carousel
@@ -54,9 +56,12 @@ const Slider = ({ children, axis = 'horizontal' }: Props) => {
         interval={7000}
         infiniteLoop={true}
         centerMode={matches}
-        emulateTouch={true}
+        emulateTouch={!matches}
+        swipeable={!matches}
         stopOnHover={false}
         showThumbs={false}
+        onClickItem={(index) => setSliderIndex(index)}
+        selectedItem={sliderIndex}
       >
         {children}
       </Carousel>
