@@ -790,7 +790,7 @@ const EventV2 = (props: Props) => {
           </Box>
         </Section>
         {props.section_2_title && (
-          <Section sx={{ pt: 15, pb: 10 }}>
+          <Section id="bookmeeting" sx={{ pt: 15, pb: 10 }}>
             <Box
               sx={{
                 [MQ.md]: {
@@ -880,7 +880,7 @@ const EventV2 = (props: Props) => {
           </Section>
         )}
         {props.section_3_title && (
-          <Section id="bookmeeting" sx={{ pb: 10 }}>
+          <Section sx={{ pb: 10 }}>
             <Box
               sx={{
                 [MQ.md]: {
