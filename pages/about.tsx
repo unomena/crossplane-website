@@ -44,33 +44,16 @@ import bassamProfilePic3x from 'public/about/people/founders/bassam@3x.png';
 // import grantProfilePic1x from 'public/about/people/founders/grant.png';
 // import grantProfilePic2x from 'public/about/people/founders/grant@2x.png';
 import grantProfilePic3x from 'public/about/people/founders/grant@3x.png';
-// import jaredProfilePic1x from 'public/about/people/founders/jared.png';
-// import jaredProfilePic2x from 'public/about/people/founders/jared@2x.png';
-import jaredProfilePic3x from 'public/about/people/founders/jared@3x.png';
 // import kelseyProfilePic1x from 'public/about/people/founders/kelsey.png';
 // import kelseyProfilePic2x from 'public/about/people/founders/kelsey@2x.png';
 import kelseyProfilePic3x from 'public/about/people/founders/kelsey@3x.png';
 // import lemProfilePic1x from 'public/about/people/founders/lem.png';
 // import lemProfilePic2x from 'public/about/people/founders/lem@2x.png';
 import lemProfilePic3x from 'public/about/people/founders/lem@3x.png';
-// import mattProfilePic1x from 'public/about/people/founders/matt.png';
-// import mattProfilePic2x from 'public/about/people/founders/matt@2x.png';
-import mattProfilePic3x from 'public/about/people/founders/matt@3x.png';
-// import michaelProfilePic1x from 'public/about/people/founders/michael.png';
-// import michaelProfilePic2x from 'public/about/people/founders/michael@2x.png';
-import michaelProfilePic3x from 'public/about/people/founders/michael@3x.png';
-// import nicProfilePic1x from 'public/about/people/founders/nic.png';
-// import nicProfilePic2x from 'public/about/people/founders/nic@2x.png';
-import nicProfilePic3x from 'public/about/people/founders/nic@3x.png';
-// import robProfilePic1x from 'public/about/people/founders/rob.png';
-// import robProfilePic2x from 'public/about/people/founders/rob@2x.png';
-import robProfilePic3x from 'public/about/people/founders/rob@3x.png';
-// import scottProfilePic1x from 'public/about/people/founders/scott.png';
-// import scottProfilePic2x from 'public/about/people/founders/scott@2x.png';
-import scottProfilePic3x from 'public/about/people/founders/scott@3x.png';
 // import sumbryProfilePic1x from 'public/about/people/founders/sumbry.png';
 // import sumbryProfilePic2x from 'public/about/people/founders/sumbry@2x.png';
 import sumbryProfilePic3x from 'public/about/people/founders/sumbry@3x.png';
+import tomProfilePic2x from 'public/about/people/founders/tom-2x.png';
 import purpleOval from 'public/about/purple-oval.svg';
 
 const teamFeatures = [
@@ -161,7 +144,7 @@ const caringFeatures = [
   {
     title: 'Work From Anywhere',
     // eslint-disable-next-line max-len
-    body: `Upbound is a remote first company. Work where you want, how you want.  You have flexibility to work anywhere.`,
+    body: `Our team is globally distributed and that comes with a lot of flexibility around where you work.`,
   },
   {
     title: 'Flexible Hours and PTO',
@@ -196,39 +179,14 @@ const founders = [
     title: 'People Ops',
   },
   {
-    pictureUrl: jaredProfilePic3x,
-    name: 'Jared Watts',
-    title: 'Founding Engineer',
-  },
-  {
-    pictureUrl: robProfilePic3x,
-    name: 'Rob Clark',
-    title: 'Alliances',
-  },
-  {
-    pictureUrl: nicProfilePic3x,
-    name: 'Nic Cope',
-    title: 'Software',
-  },
-  {
-    pictureUrl: michaelProfilePic3x,
-    name: 'Michael Goff',
-    title: 'Founding Engineer',
-  },
-  {
-    pictureUrl: scottProfilePic3x,
-    name: 'Scott Franklin',
+    pictureUrl: tomProfilePic2x,
+    name: 'Tom Anthony',
     title: 'Sales',
   },
   {
     pictureUrl: grantProfilePic3x,
     name: 'Grant Gumina',
     title: 'Product',
-  },
-  {
-    pictureUrl: mattProfilePic3x,
-    name: 'Matt Heilman',
-    title: 'Founding Designer',
   },
 ];
 
