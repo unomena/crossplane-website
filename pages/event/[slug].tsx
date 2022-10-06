@@ -781,7 +781,7 @@ const EventV2 = (props: Props) => {
             </Box>
           </Box>
         </Section>
-        <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: 15 }}>
+        <Section id="session" bgcolor angleTop="topRight" sx={{ pt: 20, pb: 15 }}>
           <Box>
             <Typography variant="h3_new" sx={{ mb: 5, textAlign: 'center' }}>
               {props.section_1_title}
@@ -790,7 +790,7 @@ const EventV2 = (props: Props) => {
           </Box>
         </Section>
         {props.section_2_title && (
-          <Section sx={{ pt: 15, pb: 10 }}>
+          <Section id="bookmeeting" sx={{ pt: 15, pb: 10 }}>
             <Box
               sx={{
                 [MQ.md]: {

@@ -53,6 +53,7 @@ type Props = {
   bgcolor?: Boolean;
   maxWidth?: Breakpoint;
   sx?: SxProps;
+  id?: string;
   children: React.ReactNode;
 };
 
@@ -64,6 +65,7 @@ const Section = ({
   bgcolor,
   maxWidth = 'xl',
   sx,
+  id,
   children,
 }: Props) => {
   let styles: SxProps = {
@@ -80,6 +82,7 @@ const Section = ({
   }
   return (
     <Box
+      id={id}
       sx={{
         bgcolor: bgcolor ? COLORS.elephant : 'transparent',
         ...styles,
