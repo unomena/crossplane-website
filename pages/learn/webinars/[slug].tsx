@@ -5,6 +5,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
+import Image from 'next/image';
+
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { useFormik, FormikHelpers } from 'formik';
@@ -31,6 +33,10 @@ import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
 import DangerousDiv from 'src-new/elements/DangerousDiv';
 import CMSImage from 'src-new/elements/CMSImage';
+
+import eventBooth from 'public/new-images/icons/event-booth-icon.svg';
+import eventDate from 'public/new-images/icons/event-date-icon.svg';
+import eventLocation from 'public/new-images/icons/event-location-icon.svg';
 
 const root: SxProps = {
   '& h3:not(.MuiTypography-root)': {
@@ -80,6 +86,7 @@ const headerSection: SxProps = {
 };
 
 const listStyles: SxProps = {
+  my: 6,
   '& ul': {
     pl: 2,
     py: 0,
@@ -100,10 +107,7 @@ const speakerItemStyles: SxProps = {
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'row',
-
-  '&:not(:last-of-type)': {
-    mb: 3,
-  },
+  mb: 6,
 };
 
 const speakerCardStyles: SxProps = {
@@ -119,6 +123,17 @@ const speakerCardStyles: SxProps = {
     display: 'flex',
     flexDirection: 'row',
   },
+};
+
+const detailStyles: SxProps = {
+  position: 'relative',
+  width: '100%',
+  minWidth: '30px',
+  maxWidth: '30px',
+  height: '30px',
+  borderRadius: '100%',
+  overflow: 'hidden',
+  mr: 2,
 };
 
 const formStyles: SxProps = {
@@ -463,13 +478,21 @@ const Webinar = (props: Props) => {
                 },
               }}
             >
-              <Typography variant="h2_new" sx={{ mb: 3 }}>
-                {props.header_title}
-              </Typography>
-              <Typography variant="body_big" sx={{ mb: 5 }}>
-                {props.header_text}
-              </Typography>
-              <SpeakerListItemSection speaker_items={props.speaker_items} />
+              <Box>
+                <Typography variant="h2_new" sx={{ mb: 3 }}>
+                  {props.header_title}
+                </Typography>
+                <Typography variant="body_big" sx={{ mb: 5 }}>
+                  {props.header_text}
+                </Typography>
+                <SpeakerListItemSection speaker_items={props.speaker_items} />
+              </Box>
+              <Box>
+                <DangerousDiv content={props.section_1_left_richtext} />
+                <Box sx={listStyles}>
+                  <DangerousDiv content={props.section_1_right_richtext} />
+                </Box>
+              </Box>
             </Box>
             <Box
               sx={{
@@ -488,12 +511,49 @@ const Webinar = (props: Props) => {
                   pl: { _: 0, lg: '100px' },
                 }}
               >
+                <Box sx={{ mb: 6 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventBooth} alt="booth icon" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">Time</Typography>
+                      {/* <Typography variant="body_normal">{props.booth_number}</Typography> */}
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventDate} alt="date icon" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">
+                        Date
+                        {/* {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>} */}
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image
+                        src={eventLocation}
+                        alt="location icon"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">Location</Typography>
+                      {/* <Typography variant="body_normal">{props.location}</Typography> */}
+                    </Box>
+                  </Box>
+                </Box>
+
                 <HeaderForm {...props} />
               </Box>
             </Box>
           </Box>
         </Section>
-        <Section sx={{ pb: 10 }}>
+        {/* <Section sx={{ pb: 10 }}>
           <Box
             sx={{
               [MQ.lg]: {
@@ -533,7 +593,7 @@ const Webinar = (props: Props) => {
               </Box>
             </Box>
           </Box>
-        </Section>
+        </Section> */}
         <Section sx={{ pb: 10 }}>
           <Box>
             <Typography variant="h3_new" sx={{ mb: 5, textAlign: 'center' }}>
