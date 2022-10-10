@@ -34,7 +34,7 @@ import Link from 'src-new/elements/Link';
 import DangerousDiv from 'src-new/elements/DangerousDiv';
 import CMSImage from 'src-new/elements/CMSImage';
 
-import eventBooth from 'public/new-images/icons/event-booth-icon.svg';
+import eventTime from 'public/new-images/icons/event-time-icon.svg';
 import eventDate from 'public/new-images/icons/event-date-icon.svg';
 import eventLocation from 'public/new-images/icons/event-location-icon.svg';
 
@@ -487,7 +487,7 @@ const Webinar = (props: Props) => {
                 </Typography>
                 <SpeakerListItemSection speaker_items={props.speaker_items} />
               </Box>
-              <Box>
+              <Box sx={{ display: { _: 'none', lg: 'block' } }}>
                 <DangerousDiv content={props.section_1_left_richtext} />
                 <Box sx={listStyles}>
                   <DangerousDiv content={props.section_1_right_richtext} />
@@ -514,7 +514,7 @@ const Webinar = (props: Props) => {
                 <Box sx={{ mb: 6 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                     <Box sx={detailStyles}>
-                      <Image src={eventBooth} alt="booth icon" layout="fill" objectFit="cover" />
+                      <Image src={eventTime} alt="booth icon" layout="fill" objectFit="cover" />
                     </Box>
                     <Box>
                       <Typography variant="body_normal">Time</Typography>
@@ -547,53 +547,17 @@ const Webinar = (props: Props) => {
                     </Box>
                   </Box>
                 </Box>
-
                 <HeaderForm {...props} />
-              </Box>
-            </Box>
-          </Box>
-        </Section>
-        {/* <Section sx={{ pb: 10 }}>
-          <Box
-            sx={{
-              [MQ.lg]: {
-                display: 'flex',
-                flexDirection: 'row',
-              },
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  flex: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <DangerousDiv content={props.section_1_left_richtext} />
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  flex: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <Box sx={{ pl: { _: 0, lg: '100px' }, pt: { _: 4, lg: 0 } }}>
-                <Box sx={listStyles}>
-                  <DangerousDiv content={props.section_1_right_richtext} />
+                <Box sx={{ display: { _: 'block', lg: 'none' }, mt: 6 }}>
+                  <DangerousDiv content={props.section_1_left_richtext} />
+                  <Box sx={listStyles}>
+                    <DangerousDiv content={props.section_1_right_richtext} />
+                  </Box>
                 </Box>
               </Box>
             </Box>
           </Box>
-        </Section> */}
+        </Section>
         <Section sx={{ pb: 10 }}>
           <Box>
             <Typography variant="h3_new" sx={{ mb: 5, textAlign: 'center' }}>
