@@ -278,6 +278,8 @@ type ResourceListingPage = {
 
   header_title: string;
   header_text: string;
+  // header_richtext: string;
+  // header_button: Button[];
 
   contact_section_title: string;
   contact_section_text: string;
@@ -292,6 +294,7 @@ type ResourceListItem = {
   resource_type: string;
   listing_image: ImageType[];
   listing_title: string;
+  // listing_text: string;
   resource_document: {
     meta: {
       download_url: string;
