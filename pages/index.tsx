@@ -1033,6 +1033,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
     }
   }, [isVisible]);
 
+  console.log(side_svg_big);
+
   return (
     <Box
       sx={{

@@ -5,8 +5,6 @@ import { GetStaticProps } from 'next';
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
-import * as routes from 'src/routes';
-
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 
 import PageProvider from 'src-new/components/PageProvider';
@@ -20,6 +18,20 @@ const headerSection: SxProps = {
   pt: 20,
   pb: 10,
   textAlign: 'center',
+
+  '& h5:not(.MuiTypography-root)': {
+    fontFamily: `'Avenir-Roman', 'Arial', sans-serif`,
+    color: COLORS.linkWater,
+    fontSize: '18px',
+    lineHeight: '28px',
+    fontWeight: 'normal',
+    margin: '0px 0px 24px',
+
+    [MQ.md]: {
+      fontSize: '24px',
+      lineHeight: '40px',
+    },
+  },
 
   '& p:not(.MuiTypography-root):not(.Mui-error)': {
     margin: '0px 0px 24px',
@@ -91,8 +103,14 @@ const responsiveImg: SxProps = {
 };
 
 const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => {
-  const { resource_type, listing_image, listing_title, resource_document, resource_link } =
-    contentCard;
+  const {
+    resource_type,
+    listing_image,
+    listing_title,
+    listing_text,
+    resource_document,
+    resource_link,
+  } = contentCard;
 
   return (
     <Box sx={{ color: COLORS.linkWater }}>
@@ -118,9 +136,7 @@ const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => 
             </Typography>
           </Box>
           <Box>
-            <Typography variant="body_small">
-              Add one more additional text field under the Content Type, and Content Title fields
-            </Typography>
+            <Typography variant="body_small">{listing_text}</Typography>
           </Box>
         </Box>
       </Link>
@@ -170,24 +186,13 @@ const ResourceListing = (props: Props) => {
             {props.header_title}
           </Typography>
           <Box maxWidth={800} mx="auto">
-            <Typography variant="body_big" sx={{ mb: 3 }}>
-              {props.header_text}
-            </Typography>
-            <DangerousDiv content={props.header_text} />
+            <DangerousDiv content={props.header_richtext} />
           </Box>
-          {/* {props.header_button && props.header_button[0] && (
-            <Button cmsValue={props.header_button[0].value}>
+          {props.header_button && props.header_button[0] && (
+            <Button cmsValue={props.header_button[0].value} sx={{ mt: 1 }}>
               {props.header_button[0].value.text}
             </Button>
-          )} */}
-          <Button
-            styleType="cornflowerContained"
-            href={routes.upboundBlogUrl}
-            target="_blank"
-            sx={{ mt: 1 }}
-          >
-            "Add CTA button to header section"
-          </Button>
+          )}
         </Box>
       </Section>
       <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 15, lg: 40 } }}>
