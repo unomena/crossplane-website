@@ -343,8 +343,12 @@ type WebinarPage = {
   id: number;
   header_title: string;
   header_text: string;
-  section_1_left_richtext: string;
-  section_1_right_richtext: string;
+  start_date: string;
+  end_date: string;
+  location: string;
+  time: string;
+  section_1_richtext_1: string;
+  section_1_richtext_2: string;
   section_2_title: string;
 
   speaker_items: SpeakerCard[];

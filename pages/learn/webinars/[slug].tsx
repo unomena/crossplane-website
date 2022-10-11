@@ -15,6 +15,8 @@ import * as yup from 'yup';
 
 import { AxiosError } from 'axios';
 
+import { format } from 'date-fns';
+
 import countries from 'country-region-data/data.json';
 
 import * as routes from 'src/routes';
@@ -455,6 +457,20 @@ type Props = {
 } & WebinarPage;
 
 const Webinar = (props: Props) => {
+  const startDate = useMemo(() => {
+    if (!props.start_date) {
+      return null;
+    }
+    return format(new Date(props.start_date), 'MMM dd, yyyy');
+  }, [props.start_date]);
+
+  const endDate = useMemo(() => {
+    if (!props.end_date) {
+      return null;
+    }
+    return format(new Date(props.end_date), 'MMM dd, yyyy');
+  }, [props.end_date]);
+
   return (
     <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview} hideCTACard>
       <Box sx={root}>
@@ -488,9 +504,9 @@ const Webinar = (props: Props) => {
                 <SpeakerListItemSection speaker_items={props.speaker_items} />
               </Box>
               <Box sx={{ display: { _: 'none', lg: 'block' } }}>
-                <DangerousDiv content={props.section_1_left_richtext} />
+                <DangerousDiv content={props.section_1_richtext_1} />
                 <Box sx={listStyles}>
-                  <DangerousDiv content={props.section_1_right_richtext} />
+                  <DangerousDiv content={props.section_1_richtext_2} />
                 </Box>
               </Box>
             </Box>
@@ -517,8 +533,7 @@ const Webinar = (props: Props) => {
                       <Image src={eventTime} alt="booth icon" layout="fill" objectFit="cover" />
                     </Box>
                     <Box>
-                      <Typography variant="body_normal">Time</Typography>
-                      {/* <Typography variant="body_normal">{props.booth_number}</Typography> */}
+                      <Typography variant="body_normal">{props.time}</Typography>
                     </Box>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
@@ -527,8 +542,7 @@ const Webinar = (props: Props) => {
                     </Box>
                     <Box>
                       <Typography variant="body_normal">
-                        Date
-                        {/* {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>} */}
+                        {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
                       </Typography>
                     </Box>
                   </Box>
@@ -542,16 +556,15 @@ const Webinar = (props: Props) => {
                       />
                     </Box>
                     <Box>
-                      <Typography variant="body_normal">Location</Typography>
-                      {/* <Typography variant="body_normal">{props.location}</Typography> */}
+                      <Typography variant="body_normal">{props.location}</Typography>
                     </Box>
                   </Box>
                 </Box>
                 <HeaderForm {...props} />
                 <Box sx={{ display: { _: 'block', lg: 'none' }, mt: 6 }}>
-                  <DangerousDiv content={props.section_1_left_richtext} />
+                  <DangerousDiv content={props.section_1_richtext_1} />
                   <Box sx={listStyles}>
-                    <DangerousDiv content={props.section_1_right_richtext} />
+                    <DangerousDiv content={props.section_1_richtext_2} />
                   </Box>
                 </Box>
               </Box>
