@@ -457,6 +457,16 @@ type Props = {
 } & WebinarPage;
 
 const Webinar = (props: Props) => {
+  const time = useMemo(() => {
+    if (!props.time || !props.start_date) {
+      return null;
+    }
+    const date = new Date(props.start_date);
+    const startTime = new Date(`1970-01-01T${props.time}`).getTime();
+    date.setTime(startTime);
+    return format(date, 'HH:mm');
+  }, [props.time]);
+
   const startDate = useMemo(() => {
     if (!props.start_date) {
       return null;
@@ -533,7 +543,7 @@ const Webinar = (props: Props) => {
                       <Image src={eventTime} alt="booth icon" layout="fill" objectFit="cover" />
                     </Box>
                     <Box>
-                      <Typography variant="body_normal">{props.time}</Typography>
+                      <Typography variant="body_normal">{time && <>{time}</>}</Typography>
                     </Box>
                   </Box>
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
