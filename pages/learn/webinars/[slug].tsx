@@ -5,6 +5,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
+import Image from 'next/image';
+
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { useFormik, FormikHelpers } from 'formik';
@@ -12,6 +14,8 @@ import { FocusError } from 'focus-formik-error';
 import * as yup from 'yup';
 
 import { AxiosError } from 'axios';
+
+import { format } from 'date-fns';
 
 import countries from 'country-region-data/data.json';
 
@@ -31,6 +35,10 @@ import CCheckbox from 'src-new/elements/CCheckbox';
 import Link from 'src-new/elements/Link';
 import DangerousDiv from 'src-new/elements/DangerousDiv';
 import CMSImage from 'src-new/elements/CMSImage';
+
+import eventTime from 'public/new-images/icons/event-time-icon.svg';
+import eventDate from 'public/new-images/icons/event-date-icon.svg';
+import eventLocation from 'public/new-images/icons/event-location-icon.svg';
 
 const root: SxProps = {
   '& h3:not(.MuiTypography-root)': {
@@ -80,6 +88,7 @@ const headerSection: SxProps = {
 };
 
 const listStyles: SxProps = {
+  my: 6,
   '& ul': {
     pl: 2,
     py: 0,
@@ -100,10 +109,7 @@ const speakerItemStyles: SxProps = {
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'row',
-
-  '&:not(:last-of-type)': {
-    mb: 3,
-  },
+  mb: 6,
 };
 
 const speakerCardStyles: SxProps = {
@@ -119,6 +125,17 @@ const speakerCardStyles: SxProps = {
     display: 'flex',
     flexDirection: 'row',
   },
+};
+
+const detailStyles: SxProps = {
+  position: 'relative',
+  width: '100%',
+  minWidth: '30px',
+  maxWidth: '30px',
+  height: '30px',
+  borderRadius: '100%',
+  overflow: 'hidden',
+  mr: 2,
 };
 
 const formStyles: SxProps = {
@@ -440,6 +457,30 @@ type Props = {
 } & WebinarPage;
 
 const Webinar = (props: Props) => {
+  const time = useMemo(() => {
+    if (!props.time || !props.start_date) {
+      return null;
+    }
+    const date = new Date(props.start_date);
+    const startTime = new Date(`1970-01-01T${props.time}`).getTime();
+    date.setTime(startTime);
+    return format(date, 'HH:mm');
+  }, [props.time]);
+
+  const startDate = useMemo(() => {
+    if (!props.start_date) {
+      return null;
+    }
+    return format(new Date(props.start_date), 'MMM dd, yyyy');
+  }, [props.start_date]);
+
+  const endDate = useMemo(() => {
+    if (!props.end_date) {
+      return null;
+    }
+    return format(new Date(props.end_date), 'MMM dd, yyyy');
+  }, [props.end_date]);
+
   return (
     <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview} hideCTACard>
       <Box sx={root}>
@@ -463,13 +504,21 @@ const Webinar = (props: Props) => {
                 },
               }}
             >
-              <Typography variant="h2_new" sx={{ mb: 3 }}>
-                {props.header_title}
-              </Typography>
-              <Typography variant="body_big" sx={{ mb: 5 }}>
-                {props.header_text}
-              </Typography>
-              <SpeakerListItemSection speaker_items={props.speaker_items} />
+              <Box>
+                <Typography variant="h2_new" sx={{ mb: 3 }}>
+                  {props.header_title}
+                </Typography>
+                <Typography variant="body_big" sx={{ mb: 5 }}>
+                  {props.header_text}
+                </Typography>
+                <SpeakerListItemSection speaker_items={props.speaker_items} />
+              </Box>
+              <Box sx={{ display: { _: 'none', lg: 'block' } }}>
+                <DangerousDiv content={props.section_1_richtext_1} />
+                <Box sx={listStyles}>
+                  <DangerousDiv content={props.section_1_richtext_2} />
+                </Box>
+              </Box>
             </Box>
             <Box
               sx={{
@@ -488,47 +537,45 @@ const Webinar = (props: Props) => {
                   pl: { _: 0, lg: '100px' },
                 }}
               >
+                <Box sx={{ mb: 6 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventTime} alt="booth icon" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">{time && <>{time}</>}</Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image src={eventDate} alt="date icon" layout="fill" objectFit="cover" />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">
+                        {startDate && <>{startDate}</>} - {endDate && <>{endDate}</>}
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+                    <Box sx={detailStyles}>
+                      <Image
+                        src={eventLocation}
+                        alt="location icon"
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </Box>
+                    <Box>
+                      <Typography variant="body_normal">{props.location}</Typography>
+                    </Box>
+                  </Box>
+                </Box>
                 <HeaderForm {...props} />
-              </Box>
-            </Box>
-          </Box>
-        </Section>
-        <Section sx={{ pb: 10 }}>
-          <Box
-            sx={{
-              [MQ.lg]: {
-                display: 'flex',
-                flexDirection: 'row',
-              },
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  flex: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <DangerousDiv content={props.section_1_left_richtext} />
-            </Box>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                [MQ.lg]: {
-                  flex: 1,
-                  width: '50%',
-                },
-              }}
-            >
-              <Box sx={{ pl: { _: 0, lg: '100px' }, pt: { _: 4, lg: 0 } }}>
-                <Box sx={listStyles}>
-                  <DangerousDiv content={props.section_1_right_richtext} />
+                <Box sx={{ display: { _: 'block', lg: 'none' }, mt: 6 }}>
+                  <DangerousDiv content={props.section_1_richtext_1} />
+                  <Box sx={listStyles}>
+                    <DangerousDiv content={props.section_1_richtext_2} />
+                  </Box>
                 </Box>
               </Box>
             </Box>
