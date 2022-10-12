@@ -9,16 +9,53 @@ import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
+import Button from 'src-new/elements/Button';
 import Link from 'src-new/elements/Link';
 import CMSImage from 'src-new/elements/CMSImage';
+import DangerousDiv from 'src-new/elements/DangerousDiv';
 
 const headerSection: SxProps = {
   pt: 20,
   pb: 10,
   textAlign: 'center',
 
-  'p:last-of-type': {
-    mb: 0,
+  '& h5:not(.MuiTypography-root)': {
+    fontFamily: `'Avenir-Roman', 'Arial', sans-serif`,
+    color: COLORS.linkWater,
+    fontSize: '18px',
+    lineHeight: '28px',
+    fontWeight: 'normal',
+    margin: '0px 0px 24px',
+
+    [MQ.md]: {
+      fontSize: '24px',
+      lineHeight: '40px',
+    },
+  },
+
+  '& p:not(.MuiTypography-root):not(.Mui-error)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    color: COLORS.linkWater,
+
+    '& a': {
+      textDecoration: 'none',
+      color: COLORS.cornflower,
+      fontWeight: 600,
+    },
+
+    [MQ.md]: {
+      fontSize: '20px',
+      lineHeight: '32px',
+    },
+  },
+
+  '& small:not(.MuiTypography-root)': {
+    margin: '0px 0px 24px',
+    fontSize: '16px',
+    lineHeight: '28px',
+    letterSpacing: '0px',
   },
 };
 
@@ -66,11 +103,17 @@ const responsiveImg: SxProps = {
 };
 
 const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => {
-  const { resource_type, listing_image, listing_title, resource_document, resource_link } =
-    contentCard;
+  const {
+    resource_type,
+    listing_image,
+    listing_title,
+    listing_text,
+    resource_document,
+    resource_link,
+  } = contentCard;
 
   return (
-    <Box>
+    <Box sx={{ color: COLORS.linkWater }}>
       <Link
         href={resource_document ? resource_document.meta?.download_url : resource_link}
         muiProps={{ target: '_blank' }}
@@ -81,18 +124,19 @@ const ContentCardItem = ({ contentCard }: { contentCard: ResourceListItem }) => 
               <CMSImage value={listing_image[0].value} layout="fill" priority />
             )}
           </Box>
-          <Box flex={1}>
+          <Box>
             <Typography
               variant="body_small"
               sx={{ fontWeight: 600, color: COLORS.turquoise, mb: 1 }}
             >
               {resource_type}
             </Typography>
-            <Typography
-              sx={{ color: COLORS.linkWater, fontSize: '20px', lineHeight: '32px', mb: 0 }}
-            >
+            <Typography variant="body_small" sx={{ fontSize: '20px', lineHeight: '32px', mb: 1 }}>
               {listing_title}
             </Typography>
+          </Box>
+          <Box>
+            <Typography variant="body_small">{listing_text}</Typography>
           </Box>
         </Box>
       </Link>
@@ -142,10 +186,13 @@ const ResourceListing = (props: Props) => {
             {props.header_title}
           </Typography>
           <Box maxWidth={800} mx="auto">
-            <Typography variant="body_big" sx={{ mb: 5 }}>
-              {props.header_text}
-            </Typography>
+            <DangerousDiv content={props.header_richtext} />
           </Box>
+          {props.header_button && props.header_button[0] && (
+            <Button cmsValue={props.header_button[0].value} sx={{ mt: 1 }}>
+              {props.header_button[0].value.text}
+            </Button>
+          )}
         </Box>
       </Section>
       <Section bgcolor angleTop="topRight" sx={{ pt: 20, pb: { _: 15, lg: 40 } }}>

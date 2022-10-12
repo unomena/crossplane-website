@@ -42,6 +42,9 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
       if (image.height) {
         data = { ...data, height: image.height };
       }
+      if (!image.view_box && !image.width && !image.height) {
+        data = { ...data, layout: 'fill' };
+      }
       return data;
     }
     return undefined;
