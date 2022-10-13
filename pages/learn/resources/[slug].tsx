@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { COLORS, MQ } from 'src/theme';
 import { Box, SxProps, Typography } from '@mui/material';
 
 import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
+import axiosInstance from 'src-new/utils/axiosInstance';
 
 import PageProvider from 'src-new/components/PageProvider';
 import Section from 'src-new/components/Section';
@@ -204,11 +205,26 @@ const ResourceListing = (props: Props) => {
 
 export default ResourceListing;
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  let paths: { params: { slug: string } }[] = [];
+  try {
+    const res = await axiosInstance.get(`/api/v2/pages/?type=app.CloudPlatformResourcesPage`);
+    const resources = res.data.items;
+
+    paths = resources.map((resource: { meta: { slug: string } }) => ({
+      params: { slug: resource.meta.slug },
+    }));
+  } catch (error) {
+    console.log('get CloudPlatformResourcesPage paths', error);
+  }
+
+  return { paths, fallback: 'blocking' };
+};
+
 export const getStaticProps: GetStaticProps = async (context) => {
   const returnValue = await handleGetStaticProps(
     context,
-    '/learn/resources/cloud-platform-resources',
-    true
+    `/learn/resources/${context?.params?.slug}`
   );
 
   if (returnValue) {
