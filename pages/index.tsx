@@ -1,102 +1,55 @@
-import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 
-import {
-  Box,
-  Button as MuiButton,
-  Hidden,
-  SxProps,
-  TextField,
-  Tooltip,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
-import {
-  COLORS,
-  fontAvenirBold,
-  fontAvenirRoman,
-  fontAvenirRomanItalic,
-  gradient_1,
-  gradient_2,
-  MQ,
-} from 'src/theme';
+import { Box, Hidden, SxProps, Typography, useMediaQuery } from '@mui/material';
+import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 import { keyframes } from '@emotion/react';
 
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import validator from 'validator';
 
-import validator from 'validator';
+// import * as routes from 'src/routes';
 
-import * as routes from 'src/routes';
+import handleGetStaticProps from 'src/utils/handleGetStaticProps';
+import getRandomInt from 'src/utils/getRandomInt';
+import useOnScreen from 'src/utils/useOnScreen';
+// import getImageUrl from 'src/utils/getImageUrl';
 
-import handleGetStaticProps from 'src-new/utils/handleGetStaticProps';
-import getRandomInt from 'src-new/utils/getRandomInt';
-import useOnScreen from 'src-new/utils/useOnScreen';
-import getImageUrl from 'src-new/utils/getImageUrl';
+import crossplaneLogos from 'src/constants/crossplaneLogos';
 
-import crossplaneLogos from 'src-new/constants/crossplaneLogos';
-
-import PageProvider from 'src-new/components/PageProvider';
-import Section from 'src-new/components/Section';
-import Button from 'src-new/elements/Button';
-import Link from 'src-new/elements/Link';
-import MediaCard from 'src-new/elements/MediaCard';
-import CornerCard from 'src-new/elements/CornerCard';
-import CMSImage from 'src-new/elements/CMSImage';
-import { Img } from 'src/elements/Img';
-
-import FullArrowRight from 'src-new/svg/FullArrowRight';
-import ArrowRightRounded from 'src-new/svg/ArrowRightRounded';
-import headerBg from 'public/new-images/home-page/header-bg.jpg';
-import headerDiagram from 'public/new-images/home-page/header-diagram.svg';
-import headerDiagramMobile from 'public/new-images/home-page/header-diagram-mobile.svg';
-import bigQuotes from 'public/new-images/home-page/quotes/big-quotes.svg';
-import arrowCircle from 'public/new-images/icons/arrow-circle.svg';
-import gartnerLogo from 'public/new-images/media-cards/gartner_cool_vendor_2022.png';
+import PageProvider from 'src/components/PageProvider';
+import Section from 'src/components/Section';
+import Button from 'src/elements/Button';
+import Link from 'src/elements/Link';
+import CMSImage from 'src/elements/CMSImage';
+// import { Img } from 'src/elements/Img';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 24 },
   pb: 4,
   textAlign: 'center',
   color: COLORS.linkWater,
-  backgroundImage: `url(${headerBg.src})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'top center',
-
-  '@media screen and (min-width: 1980px)': {
-    backgroundSize: 'contain',
-  },
 };
 
-const discoverSection: SxProps = {
-  pt: { _: 10, md: 15 },
-  pb: { _: 10, lg: 32 },
-  backgroundImage: `url(${headerBg.src})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'top center',
-  backgroundSize: 'cover',
-};
+// const h1: SxProps = {
+//   ...fontAvenirBold,
+//   fontSize: '46px',
+//   lineHeight: '54px',
+//   letterSpacing: '-1.59px',
+//   mb: 3.5,
+//   ...gradient_1,
 
-const h1: SxProps = {
-  ...fontAvenirBold,
-  fontSize: '46px',
-  lineHeight: '54px',
-  letterSpacing: '-1.59px',
-  mb: 3.5,
-  ...gradient_1,
-
-  [MQ.md]: {
-    ...fontAvenirBold,
-    fontSize: '95px',
-    lineHeight: '104px',
-    letterSpacing: '-3.28px',
-  },
-};
+//   [MQ.md]: {
+//     ...fontAvenirBold,
+//     fontSize: '95px',
+//     lineHeight: '104px',
+//     letterSpacing: '-3.28px',
+//   },
+// };
 
 const headerButtons: SxProps = {
-  mt: { _: 5, sm: 7.5 },
+  mt: 6,
   mb: { _: 6, sm: 10 },
   display: 'flex',
   alignItems: 'center',
@@ -104,8 +57,6 @@ const headerButtons: SxProps = {
   flexDirection: { _: 'column', sm: 'row' },
 
   '& > button, a': {
-    width: { _: 225, sm: 'unset' },
-    minWidth: 208,
     mx: { _: 0, sm: '10px' },
 
     ':not(:last-of-type)': {
@@ -114,30 +65,13 @@ const headerButtons: SxProps = {
   },
 };
 
-const poweringTitle: SxProps = {
-  ...fontAvenirRoman,
-  fontSize: '14px',
-  lineHeight: '23px',
-  letterSpacing: '1.75px;',
-  mb: 3,
-
-  [MQ.md]: {
-    fontSize: '16px',
-    lineHeight: '40px',
-    letterSpacing: '2px',
-  },
-};
-
-const logosContainer: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  mb: 9,
-};
-
-const logoSVG: SxProps = {
-  position: 'relative',
-  mx: '25px',
+const subText: SxProps = {
+  ...fontAvenirBold,
+  color: COLORS.nileBlue,
+  fontSize: '18px',
+  textTransform: 'uppercase',
+  letterSpacing: '3.2px',
+  mb: 5,
 };
 
 const cpLeftColumns: SxProps = {
@@ -190,7 +124,7 @@ const cpLogoBoxColumn: SxProps = {
 const cpColumnShadow: SxProps = {
   backgroundImage:
     // eslint-disable-next-line max-len
-    'linear-gradient(270deg, rgba(13,36,54,0.20) 0%, rgba(13,36,54,0.85) 17%, #0D2436 51%, rgba(13,36,54,0.85) 82%, rgba(13,36,54,0.20) 100%)',
+    'linear-gradient(270deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.85) 17%, #FFF 51%, rgba(255,255,255,0.85) 82%, rgba(255,255,255,0.20) 100%)',
   width: 284,
   height: '100%',
   position: 'absolute',
@@ -201,7 +135,7 @@ const cpColumnShadow: SxProps = {
 const cpCenterBox: SxProps = {
   backgroundImage:
     // eslint-disable-next-line max-len
-    'linear-gradient(270deg, rgba(13,36,54,0.20) 0%, rgba(13,36,54,0.85) 17%, #0D2436 51%, rgba(13,36,54,0.85) 82%, rgba(13,36,54,0.20) 100%)',
+    'linear-gradient(270deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.85) 17%, #FFF 51%, rgba(255,255,255,0.85) 82%, rgba(255,255,255,0.20) 100%)',
   width: 474,
   height: 418,
   position: 'absolute',
@@ -220,29 +154,27 @@ const cpCenterBox: SxProps = {
 };
 
 const cpCenterBoxTitleNum: SxProps = {
-  ...fontAvenirRoman,
-  color: '#fff',
+  ...fontAvenirBold,
+  color: COLORS.froly,
   fontSize: '50px',
   lineHeight: '50px',
 
   [MQ.lg]: {
     fontSize: '74px',
     lineHeight: '36px',
-    mb: 1.5,
+    mb: 2,
   },
 };
 
 const cpCenterBoxTitleText: SxProps = {
   ...fontAvenirBold,
-  color: '#fff',
-  fontSize: '20px',
-  lineHeight: '24px',
-  mb: 1.5,
+  color: COLORS.nileBlue,
+  fontSize: '22px',
+  lineHeight: '26px',
 
   [MQ.lg]: {
-    fontSize: '24px',
-    lineHeight: '36px',
-    mb: 3,
+    fontSize: '26px',
+    lineHeight: '38px',
   },
 };
 
@@ -293,301 +225,25 @@ const pulsate = keyframes`
   to { opacity: 1; }
 `;
 
-const smallTitleStyle: SxProps = {
-  ...fontAvenirRoman,
-  ml: 1.5,
-  fontSize: '13px',
-  lineHeight: '16px',
-  letterSpacing: '-0.13px',
-
-  [MQ.md]: {
-    fontSize: '20px',
-    lineHeight: '56px',
-    letterSpacing: '-0.2px',
-  },
-};
-
-const quoteSectionLeftContainer: SxProps = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  height: '100%',
-  width: '40%',
-};
-
-const quoteSectionLeftInner: SxProps = {
-  width: '100%',
-  height: '100%',
-  clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0% 100%)',
-  backgroundImage: `linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
-  backgroundPosition: 'center',
-};
-
-const quoteSectionContainerMobile: SxProps = {
-  width: '100%',
-  height: 460,
-  backgroundImage: `linear-gradient(-62deg, #3DE2CB 0%, #6D64F5 100%)`,
-  backgroundPosition: 'center',
-};
-
-const quoteSectionLeftBg: SxProps = {
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  transition: 'opacity 0.5s',
-};
-
-const quoteSectionBgMobile: SxProps = {
-  backgroundPosition: 'center',
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  transition: 'opacity 0.5s',
-};
-
-const quoteSectionLeftLogo: SxProps = {
-  position: 'absolute',
-  top: '58%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '100%',
-  transition: 'opacity 0.5s',
-};
-
-const quoteSectionLogoMobile: SxProps = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  transition: 'opacity 0.5s',
-};
-
-const quoteSectionRightContainer: SxProps = {
-  width: '100%',
-  maxWidth: 660,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  position: 'relative',
-};
-
-const quoteSectionQuoteLogos: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  '& > div:not(:last-of-type)': {
-    mr: 1.5,
-  },
-};
-
-const quoteSectionQuoteLogoBox: SxProps = {
-  bgcolor: COLORS.bigStone,
-  px: '18px',
-  py: '34px',
-  width: 116,
-  height: 108,
-  border: `2px solid ${COLORS.bigStone}`,
-  borderRadius: '10px',
-  boxShadow: '0 15px 35px 0 rgba(0,0,0,0.05)',
-  transition: 'all 0.5s',
-
-  '&:hover': {
-    backgroundColor: '#23435C',
-    transform: `scale(1.05)`,
-    cursor: 'pointer',
-  },
-};
-
-const quoteSectionQuoteLogoBoxActive: SxProps = {
-  bgcolor: '#23435C',
-  position: 'relative',
-  border: `2px solid transparent`,
-  backgroundClip: 'padding-box',
-  transition: 'none',
-
-  '&:before': {
-    content: "''",
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    zIndex: -1,
-    margin: '-2px',
-    borderRadius: 'inherit',
-    background: 'linear-gradient(-45deg, #6D64F5 0, #C9C3FF 100%)',
-  },
-
-  '&:hover': {},
-};
-
-const registerFormContainer: SxProps = {
-  backgroundImage: 'linear-gradient(-57deg, #FAAD13 0%, #6D64F5 100%)',
-  borderRadius: '10px',
-  height: { xl: 280 },
-  px: '22px',
-  py: '24px',
-  mb: { xl: 2.5 },
-  display: 'flex',
-  flexDirection: 'column',
-};
-
-const registerFormTitle: SxProps = {
-  ...fontAvenirBold,
-  color: '#fff',
-  mb: 2.5,
-  fontSize: '22px',
-  lineHeight: '27px',
-
-  [MQ.md]: {
-    fontSize: '30px',
-    lineHeight: '36px',
-  },
-};
-
-const registerFormField: SxProps = {
-  mb: 2.5,
-  '& > .MuiOutlinedInput-root': {
-    bgcolor: '#fff',
-    borderRadius: '8px',
-
-    '& > input': {
-      p: '12.5px 14px',
-    },
-
-    '&.Mui-focused': {
-      '& > .MuiOutlinedInput-notchedOutline': {
-        borderColor: COLORS.cornflower,
-        borderWidth: '1px',
-      },
-    },
-
-    '& > .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'transparent',
-    },
-  },
-};
-
-const registerFormSubmit: SxProps = {
-  ...fontAvenirBold,
-  fontSize: '16px',
-  lineHeight: '25px',
-  color: '#fff',
-  display: 'flex',
-  alignItems: 'center',
-};
-
-const visitCard: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  px: 2.5,
-  py: 2.5,
-
-  [MQ.sm]: {
-    minHeight: 100,
-  },
-
-  [MQ.xl]: {
-    pl: 2.5,
-    pr: 0,
-    maxWidth: 150,
-    minHeight: 'unset',
-  },
-};
-
-const ctaBox: SxProps = {
-  [MQ.md]: {
-    '& p': {
-      maxWidth: 600,
-    },
-  },
-};
-
 const HeaderSection = (props: HomePageHeader) => {
-  const logosSectionRef = useRef(undefined);
-  const isVisible = useOnScreen(logosSectionRef);
-
   return (
     <>
-      <Typography variant="h1_new" sx={h1}>
+      <Typography variant="h2" sx={{ color: `${COLORS.linkWater}`, mb: 5 }}>
         {props.title}
       </Typography>
-      <Typography variant="body_big">{props.subtitle}</Typography>
+      <Typography
+        variant="body_normal"
+        sx={{ color: `${COLORS.linkWater}`, maxWidth: { _: 300, md: 950 }, mx: 'auto' }}
+        color={COLORS.linkWater}
+      >
+        {props.subtitle}
+      </Typography>
       <Box sx={headerButtons}>
         {props.buttons.map(({ id, value }) => (
-          <Button key={id} sizeType="large" cmsValue={value}>
+          <Button key={id} sizeType="normal" cmsValue={value}>
             {value.text}
           </Button>
         ))}
-      </Box>
-      <Box ref={logosSectionRef}>
-        <Typography sx={poweringTitle}>{props.partner_images_header}</Typography>
-        <Hidden smDown>
-          <Box sx={logosContainer}>
-            {props.partner_images.map(({ id, value }) => (
-              <Box key={id} sx={{ ...logoSVG, width: value.width, height: value.height }}>
-                <CMSImage value={value} />
-              </Box>
-            ))}
-          </Box>
-        </Hidden>
-        <Hidden smUp>
-          <Box
-            sx={{
-              maxWidth: 400,
-              mx: 'auto',
-              '.slide > div': {
-                opacity: '.3',
-                minHeight: 80,
-                transition: 'all 0.5s',
-              },
-
-              '.selected > div': {
-                opacity: '1',
-                transform: 'scale(1.5)',
-              },
-            }}
-          >
-            <Carousel
-              showArrows={false}
-              showStatus={false}
-              showIndicators={false}
-              autoPlay={isVisible}
-              infiniteLoop={true}
-              centerMode={true}
-              centerSlidePercentage={50}
-              stopOnHover={false}
-              showThumbs={false}
-              swipeable={false}
-            >
-              {props.partner_images.map(({ id, value }) => (
-                <Box
-                  key={id}
-                  sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                >
-                  <Box sx={{ position: 'relative', width: value.width, height: value.height }}>
-                    <CMSImage value={value} />
-                  </Box>
-                </Box>
-              ))}
-            </Carousel>
-          </Box>
-        </Hidden>
-      </Box>
-      <Box sx={{ position: 'relative' }}>
-        <Hidden smDown>
-          <Image src={headerDiagram} alt="headerDiagram" />
-        </Hidden>
-        <Hidden smUp>
-          <Image src={headerDiagramMobile} alt="headerDiagramMobile" layout="responsive" />
-        </Hidden>
       </Box>
     </>
   );
@@ -914,9 +570,20 @@ const CrossplaneLogosSection = (props: HomePage) => {
           ))}
         </Box>
         <Box sx={{ ...cpCenterBox, opacity: show ? 1 : 0 }}>
-          <Typography sx={cpCenterBoxTitleNum}>{props.section_1_center_title_count}</Typography>
-          <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
-          <Typography variant="body_normal" sx={{ maxWidth: 320 }}>
+          <Box
+            sx={{
+              backgroundColor: '#fff',
+              borderRadius: '20px',
+              boxShadow: '1px 0px 16px 2px rgba(215,215,215,0.5)',
+              mb: 3,
+            }}
+          >
+            <Box sx={{ p: '62px 40px 32px 40px' }}>
+              <Typography sx={cpCenterBoxTitleNum}>{props.section_1_center_title_count}</Typography>
+              <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
+            </Box>
+          </Box>
+          <Typography variant="body_small" sx={{ maxWidth: 320 }}>
             {props.section_1_center_text}
           </Typography>
           {props.section_1_button[0] && (
@@ -969,12 +636,27 @@ const CrossplaneLogosSection = (props: HomePage) => {
             ))}
           </Box>
           <Box sx={{ my: 3 }}>
-            <Typography sx={cpCenterBoxTitleNum}>5K+</Typography>
-            <Typography sx={cpCenterBoxTitleText}>Slack Members</Typography>
-            <Typography variant="body_normal">Adopted by hundreds of amazing companies</Typography>
-            <Button styleType="cornflowerContained" sx={{ mt: 2 }} href={routes.crossplaneUrl}>
-              Learn more about Crossplane
-            </Button>
+            <Box
+              sx={{
+                backgroundColor: '#fff',
+                borderRadius: '20px',
+                boxShadow: '1px 0px 16px 2px rgba(215,215,215,0.5)',
+                mb: 3,
+              }}
+            >
+              <Box sx={{ p: '40px' }}>
+                <Typography sx={cpCenterBoxTitleNum}>
+                  {props.section_1_center_title_count}
+                </Typography>
+                <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
+              </Box>
+            </Box>
+            <Typography variant="body_small">{props.section_1_center_text}</Typography>
+            {props.section_1_button[0] && (
+              <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
+                {props.section_1_button[0].value.text}
+              </Button>
+            )}
           </Box>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {cpLogosListBottomMobile.map((logo, index) => (
@@ -1002,26 +684,21 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
   const reversed = index % 2 !== 0;
 
   const {
-    header_svg,
-    header_text,
+    // header_svg,
+    // header_text,
     title,
     text,
     link_text,
     link,
     side_svg_big,
-    side_svg_small,
-    side_svg_small_top_offset,
-    side_svg_small_right_offset,
+    // side_svg_small,
+    // side_svg_small_top_offset,
+    // side_svg_small_right_offset,
     side_svg_big_mobile,
-    side_svg_small_mobile,
-    side_svg_small_top_offset_mobile,
-    side_svg_small_right_offset_mobile,
+    // side_svg_small_mobile,
+    // side_svg_small_top_offset_mobile,
+    // side_svg_small_right_offset_mobile,
   } = feature;
-
-  let smallTitleGradient = gradient_1;
-  if (reversed) {
-    smallTitleGradient = gradient_2;
-  }
 
   const hiddenBarRef = useRef(undefined);
   const isVisible = useOnScreen(hiddenBarRef);
@@ -1063,7 +740,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           },
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+        {/* <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
           {header_svg && (
             <Box
               sx={{
@@ -1081,8 +758,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
             </Box>
           )}
           <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{header_text}</Typography>
-        </Box>
-        <Typography variant="h2_new" sx={{ maxWidth: 450, mb: 2.5 }}>
+        </Box> */}
+        <Typography variant="h2" sx={{ maxWidth: 450, mb: 2.5 }}>
           {title}
         </Typography>
         <Typography variant="body_normal" sx={{ maxWidth: 496 }}>
@@ -1092,7 +769,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           href={link[0].value}
           muiProps={{
             target: link[0].type === 'external_url' ? '_blank' : undefined,
-            color: reversed ? COLORS.sun : COLORS.turquoise,
+            color: reversed ? COLORS.brightSun : COLORS.froly,
             sx: { mt: 5 },
           }}
           hasArrow
@@ -1148,7 +825,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               </Hidden>
             )}
           </Box>
-          {side_svg_small && (
+          {/* {side_svg_small && (
             <Hidden lgDown>
               <Box
                 sx={{
@@ -1183,7 +860,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
                 <CMSImage value={{ svg_image: side_svg_small_mobile }} />
               </Box>
             </Hidden>
-          )}
+          )} */}
         </Box>
       </Box>
     </Box>
@@ -1207,697 +884,46 @@ const FeaturesSection = (props: HomePage) => {
   );
 };
 
-type QuoteSectionProps = {
-  testimonials: Testimonial[];
-  quoteless_testimonials: Testimonial[];
-};
-
-const QuoteSection = ({ testimonials, quoteless_testimonials }: QuoteSectionProps) => {
-  const quoteSectionRef = useRef(undefined);
-  const isVisible = useOnScreen(quoteSectionRef);
-  const [activeQuote, _setActiveQuote] = useState(0);
-
-  const activeQuoteRef = useRef(activeQuote);
-  const setActiveQuote = (val: number) => {
-    activeQuoteRef.current = val;
-    _setActiveQuote(val);
-  };
-
-  useEffect(() => {
-    let t: NodeJS.Timeout;
-    if (isVisible) {
-      t = setInterval(() => {
-        if (activeQuoteRef.current === testimonials.length - 1) {
-          setActiveQuote(0);
-        } else {
-          setActiveQuote(activeQuoteRef.current + 1);
-        }
-      }, 4000);
-    }
-    return () => {
-      clearInterval(t);
-    };
-  }, [isVisible]);
-
-  return (
-    <Box ref={quoteSectionRef} sx={{ display: 'flex', color: COLORS.linkWater }}>
-      <Hidden xlDown>
-        <Box sx={{ flex: 1 }}>
-          <Box sx={quoteSectionLeftContainer}>
-            <Box sx={quoteSectionLeftInner}>
-              {testimonials.map((quote, index) => (
-                <Box
-                  key={quote.id}
-                  sx={{
-                    ...quoteSectionLeftBg,
-                    backgroundImage: `url("${quote.bg_image[0].url}")`,
-                    opacity: activeQuote === index ? 1 : 0,
-                  }}
-                />
-              ))}
-              {testimonials.map((quote, index) => (
-                <Box
-                  key={quote.id}
-                  sx={{
-                    ...quoteSectionLeftLogo,
-                    opacity: activeQuote === index ? 1 : 0,
-                  }}
-                >
-                  <Box sx={{ position: 'relative', width: '100%', height: 75 }}>
-                    <Image
-                      src={quote.logo[0].url}
-                      alt="quote-logo"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Box>
-                </Box>
-              ))}
-            </Box>
-            <Box sx={{ position: 'absolute', top: 64, right: 46 }}>
-              <Box sx={{ position: 'relative' }}>
-                <Image src={bigQuotes} alt="big-quotes" />
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-        <Box sx={quoteSectionRightContainer}>
-          {testimonials.map((quote, index) => (
-            <Box
-              key={quote.id}
-              sx={{
-                mb: activeQuote === index ? 7 : 0,
-                opacity: activeQuote === index ? 1 : 0,
-                transition: 'opacity 0.5s',
-                position: activeQuote === index ? 'relative' : 'absolute',
-                top: 0,
-              }}
-            >
-              <Box sx={{ minHeight: 275, mb: 4.5 }}>
-                <Typography variant="h2_new" sx={{ mb: 3 }}>
-                  {quote.title}
-                </Typography>
-                <Typography variant="body_normal">{quote.text}</Typography>
-              </Box>
-              <Typography variant="h6_new" sx={{ mb: '2px' }}>
-                {quote.author}
-              </Typography>
-              <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
-                {quote.author_job_title}
-              </Typography>
-            </Box>
-          ))}
-          <Box sx={quoteSectionQuoteLogos}>
-            {testimonials.map((quote, index) => {
-              let styles = quoteSectionQuoteLogoBox;
-              if (index === activeQuote) {
-                styles = { ...styles, ...quoteSectionQuoteLogoBoxActive };
-              }
-              return (
-                <Box key={quote.id} sx={styles} onClick={() => setActiveQuote(index)}>
-                  <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <Image
-                      src={quote.logo[0].url}
-                      alt="quote-logo"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Box>
-                </Box>
-              );
-            })}
-            {quoteless_testimonials.map((quote) => {
-              return (
-                <Box key={quote.id} sx={{ ...quoteSectionQuoteLogoBox, '&:hover': {} }}>
-                  <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-                    <Image
-                      src={quote.logo[0].url}
-                      alt="quote-logo"
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Box>
-                </Box>
-              );
-            })}
-          </Box>
-        </Box>
-      </Hidden>
-      <Hidden xlUp>
-        <Box sx={quoteSectionContainerMobile}>
-          {testimonials.map((quote, index) => {
-            return (
-              <Box
-                key={quote.id}
-                sx={{
-                  height: '100%',
-                  pt: 7,
-                  pb: 4,
-                  px: 2,
-                  zIndex: 0,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  position: activeQuote === index ? 'relative' : 'absolute',
-                  opacity: activeQuote === index ? 1 : 0,
-                }}
-              >
-                <Box
-                  sx={{
-                    ...quoteSectionBgMobile,
-                    backgroundImage: `url("${quote.bg_image[0].url}")`,
-                    zIndex: -1,
-                  }}
-                />
-                <Box sx={{ position: 'relative', height: 25, mb: 4 }}>
-                  <Box
-                    sx={{
-                      ...quoteSectionLogoMobile,
-                      opacity: activeQuote === index ? 1 : 0,
-                    }}
-                  >
-                    <Box sx={{ position: 'relative' }}>
-                      <CMSImage value={{ svg_image: quote.logo[0] }} />
-                    </Box>
-                  </Box>
-                </Box>
-                <Box
-                  sx={{
-                    // minHeight: 275,
-                    mb: 2.5,
-                  }}
-                >
-                  <Typography variant="h2_new" sx={{ mb: 1.5 }}>
-                    {quote.title}
-                  </Typography>
-                  <Typography variant="body_normal">{quote.text}</Typography>
-                </Box>
-                <Typography variant="h6_new" sx={{ mb: '2px' }}>
-                  {quote.author}
-                </Typography>
-                <Typography variant="body_xs" sx={{ ...fontAvenirRomanItalic }}>
-                  {quote.author_job_title}
-                </Typography>
-              </Box>
-            );
-          })}
-          <Box sx={{ position: 'absolute', bottom: -24, right: 16 }}>
-            <Box sx={{ position: 'relative' }}>
-              <Image src={bigQuotes} alt="big-quotes" width={72} height={57} />
-            </Box>
-          </Box>
-        </Box>
-      </Hidden>
-    </Box>
-  );
-};
-
-const MediaCard_1 = (props: HomePage) => {
-  const matchesXL = useMediaQuery(MQ.xl);
-
-  const data = useMemo(() => {
-    return {
-      img: getImageUrl(props.learn_more_tile_1_header_image[0]),
-      authorImg: getImageUrl(props.learn_more_tile_1_header_author_image[0]),
-      author: props.learn_more_tile_1_author_name,
-      type: props.learn_more_tile_1_resource_type,
-      title: props.learn_more_tile_1_resource_title,
-      body: matchesXL ? props.learn_more_tile_1_resource_snippet : '',
-      date: props.learn_more_tile_1_resource_date,
-      pillText: props.learn_more_tile_1_pill_text,
-      href:
-        props.learn_more_tile_1_link &&
-        props.learn_more_tile_1_link[0] &&
-        props.learn_more_tile_1_link[0].value,
-      linkType:
-        props.learn_more_tile_1_link &&
-        props.learn_more_tile_1_link[0] &&
-        props.learn_more_tile_1_link[0].type,
-      videoId: props.learn_more_tile_1_video_id,
-    };
-  }, [props, matchesXL]);
-  console.log(props.learn_more_tile_1_link);
-  return (
-    <MediaCard
-      imgHeight={matchesXL ? 260 : 180}
-      authorImgSize="big"
-      titleVariant="h4_new"
-      {...data}
-    />
-  );
-};
-
-const MediaCard_2 = (props: HomePage) => {
-  const matchesXL = useMediaQuery(MQ.xl);
-
-  const data = useMemo(() => {
-    return {
-      img: matchesXL ? getImageUrl(props.learn_more_tile_2_header_image[0]) : null,
-      author: props.learn_more_tile_2_author_name,
-      type: props.learn_more_tile_2_resource_type,
-      title: props.learn_more_tile_2_resource_title,
-      body: matchesXL ? props.learn_more_tile_2_resource_snippet : '',
-      date: props.learn_more_tile_2_resource_date,
-      pillText: props.learn_more_tile_2_pill_text,
-      href:
-        props.learn_more_tile_2_link &&
-        props.learn_more_tile_2_link[0] &&
-        props.learn_more_tile_2_link[0].value,
-      linkType:
-        props.learn_more_tile_2_link &&
-        props.learn_more_tile_2_link[0] &&
-        props.learn_more_tile_2_link[0].type,
-      videoId: props.learn_more_tile_2_video_id,
-    };
-  }, [props, matchesXL]);
-
-  return (
-    <MediaCard
-      layout={matchesXL ? 'horizontal' : 'vertical'}
-      imgHeight={130}
-      imgWidth={130}
-      {...data}
-    />
-  );
-};
-
-const MediaCard_3 = (props: HomePage) => {
-  const data = useMemo(() => {
-    return {
-      img: getImageUrl(props.learn_more_tile_3_header_image[0]),
-      authorImg: getImageUrl(props.learn_more_tile_3_header_author_image[0]),
-      author: props.learn_more_tile_3_author_name,
-      type: props.learn_more_tile_3_resource_type,
-      title: props.learn_more_tile_3_resource_title,
-      body: props.learn_more_tile_3_resource_snippet,
-      date: props.learn_more_tile_3_resource_date,
-      pillText: props.learn_more_tile_3_pill_text,
-      href:
-        props.learn_more_tile_3_link &&
-        props.learn_more_tile_3_link[0] &&
-        props.learn_more_tile_3_link[0].value,
-      linkType:
-        props.learn_more_tile_3_link &&
-        props.learn_more_tile_3_link[0] &&
-        props.learn_more_tile_3_link[0].type,
-      videoId: props.learn_more_tile_3_video_id,
-    };
-  }, [props]);
-
-  return <MediaCard {...data} />;
-};
-
-const RegisterForm = (props: HomePage) => {
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  useEffect(() => {
-    if (email) {
-      if (validator.isEmail(email)) {
-        setEmailError('');
-      } else {
-        setEmailError('Please enter a valid email');
-      }
-    } else {
-      setEmailError('');
-    }
-  }, [email]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const submitEmail = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (validator.isEmail(email)) {
-      setEmailSubmitted(true);
-    } else {
-      setEmailError('Please enter a valid email');
-    }
-  };
-
-  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      setLoading(true);
-      const response = await fetch(
-        'https://api.hsforms.com/submissions/v3/integration/submit/5557732/4d8994c1-6bcd-4fad-8e77-55e3453b3f33',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            submittedAt: new Date().toISOString(),
-            fields: [
-              {
-                objectTypeId: '0-1',
-                name: 'email',
-                value: email,
-              },
-              {
-                objectTypeId: '0-1',
-                name: 'newsletter_subscriber',
-                value: email,
-              },
-            ],
-            legalConsentOptions: {
-              consent: {
-                // Include this object when GDPR options are enabled
-                consentToProcess: true,
-                text: `Yes, I wish to subscribe to stay in the know about exciting product
-                announcements and educational material. You can always unsubscribe in the
-                email footer. Read our Privacy Policy to learn more.`,
-                communications: [
-                  {
-                    value: true,
-                    subscriptionTypeId: 999,
-                    text: `Yes, I wish to subscribe to stay in the know about exciting product
-                    announcements and educational material. You can always unsubscribe in the
-                    email footer. Read our Privacy Policy to learn more.`,
-                  },
-                ],
-              },
-            },
-          }),
-        }
-      );
-
-      const json = await response.json();
-
-      setLoading(false);
-
-      if ('inlineMessage' in json) {
-        setFormSubmitted(true);
-        return;
-      }
-
-      setSubmitError(true);
-    } catch (error) {
-      console.log('newsletter form error', error);
-      setSubmitError(true);
-    }
-  };
-
-  return (
-    <Box sx={registerFormContainer}>
-      {formSubmitted ? (
-        <Typography sx={{ color: '#fff', fontSize: 20, ...fontAvenirBold }}>
-          Thank you for your interest! We hope you enjoy our monlty newsletter.
-        </Typography>
-      ) : submitError ? (
-        <Typography sx={{ color: '#fff', fontSize: 20, ...fontAvenirBold }}>
-          Something went wrong, please try again later.
-        </Typography>
-      ) : emailSubmitted ? (
-        <>
-          <Typography sx={{ color: '#fff' }}>
-            <Typography variant="inherit" sx={{ ...fontAvenirBold }}>
-              Yes, I wish to subscribe to stay in the know about exciting product announcements and
-              educational material.
-            </Typography>
-            You can always unsubscribe in the email footer. Read our Privacy Policy to learn more.
-          </Typography>
-          <Box sx={{ mt: 'auto', color: '#fff' }}>
-            <form onSubmit={submitForm}>
-              <MuiButton
-                sx={{ textTransform: 'none', mt: '-6px', ml: '-8px' }}
-                disableRipple
-                type="submit"
-                disabled={loading}
-              >
-                <Typography
-                  component="span"
-                  sx={{ ...registerFormSubmit, opacity: loading ? 0.6 : 1 }}
-                >
-                  Submit
-                  <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
-                    <ArrowRightRounded height={11} color="currentColor" />
-                  </Box>
-                </Typography>
-              </MuiButton>
-            </form>
-          </Box>
-        </>
-      ) : (
-        <>
-          <Typography sx={registerFormTitle}>{props.learn_more_tile_4_title}</Typography>
-          <form onSubmit={submitEmail}>
-            <Tooltip
-              onClose={() => setEmailError('')}
-              open={!!emailError}
-              title={emailError}
-              arrow
-              placement="top"
-            >
-              <TextField
-                fullWidth
-                variant="outlined"
-                placeholder="Your Email"
-                size="small"
-                name="email"
-                sx={registerFormField}
-                value={email}
-                onChange={handleChange}
-                error={!!emailError}
-              />
-            </Tooltip>
-            <MuiButton
-              sx={{ textTransform: 'none', color: '#fff', mt: '-6px', ml: '-8px' }}
-              disableRipple
-              type="submit"
-              disabled={!!emailError}
-            >
-              <Typography
-                component="span"
-                sx={{ ...registerFormSubmit, opacity: !!emailError ? 0.6 : 1 }}
-              >
-                Continue
-                <Box component="span" sx={{ display: 'flex', ml: 1.5 }}>
-                  <ArrowRightRounded height={11} color="currentColor" />
-                </Box>
-              </Typography>
-            </MuiButton>
-          </form>
-        </>
-      )}
-    </Box>
-  );
-};
-
-const VisitBlogCard = (props: HomePage) => {
-  return (
-    <CornerCard
-      icon={arrowCircle}
-      iconSize="small"
-      withPadding={false}
-      href={props.learn_more_tile_5_link[0].value}
-    >
-      <Box sx={visitCard}>
-        <Typography variant="h6_new">{props.learn_more_tile_5_title}</Typography>
-      </Box>
-    </CornerCard>
-  );
-};
-
 type Props = {
   isPreview?: boolean;
 } & HomePage;
 
 const Home = (props: Props) => {
-  const matchesXL = useMediaQuery(MQ.xl);
-
   return (
-    <PageProvider
-      cms_head_props={props.cms_head_props}
-      isPreview={props.isPreview}
-      gartnerFooter
-      ctaTitle="A better cloud is coming"
-      ctaParagraph={
-        'Upbound Cloud completely transforms the way you build your internal cloud platform.'
-      }
-      ctaBtnText="Get on the List"
-      ctaBtnLink="/upbound-preview"
-      ctaCustomSx={ctaBox}
-    >
+    <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview}>
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
       </Section>
 
       <Section
         bgcolor
-        angleTopBottom="topBtmRight"
-        sx={{ pt: { _: 16, md: 23.5 }, pb: { _: 16, md: 23.5 }, textAlign: 'center' }}
+        angleTop="topRight"
+        sx={{
+          pt: { _: 16, md: 23.5 },
+          pb: { _: 16, md: 23.5 },
+          textAlign: 'center',
+          backgroundColor: '#fff',
+        }}
       >
-        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-          <Typography variant="h2_new" sx={{ mb: 2.5, maxWidth: { _: 400, md: 800 } }}>
+        <Box sx={{ maxWidth: 950, mx: 'auto' }}>
+          <Typography variant="h2" sx={{ mb: 2.5 }}>
             {props.section_1_title}
           </Typography>
+          <Typography variant="body_normal">{props.section_1_sub_title}</Typography>
+          {props.section_1_button[0] && (
+            <Button sx={{ mt: 3.5, mb: 8 }} cmsValue={props.section_1_button[0].value}>
+              {props.section_1_button[0].value.text}
+            </Button>
+          )}
         </Box>
-        <Hidden smDown>
-          <Typography variant="body_normal" sx={{ mb: 8, mx: 'auto' }}>
-            {props.section_1_sub_title}
-          </Typography>
-        </Hidden>
-        <Hidden smUp>
-          <Typography variant="body_big" sx={{ mb: 8, mx: 'auto', maxWidth: 480 }}>
-            {props.section_1_sub_title}
-          </Typography>
-        </Hidden>
+        <Typography sx={subText}>
+          Started by Upbound and adopted by the cloud native community
+        </Typography>
         <CrossplaneLogosSection {...props} />
       </Section>
 
-      <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative' }}>
+      <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative', backgroundColor: '#fff' }}>
         <FeaturesSection {...props} />
-      </Section>
-
-      {props.testimonials && (
-        <Section
-          bgcolor
-          angleTop="topRight"
-          hasContainer={matchesXL}
-          sx={{
-            position: 'relative',
-            pt: { xl: 18 },
-            pb: { xl: 7.5 },
-          }}
-        >
-          <QuoteSection
-            testimonials={props.testimonials}
-            quoteless_testimonials={props.quoteless_testimonials}
-          />
-        </Section>
-      )}
-
-      <Section sx={discoverSection}>
-        <Hidden xlDown>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 5, color: COLORS.linkWater }}>
-            <Typography variant="h2_new">{props.learn_more_section_title}</Typography>
-            <Box sx={{ display: 'flex', ml: 3.5 }}>
-              <FullArrowRight width={32} height={32} />
-            </Box>
-          </Box>
-          <Box sx={{ display: 'flex', height: 550 }}>
-            <Box sx={{ height: '100%', width: 540 }}>
-              <MediaCard_1 {...props} />
-            </Box>
-            <Box sx={{ flex: 1, ml: 2.5 }}>
-              <Box sx={{ height: 130, width: '100%', mb: 2.5 }}>
-                <MediaCard_2 {...props} />
-              </Box>
-              <Box sx={{ display: 'flex' }}>
-                <Box sx={{ flex: 1, width: '50%', height: 400, mr: '10px' }}>
-                  <MediaCard_3 {...props} />
-                </Box>
-                <Box
-                  sx={{
-                    flex: 1,
-                    width: '50%',
-                    ml: '10px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                  }}
-                >
-                  <RegisterForm {...props} />
-                  <Box sx={{ flex: 1 }}>
-                    <VisitBlogCard {...props} />
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
-        </Hidden>
-        <Hidden xlUp>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Box sx={{ width: '100%', maxWidth: 400 }}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  mb: 5,
-                  color: COLORS.linkWater,
-                }}
-              >
-                <Typography variant="h2_new">Learn more</Typography>
-                <Hidden mdDown>
-                  <Box sx={{ display: 'flex', ml: 3.5 }}>
-                    <FullArrowRight width={32} height={32} />
-                  </Box>
-                </Hidden>
-                <Hidden mdUp>
-                  <Box sx={{ display: 'flex', ml: 1.5 }}>
-                    <FullArrowRight width={18} height={18} />
-                  </Box>
-                </Hidden>
-              </Box>
-            </Box>
-            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_1 {...props} />
-            </Box>
-            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_2 {...props} />
-            </Box>
-            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <MediaCard_3 {...props} />
-            </Box>
-            <Box sx={{ width: '100%', maxWidth: 400, mb: 1.5 }}>
-              <RegisterForm {...props} />
-            </Box>
-            <Box sx={{ width: '100%', maxWidth: 400 }}>
-              <VisitBlogCard {...props} />
-            </Box>
-          </Box>
-        </Hidden>
-        <a
-          href="https://www.gartner.com/en"
-          target="_blank"
-          rel="noreferrer"
-          style={{ textDecoration: 'none' }}
-        >
-          <Box
-            sx={{
-              backgroundColor: COLORS.bigStone,
-              borderRadius: '10px',
-              width: '100%',
-              maxWidth: 400,
-              p: '30px',
-              mt: 1.5,
-              mx: 'auto',
-              [MQ.xl]: {
-                display: 'flex',
-                alignItems: 'center',
-                maxWidth: '100%',
-                mt: '20px',
-              },
-            }}
-          >
-            <Box
-              sx={{
-                mb: '30px',
-                [MQ.xl]: {
-                  mr: '23px',
-                  mb: '0',
-                },
-              }}
-            >
-              <Img src={gartnerLogo} alt="Gartner logo" width={140} />
-            </Box>
-            <Box>
-              <Typography variant="h4_new" sx={{ mb: 2, fontSize: '28px !important' }}>
-                Upbound named a Gartner "Cool Vendor™ in Cloud Computing"
-              </Typography>
-              <Typography variant="body_normal" sx={{ fontSize: '18px !important' }}>
-                Exciting news... Upbound has just been named a "Cool Vendor" by Gartner*! What do we
-                think it takes to be named a Gartner Cool Vendor? Innovation, Impact and Intrigue.
-                Check out the full report.
-              </Typography>
-            </Box>
-          </Box>
-        </a>
       </Section>
     </PageProvider>
   );
@@ -1905,7 +931,440 @@ const Home = (props: Props) => {
 
 export default Home;
 
+// const tempData = {
+//   id: 3,
+//   meta: {
+//     type: 'app.HomePage',
+//     detail_url: 'http://localhost:8000/api/v2/pages/3/',
+//     html_url: null,
+//     slug: 'home-page',
+//     show_in_menus: false,
+//     seo_title: 'Crossplane - The cloud-native control plane framework',
+//     search_description: '',
+//     first_published_at: '2022-07-18T12:31:02.044354Z',
+//     alias_of: null,
+//     parent: null,
+//   },
+//   title: 'Home Page',
+//   seo_keywords: '',
+//   og_twitter_title: '',
+//   og_twitter_url: 'https://www.crossplane.io/',
+//   relative_url: '/',
+//   og_twitter_description: '',
+//   og_twitter_image: null,
+//   twitter_card: 'summary',
+//   twitter_site: '@crossplane_io',
+//   twitter_creator: '',
+//   auto_manage_canonical: false,
+//   site_page_canonical_url: {
+//     id: 3,
+//     meta: {
+//       type: 'app.HomePage',
+//       detail_url: 'http://localhost:8000/api/v2/pages/3/',
+//     },
+//     title: 'Home Page',
+//   },
+//   canonical_url: '',
+//   header: [
+//     {
+//       type: 'header',
+//       value: {
+//         title: 'The cloud native control plane framework',
+//         subtitle:
+//           'Build control planes without needing to write code. Crossplane has a highly extensible backend that enables you to orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that lets you define the declarative API it offers.',
+//         buttons: [
+//           {
+//             type: 'button',
+//             value: {
+//               text: 'Get Started on GitHub',
+//               style_type: 'gradientContained',
+//               link: [
+//                 {
+//                   type: 'relative_url',
+//                   value: '/products/universal-crossplane',
+//                   id: 'd1458e24-28dc-4879-991c-c58f5d8e2e0d',
+//                 },
+//               ],
+//               icon: {
+//                 title: 'rocketship-icon.svg',
+//                 url: '/public/github.svg',
+//                 view_box: '0 0 25 26',
+//               },
+//               has_arrow: false,
+//             },
+//             id: '3e92ed7d-7d0d-4e6c-ad65-508b3656ba6c',
+//           },
+//           {
+//             type: 'button',
+//             value: {
+//               text: 'Learn More',
+//               style_type: 'whiteOutlined',
+//               link: [
+//                 {
+//                   type: 'relative_url',
+//                   value: '/contact',
+//                   id: '872722a1-1033-4b47-9a16-f06d93a7aa7e',
+//                 },
+//               ],
+//               icon: {
+//                 title: null,
+//                 url: null,
+//                 view_box: null,
+//               },
+//               has_arrow: false,
+//             },
+//             id: '9b73059d-71ae-47b7-8ed9-48017f8e6cbb',
+//           },
+//         ],
+//         // partner_images_header: 'POWERING INTERNAL CLOUD PLATFORMS AT',
+//         // partner_images: [
+//         //   {
+//         //     type: 'svg_image',
+//         //     value: {
+//         //       svg_image: {
+//         //         title: 'millennium-bpc.svg',
+//         //         url: 'http://localhost:8000/media/documents/millennium-bpc.svg',
+//         //         view_box: '0 0 90 21',
+//         //       },
+//         //       width: 90,
+//         //       height: 21,
+//         //     },
+//         //     id: '7daf9579-5b7d-405b-8bb5-15e6531df80a',
+//         //   },
+//         //   {
+//         //     type: 'svg_image',
+//         //     value: {
+//         //       svg_image: {
+//         //         title: 'dfds.svg',
+//         //         url: 'http://localhost:8000/media/documents/dfds.svg',
+//         //         view_box: '0 0 200 70',
+//         //       },
+//         //       width: 80,
+//         //       height: 28,
+//         //     },
+//         //     id: '14f7cf2d-19ce-4a03-ab44-c59a72f20937',
+//         //   },
+//         //   {
+//         //     type: 'svg_image',
+//         //     value: {
+//         //       svg_image: {
+//         //         title: 'grupo.svg',
+//         //         url: 'http://localhost:8000/media/documents/grupo.svg',
+//         //         view_box: '0 0 190 61',
+//         //       },
+//         //       width: 80,
+//         //       height: 26,
+//         //     },
+//         //     id: 'c172ac2a-ddce-4e67-9661-07f7ff9fcf25',
+//         //   },
+//         //   {
+//         //     type: 'svg_image',
+//         //     value: {
+//         //       svg_image: {
+//         //         title: 'db.svg',
+//         //         url: 'http://localhost:8000/media/documents/db.svg',
+//         //         view_box: '0 0 110 78',
+//         //       },
+//         //       width: 47,
+//         //       height: 34,
+//         //     },
+//         //     id: 'aa914a00-e0e8-4ad5-864d-697d5a3c50c6',
+//         //   },
+//         //   {
+//         //     type: 'svg_image',
+//         //     value: {
+//         //       svg_image: {
+//         //         title: 'plotly.svg',
+//         //         url: 'http://localhost:8000/media/documents/plotly.svg',
+//         //         view_box: '0 0 182 59',
+//         //       },
+//         //       width: 80,
+//         //       height: 26,
+//         //     },
+//         //     id: 'b7a3b961-cc4a-4763-8b94-56e24014226f',
+//         //   },
+//         // ],
+//       },
+//       id: 'ac642308-e7ce-4fba-81c8-c532689511cc',
+//     },
+//   ],
+//   section_1_title: 'Created to power open platforms',
+//   section_1_sub_title:
+//     'We built Crossplane to help organizations build their platforms like the cloud vendors build theirs—with control planes. Crossplane is an open source, CNCF project built on the foundation of Kubernetes to orchestrate anything. Encapsulate policies, permissions, and other guardrails behind a custom API line to enable your customers to self-service without needing to become an infrastructure expert.',
+//   section_1_center_title_count: '5K+',
+//   section_1_center_title: 'Slack Members',
+//   section_1_center_text: 'Adopted by hundreds of amazing companies',
+//   section_1_button: [
+//     {
+//       type: 'button',
+//       value: {
+//         text: 'Join the Community',
+//         style_type: 'turquoiseContained',
+//         link: [
+//           {
+//             type: 'external_url',
+//             value: 'https://crossplane.io/',
+//             id: '83e1ee1c-178d-4abc-b70f-68b870c08ff1',
+//           },
+//         ],
+//         icon: {
+//           title: null,
+//           url: null,
+//           view_box: null,
+//         },
+//         has_arrow: false,
+//       },
+//       id: '8b6d1cdd-8336-45be-a004-d5e316a975ff',
+//     },
+//   ],
+//   features_sections: [
+//     {
+//       type: 'section',
+//       value: {
+//         header_svg: {
+//           svg_image: {
+//             title: 'EnterpriseReadyIcon.svg',
+//             url: 'http://localhost:8000/media/documents/EnterpriseReadyIcon.svg',
+//             view_box: '0 0 34 35',
+//           },
+//           width: null,
+//           height: null,
+//         },
+//         // header_text: 'Enterprise ready',
+//         title: 'Extensible by Design',
+//         text: 'Crossplane is designed from the ground up with extension in mind. From Providers that extend Crossplane to orchestrate new kinds of applications and infrastructure, to Configurations that extend Crossplane to expose new APIs, our community will help you find what you need to build your ideal control plane. Interested in building your own extensions?',
+//         link_text: 'Join the Crossplane Slack Channel',
+//         link: [
+//           {
+//             type: 'external_url',
+//             value: 'https://slack.crossplane.io/',
+//             id: '66fbd429-f48f-4aa0-88ed-c91f4b708ae4',
+//           },
+//         ],
+//         side_svg_big: {
+//           title: 'home-Page-Image-1-main.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-main.svg',
+//           view_box: '0 0 474 251',
+//         },
+//         side_svg_small: {
+//           title: 'home-Page-Image-1-additional.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-additional.svg',
+//           view_box: '0 0 131 128',
+//         },
+//         side_svg_small_top_offset: -54,
+//         side_svg_small_right_offset: -54,
+//         side_svg_big_mobile: {
+//           title: 'home-Page-Image-1-mobile-main.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-mobile-main.svg',
+//           view_box: '0 0 273 145',
+//         },
+//         side_svg_small_mobile: {
+//           title: 'home-Page-Image-1-mobile-additional.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-mobile-additional.svg',
+//           view_box: '0 0 106 105',
+//         },
+//         side_svg_small_top_offset_mobile: -42,
+//         side_svg_small_right_offset_mobile: -53,
+//       },
+//       id: '1c6b3c17-2427-4e66-bd4d-eb150a64607a',
+//     },
+//     {
+//       type: 'section',
+//       value: {
+//         header_svg: {
+//           svg_image: {
+//             title: 'DeployWithConfidenceIcon.svg',
+//             url: 'http://localhost:8000/media/documents/DeployWithConfidenceIcon.svg',
+//             view_box: '0 0 34 35',
+//           },
+//           width: null,
+//           height: null,
+//         },
+//         // header_text: 'Deploy with confidence',
+//         title: 'Putting you in control',
+//         text: 'Most platforms require that you buy into their opinionated API concepts. With Crossplane you can build a platform around your own opinions. We know the best control planes are tailored to the task at hand so we designed Crossplane as a framework that puts you in control. Use Crossplane to design a control plane that exposes declarative APIs tailored to your unique orchestration needs.',
+//         link_text: 'Learn More',
+//         link: [
+//           {
+//             type: 'relative_url',
+//             value: '/why-control-planes',
+//             id: 'aa82837e-1291-4769-9bb9-38111010967e',
+//           },
+//         ],
+//         side_svg_big: {
+//           title: 'DeployWithConfidenceBig.svg',
+//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceBig.svg',
+//           view_box: '0 0 523 415',
+//         },
+//         side_svg_small: {
+//           title: 'DeployWithConfidenceSmall.svg',
+//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmall.svg',
+//           view_box: '0 0 261 324',
+//         },
+//         side_svg_small_top_offset: 67,
+//         side_svg_small_right_offset: 0,
+//         side_svg_big_mobile: {
+//           title: 'DeployWithConfidenceBigMobile.svg',
+//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceBigMobile.svg',
+//           view_box: '0 0 272 216',
+//         },
+//         side_svg_small_mobile: {
+//           title: 'DeployWithConfidenceSmallMobile.svg',
+//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmallMobile.svg',
+//           view_box: '0 0 136 169',
+//         },
+//         side_svg_small_top_offset_mobile: 34,
+//         side_svg_small_right_offset_mobile: -32,
+//       },
+//       id: '97d82dcc-6e64-4a6b-a22e-e2b5258d226b',
+//     },
+//     {
+//       type: 'section',
+//       value: {
+//         header_svg: {
+//           svg_image: {
+//             title: 'EfficiencyEaseIcon.svg',
+//             url: 'http://localhost:8000/media/documents/EfficiencyEaseIcon.svg',
+//             view_box: '0 0 36 36',
+//           },
+//           width: null,
+//           height: null,
+//         },
+//         // header_text: 'Efficiency + ease',
+//         title: 'Built on a Solid Foundation',
+//         text: 'Crossplane builds on the class leading Kubernetes control plane, extending its battle hardened reliability and security features like Role Based Access Control (RBAC) to orchestrate everything - not just containers. Because Crossplane shares a foundation with Kubernetes it integrates smoothly with most popular cloud native tools.',
+//         link_text: 'Learn More',
+//         link: [
+//           {
+//             type: 'external_url',
+//             value: 'https://crossplane.io/docs/v1.9.html',
+//             id: 'a2a536c9-ab7e-45b8-9c67-c40a0027f9b4',
+//           },
+//         ],
+//         side_svg_big: {
+//           title: 'home-Page-Image-2-main.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-main.svg',
+//           view_box: '0 0 498 247',
+//         },
+//         side_svg_small: {
+//           title: 'home-Page-Image-2-additional.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-additional.svg',
+//           view_box: '0 0 74 71',
+//         },
+//         side_svg_small_top_offset: -9,
+//         side_svg_small_right_offset: 0,
+//         side_svg_big_mobile: {
+//           title: 'home-Page-Image-2-mobile-main.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-mobile-main.svg',
+//           view_box: '0 0 302 149',
+//         },
+//         side_svg_small_mobile: {
+//           title: 'home-Page-Image-2-mobile-additional.svg',
+//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-mobile-additional.svg',
+//           view_box: '0 0 53 51',
+//         },
+//         side_svg_small_top_offset_mobile: -3,
+//         side_svg_small_right_offset_mobile: 8,
+//       },
+//       id: 'e679a85f-831a-4bc3-93b0-2a6637f3f972',
+//     },
+//   ],
+//   learn_more_section_title: 'Learn more about Upbound',
+//   learn_more_tile_1_header_image: [
+//     {
+//       type: 'image',
+//       value: {
+//         image: {
+//           title: 'main-article-img',
+//           url: 'http://localhost:8000/media/images/main-article-img.original.png',
+//         },
+//         width: null,
+//         height: null,
+//       },
+//       id: 'fb80784a-9be7-4404-87c1-b31978635b66',
+//     },
+//   ],
+//   learn_more_tile_1_link: [
+//     {
+//       type: 'external_url',
+//       value: 'https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar',
+//       id: 'c7352e2b-0299-4439-b744-87f269a0c926',
+//     },
+//   ],
+//   learn_more_tile_1_header_author_image: [
+//     {
+//       type: 'image',
+//       value: {
+//         image: {
+//           title: 'grant-gumina-profile',
+//           url: 'http://localhost:8000/media/images/grant-gumina-profile.original.jpg',
+//         },
+//         width: null,
+//         height: null,
+//       },
+//       id: '11eee1dd-5039-4d8c-9d91-2b25aa77aba3',
+//     },
+//   ],
+//   learn_more_tile_1_author_name: 'Grant Gumina',
+//   learn_more_tile_1_resource_type: 'Webinar',
+//   learn_more_tile_1_video_id: null,
+//   learn_more_tile_1_pill_text: null,
+//   learn_more_tile_1_resource_title:
+//     'Control Planes: The Missing Ingredient for Cloud Native Developer Platforms',
+//   learn_more_tile_1_resource_snippet:
+//     'Who you get infrastructure from and how you build applications for it has changed. Now more than ever, customers are utilizing best-in-class infrastructure from the vendors of their choice. However, this presents challenges...',
+//   learn_more_tile_1_resource_date: null,
+//   learn_more_tile_2_header_image: [
+//     {
+//       type: 'image',
+//       value: {
+//         image: {
+//           title: 'matthias-article-img',
+//           url: 'http://localhost:8000/media/images/matthias-article-img.original.png',
+//         },
+//         width: null,
+//         height: null,
+//       },
+//       id: '0fb201dc-fd3b-45b5-a016-1462e52f4059',
+//     },
+//   ],
+//   learn_more_tile_2_author_name: 'Matthias Luebken',
+//   learn_more_tile_2_resource_type: 'Blog',
+//   learn_more_tile_2_link: [
+//     {
+//       type: 'external_url',
+//       value: 'https://blog.upbound.io/cloud-service-coverage/',
+//       id: 'b69872dd-2a67-4ffb-af42-84c572e1d7bd',
+//     },
+//   ],
+//   learn_more_tile_2_video_id: null,
+//   learn_more_tile_2_pill_text: 'Must read!',
+//   learn_more_tile_2_resource_title: 'Announcing 100% Cloud Service Coverage for Crossplane',
+//   learn_more_tile_2_resource_snippet: '',
+//   learn_more_tile_2_resource_date: null,
+//   learn_more_tile_3_header_image: [],
+//   learn_more_tile_3_header_author_image: [],
+//   learn_more_tile_3_link: [],
+//   learn_more_tile_3_author_name: 'Viktor Farcic',
+//   learn_more_tile_3_resource_type: 'video',
+//   learn_more_tile_3_video_id: 'VTTwzVSwWVo',
+//   learn_more_tile_3_pill_text: 'New!',
+//   learn_more_tile_3_resource_title: 'VIDEO: How to Manage Multi-Cloud Resources',
+//   learn_more_tile_3_resource_snippet: null,
+//   learn_more_tile_3_resource_date: '25 May, 2022',
+//   learn_more_tile_4_title: 'Register for our monthly newsletter',
+//   learn_more_tile_5_title: 'Visit the Upbound Blog',
+//   learn_more_tile_5_link: [
+//     {
+//       type: 'external_url',
+//       value: 'https://blog.upbound.io/',
+//       id: 'd62a6e3a-d9e7-42ee-8e83-515c6613de02',
+//     },
+//   ],
+// };
+
 export const getStaticProps: GetStaticProps = async (context) => {
+  // const returnValue = await handleGetStaticProps(context, '/', true, tempData);
   const returnValue = await handleGetStaticProps(context, '/', true);
 
   if (returnValue) {

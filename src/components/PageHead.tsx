@@ -44,33 +44,31 @@ const PageHead: React.FC<{
         <meta
           property="og:image"
           content={
-            cms_head_props?.og_twitter_image?.meta?.download_url ||
-            `https://www.upbound.io${metaImg}`
+            cms_head_props?.og_twitter_image?.meta?.download_url || `http://crossplane.io${metaImg}`
           }
         />
         <meta
           name="twitter:image"
           content={
-            cms_head_props?.og_twitter_image?.meta?.download_url ||
-            `https://www.upbound.io${metaImg}`
+            cms_head_props?.og_twitter_image?.meta?.download_url || `http://crossplane.io${metaImg}`
           }
         />
 
         <meta name="twitter:card" content={cms_head_props?.twitter_card || 'summary'} />
-        <meta name="twitter:site" content={cms_head_props?.twitter_site || '@upbound_io'} />
+        <meta name="twitter:site" content={cms_head_props?.twitter_site || '@crossplane_io'} />
         {cms_head_props?.twitter_creator && (
           <meta name="twitter:creator" content={cms_head_props?.twitter_creator} />
         )}
 
-        <meta property="og:site_name" content="Upbound.io" />
+        <meta property="og:site_name" content="crossplane.io" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
 
-        <meta
+        {/* <meta
           name="google-site-verification"
           content="91G6D43ldYFs2uuHH6DtkaHxczYfEAN06ZUe2T4R2cM"
         />
-        <meta name="msvalidate.01" content="21094C7C2D174370733E7BAA109FD424" />
+        <meta name="msvalidate.01" content="21094C7C2D174370733E7BAA109FD424" /> */}
       </Head>
       {/* eslint-disable max-len */}
       <Script id="seo-init" type="application/ld+json">
@@ -78,27 +76,27 @@ const PageHead: React.FC<{
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Upbound",
-            "legalName": "Upbound, Inc.",
-            "founder": "Bassam Tabbara",
-            "foundingDate": "October 2017",
-            "foundingLocation": "Seattle, Washington",
+            "name": "Crossplane",
+            "legalName": "Crossplane, Inc.",
+            "founder": "",
+            "foundingDate": "",
+            "foundingLocation": "",
             "location": {
               "@type": "Place",
-              "name": "Seattle, Washington"
+              "name": ""
             },
-            "description": "Upbound Cloud delivers a single point of control to manage the lifecycle of your Crossplane clusters across teams and clouds.",
+            "description": "Crossplane is a framework for building cloud native control planes without needing to write code. It has a highly extensible backend that enables you to build a control plane that can orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that puts you in control of the schema of the declarative API it offers.",
             "member": {
-              "@type": "OrganizationRole",
-              "roleName": "CEO",
+              "@type": "",
+              "roleName": "",
               "member": {
-                "@type": "Person",
-                "name": "Bassam Tabbara"
+                "@type": "",
+                "name": ""
               }
             },
-            "url": "//upbound.io",
-            "logo": "//upbound.io/images/large-logo.png",
-            "sameAs": ["//www.linkedin.com/company/upbound-io/", "//twitter.com/upbound_io"]
+            "url": "//crossplane.io",
+            "logo": "//crossplane.io/",
+            "sameAs": ["//twitter.com/crossplane_io"]
           }
         `}
       </Script>

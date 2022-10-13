@@ -1,345 +1,278 @@
-/** @jsxRuntime classic /
-/* @jsx jsx */
+import React, { useMemo } from 'react';
 
-import React from 'react';
+import Image from 'next/image';
 
-import { jsx } from '@emotion/react';
-import { styled, SxProps } from '@mui/system';
+import { Box, Button as MuiButton, ButtonProps, CircularProgress, SxProps } from '@mui/material';
+import { COLORS, fontAvenirBold, fontAvenirRoman, MQ } from 'src/theme';
 
-import NextLink from 'next/link';
+import ArrowRight from 'src/svg/ArrowRight';
 
-import { COLORS, fontAvenirBold, fontAvenirRoman, MQ, shouldForwardProp } from 'src/theme';
-import { AnchorProps } from './Anchor';
+const scale = 1.05;
 
-export type BtnTypes =
-  | 'aquaGreenFill'
-  | 'aquaMarineFill'
-  | 'whiteFill'
-  | 'cornflowerFill'
-  | 'blackOutline'
-  | 'whiteOutline';
+const hoverScale: SxProps = {
+  transform: { md: `scale(${scale})` },
+};
 
-interface ButtonProps {
-  btnType?: BtnTypes;
-  color?: keyof typeof COLORS;
-  full?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  hasShadow?: boolean;
-  mobile?: boolean;
-  bold?: boolean;
-  sx?: SxProps;
-}
+const defaultStyles: SxProps = {
+  textTransform: 'none',
+  transition: '0.3s cubic-bezier(.47,1.64,.41,.8)',
+  textAlign: 'center',
+};
 
-const StyledButton = styled('button', { shouldForwardProp })<{ otherStyles?: any }>(
-  ({ otherStyles }) => ({
-    boxSizing: 'border-box',
-    border: 'solid 2px transparent',
-    borderRadius: '40px',
-    fontSize: '14px',
-    lineHeight: '20px',
-    textAlign: 'center',
-    outline: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.2s ease-in-out',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
+const whiteContained: SxProps = {
+  backgroundColor: '#fff',
+  color: COLORS.nileBlue,
 
-    '&:disabled': {
-      cursor: 'not-allowed',
+  '&:hover': {
+    backgroundColor: '#fff',
+    ...hoverScale,
+  },
+};
+
+const whiteOutlined: SxProps = {
+  backgroundColor: 'unset',
+  color: '#fff',
+  border: '2px solid #fff',
+
+  '&:hover': {
+    backgroundColor: 'unset',
+    ...hoverScale,
+  },
+};
+
+const whiteText: SxProps = {
+  backgroundColor: 'unset',
+  color: '#fff',
+  border: 'none',
+  px: '16px !important',
+
+  '&:hover': {
+    backgroundColor: 'unset',
+  },
+};
+
+const turquoiseContained: SxProps = {
+  backgroundColor: COLORS.turquoise,
+  color: '#fff',
+
+  '&:hover': {
+    backgroundColor: COLORS.turquoise,
+    ...hoverScale,
+  },
+};
+
+const gradientContained: SxProps = {
+  // eslint-disable-next-line max-len
+  backgroundImage: `linear-gradient(to right, #f3807b, #fd8a6f, #ff9662, #ffa556, #ffb54a, #efc145, #dccc47, #c7d650, #9fd96a, #78d887, #53d5a2, #35d0ba)`,
+  color: '#fff',
+
+  '&:hover': {
+    ...hoverScale,
+  },
+};
+
+const linkWaterContained: SxProps = {
+  backgroundColor: COLORS.linkWater,
+  color: COLORS.firefly,
+
+  '&:hover': {
+    backgroundColor: COLORS.linkWater,
+    ...hoverScale,
+  },
+};
+
+const disabled: SxProps = {
+  backgroundColor: '#cccccc',
+  color: 'rgba(0, 0, 0, 0.26)',
+
+  '&:hover': {
+    backgroundColor: '#cccccc',
+  },
+};
+
+const typeStyles = {
+  whiteContained,
+  whiteOutlined,
+  whiteText,
+  turquoiseContained,
+  gradientContained,
+  linkWaterContained,
+  disabled,
+};
+
+const small: SxProps = {
+  ...fontAvenirRoman,
+  fontSize: '14px',
+  lineHeight: '14px',
+  borderRadius: '20px',
+  px: '30px',
+  height: '38px',
+};
+
+const normal: SxProps = {
+  ...fontAvenirBold,
+  fontSize: '16px',
+  lineHeight: '16px',
+  borderRadius: '24px',
+  px: '30px',
+  height: '48px',
+};
+
+const large: SxProps = {
+  ...fontAvenirBold,
+  borderRadius: '32px',
+  fontSize: '14px',
+  lineHeight: '18px',
+  px: '14px',
+  height: '52px',
+
+  [MQ.md]: {
+    fontSize: '18px',
+    lineHeight: '18px',
+    px: '36px',
+    height: '64px',
+  },
+};
+
+const sizeStyles = {
+  small,
+  normal,
+  large,
+};
+
+const loadingContainer: SxProps = {
+  position: 'absolute',
+};
+
+const iconLeftStyle: SxProps = {
+  '& > .MuiButton-startIcon': {
+    position: 'relative',
+    width: 24,
+    height: 24,
+    mr: '10px',
+
+    '& > svg': {
+      height: { _: 20, md: 25 },
+      width: { _: 20, md: 25 },
     },
-    ...otherStyles,
-  })
-);
+  },
+};
 
-const StyledAnchor = styled('a', { shouldForwardProp })<{ otherStyles?: any }>(
-  ({ otherStyles }) => ({
-    boxSizing: 'border-box',
-    border: 'solid 2px transparent',
-    borderRadius: '40px',
-    fontSize: '14px',
-    lineHeight: '20px',
-    textAlign: 'center',
-    outline: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.2s ease-in-out',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-
-    '&:disabled': {
-      cursor: 'not-allowed',
+const arrowRightStyle: SxProps = {
+  '& > .MuiButton-endIcon': {
+    ml: '16px',
+    '& > svg': {
+      height: { _: 12, md: 13 },
+      width: { _: 7, md: 8 },
     },
-    ...otherStyles,
-  })
-);
-
-// const baseStyle = css`
-//   box-sizing: border-box;
-//   border: solid 2px transparent;
-//   border-radius: 40px;
-//   font-size: 14px;
-//   line-height: 20px;
-//   text-align: center;
-//   outline: none;
-//   cursor: pointer;
-//   transition: all 0.2s ease-in-out;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   white-space: nowrap;
-
-//   &:disabled {
-//     cursor: not-allowed;
-//   }
-// `;
-
-const whiteFill = {
-  backgroundColor: COLORS.white,
-  borderColor: COLORS.white,
-  color: COLORS.bigStone,
-  fill: COLORS.white,
-
-  // '&:hover:not(:disabled)': {
-  //   backgroundColor: COLORS.whiteDark,
-  //   borderColor: COLORS.whiteDark,
-  // },
-};
-
-const aquaGreenFill = {
-  backgroundColor: COLORS.aquaGreen,
-  borderColor: COLORS.aquaGreen,
-  color: COLORS.white,
-  fill: COLORS.white,
-
-  '&:hover:not(:disabled)': {
-    backgroundColor: COLORS.aquaGreenDark,
-    borderColor: COLORS.aquaGreenDark,
   },
 };
 
-const aquaMarineFill = {
-  borderColor: 'transparent',
-  backgroundColor: COLORS.aquaMarine,
-  color: COLORS.white,
-  fill: COLORS.white,
+type Props = {
+  styleType?:
+    | 'whiteContained'
+    | 'whiteOutlined'
+    | 'whiteText'
+    | 'turquoiseContained'
+    | 'gradientContained'
+    | 'linkWaterContained'
+    | 'disabled';
+  sizeType?: 'small' | 'normal' | 'large';
+  target?: string;
+  loading?: boolean;
+  hasRocketIcon?: boolean;
+  hasArrowRight?: boolean;
+  cmsValue?: ButtonValue;
+} & ButtonProps;
 
-  '&:hover:not(:disabled)': {
-    borderColor: 'transparent',
-    backgroundColor: COLORS.aquarius,
-    color: COLORS.white,
-    fill: COLORS.white,
-  },
-};
-
-const cornflowerFill = {
-  backgroundColor: COLORS.cornflower,
-  borderColor: COLORS.cornflower,
-  color: COLORS.white,
-  fill: COLORS.white,
-
-  '&:hover:not(:disabled)': {
-    backgroundColor: COLORS.bMedPurple,
-    borderColor: COLORS.bMedPurple,
-    color: COLORS.white,
-    fill: COLORS.white,
-  },
-};
-
-const blackOutline = {
-  backgroundColor: 'transparent',
-  borderColor: COLORS.fillBlackBlack,
-  color: COLORS.fillBlackBlack,
-  fill: COLORS.fillBlackBlack,
-
-  '&:hover:not(:disabled)': {
-    borderColor: COLORS.fillBlackBlack,
-    backgroundColor: COLORS.fillBlackBlack,
-    color: COLORS.white,
-    fill: COLORS.white,
-  },
-
-  '&:disabled': {
-    borderColor: COLORS.disabledBlackOutlineButton,
-    color: COLORS.disabledBlackOutlineButton,
-    fill: COLORS.disabledBlackOutlineButton,
-  },
-};
-
-const whiteOutline = {
-  backgroundColor: 'transparent',
-  borderColor: COLORS.white,
-  color: COLORS.white,
-  fill: COLORS.white,
-
-  '&:hover:not(:disabled)': {
-    borderColor: COLORS.white,
-    backgroundColor: COLORS.white,
-    color: COLORS.fillBlackBlack,
-    fill: COLORS.fillBlackBlack,
-  },
-};
-
-const btnTypes = {
-  whiteFill,
-  aquaGreenFill,
-  aquaMarineFill,
-  whiteOutline,
-  cornflowerFill,
-  blackOutline,
-};
-
-const sizes = {
-  small: { padding: '8px 20px' },
-  medium: { padding: '8px 20px' },
-  large: { padding: '8px 45px' },
-};
-
-// const StyledButton = styled('button', { shouldForwardProp })<{ otherStyles: string }>`
-//   ${baseStyle}
-//   ${(props) => `${props.otherStyles}`}
-//   ${baseStyledSystem}
-// `;
-
-export const Button: React.FC<ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>> = ({
+const Button = ({
   children,
-  btnType,
-  full,
-  size,
-  hasShadow,
-  mobile,
-  bold = true,
+  styleType: _styleType = 'whiteContained',
+  sizeType = 'normal',
+  target,
+  loading,
+  hasArrowRight,
+  cmsValue,
   ...props
-}) => {
-  const btnStyle = btnType ? btnTypes[btnType] : '';
-  const fontStyle = bold ? fontAvenirBold : fontAvenirRoman;
-  const sizeStyle = size ? sizes[size] : sizes.medium;
-  const fullStyle = full ? { width: '100%' } : '';
-  const boxShadow = hasShadow ? { boxShadow: '0 0 17px 0 rgba(17, 29, 61, 0.15)' } : '';
-  const stretchStyle = mobile
-    ? {
-        width: '100%',
+}: Props) => {
+  const extraProps = useMemo(() => {
+    let obj = {};
 
-        [MQ.md]: {
-          width: 'auto',
-        },
+    if (cmsValue) {
+      if (cmsValue.link) {
+        obj = {
+          ...obj,
+          href: cmsValue.link[0].value,
+        };
+
+        if (cmsValue.link[0].type === 'external_url') {
+          obj = {
+            ...obj,
+            target: '_blank',
+          };
+        }
       }
-    : '';
+      if (cmsValue.icon && cmsValue.icon.url) {
+        obj = {
+          ...obj,
+          startIcon: (
+            <Image
+              src={cmsValue.icon.url}
+              alt={cmsValue.icon.title}
+              layout="fill"
+              objectFit="contain"
+            />
+          ),
+        };
+      }
+      if (cmsValue.has_arrow) {
+        obj = {
+          ...obj,
+          endIcon: <ArrowRight />,
+        };
+      }
+    }
 
-  const otherStyles = {
-    ...btnStyle,
-    ...fontStyle,
-    ...sizeStyle,
-    ...fullStyle,
-    ...boxShadow,
-    ...stretchStyle,
-  };
+    if (target) {
+      obj = {
+        ...obj,
+        target,
+      };
+    }
+
+    return obj;
+  }, [cmsValue, target]);
+
+  const styleType = useMemo(() => {
+    let type = _styleType;
+    if (cmsValue?.style_type) {
+      type = cmsValue.style_type;
+    }
+    return type;
+  }, [_styleType, cmsValue]);
 
   return (
-    <StyledButton otherStyles={otherStyles} {...props}>
+    <MuiButton
+      {...props}
+      sx={{
+        ...defaultStyles,
+        ...sizeStyles[sizeType],
+        ...typeStyles[styleType],
+        ...iconLeftStyle,
+        ...arrowRightStyle,
+        ...props.sx,
+      }}
+      endIcon={hasArrowRight ? <ArrowRight /> : null}
+      {...extraProps}
+    >
       {children}
-    </StyledButton>
+      {loading && (
+        <Box sx={loadingContainer}>
+          <CircularProgress size={24} />
+        </Box>
+      )}
+    </MuiButton>
   );
 };
 
-// const StyledAnchor = styled('a', { shouldForwardProp })<{ otherStyles: string }>`
-//   ${baseStyle}
-//   ${({ otherStyles }) => otherStyles}
-//   ${baseStyledSystem}
-// `;
-
-export const AnchorButton: React.FC<
-  ButtonProps &
-    AnchorProps &
-    React.ButtonHTMLAttributes<HTMLButtonElement> &
-    React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = ({ children, btnType, full, size, hasShadow, bold = true, ...props }) => {
-  const btnStyle = btnType ? btnTypes[btnType] : '';
-  const fontStyle = bold ? fontAvenirBold : fontAvenirRoman;
-  const sizeStyle = size ? sizes[size] : sizes.medium;
-  const fullStyle = full ? { width: '100%' } : '';
-  const boxShadow = hasShadow ? { boxShadow: '0 0 17px 0 rgba(17, 29, 61, 0.15)' } : '';
-
-  const otherStyles = {
-    ...btnStyle,
-    ...fontStyle,
-    ...sizeStyle,
-    ...fullStyle,
-    ...boxShadow,
-    ...{ display: 'inline-block', textDecoration: 'none' },
-  };
-
-  return (
-    <StyledAnchor hover="none" otherStyles={otherStyles} {...props}>
-      {children}
-    </StyledAnchor>
-  );
-};
-
-export const LinkButton: React.FC<
-  ButtonProps &
-    AnchorProps &
-    React.ButtonHTMLAttributes<HTMLButtonElement> &
-    React.AnchorHTMLAttributes<HTMLAnchorElement>
-> = ({ children, href, btnType, full, size, hasShadow, bold = true, ...props }) => {
-  const btnStyle = btnType ? btnTypes[btnType] : '';
-  const fontStyle = bold ? fontAvenirBold : fontAvenirRoman;
-  const sizeStyle = size ? sizes[size] : sizes.medium;
-  const fullStyle = full ? { width: '100%' } : '';
-  const boxShadow = hasShadow ? { boxShadow: '0 0 17px 0 rgba(17, 29, 61, 0.15)' } : '';
-
-  const otherStyles = {
-    ...btnStyle,
-    ...fontStyle,
-    ...sizeStyle,
-    ...fullStyle,
-    ...boxShadow,
-    ...{ display: 'inline-block', textDecoration: 'none' },
-  };
-
-  return (
-    <NextLink href={href || ''} passHref>
-      <StyledAnchor hover="none" otherStyles={otherStyles} {...props}>
-        {children}
-      </StyledAnchor>
-    </NextLink>
-  );
-};
-
-// const StyledLink = styled('a', { shouldForwardProp })<{ otherStyles: string }>`
-//   ${baseStyle}
-//   ${({ otherStyles }) => otherStyles}
-//   ${baseStyledSystem}
-// `;
-
-// export const LinkButton: React.FC<
-//   ButtonProps &
-//     GatsbyLinkProps<unknown> &
-//     AnchorProps &
-//     React.ButtonHTMLAttributes<HTMLButtonElement> &
-//     React.AnchorHTMLAttributes<HTMLAnchorElement>
-// > = ({ btnType, children, full, size, hasShadow, bold = true, ...props }) => {
-//   const btnStyle = btnType ? btnTypes[btnType] : '';
-//   const fontStyle = bold ? fontAvenirBold : fontAvenirRoman;
-//   const sizeStyle = size ? sizes[size] : sizes.medium;
-//   const fullStyle = full ? css({ width: '100%' }) : '';
-//   const boxShadow = hasShadow ? css({ boxShadow: '0 0 17px 0 rgba(17, 29, 61, 0.15)' }) : '';
-
-//   const otherStyles = [
-//     btnStyle,
-//     fontStyle,
-//     sizeStyle,
-//     fullStyle,
-//     boxShadow,
-//     css({ display: 'inline-block', textDecoration: 'none' }),
-//   ];
-
-//   return (
-//     <ClassNames>
-//       {({ css: classNamesCss }) => (
-//         <StyledLink hover="none" otherStyles={classNamesCss(otherStyles)} {...props}>
-//           {children}
-//         </StyledLink>
-//       )}
-//     </ClassNames>
-//   );
-// };
+export default Button;

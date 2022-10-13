@@ -1,66 +1,114 @@
 /** @jsxRuntime classic /
 /* @jsx jsx */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+// import React, { useEffect, useState } from 'react';
 
 import { jsx } from '@emotion/react';
-import { Box } from '@mui/material';
-import { styled } from '@mui/system';
+import { Box, SxProps } from '@mui/material';
+import { COLORS } from 'src/theme';
 
 import PageHeader from 'src/components/PageHeader';
 import PageFooter from 'src/components/PageFooter';
 import PageHead from 'src/components/PageHead';
+import PreviewIndicator from 'src/components/PreviewIndicator';
 
-const PageContainer = styled(Box)`
-  position: relative;
-  width: 100%;
-  min-height: 100%;
-`;
+import OGImgHome from 'public/og-images/home-page-og.jpg';
 
-const defaultTitle = 'Upbound - The Universal Cloud Platform';
+const defaultTitle = 'Crossplane - The cloud-native control plane framework';
 const defaultDescription =
-  'The Upbound universal cloud platform empowers you to manage infrastructure, eliminate configuration drift, and ' +
-  'empower developers with self-service infrastructure.';
+  // eslint-disable-next-line max-len
+  'Crossplane is a framework for building cloud native control planes without needing to write code. It has a highly extensible backend that enables you to build a control plane that can orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that puts you in control of the schema of the declarative API it offers.';
+const defaultImg = OGImgHome.src;
 
-const PageProvider: React.FC<{
-  isHeaderVisible?: boolean;
+type Props = {
+  children: React.ReactNode;
   isFooterVisible?: boolean;
-  isOverflowVisible?: boolean;
+  // isOverflowVisible?: boolean;
   displayTitle?: string;
   metaDescription?: string;
-}> = ({
+  metaImg?: string;
+  hideCTACard?: boolean;
+  ctaTitle?: string;
+  ctaParagraph?: string;
+  ctaBtnText?: string;
+  ctaBtnLink?: string;
+  ctaBtnTwo?: boolean;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
+  ctaCustomSx?: SxProps;
+  cms_head_props?: CMSHeadProps;
+  isPreview?: boolean;
+};
+
+const PageProvider = ({
   children,
-  isHeaderVisible = true,
   isFooterVisible = true,
-  isOverflowVisible: isOverflowVisibleProp = true,
+  // isOverflowVisible: isOverflowVisibleProp = true,
   displayTitle = defaultTitle,
   metaDescription = defaultDescription,
-}) => {
-  const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, []);
+  metaImg = defaultImg,
+  hideCTACard,
+  ctaTitle,
+  ctaParagraph,
+  ctaBtnText,
+  ctaBtnLink,
+  ctaBtnTwo = false,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
+  ctaCustomSx,
+  cms_head_props,
+  isPreview,
+}: Props) => {
+  // const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
 
   useEffect(() => {
-    document.body.classList.toggle(
-      'overflow-hidden',
-      isOverflowVisible === false || isOverflowVisibleProp === false
-    );
-    return () => document.body.classList.remove('overflow-hidden');
-  }, [isOverflowVisible, isOverflowVisibleProp]);
+    if (typeof window !== 'undefined') {
+      document.body.scrollTo(0, 0);
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   document.body.classList.toggle(
+  //     'overflow-hidden',
+  //     isOverflowVisible === false || isOverflowVisibleProp === false
+  //   );
+  //   return () => document.body.classList.remove('overflow-hidden');
+  // }, [isOverflowVisible, isOverflowVisibleProp]);
 
   return (
-    <PageContainer id="page-container">
-      <PageHead displayTitle={displayTitle} metaDescription={metaDescription} />
-      <PageHeader isHeaderVisible={isHeaderVisible} setOverflowVisible={setOverflowVisible} />
-      <Box sx={{ overflow: 'hidden' }}>
+    <Box
+      id="page-container"
+      sx={{
+        // position: isOverflowVisible ? 'relative' : 'unset',
+        width: '100%',
+        minHeight: '100%',
+      }}
+    >
+      <PageHead
+        displayTitle={displayTitle}
+        metaDescription={metaDescription}
+        metaImg={metaImg}
+        cms_head_props={cms_head_props}
+      />
+      <PageHeader />
+      <Box sx={{ bgcolor: COLORS.nileBlue }}>
         {children}
-        <PageFooter isFooterVisible={isFooterVisible} />
+        <PageFooter
+          isFooterVisible={isFooterVisible}
+          hideCTACard={hideCTACard}
+          ctaTitle={ctaTitle}
+          ctaParagraph={ctaParagraph}
+          ctaBtnText={ctaBtnText}
+          ctaBtnLink={ctaBtnLink}
+          ctaBtnTwo={ctaBtnTwo}
+          ctaBtnTwoText={ctaBtnTwoText}
+          ctaBtnTwoLink={ctaBtnTwoLink}
+          ctaCustomSx={ctaCustomSx}
+        />
       </Box>
-    </PageContainer>
+      {isPreview && <PreviewIndicator />}
+    </Box>
   );
 };
 

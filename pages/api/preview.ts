@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import axiosInstance from 'src-new/utils/axiosInstance';
+import axiosInstance from 'src/utils/axiosInstance';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // if (req.query.secret !== process.env.PREVIEW_TOKEN) {
