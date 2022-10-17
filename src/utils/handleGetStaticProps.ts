@@ -27,8 +27,7 @@ interface CustomPreviewData {
 const handleGetStaticProps = async (
   context: GetStaticPropsContext,
   path: string,
-  hasTestimonials?: boolean,
-  // tempData?: any
+  tempData?: any
 ) => {
   let api = `/api/v2/pages/find/?html_path=${path}`;
   let isPreview = false;
@@ -41,24 +40,9 @@ const handleGetStaticProps = async (
     }
   }
 
-  let testimonials = null;
-  let quoteless_testimonials = null;
-
-  if (hasTestimonials) {
-    try {
-      const res = await axiosInstance.get<Testimonial[]>('/api/testimonials');
-      if (res?.data && res.data.length !== 0) {
-        testimonials = res.data.filter((q) => q.can_display);
-        quoteless_testimonials = res.data.filter((q) => !q.can_display);
-      }
-    } catch (error) {
-      console.log(`get testimonials`, error);
-    }
-  }
-
   try {
-    const res = await axiosInstance.get(api);
-    // const res = { data: tempData };
+    // const res = await axiosInstance.get(api);
+    const res = { data: tempData };
     const cms_head_props = {};
     cms_head_items.forEach((item) => {
       if (res?.data.meta[item]) {
@@ -68,19 +52,11 @@ const handleGetStaticProps = async (
       }
     });
 
-    let props = {
+    const props = {
       ...res?.data,
       cms_head_props,
       isPreview,
     };
-
-    if (testimonials) {
-      props = {
-        ...props,
-        testimonials,
-        quoteless_testimonials,
-      };
-    }
 
     return props;
   } catch (error) {

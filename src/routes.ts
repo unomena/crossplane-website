@@ -13,3 +13,6 @@ export const twitterUrl = 'https://twitter.com/crossplane_io';
 export const youtubeUrl = 'https://www.youtube.com/channel/UC19FgzMBMqBro361HbE46Fw';
 export const forumUrl = 'https://groups.google.com/g/crossplane-dev';
 export const cncfUrl = 'https://www.cncf.io/';
+export const creativeCommonsUrl = 'https://creativecommons.org/licenses/by/4.0/';
+export const trademarkUsageUrl = 'https://www.linuxfoundation.org/legal/trademark-usage';
+export const upboundUrl = 'https://www.upbound.io/';

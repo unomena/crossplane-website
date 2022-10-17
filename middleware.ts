@@ -1,13 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const no_auth_urls: string[] = [
-  'upbound.io',
-  'www.upbound.io',
-  'dev-deba7a0e.u6d.dev',
-  'www.dev-deba7a0e.u6d.dev',
-  'staging-eikeagoo.upbound.services',
-  'www.staging-eikeagoo.upbound.services',
-];
+const no_auth_urls: string[] = ['crossplane.io'];
 
 export function middleware(req: NextRequest) {
   if (process.env.NODE_ENV === 'development' || no_auth_urls.includes(req.nextUrl.hostname)) {

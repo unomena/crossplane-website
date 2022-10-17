@@ -24,6 +24,8 @@ export const COLORS = {
   turquoise: '#35d0ba',
   brightSun: '#ffcd3c',
   froly: '#f3807b',
+
+  blueBayoux: '#5A7184',
 } as const;
 
 export const fontAvenirRoman = {

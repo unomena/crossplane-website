@@ -65,27 +65,28 @@ type Button = {
   value: ButtonValue;
 };
 
-type Testimonial = {
-  id: number;
-  bg_image: ImageContent[];
-  logo: SVGImageContent[];
-  title: string;
-  text: string;
-  full_text: string;
-  author: string;
-  author_job_title: string;
-  can_display: boolean;
-};
+// type Testimonial = {
+//   id: number;
+//   bg_image: ImageContent[];
+//   logo: SVGImageContent[];
+//   title: string;
+//   text: string;
+//   full_text: string;
+//   author: string;
+//   author_job_title: string;
+//   can_display: boolean;
+// };
 
 type HomePageHeader = {
   title: string;
   subtitle: string;
   buttons: Button[];
-  partner_images_header: string;
-  partner_images: ImageType[];
+  // partner_images_header: string;
+  // partner_images: ImageType[];
 };
 
 type HomePageFeature = {
+  length: number;
   header_svg: ImageValue;
   header_text: string;
   title: string;
@@ -93,13 +94,13 @@ type HomePageFeature = {
   link_text: string;
   link: Link;
   side_svg_big: SVGImageContent;
-  side_svg_small: SVGImageContent;
-  side_svg_small_top_offset: number;
-  side_svg_small_right_offset: number;
-  side_svg_big_mobile: SVGImageContent;
-  side_svg_small_mobile: SVGImageContent;
-  side_svg_small_top_offset_mobile: number;
-  side_svg_small_right_offset_mobile: number;
+  // side_svg_small: SVGImageContent;
+  // side_svg_small_top_offset: number;
+  // side_svg_small_right_offset: number;
+  // side_svg_big_mobile: SVGImageContent;
+  // side_svg_small_mobile: SVGImageContent;
+  // side_svg_small_top_offset_mobile: number;
+  // side_svg_small_right_offset_mobile: number;
 };
 
 type HomePage = {
@@ -119,47 +120,47 @@ type HomePage = {
     value: HomePageFeature;
   }[];
 
-  testimonials: Testimonial[];
-  quoteless_testimonials: Testimonial[];
+  // testimonials: Testimonial[];
+  // quoteless_testimonials: Testimonial[];
 
-  learn_more_section_title: string;
+  // learn_more_section_title: string;
 
-  learn_more_tile_1_header_image: ImageType[];
-  learn_more_tile_1_link: Link;
-  learn_more_tile_1_header_author_image: ImageType[];
-  learn_more_tile_1_author_name: string;
-  learn_more_tile_1_resource_type: string;
-  learn_more_tile_1_video_id: string;
-  learn_more_tile_1_pill_text: string;
-  learn_more_tile_1_resource_title: string;
-  learn_more_tile_1_resource_snippet: string;
-  learn_more_tile_1_resource_date: string;
+  // learn_more_tile_1_header_image: ImageType[];
+  // learn_more_tile_1_link: Link;
+  // learn_more_tile_1_header_author_image: ImageType[];
+  // learn_more_tile_1_author_name: string;
+  // learn_more_tile_1_resource_type: string;
+  // learn_more_tile_1_video_id: string;
+  // learn_more_tile_1_pill_text: string;
+  // learn_more_tile_1_resource_title: string;
+  // learn_more_tile_1_resource_snippet: string;
+  // learn_more_tile_1_resource_date: string;
 
-  learn_more_tile_2_header_image: ImageType[];
-  learn_more_tile_2_link: Link;
-  learn_more_tile_2_author_name: string;
-  learn_more_tile_2_resource_type: string;
-  learn_more_tile_2_video_id: string;
-  learn_more_tile_2_pill_text: string;
-  learn_more_tile_2_resource_title: string;
-  learn_more_tile_2_resource_snippet: string;
-  learn_more_tile_2_resource_date: string;
+  // learn_more_tile_2_header_image: ImageType[];
+  // learn_more_tile_2_link: Link;
+  // learn_more_tile_2_author_name: string;
+  // learn_more_tile_2_resource_type: string;
+  // learn_more_tile_2_video_id: string;
+  // learn_more_tile_2_pill_text: string;
+  // learn_more_tile_2_resource_title: string;
+  // learn_more_tile_2_resource_snippet: string;
+  // learn_more_tile_2_resource_date: string;
 
-  learn_more_tile_3_header_image: ImageType[];
-  learn_more_tile_3_link: Link;
-  learn_more_tile_3_header_author_image: ImageType[];
-  learn_more_tile_3_author_name: string;
-  learn_more_tile_3_resource_type: string;
-  learn_more_tile_3_video_id: string;
-  learn_more_tile_3_pill_text: string;
-  learn_more_tile_3_resource_title: string;
-  learn_more_tile_3_resource_snippet: string;
-  learn_more_tile_3_resource_date: string;
+  // learn_more_tile_3_header_image: ImageType[];
+  // learn_more_tile_3_link: Link;
+  // learn_more_tile_3_header_author_image: ImageType[];
+  // learn_more_tile_3_author_name: string;
+  // learn_more_tile_3_resource_type: string;
+  // learn_more_tile_3_video_id: string;
+  // learn_more_tile_3_pill_text: string;
+  // learn_more_tile_3_resource_title: string;
+  // learn_more_tile_3_resource_snippet: string;
+  // learn_more_tile_3_resource_date: string;
 
-  learn_more_tile_4_title: string;
+  // learn_more_tile_4_title: string;
 
-  learn_more_tile_5_title: string;
-  learn_more_tile_5_link: Link;
+  // learn_more_tile_5_title: string;
+  // learn_more_tile_5_link: Link;
 };
 
 type Section3Card = {

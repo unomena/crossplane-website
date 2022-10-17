@@ -25,28 +25,14 @@ import Link from 'src/elements/Link';
 import CMSImage from 'src/elements/CMSImage';
 // import { Img } from 'src/elements/Img';
 
+import placeholder from 'public/placeholder.png';
+
 const headerSection: SxProps = {
   pt: { _: 13, md: 24 },
   pb: 4,
   textAlign: 'center',
   color: COLORS.linkWater,
 };
-
-// const h1: SxProps = {
-//   ...fontAvenirBold,
-//   fontSize: '46px',
-//   lineHeight: '54px',
-//   letterSpacing: '-1.59px',
-//   mb: 3.5,
-//   ...gradient_1,
-
-//   [MQ.md]: {
-//     ...fontAvenirBold,
-//     fontSize: '95px',
-//     lineHeight: '104px',
-//     letterSpacing: '-3.28px',
-//   },
-// };
 
 const headerButtons: SxProps = {
   mt: 6,
@@ -225,17 +211,49 @@ const pulsate = keyframes`
   to { opacity: 1; }
 `;
 
+const gridLayout: SxProps = {
+  display: 'grid',
+  gap: 4,
+  gridTemplateColumns: 'repeat(1, 1fr)',
+
+  [MQ.md]: {
+    gridTemplateColumns: 'repeat(3, 1fr)',
+  },
+};
+
+const cardStyles: SxProps = {
+  backgroundColor: '#fff',
+  borderRadius: '20px',
+  boxShadow: '1px 0px 16px 2px rgba(215,215,215,0.5)',
+  p: 4,
+
+  flex: '1 0 0%',
+  display: 'flex',
+
+  '& > a': {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 0 0%',
+  },
+};
+
+const providerIcon: SxProps = {
+  position: 'relative',
+  width: '90px',
+  height: '90px',
+  mb: 3,
+  '& > span': {
+    borderRadius: '20px',
+  },
+};
+
 const HeaderSection = (props: HomePageHeader) => {
   return (
     <>
-      <Typography variant="h2" sx={{ color: `${COLORS.linkWater}`, mb: 5 }}>
+      <Typography variant="h2" color={COLORS.linkWater} sx={{ mb: 5 }}>
         {props.title}
       </Typography>
-      <Typography
-        variant="body_normal"
-        sx={{ color: `${COLORS.linkWater}`, maxWidth: { _: 300, md: 950 }, mx: 'auto' }}
-        color={COLORS.linkWater}
-      >
+      <Typography variant="body_normal" color={COLORS.linkWater} sx={{ maxWidth: 950, mx: 'auto' }}>
         {props.subtitle}
       </Typography>
       <Box sx={headerButtons}>
@@ -682,6 +700,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
 
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
+  const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
 
   const {
     // header_svg,
@@ -694,7 +713,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
     // side_svg_small,
     // side_svg_small_top_offset,
     // side_svg_small_right_offset,
-    side_svg_big_mobile,
+    // side_svg_big_mobile,
     // side_svg_small_mobile,
     // side_svg_small_top_offset_mobile,
     // side_svg_small_right_offset_mobile,
@@ -740,25 +759,6 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           },
         }}
       >
-        {/* <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-          {header_svg && (
-            <Box
-              sx={{
-                position: 'relative',
-                display: 'flex',
-                maxHeight: 16,
-                maxWidth: 16,
-                [MQ.md]: {
-                  maxHeight: 'unset',
-                  maxWidth: 'unset',
-                },
-              }}
-            >
-              <CMSImage value={header_svg} />
-            </Box>
-          )}
-          <Typography sx={{ ...smallTitleStyle, ...smallTitleGradient }}>{header_text}</Typography>
-        </Box> */}
         <Typography variant="h2" sx={{ maxWidth: 450, mb: 2.5 }}>
           {title}
         </Typography>
@@ -769,7 +769,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           href={link[0].value}
           muiProps={{
             target: link[0].type === 'external_url' ? '_blank' : undefined,
-            color: reversed ? COLORS.brightSun : COLORS.froly,
+            color: colorOptions[index % 3],
             sx: { mt: 5 },
           }}
           hasArrow
@@ -799,7 +799,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           sx={{
             position: 'relative',
             width: { _: 'fit-content', lg: 'unset' },
-            ml: { _: '-14px', lg: 0 },
+            ml: 0,
+            // ml: { _: '-14px', lg: 0 },
           }}
         >
           <Box
@@ -810,57 +811,13 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
 
               [MQ.lg]: {
                 transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
-                ml: reversed ? '-68px' : 0,
+                ml: 0,
+                // ml: reversed ? '-68px' : 0,
               },
             }}
           >
-            {side_svg_big && (
-              <Hidden lgDown>
-                <CMSImage value={{ svg_image: side_svg_big }} />
-              </Hidden>
-            )}
-            {side_svg_big_mobile && (
-              <Hidden lgUp>
-                <CMSImage value={{ svg_image: side_svg_big_mobile }} />
-              </Hidden>
-            )}
+            {side_svg_big && <CMSImage value={{ svg_image: side_svg_big }} />}
           </Box>
-          {/* {side_svg_small && (
-            <Hidden lgDown>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: side_svg_small_top_offset,
-                  right: side_svg_small_right_offset,
-                  transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                  transition: 'transform 2s',
-                }}
-              >
-                <Box sx={{ position: 'relative' }}>
-                  <CMSImage value={{ svg_image: side_svg_small }} />
-                </Box>
-              </Box>
-            </Hidden>
-          )}
-          {side_svg_small_mobile && (
-            <Hidden lgUp>
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: side_svg_small_top_offset_mobile,
-                  right: side_svg_small_right_offset_mobile,
-                  transition: 'transform 2s',
-                  transform: show ? '' : `translate(-100vw)`,
-
-                  [MQ.lg]: {
-                    transform: show ? '' : `translate(${reversed ? '-100vw' : '100vw'})`,
-                  },
-                }}
-              >
-                <CMSImage value={{ svg_image: side_svg_small_mobile }} />
-              </Box>
-            </Hidden>
-          )} */}
         </Box>
       </Box>
     </Box>
@@ -874,12 +831,87 @@ const FeaturesSection = (props: HomePage) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        '& > div': { mb: { _: 10, lg: 25 } },
+        '& > div:not(:last-of-type)': { mb: { _: 10, lg: 23.5 } },
       }}
     >
       {props.features_sections.map(({ id, value }, index) => (
         <FeatureBlock key={id} feature={value} index={index} />
       ))}
+    </Box>
+  );
+};
+
+const upboundItems = [
+  {
+    img: placeholder,
+    title: 'provider-aws',
+    text: "Upbound's official Crossplane provider to manage Amazon Web Services (AWS) resources in Kubernetes.",
+    linkText: 'upbound/provider.aws',
+    link: '',
+  },
+  {
+    img: placeholder,
+    title: 'provider-gcp',
+    text: "Upbound's official Crossplane provider to manage Google Cloud Platform (GCP) services in Kubernetes.",
+    linkText: 'upbound/provider.gcp',
+    link: '',
+  },
+  {
+    img: placeholder,
+    title: 'provider-azure',
+    text: "Upbound's official Crossplane provider to manage Microsoft Azure services in Kubernetes.",
+    linkText: 'upbound/provider.azure',
+    link: '',
+  },
+];
+
+// NOTE: <IMAGE> USED FOR CMS PURPOSES
+interface StaticRequire {
+  default: StaticImageData;
+}
+declare type StaticImport = StaticRequire | StaticImageData;
+
+type UpboundItemProps = {
+  upboundItem: {
+    img: string | StaticImport;
+    title: string;
+    text: string;
+    linkText: string;
+    link: string;
+  };
+};
+
+const UpboundItem = ({ upboundItem }: UpboundItemProps) => {
+  const { img, title, text, linkText, link } = upboundItem;
+
+  return (
+    <Box sx={cardStyles}>
+      <Link href={link} muiProps={{ target: '_blank' }}>
+        <Box sx={{ display: 'flex' }}>
+          <Box sx={providerIcon}>
+            <Image src={img} alt="provider icon" layout="fill" objectFit="cover" />
+          </Box>
+        </Box>
+        <Box sx={{ flex: '1 1 auto' }}>
+          <Typography
+            variant="body_normal"
+            sx={{
+              mb: 2,
+              ...fontAvenirBold,
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="body_small" sx={{ mb: 2 }}>
+            {text}
+          </Typography>
+        </Box>
+        <Box>
+          <Typography variant="body_small" sx={{ color: COLORS.blueBayoux }}>
+            {linkText}
+          </Typography>
+        </Box>
+      </Link>
     </Box>
   );
 };
@@ -896,7 +928,6 @@ const Home = (props: Props) => {
       </Section>
 
       <Section
-        bgcolor
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
@@ -922,8 +953,42 @@ const Home = (props: Props) => {
         <CrossplaneLogosSection {...props} />
       </Section>
 
-      <Section sx={{ pt: { _: 12, md: 20 }, position: 'relative', backgroundColor: '#fff' }}>
+      <Section
+        sx={{
+          pb: { _: 16, md: 23.5 },
+          position: 'relative',
+          backgroundColor: '#fff',
+        }}
+      >
         <FeaturesSection {...props} />
+      </Section>
+
+      <Section sx={{ pb: { _: 16, md: 23.5 }, backgroundColor: '#fff' }}>
+        <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
+          <Typography variant="h2" sx={{ mb: 2.5 }}>
+            Section on Upbound Marketplace
+          </Typography>
+          <Typography variant="body_normal">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales erat id mollis
+            auctor. Curabitur at neque vitae ipsum sagittis rhoncus. Sed id leo nisi. Praesent
+            luctus suscipit auctor.
+          </Typography>
+        </Box>
+        <Box>
+          <Box sx={{ mt: 5, ...gridLayout }}>
+            {upboundItems.map((upboundItem) => (
+              <UpboundItem key={upboundItem.title} upboundItem={upboundItem} />
+            ))}
+          </Box>
+          <Box textAlign="center">
+            {props.section_1_button[0] && (
+              <Button sx={{ mt: 6 }} cmsValue={props.section_1_button[0].value}>
+                Learn More About Official Providers
+                {/* {props.section_1_button[0].value.text} */}
+              </Button>
+            )}
+          </Box>
+        </Box>
       </Section>
     </PageProvider>
   );
@@ -931,441 +996,267 @@ const Home = (props: Props) => {
 
 export default Home;
 
-// const tempData = {
-//   id: 3,
-//   meta: {
-//     type: 'app.HomePage',
-//     detail_url: 'http://localhost:8000/api/v2/pages/3/',
-//     html_url: null,
-//     slug: 'home-page',
-//     show_in_menus: false,
-//     seo_title: 'Crossplane - The cloud-native control plane framework',
-//     search_description: '',
-//     first_published_at: '2022-07-18T12:31:02.044354Z',
-//     alias_of: null,
-//     parent: null,
-//   },
-//   title: 'Home Page',
-//   seo_keywords: '',
-//   og_twitter_title: '',
-//   og_twitter_url: 'https://www.crossplane.io/',
-//   relative_url: '/',
-//   og_twitter_description: '',
-//   og_twitter_image: null,
-//   twitter_card: 'summary',
-//   twitter_site: '@crossplane_io',
-//   twitter_creator: '',
-//   auto_manage_canonical: false,
-//   site_page_canonical_url: {
-//     id: 3,
-//     meta: {
-//       type: 'app.HomePage',
-//       detail_url: 'http://localhost:8000/api/v2/pages/3/',
-//     },
-//     title: 'Home Page',
-//   },
-//   canonical_url: '',
-//   header: [
-//     {
-//       type: 'header',
-//       value: {
-//         title: 'The cloud native control plane framework',
-//         subtitle:
-//           'Build control planes without needing to write code. Crossplane has a highly extensible backend that enables you to orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that lets you define the declarative API it offers.',
-//         buttons: [
-//           {
-//             type: 'button',
-//             value: {
-//               text: 'Get Started on GitHub',
-//               style_type: 'gradientContained',
-//               link: [
-//                 {
-//                   type: 'relative_url',
-//                   value: '/products/universal-crossplane',
-//                   id: 'd1458e24-28dc-4879-991c-c58f5d8e2e0d',
-//                 },
-//               ],
-//               icon: {
-//                 title: 'rocketship-icon.svg',
-//                 url: '/public/github.svg',
-//                 view_box: '0 0 25 26',
-//               },
-//               has_arrow: false,
-//             },
-//             id: '3e92ed7d-7d0d-4e6c-ad65-508b3656ba6c',
-//           },
-//           {
-//             type: 'button',
-//             value: {
-//               text: 'Learn More',
-//               style_type: 'whiteOutlined',
-//               link: [
-//                 {
-//                   type: 'relative_url',
-//                   value: '/contact',
-//                   id: '872722a1-1033-4b47-9a16-f06d93a7aa7e',
-//                 },
-//               ],
-//               icon: {
-//                 title: null,
-//                 url: null,
-//                 view_box: null,
-//               },
-//               has_arrow: false,
-//             },
-//             id: '9b73059d-71ae-47b7-8ed9-48017f8e6cbb',
-//           },
-//         ],
-//         // partner_images_header: 'POWERING INTERNAL CLOUD PLATFORMS AT',
-//         // partner_images: [
-//         //   {
-//         //     type: 'svg_image',
-//         //     value: {
-//         //       svg_image: {
-//         //         title: 'millennium-bpc.svg',
-//         //         url: 'http://localhost:8000/media/documents/millennium-bpc.svg',
-//         //         view_box: '0 0 90 21',
-//         //       },
-//         //       width: 90,
-//         //       height: 21,
-//         //     },
-//         //     id: '7daf9579-5b7d-405b-8bb5-15e6531df80a',
-//         //   },
-//         //   {
-//         //     type: 'svg_image',
-//         //     value: {
-//         //       svg_image: {
-//         //         title: 'dfds.svg',
-//         //         url: 'http://localhost:8000/media/documents/dfds.svg',
-//         //         view_box: '0 0 200 70',
-//         //       },
-//         //       width: 80,
-//         //       height: 28,
-//         //     },
-//         //     id: '14f7cf2d-19ce-4a03-ab44-c59a72f20937',
-//         //   },
-//         //   {
-//         //     type: 'svg_image',
-//         //     value: {
-//         //       svg_image: {
-//         //         title: 'grupo.svg',
-//         //         url: 'http://localhost:8000/media/documents/grupo.svg',
-//         //         view_box: '0 0 190 61',
-//         //       },
-//         //       width: 80,
-//         //       height: 26,
-//         //     },
-//         //     id: 'c172ac2a-ddce-4e67-9661-07f7ff9fcf25',
-//         //   },
-//         //   {
-//         //     type: 'svg_image',
-//         //     value: {
-//         //       svg_image: {
-//         //         title: 'db.svg',
-//         //         url: 'http://localhost:8000/media/documents/db.svg',
-//         //         view_box: '0 0 110 78',
-//         //       },
-//         //       width: 47,
-//         //       height: 34,
-//         //     },
-//         //     id: 'aa914a00-e0e8-4ad5-864d-697d5a3c50c6',
-//         //   },
-//         //   {
-//         //     type: 'svg_image',
-//         //     value: {
-//         //       svg_image: {
-//         //         title: 'plotly.svg',
-//         //         url: 'http://localhost:8000/media/documents/plotly.svg',
-//         //         view_box: '0 0 182 59',
-//         //       },
-//         //       width: 80,
-//         //       height: 26,
-//         //     },
-//         //     id: 'b7a3b961-cc4a-4763-8b94-56e24014226f',
-//         //   },
-//         // ],
-//       },
-//       id: 'ac642308-e7ce-4fba-81c8-c532689511cc',
-//     },
-//   ],
-//   section_1_title: 'Created to power open platforms',
-//   section_1_sub_title:
-//     'We built Crossplane to help organizations build their platforms like the cloud vendors build theirs—with control planes. Crossplane is an open source, CNCF project built on the foundation of Kubernetes to orchestrate anything. Encapsulate policies, permissions, and other guardrails behind a custom API line to enable your customers to self-service without needing to become an infrastructure expert.',
-//   section_1_center_title_count: '5K+',
-//   section_1_center_title: 'Slack Members',
-//   section_1_center_text: 'Adopted by hundreds of amazing companies',
-//   section_1_button: [
-//     {
-//       type: 'button',
-//       value: {
-//         text: 'Join the Community',
-//         style_type: 'turquoiseContained',
-//         link: [
-//           {
-//             type: 'external_url',
-//             value: 'https://crossplane.io/',
-//             id: '83e1ee1c-178d-4abc-b70f-68b870c08ff1',
-//           },
-//         ],
-//         icon: {
-//           title: null,
-//           url: null,
-//           view_box: null,
-//         },
-//         has_arrow: false,
-//       },
-//       id: '8b6d1cdd-8336-45be-a004-d5e316a975ff',
-//     },
-//   ],
-//   features_sections: [
-//     {
-//       type: 'section',
-//       value: {
-//         header_svg: {
-//           svg_image: {
-//             title: 'EnterpriseReadyIcon.svg',
-//             url: 'http://localhost:8000/media/documents/EnterpriseReadyIcon.svg',
-//             view_box: '0 0 34 35',
-//           },
-//           width: null,
-//           height: null,
-//         },
-//         // header_text: 'Enterprise ready',
-//         title: 'Extensible by Design',
-//         text: 'Crossplane is designed from the ground up with extension in mind. From Providers that extend Crossplane to orchestrate new kinds of applications and infrastructure, to Configurations that extend Crossplane to expose new APIs, our community will help you find what you need to build your ideal control plane. Interested in building your own extensions?',
-//         link_text: 'Join the Crossplane Slack Channel',
-//         link: [
-//           {
-//             type: 'external_url',
-//             value: 'https://slack.crossplane.io/',
-//             id: '66fbd429-f48f-4aa0-88ed-c91f4b708ae4',
-//           },
-//         ],
-//         side_svg_big: {
-//           title: 'home-Page-Image-1-main.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-main.svg',
-//           view_box: '0 0 474 251',
-//         },
-//         side_svg_small: {
-//           title: 'home-Page-Image-1-additional.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-additional.svg',
-//           view_box: '0 0 131 128',
-//         },
-//         side_svg_small_top_offset: -54,
-//         side_svg_small_right_offset: -54,
-//         side_svg_big_mobile: {
-//           title: 'home-Page-Image-1-mobile-main.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-mobile-main.svg',
-//           view_box: '0 0 273 145',
-//         },
-//         side_svg_small_mobile: {
-//           title: 'home-Page-Image-1-mobile-additional.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-1-mobile-additional.svg',
-//           view_box: '0 0 106 105',
-//         },
-//         side_svg_small_top_offset_mobile: -42,
-//         side_svg_small_right_offset_mobile: -53,
-//       },
-//       id: '1c6b3c17-2427-4e66-bd4d-eb150a64607a',
-//     },
-//     {
-//       type: 'section',
-//       value: {
-//         header_svg: {
-//           svg_image: {
-//             title: 'DeployWithConfidenceIcon.svg',
-//             url: 'http://localhost:8000/media/documents/DeployWithConfidenceIcon.svg',
-//             view_box: '0 0 34 35',
-//           },
-//           width: null,
-//           height: null,
-//         },
-//         // header_text: 'Deploy with confidence',
-//         title: 'Putting you in control',
-//         text: 'Most platforms require that you buy into their opinionated API concepts. With Crossplane you can build a platform around your own opinions. We know the best control planes are tailored to the task at hand so we designed Crossplane as a framework that puts you in control. Use Crossplane to design a control plane that exposes declarative APIs tailored to your unique orchestration needs.',
-//         link_text: 'Learn More',
-//         link: [
-//           {
-//             type: 'relative_url',
-//             value: '/why-control-planes',
-//             id: 'aa82837e-1291-4769-9bb9-38111010967e',
-//           },
-//         ],
-//         side_svg_big: {
-//           title: 'DeployWithConfidenceBig.svg',
-//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceBig.svg',
-//           view_box: '0 0 523 415',
-//         },
-//         side_svg_small: {
-//           title: 'DeployWithConfidenceSmall.svg',
-//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmall.svg',
-//           view_box: '0 0 261 324',
-//         },
-//         side_svg_small_top_offset: 67,
-//         side_svg_small_right_offset: 0,
-//         side_svg_big_mobile: {
-//           title: 'DeployWithConfidenceBigMobile.svg',
-//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceBigMobile.svg',
-//           view_box: '0 0 272 216',
-//         },
-//         side_svg_small_mobile: {
-//           title: 'DeployWithConfidenceSmallMobile.svg',
-//           url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmallMobile.svg',
-//           view_box: '0 0 136 169',
-//         },
-//         side_svg_small_top_offset_mobile: 34,
-//         side_svg_small_right_offset_mobile: -32,
-//       },
-//       id: '97d82dcc-6e64-4a6b-a22e-e2b5258d226b',
-//     },
-//     {
-//       type: 'section',
-//       value: {
-//         header_svg: {
-//           svg_image: {
-//             title: 'EfficiencyEaseIcon.svg',
-//             url: 'http://localhost:8000/media/documents/EfficiencyEaseIcon.svg',
-//             view_box: '0 0 36 36',
-//           },
-//           width: null,
-//           height: null,
-//         },
-//         // header_text: 'Efficiency + ease',
-//         title: 'Built on a Solid Foundation',
-//         text: 'Crossplane builds on the class leading Kubernetes control plane, extending its battle hardened reliability and security features like Role Based Access Control (RBAC) to orchestrate everything - not just containers. Because Crossplane shares a foundation with Kubernetes it integrates smoothly with most popular cloud native tools.',
-//         link_text: 'Learn More',
-//         link: [
-//           {
-//             type: 'external_url',
-//             value: 'https://crossplane.io/docs/v1.9.html',
-//             id: 'a2a536c9-ab7e-45b8-9c67-c40a0027f9b4',
-//           },
-//         ],
-//         side_svg_big: {
-//           title: 'home-Page-Image-2-main.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-main.svg',
-//           view_box: '0 0 498 247',
-//         },
-//         side_svg_small: {
-//           title: 'home-Page-Image-2-additional.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-additional.svg',
-//           view_box: '0 0 74 71',
-//         },
-//         side_svg_small_top_offset: -9,
-//         side_svg_small_right_offset: 0,
-//         side_svg_big_mobile: {
-//           title: 'home-Page-Image-2-mobile-main.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-mobile-main.svg',
-//           view_box: '0 0 302 149',
-//         },
-//         side_svg_small_mobile: {
-//           title: 'home-Page-Image-2-mobile-additional.svg',
-//           url: 'http://localhost:8000/media/documents/home-Page-Image-2-mobile-additional.svg',
-//           view_box: '0 0 53 51',
-//         },
-//         side_svg_small_top_offset_mobile: -3,
-//         side_svg_small_right_offset_mobile: 8,
-//       },
-//       id: 'e679a85f-831a-4bc3-93b0-2a6637f3f972',
-//     },
-//   ],
-//   learn_more_section_title: 'Learn more about Upbound',
-//   learn_more_tile_1_header_image: [
-//     {
-//       type: 'image',
-//       value: {
-//         image: {
-//           title: 'main-article-img',
-//           url: 'http://localhost:8000/media/images/main-article-img.original.png',
-//         },
-//         width: null,
-//         height: null,
-//       },
-//       id: 'fb80784a-9be7-4404-87c1-b31978635b66',
-//     },
-//   ],
-//   learn_more_tile_1_link: [
-//     {
-//       type: 'external_url',
-//       value: 'https://upbound-5557732.hs-sites.com/control-planes-missing-ingredient-webinar',
-//       id: 'c7352e2b-0299-4439-b744-87f269a0c926',
-//     },
-//   ],
-//   learn_more_tile_1_header_author_image: [
-//     {
-//       type: 'image',
-//       value: {
-//         image: {
-//           title: 'grant-gumina-profile',
-//           url: 'http://localhost:8000/media/images/grant-gumina-profile.original.jpg',
-//         },
-//         width: null,
-//         height: null,
-//       },
-//       id: '11eee1dd-5039-4d8c-9d91-2b25aa77aba3',
-//     },
-//   ],
-//   learn_more_tile_1_author_name: 'Grant Gumina',
-//   learn_more_tile_1_resource_type: 'Webinar',
-//   learn_more_tile_1_video_id: null,
-//   learn_more_tile_1_pill_text: null,
-//   learn_more_tile_1_resource_title:
-//     'Control Planes: The Missing Ingredient for Cloud Native Developer Platforms',
-//   learn_more_tile_1_resource_snippet:
-//     'Who you get infrastructure from and how you build applications for it has changed. Now more than ever, customers are utilizing best-in-class infrastructure from the vendors of their choice. However, this presents challenges...',
-//   learn_more_tile_1_resource_date: null,
-//   learn_more_tile_2_header_image: [
-//     {
-//       type: 'image',
-//       value: {
-//         image: {
-//           title: 'matthias-article-img',
-//           url: 'http://localhost:8000/media/images/matthias-article-img.original.png',
-//         },
-//         width: null,
-//         height: null,
-//       },
-//       id: '0fb201dc-fd3b-45b5-a016-1462e52f4059',
-//     },
-//   ],
-//   learn_more_tile_2_author_name: 'Matthias Luebken',
-//   learn_more_tile_2_resource_type: 'Blog',
-//   learn_more_tile_2_link: [
-//     {
-//       type: 'external_url',
-//       value: 'https://blog.upbound.io/cloud-service-coverage/',
-//       id: 'b69872dd-2a67-4ffb-af42-84c572e1d7bd',
-//     },
-//   ],
-//   learn_more_tile_2_video_id: null,
-//   learn_more_tile_2_pill_text: 'Must read!',
-//   learn_more_tile_2_resource_title: 'Announcing 100% Cloud Service Coverage for Crossplane',
-//   learn_more_tile_2_resource_snippet: '',
-//   learn_more_tile_2_resource_date: null,
-//   learn_more_tile_3_header_image: [],
-//   learn_more_tile_3_header_author_image: [],
-//   learn_more_tile_3_link: [],
-//   learn_more_tile_3_author_name: 'Viktor Farcic',
-//   learn_more_tile_3_resource_type: 'video',
-//   learn_more_tile_3_video_id: 'VTTwzVSwWVo',
-//   learn_more_tile_3_pill_text: 'New!',
-//   learn_more_tile_3_resource_title: 'VIDEO: How to Manage Multi-Cloud Resources',
-//   learn_more_tile_3_resource_snippet: null,
-//   learn_more_tile_3_resource_date: '25 May, 2022',
-//   learn_more_tile_4_title: 'Register for our monthly newsletter',
-//   learn_more_tile_5_title: 'Visit the Upbound Blog',
-//   learn_more_tile_5_link: [
-//     {
-//       type: 'external_url',
-//       value: 'https://blog.upbound.io/',
-//       id: 'd62a6e3a-d9e7-42ee-8e83-515c6613de02',
-//     },
-//   ],
-// };
+const tempData = {
+  id: 3,
+  meta: {
+    type: 'app.HomePage',
+    detail_url: 'http://localhost:8000/api/v2/pages/3/',
+    html_url: null,
+    slug: 'home-page',
+    show_in_menus: false,
+    seo_title: 'Crossplane - The cloud-native control plane framework',
+    search_description: '',
+    first_published_at: '2022-07-18T12:31:02.044354Z',
+    alias_of: null,
+    parent: null,
+  },
+  title: 'Home Page',
+  seo_keywords: '',
+  og_twitter_title: '',
+  og_twitter_url: 'https://www.crossplane.io/',
+  relative_url: '/',
+  og_twitter_description: '',
+  og_twitter_image: null,
+  twitter_card: 'summary',
+  twitter_site: '@crossplane_io',
+  twitter_creator: '',
+  auto_manage_canonical: false,
+  site_page_canonical_url: {
+    id: 3,
+    meta: {
+      type: 'app.HomePage',
+      detail_url: 'http://localhost:8000/api/v2/pages/3/',
+    },
+    title: 'Home Page',
+  },
+  canonical_url: '',
+  header: [
+    {
+      type: 'header',
+      value: {
+        title: 'The cloud native control plane framework',
+        subtitle:
+          'Build control planes without needing to write code. Crossplane has a highly extensible backend that enables you to orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that lets you define the declarative API it offers.',
+        buttons: [
+          {
+            type: 'button',
+            value: {
+              text: 'Get Started on GitHub',
+              style_type: 'gradientContained',
+              link: [
+                {
+                  type: 'relative_url',
+                  value: '/products/universal-crossplane',
+                  id: 'd1458e24-28dc-4879-991c-c58f5d8e2e0d',
+                },
+              ],
+              icon: {
+                title: 'rocketship-icon.svg',
+                url: '/github.svg',
+                view_box: '0 0 25 26',
+              },
+              has_arrow: false,
+            },
+            id: '3e92ed7d-7d0d-4e6c-ad65-508b3656ba6c',
+          },
+          {
+            type: 'button',
+            value: {
+              text: 'Learn More',
+              style_type: 'whiteOutlined',
+              link: [
+                {
+                  type: 'relative_url',
+                  value: '/contact',
+                  id: '872722a1-1033-4b47-9a16-f06d93a7aa7e',
+                },
+              ],
+              icon: {
+                title: null,
+                url: null,
+                view_box: null,
+              },
+              has_arrow: false,
+            },
+            id: '9b73059d-71ae-47b7-8ed9-48017f8e6cbb',
+          },
+        ],
+      },
+      id: 'ac642308-e7ce-4fba-81c8-c532689511cc',
+    },
+  ],
+  section_1_title: 'Created to power open platforms',
+  section_1_sub_title:
+    'We built Crossplane to help organizations build their platforms like the cloud vendors build theirs—with control planes. Crossplane is an open source, CNCF project built on the foundation of Kubernetes to orchestrate anything. Encapsulate policies, permissions, and other guardrails behind a custom API line to enable your customers to self-service without needing to become an infrastructure expert.',
+  section_1_center_title_count: '5K+',
+  section_1_center_title: 'Slack Members',
+  section_1_center_text: 'Adopted by hundreds of amazing companies',
+  section_1_button: [
+    {
+      type: 'button',
+      value: {
+        text: 'Join the Community',
+        style_type: 'turquoiseContained',
+        link: [
+          {
+            type: 'external_url',
+            value: 'https://crossplane.io/',
+            id: '83e1ee1c-178d-4abc-b70f-68b870c08ff1',
+          },
+        ],
+        icon: {
+          title: null,
+          url: null,
+          view_box: null,
+        },
+        has_arrow: false,
+      },
+      id: '8b6d1cdd-8336-45be-a004-d5e316a975ff',
+    },
+  ],
+  features_sections: [
+    {
+      type: 'section',
+      value: {
+        header_svg: {
+          svg_image: {
+            title: 'EnterpriseReadyIcon.svg',
+            url: 'http://localhost:8000/media/documents/EnterpriseReadyIcon.svg',
+            view_box: '0 0 34 35',
+          },
+          width: null,
+          height: null,
+        },
+        // header_text: 'Enterprise ready',
+        title: 'Extensible by Design',
+        text: 'Crossplane is designed from the ground up with extension in mind. From Providers that extend Crossplane to orchestrate new kinds of applications and infrastructure, to Configurations that extend Crossplane to expose new APIs, our community will help you find what you need to build your ideal control plane. Interested in building your own extensions?',
+        link_text: 'Join the Crossplane Slack Channel',
+        link: [
+          {
+            type: 'external_url',
+            value: 'https://slack.crossplane.io/',
+            id: '66fbd429-f48f-4aa0-88ed-c91f4b708ae4',
+          },
+        ],
+        side_svg_big: {
+          title: 'home-Page-Image-1-main.svg',
+          url: '/placeholder.png',
+          view_box: '0 0 640 427',
+        },
+        side_svg_big_mobile: {
+          title: 'home-Page-Image-1-mobile-main.svg',
+          url: '/placeholder.png',
+          view_box: '0 0 640 427',
+        },
+      },
+      id: '1c6b3c17-2427-4e66-bd4d-eb150a64607a',
+    },
+    {
+      type: 'section',
+      value: {
+        header_svg: {
+          svg_image: {
+            title: 'DeployWithConfidenceIcon.svg',
+            url: 'http://localhost:8000/media/documents/DeployWithConfidenceIcon.svg',
+            view_box: '0 0 34 35',
+          },
+          width: null,
+          height: null,
+        },
+        // header_text: 'Deploy with confidence',
+        title: 'Putting you in control',
+        text: 'Most platforms require that you buy into their opinionated API concepts. With Crossplane you can build a platform around your own opinions. We know the best control planes are tailored to the task at hand so we designed Crossplane as a framework that puts you in control. Use Crossplane to design a control plane that exposes declarative APIs tailored to your unique orchestration needs.',
+        link_text: 'Learn More',
+        link: [
+          {
+            type: 'relative_url',
+            value: '/why-control-planes',
+            id: 'aa82837e-1291-4769-9bb9-38111010967e',
+          },
+        ],
+        side_svg_big: {
+          title: 'DeployWithConfidenceBig.svg',
+          url: '/placeholder.png',
+          view_box: '0 0 640 427',
+        },
+        // side_svg_small: {
+        //   title: 'DeployWithConfidenceSmall.svg',
+        //   url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmall.svg',
+        //   view_box: '0 0 261 324',
+        // },
+        // side_svg_small_top_offset: 67,
+        // side_svg_small_right_offset: 0,
+        side_svg_big_mobile: {
+          title: 'DeployWithConfidenceBigMobile.svg',
+          url: '/placeholder.png',
+          view_box: '0 0 640 427',
+        },
+        // side_svg_small_mobile: {
+        //   title: 'DeployWithConfidenceSmallMobile.svg',
+        //   url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmallMobile.svg',
+        //   view_box: '0 0 136 169',
+        // },
+        // side_svg_small_top_offset_mobile: 34,
+        // side_svg_small_right_offset_mobile: -32,
+      },
+      id: '97d82dcc-6e64-4a6b-a22e-e2b5258d226b',
+    },
+    {
+      type: 'section',
+      value: {
+        header_svg: {
+          svg_image: {
+            title: 'EfficiencyEaseIcon.svg',
+            url: 'http://localhost:8000/media/documents/EfficiencyEaseIcon.svg',
+            view_box: '0 0 36 36',
+          },
+          width: null,
+          height: null,
+        },
+        // header_text: 'Efficiency + ease',
+        title: 'Built on a Solid Foundation',
+        text: 'Crossplane builds on the class leading Kubernetes control plane, extending its battle hardened reliability and security features like Role Based Access Control (RBAC) to orchestrate everything - not just containers. Because Crossplane shares a foundation with Kubernetes it integrates smoothly with most popular cloud native tools.',
+        link_text: 'Learn More',
+        link: [
+          {
+            type: 'external_url',
+            value: 'https://crossplane.io/docs/v1.9.html',
+            id: 'a2a536c9-ab7e-45b8-9c67-c40a0027f9b4',
+          },
+        ],
+        side_svg_big: {
+          title: 'home-Page-Image-2-main.svg',
+          url: '/placeholder.png',
+          view_box: '0 0 640 427',
+        },
+        // side_svg_small: {
+        //   title: 'home-Page-Image-2-additional.svg',
+        //   url: 'http://localhost:8000/media/documents/home-Page-Image-2-additional.svg',
+        //   view_box: '0 0 74 71',
+        // },
+        // side_svg_small_top_offset: -9,
+        // side_svg_small_right_offset: 0,
+        side_svg_big_mobile: {
+          title: 'home-Page-Image-2-mobile-main.svg',
+          url: '/placeholder.png',
+          view_box: '0 0 640 427',
+        },
+        // side_svg_small_mobile: {
+        //   title: 'home-Page-Image-2-mobile-additional.svg',
+        //   url: 'http://localhost:8000/media/documents/home-Page-Image-2-mobile-additional.svg',
+        //   view_box: '0 0 53 51',
+        // },
+        // side_svg_small_top_offset_mobile: -3,
+        // side_svg_small_right_offset_mobile: 8,
+      },
+      id: 'e679a85f-831a-4bc3-93b0-2a6637f3f972',
+    },
+  ],
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  // const returnValue = await handleGetStaticProps(context, '/', true, tempData);
-  const returnValue = await handleGetStaticProps(context, '/', true);
+  const returnValue = await handleGetStaticProps(context, '/', tempData);
+  // const returnValue = await handleGetStaticProps(context, '/', true);
 
   if (returnValue) {
     return {
