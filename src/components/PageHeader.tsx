@@ -11,7 +11,7 @@ import Link from 'src/elements/Link';
 import Button from 'src/elements/Button';
 
 import logo from 'public/crossplane-logo.svg';
-import githubLogo from 'public/github.svg';
+import githubLogo from 'public/icons/github.svg';
 import closeIcon from 'public/icons/close-icon.svg';
 import hamburgerIcon from 'public/icons/hamburger-white.svg';
 
