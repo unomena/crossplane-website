@@ -86,9 +86,9 @@ type HomePageHeader = {
 };
 
 type HomePageFeature = {
-  length: number;
-  header_svg: ImageValue;
-  header_text: string;
+  // length: number;
+  // header_svg: ImageValue;
+  // header_text: string;
   title: string;
   text: string;
   link_text: string;

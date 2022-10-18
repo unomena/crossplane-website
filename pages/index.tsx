@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
+import * as routes from 'src/routes';
+
 import handleGetStaticProps from 'src/utils/handleGetStaticProps';
 import useOnScreen from 'src/utils/useOnScreen';
 
@@ -351,11 +353,14 @@ const Home = (props: Props) => {
             {props.section_1_title}
           </Typography>
           <Typography variant="body_normal">{props.section_1_sub_title}</Typography>
-          {props.section_1_button[0] && (
-            <Button sx={{ mt: 3.5, mb: 8 }} cmsValue={props.section_1_button[0].value}>
-              {props.section_1_button[0].value.text}
-            </Button>
-          )}
+          <Button styleType="turquoiseContained" sx={{ mt: 3.5, mb: 8 }} href={routes.upboundUrl}>
+            Learn More About Upbound
+          </Button>
+          {/* {props.section_1_button[0] && (
+              <Button sx={{ mt: 3.5, mb: 8 }} cmsValue={props.section_1_button[0].value}>
+                {props.section_1_button[0].value.text}
+              </Button>
+            )} */}
         </Box>
         <Typography sx={subText}>
           Started by Upbound and adopted by the cloud native community
@@ -391,12 +396,14 @@ const Home = (props: Props) => {
             ))}
           </Box>
           <Box textAlign="center">
-            {props.section_1_button[0] && (
+            <Button styleType="turquoiseContained" sx={{ mt: 6 }} href={routes.upboundUrl}>
+              Learn More About Official Providers
+            </Button>
+            {/* {props.section_1_button[0] && (
               <Button sx={{ mt: 6 }} cmsValue={props.section_1_button[0].value}>
-                Learn More About Official Providers
-                {/* {props.section_1_button[0].value.text} */}
+                {props.section_1_button[0].value.text}
               </Button>
-            )}
+            )} */}
           </Box>
         </Box>
       </Section>

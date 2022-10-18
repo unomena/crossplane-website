@@ -124,7 +124,7 @@ const PageFooter = ({
               <Link href={routes.youtubeUrl} target="_blank">
                 Youtube
               </Link>
-              <Link href="" target="_blank">
+              <Link href={routes.podcastUrl} target="_blank">
                 Podcast
               </Link>
               <Link href={routes.forumUrl} target="_blank">
