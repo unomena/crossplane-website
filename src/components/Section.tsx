@@ -84,7 +84,7 @@ const Section = ({
     <Box
       id={id}
       sx={{
-        bgcolor: bgcolor ? COLORS.elephant : 'transparent',
+        bgcolor: bgcolor ? COLORS.nileBlue : 'transparent',
         ...styles,
       }}
     >

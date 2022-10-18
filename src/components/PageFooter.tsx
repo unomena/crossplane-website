@@ -15,7 +15,7 @@ import { Anchor, Link } from 'src/elements/Anchor';
 import { Img } from 'src/elements/Img';
 import CTACard from 'src/components/CTACard';
 
-import cncfIcon from 'public/cncf-icon.png';
+import cncfLogo from 'public/cncf-logo.png';
 import logo from 'public/crossplane-logo.svg';
 
 const footerContainer: SxProps = {
@@ -146,7 +146,7 @@ const PageFooter = ({
               }}
             >
               <Anchor href={routes.cncfUrl}>
-                <Img src={cncfIcon} alt="cncfIcon" sx={{ width: '233px', height: '37px', mb: 3 }} />
+                <Img src={cncfLogo} alt="cncfLogo" sx={{ width: '233px', height: '37px', mb: 3 }} />
               </Anchor>
               <Typography color={COLORS.blueBayoux}>
                 We are a Cloud Native Computing Foundation project.

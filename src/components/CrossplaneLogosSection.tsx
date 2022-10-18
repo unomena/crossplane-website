@@ -223,7 +223,6 @@ const CPLogoBox = memo(
         sx={{
           ...cpLogoBox,
           ...sizeStyles,
-          // bgcolor: shouldPulse ? 'red' : COLORS.bigStone,
           animation: shouldPulse ? `${pulsate} 2s ease-in-out` : null,
         }}
       >

@@ -14,7 +14,7 @@ const textField: SxProps = {
   },
   '& input': {
     fontWeight: 400,
-    WebkitBoxShadow: `0 0 0 30px ${COLORS.elephant} inset !important`,
+    WebkitBoxShadow: `0 0 0 30px ${COLORS.nileBlue} inset !important`,
     WebkitTextFillColor: COLORS.linkWater,
   },
   '& textarea': {
@@ -23,12 +23,12 @@ const textField: SxProps = {
   '& .MuiFormLabel-root': {
     fontWeight: 400,
     color: COLORS.linkWater,
-    background: COLORS.elephant,
+    background: COLORS.nileBlue,
     marginLeft: -0.5,
     paddingLeft: 1,
     paddingRight: 1,
     '&.Mui-focused': {
-      color: COLORS.cornflower,
+      color: COLORS.turquoise,
     },
     '&.Mui-error': {
       color: COLORS.redPrimary,
@@ -53,19 +53,19 @@ const textField: SxProps = {
   },
   '& .MuiOutlinedInput-root:hover': {
     '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: COLORS.cornflower,
+      borderColor: COLORS.turquoise,
     },
     '& .MuiIconButton-root': {
-      color: COLORS.cornflower,
+      color: COLORS.turquoise,
     },
   },
   '& .MuiOutlinedInput-root.Mui-focused': {
     '& .MuiOutlinedInput-notchedOutline': {
-      borderColor: COLORS.cornflower,
-      boxShadow: `0 0 4px 2px ${COLORS.cornflower}80`,
+      borderColor: COLORS.turquoise,
+      boxShadow: `0 0 4px 2px ${COLORS.turquoise}80`,
     },
     '& .MuiIconButton-root': {
-      color: COLORS.cornflower,
+      color: COLORS.turquoise,
     },
   },
 };

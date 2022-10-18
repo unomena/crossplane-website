@@ -8,7 +8,7 @@ type Props = {
   height?: number;
 };
 
-const ArrowRightRounded = ({ color = COLORS.cornflower, width = 8, height = 16 }: Props) => {
+const ArrowRightRounded = ({ color = COLORS.turquoise, width = 8, height = 16 }: Props) => {
   return (
     <svg width={width} height={height} viewBox="0 0 8 16" xmlns="http://www.w3.org/2000/svg">
       <path

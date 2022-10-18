@@ -77,15 +77,15 @@ const maxWidth: SxProps = {
 
 const navItems = [
   {
-    href: '/what-control-planes',
-    text: 'What Control Planes?',
+    href: '/why-control-planes',
+    text: 'Why Control Planes?',
   },
   {
     href: routes.docsUrl,
     text: 'Documentation',
   },
   {
-    href: routes.slackUrl,
+    href: '/community',
     text: 'Community',
   },
   {

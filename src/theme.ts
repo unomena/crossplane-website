@@ -6,25 +6,16 @@ export const COLORS = {
   aquaMarine: '#3de2cb',
   aquarius: '#37ccb7',
   fillBlackBlack: '#183b56',
-  fillBlackGray: '#5a7184',
   redPrimary: '#ff4f52',
   slate: '#505a72',
-  softGreen: '#00333E',
   white: '#fff',
 
   linkWater: '#D3E7F7',
-  firefly: '#0B1C28',
-  elephant: '#0D2436',
-  cornflower: '#6D64F5',
-  bigStone: '#1B3549',
-  sun: '#FAAD13',
-
   nileBlue: '#183d54',
   bayOfMany: '#215373',
   turquoise: '#35d0ba',
   brightSun: '#ffcd3c',
   froly: '#f3807b',
-
   blueBayoux: '#5A7184',
 } as const;
 
@@ -116,10 +107,10 @@ export const MQ = {
 const theme = createTheme({
   palette: {
     // background: {
-    //   default: COLORS.firefly,
+    //   default: COLORS.nileBlue,
     // },
     primary: {
-      main: COLORS.cornflower,
+      main: COLORS.nileBlue,
     },
     secondary: {
       main: COLORS.linkWater,
@@ -259,14 +250,9 @@ const theme = createTheme({
   },
 });
 
-export const gradient_1: SxProps = {
-  background: `linear-gradient(45deg, ${COLORS.cornflower}, ${COLORS.turquoise})`,
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-};
-
-export const gradient_2: SxProps = {
-  background: `linear-gradient(145deg, ${COLORS.cornflower}, ${COLORS.sun})`,
+export const gradient_text: SxProps = {
+  // eslint-disable-next-line max-len
+  backgroundImage: `linear-gradient(to right, #f3807b, #fd8a6f, #ff9662, #ffa556, #ffb54a, #efc145, #dccc47, #c7d650, #9fd96a, #78d887, #53d5a2, #35d0ba)`,
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
 };

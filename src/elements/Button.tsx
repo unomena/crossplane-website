@@ -40,6 +40,17 @@ const whiteOutlined: SxProps = {
   },
 };
 
+const darkOutlined: SxProps = {
+  backgroundColor: 'unset',
+  color: COLORS.nileBlue,
+  border: `2px solid ${COLORS.nileBlue}`,
+
+  '&:hover': {
+    backgroundColor: 'unset',
+    ...hoverScale,
+  },
+};
+
 const whiteText: SxProps = {
   backgroundColor: 'unset',
   color: '#fff',
@@ -73,7 +84,7 @@ const gradientContained: SxProps = {
 
 const linkWaterContained: SxProps = {
   backgroundColor: COLORS.linkWater,
-  color: COLORS.firefly,
+  color: COLORS.nileBlue,
 
   '&:hover': {
     backgroundColor: COLORS.linkWater,
@@ -93,6 +104,7 @@ const disabled: SxProps = {
 const typeStyles = {
   whiteContained,
   whiteOutlined,
+  darkOutlined,
   whiteText,
   turquoiseContained,
   gradientContained,
@@ -172,6 +184,7 @@ type Props = {
   styleType?:
     | 'whiteContained'
     | 'whiteOutlined'
+    | 'darkOutlined'
     | 'whiteText'
     | 'turquoiseContained'
     | 'gradientContained'
