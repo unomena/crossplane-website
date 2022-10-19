@@ -3,8 +3,6 @@
 
 import React from 'react';
 
-// import Image from 'next/image';
-
 import { jsx } from '@emotion/react';
 import { Box, Typography, SxProps } from '@mui/material';
 import { COLORS, MQ } from 'src/theme';

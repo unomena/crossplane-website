@@ -51,7 +51,7 @@ const gridItem: SxProps = {
 const responsiveImg: SxProps = {
   width: '100%',
   maxWidth: '450px',
-  mx: 'auto',
+  // mx: 'auto',
 
   '& > span': {
     position: 'unset !important',

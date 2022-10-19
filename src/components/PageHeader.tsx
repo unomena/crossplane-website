@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Image from 'next/image';
-import { COLORS, MQ } from 'src/theme';
+import { COLORS, fontAvenirRoman } from 'src/theme';
 
 import { AppBar, Drawer, IconButton, Toolbar, Box, SxProps } from '@mui/material';
 
@@ -10,8 +10,8 @@ import * as routes from 'src/routes';
 import Link from 'src/elements/Link';
 import Button from 'src/elements/Button';
 
+import GitHubIcon from '@mui/icons-material/GitHub';
 import logo from 'public/crossplane-logo.svg';
-import githubLogo from 'public/icons/github.svg';
 import closeIcon from 'public/icons/close-icon.svg';
 import hamburgerIcon from 'public/icons/hamburger-white.svg';
 
@@ -42,10 +42,30 @@ const navLinks: SxProps = {
       opacity: '1',
     },
 
-    [MQ.md]: {
+    '@media screen and (min-width: 1170px)': {
       fontSize: '17px',
       mb: 0,
     },
+  },
+};
+
+const githubLink: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '20px',
+  fontWeight: '400',
+  textAlign: 'center',
+  color: '#fff',
+  opacity: '.7',
+  letterSpacing: '1.1px',
+
+  '&:hover': {
+    opacity: '1',
+  },
+
+  '@media screen and (min-width: 1170px)': {
+    fontSize: '17px',
+    mb: 0,
   },
 };
 
@@ -53,9 +73,7 @@ const mobileSignUpBtn: SxProps = {
   textAlign: 'center',
   mt: 5,
   '& .MuiButton-root': {
-    fontSize: '16px',
-    minHeight: '60px',
-    px: '30px',
+    ...fontAvenirRoman,
   },
 };
 
@@ -69,9 +87,9 @@ const mobileNav: SxProps = {
 };
 
 const maxWidth: SxProps = {
-  '@media screen and (min-width: 1336px)': {
+  '@media screen and (min-width: 1400px)': {
     width: '100%',
-    maxWidth: '351px',
+    maxWidth: '368px',
   },
 };
 
@@ -79,18 +97,22 @@ const navItems = [
   {
     href: '/why-control-planes',
     text: 'Why Control Planes?',
+    target: '_self',
   },
   {
     href: routes.docsUrl,
     text: 'Documentation',
+    target: '_blank',
   },
   {
     href: '/community',
     text: 'Community',
+    target: '_self',
   },
   {
     href: routes.blogUrl,
     text: 'Blog',
+    target: '_blank',
   },
 ];
 
@@ -126,7 +148,7 @@ const PageHeader = () => {
         }}
       >
         {navItems.map((navItem) => (
-          <Link key={navItem.text} href={navItem.href}>
+          <Link key={navItem.text} href={navItem.href} muiProps={{ target: navItem.target }}>
             {navItem.text}
           </Link>
         ))}
@@ -135,15 +157,20 @@ const PageHeader = () => {
         <Link
           href={routes.githubUrl}
           muiProps={{
-            sx: { display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3 },
+            target: '_blank',
+            sx: {
+              justifyContent: 'center',
+              mb: 3,
+              ...githubLink,
+            },
           }}
         >
-          <Box mr={1.5}>
-            <Image src={githubLogo} alt="github logo" width={16} height={16} />
+          <Box mr={1.5} display="flex">
+            <GitHubIcon fontSize="medium" />
           </Box>
           Get Started
         </Link>
-        <Button styleType="whiteContained" sizeType="small" href={routes.slackUrl} target="_blank">
+        <Button styleType="whiteContained" sizeType="normal" href={routes.slackUrl} target="_blank">
           Join Our Slack Channel
         </Button>
       </Box>
@@ -168,7 +195,7 @@ const PageHeader = () => {
           </IconButton>
           <Box sx={{ display: { _: 'none', xl: 'block' }, ...navLinks }}>
             {navItems.map((navItem) => (
-              <Link key={navItem.text} href={navItem.href}>
+              <Link key={navItem.text} href={navItem.href} muiProps={{ target: navItem.target }}>
                 {navItem.text}
               </Link>
             ))}
@@ -180,9 +207,9 @@ const PageHeader = () => {
               ...maxWidth,
             }}
           >
-            <Link href={routes.githubUrl} muiProps={{ sx: { display: 'flex' } }}>
+            <Link href={routes.githubUrl} muiProps={{ target: '_blank', sx: { ...githubLink } }}>
               <Box mr={1.5} display="flex">
-                <Image src={githubLogo} alt="github logo" width={16} height={16} />
+                <GitHubIcon fontSize="small" />
               </Box>
               Get Started
             </Link>

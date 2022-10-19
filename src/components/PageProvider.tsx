@@ -24,7 +24,6 @@ const defaultImg = OGImgHome.src;
 type Props = {
   children: React.ReactNode;
   isFooterVisible?: boolean;
-  // isOverflowVisible?: boolean;
   displayTitle?: string;
   metaDescription?: string;
   metaImg?: string;
@@ -44,7 +43,6 @@ type Props = {
 const PageProvider = ({
   children,
   isFooterVisible = true,
-  // isOverflowVisible: isOverflowVisibleProp = true,
   displayTitle = defaultTitle,
   metaDescription = defaultDescription,
   metaImg = defaultImg,
@@ -60,27 +58,16 @@ const PageProvider = ({
   cms_head_props,
   isPreview,
 }: Props) => {
-  // const [isOverflowVisible, setOverflowVisible] = useState(isOverflowVisibleProp);
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       document.body.scrollTo(0, 0);
     }
   }, []);
 
-  // useEffect(() => {
-  //   document.body.classList.toggle(
-  //     'overflow-hidden',
-  //     isOverflowVisible === false || isOverflowVisibleProp === false
-  //   );
-  //   return () => document.body.classList.remove('overflow-hidden');
-  // }, [isOverflowVisible, isOverflowVisibleProp]);
-
   return (
     <Box
       id="page-container"
       sx={{
-        // position: isOverflowVisible ? 'relative' : 'unset',
         width: '100%',
         minHeight: '100%',
       }}

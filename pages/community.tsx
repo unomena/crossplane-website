@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
+// import Image from 'next/future/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, MQ } from 'src/theme';
@@ -20,35 +21,38 @@ import cncfLogoColor from 'public/cncf-logo-color.png';
 const headerSection: SxProps = {
   position: 'relative',
   pt: { _: 13, md: 24 },
-  pb: { _: 13, md: 16 },
-  textAlign: 'center',
+  pb: { _: 13, md: 24 },
   maxWidth: 950,
   mx: 'auto',
 };
 
 const cardStyles: SxProps = {
-  position: 'absolute',
-  zIndex: 2,
-  bottom: -150,
-  left: 0,
-  right: 0,
-  display: 'flex',
-  alignItems: 'center',
   backgroundColor: '#fff',
   borderRadius: '20px',
   boxShadow: '1px 0px 16px 2px rgba(215,215,215,0.5)',
   maxWidth: 750,
-  p: 5,
+  mt: 5,
   mx: 'auto',
+  p: 5,
+
+  [MQ.md]: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'absolute',
+    zIndex: 2,
+    bottom: -150,
+    left: 0,
+    right: 0,
+    mt: 0,
+  },
 };
 
 const btnContainer: SxProps = {
   mt: 4,
-  // mb: { _: 6, sm: 10 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: { _: 'center', md: 'left' },
-  flexDirection: { _: 'column', sm: 'row' },
+  flexDirection: { _: 'column', xs: 'row' },
 
   '& .MuiButton-startIcon': {
     mr: 1.25,
@@ -57,11 +61,11 @@ const btnContainer: SxProps = {
   },
 
   '& > button, a': {
-    mx: { _: 0, sm: '10px' },
+    mx: { _: 0, xs: '10px' },
 
     ':first-of-type': {
       ml: 0,
-      mb: { _: '20px', sm: 0 },
+      mb: { _: '20px', xs: 0 },
     },
     '& ~ a': {
       mr: 0,
@@ -91,6 +95,8 @@ const btnContainer: SxProps = {
 //   },
 // };
 
+// const futureImg = { width: '100%', height: 'auto' };
+
 type Props = {};
 
 const Why = ({}: Props) => {
@@ -99,20 +105,21 @@ const Why = ({}: Props) => {
       ctaTitle="Are you using Crossplane in Production"
       ctaParagraph={'Share your success story and receive special Crossplane swag.'}
       ctaBtnText="Share your story"
-      ctaBtnLink="/upbound-preview"
+      ctaBtnLink=""
     >
       <Section sx={headerSection}>
-        <Typography variant="h2" color={COLORS.linkWater}>
+        <Typography variant="h2" textAlign="center" color={COLORS.linkWater}>
           Companies with Commercial Crossplane Offerings
         </Typography>
         {/* <Box sx={responsiveImg}>
           <Image src={placeholder} alt="placeholder" layout="fill" />
         </Box> */}
         <Box sx={cardStyles}>
-          <Box sx={{ position: 'relative', width: { _: '100%', md: '40%' } }}>
+          <Box sx={{ position: 'relative', width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
+            {/* <Image src={upboundLogo} alt="upboundLogo" sizes="100vw" style={futureImg} /> */}
             <Image src={upboundLogo} alt="upboundLogo" layout="responsive" />
           </Box>
-          <Box sx={{ width: { _: '100%', md: '60%' } }}>
+          <Box sx={{ width: { _: '100%', md: '50%' } }}>
             <Typography
               variant="body_normal"
               sx={{
