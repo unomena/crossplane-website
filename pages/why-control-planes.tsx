@@ -20,18 +20,30 @@ const headerSection: SxProps = {
 
 const gridLayout: SxProps = {
   display: 'grid',
-  gap: 10,
+  gap: 6,
   gridTemplateColumns: 'repeat(1, 1fr)',
 
   [MQ.md]: {
+    gap: 9,
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
 };
 
 const gridItem: SxProps = {
-  '&:not(:nth-last-child(-n+2))': {
-    borderBottom: `1px solid ${COLORS.blueBayoux}`,
+  borderBottom: `1px solid ${COLORS.blueBayoux}`,
+  pb: 5,
+
+  '&:nth-last-child(1)': {
+    borderBottom: `none`,
+    pb: 0,
+  },
+
+  [MQ.md]: {
     pb: 8,
+    '&:nth-last-child(2)': {
+      borderBottom: 'none',
+      pb: 0,
+    },
   },
 };
 
@@ -39,6 +51,7 @@ const gridItem: SxProps = {
 const responsiveImg: SxProps = {
   width: '100%',
   maxWidth: '450px',
+  mx: 'auto',
 
   '& > span': {
     position: 'unset !important',
@@ -93,7 +106,11 @@ const HeaderSection = () => {
           policy and permissions and control planes integrate easily with other systems because they
           expose an API, not just a command-line.
         </Typography>
-        <Button styleType="gradientContained" sx={{ mt: 6 }} href={routes.upboundUrl}>
+        <Button
+          styleType="gradientContained"
+          sx={{ mt: 5, mb: { _: 6, md: 0 } }}
+          href={routes.upboundUrl}
+        >
           Learn More
         </Button>
       </Box>
@@ -184,9 +201,7 @@ const WhyItemSection = ({ whyItem }: WhyItemProps) => {
         >
           {title}
         </Typography>
-        <Typography variant="body_small" sx={{ mb: 2 }}>
-          {text}
-        </Typography>
+        <Typography variant="body_small">{text}</Typography>
       </Box>
     </Box>
   );
@@ -210,18 +225,15 @@ const Why = ({}: Props) => {
         }}
       >
         <Box sx={{ maxWidth: 900, mx: 'auto', textAlign: 'center' }}>
-          <Typography variant="h2" sx={{ mb: 5 }}>
-            Why use Crossplane to build control planes?
-          </Typography>
+          <Typography variant="h2">Why use Crossplane to build control planes?</Typography>
         </Box>
-        <Box sx={{ mt: 10, ...gridLayout }}>
+        {/* <Box sx={{ mt: 10, ...gridLayout }}> */}
+        <Box sx={{ mt: { _: 5, md: 10 }, ...gridLayout }}>
           {whyItems.map((whyItem) => (
             <WhyItemSection key={whyItem.title} whyItem={whyItem} />
           ))}
         </Box>
-      </Section>
-      <Section sx={{ pb: { _: 16, md: 23.5 }, backgroundColor: '#fff' }}>
-        <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
+        <Box sx={{ maxWidth: 950, textAlign: 'center', mx: 'auto', pt: { _: 16, md: 23.5 } }}>
           <Typography variant="h2" sx={{ mb: 2.5 }}>
             Section linking back to Upbound
           </Typography>
@@ -234,6 +246,20 @@ const Why = ({}: Props) => {
           </Button>
         </Box>
       </Section>
+      {/* <Section sx={{ pb: { _: 16, md: 23.5 }, backgroundColor: '#fff' }}>
+        <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
+          <Typography variant="h2" sx={{ mb: 2.5 }}>
+            Section linking back to Upbound
+          </Typography>
+          <Typography variant="body_normal">
+            Would love to include maybe a write up about Upbound using crossplane/control planes?
+            Anything that would serve as a nice callout back to Upbound to increase referral traffic
+          </Typography>
+          <Button styleType="turquoiseContained" sx={{ mt: 6 }} href={routes.upboundUrl}>
+            Learn More About Upbound
+          </Button>
+        </Box>
+      </Section> */}
     </PageProvider>
   );
 };

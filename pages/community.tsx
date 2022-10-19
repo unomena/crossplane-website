@@ -15,7 +15,7 @@ import Button from 'src/elements/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import upboundLogo from 'public/upbound-logo.svg';
 import cncfLogoColor from 'public/cncf-logo-color.png';
-import placeholder from 'public/placeholder.png';
+// import placeholder from 'public/placeholder.png';
 
 const headerSection: SxProps = {
   position: 'relative',
@@ -70,26 +70,26 @@ const btnContainer: SxProps = {
 };
 
 // TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
-const responsiveImg: SxProps = {
-  width: '100%',
-  maxWidth: '450px',
-  my: 10,
+// const responsiveImg: SxProps = {
+//   width: '100%',
+//   maxWidth: '450px',
+//   my: 10,
 
-  '& > span': {
-    position: 'unset !important',
-  },
+//   '& > span': {
+//     position: 'unset !important',
+//   },
 
-  '& img': {
-    objectFit: 'contain',
-    width: '100% !important',
-    position: 'relative !important',
-    height: 'unset !important',
-  },
+//   '& img': {
+//     objectFit: 'contain',
+//     width: '100% !important',
+//     position: 'relative !important',
+//     height: 'unset !important',
+//   },
 
-  [MQ.lg]: {
-    maxWidth: '100%',
-  },
-};
+//   [MQ.lg]: {
+//     maxWidth: '100%',
+//   },
+// };
 
 type Props = {};
 
@@ -105,9 +105,9 @@ const Why = ({}: Props) => {
         <Typography variant="h2" color={COLORS.linkWater}>
           Companies with Commercial Crossplane Offerings
         </Typography>
-        <Box sx={responsiveImg}>
+        {/* <Box sx={responsiveImg}>
           <Image src={placeholder} alt="placeholder" layout="fill" />
-        </Box>
+        </Box> */}
         <Box sx={cardStyles}>
           <Box sx={{ position: 'relative', width: { _: '100%', md: '40%' } }}>
             <Image src={upboundLogo} alt="upboundLogo" layout="responsive" />

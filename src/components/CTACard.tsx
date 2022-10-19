@@ -73,7 +73,7 @@ const CTACard = ({
           variant="body_normal"
           color="#fff"
           sx={{
-            maxWidth: { _: 300, md: 950 },
+            maxWidth: { md: 950 },
             mx: 'auto',
             mb: 5,
             whiteSpace: { _: '', md: 'pre-wrap' },

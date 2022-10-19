@@ -113,22 +113,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
   const reversed = index % 2 !== 0;
   const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
 
-  const {
-    // header_svg,
-    // header_text,
-    title,
-    text,
-    link_text,
-    link,
-    side_svg_big,
-    // side_svg_small,
-    // side_svg_small_top_offset,
-    // side_svg_small_right_offset,
-    // side_svg_big_mobile,
-    // side_svg_small_mobile,
-    // side_svg_small_top_offset_mobile,
-    // side_svg_small_right_offset_mobile,
-  } = feature;
+  const { title, text, link_text, link, side_svg_big } = feature;
 
   const hiddenBarRef = useRef(undefined);
   const isVisible = useOnScreen(hiddenBarRef);
