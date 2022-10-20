@@ -1,10 +1,5 @@
-/** @jsxRuntime classic /
-/* @jsx jsx */
-
 import React, { useEffect } from 'react';
-// import React, { useEffect, useState } from 'react';
 
-import { jsx } from '@emotion/react';
 import { Box, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 

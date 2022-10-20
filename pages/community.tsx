@@ -1,7 +1,6 @@
 import React from 'react';
 
-import Image from 'next/image';
-// import Image from 'next/future/image';
+import Image from 'next/future/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, MQ } from 'src/theme';
@@ -73,30 +72,6 @@ const btnContainer: SxProps = {
   },
 };
 
-// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
-// const responsiveImg: SxProps = {
-//   width: '100%',
-//   maxWidth: '450px',
-//   my: 10,
-
-//   '& > span': {
-//     position: 'unset !important',
-//   },
-
-//   '& img': {
-//     objectFit: 'contain',
-//     width: '100% !important',
-//     position: 'relative !important',
-//     height: 'unset !important',
-//   },
-
-//   [MQ.lg]: {
-//     maxWidth: '100%',
-//   },
-// };
-
-// const futureImg = { width: '100%', height: 'auto' };
-
 type Props = {};
 
 const Why = ({}: Props) => {
@@ -111,13 +86,14 @@ const Why = ({}: Props) => {
         <Typography variant="h2" textAlign="center" color={COLORS.linkWater}>
           Companies with Commercial Crossplane Offerings
         </Typography>
-        {/* <Box sx={responsiveImg}>
-          <Image src={placeholder} alt="placeholder" layout="fill" />
-        </Box> */}
         <Box sx={cardStyles}>
-          <Box sx={{ position: 'relative', width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
-            {/* <Image src={upboundLogo} alt="upboundLogo" sizes="100vw" style={futureImg} /> */}
-            <Image src={upboundLogo} alt="upboundLogo" layout="responsive" />
+          <Box sx={{ width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
+            <Image
+              src={upboundLogo}
+              alt="upboundLogo"
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
           </Box>
           <Box sx={{ width: { _: '100%', md: '50%' } }}>
             <Typography
@@ -180,8 +156,13 @@ const Why = ({}: Props) => {
             pt: { _: 13, md: 16 },
           }}
         >
-          <Box sx={{ position: 'relative', maxWidth: 350, mx: 'auto', mb: 5 }}>
-            <Image src={cncfLogoColor} alt="cncfLogoColor" layout="responsive" />
+          <Box sx={{ maxWidth: 350, mx: 'auto', mb: 5 }}>
+            <Image
+              src={cncfLogoColor}
+              alt="cncfLogoColor"
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
           </Box>
           <Typography variant="h5">
             Crossplane is a Cloud Native Computing Foundation project

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { GetStaticProps } from 'next';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
@@ -83,10 +83,9 @@ const providerIcon: SxProps = {
   position: 'relative',
   width: '90px',
   height: '90px',
+  borderRadius: '20px',
+  overflow: 'hidden',
   mb: 3,
-  '& > span': {
-    borderRadius: '20px',
-  },
 };
 
 const HeaderSection = (props: HomePageHeader) => {
@@ -286,7 +285,7 @@ const UpboundItem = ({ upboundItem }: UpboundItemProps) => {
       {/* <Link href={link} muiProps={{ target: '_blank' }}> */}
       <Box sx={{ display: 'flex' }}>
         <Box sx={providerIcon}>
-          <Image src={img} alt="provider icon" layout="fill" objectFit="cover" />
+          <Image src={img} alt="provider icon" sizes="100vw" fill style={{ objectFit: 'cover' }} />
         </Box>
       </Box>
       <Box sx={{ flex: '1 1 auto' }}>

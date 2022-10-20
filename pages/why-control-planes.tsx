@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
@@ -47,36 +47,13 @@ const gridItem: SxProps = {
   },
 };
 
-// TO DO: INVESTIGATE FIX FOR IMAGE RESPONSIVENESS RELATED TO HEIGHT CONCERNS
-const responsiveImg: SxProps = {
-  width: '100%',
-  maxWidth: '450px',
-  // mx: 'auto',
-
-  '& > span': {
-    position: 'unset !important',
-  },
-
-  '& img': {
-    objectFit: 'contain',
-    width: '100% !important',
-    position: 'relative !important',
-    height: 'unset !important',
-  },
-
-  [MQ.lg]: {
-    maxWidth: '100%',
-  },
-};
-
 const iconStyles: SxProps = {
   position: 'relative',
   width: '50px',
   height: '50px',
+  borderRadius: '50px',
+  overflow: 'hidden',
   mb: 2,
-  '& > span': {
-    borderRadius: '50px',
-  },
 };
 
 const HeaderSection = () => {
@@ -120,9 +97,12 @@ const HeaderSection = () => {
           width: { _: '100%', md: '50%' },
         }}
       >
-        <Box sx={responsiveImg}>
-          <Image src={placeholder} alt="placeholder" layout="fill" />
-        </Box>
+        <Image
+          src={placeholder}
+          alt="placeholder"
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto' }}
+        />
       </Box>
     </Box>
   );
@@ -188,7 +168,7 @@ const WhyItemSection = ({ whyItem }: WhyItemProps) => {
     <Box sx={gridItem}>
       <Box sx={{ display: 'flex' }}>
         <Box sx={iconStyles}>
-          <Image src={icon} alt="provider icon" layout="fill" objectFit="cover" />
+          <Image src={icon} alt="provider icon" sizes="100vw" fill style={{ objectFit: 'cover' }} />
         </Box>
       </Box>
       <Box>

@@ -1,16 +1,13 @@
-/** @jsxRuntime classic /
-/* @jsx jsx */
-
 import React from 'react';
 
-import { jsx } from '@emotion/react';
+import Image from 'next/future/image';
+
 import { Box, Typography, SxProps } from '@mui/material';
 import { COLORS, MQ } from 'src/theme';
 
 import * as routes from 'src/routes';
 
-import { Anchor, Link } from 'src/elements/Anchor';
-import { Img } from 'src/elements/Img';
+import Link from 'src/elements/Link';
 import CTACard from 'src/components/CTACard';
 
 import cncfLogo from 'public/cncf-logo.png';
@@ -104,7 +101,9 @@ const PageFooter = ({
               }}
             >
               <Link href={routes.home}>
-                <Img src={logo} alt="logo" width={190} />
+                <Box>
+                  <Image src={logo} alt="logo" style={{ width: 190, height: 'auto' }} />
+                </Box>
               </Link>
             </Box>
             <Box
@@ -116,16 +115,16 @@ const PageFooter = ({
                 ...footerLinks,
               }}
             >
-              <Link href={routes.twitterUrl} target="_blank">
+              <Link href={routes.twitterUrl} muiProps={{ target: '_blank' }}>
                 Twitter
               </Link>
-              <Link href={routes.youtubeUrl} target="_blank">
+              <Link href={routes.youtubeUrl} muiProps={{ target: '_blank' }}>
                 Youtube
               </Link>
-              <Link href={routes.podcastUrl} target="_blank">
+              <Link href={routes.podcastUrl} muiProps={{ target: '_blank' }}>
                 Podcast
               </Link>
-              <Link href={routes.forumUrl} target="_blank">
+              <Link href={routes.forumUrl} muiProps={{ target: '_blank' }}>
                 Forum
               </Link>
             </Box>
@@ -143,9 +142,15 @@ const PageFooter = ({
                 width: { _: '100%', md: '50%' },
               }}
             >
-              <Anchor href={routes.cncfUrl}>
-                <Img src={cncfLogo} alt="cncfLogo" sx={{ width: '233px', height: '37px', mb: 3 }} />
-              </Anchor>
+              <Link href={routes.cncfUrl} muiProps={{ target: '_blank' }}>
+                <Box>
+                  <Image
+                    src={cncfLogo}
+                    alt="cncfLogo"
+                    style={{ width: 233, height: 'auto', marginBottom: '24px' }}
+                  />
+                </Box>
+              </Link>
               <Typography color={COLORS.blueBayoux}>
                 We are a Cloud Native Computing Foundation project.
               </Typography>
@@ -160,7 +165,10 @@ const PageFooter = ({
             >
               <Typography fontWeight={600} sx={{ mb: 2 }}>
                 © Crossplane Authors 2022. Documentation distributed under{' '}
-                <Link href={routes.creativeCommonsUrl} color="turquoise" target="_blank">
+                <Link
+                  href={routes.creativeCommonsUrl}
+                  muiProps={{ color: COLORS.turquoise, target: '_blank' }}
+                >
                   CC-BY-4.0
                 </Link>
                 .
@@ -169,7 +177,10 @@ const PageFooter = ({
                 © 2022 The Linux Foundation. All rights reserved. The Linux Foundation has
                 registered trademarks and uses trademarks. For a list of trademarks of The Linux
                 Foundation, please see our{' '}
-                <Link href={routes.trademarkUsageUrl} target="_blank">
+                <Link
+                  href={routes.trademarkUsageUrl}
+                  muiProps={{ color: COLORS.turquoise, target: '_blank' }}
+                >
                   Trademark Usage
                 </Link>{' '}
                 page.

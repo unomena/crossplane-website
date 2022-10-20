@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { Box, Hidden, SxProps, Typography, useMediaQuery } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
@@ -240,12 +240,24 @@ const CPLogoBox = memo(
           }}
         >
           {logoOne ? (
-            <Image src={logoOne} alt="company logo" layout="fill" objectFit="contain" />
+            <Image
+              src={logoOne}
+              alt="company logo"
+              sizes="100vw"
+              fill
+              style={{ objectFit: 'contain' }}
+            />
           ) : (
             <span></span>
           )}
           {logoTwo ? (
-            <Image src={logoTwo} alt="company logo" layout="fill" objectFit="contain" />
+            <Image
+              src={logoTwo}
+              alt="company logo"
+              sizes="100vw"
+              fill
+              style={{ objectFit: 'contain' }}
+            />
           ) : (
             <span></span>
           )}
@@ -424,10 +436,10 @@ const CrossplaneLogosSection = (props: HomePage) => {
       newActiveLogos[index] = newLogo;
       setActiveLogos(newActiveLogos);
 
-      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v.src !== newLogo.src);
+      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v.src !== newLogo?.src);
       if (newAvailableLogos.length === 0) {
         newAvailableLogos = crossplaneLogos.filter(
-          (cpLogo) => !newActiveLogos.some((v) => v.src === cpLogo.src)
+          (cpLogo) => !newActiveLogos.some((v) => v?.src === cpLogo?.src)
         );
       }
       setAvailableLogos(newAvailableLogos);

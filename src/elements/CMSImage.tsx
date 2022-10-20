@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useMemo } from 'react';
 
-import Image, { ImageProps } from 'next/image';
+import Image, { ImageProps } from 'next/future/image';
 
 type CMSImageProps = {
   value: ImageValue;
@@ -43,7 +43,7 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
         data = { ...data, height: image.height };
       }
       if (!image.view_box && !image.width && !image.height) {
-        data = { ...data, layout: 'fill' };
+        data = { ...data, fill: true };
       }
       return data;
     }
@@ -54,7 +54,7 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
     return null;
   }
 
-  return <Image {...imageData} {...props} />;
+  return <Image style={{ width: '100%', height: 'auto' }} {...imageData} {...props} priority />;
 };
 
 export default CMSImage;

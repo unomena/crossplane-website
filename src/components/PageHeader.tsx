@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 import { COLORS, fontAvenirRoman } from 'src/theme';
 
 import { AppBar, Drawer, IconButton, Toolbar, Box, SxProps } from '@mui/material';
@@ -126,9 +126,13 @@ const PageHeader = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Link href={routes.home} muiProps={{ sx: { display: 'flex' } }}>
-          <Image src={logo} alt="company logo" width={117} height={31} />
-        </Link>
+        <Box sx={{ display: 'flex' }}>
+          <Link href={routes.home}>
+            <Box>
+              <Image src={logo} alt="company logo" style={{ width: 117, height: 'auto' }} />
+            </Box>
+          </Link>
+        </Box>
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -136,7 +140,7 @@ const PageHeader = () => {
           onClick={handleDrawerToggle}
           sx={{ p: 0, display: { xl: 'none' } }}
         >
-          <Image src={closeIcon} alt="menu icon" width={24} />
+          <Image src={closeIcon} alt="menu icon" style={{ width: 24, height: 'auto' }} />
         </IconButton>
       </Box>
       <Box
@@ -181,9 +185,13 @@ const PageHeader = () => {
     <Box sx={root}>
       <AppBar component="nav" position="absolute">
         <Toolbar>
-          <Link href={routes.home} muiProps={{ sx: { display: 'flex', ...maxWidth } }}>
-            <Image src={logo} alt="company logo" width={117} height={31} />
-          </Link>
+          <Box sx={{ display: 'flex', ...maxWidth }}>
+            <Link href={routes.home}>
+              <Box>
+                <Image src={logo} alt="company logo" style={{ width: 117, height: 'auto' }} />
+              </Box>
+            </Link>
+          </Box>
           <IconButton
             color="inherit"
             aria-label="close drawer"
@@ -191,7 +199,7 @@ const PageHeader = () => {
             onClick={handleDrawerToggle}
             sx={{ p: 0, display: { xl: 'none' } }}
           >
-            <Image src={hamburgerIcon} alt="menu icon" width={24} />
+            <Image src={hamburgerIcon} alt="menu icon" style={{ width: 24, height: 'auto' }} />
           </IconButton>
           <Box sx={{ display: { _: 'none', xl: 'block' }, ...navLinks }}>
             {navItems.map((navItem) => (

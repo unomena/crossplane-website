@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 import { Box, Button as MuiButton, ButtonProps, CircularProgress, SxProps } from '@mui/material';
 import { COLORS, fontAvenirBold, fontAvenirRoman, MQ } from 'src/theme';
@@ -232,8 +232,9 @@ const Button = ({
             <Image
               src={cmsValue.icon.url}
               alt={cmsValue.icon.title}
-              layout="fill"
-              objectFit="contain"
+              sizes="100vw"
+              fill
+              style={{ objectFit: 'contain' }}
             />
           ),
         };

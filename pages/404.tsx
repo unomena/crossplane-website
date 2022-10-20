@@ -1,14 +1,10 @@
-/** @jsxRuntime classic /
-/* @jsx jsx */
-
 import React from 'react';
 
-import { jsx } from '@emotion/react';
 import { Box, Typography } from '@mui/material';
 
 import PageProvider from 'src/components/PageProvider';
 
-import { Link } from 'src/elements/Anchor';
+import Link from 'src/elements/Link';
 
 const FourOhFour: React.FC = () => {
   return (
