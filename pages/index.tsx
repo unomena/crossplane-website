@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { GetStaticProps } from 'next';
-import Image from 'next/future/image';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
-
-import * as routes from 'src/routes';
 
 import handleGetStaticProps from 'src/utils/handleGetStaticProps';
 import useOnScreen from 'src/utils/useOnScreen';
@@ -17,8 +14,6 @@ import CrossplaneLogosSection from 'src/components/CrossplaneLogosSection';
 import Button from 'src/elements/Button';
 import Link from 'src/elements/Link';
 import CMSImage from 'src/elements/CMSImage';
-
-import placeholder from 'public/placeholder.png';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 24 },
@@ -43,7 +38,7 @@ const headerButtons: SxProps = {
   },
 };
 
-const subText: SxProps = {
+const smallTitle: SxProps = {
   ...fontAvenirBold,
   color: COLORS.nileBlue,
   fontSize: '18px',
@@ -112,7 +107,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
   const reversed = index % 2 !== 0;
   const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
 
-  const { title, text, link_text, link, side_svg_big } = feature;
+  const { title, text, link_text, link, header_svg } = feature;
 
   const hiddenBarRef = useRef(undefined);
   const isVisible = useOnScreen(hiddenBarRef);
@@ -123,8 +118,6 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
       setShow(true);
     }
   }, [isVisible]);
-
-  console.log(side_svg_big);
 
   return (
     <Box
@@ -211,7 +204,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               },
             }}
           >
-            {side_svg_big && <CMSImage value={{ svg_image: side_svg_big }} />}
+            {header_svg && <CMSImage value={header_svg} />}
+            {/* {header_svg && <CMSImage value={{ header_svg: svg_image }} />} */}
           </Box>
         </Box>
       </Box>
@@ -236,48 +230,8 @@ const FeaturesSection = (props: HomePage) => {
   );
 };
 
-const upboundItems = [
-  {
-    img: placeholder,
-    title: 'provider-aws',
-    text: "Upbound's official Crossplane provider to manage Amazon Web Services (AWS) resources in Kubernetes.",
-    linkText: 'upbound/provider.aws',
-    // link: '',
-  },
-  {
-    img: placeholder,
-    title: 'provider-gcp',
-    text: "Upbound's official Crossplane provider to manage Google Cloud Platform (GCP) services in Kubernetes.",
-    linkText: 'upbound/provider.gcp',
-    // link: '',
-  },
-  {
-    img: placeholder,
-    title: 'provider-azure',
-    text: "Upbound's official Crossplane provider to manage Microsoft Azure services in Kubernetes.",
-    linkText: 'upbound/provider.azure',
-    // link: '',
-  },
-];
-
-// NOTE: <IMAGE> USED FOR CMS PURPOSES
-interface StaticRequire {
-  default: StaticImageData;
-}
-declare type StaticImport = StaticRequire | StaticImageData;
-
-type UpboundItemProps = {
-  upboundItem: {
-    img: string | StaticImport;
-    title: string;
-    text: string;
-    linkText: string;
-    // link: string;
-  };
-};
-
-const UpboundItem = ({ upboundItem }: UpboundItemProps) => {
-  const { img, title, text, linkText } = upboundItem;
+const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
+  const { image, title, text, footer_text } = upboundItem;
   // const { img, title, text, linkText, link } = upboundItem;
 
   return (
@@ -285,7 +239,9 @@ const UpboundItem = ({ upboundItem }: UpboundItemProps) => {
       {/* <Link href={link} muiProps={{ target: '_blank' }}> */}
       <Box sx={{ display: 'flex' }}>
         <Box sx={providerIcon}>
-          <Image src={img} alt="provider icon" sizes="100vw" fill style={{ objectFit: 'cover' }} />
+          {image && image[0] && (
+            <CMSImage value={image[0].value} sizes="100vw" fill style={{ objectFit: 'cover' }} />
+          )}
         </Box>
       </Box>
       <Box sx={{ flex: '1 1 auto' }}>
@@ -304,10 +260,20 @@ const UpboundItem = ({ upboundItem }: UpboundItemProps) => {
       </Box>
       <Box>
         <Typography variant="body_small" sx={{ color: COLORS.blueBayoux }}>
-          {linkText}
+          {footer_text}
         </Typography>
       </Box>
       {/* </Link> */}
+    </Box>
+  );
+};
+
+const UpboundItems = ({ section_3_card_items }: { section_3_card_items: UpboundItems }) => {
+  return (
+    <Box sx={{ mt: 5, ...gridLayout }}>
+      {section_3_card_items.map((item) => (
+        <UpboundItem key={item.id} upboundItem={item} />
+      ))}
     </Box>
   );
 };
@@ -318,7 +284,24 @@ type Props = {
 
 const Home = (props: Props) => {
   return (
-    <PageProvider cms_head_props={props.cms_head_props} isPreview={props.isPreview}>
+    <PageProvider
+      cms_head_props={props.cms_head_props}
+      isPreview={props.isPreview}
+      ctaTitle={props.cta_section_title}
+      ctaParagraph={props.cta_section_text}
+      ctaBtnText={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[0] &&
+        props.cta_section_buttons[0].value?.text
+      }
+      ctaBtnLink={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[0] &&
+        props.cta_section_buttons[0].value?.link
+          ? props.cta_section_buttons[0].value.link[0].value
+          : undefined
+      }
+    >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
       </Section>
@@ -337,18 +320,13 @@ const Home = (props: Props) => {
             {props.section_1_title}
           </Typography>
           <Typography variant="body_normal">{props.section_1_sub_title}</Typography>
-          <Button styleType="turquoiseContained" sx={{ mt: 3.5, mb: 8 }} href={routes.upboundUrl}>
-            Learn More About Upbound
-          </Button>
-          {/* {props.section_1_button[0] && (
-              <Button sx={{ mt: 3.5, mb: 8 }} cmsValue={props.section_1_button[0].value}>
-                {props.section_1_button[0].value.text}
-              </Button>
-            )} */}
+          {props.section_1_button[0] && (
+            <Button sx={{ mt: 3.5, mb: 8 }} cmsValue={props.section_1_button[0].value}>
+              {props.section_1_button[0].value.text}
+            </Button>
+          )}
         </Box>
-        <Typography sx={subText}>
-          Started by Upbound and adopted by the cloud native community
-        </Typography>
+        <Typography sx={smallTitle}>{props.section_1_small_title}</Typography>
         <CrossplaneLogosSection {...props} />
       </Section>
 
@@ -365,29 +343,18 @@ const Home = (props: Props) => {
       <Section sx={{ pb: { _: 16, md: 23.5 }, backgroundColor: '#fff' }}>
         <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
           <Typography variant="h2" sx={{ mb: 2.5 }}>
-            Section on Upbound Marketplace
+            {props.section_3_title}
           </Typography>
-          <Typography variant="body_normal">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sodales erat id mollis
-            auctor. Curabitur at neque vitae ipsum sagittis rhoncus. Sed id leo nisi. Praesent
-            luctus suscipit auctor.
-          </Typography>
+          <Typography variant="body_normal">{props.section_3_text}</Typography>
         </Box>
         <Box>
-          <Box sx={{ mt: 5, ...gridLayout }}>
-            {upboundItems.map((upboundItem) => (
-              <UpboundItem key={upboundItem.title} upboundItem={upboundItem} />
-            ))}
-          </Box>
+          <UpboundItems section_3_card_items={props.section_3_card_items} />
           <Box textAlign="center">
-            <Button styleType="turquoiseContained" sx={{ mt: 6 }} href={routes.upboundUrl}>
-              Learn More About Official Providers
-            </Button>
-            {/* {props.section_1_button[0] && (
-              <Button sx={{ mt: 6 }} cmsValue={props.section_1_button[0].value}>
-                {props.section_1_button[0].value.text}
+            {props.section_3_button[0] && (
+              <Button sx={{ mt: 6 }} cmsValue={props.section_3_button[0].value}>
+                {props.section_3_button[0].value.text}
               </Button>
-            )} */}
+            )}
           </Box>
         </Box>
       </Section>
@@ -397,267 +364,8 @@ const Home = (props: Props) => {
 
 export default Home;
 
-const tempData = {
-  id: 3,
-  meta: {
-    type: 'app.HomePage',
-    detail_url: 'http://localhost:8000/api/v2/pages/3/',
-    html_url: null,
-    slug: 'home-page',
-    show_in_menus: false,
-    seo_title: 'Crossplane - The cloud-native control plane framework',
-    search_description: '',
-    first_published_at: '2022-07-18T12:31:02.044354Z',
-    alias_of: null,
-    parent: null,
-  },
-  title: 'Home Page',
-  seo_keywords: '',
-  og_twitter_title: '',
-  og_twitter_url: 'https://www.crossplane.io/',
-  relative_url: '/',
-  og_twitter_description: '',
-  og_twitter_image: null,
-  twitter_card: 'summary',
-  twitter_site: '@crossplane_io',
-  twitter_creator: '',
-  auto_manage_canonical: false,
-  site_page_canonical_url: {
-    id: 3,
-    meta: {
-      type: 'app.HomePage',
-      detail_url: 'http://localhost:8000/api/v2/pages/3/',
-    },
-    title: 'Home Page',
-  },
-  canonical_url: '',
-  header: [
-    {
-      type: 'header',
-      value: {
-        title: 'The cloud native control plane framework',
-        subtitle:
-          'Build control planes without needing to write code. Crossplane has a highly extensible backend that enables you to orchestrate applications and infrastructure no matter where they run, and a highly configurable frontend that lets you define the declarative API it offers.',
-        buttons: [
-          {
-            type: 'button',
-            value: {
-              text: 'Get Started on GitHub',
-              style_type: 'gradientContained',
-              link: [
-                {
-                  type: 'relative_url',
-                  value: '/products/universal-crossplane',
-                  id: 'd1458e24-28dc-4879-991c-c58f5d8e2e0d',
-                },
-              ],
-              icon: {
-                title: 'rocketship-icon.svg',
-                url: '/icons/github.svg',
-                view_box: '0 0 25 26',
-              },
-              has_arrow: false,
-            },
-            id: '3e92ed7d-7d0d-4e6c-ad65-508b3656ba6c',
-          },
-          {
-            type: 'button',
-            value: {
-              text: 'Learn More',
-              style_type: 'whiteOutlined',
-              link: [
-                {
-                  type: 'relative_url',
-                  value: '/contact',
-                  id: '872722a1-1033-4b47-9a16-f06d93a7aa7e',
-                },
-              ],
-              icon: {
-                title: null,
-                url: null,
-                view_box: null,
-              },
-              has_arrow: false,
-            },
-            id: '9b73059d-71ae-47b7-8ed9-48017f8e6cbb',
-          },
-        ],
-      },
-      id: 'ac642308-e7ce-4fba-81c8-c532689511cc',
-    },
-  ],
-  section_1_title: 'Created to power open platforms',
-  section_1_sub_title:
-    'We built Crossplane to help organizations build their platforms like the cloud vendors build theirs—with control planes. Crossplane is an open source, CNCF project built on the foundation of Kubernetes to orchestrate anything. Encapsulate policies, permissions, and other guardrails behind a custom API line to enable your customers to self-service without needing to become an infrastructure expert.',
-  section_1_center_title_count: '5K+',
-  section_1_center_title: 'Slack Members',
-  section_1_center_text: 'Adopted by hundreds of amazing companies',
-  section_1_button: [
-    {
-      type: 'button',
-      value: {
-        text: 'Join the Community',
-        style_type: 'turquoiseContained',
-        link: [
-          {
-            type: 'external_url',
-            value: 'https://crossplane.io/',
-            id: '83e1ee1c-178d-4abc-b70f-68b870c08ff1',
-          },
-        ],
-        icon: {
-          title: null,
-          url: null,
-          view_box: null,
-        },
-        has_arrow: false,
-      },
-      id: '8b6d1cdd-8336-45be-a004-d5e316a975ff',
-    },
-  ],
-  features_sections: [
-    {
-      type: 'section',
-      value: {
-        header_svg: {
-          svg_image: {
-            title: 'EnterpriseReadyIcon.svg',
-            url: 'http://localhost:8000/media/documents/EnterpriseReadyIcon.svg',
-            view_box: '0 0 34 35',
-          },
-          width: null,
-          height: null,
-        },
-        // header_text: 'Enterprise ready',
-        title: 'Extensible by Design',
-        text: 'Crossplane is designed from the ground up with extension in mind. From Providers that extend Crossplane to orchestrate new kinds of applications and infrastructure, to Configurations that extend Crossplane to expose new APIs, our community will help you find what you need to build your ideal control plane. Interested in building your own extensions?',
-        link_text: 'Join the Crossplane Slack Channel',
-        link: [
-          {
-            type: 'external_url',
-            value: 'https://slack.crossplane.io/',
-            id: '66fbd429-f48f-4aa0-88ed-c91f4b708ae4',
-          },
-        ],
-        side_svg_big: {
-          title: 'home-Page-Image-1-main.svg',
-          url: '/placeholder.png',
-          view_box: '0 0 640 427',
-        },
-        side_svg_big_mobile: {
-          title: 'home-Page-Image-1-mobile-main.svg',
-          url: '/placeholder.png',
-          view_box: '0 0 640 427',
-        },
-      },
-      id: '1c6b3c17-2427-4e66-bd4d-eb150a64607a',
-    },
-    {
-      type: 'section',
-      value: {
-        header_svg: {
-          svg_image: {
-            title: 'DeployWithConfidenceIcon.svg',
-            url: 'http://localhost:8000/media/documents/DeployWithConfidenceIcon.svg',
-            view_box: '0 0 34 35',
-          },
-          width: null,
-          height: null,
-        },
-        // header_text: 'Deploy with confidence',
-        title: 'Putting you in control',
-        text: 'Most platforms require that you buy into their opinionated API concepts. With Crossplane you can build a platform around your own opinions. We know the best control planes are tailored to the task at hand so we designed Crossplane as a framework that puts you in control. Use Crossplane to design a control plane that exposes declarative APIs tailored to your unique orchestration needs.',
-        link_text: 'Learn More',
-        link: [
-          {
-            type: 'relative_url',
-            value: '/why-control-planes',
-            id: 'aa82837e-1291-4769-9bb9-38111010967e',
-          },
-        ],
-        side_svg_big: {
-          title: 'DeployWithConfidenceBig.svg',
-          url: '/placeholder.png',
-          view_box: '0 0 640 427',
-        },
-        // side_svg_small: {
-        //   title: 'DeployWithConfidenceSmall.svg',
-        //   url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmall.svg',
-        //   view_box: '0 0 261 324',
-        // },
-        // side_svg_small_top_offset: 67,
-        // side_svg_small_right_offset: 0,
-        side_svg_big_mobile: {
-          title: 'DeployWithConfidenceBigMobile.svg',
-          url: '/placeholder.png',
-          view_box: '0 0 640 427',
-        },
-        // side_svg_small_mobile: {
-        //   title: 'DeployWithConfidenceSmallMobile.svg',
-        //   url: 'http://localhost:8000/media/documents/DeployWithConfidenceSmallMobile.svg',
-        //   view_box: '0 0 136 169',
-        // },
-        // side_svg_small_top_offset_mobile: 34,
-        // side_svg_small_right_offset_mobile: -32,
-      },
-      id: '97d82dcc-6e64-4a6b-a22e-e2b5258d226b',
-    },
-    {
-      type: 'section',
-      value: {
-        header_svg: {
-          svg_image: {
-            title: 'EfficiencyEaseIcon.svg',
-            url: 'http://localhost:8000/media/documents/EfficiencyEaseIcon.svg',
-            view_box: '0 0 36 36',
-          },
-          width: null,
-          height: null,
-        },
-        // header_text: 'Efficiency + ease',
-        title: 'Built on a Solid Foundation',
-        text: 'Crossplane builds on the class leading Kubernetes control plane, extending its battle hardened reliability and security features like Role Based Access Control (RBAC) to orchestrate everything - not just containers. Because Crossplane shares a foundation with Kubernetes it integrates smoothly with most popular cloud native tools.',
-        link_text: 'Learn More',
-        link: [
-          {
-            type: 'external_url',
-            value: 'https://crossplane.io/docs/v1.9.html',
-            id: 'a2a536c9-ab7e-45b8-9c67-c40a0027f9b4',
-          },
-        ],
-        side_svg_big: {
-          title: 'home-Page-Image-2-main.svg',
-          url: '/placeholder.png',
-          view_box: '0 0 640 427',
-        },
-        // side_svg_small: {
-        //   title: 'home-Page-Image-2-additional.svg',
-        //   url: 'http://localhost:8000/media/documents/home-Page-Image-2-additional.svg',
-        //   view_box: '0 0 74 71',
-        // },
-        // side_svg_small_top_offset: -9,
-        // side_svg_small_right_offset: 0,
-        side_svg_big_mobile: {
-          title: 'home-Page-Image-2-mobile-main.svg',
-          url: '/placeholder.png',
-          view_box: '0 0 640 427',
-        },
-        // side_svg_small_mobile: {
-        //   title: 'home-Page-Image-2-mobile-additional.svg',
-        //   url: 'http://localhost:8000/media/documents/home-Page-Image-2-mobile-additional.svg',
-        //   view_box: '0 0 53 51',
-        // },
-        // side_svg_small_top_offset_mobile: -3,
-        // side_svg_small_right_offset_mobile: 8,
-      },
-      id: 'e679a85f-831a-4bc3-93b0-2a6637f3f972',
-    },
-  ],
-};
-
 export const getStaticProps: GetStaticProps = async (context) => {
-  const returnValue = await handleGetStaticProps(context, '/', tempData);
-  // const returnValue = await handleGetStaticProps(context, '/', true);
+  const returnValue = await handleGetStaticProps(context, '/');
 
   if (returnValue) {
     return {

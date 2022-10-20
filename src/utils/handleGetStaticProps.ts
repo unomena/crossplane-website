@@ -24,11 +24,7 @@ interface CustomPreviewData {
   };
 }
 
-const handleGetStaticProps = async (
-  context: GetStaticPropsContext,
-  path: string,
-  tempData?: any
-) => {
+const handleGetStaticProps = async (context: GetStaticPropsContext, path: string) => {
   let api = `/api/v2/pages/find/?html_path=${path}`;
   let isPreview = false;
 
@@ -41,8 +37,7 @@ const handleGetStaticProps = async (
   }
 
   try {
-    // const res = await axiosInstance.get(api);
-    const res = { data: tempData };
+    const res = await axiosInstance.get(api);
     const cms_head_props = {};
     cms_head_items.forEach((item) => {
       if (res?.data.meta[item]) {

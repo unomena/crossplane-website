@@ -436,7 +436,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
       newActiveLogos[index] = newLogo;
       setActiveLogos(newActiveLogos);
 
-      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v.src !== newLogo?.src);
+      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v?.src !== newLogo?.src);
       if (newAvailableLogos.length === 0) {
         newAvailableLogos = crossplaneLogos.filter(
           (cpLogo) => !newActiveLogos.some((v) => v?.src === cpLogo?.src)
@@ -506,16 +506,16 @@ const CrossplaneLogosSection = (props: HomePage) => {
             }}
           >
             <Box sx={{ p: '62px 40px 32px 40px' }}>
-              <Typography sx={cpCenterBoxTitleNum}>{props.section_1_center_title_count}</Typography>
-              <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
+              <Typography sx={cpCenterBoxTitleNum}>{props.section_1_slack_title_count}</Typography>
+              <Typography sx={cpCenterBoxTitleText}>{props.section_1_slack_title}</Typography>
             </Box>
           </Box>
           <Typography variant="body_small" sx={{ maxWidth: 320 }}>
-            {props.section_1_center_text}
+            {props.section_1_slack_text}
           </Typography>
           {props.section_1_button[0] && (
             <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
-              {props.section_1_button[0].value.text}
+              {props.section_1_slack_button[0].value.text}
             </Button>
           )}
         </Box>
@@ -573,15 +573,15 @@ const CrossplaneLogosSection = (props: HomePage) => {
             >
               <Box sx={{ p: '40px' }}>
                 <Typography sx={cpCenterBoxTitleNum}>
-                  {props.section_1_center_title_count}
+                  {props.section_1_slack_title_count}
                 </Typography>
-                <Typography sx={cpCenterBoxTitleText}>{props.section_1_center_title}</Typography>
+                <Typography sx={cpCenterBoxTitleText}>{props.section_1_slack_title}</Typography>
               </Box>
             </Box>
-            <Typography variant="body_small">{props.section_1_center_text}</Typography>
+            <Typography variant="body_small">{props.section_1_slack_text}</Typography>
             {props.section_1_button[0] && (
               <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
-                {props.section_1_button[0].value.text}
+                {props.section_1_slack_button[0].value.text}
               </Button>
             )}
           </Box>
