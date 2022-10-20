@@ -89,7 +89,7 @@ const mobileNav: SxProps = {
 const maxWidth: SxProps = {
   '@media screen and (min-width: 1400px)': {
     width: '100%',
-    maxWidth: '368px',
+    maxWidth: '375px',
   },
 };
 
