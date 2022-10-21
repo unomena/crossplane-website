@@ -330,6 +330,7 @@ const Home = (props: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
+          pb: 16,
           textAlign: 'center',
           backgroundColor: '#fff',
         }}
@@ -356,8 +357,10 @@ const Home = (props: Props) => {
         <Typography sx={smallTitle}>{props.section_1_small_title}</Typography>
 
         <CrossplaneLogosSection {...props} />
+      </Section>
 
-        <Box sx={{ py: { _: 8, md: 16 } }}>
+      <Section sx={{ backgroundColor: '#fff' }}>
+        <Box>
           <Image
             src={gradientGraphic}
             alt="gradient graphic"
@@ -369,6 +372,7 @@ const Home = (props: Props) => {
 
       <Section
         sx={{
+          pt: 16,
           pb: { _: 16, md: 23.5 },
           position: 'relative',
           backgroundColor: '#fff',
