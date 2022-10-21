@@ -87,7 +87,7 @@ const Why = ({}: Props) => {
           and more.{' '}
           <Link
             href={routes.upboundMarketUrl}
-            muiProps={{ color: COLORS.turquoise, fontWeight: 600 }}
+            muiProps={{ color: COLORS.turquoise, fontWeight: 600, target: '_blank' }}
           >
             Head to the marketplace
           </Link>
