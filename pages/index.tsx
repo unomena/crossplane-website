@@ -85,20 +85,24 @@ const cardStyles: SxProps = {
 const providerIcon: SxProps = {
   backgroundColor: '#DCE7F2',
   position: 'relative',
-  width: '90px',
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
   height: '90px',
+  maxWidth: '90px',
   borderRadius: '20px',
   overflow: 'hidden',
-  mb: 3,
+  mr: 2,
+  p: 2,
 };
 
 const HeaderSection = (props: HomePageHeader) => {
   return (
     <>
-      <Typography variant="h1" color={COLORS.linkWater} sx={{ mb: 5 }}>
+      <Typography variant="h1" color="#fff" sx={{ mb: 5 }}>
         {props.title}
       </Typography>
-      <Typography variant="body_normal" color={COLORS.linkWater} sx={{ maxWidth: 950, mx: 'auto' }}>
+      <Typography variant="body_normal" color="#fff" sx={{ maxWidth: 950, mx: 'auto' }}>
         {props.subtitle}
       </Typography>
       <Box sx={headerButtons}>
@@ -199,7 +203,6 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
             position: 'relative',
             width: { _: 'fit-content', lg: 'unset' },
             ml: 0,
-            // ml: { _: '-14px', lg: 0 },
           }}
         >
           <Box
@@ -211,7 +214,6 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               [MQ.lg]: {
                 transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
                 ml: 0,
-                // ml: reversed ? '-68px' : 0,
               },
             }}
           >
@@ -242,27 +244,27 @@ const FeaturesSection = (props: HomePage) => {
 
 const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
   const { image, title, text, footer_text } = upboundItem;
-  // const { img, title, text, linkText, link } = upboundItem;
+  // const { img, title, text, footer_text, link } = upboundItem;
 
   return (
     <Box sx={cardStyles}>
       {/* <Link href={link} muiProps={{ target: '_blank' }}> */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ width: '50%', ...providerIcon }}>
-          {image && image[0] && <CMSImage value={image[0].value} style={{ objectFit: 'cover' }} />}
+          {image && image[0] && <CMSImage value={image[0].value} objectFit="cover" />}
         </Box>
         <Box sx={{ width: '50%' }}>
           <Box sx={{ maxWidth: 120, ml: 'auto' }}>
             <Image
               src={byUpbound}
               alt="by upbound"
-              // sizes="100vw"
+              sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
         </Box>
       </Box>
-      <Box sx={{ flex: '1 1 auto' }}>
+      <Box sx={{ flex: '1 1 auto', mt: 3 }}>
         <Typography
           variant="body_normal"
           sx={{
@@ -341,7 +343,7 @@ const Home = (props: Props) => {
             <Image
               src={createdBy}
               alt="createdBy"
-              // sizes="100vw"
+              sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
@@ -359,7 +361,7 @@ const Home = (props: Props) => {
           <Image
             src={gradientGraphic}
             alt="gradient graphic"
-            // sizes="100vw"
+            sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
@@ -382,7 +384,7 @@ const Home = (props: Props) => {
             <Image
               src={upboundMarketplace}
               alt="upboundMarketplace"
-              // sizes="100vw"
+              sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
@@ -402,7 +404,7 @@ const Home = (props: Props) => {
           <Image
             src={gradientGraphicSM}
             alt="gradient graphic"
-            // sizes="100vw"
+            sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>

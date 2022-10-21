@@ -79,14 +79,14 @@ const Why = ({}: Props) => {
   return (
     <PageProvider>
       <Section sx={headerSection}>
-        <Typography variant="h2" textAlign="center" color={COLORS.linkWater}>
+        <Typography variant="h2" textAlign="center" color="#fff">
           Companies with Commercial Crossplane Offerings
         </Typography>
         <Box sx={{ maxWidth: 476, mx: 'auto', mt: 6 }}>
           <Image
             src={gradientGraphicHeader}
             alt="gradient graphic"
-            // sizes="100vw"
+            sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
@@ -96,7 +96,7 @@ const Why = ({}: Props) => {
               <Image
                 src={upboundLogo}
                 alt="upboundLogo"
-                // sizes="100vw"
+                sizes="100vw"
                 style={{ width: '100%', height: 'auto' }}
               />
             </Box>
@@ -167,7 +167,7 @@ const Why = ({}: Props) => {
             <Image
               src={cncfLogoColor}
               alt="cncfLogoColor"
-              // sizes="100vw"
+              sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
@@ -179,7 +179,7 @@ const Why = ({}: Props) => {
           <Image
             src={gradientGraphicSM}
             alt="gradient graphic"
-            // sizes="100vw"
+            sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>

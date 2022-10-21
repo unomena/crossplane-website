@@ -126,7 +126,7 @@ const theme = createTheme({
     // H5 22 (30) 0 | 18 (24) 0
     h1: {
       ...fontAvenirBold,
-      color: COLORS.linkWater,
+      color: '#fff',
       fontSize: '46px',
       lineHeight: '50px',
       letterSpacing: '-1.6px',

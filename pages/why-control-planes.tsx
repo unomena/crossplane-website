@@ -78,10 +78,10 @@ const HeaderSection = () => {
           width: { _: '100%', md: '50%' },
         }}
       >
-        <Typography variant="h2" color={COLORS.linkWater} sx={{ mb: 5 }}>
+        <Typography variant="h2" color="#fff" sx={{ mb: 5 }}>
           Control planes - the future of cloud
         </Typography>
-        <Typography variant="body_normal" color={COLORS.linkWater}>
+        <Typography variant="body_normal" color="#fff">
           The cloud vendors have been building with control planes for years. Now Crossplane helps
           you do the same. Control planes are self-healing—they automatically correct drift.
           Consumers can self-service fast because control planes offer a single point of control for
@@ -173,7 +173,7 @@ const WhyItemSection = ({ whyItem }: WhyItemProps) => {
     <Box sx={gridItem}>
       <Box sx={{ display: 'flex' }}>
         <Box sx={iconStyles}>
-          <Image src={icon} alt="provider icon" fill sizes="100vw" style={{ objectFit: 'cover' }} />
+          <Image src={icon} alt="provider icon" sizes="100vw" fill style={{ objectFit: 'cover' }} />
         </Box>
       </Box>
       <Box>
@@ -229,7 +229,7 @@ const Why = ({}: Props) => {
             <Image
               src={createdBy}
               alt="createdBy"
-              // sizes="100vw"
+              sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>

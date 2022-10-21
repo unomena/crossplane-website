@@ -33,7 +33,7 @@ const navLinks: SxProps = {
     fontWeight: '400',
     textAlign: 'center',
     color: '#fff',
-    opacity: '.7',
+    opacity: '.85',
     letterSpacing: '1.1px',
     px: 2,
     mb: 3,
@@ -56,7 +56,7 @@ const githubLink: SxProps = {
   fontWeight: '400',
   textAlign: 'center',
   color: '#fff',
-  opacity: '.7',
+  opacity: '.85',
   letterSpacing: '1.1px',
 
   '&:hover': {
