@@ -79,7 +79,7 @@ const HeaderSection = () => {
         }}
       >
         <Typography variant="h2" color="#fff" sx={{ mb: 5 }}>
-          Control planes - the future of cloud
+          Control planes — the future of cloud
         </Typography>
         <Typography variant="body_normal" color="#fff">
           The cloud vendors have been building with control planes for years. Now Crossplane helps
@@ -91,9 +91,9 @@ const HeaderSection = () => {
         <Button
           styleType="gradientContained"
           sx={{ mt: 5, mb: { _: 6, md: 0 } }}
-          href={routes.upboundUrl}
+          href={routes.upboundMarketUrl}
         >
-          Learn More
+          Join the marketplace
         </Button>
       </Box>
       <Box
@@ -217,13 +217,13 @@ const Why = ({}: Props) => {
             <WhyItemSection key={whyItem.title} whyItem={whyItem} />
           ))}
         </Box>
-        <Box sx={{ maxWidth: 950, textAlign: 'center', mx: 'auto', pt: { _: 16, md: 23.5 } }}>
+        <Box sx={{ maxWidth: 800, textAlign: 'center', mx: 'auto', pt: { _: 16, md: 23.5 } }}>
           <Typography variant="h2" sx={{ mb: 5 }}>
-            Section linking back to Upbound
+            Need help with your Crossplane deployment?
           </Typography>
           <Typography variant="body_normal" sx={{ mb: 4 }}>
-            Would love to include maybe a write up about Upbound using crossplane/control planes?
-            Anything that would serve as a nice callout back to Upbound to increase referral traffic
+            If you’re looking for an easy way to design, deploy and scale your Crossplane
+            infrastructure, Upbound can help.
           </Typography>
           <Box sx={{ maxWidth: 269, mx: 'auto' }}>
             <Image

@@ -18,3 +18,4 @@ export const cncfUrl = 'https://www.cncf.io/';
 export const creativeCommonsUrl = 'https://creativecommons.org/licenses/by/4.0/';
 export const trademarkUsageUrl = 'https://www.linuxfoundation.org/legal/trademark-usage';
 export const upboundUrl = 'https://www.upbound.io/';
+export const upboundMarketUrl = 'https://marketplace.upbound.io/';

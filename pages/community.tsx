@@ -21,8 +21,8 @@ import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.pn
 const headerSection: SxProps = {
   position: 'relative',
   pt: { _: 13, md: 23.5 },
-  pb: { _: 13, md: 23.5 },
-  maxWidth: 950,
+  pb: { _: 13, md: 31 },
+  maxWidth: 800,
   mx: 'auto',
 };
 
@@ -79,8 +79,18 @@ const Why = ({}: Props) => {
   return (
     <PageProvider>
       <Section sx={headerSection}>
-        <Typography variant="h2" textAlign="center" color="#fff">
+        <Typography variant="h2" textAlign="center" color="#fff" sx={{ mb: 5 }}>
           Companies with Commercial Crossplane Offerings
+        </Typography>
+        <Typography variant="body_normal" textAlign="center" color="#fff">
+          Check out the Upbound Marketplace to find Crossplane providers, listings, configurations
+          and more.{' '}
+          <Link
+            href={routes.upboundMarketUrl}
+            muiProps={{ color: COLORS.turquoise, fontWeight: 600 }}
+          >
+            Head to the marketplace
+          </Link>
         </Typography>
         <Box sx={{ maxWidth: 476, mx: 'auto', mt: 6 }}>
           <Image
@@ -108,8 +118,9 @@ const Why = ({}: Props) => {
                 mb: 2,
               }}
             >
-              Upbound is the creator of open source Crossplane — the modern, cloud native
-              alternative to Infrastructure as Code (IaC).
+              Upbound is the creator of open source Crossplane. With security, support and official
+              providers, Upbound’s Universal Crossplane (UXP), gives you everything you need to
+              scale Crossplane.
             </Typography>
             <Box sx={btnContainer}>
               <Button styleType="gradientContained" href={routes.upboundUrl}>
