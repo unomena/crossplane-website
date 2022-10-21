@@ -91,6 +91,7 @@ const Why = ({}: Props) => {
           >
             Head to the marketplace
           </Link>
+          .
         </Typography>
         <Box sx={{ maxWidth: 476, mx: 'auto', mt: 6 }}>
           <Image
