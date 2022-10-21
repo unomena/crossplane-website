@@ -243,8 +243,8 @@ const CPLogoBox = memo(
             <Image
               src={logoOne}
               alt="company logo"
-              fill
               sizes="100vw"
+              fill
               style={{ objectFit: 'contain' }}
             />
           ) : (
@@ -254,8 +254,8 @@ const CPLogoBox = memo(
             <Image
               src={logoTwo}
               alt="company logo"
-              fill
               sizes="100vw"
+              fill
               style={{ objectFit: 'contain' }}
             />
           ) : (
@@ -436,7 +436,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
       newActiveLogos[index] = newLogo;
       setActiveLogos(newActiveLogos);
 
-      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v?.src !== newLogo?.src);
+      let newAvailableLogos = availableLogosRef.current.filter((v: any) => v.src !== newLogo?.src);
       if (newAvailableLogos.length === 0) {
         newAvailableLogos = crossplaneLogos.filter(
           (cpLogo) => !newActiveLogos.some((v) => v?.src === cpLogo?.src)

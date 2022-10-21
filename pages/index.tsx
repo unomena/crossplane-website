@@ -364,7 +364,7 @@ const Home = (props: Props) => {
 
         <CrossplaneLogosSection {...props} />
 
-        <Box sx={{ py: 16 }}>
+        <Box sx={{ py: { _: 8, md: 16 } }}>
           <Image
             src={gradientGraphic}
             alt="gradient graphic"
