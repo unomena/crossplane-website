@@ -15,12 +15,13 @@ import Button from 'src/elements/Button';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import upboundLogo from 'public/upbound-logo.svg';
 import cncfLogoColor from 'public/cncf-logo-color.png';
-// import placeholder from 'public/placeholder.png';
+import gradientGraphicHeader from 'public/background-graphics/gradient-graphic-header.png';
+import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
 
 const headerSection: SxProps = {
   position: 'relative',
-  pt: { _: 13, md: 24 },
-  pb: { _: 13, md: 24 },
+  pt: { _: 13, md: 23.5 },
+  pb: { _: 13, md: 23.5 },
   maxWidth: 950,
   mx: 'auto',
 };
@@ -76,24 +77,29 @@ type Props = {};
 
 const Why = ({}: Props) => {
   return (
-    <PageProvider
-      ctaTitle="Are you using Crossplane in Production"
-      ctaParagraph={'Share your success story and receive special Crossplane swag.'}
-      ctaBtnText="Share your story"
-      ctaBtnLink=""
-    >
+    <PageProvider>
       <Section sx={headerSection}>
         <Typography variant="h2" textAlign="center" color={COLORS.linkWater}>
           Companies with Commercial Crossplane Offerings
         </Typography>
+        <Box sx={{ maxWidth: 476, mx: 'auto', mt: 6 }}>
+          <Image
+            src={gradientGraphicHeader}
+            alt="gradient graphic"
+            // sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Box>
         <Box sx={cardStyles}>
           <Box sx={{ width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
-            <Image
-              src={upboundLogo}
-              alt="upboundLogo"
-              sizes="100vw"
-              style={{ width: '100%', height: 'auto' }}
-            />
+            <Box sx={{ maxWidth: 295, mx: 'auto', mb: { _: 3, md: 0 } }}>
+              <Image
+                src={upboundLogo}
+                alt="upboundLogo"
+                // sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </Box>
           </Box>
           <Box sx={{ width: { _: '100%', md: '50%' } }}>
             <Typography
@@ -121,7 +127,7 @@ const Why = ({}: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
-          pb: { _: 16, md: 23.5 },
+          // pb: { _: 16, md: 23.5 },
           textAlign: 'center',
           backgroundColor: '#fff',
         }}
@@ -154,19 +160,28 @@ const Why = ({}: Props) => {
         <Box
           sx={{
             pt: { _: 13, md: 16 },
+            pb: { _: 13, md: 16 },
           }}
         >
           <Box sx={{ maxWidth: 350, mx: 'auto', mb: 5 }}>
             <Image
               src={cncfLogoColor}
               alt="cncfLogoColor"
-              sizes="100vw"
+              // sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
-          <Typography variant="h5">
+          <Typography variant="h5" sx={{ mb: 0 }}>
             Crossplane is a Cloud Native Computing Foundation project
           </Typography>
+        </Box>
+        <Box sx={{ maxWidth: 476, mx: 'auto' }}>
+          <Image
+            src={gradientGraphicSM}
+            alt="gradient graphic"
+            // sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+          />
         </Box>
       </Section>
     </PageProvider>

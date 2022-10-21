@@ -243,8 +243,8 @@ const CPLogoBox = memo(
             <Image
               src={logoOne}
               alt="company logo"
-              sizes="100vw"
               fill
+              sizes="100vw"
               style={{ objectFit: 'contain' }}
             />
           ) : (
@@ -254,8 +254,8 @@ const CPLogoBox = memo(
             <Image
               src={logoTwo}
               alt="company logo"
-              sizes="100vw"
               fill
+              sizes="100vw"
               style={{ objectFit: 'contain' }}
             />
           ) : (

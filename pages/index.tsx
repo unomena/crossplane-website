@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { GetStaticProps } from 'next';
 
+import Image from 'next/future/image';
+
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
@@ -15,8 +17,14 @@ import Button from 'src/elements/Button';
 import Link from 'src/elements/Link';
 import CMSImage from 'src/elements/CMSImage';
 
+import createdBy from 'public/created-by-upbound.svg';
+import byUpbound from 'public/by-upbound.svg';
+import upboundMarketplace from 'public/upbound-marketplace.svg';
+import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
+import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
+
 const headerSection: SxProps = {
-  pt: { _: 13, md: 24 },
+  pt: { _: 13, md: 23.5 },
   pb: 4,
   textAlign: 'center',
 };
@@ -75,6 +83,7 @@ const cardStyles: SxProps = {
 };
 
 const providerIcon: SxProps = {
+  backgroundColor: '#DCE7F2',
   position: 'relative',
   width: '90px',
   height: '90px',
@@ -107,7 +116,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
   const reversed = index % 2 !== 0;
   const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
 
-  const { title, text, link_text, link, header_svg } = feature;
+  const { title, text, link_text, link, header_image } = feature;
 
   const hiddenBarRef = useRef(undefined);
   const isVisible = useOnScreen(hiddenBarRef);
@@ -122,6 +131,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
   return (
     <Box
       sx={{
+        width: '100%',
+
         display: 'flex',
         color: COLORS.linkWater,
         position: 'relative',
@@ -204,8 +215,16 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               },
             }}
           >
-            {header_svg && <CMSImage value={header_svg} />}
-            {/* {header_svg && <CMSImage value={{ header_svg: svg_image }} />} */}
+            {header_image && header_image[0] && (
+              <CMSImage
+                value={header_image[0].value}
+                // sizes="100vw"
+                width={100}
+                height={100}
+                style={{ width: '100%', height: 'auto' }}
+                priority
+              />
+            )}
           </Box>
         </Box>
       </Box>
@@ -237,11 +256,21 @@ const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
   return (
     <Box sx={cardStyles}>
       {/* <Link href={link} muiProps={{ target: '_blank' }}> */}
-      <Box sx={{ display: 'flex' }}>
-        <Box sx={providerIcon}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Box sx={{ width: '50%', ...providerIcon }}>
           {image && image[0] && (
             <CMSImage value={image[0].value} sizes="100vw" fill style={{ objectFit: 'cover' }} />
           )}
+        </Box>
+        <Box sx={{ width: '50%' }}>
+          <Box sx={{ maxWidth: 120, ml: 'auto' }}>
+            <Image
+              src={byUpbound}
+              alt="by upbound"
+              // sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
         </Box>
       </Box>
       <Box sx={{ flex: '1 1 auto' }}>
@@ -270,7 +299,7 @@ const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
 
 const UpboundItems = ({ section_3_card_items }: { section_3_card_items: UpboundItems }) => {
   return (
-    <Box sx={{ mt: 5, ...gridLayout }}>
+    <Box sx={{ mt: 8, ...gridLayout }}>
       {section_3_card_items.map((item) => (
         <UpboundItem key={item.id} upboundItem={item} />
       ))}
@@ -310,24 +339,41 @@ const Home = (props: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
-          pb: { _: 16, md: 23.5 },
           textAlign: 'center',
           backgroundColor: '#fff',
         }}
       >
-        <Box sx={{ maxWidth: 950, mx: 'auto' }}>
+        <Box sx={{ maxWidth: 950, mx: 'auto', pb: { _: 13, md: 16 } }}>
           <Typography variant="h2" sx={{ mb: 2.5 }}>
             {props.section_1_title}
           </Typography>
           <Typography variant="body_normal">{props.section_1_sub_title}</Typography>
+          <Box sx={{ maxWidth: 269, mx: 'auto', my: 3 }}>
+            <Image
+              src={createdBy}
+              alt="createdBy"
+              // sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
           {props.section_1_button[0] && (
-            <Button sx={{ mt: 3.5, mb: 8 }} cmsValue={props.section_1_button[0].value}>
+            <Button cmsValue={props.section_1_button[0].value}>
               {props.section_1_button[0].value.text}
             </Button>
           )}
         </Box>
         <Typography sx={smallTitle}>{props.section_1_small_title}</Typography>
+
         <CrossplaneLogosSection {...props} />
+
+        <Box sx={{ py: 16 }}>
+          <Image
+            src={gradientGraphic}
+            alt="gradient graphic"
+            // sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </Box>
       </Section>
 
       <Section
@@ -340,11 +386,17 @@ const Home = (props: Props) => {
         <FeaturesSection {...props} />
       </Section>
 
-      <Section sx={{ pb: { _: 16, md: 23.5 }, backgroundColor: '#fff' }}>
+      <Section sx={{ backgroundColor: '#fff' }}>
         <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
-          <Typography variant="h2" sx={{ mb: 2.5 }}>
-            {props.section_3_title}
-          </Typography>
+          <Typography variant="h2">{props.section_3_title}</Typography>
+          <Box sx={{ maxWidth: 306.89, mx: 'auto', my: 4 }}>
+            <Image
+              src={upboundMarketplace}
+              alt="upboundMarketplace"
+              // sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
           <Typography variant="body_normal">{props.section_3_text}</Typography>
         </Box>
         <Box>
@@ -356,6 +408,14 @@ const Home = (props: Props) => {
               </Button>
             )}
           </Box>
+        </Box>
+        <Box sx={{ maxWidth: 476, mx: 'auto', pt: 16 }}>
+          <Image
+            src={gradientGraphicSM}
+            alt="gradient graphic"
+            // sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+          />
         </Box>
       </Section>
     </PageProvider>

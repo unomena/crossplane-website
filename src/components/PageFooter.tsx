@@ -102,7 +102,7 @@ const PageFooter = ({
             >
               <Link href={routes.home}>
                 <Box>
-                  <Image src={logo} alt="logo" style={{ width: 190, height: 'auto' }} />
+                  <Image src={logo} alt="logo" style={{ width: 152, height: 'auto' }} />
                 </Box>
               </Link>
             </Box>

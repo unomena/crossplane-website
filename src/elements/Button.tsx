@@ -232,8 +232,8 @@ const Button = ({
             <Image
               src={cmsValue.icon.url}
               alt={cmsValue.icon.title}
-              sizes="100vw"
               fill
+              sizes="100vw"
               style={{ objectFit: 'contain' }}
             />
           ),

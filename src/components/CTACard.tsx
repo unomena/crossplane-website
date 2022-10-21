@@ -65,7 +65,7 @@ const CTACard = ({
         <Typography
           variant="h2"
           color="#fff"
-          sx={{ mb: 2.5, whiteSpace: { _: '', md: 'pre-wrap' } }}
+          sx={{ maxWidth: { md: 950 }, mx: 'auto', mb: 2.5, whiteSpace: { _: '', md: 'pre-wrap' } }}
         >
           {title}
         </Typography>

@@ -72,7 +72,7 @@ type HomePageHeader = {
 };
 
 type HomePageFeature = {
-  header_svg: ImageValue;
+  header_image: ImageType;
   // header_svg: SVGImageContent;
   title: string;
   text: string;

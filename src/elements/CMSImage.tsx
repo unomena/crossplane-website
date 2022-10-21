@@ -54,7 +54,15 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
     return null;
   }
 
-  return <Image style={{ width: '100%', height: 'auto' }} {...imageData} {...props} priority />;
+  return (
+    <Image
+      // width={100}
+      // height={100}
+      // style={{ width: '100%', height: 'auto' }}
+      {...imageData}
+      {...props}
+    />
+  );
 };
 
 export default CMSImage;

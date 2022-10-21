@@ -11,10 +11,11 @@ import PageProvider from 'src/components/PageProvider';
 import Section from 'src/components/Section';
 import Button from 'src/elements/Button';
 
+import createdBy from 'public/created-by-upbound.svg';
 import placeholder from 'public/placeholder.png';
 
 const headerSection: SxProps = {
-  pt: { _: 13, md: 24 },
+  pt: { _: 13, md: 23.5 },
   pb: { _: 13, md: 16 },
 };
 
@@ -100,7 +101,7 @@ const HeaderSection = () => {
         <Image
           src={placeholder}
           alt="placeholder"
-          sizes="100vw"
+          // sizes="100vw"
           style={{ width: '100%', height: 'auto' }}
         />
       </Box>
@@ -168,7 +169,7 @@ const WhyItemSection = ({ whyItem }: WhyItemProps) => {
     <Box sx={gridItem}>
       <Box sx={{ display: 'flex' }}>
         <Box sx={iconStyles}>
-          <Image src={icon} alt="provider icon" sizes="100vw" fill style={{ objectFit: 'cover' }} />
+          <Image src={icon} alt="provider icon" fill sizes="100vw" style={{ objectFit: 'cover' }} />
         </Box>
       </Box>
       <Box>
@@ -207,7 +208,6 @@ const Why = ({}: Props) => {
         <Box sx={{ maxWidth: 900, mx: 'auto', textAlign: 'center' }}>
           <Typography variant="h2">Why use Crossplane to build control planes?</Typography>
         </Box>
-        {/* <Box sx={{ mt: 10, ...gridLayout }}> */}
         <Box sx={{ mt: { _: 5, md: 10 }, ...gridLayout }}>
           {whyItems.map((whyItem) => (
             <WhyItemSection key={whyItem.title} whyItem={whyItem} />
@@ -217,29 +217,23 @@ const Why = ({}: Props) => {
           <Typography variant="h2" sx={{ mb: 2.5 }}>
             Section linking back to Upbound
           </Typography>
-          <Typography variant="body_normal">
+          <Typography variant="body_normal" sx={{ mb: 5 }}>
             Would love to include maybe a write up about Upbound using crossplane/control planes?
             Anything that would serve as a nice callout back to Upbound to increase referral traffic
           </Typography>
-          <Button styleType="turquoiseContained" sx={{ mt: 6 }} href={routes.upboundUrl}>
+          <Box sx={{ maxWidth: 269, mx: 'auto' }}>
+            <Image
+              src={createdBy}
+              alt="createdBy"
+              // sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </Box>
+          <Button styleType="turquoiseContained" sx={{ mt: 4 }} href={routes.upboundUrl}>
             Learn More About Upbound
           </Button>
         </Box>
       </Section>
-      {/* <Section sx={{ pb: { _: 16, md: 23.5 }, backgroundColor: '#fff' }}>
-        <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
-          <Typography variant="h2" sx={{ mb: 2.5 }}>
-            Section linking back to Upbound
-          </Typography>
-          <Typography variant="body_normal">
-            Would love to include maybe a write up about Upbound using crossplane/control planes?
-            Anything that would serve as a nice callout back to Upbound to increase referral traffic
-          </Typography>
-          <Button styleType="turquoiseContained" sx={{ mt: 6 }} href={routes.upboundUrl}>
-            Learn More About Upbound
-          </Button>
-        </Box>
-      </Section> */}
     </PageProvider>
   );
 };

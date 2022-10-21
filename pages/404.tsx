@@ -16,7 +16,7 @@ const FourOhFour: React.FC = () => {
         px="30px"
         pt="180px"
         maxWidth="900px"
-        sx={{ pt: { _: 16, md: 24 }, pb: { _: 0, md: 6 } }}
+        sx={{ pt: { _: 16, md: 23.5 }, pb: { _: 0, md: 6 } }}
       >
         <Typography variant="h1" color="white" sx={{ mb: '30px', fontWeight: 600 }}>
           404
