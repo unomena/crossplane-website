@@ -12,7 +12,13 @@ import Section from 'src/components/Section';
 import Button from 'src/elements/Button';
 
 import createdBy from 'public/created-by-upbound.svg';
-import placeholder from 'public/placeholder.png';
+import headerImage from 'public/static-media/why-header-img.png';
+import icon_1 from 'public/static-media/icons/declarative.svg';
+import icon_2 from 'public/static-media/icons/unify.svg';
+import icon_3 from 'public/static-media/icons/infrastructure.svg';
+import icon_4 from 'public/static-media/icons/automate.svg';
+import icon_5 from 'public/static-media/icons/built.svg';
+import icon_6 from 'public/static-media/icons/separation.svg';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 23.5 },
@@ -52,9 +58,7 @@ const iconStyles: SxProps = {
   position: 'relative',
   width: '50px',
   height: '50px',
-  borderRadius: '50px',
-  overflow: 'hidden',
-  mb: 2,
+  mb: 3,
 };
 
 const HeaderSection = () => {
@@ -99,9 +103,9 @@ const HeaderSection = () => {
         }}
       >
         <Image
-          src={placeholder}
-          alt="placeholder"
-          // sizes="100vw"
+          src={headerImage}
+          alt="header image"
+          sizes="100vw"
           style={{ width: '100%', height: 'auto' }}
         />
       </Box>
@@ -111,37 +115,37 @@ const HeaderSection = () => {
 
 const whyItems = [
   {
-    icon: placeholder,
+    icon: icon_1,
     title: 'Declarative configuration',
     // eslint-disable-next-line max-len
     text: 'Crossplane lets you build a control plane with Kubernetes-style declarative and API-driven configuration and management for anything. Through this approach, applications and infrastructure managed through your control plane are self-healing right out of the box.',
   },
   {
-    icon: placeholder,
+    icon: icon_2,
     title: 'Unify application and infrastructure configuration and deployment',
     // eslint-disable-next-line max-len
     text: 'Crossplane enables application and infrastructure configuration to co-exist in the same control plane, reducing the complexity of your toolchains and deployment pipelines.',
   },
   {
-    icon: placeholder,
+    icon: icon_3,
     title: 'One source of truth for infrastructure configuration and setup',
     // eslint-disable-next-line max-len
     text: 'Control planes built with Crossplane integrate with CI/CD pipelines, so teams can create, track, and approve changes using GitOps best practices.',
   },
   {
-    icon: placeholder,
+    icon: icon_4,
     title: 'Automate operational tasks with reconciling controllers',
     // eslint-disable-next-line max-len
     text: 'Your control planes are made up of several controllers, which are responsible for the entire lifecycle of a resource. Each resource is responsible for provisioning, health, scaling, failover, and actively responding to external changes that deviate from the desired configuration.',
   },
   {
-    icon: placeholder,
+    icon: icon_5,
     title: 'Built with high levels of extensibility',
     // eslint-disable-next-line max-len
     text: 'Control planes built with Crossplane leverage broadly accepted Kubernetes patterns, making it easily extensible by adding your own APIs and controllers. Increase flexibility and security by baking policies, quotas, and permissions into a custom definition.',
   },
   {
-    icon: placeholder,
+    icon: icon_6,
     title: 'A strong separation of concerns.',
     // eslint-disable-next-line max-len
     text: "Crossplane lets you bake in organisational concepts and policy at the API level, allowing your customers the freedom to self-service within the bounds of the control plane APIs you've defined.",
@@ -214,10 +218,10 @@ const Why = ({}: Props) => {
           ))}
         </Box>
         <Box sx={{ maxWidth: 950, textAlign: 'center', mx: 'auto', pt: { _: 16, md: 23.5 } }}>
-          <Typography variant="h2" sx={{ mb: 2.5 }}>
+          <Typography variant="h2" sx={{ mb: 5 }}>
             Section linking back to Upbound
           </Typography>
-          <Typography variant="body_normal" sx={{ mb: 5 }}>
+          <Typography variant="body_normal" sx={{ mb: 4 }}>
             Would love to include maybe a write up about Upbound using crossplane/control planes?
             Anything that would serve as a nice callout back to Upbound to increase referral traffic
           </Typography>

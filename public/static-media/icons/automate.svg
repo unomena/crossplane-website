@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="41px" viewBox="0 0 41 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Crossplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Why-Control-Planes-v2-Copy" transform="translate(-770.000000, -1326.000000)" stroke="#F3807B">
+            <g id="Group-4" transform="translate(770.000000, 1326.000000)">
+                <circle id="Oval-Copy-2" stroke-width="0.509677419" fill-opacity="0.0949519231" fill="#F3807B" cx="20.5" cy="20.5" r="20.2451613"></circle>
+                <g id="cycle" transform="translate(12.000000, 14.000000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.71154697">
+                    <path d="M18,0.776815229 L18,5.44420381 L13.0905,5.44420381 M0,13.2240405 L0,8.55579619 L4.9095,8.55579619" id="Shape"></path>
+                    <path d="M2.0538,4.66630571 C2.89722687,2.3999141 4.90449619,0.703435102 7.3704885,0.172812824 C9.83648081,-0.357809454 12.4163379,0.35163019 14.2038,2.05191772 L18,5.44420381 M0,8.55579619 L3.7962,11.9480823 C5.5836621,13.6483698 8.16351919,14.3578095 10.6295115,13.8271872 C13.0955038,13.2965649 15.1027731,11.6000859 15.9462,9.33369429" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

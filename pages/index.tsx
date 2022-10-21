@@ -258,9 +258,7 @@ const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
       {/* <Link href={link} muiProps={{ target: '_blank' }}> */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ width: '50%', ...providerIcon }}>
-          {image && image[0] && (
-            <CMSImage value={image[0].value} sizes="100vw" fill style={{ objectFit: 'cover' }} />
-          )}
+          {image && image[0] && <CMSImage value={image[0].value} style={{ objectFit: 'cover' }} />}
         </Box>
         <Box sx={{ width: '50%' }}>
           <Box sx={{ maxWidth: 120, ml: 'auto' }}>

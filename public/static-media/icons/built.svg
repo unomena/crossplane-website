@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="41px" height="41px" viewBox="0 0 41 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Crossplane" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Why-Control-Planes-v2-Copy" transform="translate(-200.000000, -1720.000000)" stroke="#FFCD3C">
+            <g id="Group-8" transform="translate(200.000000, 1720.000000)">
+                <circle id="Oval-Copy-5" stroke-width="0.509677419" fill-opacity="0.18198208" fill="#FFCD3C" cx="20.5" cy="20.5" r="20.2451613"></circle>
+                <g id="extensibility" transform="translate(12.000000, 12.000000)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+                    <path d="M2.7,6.3 L0,9 L2.7,11.7 M6.3,2.7 L9,0 L11.7,2.7 M11.7,15.3 L9,18 L6.3,15.3 M15.3,6.3 L18,9 L15.3,11.7 M0,9 L18,9 M9,0 L9,18" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

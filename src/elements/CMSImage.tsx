@@ -43,6 +43,7 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
         data = { ...data, height: image.height };
       }
       if (!image.view_box && !image.width && !image.height) {
+        // data = { ...data };
         data = { ...data, fill: true };
       }
       return data;
@@ -56,8 +57,10 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
 
   return (
     <Image
-      // width={100}
-      // height={100}
+      sizes="100vw"
+      style={{ maxWidth: '100%', height: 'auto' }}
+      // width="100%"
+      // height="auto"
       // style={{ width: '100%', height: 'auto' }}
       {...imageData}
       {...props}
