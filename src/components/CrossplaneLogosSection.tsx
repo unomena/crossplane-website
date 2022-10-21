@@ -1,6 +1,6 @@
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 import { Box, Hidden, SxProps, Typography, useMediaQuery } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
@@ -240,24 +240,12 @@ const CPLogoBox = memo(
           }}
         >
           {logoOne ? (
-            <Image
-              src={logoOne}
-              alt="company logo"
-              sizes="100vw"
-              fill
-              style={{ objectFit: 'contain' }}
-            />
+            <Image src={logoOne} alt="company logo" layout="fill" objectFit="contain" />
           ) : (
             <span></span>
           )}
           {logoTwo ? (
-            <Image
-              src={logoTwo}
-              alt="company logo"
-              sizes="100vw"
-              fill
-              style={{ objectFit: 'contain' }}
-            />
+            <Image src={logoTwo} alt="company logo" layout="fill" objectFit="contain" />
           ) : (
             <span></span>
           )}

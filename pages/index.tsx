@@ -215,16 +215,7 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               },
             }}
           >
-            {header_image && header_image[0] && (
-              <CMSImage
-                value={header_image[0].value}
-                // sizes="100vw"
-                width={100}
-                height={100}
-                style={{ width: '100%', height: 'auto' }}
-                priority
-              />
-            )}
+            {header_image && header_image[0] && <CMSImage value={header_image[0].value} priority />}
           </Box>
         </Box>
       </Box>

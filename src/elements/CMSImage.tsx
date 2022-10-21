@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useMemo } from 'react';
 
-import Image, { ImageProps } from 'next/future/image';
+import Image, { ImageProps } from 'next/image';
 
 type CMSImageProps = {
   value: ImageValue;
@@ -20,6 +20,9 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
       }
       if (image.height) {
         data = { ...data, height: image.height };
+      }
+      if (!image.width && !image.height) {
+        data = { ...data, layout: 'fill' };
       }
       return data;
     } else if (value.svg_image) {
@@ -43,8 +46,7 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
         data = { ...data, height: image.height };
       }
       if (!image.view_box && !image.width && !image.height) {
-        // data = { ...data };
-        data = { ...data, fill: true };
+        data = { ...data, layout: 'fill' };
       }
       return data;
     }
@@ -55,17 +57,7 @@ const CMSImage = ({ value, ...props }: CMSImageProps) => {
     return null;
   }
 
-  return (
-    <Image
-      sizes="100vw"
-      style={{ maxWidth: '100%', height: 'auto' }}
-      // width="100%"
-      // height="auto"
-      // style={{ width: '100%', height: 'auto' }}
-      {...imageData}
-      {...props}
-    />
-  );
+  return <Image {...imageData} {...props} />;
 };
 
 export default CMSImage;
