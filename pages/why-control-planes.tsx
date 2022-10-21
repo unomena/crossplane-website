@@ -92,6 +92,7 @@ const HeaderSection = () => {
           styleType="gradientContained"
           sx={{ mt: 5, mb: { _: 6, md: 0 } }}
           href={routes.upboundMarketUrl}
+          target="_blank"
         >
           Join the marketplace
         </Button>
@@ -233,7 +234,12 @@ const Why = ({}: Props) => {
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
-          <Button styleType="turquoiseContained" sx={{ mt: 4 }} href={routes.upboundUrl}>
+          <Button
+            styleType="turquoiseContained"
+            sx={{ mt: 4 }}
+            href={routes.upboundUrl}
+            target="_blank"
+          >
             Learn More About Upbound
           </Button>
         </Box>
