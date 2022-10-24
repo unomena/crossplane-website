@@ -380,7 +380,7 @@ const Home = (props: Props) => {
         <Typography variant="h2" textAlign="center">
           {props.section_3_title}
         </Typography>
-        <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
+        <Box sx={{ maxWidth: 1050, mx: 'auto', textAlign: 'center' }}>
           <Box sx={{ maxWidth: 306.89, mx: 'auto', my: 4 }}>
             <Image
               src={upboundMarketplace}
