@@ -77,7 +77,7 @@ type Props = {};
 
 const Why = ({}: Props) => {
   return (
-    <PageProvider>
+    <PageProvider ctaBtnTarget="_blank">
       <Section sx={headerSection}>
         <Typography variant="h2" textAlign="center" color="#fff" sx={{ mb: 5 }}>
           Companies with Commercial Crossplane Offerings

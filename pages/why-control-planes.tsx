@@ -197,7 +197,7 @@ type Props = {};
 
 const Why = ({}: Props) => {
   return (
-    <PageProvider>
+    <PageProvider ctaBtnTarget="_blank">
       <Section sx={headerSection}>
         <HeaderSection />
       </Section>
