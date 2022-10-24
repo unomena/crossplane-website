@@ -73,7 +73,6 @@ type HomePageHeader = {
 
 type HomePageFeature = {
   header_image: ImageType;
-  // header_svg: SVGImageContent;
   title: string;
   text: string;
   link_text: string;
@@ -86,7 +85,6 @@ type UpboundItem = {
   title: string;
   text: string;
   footer_text: string;
-  // link: string;
 };
 
 type UpboundItems = UpboundItem[];

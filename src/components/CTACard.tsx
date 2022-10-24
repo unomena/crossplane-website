@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Box, Typography, SxProps } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+// import { Box, Typography, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
 import * as routes from 'src/routes';
@@ -8,20 +9,20 @@ import * as routes from 'src/routes';
 import Section from 'src/components/Section';
 import Button from 'src/elements/Button';
 
-const btnContainer: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: { _: 'center', md: 'left' },
-  flexDirection: { _: 'column', sm: 'row' },
+// const btnContainer: SxProps = {
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: { _: 'center', md: 'left' },
+//   flexDirection: { _: 'column', sm: 'row' },
 
-  '& > button, a': {
-    mx: { _: 0, sm: '10px' },
+//   '& > button, a': {
+//     mx: { _: 0, sm: '10px' },
 
-    ':not(:last-of-type)': {
-      mb: { _: '20px', sm: 0 },
-    },
-  },
-};
+//     ':not(:last-of-type)': {
+//       mb: { _: '20px', sm: 0 },
+//     },
+//   },
+// };
 
 const defaultTitle = 'Crossplane is open source \n and community driven';
 const defaultParagraph =
@@ -35,10 +36,10 @@ type Props = {
   paragraph?: string;
   btnText?: string;
   btnLink?: string;
-  btnTwo?: boolean;
-  btnTwoText?: string;
-  btnTwoLink?: string;
-  customSx?: SxProps;
+  // btnTwo?: boolean;
+  // btnTwoText?: string;
+  // btnTwoLink?: string;
+  // customSx?: SxProps;
 };
 
 const CTACard = ({
@@ -46,11 +47,11 @@ const CTACard = ({
   paragraph = defaultParagraph,
   btnText = defaultBtnText,
   btnLink = defaultBtnLink,
-  btnTwo = false,
-  btnTwoText = defaultBtnText,
-  btnTwoLink = defaultBtnLink,
-  customSx,
-}: Props) => {
+}: // btnTwo = false,
+// btnTwoText = defaultBtnText,
+// btnTwoLink = defaultBtnLink,
+// customSx,
+Props) => {
   return (
     <Section
       angleBottom="btmRight"
@@ -58,7 +59,7 @@ const CTACard = ({
         backgroundColor: COLORS.bayOfMany,
         pt: 16,
         pb: { _: 16, md: 22 },
-        ...customSx,
+        // ...customSx,
       }}
     >
       <Box sx={{ textAlign: 'center' }}>
@@ -81,7 +82,11 @@ const CTACard = ({
         >
           {paragraph}
         </Typography>
-        {!btnTwo ? (
+        <Button styleType="gradientContained" href={btnLink} target="_blank">
+          {btnText}
+        </Button>
+
+        {/* {!btnTwo ? (
           <Button styleType="gradientContained" href={btnLink} target="_blank">
             {btnText}
           </Button>
@@ -94,7 +99,7 @@ const CTACard = ({
               {btnTwoText}
             </Button>
           </Box>
-        )}
+        )} */}
       </Box>
     </Section>
   );

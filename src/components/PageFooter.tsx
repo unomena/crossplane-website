@@ -54,10 +54,10 @@ type Props = {
   ctaParagraph?: string;
   ctaBtnText?: string;
   ctaBtnLink?: string;
-  ctaBtnTwo?: boolean;
-  ctaBtnTwoText?: string;
-  ctaBtnTwoLink?: string;
-  ctaCustomSx?: SxProps;
+  // ctaBtnTwo?: boolean;
+  // ctaBtnTwoText?: string;
+  // ctaBtnTwoLink?: string;
+  // ctaCustomSx?: SxProps;
 };
 
 const PageFooter = ({
@@ -67,11 +67,11 @@ const PageFooter = ({
   ctaParagraph,
   ctaBtnText,
   ctaBtnLink,
-  ctaBtnTwo,
-  ctaBtnTwoText,
-  ctaBtnTwoLink,
-  ctaCustomSx,
-}: Props) => {
+}: // ctaBtnTwo,
+// ctaBtnTwoText,
+// ctaBtnTwoLink,
+// ctaCustomSx,
+Props) => {
   if (isFooterVisible === false) {
     return null;
   }
@@ -84,10 +84,10 @@ const PageFooter = ({
           paragraph={ctaParagraph}
           btnText={ctaBtnText}
           btnLink={ctaBtnLink}
-          btnTwo={ctaBtnTwo}
-          btnTwoText={ctaBtnTwoText}
-          btnTwoLink={ctaBtnTwoLink}
-          customSx={ctaCustomSx}
+          // btnTwo={ctaBtnTwo}
+          // btnTwoText={ctaBtnTwoText}
+          // btnTwoLink={ctaBtnTwoLink}
+          // customSx={ctaCustomSx}
         />
       )}
       <Box sx={footerContainer}>

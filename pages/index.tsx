@@ -327,7 +327,6 @@ const Home = (props: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
-          // pb: 16,
           backgroundColor: '#fff',
         }}
       >
