@@ -82,7 +82,7 @@ const CTACard = ({
           {paragraph}
         </Typography>
         {!btnTwo ? (
-          <Button styleType="gradientContained" href={btnLink}>
+          <Button styleType="gradientContained" href={btnLink} target="_blank">
             {btnText}
           </Button>
         ) : (

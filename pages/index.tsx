@@ -244,11 +244,9 @@ const FeaturesSection = (props: HomePage) => {
 
 const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
   const { image, title, text, footer_text } = upboundItem;
-  // const { img, title, text, footer_text, link } = upboundItem;
 
   return (
     <Box sx={cardStyles}>
-      {/* <Link href={link} muiProps={{ target: '_blank' }}> */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ width: '50%', ...providerIcon }}>
           {image && image[0] && <CMSImage value={image[0].value} objectFit="cover" />}
@@ -283,7 +281,6 @@ const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
           {footer_text}
         </Typography>
       </Box>
-      {/* </Link> */}
     </Box>
   );
 };
@@ -330,12 +327,11 @@ const Home = (props: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
-          pb: 16,
-          textAlign: 'center',
+          // pb: 16,
           backgroundColor: '#fff',
         }}
       >
-        <Box sx={{ maxWidth: 950, mx: 'auto', pb: { _: 13, md: 16 } }}>
+        <Box sx={{ maxWidth: 950, mx: 'auto', pb: { _: 13, md: 16 }, textAlign: 'center' }}>
           <Typography variant="h2" sx={{ mb: 2.5 }}>
             {props.section_1_title}
           </Typography>
@@ -354,13 +350,13 @@ const Home = (props: Props) => {
             </Button>
           )}
         </Box>
-        <Typography sx={smallTitle}>{props.section_1_small_title}</Typography>
+        <Typography sx={smallTitle} textAlign="center">
+          {props.section_1_small_title}
+        </Typography>
 
         <CrossplaneLogosSection {...props} />
-      </Section>
 
-      <Section sx={{ backgroundColor: '#fff' }}>
-        <Box>
+        <Box sx={{ py: { _: 10, md: 16 } }}>
           <Image
             src={gradientGraphic}
             alt="gradient graphic"
@@ -368,20 +364,16 @@ const Home = (props: Props) => {
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
-      </Section>
 
-      <Section
-        sx={{
-          pt: 16,
-          pb: { _: 16, md: 23.5 },
-          position: 'relative',
-          backgroundColor: '#fff',
-        }}
-      >
-        <FeaturesSection {...props} />
-      </Section>
+        <Box
+          sx={{
+            pb: { _: 16, md: 23.5 },
+            position: 'relative',
+          }}
+        >
+          <FeaturesSection {...props} />
+        </Box>
 
-      <Section sx={{ backgroundColor: '#fff' }}>
         <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
           <Typography variant="h2">{props.section_3_title}</Typography>
           <Box sx={{ maxWidth: 306.89, mx: 'auto', my: 4 }}>

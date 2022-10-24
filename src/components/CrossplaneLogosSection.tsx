@@ -453,7 +453,12 @@ const CrossplaneLogosSection = (props: HomePage) => {
   return (
     <Box
       ref={cpSectionRef}
-      sx={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        position: 'relative',
+        textAlign: 'center',
+      }}
     >
       <Hidden lgDown>
         <Box sx={cpLeftColumns}>
