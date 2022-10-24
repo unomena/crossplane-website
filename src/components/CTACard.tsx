@@ -30,12 +30,15 @@ const defaultParagraph =
   "Crossplane is an open source control plane framework supported by the cloud-native community. Crossplane has been endorsed by some of the world's best companies and is released under the Apache 2.0 license. We remain committed to our community and will always be vendor neutral.";
 const defaultBtnText = 'Get Started With Crossplane';
 const defaultBtnLink = routes.githubUrl;
+const defaultBtnStyleType = 'gradientContained';
 
 type Props = {
   title?: string;
   paragraph?: string;
   btnText?: string;
   btnLink?: string;
+  btnStyleType?: ButtonStyleType;
+  // btnTarget?: ButtonStyleType;
   // btnTwo?: boolean;
   // btnTwoText?: string;
   // btnTwoLink?: string;
@@ -47,6 +50,7 @@ const CTACard = ({
   paragraph = defaultParagraph,
   btnText = defaultBtnText,
   btnLink = defaultBtnLink,
+  btnStyleType = defaultBtnStyleType,
 }: // btnTwo = false,
 // btnTwoText = defaultBtnText,
 // btnTwoLink = defaultBtnLink,
@@ -82,7 +86,7 @@ Props) => {
         >
           {paragraph}
         </Typography>
-        <Button styleType="gradientContained" href={btnLink} target="_blank">
+        <Button styleType={btnStyleType} href={btnLink} target="_blank">
           {btnText}
         </Button>
 

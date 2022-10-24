@@ -318,6 +318,11 @@ const Home = (props: Props) => {
           ? props.cta_section_buttons[0].value.link[0].value
           : undefined
       }
+      ctaBtnStyleType={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[0] &&
+        props.cta_section_buttons[0].value?.style_type
+      }
     >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
