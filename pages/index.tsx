@@ -323,6 +323,14 @@ const Home = (props: Props) => {
         props.cta_section_buttons[0] &&
         props.cta_section_buttons[0].value?.style_type
       }
+      ctaBtnTarget={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[0] &&
+        props.cta_section_buttons[0].value?.link &&
+        props.cta_section_buttons[0].value.link[0].type === 'external_url'
+          ? '_blank'
+          : '_self'
+      }
     >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />

@@ -55,6 +55,7 @@ type Props = {
   ctaBtnText?: string;
   ctaBtnLink?: string;
   ctaBtnStyleType?: ButtonStyleType;
+  ctaBtnTarget?: string;
   // ctaBtnTwo?: boolean;
   // ctaBtnTwoText?: string;
   // ctaBtnTwoLink?: string;
@@ -69,6 +70,7 @@ const PageFooter = ({
   ctaBtnText,
   ctaBtnLink,
   ctaBtnStyleType,
+  ctaBtnTarget,
 }: // ctaBtnTwo,
 // ctaBtnTwoText,
 // ctaBtnTwoLink,
@@ -87,6 +89,7 @@ Props) => {
           btnText={ctaBtnText}
           btnLink={ctaBtnLink}
           btnStyleType={ctaBtnStyleType}
+          btnTarget={ctaBtnTarget}
           // btnTwo={ctaBtnTwo}
           // btnTwoText={ctaBtnTwoText}
           // btnTwoLink={ctaBtnTwoLink}

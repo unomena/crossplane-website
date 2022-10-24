@@ -38,7 +38,7 @@ type Props = {
   btnText?: string;
   btnLink?: string;
   btnStyleType?: ButtonStyleType;
-  // btnTarget?: ButtonStyleType;
+  btnTarget?: string;
   // btnTwo?: boolean;
   // btnTwoText?: string;
   // btnTwoLink?: string;
@@ -51,6 +51,7 @@ const CTACard = ({
   btnText = defaultBtnText,
   btnLink = defaultBtnLink,
   btnStyleType = defaultBtnStyleType,
+  btnTarget,
 }: // btnTwo = false,
 // btnTwoText = defaultBtnText,
 // btnTwoLink = defaultBtnLink,
@@ -86,7 +87,7 @@ Props) => {
         >
           {paragraph}
         </Typography>
-        <Button styleType={btnStyleType} href={btnLink} target="_blank">
+        <Button styleType={btnStyleType} href={btnLink} target={btnTarget}>
           {btnText}
         </Button>
 
