@@ -377,9 +377,10 @@ const Home = (props: Props) => {
         >
           <FeaturesSection {...props} />
         </Box>
-
+        <Typography variant="h2" textAlign="center">
+          {props.section_3_title}
+        </Typography>
         <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
-          <Typography variant="h2">{props.section_3_title}</Typography>
           <Box sx={{ maxWidth: 306.89, mx: 'auto', my: 4 }}>
             <Image
               src={upboundMarketplace}
