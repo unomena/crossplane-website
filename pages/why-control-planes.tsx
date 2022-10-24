@@ -218,13 +218,13 @@ const Why = ({}: Props) => {
             <WhyItemSection key={whyItem.title} whyItem={whyItem} />
           ))}
         </Box>
-        <Box sx={{ maxWidth: 800, textAlign: 'center', mx: 'auto', pt: { _: 16, md: 23.5 } }}>
+        <Box sx={{ maxWidth: 950, textAlign: 'center', mx: 'auto', pt: { _: 16, md: 23.5 } }}>
           <Typography variant="h2" sx={{ mb: 5 }}>
-            Need help with your Crossplane deployment?
+            Where open-source meets enterprise
           </Typography>
           <Typography variant="body_normal" sx={{ mb: 4 }}>
-            If you’re looking for an easy way to design, deploy and scale your Crossplane
-            infrastructure, Upbound can help.
+            Upbound helps you build, deploy, and manage your internal cloud platforms using control
+            planes, powered by Crossplane and optimized by Upbound.
           </Typography>
           <Box sx={{ maxWidth: 269, mx: 'auto' }}>
             <Image
