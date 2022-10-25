@@ -13,14 +13,14 @@ const nextConfig = {
       },
       {
         source: '/docs',
-        destination:'/docs/v1.9.html',
+        destination: '/docs/v1.9.html',
         permanent: false,
       },
     ];
   },
   async rewrites() {
     return [
-      // master 
+      // master
       // {
       //   source: '/docs/master/media/:path*',
       //   destination:
@@ -39,10 +39,9 @@ const nextConfig = {
       // v1.9
       {
         source: '/docs/:path*',
-        destination:
-          'https://crossplane.github.io/docs/:path*',
+        destination: 'https://crossplane.github.io/docs/:path*',
       },
-      
+
       // {
       //   source: '/docs/v1.9/media/:path*',
       //   destination:
@@ -108,8 +107,11 @@ const nextConfig = {
       // },
       {
         source: '/favicons/:path*',
-        destination:
-          'https://crossplane.github.io/favicons/:path*',
+        destination: 'https://crossplane.github.io/favicons/:path*',
+      },
+      {
+        source: '/images/:path*',
+        destination: 'https://crossplane.github.io/images/:path*',
       },
     ];
   },
