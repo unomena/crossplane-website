@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const no_auth_urls: string[] = ['crossplane.io'];
+const no_auth_urls: string[] = ['crossplane.io', 'www.crossplane.io'];
 
 export function middleware(req: NextRequest) {
   if (process.env.NODE_ENV === 'development' || no_auth_urls.includes(req.nextUrl.hostname)) {
