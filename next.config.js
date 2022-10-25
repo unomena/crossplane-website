@@ -14,6 +14,15 @@ const nextConfig = {
       // },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/docs/:path*',
+        destination:
+          'https://crossplane.io/docs/:path*',
+      },
+    ];
+  },
   images: {
     domains: ['i.ytimg.com', 'localhost', API_HOST_DOMAIN],
   },
