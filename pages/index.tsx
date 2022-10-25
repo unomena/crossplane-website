@@ -18,7 +18,6 @@ import Link from 'src/elements/Link';
 import CMSImage from 'src/elements/CMSImage';
 
 import createdBy from 'public/created-by-upbound.svg';
-import byUpbound from 'public/by-upbound.svg';
 import upboundMarketplace from 'public/upbound-marketplace.svg';
 import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
 import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
@@ -92,7 +91,6 @@ const providerIcon: SxProps = {
   maxWidth: '90px',
   borderRadius: '20px',
   overflow: 'hidden',
-  mr: 2,
   p: 2,
 };
 
@@ -247,19 +245,9 @@ const UpboundItem = ({ upboundItem }: { upboundItem: UpboundItem }) => {
 
   return (
     <Box sx={cardStyles}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box sx={{ width: '50%', ...providerIcon }}>
+      <Box>
+        <Box sx={providerIcon}>
           {image && image[0] && <CMSImage value={image[0].value} objectFit="cover" />}
-        </Box>
-        <Box sx={{ width: '50%' }}>
-          <Box sx={{ maxWidth: 120, ml: 'auto' }}>
-            <Image
-              src={byUpbound}
-              alt="by upbound"
-              sizes="100vw"
-              style={{ width: '100%', height: 'auto' }}
-            />
-          </Box>
         </Box>
       </Box>
       <Box sx={{ flex: '1 1 auto', mt: 3 }}>
@@ -388,7 +376,7 @@ const Home = (props: Props) => {
         <Typography variant="h2" textAlign="center">
           {props.section_3_title}
         </Typography>
-        <Box sx={{ maxWidth: 1050, mx: 'auto', textAlign: 'center' }}>
+        <Box sx={{ maxWidth: 950, mx: 'auto', textAlign: 'center' }}>
           <Box sx={{ maxWidth: 306.89, mx: 'auto', my: 4 }}>
             <Image
               src={upboundMarketplace}
