@@ -20,7 +20,7 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      // master
+      // master 
       // {
       //   source: '/docs/master/media/:path*',
       //   destination:
