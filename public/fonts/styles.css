@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Avenir-Roman';
+  src: url("./Avenir-Roman.eot"); /* IE9 Compat Modes */
+  src: url("./Avenir-Roman.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+       url("./Avenir-Roman.woff2") format("woff2"), /* Super Modern Browsers */
+       url("./Avenir-Roman.woff") format("woff"), /* Pretty Modern Browsers */
+       url("./Avenir-Roman.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir-Black';
+  src: url("./Avenir-Black.eot"); /* IE9 Compat Modes */
+  src: url("./Avenir-Black.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+       url("./Avenir-Black.woff2") format("woff2"), /* Super Modern Browsers */
+       url("./Avenir-Black.woff") format("woff"), /* Pretty Modern Browsers */
+       url("./Avenir-Black.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Consolas';
+  src: url("./Consolas.eot"); /* IE9 Compat Modes */
+  src: url("./Consolas.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+       url("./Consolas.woff2") format("woff2"), /* Super Modern Browsers */
+       url("./Consolas.woff") format("woff"), /* Pretty Modern Browsers */
+       url("./Consolas.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
