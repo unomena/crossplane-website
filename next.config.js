@@ -4,24 +4,17 @@ const API_HOST_DOMAIN = process.env.API_HOST?.replace('https://', '') || '';
 
 const nextConfig = {
   reactStrictMode: true,
-  // async redirects() {
-  //   return [
-  //   ];
-  // },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/docs/:path*',
         destination: 'https://docs.crossplane.io/:path*',
-      },
-      {
-        source: '/favicons/:path*',
-        destination: 'https://docs.crossplane.io/:path*',
-      },
-      {
-        source: '/images/:path*',
-        destination: 'https://docs.crossplane.io/images/:path*',
-      },
+        permanent: true,
+      }
+    ];
+  },
+  async rewrites() {
+    return [
     ];
   },
   images: {
