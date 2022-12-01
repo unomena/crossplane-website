@@ -39,7 +39,7 @@ const nextConfig = {
       // v1.9
       {
         source: '/docs/:path*',
-        destination: 'https://crossplane.github.io/docs/:path*',
+        destination: 'https://docs.crossplane.io/:path*',
       },
 
       // {
@@ -107,11 +107,11 @@ const nextConfig = {
       // },
       {
         source: '/favicons/:path*',
-        destination: 'https://crossplane.github.io/favicons/:path*',
+        destination: 'https://docs.crossplane.io/:path*',
       },
       {
         source: '/images/:path*',
-        destination: 'https://crossplane.github.io/images/:path*',
+        destination: 'https://docs.crossplane.io/images/:path*',
       },
     ];
   },
