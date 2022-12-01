@@ -4,6 +4,7 @@ const no_auth_urls: string[] = [
   'crossplane.io',
   'www.crossplane.io',
   'crossplane-website.vercel.app',
+  'www-crossplane.vercel.app'
 ];
 
 export function middleware(req: NextRequest) {
