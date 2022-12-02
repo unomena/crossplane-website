@@ -9,7 +9,7 @@ import PageFooter from 'src/components/PageFooter';
 import PageHead from 'src/components/PageHead';
 import PreviewIndicator from 'src/components/PreviewIndicator';
 
-import OGImgHome from 'public/og-images/home-page-og.jpg';
+import OGImgHome from 'public/og-images/crossplane-og.jpg';
 
 const defaultTitle = 'Crossplane - The cloud-native control plane framework';
 const defaultDescription =
