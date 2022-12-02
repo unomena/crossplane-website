@@ -45,15 +45,6 @@ const headerButtons: SxProps = {
   },
 };
 
-const smallTitle: SxProps = {
-  ...fontAvenirBold,
-  color: COLORS.nileBlue,
-  fontSize: '18px',
-  textTransform: 'uppercase',
-  letterSpacing: '3.2px',
-  mb: 5,
-};
-
 const gridLayout: SxProps = {
   display: 'grid',
   gap: 4,
@@ -350,9 +341,6 @@ const Home = (props: Props) => {
             </Button>
           )}
         </Box>
-        <Typography sx={smallTitle} textAlign="center">
-          {props.section_1_small_title}
-        </Typography>
 
         <CrossplaneLogosSection {...props} />
 
