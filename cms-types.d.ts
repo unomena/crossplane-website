@@ -98,7 +98,6 @@ type HomePage = {
   section_1_sub_title: string;
   section_1_button: Button[];
 
-  section_1_small_title: string;
   section_1_slack_title_count: string;
   section_1_slack_title: string;
   section_1_slack_text: string;
