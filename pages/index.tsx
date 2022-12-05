@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+import Lottie from 'lottie-react';
+
 import { GetStaticProps } from 'next';
 
 import Image from 'next/future/image';
@@ -21,6 +23,9 @@ import createdBy from 'public/created-by-upbound.svg';
 import upboundMarketplace from 'public/upbound-marketplace.svg';
 import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
 import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
+import animOne from 'public/animations/anim1.json';
+import animTwo from 'public/animations/anim2.json';
+import animThree from 'public/animations/anim3.json';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 23.5 },
@@ -108,8 +113,9 @@ const HeaderSection = (props: HomePageHeader) => {
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
   const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
+  const animOptions = [animOne, animTwo, animThree];
 
-  const { title, text, link_text, link, header_image } = feature;
+  const { title, text, link_text, link } = feature;
 
   const hiddenBarRef = useRef(undefined);
   const isVisible = useOnScreen(hiddenBarRef);
@@ -206,7 +212,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
               },
             }}
           >
-            {header_image && header_image[0] && <CMSImage value={header_image[0].value} priority />}
+            <Lottie animationData={animOptions[index % 3]} loop={true} />
+            {/* {header_image && header_image[0] && <CMSImage value={header_image[0].value} priority />} */}
           </Box>
         </Box>
       </Box>
