@@ -506,8 +506,8 @@ const CrossplaneLogosSection = (props: HomePage) => {
           <Typography variant="body_small" sx={{ maxWidth: 320 }}>
             {props.section_1_slack_text}
           </Typography>
-          {props.section_1_button[0] && (
-            <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
+          {props.section_1_slack_button[0] && (
+            <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_slack_button[0].value}>
               {props.section_1_slack_button[0].value.text}
             </Button>
           )}
@@ -572,8 +572,8 @@ const CrossplaneLogosSection = (props: HomePage) => {
               </Box>
             </Box>
             <Typography variant="body_small">{props.section_1_slack_text}</Typography>
-            {props.section_1_button[0] && (
-              <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_button[0].value}>
+            {props.section_1_slack_button[0] && (
+              <Button sx={{ mt: 3.5 }} cmsValue={props.section_1_slack_button[0].value}>
                 {props.section_1_slack_button[0].value.text}
               </Button>
             )}
