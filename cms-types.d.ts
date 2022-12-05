@@ -72,7 +72,7 @@ type HomePageHeader = {
 };
 
 type HomePageFeature = {
-  header_image: ImageType;
+  // header_image: ImageType;
   title: string;
   text: string;
   link_text: string;
