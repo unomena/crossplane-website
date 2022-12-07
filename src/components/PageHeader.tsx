@@ -35,7 +35,7 @@ const navLinks: SxProps = {
     color: '#fff',
     opacity: '.85',
     px: 2,
-    mb: 3,
+    py: 3,
 
     '&:hover': {
       opacity: '1',
@@ -69,7 +69,7 @@ const githubLink: SxProps = {
 
 const mobileSignUpBtn: SxProps = {
   textAlign: 'center',
-  mt: 5,
+  // mt: 5,
   '& .MuiButton-root': {
     ...fontAvenirRoman,
   },
@@ -127,7 +127,11 @@ const PageHeader = () => {
         <Box sx={{ display: 'flex' }}>
           <Link href={routes.home}>
             <Box>
-              <Image src={logo} alt="company logo" style={{ width: 152, height: 'auto' }} />
+              <Image
+                src={logo}
+                alt="company logo"
+                style={{ width: '100%', maxWidth: 152, height: 'auto' }}
+              />
             </Box>
           </Link>
         </Box>
@@ -163,6 +167,7 @@ const PageHeader = () => {
             sx: {
               justifyContent: 'center',
               mb: 3,
+              py: 3,
               ...githubLink,
             },
           }}
@@ -186,7 +191,11 @@ const PageHeader = () => {
           <Box sx={{ display: 'flex', ...maxWidth }}>
             <Link href={routes.home}>
               <Box>
-                <Image src={logo} alt="company logo" style={{ width: 152, height: 'auto' }} />
+                <Image
+                  src={logo}
+                  alt="company logo"
+                  style={{ width: '100%', maxWidth: 152, height: 'auto' }}
+                />
               </Box>
             </Link>
           </Box>
