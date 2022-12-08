@@ -348,7 +348,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
         const row = getRandomItem(availableRowsLeftRef.current);
         setLogoToUpdateLeft(row);
         updateRowsLeft(row);
-      }, getRandomInt(12, 22) * 100);
+      }, 1200);
     }
     return () => {
       clearTimeout(t);
@@ -389,7 +389,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
         const row = getRandomItem(availableRowsRightRef.current);
         setLogoToUpdateRight(row);
         updateRowsRight(row);
-      }, getRandomInt(12, 22) * 100);
+      }, 1200);
     }
     return () => {
       clearTimeout(t);
@@ -592,10 +592,7 @@ const CrossplaneLogosSection = (props: HomePage) => {
           </Box>
         </Box>
       </Hidden>
-      <Box
-        ref={hiddenBarRef}
-        sx={{ width: '100%', height: '1px', position: 'absolute', bottom: -40 }}
-      />
+      <Box ref={hiddenBarRef} sx={{ width: '100%', height: '1px', position: 'absolute', top: 0 }} />
     </Box>
   );
 };
