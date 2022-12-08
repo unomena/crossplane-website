@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Head from 'next/head';
+import Script from 'next/script';
 
 const PageHead: React.FC<{
   displayTitle?: string;
@@ -63,6 +64,28 @@ const PageHead: React.FC<{
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
       </Head>
+      {/* eslint-disable max-len */}
+      <Script id="seo-init" type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Crossplane",
+            "email": "info@crossplane.io",
+            "foundingDate": "December 2018",
+            "description": "Crossplane is an open-source framework for building control planes and was the first to recognize Kubernetes for its control plane, and not as a container orchestrator, and has been leading the effort to democratize control plane technology in the cloud-native community.",
+            "memberOf": {
+              "@type": "Organization",
+              "name": "CNCF",
+              "alternateName": "Cloud Native Computing Foundation",
+              "url": "//cncf.io",  
+            },
+            "url": "//crossplane.io",
+            "logo": "//raw.githubusercontent.com/crossplane/artwork/master/logo/logo-horizontal-whitetext-bluebg.png",
+            "sameAs": ["//twitter.com/crossplane_io"]
+          }
+        `}
+      </Script>
     </>
   );
 };
