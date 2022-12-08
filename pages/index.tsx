@@ -40,7 +40,7 @@ const headerButtons: SxProps = {
     mx: { _: 0, sm: '10px' },
 
     ':not(:last-of-type)': {
-      mb: { _: '20px', sm: 0 },
+      mb: { _: 5, sm: 0 },
     },
   },
 };

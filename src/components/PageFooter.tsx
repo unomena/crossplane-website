@@ -108,7 +108,11 @@ Props) => {
             >
               <Link href={routes.home}>
                 <Box>
-                  <Image src={logo} alt="logo" style={{ width: 152, height: 'auto' }} />
+                  <Image
+                    src={logo}
+                    alt="logo"
+                    style={{ width: '100%', maxWidth: 152, height: 'auto' }}
+                  />
                 </Box>
               </Link>
             </Box>
@@ -153,7 +157,7 @@ Props) => {
                   <Image
                     src={cncfLogo}
                     alt="cncfLogo"
-                    style={{ width: 233, height: 'auto', marginBottom: '24px' }}
+                    style={{ width: '100%', maxWidth: 233, height: 'auto', marginBottom: '24px' }}
                   />
                 </Box>
               </Link>

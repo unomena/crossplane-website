@@ -65,7 +65,7 @@ const btnContainer: SxProps = {
 
     ':first-of-type': {
       ml: 0,
-      mb: { _: '20px', xs: 0 },
+      mb: { _: 5, xs: 0 },
     },
     '& ~ a': {
       mr: 0,
