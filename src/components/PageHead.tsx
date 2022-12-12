@@ -78,7 +78,7 @@ const PageHead: React.FC<{
               "@type": "Organization",
               "name": "CNCF",
               "alternateName": "Cloud Native Computing Foundation",
-              "url": "//cncf.io",  
+              "url": "//cncf.io"
             },
             "url": "//crossplane.io",
             "logo": "//raw.githubusercontent.com/crossplane/artwork/master/logo/logo-horizontal-whitetext-bluebg.png",
