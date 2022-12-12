@@ -23,7 +23,7 @@ import upboundMarketplace from 'public/upbound-marketplace.svg';
 import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
 import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
 import truckAnim from 'public/animations/truck.json';
-import animTwo from 'public/animations/anim2.json';
+import controlPlanes from 'public/animations/control_planes.json';
 import codingAnim from 'public/animations/coding.json';
 
 const headerSection: SxProps = {
@@ -112,7 +112,7 @@ const HeaderSection = (props: HomePageHeader) => {
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
   const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
-  const animOptions = [truckAnim, animTwo, codingAnim];
+  const animOptions = [truckAnim, controlPlanes, codingAnim];
 
   const { title, text, link_text, link } = feature;
 
