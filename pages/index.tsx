@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+
+import Lottie from 'lottie-react';
 
 import { GetStaticProps } from 'next';
 
@@ -8,7 +10,6 @@ import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
 import handleGetStaticProps from 'src/utils/handleGetStaticProps';
-import useOnScreen from 'src/utils/useOnScreen';
 
 import PageProvider from 'src/components/PageProvider';
 import Section from 'src/components/Section';
@@ -21,6 +22,9 @@ import createdBy from 'public/created-by-upbound.svg';
 import upboundMarketplace from 'public/upbound-marketplace.svg';
 import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
 import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
+import truckAnim from 'public/animations/truck.json';
+import controlPlanes from 'public/animations/control_planes.json';
+import codingAnim from 'public/animations/coding.json';
 
 const headerSection: SxProps = {
   pt: { _: 13, md: 23.5 },
@@ -108,18 +112,9 @@ const HeaderSection = (props: HomePageHeader) => {
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
   const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
+  const animOptions = [truckAnim, controlPlanes, codingAnim];
 
-  const { title, text, link_text, link, header_image } = feature;
-
-  const hiddenBarRef = useRef(undefined);
-  const isVisible = useOnScreen(hiddenBarRef);
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    if (isVisible) {
-      setShow(true);
-    }
-  }, [isVisible]);
+  const { title, text, link_text, link } = feature;
 
   return (
     <Box
@@ -168,10 +163,6 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
         >
           {link_text}
         </Link>
-        <Box
-          ref={hiddenBarRef}
-          sx={{ width: '100%', height: '1px', position: 'absolute', bottom: 0 }}
-        />
       </Box>
       <Box
         sx={{
@@ -187,27 +178,9 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           },
         }}
       >
-        <Box
-          sx={{
-            position: 'relative',
-            width: { _: 'fit-content', lg: 'unset' },
-            ml: 0,
-          }}
-        >
-          <Box
-            sx={{
-              position: 'relative',
-              transition: 'transform 1.5s',
-              transform: show ? '' : `translate(100vw)`,
-
-              [MQ.lg]: {
-                transform: show ? '' : `translate(${reversed ? '-50vw' : '50vw'})`,
-                ml: 0,
-              },
-            }}
-          >
-            {header_image && header_image[0] && <CMSImage value={header_image[0].value} priority />}
-          </Box>
+        <Box>
+          <Lottie animationData={animOptions[index % 3]} loop={true} />
+          {/* {header_image && header_image[0] && <CMSImage value={header_image[0].value} priority />} */}
         </Box>
       </Box>
     </Box>
