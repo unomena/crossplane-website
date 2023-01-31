@@ -48,9 +48,7 @@ const navLinks: SxProps = {
   },
 };
 
-const githubLink: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
+const getStartedLink: SxProps = {
   fontSize: '20px',
   fontWeight: '400',
   textAlign: 'center',
@@ -160,23 +158,32 @@ const PageHeader = () => {
         ))}
       </Box>
       <Box sx={mobileSignUpBtn}>
-        <Link
-          href={routes.githubUrl}
-          muiProps={{
-            target: '_blank',
-            sx: {
-              justifyContent: 'center',
-              mb: 3,
-              py: 3,
-              ...githubLink,
-            },
-          }}
-        >
-          <Box mr={1.5} display="flex">
-            <GitHubIcon fontSize="medium" />
-          </Box>
-          Get Started
-        </Link>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3, py: 3 }}>
+          <Link
+            href={routes.githubUrl}
+            muiProps={{
+              target: '_blank',
+              sx: {
+                ...getStartedLink,
+              },
+            }}
+          >
+            <Box mr={1.5} display="flex">
+              <GitHubIcon fontSize="medium" />
+            </Box>
+          </Link>
+          <Link
+            href={routes.docsGetStartedUrl}
+            muiProps={{
+              target: '_blank',
+              sx: {
+                ...getStartedLink,
+              },
+            }}
+          >
+            Get Started
+          </Link>
+        </Box>
         <Button styleType="whiteContained" sizeType="normal" href={routes.slackUrl} target="_blank">
           Join Our Slack Channel
         </Button>
@@ -222,10 +229,18 @@ const PageHeader = () => {
               ...maxWidth,
             }}
           >
-            <Link href={routes.githubUrl} muiProps={{ target: '_blank', sx: { ...githubLink } }}>
+            <Link
+              href={routes.githubUrl}
+              muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
+            >
               <Box mr={1.5} display="flex">
                 <GitHubIcon fontSize="small" />
               </Box>
+            </Link>
+            <Link
+              href={routes.docsGetStartedUrl}
+              muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
+            >
               Get Started
             </Link>
             <Button
