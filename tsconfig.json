@@ -22,7 +22,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "sourceRoot": "/",
-    "suppressImplicitAnyIndexErrors": true,
+    // "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "typeRoots": ["./typings", "src/@types", "./node_modules/@types"],
     "allowJs": true,
