@@ -38,7 +38,7 @@ const handleGetStaticProps = async (context: GetStaticPropsContext, path: string
 
   try {
     const res = await axiosInstance.get(api);
-    const cms_head_props = {};
+    const cms_head_props: { [key: string]: any } = {};
     cms_head_items.forEach((item) => {
       if (res?.data.meta[item]) {
         cms_head_props[item] = res?.data.meta[item] || null;

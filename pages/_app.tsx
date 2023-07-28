@@ -23,7 +23,7 @@ export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   useEffect(() => {
-    TagManager.initialize({ gtmId: 'G-SFCPQYSLHY' });
+    TagManager.initialize({ gtmId: 'GTM-WFF2NQHG' });
   }, []);
 
   return (
