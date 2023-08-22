@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/future/image';
 import { COLORS, fontAvenirRoman } from 'src/theme';

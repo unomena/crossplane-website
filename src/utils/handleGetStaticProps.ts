@@ -1,4 +1,3 @@
-import { link } from 'fs';
 import { GetStaticPropsContext } from 'next';
 
 import axiosInstance from 'src/utils/axiosInstance';

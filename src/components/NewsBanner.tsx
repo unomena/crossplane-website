@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Image from 'next/future/image';
 
-import { Box, Typography, IconButton, SxProps } from '@mui/material';
+import { Box, Typography, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
 import useNewsBanner from 'src/context/newsBannerContext';
