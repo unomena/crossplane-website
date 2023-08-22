@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Image from 'next/future/image';
 import { COLORS, fontAvenirRoman } from 'src/theme';
@@ -17,6 +17,7 @@ import hamburgerIcon from 'public/icons/hamburger-white.svg';
 
 const root: SxProps = {
   position: 'relative',
+  zIndex: 0,
   '& nav': {
     backgroundColor: 'transparent',
     boxShadow: 'none',
@@ -112,6 +113,11 @@ const navItems = [
   },
 ];
 
+// type NewsBannerProps = {
+//   newsBannerClosed?: boolean;
+//   setNewsBannerClosed: React.Dispatch<React.SetStateAction<boolean>>;
+// };
+
 const PageHeader = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -194,6 +200,7 @@ const PageHeader = () => {
   return (
     <Box sx={root}>
       <AppBar component="nav" position="absolute">
+        {/* <AppBar component="nav" position="absolute" sx={{ pt: !newsBannerClosed ? '70px' : 0 }}> */}
         <Toolbar>
           <Box sx={{ display: 'flex', ...maxWidth }}>
             <Link href={routes.home}>

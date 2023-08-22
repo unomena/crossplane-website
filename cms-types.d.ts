@@ -65,6 +65,13 @@ type Button = {
   value: ButtonValue;
 };
 
+type NewsBanner = {
+  text: string;
+  // link_text: string;
+  // link: Link;
+  button: Button[];
+};
+
 type HomePageHeader = {
   title: string;
   subtitle: string;

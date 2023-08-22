@@ -8,6 +8,8 @@ import theme, { globalStyle } from 'src/theme';
 import createEmotionCache from 'src/createEmotionCache';
 import 'public/fonts/styles.css';
 
+import { NewsBannerProvider } from 'src/context/newsBannerContext';
+
 import TagManager from 'react-gtm-module';
 
 // import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
@@ -17,6 +19,7 @@ const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
+  pageProps: any;
 }
 
 export default function MyApp(props: MyAppProps) {
@@ -36,7 +39,9 @@ export default function MyApp(props: MyAppProps) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         {/* <GoogleReCaptchaProvider reCaptchaKey=""> */}
-        <Component {...pageProps} />
+        <NewsBannerProvider newsBannerData={pageProps.newsBannerData}>
+          <Component {...pageProps} />
+        </NewsBannerProvider>
         {/* </GoogleReCaptchaProvider> */}
       </ThemeProvider>
     </CacheProvider>

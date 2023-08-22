@@ -4,10 +4,13 @@ import { Box } from '@mui/material';
 // import { Box, SxProps } from '@mui/material';
 import { COLORS } from 'src/theme';
 
+import useNewsBanner from 'src/context/newsBannerContext';
+
 import PageHeader from 'src/components/PageHeader';
 import PageFooter from 'src/components/PageFooter';
 import PageHead from 'src/components/PageHead';
 import PreviewIndicator from 'src/components/PreviewIndicator';
+import NewsBanner from 'src/components/NewsBanner';
 
 import OGImgHome from 'public/og-images/crossplane-og.jpg';
 
@@ -58,6 +61,8 @@ const PageProvider = ({
   cms_head_props,
   isPreview,
 }: Props) => {
+  const { newsBannerData } = useNewsBanner();
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       document.body.scrollTo(0, 0);
@@ -78,6 +83,7 @@ const PageProvider = ({
         metaImg={metaImg}
         cms_head_props={cms_head_props}
       />
+      {newsBannerData && <NewsBanner />}
       <PageHeader />
       <Box sx={{ bgcolor: COLORS.nileBlue }}>
         {children}
