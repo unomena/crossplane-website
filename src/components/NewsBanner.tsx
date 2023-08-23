@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import Image from 'next/future/image';
 
@@ -29,11 +29,17 @@ const root: SxProps = {
 };
 
 type NewsBannerProps = {
+  setNewsBannerHeight: React.Dispatch<React.SetStateAction<number>>;
   newsBannerClosed?: boolean;
   setNewsBannerClosed: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const NewsBanner = ({ newsBannerClosed, setNewsBannerClosed }: NewsBannerProps) => {
+const NewsBanner = ({
+  setNewsBannerHeight,
+  newsBannerClosed,
+  setNewsBannerClosed,
+}: NewsBannerProps) => {
+  const newsBannerRef = useRef<HTMLDivElement | null>(null);
   const { newsBannerData } = useNewsBanner();
   const { text, button } = newsBannerData;
 
@@ -47,8 +53,27 @@ const NewsBanner = ({ newsBannerClosed, setNewsBannerClosed }: NewsBannerProps) 
     }, 350);
   }, []);
 
+  /* Get newsbanner height as it responds to update top syling amount of PageHeader */
+  useEffect(() => {
+    const updateNewsBannerHeight = () => {
+      if (newsBannerRef.current) {
+        const height = newsBannerRef.current.clientHeight;
+        setNewsBannerHeight(height);
+      }
+    };
+
+    updateNewsBannerHeight();
+
+    window.addEventListener('resize', updateNewsBannerHeight);
+
+    return () => {
+      window.removeEventListener('resize', updateNewsBannerHeight);
+    };
+  }, []);
+
   return (
     <Box
+      ref={newsBannerRef}
       sx={{
         transform: !newsBannerClosed ? 'transform: translateY(0)' : 'translateY(-100%)',
         transitionDuration: '1s',

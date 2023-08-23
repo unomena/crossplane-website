@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import Image from 'next/future/image';
-import { COLORS, fontAvenirRoman } from 'src/theme';
+import { COLORS, MQ, fontAvenirRoman } from 'src/theme';
 
 import useNewsBanner from 'src/context/newsBannerContext';
 
-import { AppBar, Drawer, IconButton, Toolbar, Box, SxProps } from '@mui/material';
+import { AppBar, Drawer, IconButton, Toolbar, Box, SxProps, useMediaQuery } from '@mui/material';
 
 import * as routes from 'src/routes';
 
@@ -117,9 +117,11 @@ const navItems = [
 ];
 
 const PageHeader = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
   const { newsBannerData } = useNewsBanner();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [newsBannerClosed, setNewsBannerClosed] = useState(true);
+  const [newsBannerHeight, setNewsBannerHeight] = useState<number>(0);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -200,14 +202,18 @@ const PageHeader = () => {
   return (
     <>
       {newsBannerData && (
-        <NewsBanner newsBannerClosed={newsBannerClosed} setNewsBannerClosed={setNewsBannerClosed} />
+        <NewsBanner
+          newsBannerClosed={newsBannerClosed}
+          setNewsBannerClosed={setNewsBannerClosed}
+          setNewsBannerHeight={setNewsBannerHeight}
+        />
       )}
 
       <Box sx={root}>
         <AppBar
           component="nav"
           position="absolute"
-          sx={{ top: { md: !newsBannerClosed ? '80px' : 0 }, transition: 'all 1s' }}
+          sx={{ top: { md: !newsBannerClosed ? newsBannerHeight : 0 }, transition: 'all 1s' }}
         >
           <Toolbar>
             <Box sx={{ display: 'flex', ...maxWidth }}>
@@ -270,22 +276,21 @@ const PageHeader = () => {
             </Box>
           </Toolbar>
         </AppBar>
-        <Box component="nav">
-          <Drawer
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true,
-            }}
-            sx={{
-              display: { _: 'block', xl: 'none' },
-              ...mobileNav,
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Box>
+        {!matchesXL && (
+          <Box component="nav">
+            <Drawer
+              variant="temporary"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true,
+              }}
+              sx={mobileNav}
+            >
+              {drawer}
+            </Drawer>
+          </Box>
+        )}
       </Box>
     </>
   );
