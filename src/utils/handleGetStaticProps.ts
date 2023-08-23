@@ -51,31 +51,7 @@ const handleGetStaticProps = async (context: GetStaticPropsContext, path: string
     let newsBannerData = null;
 
     try {
-      // const res_news = await axiosInstance.get<NewsBanner[]>('/api/news-items');
-      const res_news = {
-        data: [
-          {
-            // eslint-disable-next-line max-len
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis id dui condimentum sagittis.',
-            button: [
-              {
-                id: 1,
-                value: {
-                  text: 'Learn More',
-                  link: [
-                    {
-                      id: '1',
-                      type: 'external_url',
-                      value: '/',
-                    },
-                  ],
-                  style_type: 'whiteOutlined',
-                },
-              },
-            ],
-          },
-        ],
-      };
+      const res_news = await axiosInstance.get<NewsBanner[]>('/api/news-banner');
       newsBannerData = res_news.data[0];
     } catch (error) {
       handleError(`get news banner`, error);
