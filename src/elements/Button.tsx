@@ -172,6 +172,7 @@ const iconLeftStyle: SxProps = {
 
 const arrowRightStyle: SxProps = {
   '& > .MuiButton-endIcon': {
+    color: 'inherit',
     ml: '16px',
     '& > svg': {
       height: { _: 12, md: 13 },
@@ -276,7 +277,7 @@ const Button = ({
         ...arrowRightStyle,
         ...props.sx,
       }}
-      endIcon={hasArrowRight ? <ArrowRight /> : null}
+      endIcon={hasArrowRight ? <ArrowRight color="inherit" /> : null}
       {...extraProps}
     >
       {children}
