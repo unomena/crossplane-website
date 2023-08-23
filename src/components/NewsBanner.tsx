@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import Image from 'next/future/image';
 
@@ -15,9 +15,9 @@ import closeIcon from 'public/icons/close-icon.svg';
 const root: SxProps = {
   position: 'fixed',
   width: '100%',
+  bottom: { _: '0', md: 'unset' },
   zIndex: 2,
-  // px: { _: '19px', desktop: 1 },
-  py: '11px',
+  py: 2,
   pr: { _: '40px', md: '100px' },
   pl: { _: '40px', md: '50px' },
   bgcolor: COLORS.turquoise,
@@ -28,10 +28,14 @@ const root: SxProps = {
   justifyContent: 'center',
 };
 
-const NewsBanner = () => {
+type NewsBannerProps = {
+  newsBannerClosed?: boolean;
+  setNewsBannerClosed: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const NewsBanner = ({ newsBannerClosed, setNewsBannerClosed }: NewsBannerProps) => {
   const { newsBannerData } = useNewsBanner();
   const { text, button } = newsBannerData;
-  const [newsBannerClosed, setNewsBannerClosed] = useState(true);
 
   const handleClick = () => {
     setNewsBannerClosed(true);
@@ -57,21 +61,13 @@ const NewsBanner = () => {
         </Typography>
       </Box>
       <Box
-        sx={{ textAlign: { _: 'center', md: 'left' }, ml: { _: 0, md: 3 }, mt: { _: 3, md: 0 } }}
+        sx={{
+          minWidth: 175,
+          textAlign: { _: 'center', md: 'left' },
+          ml: { _: 0, md: 3 },
+          mt: { _: 3, md: 0 },
+        }}
       >
-        {/* {link && link[0] && link[0].value && (
-          <Link
-            href={link[0].value}
-            muiProps={{
-              target: link[0].type === 'external_url' ? '_blank' : '_self',
-              fontSize: '14px',
-              lineHeight: '24px',
-            }}
-            hasArrow
-          >
-            {link_text}
-          </Link>
-        )} */}
         {button &&
           button.map(({ id, value }) => (
             <Button key={id} sizeType="normal" cmsValue={value}>
@@ -87,7 +83,7 @@ const NewsBanner = () => {
           alignItems: 'center',
           justifyContent: 'center',
           width: { _: '40px', md: '74px' },
-          height: { _: '40px', md: '74px' },
+          height: { _: '50px', md: '100%' },
           right: 0,
           top: 0,
           borderLeft: { md: '2px solid rgba(225, 225, 225, 0.6)' },
