@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/future/image';
 
 import { Box, Typography, SxProps } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { COLORS, MQ } from 'src/theme';
 
 import useNewsBanner from 'src/context/newsBannerContext';
 
@@ -75,8 +75,11 @@ const NewsBanner = ({
     <Box
       ref={newsBannerRef}
       sx={{
-        transform: !newsBannerClosed ? 'transform: translateY(0)' : 'translateY(-100%)',
+        transform: !newsBannerClosed ? 'translateY(0)' : 'translateY(100%)',
         transitionDuration: '1s',
+        [MQ.md]: {
+          transform: !newsBannerClosed ? 'translateY(0)' : 'translateY(-100%)',
+        },
         ...root,
       }}
     >
