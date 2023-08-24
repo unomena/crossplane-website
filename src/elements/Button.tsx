@@ -56,6 +56,8 @@ const whiteText: SxProps = {
   color: '#fff',
   border: 'none',
   px: '16px !important',
+  py: 0,
+  height: 'auto',
 
   '&:hover': {
     backgroundColor: 'unset',
