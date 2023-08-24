@@ -20,7 +20,6 @@ import hamburgerIcon from 'public/icons/hamburger-white.svg';
 
 const root: SxProps = {
   position: 'relative',
-  zIndex: 0,
   '& nav': {
     backgroundColor: 'transparent',
     boxShadow: 'none',

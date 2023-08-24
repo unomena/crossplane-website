@@ -61,7 +61,7 @@ const NewsBanner = ({
     }
   }, []);
 
-  /* Get newsbanner height as it responds to update top styling amount of PageHeader */
+  // Get newsbanner height as it responds to update top styling amount of PageHeader
   useEffect(() => {
     const updateNewsBannerHeight = () => {
       if (newsBannerRef.current) {
