@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from 'next';
 
 import axiosInstance from 'src/utils/axiosInstance';
-import handleError from 'src/utils/handleError';
+import getNewsBannerData from 'src/utils/getNewsBannerData';
 
 const cms_head_items = [
   'title',
@@ -48,14 +48,7 @@ const handleGetStaticProps = async (context: GetStaticPropsContext, path: string
       }
     });
 
-    let newsBannerData = null;
-
-    try {
-      const res_news = await axiosInstance.get<NewsBanner[]>('/api/news-banner');
-      newsBannerData = res_news.data[0];
-    } catch (error) {
-      handleError(`get news banner`, error);
-    }
+    const newsBannerData = await getNewsBannerData();
 
     const props = {
       ...res?.data,

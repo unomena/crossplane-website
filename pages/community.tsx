@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from 'next/future/image';
+import { GetStaticProps } from 'next';
 
 import { Box, SxProps, Typography } from '@mui/material';
 import { COLORS, MQ } from 'src/theme';
@@ -17,6 +18,7 @@ import upboundLogo from 'public/upbound-logo.svg';
 import cncfLogoColor from 'public/cncf-logo-color.png';
 import gradientGraphicHeader from 'public/background-graphics/gradient-graphic-header.png';
 import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
+import getNewsBannerData from 'src/utils/getNewsBannerData';
 
 const headerSection: SxProps = {
   position: 'relative',
@@ -206,3 +208,13 @@ const Why = ({}: Props) => {
 };
 
 export default Why;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const newsBannerData = await getNewsBannerData();
+
+  return {
+    props: {
+      newsBannerData,
+    },
+  };
+};
