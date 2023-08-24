@@ -44,13 +44,21 @@ const NewsBanner = ({
   const { text, button } = newsBannerData;
 
   const handleClick = () => {
+    // When the close button is clicked, set the flag in local storage to hide the NewsBanner.
+    localStorage.setItem('newsBannerClosed', 'true');
     setNewsBannerClosed(true);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setNewsBannerClosed(false);
-    }, 350);
+    // Check the local storage flag when the component mounts.
+    const isNewsBannerClosed = localStorage.getItem('newsBannerClosed');
+    if (isNewsBannerClosed === 'true') {
+      setNewsBannerClosed(true);
+    } else {
+      setTimeout(() => {
+        setNewsBannerClosed(false);
+      }, 350);
+    }
   }, []);
 
   /* Get newsbanner height as it responds to update top styling amount of PageHeader */
