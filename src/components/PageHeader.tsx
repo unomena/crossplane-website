@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 
 import Image from 'next/future/image';
-import { COLORS, fontAvenirRoman } from 'src/theme';
+import { COLORS, MQ, fontAvenirRoman } from 'src/theme';
 
-import { AppBar, Drawer, IconButton, Toolbar, Box, SxProps } from '@mui/material';
+import useNewsBanner from 'src/context/newsBannerContext';
+
+import { AppBar, Drawer, IconButton, Toolbar, Box, SxProps, useMediaQuery } from '@mui/material';
 
 import * as routes from 'src/routes';
 
 import Link from 'src/elements/Link';
 import Button from 'src/elements/Button';
+import NewsBanner from 'src/components/NewsBanner';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import logo from 'public/crossplane-logo.svg';
@@ -113,7 +116,11 @@ const navItems = [
 ];
 
 const PageHeader = () => {
+  const matchesXL = useMediaQuery(MQ.xl);
+  const { newsBannerData } = useNewsBanner();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [newsBannerClosed, setNewsBannerClosed] = useState(true);
+  const [newsBannerHeight, setNewsBannerHeight] = useState<number>(0);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -192,86 +199,99 @@ const PageHeader = () => {
   );
 
   return (
-    <Box sx={root}>
-      <AppBar component="nav" position="absolute">
-        <Toolbar>
-          <Box sx={{ display: 'flex', ...maxWidth }}>
-            <Link href={routes.home}>
-              <Box>
-                <Image
-                  src={logo}
-                  alt="company logo"
-                  style={{ width: '100%', maxWidth: 152, height: 'auto' }}
-                />
-              </Box>
-            </Link>
-          </Box>
-          <IconButton
-            color="inherit"
-            aria-label="close drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ p: 0, display: { xl: 'none' } }}
-          >
-            <Image src={hamburgerIcon} alt="menu icon" style={{ width: 24, height: 'auto' }} />
-          </IconButton>
-          <Box sx={{ display: { _: 'none', xl: 'block' }, ...navLinks }}>
-            {navItems.map((navItem) => (
-              <Link key={navItem.text} href={navItem.href} muiProps={{ target: navItem.target }}>
-                {navItem.text}
-              </Link>
-            ))}
-          </Box>
-          <Box
-            sx={{
-              display: { _: 'none', xl: 'flex' },
-              alignItems: 'center',
-              ...maxWidth,
-            }}
-          >
-            <Link
-              href={routes.githubUrl}
-              muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
-            >
-              <Box mr={1.5} display="flex">
-                <GitHubIcon fontSize="small" />
-              </Box>
-            </Link>
-            <Link
-              href={routes.docsGetStartedUrl}
-              muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
-            >
-              Get Started
-            </Link>
-            <Button
-              styleType="whiteContained"
-              sizeType="small"
-              href={routes.slackUrl}
-              target="_blank"
-              sx={{ ml: 4 }}
-            >
-              Join Our Slack Channel
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          sx={{
-            display: { _: 'block', xl: 'none' },
-            ...mobileNav,
-          }}
+    <>
+      {newsBannerData && (
+        <NewsBanner
+          newsBannerClosed={newsBannerClosed}
+          setNewsBannerClosed={setNewsBannerClosed}
+          setNewsBannerHeight={setNewsBannerHeight}
+        />
+      )}
+
+      <Box sx={root}>
+        <AppBar
+          component="nav"
+          position="absolute"
+          sx={{ top: { md: !newsBannerClosed ? newsBannerHeight : 0 }, transition: 'all 1s' }}
         >
-          {drawer}
-        </Drawer>
+          <Toolbar>
+            <Box sx={{ display: 'flex', ...maxWidth }}>
+              <Link href={routes.home}>
+                <Box>
+                  <Image
+                    src={logo}
+                    alt="company logo"
+                    style={{ width: '100%', maxWidth: 152, height: 'auto' }}
+                  />
+                </Box>
+              </Link>
+            </Box>
+            <IconButton
+              color="inherit"
+              aria-label="close drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ p: 0, display: { xl: 'none' } }}
+            >
+              <Image src={hamburgerIcon} alt="menu icon" style={{ width: 24, height: 'auto' }} />
+            </IconButton>
+            <Box sx={{ display: { _: 'none', xl: 'block' }, ...navLinks }}>
+              {navItems.map((navItem) => (
+                <Link key={navItem.text} href={navItem.href} muiProps={{ target: navItem.target }}>
+                  {navItem.text}
+                </Link>
+              ))}
+            </Box>
+            <Box
+              sx={{
+                display: { _: 'none', xl: 'flex' },
+                alignItems: 'center',
+                ...maxWidth,
+              }}
+            >
+              <Link
+                href={routes.githubUrl}
+                muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
+              >
+                <Box mr={1.5} display="flex">
+                  <GitHubIcon fontSize="small" />
+                </Box>
+              </Link>
+              <Link
+                href={routes.docsGetStartedUrl}
+                muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
+              >
+                Get Started
+              </Link>
+              <Button
+                styleType="whiteContained"
+                sizeType="small"
+                href={routes.slackUrl}
+                target="_blank"
+                sx={{ ml: 4 }}
+              >
+                Join Our Slack Channel
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {!matchesXL && (
+          <Box component="nav">
+            <Drawer
+              variant="temporary"
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true,
+              }}
+              sx={mobileNav}
+            >
+              {drawer}
+            </Drawer>
+          </Box>
+        )}
       </Box>
-    </Box>
+    </>
   );
 };
 

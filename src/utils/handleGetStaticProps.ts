@@ -1,6 +1,7 @@
 import { GetStaticPropsContext } from 'next';
 
 import axiosInstance from 'src/utils/axiosInstance';
+import getNewsBannerData from 'src/utils/getNewsBannerData';
 
 const cms_head_items = [
   'title',
@@ -47,10 +48,13 @@ const handleGetStaticProps = async (context: GetStaticPropsContext, path: string
       }
     });
 
+    const newsBannerData = await getNewsBannerData();
+
     const props = {
       ...res?.data,
       cms_head_props,
       isPreview,
+      newsBannerData: newsBannerData || null,
     };
 
     return props;
