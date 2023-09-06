@@ -1,10 +1,9 @@
 import React from 'react';
 
-import Image from 'next/future/image';
 import { GetStaticProps } from 'next';
 
 import { Box, SxProps, Typography, styled } from '@mui/material';
-import { COLORS, fontAvenirRoman, fontAvenirBold, MQ } from 'src/theme';
+import { COLORS, fontAvenirRoman } from 'src/theme';
 
 import getNewsBannerData from 'src/utils/getNewsBannerData';
 
@@ -587,7 +586,8 @@ const PrivacyPolicy = ({}: Props) => {
               muiProps={{ color: COLORS.turquoise, fontWeight: 600 }}
             >
               info@upbound.io
-            </Link>.
+            </Link>
+            .
           </Typography>
         </Box>
       </Section>
