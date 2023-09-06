@@ -137,6 +137,7 @@ Props) => {
               <Link href={routes.forumUrl} muiProps={{ target: '_blank' }}>
                 Forum
               </Link>
+              <Link href={routes.privacyUrl}>Privacy Policy</Link>
             </Box>
           </Box>
           <Box

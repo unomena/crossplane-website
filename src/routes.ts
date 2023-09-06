@@ -1,6 +1,7 @@
 // pages
 
 export const home = '/';
+export const privacyUrl = '/privacy-policy';
 export const sitemap = '/sitemap-0.xml';
 
 // External URLs
