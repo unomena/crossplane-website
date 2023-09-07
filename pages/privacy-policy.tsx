@@ -2,14 +2,10 @@ import React from 'react';
 
 import { GetStaticProps } from 'next';
 
-// import { styled, SxProps } from '@mui/system';
 import { Box, SxProps, Typography, styled } from '@mui/material';
 import { COLORS, fontAvenirRoman } from 'src/theme';
-// import { Box } from '@mui/material';
 
 import getNewsBannerData from 'src/utils/getNewsBannerData';
-
-import * as routes from 'src/routes';
 
 import PageProvider from 'src/components/PageProvider';
 import Section from 'src/components/Section';
@@ -88,7 +84,9 @@ const paragraphSpacingLg: SxProps = {
   lineHeight: '25px',
 };
 
-const PrivacyPolicy: React.FC = () => {
+type Props = {};
+
+const PrivacyPolicy = ({}: Props) => {
   return (
     <PageProvider ctaBtnTarget="_blank">
       <Section sx={headerSection}>
