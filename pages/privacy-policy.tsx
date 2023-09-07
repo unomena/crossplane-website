@@ -3,7 +3,7 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 
 import { Box, SxProps, Typography, styled } from '@mui/material';
-import { COLORS, fontAvenirRoman } from 'src/theme';
+import { COLORS, fontAvenirRoman, fontAvenirBold } from 'src/theme';
 
 import getNewsBannerData from 'src/utils/getNewsBannerData';
 
@@ -32,11 +32,17 @@ const OrderedList = styled('ol')`
 
   & ol {
     margin-left: 30px;
+    & > li::marker {
+      ${fontAvenirRoman};
+    }
   }
 
   li {
     ${fontAvenirRoman};
     font-size: 14px;
+  }
+  & > li::marker {
+    ${fontAvenirBold};
   }
 `;
 
@@ -45,6 +51,10 @@ const OrderedListLI = styled('li')`
 
   + li {
     margin-top: 30px;
+
+    ::before {
+      ${fontAvenirRoman};
+    }
   }
 
   ol,
@@ -66,7 +76,7 @@ const UnorderedList = styled('ul')`
 `;
 
 const ListTitle = styled(Span)`
-  font-weight: bold;
+  ${fontAvenirBold};
 `;
 
 const paragraphSpacingSm: SxProps = {
