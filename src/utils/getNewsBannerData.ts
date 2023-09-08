@@ -11,7 +11,7 @@ const getNewsBannerData = async () => {
     handleError(`get news banner`, error);
   }
 
-  return newsBannerData;
+  return newsBannerData || null;
 };
 
 export default getNewsBannerData;
