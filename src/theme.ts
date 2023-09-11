@@ -17,6 +17,7 @@ export const COLORS = {
   brightSun: '#ffcd3c',
   froly: '#f3807b',
   blueBayoux: '#5A7184',
+  jungleGreen: '#2ba998',
 } as const;
 
 export const fontAvenirRoman = {

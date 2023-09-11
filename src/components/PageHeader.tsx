@@ -14,6 +14,7 @@ import Button from 'src/elements/Button';
 import NewsBanner from 'src/components/NewsBanner';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
+import SlackIcon from 'src/svg/SlackIcon';
 import logo from 'public/crossplane-logo.svg';
 import closeIcon from 'public/icons/close-icon.svg';
 import hamburgerIcon from 'public/icons/hamburger-white.svg';
@@ -51,7 +52,9 @@ const navLinks: SxProps = {
   },
 };
 
-const getStartedLink: SxProps = {
+const socialLinksStyles: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
   fontSize: '20px',
   fontWeight: '400',
   textAlign: 'center',
@@ -165,34 +168,35 @@ const PageHeader = () => {
         ))}
       </Box>
       <Box sx={mobileSignUpBtn}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 3 }}>
+          <Link
+            href={routes.slackUrl}
+            muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
+          >
+            <Box mr={1.5} display="flex">
+              <SlackIcon />
+            </Box>
+            Slack
+          </Link>
+        </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3, py: 3 }}>
           <Link
             href={routes.githubUrl}
-            muiProps={{
-              target: '_blank',
-              sx: {
-                ...getStartedLink,
-              },
-            }}
+            muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
           >
             <Box mr={1.5} display="flex">
-              <GitHubIcon fontSize="medium" />
+              <GitHubIcon fontSize="small" />
             </Box>
-          </Link>
-          <Link
-            href={routes.docsGetStartedUrl}
-            muiProps={{
-              target: '_blank',
-              sx: {
-                ...getStartedLink,
-              },
-            }}
-          >
-            Get Started
+            Github
           </Link>
         </Box>
-        <Button styleType="whiteContained" sizeType="normal" href={routes.slackUrl} target="_blank">
-          Join Our Slack Channel
+        <Button
+          styleType="turquoiseContained"
+          sizeType="small"
+          href={routes.docsGetStartedUrl}
+          target="_blank"
+        >
+          Get Started
         </Button>
       </Box>
     </Box>
@@ -246,31 +250,36 @@ const PageHeader = () => {
               sx={{
                 display: { _: 'none', xl: 'flex' },
                 alignItems: 'center',
+                justifyContent: 'flex-end',
                 ...maxWidth,
               }}
             >
               <Link
+                href={routes.slackUrl}
+                muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
+              >
+                <Box mr={1.5} display="flex">
+                  <SlackIcon />
+                </Box>
+                Slack
+              </Link>
+              <Link
                 href={routes.githubUrl}
-                muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
+                muiProps={{ target: '_blank', sx: { ml: 3, ...socialLinksStyles } }}
               >
                 <Box mr={1.5} display="flex">
                   <GitHubIcon fontSize="small" />
                 </Box>
-              </Link>
-              <Link
-                href={routes.docsGetStartedUrl}
-                muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
-              >
-                Get Started
+                Github
               </Link>
               <Button
-                styleType="whiteContained"
+                styleType="turquoiseContained"
                 sizeType="small"
-                href={routes.slackUrl}
+                href={routes.docsGetStartedUrl}
                 target="_blank"
-                sx={{ ml: 4 }}
+                sx={{ ml: 3 }}
               >
-                Join Our Slack Channel
+                Get Started
               </Button>
             </Box>
           </Toolbar>

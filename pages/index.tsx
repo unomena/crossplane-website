@@ -11,6 +11,8 @@ import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
 import handleGetStaticProps from 'src/utils/handleGetStaticProps';
 
+import * as routes from 'src/routes';
+
 import PageProvider from 'src/components/PageProvider';
 import Section from 'src/components/Section';
 import CrossplaneLogosSection from 'src/components/CrossplaneLogosSection';
@@ -18,6 +20,8 @@ import Button from 'src/elements/Button';
 import Link from 'src/elements/Link';
 import CMSImage from 'src/elements/CMSImage';
 
+import GitHubIcon from '@mui/icons-material/GitHub';
+import SlackIcon from 'src/svg/SlackIcon';
 import createdBy from 'public/created-by-upbound.svg';
 import upboundMarketplace from 'public/upbound-marketplace.svg';
 import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
@@ -46,6 +50,25 @@ const headerButtons: SxProps = {
     ':not(:last-of-type)': {
       mb: { _: 5, sm: 0 },
     },
+  },
+};
+
+const socialLinksStyles: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '20px',
+  fontWeight: '400',
+  textAlign: 'center',
+  color: '#fff',
+  opacity: '.85',
+
+  '&:hover': {
+    opacity: '1',
+  },
+
+  '@media screen and (min-width: 1170px)': {
+    fontSize: '17px',
+    mb: 0,
   },
 };
 
@@ -104,6 +127,29 @@ const HeaderSection = (props: HomePageHeader) => {
             {value.text}
           </Button>
         ))}
+      </Box>
+      <Box
+        sx={{
+          display: { _: 'none', xl: 'flex' },
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+        }}
+      >
+        <Link href={routes.slackUrl} muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}>
+          <Box mr={1.5} display="flex">
+            <SlackIcon />
+          </Box>
+          Slack
+        </Link>
+        <Link
+          href={routes.githubUrl}
+          muiProps={{ target: '_blank', sx: { ml: 3, ...socialLinksStyles } }}
+        >
+          <Box mr={1.5} display="flex">
+            <GitHubIcon fontSize="small" />
+          </Box>
+          Github
+        </Link>
       </Box>
     </>
   );
@@ -309,7 +355,10 @@ const Home = (props: Props) => {
             />
           </Box>
           {props.section_1_button[0] && (
-            <Button cmsValue={props.section_1_button[0].value}>
+            <Button
+              cmsValue={props.section_1_button[0].value}
+              styleType={props.section_1_button[0].value?.style_type}
+            >
               {props.section_1_button[0].value.text}
             </Button>
           )}
