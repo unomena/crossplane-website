@@ -34,11 +34,11 @@ const root: SxProps = {
 const navLinks: SxProps = {
   '& a': {
     fontSize: '20px',
-    fontWeight: '400',
+    fontWeight: '700',
     textAlign: 'center',
     color: '#fff',
     opacity: '.85',
-    px: 2,
+    px: 1.5,
     py: 3,
 
     '&:hover': {
@@ -56,7 +56,7 @@ const socialLinksStyles: SxProps = {
   display: 'flex',
   alignItems: 'center',
   fontSize: '20px',
-  fontWeight: '400',
+  fontWeight: '700',
   textAlign: 'center',
   color: '#fff',
   opacity: '.85',
@@ -107,6 +107,11 @@ const navItems = [
     target: '_blank',
   },
   {
+    href: routes.upboundMarketUrl,
+    text: 'Marketplace',
+    target: '_blank',
+  },
+  {
     href: '/community',
     text: 'Community',
     target: '_self',
@@ -132,14 +137,10 @@ const PageHeader = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex' }}>
+        <Box>
           <Link href={routes.home}>
             <Box>
-              <Image
-                src={logo}
-                alt="company logo"
-                style={{ width: '100%', maxWidth: 152, height: 'auto' }}
-              />
+              <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 165 }} />
             </Box>
           </Link>
         </Box>
@@ -219,14 +220,10 @@ const PageHeader = () => {
           sx={{ top: { md: !newsBannerClosed ? newsBannerHeight : 0 }, transition: 'all 1s' }}
         >
           <Toolbar>
-            <Box sx={{ display: 'flex', ...maxWidth }}>
+            <Box sx={maxWidth}>
               <Link href={routes.home}>
                 <Box>
-                  <Image
-                    src={logo}
-                    alt="company logo"
-                    style={{ width: '100%', maxWidth: 152, height: 'auto' }}
-                  />
+                  <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 165 }} />
                 </Box>
               </Link>
             </Box>

@@ -104,6 +104,7 @@ export const MQ = {
   lg: `@media screen and (min-width: ${customBreakpoints.lg}px)`,
   xl: `@media screen and (min-width: ${customBreakpoints.xl}px)`,
 };
+
 // TO DO CHANGE FONTS
 const theme = createTheme({
   palette: {
