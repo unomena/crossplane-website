@@ -45,7 +45,11 @@ const headerButtons: SxProps = {
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
-    minWidth: 256,
+    minWidth: '100%',
+
+    [MQ.sm]: {
+      minWidth: 256,
+    },
 
     ':not(:last-of-type)': {
       mb: { _: 5, sm: 0 },

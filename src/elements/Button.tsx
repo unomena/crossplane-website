@@ -65,11 +65,11 @@ const whiteText: SxProps = {
 };
 
 const turquoiseContained: SxProps = {
-  backgroundColor: COLORS.jungleGreen,
+  backgroundColor: COLORS.turquoise,
   color: '#fff',
 
   '&:hover': {
-    backgroundColor: COLORS.jungleGreen,
+    backgroundColor: COLORS.turquoise,
     ...hoverScale,
   },
 };

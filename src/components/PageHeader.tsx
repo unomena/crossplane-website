@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Image from 'next/future/image';
-import { COLORS, MQ, fontAvenirRoman } from 'src/theme';
+import { COLORS, MQ, fontAvenirRoman, fontAvenirBold } from 'src/theme';
 
 import useNewsBanner from 'src/context/newsBannerContext';
 
@@ -193,9 +193,15 @@ const PageHeader = () => {
         </Box>
         <Button
           styleType="turquoiseContained"
-          sizeType="small"
+          sizeType="normal"
           href={routes.docsGetStartedUrl}
           target="_blank"
+          sx={{
+            minWidth: '100%',
+            [MQ.sm]: { minWidth: 256 },
+            fontWeight: '700 !important',
+            fontSize: '17px',
+          }}
         >
           Get Started
         </Button>
@@ -274,7 +280,7 @@ const PageHeader = () => {
                 sizeType="small"
                 href={routes.docsGetStartedUrl}
                 target="_blank"
-                sx={{ ml: 3 }}
+                sx={{ ml: 3, ...fontAvenirBold }}
               >
                 Get Started
               </Button>
