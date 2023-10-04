@@ -140,7 +140,7 @@ const PageHeader = () => {
         <Box>
           <Link href={routes.home}>
             <Box>
-              <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 165 }} />
+              <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 132 }} />
             </Box>
           </Link>
         </Box>
@@ -229,7 +229,7 @@ const PageHeader = () => {
             <Box sx={maxWidth}>
               <Link href={routes.home}>
                 <Box>
-                  <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 165 }} />
+                  <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 132 }} />
                 </Box>
               </Link>
             </Box>

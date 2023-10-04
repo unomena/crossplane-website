@@ -186,7 +186,7 @@ const HeaderSection = (props: HomePageHeader) => {
 
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
-  const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
+  // const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
   const animOptions = [truckAnim, controlPlanes, codingAnim];
 
   const { title, text, link_text, link } = feature;
@@ -231,7 +231,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           href={link[0].value}
           muiProps={{
             target: link[0].type === 'external_url' ? '_blank' : undefined,
-            color: colorOptions[index % 3],
+            color: COLORS.turquoise,
+            // color: colorOptions[index % 3],
             sx: { mt: 5 },
           }}
           hasArrow
