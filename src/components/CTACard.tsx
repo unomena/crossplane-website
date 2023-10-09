@@ -29,8 +29,8 @@ const defaultParagraph =
   // eslint-disable-next-line max-len
   "Crossplane is an open source control plane framework supported by the cloud-native community. Crossplane has been endorsed by some of the world's best companies and is released under the Apache 2.0 license. We remain committed to our community and will always be vendor neutral.";
 const defaultBtnText = 'Get Started With Crossplane';
-const defaultBtnLink = routes.githubUrl;
-const defaultBtnStyleType = 'gradientContained';
+const defaultBtnLink = routes.docsGetStartedUrl;
+const defaultBtnStyleType = 'turquoiseContained';
 
 type Props = {
   title?: string;

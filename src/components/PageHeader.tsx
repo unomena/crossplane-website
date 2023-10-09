@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Image from 'next/future/image';
-import { COLORS, MQ, fontAvenirRoman } from 'src/theme';
+import { COLORS, MQ, fontAvenirRoman, fontAvenirBold } from 'src/theme';
 
 import useNewsBanner from 'src/context/newsBannerContext';
 
@@ -14,6 +14,7 @@ import Button from 'src/elements/Button';
 import NewsBanner from 'src/components/NewsBanner';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
+import SlackIcon from 'src/svg/SlackIcon';
 import logo from 'public/crossplane-logo.svg';
 import closeIcon from 'public/icons/close-icon.svg';
 import hamburgerIcon from 'public/icons/hamburger-white.svg';
@@ -33,11 +34,11 @@ const root: SxProps = {
 const navLinks: SxProps = {
   '& a': {
     fontSize: '20px',
-    fontWeight: '400',
+    fontWeight: '700',
     textAlign: 'center',
     color: '#fff',
     opacity: '.85',
-    px: 2,
+    px: 1.5,
     py: 3,
 
     '&:hover': {
@@ -51,9 +52,11 @@ const navLinks: SxProps = {
   },
 };
 
-const getStartedLink: SxProps = {
+const socialLinksStyles: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
   fontSize: '20px',
-  fontWeight: '400',
+  fontWeight: '700',
   textAlign: 'center',
   color: '#fff',
   opacity: '.85',
@@ -104,6 +107,11 @@ const navItems = [
     target: '_blank',
   },
   {
+    href: routes.upboundMarketUrl,
+    text: 'Marketplace',
+    target: '_blank',
+  },
+  {
     href: '/community',
     text: 'Community',
     target: '_self',
@@ -129,14 +137,10 @@ const PageHeader = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex' }}>
+        <Box>
           <Link href={routes.home}>
             <Box>
-              <Image
-                src={logo}
-                alt="company logo"
-                style={{ width: '100%', maxWidth: 152, height: 'auto' }}
-              />
+              <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 132 }} />
             </Box>
           </Link>
         </Box>
@@ -165,34 +169,41 @@ const PageHeader = () => {
         ))}
       </Box>
       <Box sx={mobileSignUpBtn}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 3 }}>
+          <Link
+            href={routes.slackUrl}
+            muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
+          >
+            <Box mr={1.5} display="flex">
+              <SlackIcon />
+            </Box>
+            Slack
+          </Link>
+        </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3, py: 3 }}>
           <Link
             href={routes.githubUrl}
-            muiProps={{
-              target: '_blank',
-              sx: {
-                ...getStartedLink,
-              },
-            }}
+            muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
           >
             <Box mr={1.5} display="flex">
-              <GitHubIcon fontSize="medium" />
+              <GitHubIcon fontSize="small" />
             </Box>
-          </Link>
-          <Link
-            href={routes.docsGetStartedUrl}
-            muiProps={{
-              target: '_blank',
-              sx: {
-                ...getStartedLink,
-              },
-            }}
-          >
-            Get Started
+            Github
           </Link>
         </Box>
-        <Button styleType="whiteContained" sizeType="normal" href={routes.slackUrl} target="_blank">
-          Join Our Slack Channel
+        <Button
+          styleType="turquoiseContained"
+          sizeType="normal"
+          href={routes.docsGetStartedUrl}
+          target="_blank"
+          sx={{
+            minWidth: '100%',
+            [MQ.sm]: { minWidth: 256 },
+            fontWeight: '700 !important',
+            fontSize: '17px',
+          }}
+        >
+          Get Started
         </Button>
       </Box>
     </Box>
@@ -215,14 +226,10 @@ const PageHeader = () => {
           sx={{ top: { md: !newsBannerClosed ? newsBannerHeight : 0 }, transition: 'all 1s' }}
         >
           <Toolbar>
-            <Box sx={{ display: 'flex', ...maxWidth }}>
+            <Box sx={maxWidth}>
               <Link href={routes.home}>
                 <Box>
-                  <Image
-                    src={logo}
-                    alt="company logo"
-                    style={{ width: '100%', maxWidth: 152, height: 'auto' }}
-                  />
+                  <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 132 }} />
                 </Box>
               </Link>
             </Box>
@@ -246,31 +253,36 @@ const PageHeader = () => {
               sx={{
                 display: { _: 'none', xl: 'flex' },
                 alignItems: 'center',
+                justifyContent: 'flex-end',
                 ...maxWidth,
               }}
             >
               <Link
+                href={routes.slackUrl}
+                muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
+              >
+                <Box mr={1.5} display="flex">
+                  <SlackIcon />
+                </Box>
+                Slack
+              </Link>
+              <Link
                 href={routes.githubUrl}
-                muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
+                muiProps={{ target: '_blank', sx: { ml: 3, ...socialLinksStyles } }}
               >
                 <Box mr={1.5} display="flex">
                   <GitHubIcon fontSize="small" />
                 </Box>
-              </Link>
-              <Link
-                href={routes.docsGetStartedUrl}
-                muiProps={{ target: '_blank', sx: { ...getStartedLink } }}
-              >
-                Get Started
+                Github
               </Link>
               <Button
-                styleType="whiteContained"
+                styleType="turquoiseContained"
                 sizeType="small"
-                href={routes.slackUrl}
+                href={routes.docsGetStartedUrl}
                 target="_blank"
-                sx={{ ml: 4 }}
+                sx={{ ml: 3, ...fontAvenirBold }}
               >
-                Join Our Slack Channel
+                Get Started
               </Button>
             </Box>
           </Toolbar>

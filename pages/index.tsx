@@ -11,6 +11,8 @@ import { COLORS, fontAvenirBold, MQ } from 'src/theme';
 
 import handleGetStaticProps from 'src/utils/handleGetStaticProps';
 
+import * as routes from 'src/routes';
+
 import PageProvider from 'src/components/PageProvider';
 import Section from 'src/components/Section';
 import CrossplaneLogosSection from 'src/components/CrossplaneLogosSection';
@@ -18,6 +20,9 @@ import Button from 'src/elements/Button';
 import Link from 'src/elements/Link';
 import CMSImage from 'src/elements/CMSImage';
 
+import GitHubIcon from '@mui/icons-material/GitHub';
+import SlackIcon from 'src/svg/SlackIcon';
+import iceCreamIcon from 'public/icecream-icon.svg';
 import createdBy from 'public/created-by-upbound.svg';
 import upboundMarketplace from 'public/upbound-marketplace.svg';
 import gradientGraphic from 'public/background-graphics/gradient-graphic.png';
@@ -33,8 +38,6 @@ const headerSection: SxProps = {
 };
 
 const headerButtons: SxProps = {
-  mt: 6,
-  mb: { _: 6, sm: 10 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -42,10 +45,34 @@ const headerButtons: SxProps = {
 
   '& > button, a': {
     mx: { _: 0, sm: '10px' },
+    minWidth: '100%',
+
+    [MQ.sm]: {
+      minWidth: 256,
+    },
 
     ':not(:last-of-type)': {
       mb: { _: 5, sm: 0 },
     },
+  },
+};
+
+const socialLinksStyles: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '18px',
+  fontWeight: '700',
+  textAlign: 'center',
+  color: '#fff',
+  opacity: '.85',
+
+  '&:hover': {
+    opacity: '1',
+  },
+
+  '@media screen and (min-width: 1170px)': {
+    fontSize: '17px',
+    mb: 0,
   },
 };
 
@@ -92,18 +119,66 @@ const providerIcon: SxProps = {
 const HeaderSection = (props: HomePageHeader) => {
   return (
     <>
-      <Typography variant="h1" color="#fff" sx={{ mb: 5 }}>
-        {props.title}
-      </Typography>
+      <Box sx={{ position: 'relative', mb: 5 }}>
+        <Box>
+          <Typography variant="h1" color="#fff">
+            {props.title}{' '}
+            <Box
+              component="span"
+              sx={{
+                '> img': {
+                  width: '16.6px',
+                  height: '35px',
+                  '@media screen and (min-width: 768px)': {
+                    width: '35.58px',
+                    height: '75px',
+                  },
+                },
+              }}
+            >
+              <Image src={iceCreamIcon} alt="icon" />
+            </Box>
+          </Typography>
+        </Box>
+      </Box>
       <Typography variant="body_normal" color="#fff" sx={{ maxWidth: 950, mx: 'auto' }}>
         {props.subtitle}
       </Typography>
-      <Box sx={headerButtons}>
-        {props.buttons.map(({ id, value }) => (
-          <Button key={id} sizeType="normal" cmsValue={value}>
-            {value.text}
-          </Button>
-        ))}
+      <Box sx={{ mt: 6, mb: { _: 6, sm: 10 } }}>
+        <Box sx={headerButtons}>
+          {props.buttons.map(({ id, value }) => (
+            <Button key={id} sizeType="normal" cmsValue={value}>
+              {value.text}
+            </Button>
+          ))}
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mt: 3,
+          }}
+        >
+          <Link
+            href={routes.githubUrl}
+            muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
+          >
+            <Box mr={1.5} display="flex">
+              <GitHubIcon fontSize="small" />
+            </Box>
+            Github
+          </Link>
+          <Link
+            href={routes.slackUrl}
+            muiProps={{ target: '_blank', sx: { ml: 3, ...socialLinksStyles } }}
+          >
+            <Box mr={1.5} display="flex">
+              <SlackIcon />
+            </Box>
+            Slack
+          </Link>
+        </Box>
       </Box>
     </>
   );
@@ -111,7 +186,7 @@ const HeaderSection = (props: HomePageHeader) => {
 
 const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: number }) => {
   const reversed = index % 2 !== 0;
-  const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
+  // const colorOptions = [COLORS.froly, COLORS.brightSun, COLORS.turquoise];
   const animOptions = [truckAnim, controlPlanes, codingAnim];
 
   const { title, text, link_text, link } = feature;
@@ -156,7 +231,8 @@ const FeatureBlock = ({ feature, index }: { feature: HomePageFeature; index: num
           href={link[0].value}
           muiProps={{
             target: link[0].type === 'external_url' ? '_blank' : undefined,
-            color: colorOptions[index % 3],
+            color: COLORS.turquoise,
+            // color: colorOptions[index % 3],
             sx: { mt: 5 },
           }}
           hasArrow
@@ -309,7 +385,10 @@ const Home = (props: Props) => {
             />
           </Box>
           {props.section_1_button[0] && (
-            <Button cmsValue={props.section_1_button[0].value}>
+            <Button
+              cmsValue={props.section_1_button[0].value}
+              styleType={props.section_1_button[0].value?.style_type}
+            >
               {props.section_1_button[0].value.text}
             </Button>
           )}

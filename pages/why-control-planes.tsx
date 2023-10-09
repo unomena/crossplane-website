@@ -92,7 +92,7 @@ const HeaderSection = () => {
           expose an API, not just a command-line.
         </Typography>
         <Button
-          styleType="gradientContained"
+          styleType="turquoiseContained"
           sx={{ mt: 5, mb: { _: 6, md: 0 } }}
           href={routes.upboundMarketUrl}
           target="_blank"

@@ -16,7 +16,7 @@ const root: SxProps = {
   position: 'fixed',
   width: '100%',
   bottom: { _: '0', md: 'unset' },
-  zIndex: 2,
+  zIndex: 1200,
   py: 2,
   pr: { _: '40px', md: '100px' },
   pl: { _: '40px', md: '50px' },

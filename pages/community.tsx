@@ -126,7 +126,7 @@ const Why = ({}: Props) => {
               scale Crossplane.
             </Typography>
             <Box sx={btnContainer}>
-              <Button styleType="gradientContained" href={routes.upboundUrl} target="_blank">
+              <Button styleType="turquoiseContained" href={routes.upboundUrl} target="_blank">
                 Learn More
               </Button>
               <Button

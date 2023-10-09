@@ -13,10 +13,12 @@ export const COLORS = {
   linkWater: '#D3E7F7',
   nileBlue: '#183d54',
   bayOfMany: '#215373',
-  turquoise: '#35d0ba',
+  // turquoise: '#35d0ba',
+  turquoise: '#2ba998',
   brightSun: '#ffcd3c',
   froly: '#f3807b',
   blueBayoux: '#5A7184',
+  // jungleGreen: '#2ba998',
 } as const;
 
 export const fontAvenirRoman = {
@@ -103,6 +105,7 @@ export const MQ = {
   lg: `@media screen and (min-width: ${customBreakpoints.lg}px)`,
   xl: `@media screen and (min-width: ${customBreakpoints.xl}px)`,
 };
+
 // TO DO CHANGE FONTS
 const theme = createTheme({
   palette: {
