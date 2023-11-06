@@ -66,6 +66,7 @@ type Button = {
 };
 
 type NewsBanner = {
+  banner_id: string;
   text: string;
   // link_text: string;
   // link: Link;

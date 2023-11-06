@@ -41,18 +41,18 @@ const NewsBanner = ({
 }: NewsBannerProps) => {
   const newsBannerRef = useRef<HTMLDivElement | null>(null);
   const { newsBannerData } = useNewsBanner();
-  const { text, button } = newsBannerData;
+  const { banner_id, text, button } = newsBannerData;
 
   const handleClick = () => {
     // When the close button is clicked, set the flag in local storage to hide the NewsBanner.
-    localStorage.setItem('newsBannerClosed', 'true');
+    localStorage.setItem('newsBannerClosed', `${banner_id}`);
     setNewsBannerClosed(true);
   };
 
   useEffect(() => {
     // Check the local storage flag when the component mounts.
     const isNewsBannerClosed = localStorage.getItem('newsBannerClosed');
-    if (isNewsBannerClosed === 'true') {
+    if (isNewsBannerClosed === `${banner_id}`) {
       setNewsBannerClosed(true);
     } else {
       setTimeout(() => {
@@ -104,12 +104,11 @@ const NewsBanner = ({
           mt: { _: 3, md: 0 },
         }}
       >
-        {button &&
-          button.map(({ id, value }) => (
-            <Button key={id} sizeType="normal" cmsValue={value}>
-              {value.text}
-            </Button>
-          ))}
+        {button && button[0] && button[0].value && (
+          <Button sizeType="normal" cmsValue={button[0].value}>
+            {button[0].value.text}
+          </Button>
+        )}
       </Box>
       <Box
         onClick={handleClick}
