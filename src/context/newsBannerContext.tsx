@@ -2,6 +2,7 @@ import React, { createContext, useContext } from 'react';
 
 const NewsBannerContext = createContext<{ newsBannerData: NewsBanner }>({
   newsBannerData: {
+    banner_id: '',
     text: '',
     button: [
       {
