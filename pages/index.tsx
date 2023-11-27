@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Lottie from 'lottie-react';
+import GitHubButton from 'react-github-btn';
 
 import { GetStaticProps } from 'next';
 
@@ -116,6 +117,12 @@ const providerIcon: SxProps = {
   p: 2,
 };
 
+const gitHubStarBtn: SxProps = {
+  '.widget-lg .btn, .widget-lg .social-count': {
+    color: '#fff !important',
+  },
+};
+
 const HeaderSection = (props: HomePageHeader) => {
   return (
     <>
@@ -151,6 +158,17 @@ const HeaderSection = (props: HomePageHeader) => {
               {value.text}
             </Button>
           ))}
+        </Box>
+        <Box sx={{ mt: 3, ...gitHubStarBtn }}>
+          <GitHubButton
+            href="https://github.com/crossplane/crossplane"
+            // data-color-scheme="no-preference: light; light: light; dark: light;"
+            data-icon="octicon-star"
+            data-size="large"
+            aria-label="Star crossplane/crossplane on GitHub"
+          >
+            Star project
+          </GitHubButton>
         </Box>
         <Box
           sx={{

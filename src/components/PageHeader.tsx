@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import GitHubButton from 'react-github-btn';
+
 import Image from 'next/future/image';
 import { COLORS, MQ, fontAvenirRoman, fontAvenirBold } from 'src/theme';
 
@@ -275,6 +277,17 @@ const PageHeader = () => {
                 </Box>
                 Github
               </Link>
+              <Box ml={3}>
+                <GitHubButton
+                  href="https://github.com/crossplane/crossplane"
+                  data-color-scheme="no-preference: light; light: light; dark: light;"
+                  data-icon="octicon-star"
+                  data-size="large"
+                  aria-label="Star crossplane/crossplane on GitHub"
+                >
+                  Star project
+                </GitHubButton>
+              </Box>
               <Button
                 styleType="turquoiseContained"
                 sizeType="small"
