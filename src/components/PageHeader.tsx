@@ -17,6 +17,7 @@ import NewsBanner from 'src/components/NewsBanner';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import SlackIcon from 'src/svg/SlackIcon';
+import githubStar from 'public/github-star.svg';
 import logo from 'public/crossplane-logo.svg';
 import closeIcon from 'public/icons/close-icon.svg';
 import hamburgerIcon from 'public/icons/hamburger-white.svg';
@@ -93,7 +94,7 @@ const mobileNav: SxProps = {
 const maxWidth: SxProps = {
   '@media screen and (min-width: 1400px)': {
     width: '100%',
-    maxWidth: '375px',
+    maxWidth: '500px',
   },
 };
 
@@ -126,7 +127,7 @@ const navItems = [
 ];
 
 const PageHeader = () => {
-  const matchesXL = useMediaQuery(MQ.xl);
+  const matchesXXL = useMediaQuery(MQ.xxl);
   const { newsBannerData } = useNewsBanner();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [newsBannerClosed, setNewsBannerClosed] = useState(true);
@@ -151,7 +152,7 @@ const PageHeader = () => {
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ p: 0, display: { xl: 'none' } }}
+          sx={{ p: 0, display: { xxl: 'none' } }}
         >
           <Image src={closeIcon} alt="menu icon" style={{ width: 24, height: 'auto' }} />
         </IconButton>
@@ -180,6 +181,17 @@ const PageHeader = () => {
               <SlackIcon />
             </Box>
             Slack
+          </Link>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 3 }}>
+          <Link
+            href={routes.githubUrl}
+            muiProps={{ target: '_blank', sx: { ...socialLinksStyles } }}
+          >
+            <Box mr={1.5} display="flex">
+              <Image src={githubStar} alt="githubStar" style={{ width: '20px', height: '20px' }} />
+            </Box>
+            Star project
           </Link>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3, py: 3 }}>
@@ -228,7 +240,14 @@ const PageHeader = () => {
           sx={{ top: { md: !newsBannerClosed ? newsBannerHeight : 0 }, transition: 'all 1s' }}
         >
           <Toolbar>
-            <Box sx={maxWidth}>
+            <Box
+              sx={{
+                '@media screen and (min-width: 1400px)': {
+                  width: '100%',
+                  maxWidth: '150px',
+                },
+              }}
+            >
               <Link href={routes.home}>
                 <Box>
                   <Image src={logo} alt="company logo" style={{ width: '100%', maxWidth: 132 }} />
@@ -240,11 +259,11 @@ const PageHeader = () => {
               aria-label="close drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ p: 0, display: { xl: 'none' } }}
+              sx={{ p: 0, display: { xxl: 'none' } }}
             >
               <Image src={hamburgerIcon} alt="menu icon" style={{ width: 24, height: 'auto' }} />
             </IconButton>
-            <Box sx={{ display: { _: 'none', xl: 'block' }, ...navLinks }}>
+            <Box sx={{ display: { _: 'none', xxl: 'block' }, ...navLinks }}>
               {navItems.map((navItem) => (
                 <Link key={navItem.text} href={navItem.href} muiProps={{ target: navItem.target }}>
                   {navItem.text}
@@ -253,10 +272,13 @@ const PageHeader = () => {
             </Box>
             <Box
               sx={{
-                display: { _: 'none', xl: 'flex' },
+                display: { _: 'none', xxl: 'flex' },
                 alignItems: 'center',
                 justifyContent: 'flex-end',
-                ...maxWidth,
+                '@media screen and (min-width: 1400px)': {
+                  width: '100%',
+                  maxWidth: '495px',
+                },
               }}
             >
               <Link
@@ -273,21 +295,35 @@ const PageHeader = () => {
                 muiProps={{ target: '_blank', sx: { ml: 3, ...socialLinksStyles } }}
               >
                 <Box mr={1.5} display="flex">
+                  <Image
+                    src={githubStar}
+                    alt="githubStar"
+                    style={{ width: '20px', height: '20px' }}
+                  />
+                </Box>
+                Star project
+              </Link>
+              <Link
+                href={routes.githubUrl}
+                muiProps={{ target: '_blank', sx: { ml: 3, ...socialLinksStyles } }}
+              >
+                <Box mr={1.5} display="flex">
                   <GitHubIcon fontSize="small" />
                 </Box>
                 Github
               </Link>
-              <Box ml={3}>
+              {/* <Box ml={3}>
                 <GitHubButton
                   href="https://github.com/crossplane/crossplane"
                   data-color-scheme="no-preference: light; light: light; dark: light;"
                   data-icon="octicon-star"
                   data-size="large"
+                  data-show-count="true"
                   aria-label="Star crossplane/crossplane on GitHub"
                 >
                   Star project
                 </GitHubButton>
-              </Box>
+              </Box> */}
               <Button
                 styleType="turquoiseContained"
                 sizeType="small"
@@ -300,7 +336,7 @@ const PageHeader = () => {
             </Box>
           </Toolbar>
         </AppBar>
-        {!matchesXL && (
+        {!matchesXXL && (
           <Box component="nav">
             <Drawer
               variant="temporary"

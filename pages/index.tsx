@@ -117,12 +117,6 @@ const providerIcon: SxProps = {
   p: 2,
 };
 
-const gitHubStarBtn: SxProps = {
-  '.widget-lg .btn, .widget-lg .social-count': {
-    color: '#fff !important',
-  },
-};
-
 const HeaderSection = (props: HomePageHeader) => {
   return (
     <>
@@ -159,12 +153,13 @@ const HeaderSection = (props: HomePageHeader) => {
             </Button>
           ))}
         </Box>
-        <Box sx={{ mt: 3, ...gitHubStarBtn }}>
+        <Box sx={{ mt: 5 }}>
           <GitHubButton
             href="https://github.com/crossplane/crossplane"
-            // data-color-scheme="no-preference: light; light: light; dark: light;"
+            data-color-scheme="no-preference: light; light: light; dark: light;"
             data-icon="octicon-star"
             data-size="large"
+            data-show-count="true"
             aria-label="Star crossplane/crossplane on GitHub"
           >
             Star project
