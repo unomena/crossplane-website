@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import GitHubButton from 'react-github-btn';
-
 import Image from 'next/future/image';
 import { COLORS, MQ, fontAvenirRoman, fontAvenirBold } from 'src/theme';
 
@@ -88,13 +86,6 @@ const mobileNav: SxProps = {
     width: '100%',
     p: 3,
     backgroundColor: COLORS.nileBlue,
-  },
-};
-
-const maxWidth: SxProps = {
-  '@media screen and (min-width: 1400px)': {
-    width: '100%',
-    maxWidth: '500px',
   },
 };
 
@@ -312,18 +303,6 @@ const PageHeader = () => {
                 </Box>
                 Github
               </Link>
-              {/* <Box ml={3}>
-                <GitHubButton
-                  href="https://github.com/crossplane/crossplane"
-                  data-color-scheme="no-preference: light; light: light; dark: light;"
-                  data-icon="octicon-star"
-                  data-size="large"
-                  data-show-count="true"
-                  aria-label="Star crossplane/crossplane on GitHub"
-                >
-                  Star project
-                </GitHubButton>
-              </Box> */}
               <Button
                 styleType="turquoiseContained"
                 sizeType="small"
