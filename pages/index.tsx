@@ -153,18 +153,6 @@ const HeaderSection = (props: HomePageHeader) => {
             </Button>
           ))}
         </Box>
-        <Box sx={{ mt: 5 }}>
-          <GitHubButton
-            href="https://github.com/crossplane/crossplane"
-            data-color-scheme="no-preference: light; light: light; dark: light;"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star crossplane/crossplane on GitHub"
-          >
-            Star project
-          </GitHubButton>
-        </Box>
         <Box
           sx={{
             display: 'flex',
@@ -180,7 +168,7 @@ const HeaderSection = (props: HomePageHeader) => {
             <Box mr={1.5} display="flex">
               <GitHubIcon fontSize="small" />
             </Box>
-            Github
+            GitHub
           </Link>
           <Link
             href={routes.slackUrl}
@@ -191,6 +179,18 @@ const HeaderSection = (props: HomePageHeader) => {
             </Box>
             Slack
           </Link>
+        </Box>
+        <Box sx={{ mt: 5 }}>
+          <GitHubButton
+            href="https://github.com/crossplane/crossplane"
+            data-color-scheme="no-preference: light; light: light; dark: light;"
+            data-icon="octicon-star"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star crossplane/crossplane on GitHub"
+          >
+            Star project
+          </GitHubButton>
         </Box>
       </Box>
     </>

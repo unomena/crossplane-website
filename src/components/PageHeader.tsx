@@ -193,7 +193,7 @@ const PageHeader = () => {
             <Box mr={1.5} display="flex">
               <GitHubIcon fontSize="small" />
             </Box>
-            Github
+            GitHub
           </Link>
         </Box>
         <Button
@@ -301,7 +301,7 @@ const PageHeader = () => {
                 <Box mr={1.5} display="flex">
                   <GitHubIcon fontSize="small" />
                 </Box>
-                Github
+                GitHub
               </Link>
               <Button
                 styleType="turquoiseContained"
