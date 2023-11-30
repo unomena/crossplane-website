@@ -180,7 +180,7 @@ const HeaderSection = (props: HomePageHeader) => {
             Slack
           </Link>
         </Box>
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{ mt: 3 }}>
           <GitHubButton
             href="https://github.com/crossplane/crossplane"
             data-color-scheme="no-preference: light; light: light; dark: light;"
