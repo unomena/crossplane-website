@@ -96,7 +96,7 @@ const customBreakpoints = {
   md: 768,
   lg: 992,
   xl: 1170,
-  xxl: 1280,
+  xxl: 1281,
 };
 
 export const MQ = {
