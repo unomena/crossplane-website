@@ -96,6 +96,7 @@ const customBreakpoints = {
   md: 768,
   lg: 992,
   xl: 1170,
+  xxl: 1281,
 };
 
 export const MQ = {
@@ -104,6 +105,7 @@ export const MQ = {
   md: `@media screen and (min-width: ${customBreakpoints.md}px)`,
   lg: `@media screen and (min-width: ${customBreakpoints.lg}px)`,
   xl: `@media screen and (min-width: ${customBreakpoints.xl}px)`,
+  xxl: `@media screen and (min-width: ${customBreakpoints.xxl}px)`,
 };
 
 // TO DO CHANGE FONTS
