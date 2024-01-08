@@ -3,7 +3,7 @@ import accenture from 'public/home-page/crossplane-logos/002-accenture.svg';
 import alibaba from 'public/home-page/crossplane-logos/003-alibaba.svg';
 import aws from 'public/home-page/crossplane-logos/004-aws.svg';
 import americanExpress from 'public/home-page/crossplane-logos/005-american-express.svg';
-import apple from 'public/home-page/crossplane-logos/006-apple.svg';
+// import apple from 'public/home-page/crossplane-logos/006-apple.svg';
 import autodesk from 'public/home-page/crossplane-logos/007-autodesk.svg';
 import autovance from 'public/home-page/crossplane-logos/008-autovance.svg';
 import bbd from 'public/home-page/crossplane-logos/009-bbd.svg';
@@ -13,7 +13,8 @@ import calm from 'public/home-page/crossplane-logos/012-calm.svg';
 import civo from 'public/home-page/crossplane-logos/013-civo.svg';
 import clearscore from 'public/home-page/crossplane-logos/014-clearscore.svg';
 import cloudbees from 'public/home-page/crossplane-logos/015-cloudbees.svg';
-import cloudcheckr from 'public/home-page/crossplane-logos/016-cloudcheckr.svg';
+// import cloudcheckr from 'public/home-page/crossplane-logos/016-cloudcheckr.svg';
+import netapp_logo from 'public/home-page/crossplane-logos/netapp-logo.svg';
 import cognite from 'public/home-page/crossplane-logos/017-cognite.svg';
 import comcast from 'public/home-page/crossplane-logos/018-comcast.svg';
 import cookpad_logo from 'public/home-page/crossplane-logos/019-cookpad_logo.svg';
@@ -92,7 +93,7 @@ const crossplaneLogos = [
   alibaba,
   aws,
   americanExpress,
-  apple,
+  // apple,
   autodesk,
   autovance,
   bbd,
@@ -102,7 +103,8 @@ const crossplaneLogos = [
   civo,
   clearscore,
   cloudbees,
-  cloudcheckr,
+  // cloudcheckr,
+  netapp_logo,
   cognite,
   comcast,
   cookpad_logo,
