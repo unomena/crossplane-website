@@ -37,15 +37,23 @@ const cardStyles: SxProps = {
   mx: 'auto',
   p: 5,
 
+  // [MQ.md]: {
+  //   display: 'flex',
+  //   alignItems: 'center',
+  //   mt: 0,
+  // },
+};
+
+const absoluteCardStyles: SxProps = {
   [MQ.md]: {
     display: 'flex',
     alignItems: 'center',
+    mt: 0,
     position: 'absolute',
     zIndex: 2,
     bottom: -150,
     left: 0,
     right: 0,
-    mt: 0,
   },
 };
 
@@ -103,7 +111,7 @@ const Why = ({}: Props) => {
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
-        <Box sx={cardStyles}>
+        <Box sx={{ ...cardStyles, ...absoluteCardStyles }}>
           <Box sx={{ width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
             <Box sx={{ maxWidth: 295, mx: 'auto', mb: { _: 3, md: 0 } }}>
               <Image
@@ -146,7 +154,64 @@ const Why = ({}: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
-          // pb: { _: 16, md: 23.5 },
+          pb: { _: 13, md: 16 },
+          backgroundColor: '#fff',
+        }}
+      >
+        <Box
+          sx={{
+            ...cardStyles,
+            [MQ.md]: {
+              display: 'flex',
+              alignItems: 'center',
+              mt: 0,
+            },
+          }}
+        >
+          <Box sx={{ width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
+            <Box sx={{ maxWidth: 295, mx: 'auto', mb: { _: 3, md: 0 } }}>
+              <Image
+                src={upboundLogo}
+                alt="upboundLogo"
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </Box>
+          </Box>
+          <Box sx={{ width: { _: '100%', md: '50%' } }}>
+            <Typography
+              variant="body_normal"
+              sx={{
+                mb: 2,
+              }}
+            >
+              VSHN, a seasoned adopter of Crossplane in live environments, brings a wealth of daily
+              usage expertise to your Crossplane project. With our extensive experience, rest
+              assured that your Crossplane deployment is in capable hands.”
+            </Typography>
+            <Box sx={btnContainer}>
+              <Button
+                styleType="turquoiseContained"
+                href="https://products.vshn.ch/crossplane_support.html"
+                target="_blank"
+              >
+                Learn More
+              </Button>
+              <Button
+                styleType="darkOutlined"
+                startIcon={<GitHubIcon />}
+                href="https://github.com/vshn/"
+                target="_blank"
+              >
+                GitHub
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Section>
+
+      <Section
+        sx={{
           textAlign: 'center',
           backgroundColor: '#fff',
         }}
