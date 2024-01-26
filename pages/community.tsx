@@ -199,12 +199,12 @@ const Why = ({}: Props) => {
         <Box
           sx={{
             textAlign: 'center',
-            pt: { _: 13, md: 16 },
+            pt: { _: 6, md: 10 },
           }}
         >
           <Box
             sx={{
-              pb: { _: 13, md: 16 },
+              pb: { _: 6, md: 10 },
               borderBottom: `1px solid ${COLORS.blueBayoux}`,
               '& a': {
                 textDecorationColor: COLORS.turquoise,
