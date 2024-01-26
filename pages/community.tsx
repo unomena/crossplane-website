@@ -15,6 +15,7 @@ import Button from 'src/elements/Button';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import upboundLogo from 'public/upbound-logo.svg';
+import vshnLogo from 'public/vshn-logo.svg';
 import cncfLogoColor from 'public/cncf-logo-color.png';
 import gradientGraphicHeader from 'public/background-graphics/gradient-graphic-header.png';
 import gradientGraphicSM from 'public/background-graphics/gradient-graphic-sm.png';
@@ -40,12 +41,17 @@ const cardStyles: SxProps = {
   [MQ.md]: {
     display: 'flex',
     alignItems: 'center',
+    mt: 0,
+  },
+};
+
+const absoluteCardStyles: SxProps = {
+  [MQ.md]: {
     position: 'absolute',
     zIndex: 2,
     bottom: -150,
     left: 0,
     right: 0,
-    mt: 0,
   },
 };
 
@@ -103,12 +109,12 @@ const Why = ({}: Props) => {
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
-        <Box sx={cardStyles}>
+        <Box sx={[cardStyles, absoluteCardStyles]}>
           <Box sx={{ width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
             <Box sx={{ maxWidth: 295, mx: 'auto', mb: { _: 3, md: 0 } }}>
               <Image
                 src={upboundLogo}
-                alt="upboundLogo"
+                alt="upbound logo"
                 sizes="100vw"
                 style={{ width: '100%', height: 'auto' }}
               />
@@ -146,61 +152,107 @@ const Why = ({}: Props) => {
         angleTop="topRight"
         sx={{
           pt: { _: 16, md: 23.5 },
-          // pb: { _: 16, md: 23.5 },
-          textAlign: 'center',
           backgroundColor: '#fff',
         }}
       >
-        <Box
-          sx={{
-            pb: { _: 13, md: 16 },
-            borderBottom: `1px solid ${COLORS.blueBayoux}`,
-            '& a': {
-              textDecorationColor: COLORS.turquoise,
-            },
-          }}
-        >
-          <Typography variant="body_normal" sx={{ whiteSpace: 'break-spaces' }}>
-            Building on top of Crossplane or offering support? {'\n'}
-            <Link
-              href="mailto:info@crossplane.io"
-              muiProps={{
-                target: '_blank',
-                fontWeight: 700,
-                underline: 'always',
-                color: COLORS.turquoise,
+        <Box sx={cardStyles}>
+          <Box sx={{ width: { _: '100%', md: '50%' }, pr: { _: 0, md: 5 } }}>
+            <Box sx={{ maxWidth: 295, mx: 'auto', mb: { _: 3, md: 0 } }}>
+              <Image
+                src={vshnLogo}
+                alt="vshn logo"
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </Box>
+          </Box>
+          <Box sx={{ width: { _: '100%', md: '50%' } }}>
+            <Typography
+              variant="body_normal"
+              sx={{
+                mb: 2,
               }}
             >
-              Let us know
-            </Link>{' '}
-            and we will add your logo to this page.
-          </Typography>
+              VSHN, a seasoned adopter of Crossplane in live environments, brings a wealth of daily
+              usage expertise to your Crossplane project. With our extensive experience, rest
+              assured that your Crossplane deployment is in capable hands.”
+            </Typography>
+            <Box sx={btnContainer}>
+              <Button
+                styleType="turquoiseContained"
+                href="https://products.vshn.ch/crossplane_support.html"
+                target="_blank"
+              >
+                Learn More
+              </Button>
+              <Button
+                styleType="darkOutlined"
+                startIcon={<GitHubIcon />}
+                href="https://github.com/vshn/"
+                target="_blank"
+              >
+                GitHub
+              </Button>
+            </Box>
+          </Box>
         </Box>
         <Box
           sx={{
-            pt: { _: 13, md: 16 },
-            pb: { _: 13, md: 16 },
+            textAlign: 'center',
+            pt: { _: 6, md: 10 },
           }}
         >
-          <Box sx={{ maxWidth: 350, mx: 'auto', mb: 5 }}>
+          <Box
+            sx={{
+              pb: { _: 6, md: 10 },
+              borderBottom: `1px solid ${COLORS.blueBayoux}`,
+              '& a': {
+                textDecorationColor: COLORS.turquoise,
+              },
+            }}
+          >
+            <Typography variant="body_normal" sx={{ whiteSpace: 'break-spaces' }}>
+              Building on top of Crossplane or offering support? {'\n'}
+              <Link
+                href="mailto:info@crossplane.io"
+                muiProps={{
+                  target: '_blank',
+                  fontWeight: 700,
+                  underline: 'always',
+                  color: COLORS.turquoise,
+                }}
+              >
+                Let us know
+              </Link>{' '}
+              and we will add your logo to this page.
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              pt: { _: 13, md: 16 },
+              pb: { _: 13, md: 16 },
+            }}
+          >
+            <Box sx={{ maxWidth: 350, mx: 'auto', mb: 5 }}>
+              <Image
+                src={cncfLogoColor}
+                alt="cncfLogoColor"
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </Box>
+            <Typography variant="h5" sx={{ mb: 0 }}>
+              Crossplane is a Cloud Native Computing Foundation project
+            </Typography>
+          </Box>
+          <Box sx={{ maxWidth: 476, mx: 'auto' }}>
             <Image
-              src={cncfLogoColor}
-              alt="cncfLogoColor"
+              src={gradientGraphicSM}
+              alt="gradient graphic"
               sizes="100vw"
               style={{ width: '100%', height: 'auto' }}
             />
           </Box>
-          <Typography variant="h5" sx={{ mb: 0 }}>
-            Crossplane is a Cloud Native Computing Foundation project
-          </Typography>
-        </Box>
-        <Box sx={{ maxWidth: 476, mx: 'auto' }}>
-          <Image
-            src={gradientGraphicSM}
-            alt="gradient graphic"
-            sizes="100vw"
-            style={{ width: '100%', height: 'auto' }}
-          />
         </Box>
       </Section>
     </PageProvider>
