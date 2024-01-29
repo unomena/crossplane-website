@@ -127,9 +127,9 @@ const Why = ({}: Props) => {
                 mb: 2,
               }}
             >
-              Upbound is the creator of open source Crossplane. With security, support and official
-              providers, Upbound’s Universal Crossplane (UXP), gives you everything you need to
-              scale Crossplane.
+              Upbound is the creator of open source Crossplane. With security, support, and official
+              providers, Upbound’s platform gives you everything you need to scale Crossplane and
+              manage all your infrastructure in one place.
             </Typography>
             <Box sx={btnContainer}>
               <Button styleType="turquoiseContained" href={routes.upboundUrl} target="_blank">
@@ -175,7 +175,7 @@ const Why = ({}: Props) => {
             >
               VSHN, a seasoned adopter of Crossplane in live environments, brings a wealth of daily
               usage expertise to your Crossplane project. With our extensive experience, rest
-              assured that your Crossplane deployment is in capable hands.”
+              assured that your Crossplane deployment is in capable hands.
             </Typography>
             <Box sx={btnContainer}>
               <Button
