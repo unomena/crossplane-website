@@ -146,31 +146,31 @@ Props) => {
             >
               <Link href={routes.twitterUrl} muiProps={{ target: '_blank' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <XIcon color="inherit" fontSize="small" sx={{ mr: .75 }} />
+                  <XIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
                   Twitter
                 </Box>
               </Link>
               <Link href={routes.youtubeUrl} muiProps={{ target: '_blank' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <LinkedInIcon color="inherit" fontSize="small" sx={{ mr: .75 }} />
+                  <LinkedInIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
                   Youtube
                 </Box>
               </Link>
               <Link href={routes.podcastUrl} muiProps={{ target: '_blank' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <PodcastsIcon color="inherit" fontSize="small" sx={{ mr: .75 }} />
+                  <PodcastsIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
                   Podcast
                 </Box>
               </Link>
               <Link href={routes.forumUrl} muiProps={{ target: '_blank' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <ForumIcon color="inherit" fontSize="small" sx={{ mr: .75 }} />
+                  <ForumIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
                   Forum
                 </Box>
               </Link>
               <Link href={routes.privacyUrl}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <PolicyIcon color="inherit" fontSize="small" sx={{ mr: .75 }} />
+                  <PolicyIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
                   Privacy Policy
                 </Box>
               </Link>
