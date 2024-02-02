@@ -13,10 +13,10 @@ import CTACard from 'src/components/CTACard';
 import cncfLogo from 'public/cncf-logo.png';
 import logo from 'public/crossplane-logo.svg';
 import XIcon from '@mui/icons-material/X';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PodcastsIcon from '@mui/icons-material/Podcasts';
 import ForumIcon from '@mui/icons-material/Forum';
 import PolicyIcon from '@mui/icons-material/Policy';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const footerContainer: SxProps = {
   display: 'flex',
@@ -152,7 +152,7 @@ Props) => {
               </Link>
               <Link href={routes.youtubeUrl} muiProps={{ target: '_blank' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <LinkedInIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
+                  <YouTubeIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
                   Youtube
                 </Box>
               </Link>
