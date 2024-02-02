@@ -12,6 +12,11 @@ import CTACard from 'src/components/CTACard';
 
 import cncfLogo from 'public/cncf-logo.png';
 import logo from 'public/crossplane-logo.svg';
+import XIcon from '@mui/icons-material/X';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PodcastsIcon from '@mui/icons-material/Podcasts';
+import ForumIcon from '@mui/icons-material/Forum';
+import PolicyIcon from '@mui/icons-material/Policy';
 
 const footerContainer: SxProps = {
   display: 'flex',
@@ -44,6 +49,19 @@ const copyRights: SxProps = {
   '& a': {
     color: `${COLORS.turquoise} !important`,
     fontWeight: 600,
+  },
+};
+
+const gridLayout: SxProps = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(1, 1fr)',
+  gridGap: '20px',
+
+  [MQ.md]: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+  },
+  [MQ.lg]: {
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
 };
 
@@ -123,21 +141,39 @@ Props) => {
                 justifyContent: 'space-between',
                 width: { _: '100%', md: '50%' },
                 ...footerLinks,
+                ...gridLayout,
               }}
             >
               <Link href={routes.twitterUrl} muiProps={{ target: '_blank' }}>
-                Twitter
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <XIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
+                  Twitter
+                </Box>
               </Link>
               <Link href={routes.youtubeUrl} muiProps={{ target: '_blank' }}>
-                Youtube
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <LinkedInIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
+                  Youtube
+                </Box>
               </Link>
               <Link href={routes.podcastUrl} muiProps={{ target: '_blank' }}>
-                Podcast
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <PodcastsIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
+                  Podcast
+                </Box>
               </Link>
               <Link href={routes.forumUrl} muiProps={{ target: '_blank' }}>
-                Forum
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <ForumIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
+                  Forum
+                </Box>
               </Link>
-              <Link href={routes.privacyUrl}>Privacy Policy</Link>
+              <Link href={routes.privacyUrl}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <PolicyIcon color="inherit" fontSize="small" sx={{ mr: 0.75 }} />
+                  Privacy Policy
+                </Box>
+              </Link>
             </Box>
           </Box>
           <Box
