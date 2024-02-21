@@ -28,6 +28,21 @@ const headerSection: SxProps = {
   pb: { _: 13, md: 16 },
 };
 
+const headerButtons: SxProps = {
+  mt: 5,
+  mb: { _: 6, md: 0 },
+  display: 'flex',
+  flexDirection: { _: 'column', lg: 'row' },
+
+  '& > button, a': {
+    mr: { _: 0, lg: '10px' },
+
+    ':not(:last-of-type)': {
+      mb: { _: '20px', lg: 0 },
+    },
+  },
+};
+
 const gridLayout: SxProps = {
   display: 'grid',
   gap: 6,
@@ -91,14 +106,14 @@ const HeaderSection = () => {
           policy and permissions and control planes integrate easily with other systems because they
           expose an API, not just a command-line.
         </Typography>
-        <Button
-          styleType="turquoiseContained"
-          sx={{ mt: 5, mb: { _: 6, md: 0 } }}
-          href={routes.upboundMarketUrl}
-          target="_blank"
-        >
-          Join the marketplace
-        </Button>
+        <Box sx={headerButtons}>
+          <Button styleType="turquoiseContained" href={routes.upboundMarketUrl} target="_blank">
+            Join the marketplace
+          </Button>
+          <Button styleType="whiteOutlined" href={routes.resourcesUrl} target="_blank">
+            Learn more
+          </Button>
+        </Box>
       </Box>
       <Box
         sx={{

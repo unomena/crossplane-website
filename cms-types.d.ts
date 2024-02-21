@@ -42,7 +42,7 @@ type Link = [
     id: string;
     type: string;
     value: string;
-  }
+  },
 ];
 
 type ButtonStyleType =
