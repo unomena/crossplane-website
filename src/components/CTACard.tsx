@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Box, Typography } from '@mui/material';
-// import { Box, Typography, SxProps } from '@mui/material';
-import { COLORS } from 'src/theme';
+import { Box, Typography, SxProps } from '@mui/material';
+import { COLORS, MQ } from 'src/theme';
 
 import * as routes from 'src/routes';
 
@@ -24,6 +23,26 @@ import Button from 'src/elements/Button';
 //   },
 // };
 
+const btnContainer: SxProps = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: { _: 'column', sm: 'row' },
+
+  '& > button, a': {
+    mx: { _: 0, sm: '10px' },
+    minWidth: '100%',
+
+    [MQ.sm]: {
+      minWidth: 256,
+    },
+
+    ':not(:last-of-type)': {
+      mb: { _: 5, sm: 0 },
+    },
+  },
+};
+
 const defaultTitle = 'Crossplane is open source \n and community driven';
 const defaultParagraph =
   // eslint-disable-next-line max-len
@@ -39,9 +58,11 @@ type Props = {
   btnLink?: string;
   btnStyleType?: ButtonStyleType;
   btnTarget?: string;
-  // btnTwo?: boolean;
-  // btnTwoText?: string;
-  // btnTwoLink?: string;
+  btnTwo?: boolean;
+  btnTwoText?: string;
+  btnTwoLink?: string;
+  btnTwoTarget?: string;
+  btnTwoStyleType?: ButtonStyleType;
   // customSx?: SxProps;
 };
 
@@ -52,10 +73,12 @@ const CTACard = ({
   btnLink = defaultBtnLink,
   btnStyleType = defaultBtnStyleType,
   btnTarget,
-}: // btnTwo = false,
-// btnTwoText = defaultBtnText,
-// btnTwoLink = defaultBtnLink,
-// customSx,
+  btnTwo = false,
+  btnTwoText,
+  btnTwoLink,
+  btnTwoTarget,
+  btnTwoStyleType,
+}: // customSx,
 Props) => {
   return (
     <Section
@@ -87,24 +110,24 @@ Props) => {
         >
           {paragraph}
         </Typography>
-        <Button styleType={btnStyleType} href={btnLink} target={btnTarget}>
+        {/* <Button styleType={btnStyleType} href={btnLink} target={btnTarget}>
           {btnText}
-        </Button>
+        </Button> */}
 
-        {/* {!btnTwo ? (
-          <Button styleType="gradientContained" href={btnLink} target="_blank">
+        {!btnTwo ? (
+          <Button styleType={btnStyleType} href={btnLink} target={btnTarget}>
             {btnText}
           </Button>
         ) : (
           <Box sx={btnContainer}>
-            <Button styleType="gradientContained" href={btnLink}>
+            <Button styleType={btnStyleType} href={btnLink} target={btnTarget}>
               {btnText}
             </Button>
-            <Button styleType="whiteOutlined" href={btnTwoLink}>
+            <Button styleType={btnTwoStyleType} href={btnTwoLink} target={btnTwoTarget}>
               {btnTwoText}
             </Button>
           </Box>
-        )} */}
+        )}
       </Box>
     </Section>
   );
