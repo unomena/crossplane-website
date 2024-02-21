@@ -58,7 +58,6 @@ type Props = {
   btnLink?: string;
   btnStyleType?: ButtonStyleType;
   btnTarget?: string;
-  btnTwo?: boolean;
   btnTwoText?: string;
   btnTwoLink?: string;
   btnTwoTarget?: string;
@@ -73,7 +72,6 @@ const CTACard = ({
   btnLink = defaultBtnLink,
   btnStyleType = defaultBtnStyleType,
   btnTarget,
-  btnTwo = false,
   btnTwoText,
   btnTwoLink,
   btnTwoTarget,
@@ -114,7 +112,7 @@ Props) => {
           {btnText}
         </Button> */}
 
-        {!btnTwo ? (
+        {!btnTwoText ? (
           <Button styleType={btnStyleType} href={btnLink} target={btnTarget}>
             {btnText}
           </Button>
