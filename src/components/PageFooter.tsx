@@ -74,9 +74,10 @@ type Props = {
   ctaBtnLink?: string;
   ctaBtnStyleType?: ButtonStyleType;
   ctaBtnTarget?: string;
-  // ctaBtnTwo?: boolean;
-  // ctaBtnTwoText?: string;
-  // ctaBtnTwoLink?: string;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
+  ctaBtnTwoTarget?: string;
+  ctaBtnTwoStyleType?: ButtonStyleType;
   // ctaCustomSx?: SxProps;
 };
 
@@ -89,10 +90,11 @@ const PageFooter = ({
   ctaBtnLink,
   ctaBtnStyleType,
   ctaBtnTarget,
-}: // ctaBtnTwo,
-// ctaBtnTwoText,
-// ctaBtnTwoLink,
-// ctaCustomSx,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
+  ctaBtnTwoTarget,
+  ctaBtnTwoStyleType,
+}: // ctaCustomSx,
 Props) => {
   if (isFooterVisible === false) {
     return null;
@@ -108,9 +110,10 @@ Props) => {
           btnLink={ctaBtnLink}
           btnStyleType={ctaBtnStyleType}
           btnTarget={ctaBtnTarget}
-          // btnTwo={ctaBtnTwo}
-          // btnTwoText={ctaBtnTwoText}
-          // btnTwoLink={ctaBtnTwoLink}
+          btnTwoText={ctaBtnTwoText}
+          btnTwoLink={ctaBtnTwoLink}
+          btnTwoTarget={ctaBtnTwoTarget}
+          btnTwoStyleType={ctaBtnTwoStyleType}
           // customSx={ctaCustomSx}
         />
       )}

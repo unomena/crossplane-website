@@ -30,9 +30,10 @@ type Props = {
   ctaBtnLink?: string;
   ctaBtnStyleType?: ButtonStyleType;
   ctaBtnTarget?: string;
-  // ctaBtnTwo?: boolean;
-  // ctaBtnTwoText?: string;
-  // ctaBtnTwoLink?: string;
+  ctaBtnTwoText?: string;
+  ctaBtnTwoLink?: string;
+  ctaBtnTwoTarget?: string;
+  ctaBtnTwoStyleType?: ButtonStyleType;
   // ctaCustomSx?: SxProps;
   cms_head_props?: CMSHeadProps;
   isPreview?: boolean;
@@ -51,9 +52,10 @@ const PageProvider = ({
   ctaBtnLink,
   ctaBtnStyleType,
   ctaBtnTarget,
-  // ctaBtnTwo = false,
-  // ctaBtnTwoText,
-  // ctaBtnTwoLink,
+  ctaBtnTwoText,
+  ctaBtnTwoLink,
+  ctaBtnTwoTarget,
+  ctaBtnTwoStyleType,
   // ctaCustomSx,
   cms_head_props,
   isPreview,
@@ -90,9 +92,10 @@ const PageProvider = ({
           ctaBtnLink={ctaBtnLink}
           ctaBtnStyleType={ctaBtnStyleType}
           ctaBtnTarget={ctaBtnTarget}
-          // ctaBtnTwo={ctaBtnTwo}
-          // ctaBtnTwoText={ctaBtnTwoText}
-          // ctaBtnTwoLink={ctaBtnTwoLink}
+          ctaBtnTwoText={ctaBtnTwoText}
+          ctaBtnTwoLink={ctaBtnTwoLink}
+          ctaBtnTwoTarget={ctaBtnTwoTarget}
+          ctaBtnTwoStyleType={ctaBtnTwoStyleType}
           // ctaCustomSx={ctaCustomSx}
         />
       </Box>

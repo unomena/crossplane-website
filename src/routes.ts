@@ -21,3 +21,4 @@ export const creativeCommonsUrl = 'https://creativecommons.org/licenses/by/4.0/'
 export const trademarkUsageUrl = 'https://www.linuxfoundation.org/legal/trademark-usage';
 export const upboundUrl = 'https://www.upbound.io/';
 export const upboundMarketUrl = 'https://marketplace.upbound.io/';
+export const resourcesUrl = 'https://resources.upbound.io/one-pagers/crossplane-overview';

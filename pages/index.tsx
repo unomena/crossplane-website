@@ -372,6 +372,31 @@ const Home = (props: Props) => {
           ? '_blank'
           : '_self'
       }
+      ctaBtnTwoText={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[1] &&
+        props.cta_section_buttons[1].value?.text
+      }
+      ctaBtnTwoLink={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[1] &&
+        props.cta_section_buttons[1].value?.link
+          ? props.cta_section_buttons[1].value.link[0].value
+          : undefined
+      }
+      ctaBtnTwoTarget={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[1] &&
+        props.cta_section_buttons[1].value?.link &&
+        props.cta_section_buttons[1].value.link[0].type === 'external_url'
+          ? '_blank'
+          : '_self'
+      }
+      ctaBtnTwoStyleType={
+        props.cta_section_buttons &&
+        props.cta_section_buttons[1] &&
+        props.cta_section_buttons[1].value?.style_type
+      }
     >
       <Section sx={headerSection}>
         <HeaderSection {...props.header[0].value} />
